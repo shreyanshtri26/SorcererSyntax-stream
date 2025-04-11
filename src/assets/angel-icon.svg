@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" fill="currentColor">
+  <path d="M50,10 C25,10 10,25 10,50 C10,70 20,90 40,90 C45,90 45,85 50,85 C60,85 75,75 85,60 C95,45 90,20 75,15 C65,12 55,10 50,10 Z" fill="#2d2d2d"/>
+  
+  <!-- Angel wings -->
+  <path d="M50,30 C40,25 30,40 25,50 C30,45 35,42 40,42 C30,50 25,65 25,75 C35,65 40,55 40,45 C40,55 35,70 30,80 C40,70 45,60 45,50 C45,60 50,75 55,85 C55,70 55,60 55,50 C55,60 60,70 70,80 C65,70 60,55 60,45 C60,55 65,65 75,75 C75,65 70,50 60,42 C65,42 70,45 75,50 C70,40 60,25 50,30 Z" fill="#87CEEB"/>
+  
+  <!-- Mermaid tail -->
+  <path d="M45,70 C45,60 55,60 55,70 Q55,85 50,90 Q45,85 45,70 Z" fill="#4682B4"/>
+  
+  <!-- Sparkles -->
+  <path d="M30,20 L30,30 M25,25 L35,25" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <path d="M70,20 L70,30 M65,25 L75,25" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <path d="M20,60 L20,70 M15,65 L25,65" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <path d="M80,60 L80,70 M75,65 L85,65" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Angel halo -->
+  <circle cx="50" cy="25" r="10" stroke="#FFD700" stroke-width="2" fill="none"/>
+  
+  <!-- Face details -->
+  <circle cx="45" cy="45" r="3" fill="#4682B4"/>
+  <circle cx="55" cy="45" r="3" fill="#4682B4"/>
+  <path d="M46,55 Q50,58 54,55" stroke="#4682B4" stroke-width="2" fill="none"/>
+</svg>

@@ -1,6 +1,7 @@
 import.meta.env;
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+// Use the API key directly instead of from environment variables
+const API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95";
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 const DEFAULT_LANGUAGE = 'en-US';

@@ -13,6 +13,7 @@ import {
   IMAGE_BASE_URL
 } from './api';
 import PlayerModal from './PlayerModal';
+import Header from './Header';
 import './App.css';
 import filterIcon from '@assets/filter-icon.svg';
 
@@ -64,24 +65,25 @@ function App() {
   const [topTV, setTopTV] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchType, setSearchType] = useState('movie'); // 'movie' or 'tv'
+  const [searchType, setSearchType] = useState('movie');
   const [languages, setLanguages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [selectedMediaType, setSelectedMediaType] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isBWMode, setIsBWMode] = useState(false);
   const [showTrailer, setShowTrailer] = useState(false);
   const [movieGenres, setMovieGenres] = useState([]);
   const [tvGenres, setTvGenres] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
-  const [filters, setFilters] = useState({
-    genres: [],
-    rating: '',
-    language: '',
-  });
+  const [filters, setFilters] = useState({ genres: [], rating: '', language: '' });
   const [filteredResults, setFilteredResults] = useState([]);
   const [isFilteredSearch, setIsFilteredSearch] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState('devil');
+
+  const handleThemeChange = (themeName) => {
+    setCurrentTheme(themeName);
+    console.log(`Global theme changed to: ${themeName}`);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,13 +119,12 @@ function App() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    // Clear filters when doing a standard search
     setFilters({ genres: [], rating: '', language: '' });
     setFilteredResults([]);
     setIsFilteredSearch(false);
     
     if (searchQuery.length < 3) {
-        setSearchResults([]); // Clear results if query is too short
+        setSearchResults([]);
         return;
     }
     setIsLoading(true);
@@ -137,11 +138,9 @@ function App() {
     setIsLoading(false);
   };
 
-  // --- Added Filter Handlers ---
   const handleFilterChange = (e) => {
     const { name, value, options } = e.target;
     if (name === 'genres') {
-      // Handle multi-select for genres
       const selectedGenres = Array.from(options)
         .filter(option => option.selected)
         .map(option => option.value);
@@ -154,12 +153,12 @@ function App() {
   const handleApplyFilters = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setSearchQuery(''); // Clear standard search query
-    setSearchResults([]); // Clear standard search results
+    setSearchQuery('');
+    setSearchResults([]);
     const results = await discoverMedia(searchType, filters);
     setFilteredResults(results || []);
-    setIsFilteredSearch(true); // Indicate that filters are active
-    setShowFilters(false); // Optionally close filter popup after applying
+    setIsFilteredSearch(true);
+    setShowFilters(false);
     setIsLoading(false);
   };
 
@@ -167,9 +166,8 @@ function App() {
     setFilters({ genres: [], rating: '', language: '' });
     setFilteredResults([]);
     setIsFilteredSearch(false);
-    setShowFilters(false); // Hide filters
+    setShowFilters(false);
   };
-  // --- End Filter Handlers ---
 
   const handleMediaClick = (media, type, trailer = false) => {
     setSelectedMedia(media);
@@ -185,35 +183,21 @@ function App() {
     setShowTrailer(false);
   };
 
-  const toggleBWMode = () => {
-    setIsBWMode(!isBWMode);
-  };
-  
   const handleTitleClick = () => {
-    // Reset search and go to home page
     setSearchQuery('');
     setSearchResults([]);
+    setFilteredResults([]);
+    setIsFilteredSearch(false);
     window.scrollTo(0, 0);
   };
 
   return (
-    <div className={`App ${isBWMode ? 'bw-mode' : 'fire-devil-mode'}`}>
-      <button 
-        onClick={toggleBWMode} 
-        className="bw-toggle-button" 
-        aria-label={isBWMode ? 'Switch to Fire Devil Mode' : 'Switch to Black and White Mode'}
-        title={isBWMode ? 'Switch to Fire Devil Mode' : 'Switch to Black and White Mode'}
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-            <path d="M12 2A10 10 0 1 0 12 22A10 10 0 1 0 12 2zM12 4v16A8 8 0 0 1 12 4z"/>
-        </svg>
-      </button>
-
-      <h1 className="main-title" onClick={handleTitleClick}>
-        <span className="title-icon">⛧</span>
-         Room no: 305
-        <span className="title-icon">⛧</span>
-      </h1>
+    <div className={`App theme-${currentTheme}`}>
+      <Header 
+        onTitleClick={handleTitleClick} 
+        currentTheme={currentTheme} 
+        onThemeChange={handleThemeChange} 
+      />
 
       <div className="search-section">
         <form onSubmit={handleSearch} className="search-form">
@@ -229,7 +213,6 @@ function App() {
             <option value="tv">TV Shows</option>
           </select>
           <button type="submit" className="search-button">Search</button>
-          {/* Filter Toggle Button - Now with Icon */}
           <button 
             type="button" 
             onClick={() => setShowFilters(!showFilters)} 
@@ -241,11 +224,9 @@ function App() {
           </button>
         </form>
 
-        {/* Filter Controls Popup/Section */} 
         {showFilters && (
           <form onSubmit={handleApplyFilters} className="filter-form">
             <div className="filter-controls">
-              {/* Genre Select (Multi-select) */}
               <div className="filter-group">
                   <label htmlFor="genres">Genre(s):</label>
                   <select 
@@ -254,7 +235,7 @@ function App() {
                     multiple 
                     value={filters.genres} 
                     onChange={handleFilterChange} 
-                    size="5" // Show multiple options
+                    size="5"
                   >
                       {(searchType === 'movie' ? movieGenres : tvGenres).map(genre => (
                           <option key={genre.id} value={genre.id}>{genre.name}</option>
@@ -262,7 +243,6 @@ function App() {
                   </select>
               </div>
 
-              {/* Min Rating Input */}
               <div className="filter-group">
                 <label htmlFor="rating">Min Rating (0-10):</label>
                 <input
@@ -277,7 +257,6 @@ function App() {
                 />
               </div>
 
-              {/* Language Select */}
               <div className="filter-group">
                 <label htmlFor="language">Language:</label>
                 <select
@@ -302,19 +281,15 @@ function App() {
           </form>
         )}
 
-        {/* Display Loading */}
         {isLoading && <p className="loading-text">Loading results...</p>}
         
-        {/* Display Filtered Results */}
         {!isLoading && isFilteredSearch && (
            <div id="filtered-results">
              <h2 className="section-title">Filtered Results</h2>
-             {/* Add pagination controls here if needed later */}
              <MediaGrid items={filteredResults} type={searchType} onMediaClick={handleMediaClick} />
            </div>
         )}
 
-        {/* Display Standard Search Results (only if not filtering) */}
         {!isLoading && !isFilteredSearch && searchQuery.length >= 3 && (
           <div id="search-results">
             <h2 className="section-title">Search Results: "{searchQuery}"</h2>
@@ -323,7 +298,6 @@ function App() {
         )}
       </div>
 
-      {/* Show default sections only if NOT searching AND NOT filtering */} 
       {!searchQuery && !isFilteredSearch && (
         <>
           <div id="trending-movies">
@@ -354,7 +328,7 @@ function App() {
           type={selectedMediaType}
           onClose={closeModal}
           showTrailer={showTrailer}
-          defaultSubtitleLanguage={filters.language}
+          currentTheme={currentTheme}
         />
       )}
     </div>
