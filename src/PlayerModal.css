@@ -1346,7 +1346,9 @@
 .share-button:not(.compact),
 .source-option,
 .quality-badge:not(.small) {
-  display: none !important;
+  /* Keep this rule to hide outdated elements if necessary, */
+  /* but ensure it doesn't conflict with new theme button styles. */
+  /* display: none !important; */ /* Commented out to ensure new buttons show */
 }
 
 /* Responsive Adjustments for New Layout */
@@ -1392,181 +1394,436 @@
   }
 }
 
-/* === Common Modal Base for All Themes === */
-.theme-devil-modal,
-.theme-angel-modal,
-.theme-hannibal-modal {
-  background-color: rgba(15, 15, 20, 0.8); 
-  backdrop-filter: blur(6px) saturate(130%);
-}
+/* =========================================== */
+/* === START: NEW THEME STYLES FROM SCRATCH === */
+/* =========================================== */
 
+/* Base styles applied to all themes (can be overridden) */
 .theme-devil-modal-content,
 .theme-angel-modal-content,
 .theme-hannibal-modal-content {
-  background: url('./assets/dark-texture.png') repeat;
-  border: 1px solid rgba(80, 80, 90, 0.4);
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-  font-family: 'Montserrat', sans-serif;
-  color: #f0f0f5;
+  padding: 30px; /* Slightly adjusted padding */
+  border-radius: 18px; /* Slightly adjusted radius */
+  max-width: 950px; /* Slightly adjusted max-width */
+  width: 90%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  animation: modalContentScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Slightly faster */
+  transform-origin: center center;
+  border: none; /* Remove default border */
+
+  /* Base background layering */
+  background: 
+    url('./assets/film-grain.png') repeat, /* Top layer */
+    url('./assets/dark-texture.png') repeat; /* Middle layer (texture) */
+    /* Bottom layer (color gradient) added per theme */
+  background-blend-mode: overlay, multiply; /* Blend modes */
 }
 
+/* Common Pseudo-element for border effect (can be customized per theme) */
 .theme-devil-modal-content::before,
 .theme-angel-modal-content::before,
 .theme-hannibal-modal-content::before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(40, 40, 45, 0.5), rgba(20, 20, 25, 0.8));
+  inset: 0;
+  border-radius: 18px; /* Match content radius */
+  padding: 1px; /* Border thickness */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)); /* Default subtle white border */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   pointer-events: none;
-  opacity: 0.7;
-  z-index: -1;
+  z-index: 2; /* Ensure it's above base background but below content */
 }
 
-/* Common Button Styles for All Themes */
-.theme-devil-modal .close-button,
-.theme-angel-modal .close-button,
-.theme-hannibal-modal .close-button {
-  background: rgba(30, 30, 35, 0.8);
-  color: #ddd;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 1.1em;
-  border-radius: 5px;
+/* Ensure content is above pseudo-element */
+.theme-devil-modal-content > *,
+.theme-angel-modal-content > *,
+.theme-hannibal-modal-content > * {
+  position: relative;
+  z-index: 3;
 }
 
-.theme-devil-modal .close-button:hover,
-.theme-angel-modal .close-button:hover,
-.theme-hannibal-modal .close-button:hover {
-  background: rgba(50, 50, 55, 0.9);
-  color: #fff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  transform: scale(1.05);
+/* --- Devil Theme --- */
+.theme-devil-modal {
+  background: 
+    linear-gradient(135deg, rgba(40, 0, 0, 0.85), rgba(60, 0, 0, 0.9)), 
+    repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(255, 0, 0, 0.04) 100px, rgba(255, 0, 0, 0.04) 200px);
+  backdrop-filter: blur(18px) saturate(160%) brightness(0.8);
 }
 
-.theme-devil-modal .modal-title,
-.theme-angel-modal .modal-title,
-.theme-hannibal-modal .modal-title {
-  font-size: 2em;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* === Theme-Specific Minimal Accents === */
-/* Devil Theme Accents */
 .theme-devil-modal-content {
-  border-color: rgba(160, 20, 20, 0.4);
+  /* Add bottom layer color gradient */
+  background: 
+    url('./assets/film-grain.png') repeat,
+    url('./assets/dark-texture.png') repeat,
+    linear-gradient(145deg, rgba(55, 10, 10, 0.98), rgba(45, 5, 5, 0.98) 50%, rgba(35, 0, 0, 0.98));
+  background-blend-mode: overlay, multiply, normal; /* Adjust blend mode for color */
+  color: #ffcccc; /* Light red text */
+  box-shadow: 
+    0 20px 45px -10px rgba(0, 0, 0, 0.7),
+    0 0 80px rgba(120, 0, 0, 0.3), /* Red glow */
+    inset 0 0 25px rgba(80, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 80, 80, 0.15); /* Subtle red outer line */
+  scrollbar-color: rgba(200, 40, 40, 0.7) rgba(40, 0, 0, 0.5); /* Red scrollbar */
 }
+
 .theme-devil-modal-content::before {
-  background: radial-gradient(circle at center, rgba(60, 0, 0, 0.3), rgba(25, 0, 0, 0.7));
+  /* Red border gradient */
+  background: linear-gradient(145deg, rgba(255, 100, 100, 0.3), rgba(255, 40, 40, 0.1)); 
 }
+
+.theme-devil-modal .modal-title {
+  color: #ff6666; /* Brighter red for title */
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.6);
+  font-family: 'Creepster', cursive; /* Fiery font */
+  font-size: 2.2em;
+  letter-spacing: 2px;
+}
+
 .theme-devil-modal .close-button {
-  border-color: rgba(160, 20, 20, 0.4);
+  background: rgba(80, 10, 10, 0.85);
+  color: #ffaaaa;
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: 50%; /* Keep original shape */
+  width: 32px; height: 32px; line-height: 30px; font-size: 20px;
 }
 .theme-devil-modal .close-button:hover {
-  border-color: rgba(200, 30, 30, 0.6);
-  box-shadow: 0 0 10px rgba(160, 20, 20, 0.4);
-}
-.theme-devil-modal .modal-title {
-  color: #ff5555;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.5);
-  font-family: 'Creepster', cursive;
+  background: #ff3333;
+  color: #fff;
+  border-color: rgba(255, 150, 150, 0.4);
+  box-shadow: 0 0 15px rgba(255, 50, 50, 0.5);
+  transform: scale(1.1) rotate(90deg);
 }
 
-/* Angel Theme Accents */
+.theme-devil-modal .source-button,
+.theme-devil-modal .trailer-modal-btn,
+.theme-devil-btn /* General devil theme button */ {
+  background: linear-gradient(145deg, #7b1010, #5a0606);
+  color: #ffdddd;
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  box-shadow: 0 6px 15px rgba(100, 0, 0, 0.4), inset 0 1px 1px rgba(255, 100, 100, 0.15);
+  transition: all 0.3s ease;
+}
+.theme-devil-modal .source-button:hover,
+.theme-devil-modal .trailer-modal-btn:hover,
+.theme-devil-btn:hover {
+  background: linear-gradient(145deg, #9b1212, #6a0707);
+  border-color: rgba(255, 100, 100, 0.5);
+  box-shadow: 0 8px 20px rgba(150, 0, 0, 0.5), inset 0 1px 2px rgba(255, 150, 150, 0.2);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.theme-devil-modal .source-button.active {
+  background: linear-gradient(135deg, #ff3333, #cc0000); /* Brighter active state */
+  border-color: rgba(255, 100, 100, 0.6);
+  box-shadow: 0 8px 20px rgba(200, 0, 0, 0.5), inset 0 1px 2px rgba(255, 150, 150, 0.3);
+  color: #fff;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.theme-devil-modal .media-details {
+  background: rgba(45, 5, 5, 0.6);
+  border-top: 1px solid rgba(255, 80, 80, 0.2);
+}
+.theme-devil-modal .genre-tag {
+  background-color: rgba(180, 20, 20, 0.7);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  color: #ffdddd;
+}
+.theme-devil-modal .genre-tag:hover {
+  background-color: rgba(220, 30, 30, 0.9);
+  color: #fff;
+}
+.theme-devil-modal .tv-controls select {
+  background-color: rgba(60, 10, 10, 0.8);
+  color: #ffcccc;
+  border: 1px solid rgba(255, 80, 80, 0.3);
+}
+.theme-devil-modal .tv-controls label {
+  color: rgba(255, 180, 180, 0.85);
+}
+
+/* --- Angel Theme --- */
+.theme-angel-modal {
+  background: 
+    linear-gradient(135deg, rgba(10, 30, 60, 0.85), rgba(20, 40, 80, 0.9)), 
+    repeating-linear-gradient(45deg, transparent, transparent 120px, rgba(100, 150, 255, 0.04) 120px, rgba(100, 150, 255, 0.04) 240px);
+  backdrop-filter: blur(18px) saturate(160%) brightness(1.1); /* Brighter feel */
+}
+
 .theme-angel-modal-content {
-  border-color: rgba(100, 140, 200, 0.4);
+  /* Add bottom layer color gradient */
+  background: 
+    url('./assets/film-grain.png') repeat,
+    url('./assets/dark-texture.png') repeat,
+    linear-gradient(145deg, rgba(25, 45, 70, 0.98), rgba(15, 30, 55, 0.98) 50%, rgba(10, 20, 45, 0.98));
+  background-blend-mode: overlay, multiply, normal;
+  color: #ddeeff; /* Light blue text */
+  box-shadow: 
+    0 20px 45px -10px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(50, 100, 180, 0.3), /* Blue glow */
+    inset 0 0 25px rgba(30, 60, 100, 0.2),
+    0 0 0 1px rgba(120, 170, 255, 0.15); /* Subtle blue outer line */
+  scrollbar-color: rgba(100, 150, 220, 0.7) rgba(10, 20, 40, 0.5); /* Blue scrollbar */
 }
+
 .theme-angel-modal-content::before {
-  background: radial-gradient(circle at center, rgba(70, 100, 150, 0.3), rgba(25, 35, 60, 0.7));
+  /* Blue border gradient */
+  background: linear-gradient(145deg, rgba(150, 200, 255, 0.3), rgba(80, 120, 200, 0.1)); 
 }
+
+.theme-angel-modal .modal-title {
+  color: #aaddff; /* Brighter blue for title */
+  text-shadow: 0 0 12px rgba(100, 150, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Raleway', sans-serif; /* Clean font */
+  font-size: 2.1em;
+  font-weight: 500;
+}
+
 .theme-angel-modal .close-button {
-  border-color: rgba(100, 140, 200, 0.4);
+  background: rgba(30, 50, 90, 0.85);
+  color: #ccddff;
+  border: 1px solid rgba(100, 150, 255, 0.3);
+  border-radius: 50%;
+  width: 32px; height: 32px; line-height: 30px; font-size: 20px;
 }
 .theme-angel-modal .close-button:hover {
-  border-color: rgba(120, 160, 220, 0.6);
-  box-shadow: 0 0 10px rgba(100, 140, 200, 0.4);
-}
-.theme-angel-modal .modal-title {
-  color: #5d9ddb;
-  text-shadow: 0 0 10px rgba(100, 150, 230, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.5);
-  font-family: 'Raleway', sans-serif;
+  background: #6495ED; /* Cornflower blue */
+  color: #fff;
+  border-color: rgba(150, 200, 255, 0.4);
+  box-shadow: 0 0 15px rgba(100, 150, 255, 0.5);
+  transform: scale(1.1) rotate(-90deg); /* Rotate opposite way */
 }
 
-/* Hannibal Theme Accents */
+.theme-angel-modal .source-button,
+.theme-angel-modal .trailer-modal-btn,
+.theme-angel-btn {
+  background: linear-gradient(145deg, #1f5b9a, #0f3a70);
+  color: #eaf4ff;
+  border: 1px solid rgba(100, 150, 255, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 50, 100, 0.3), inset 0 1px 1px rgba(150, 200, 255, 0.15);
+  transition: all 0.3s ease;
+}
+.theme-angel-modal .source-button:hover,
+.theme-angel-modal .trailer-modal-btn:hover,
+.theme-angel-btn:hover {
+  background: linear-gradient(145deg, #2f6bad, #1f4a80);
+  border-color: rgba(120, 170, 255, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 70, 150, 0.4), inset 0 1px 2px rgba(180, 220, 255, 0.2);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.theme-angel-modal .source-button.active {
+  background: linear-gradient(135deg, #4682B4, #3672A4); /* Steel blue */
+  border-color: rgba(120, 170, 255, 0.6);
+  box-shadow: 0 8px 20px rgba(0, 100, 180, 0.4), inset 0 1px 2px rgba(180, 220, 255, 0.3);
+  color: #fff;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.theme-angel-modal .media-details {
+  background: rgba(15, 30, 55, 0.6);
+  border-top: 1px solid rgba(100, 150, 255, 0.2);
+}
+.theme-angel-modal .genre-tag {
+  background-color: rgba(50, 90, 150, 0.7);
+  border: 1px solid rgba(100, 150, 255, 0.3);
+  color: #eaf4ff;
+}
+.theme-angel-modal .genre-tag:hover {
+  background-color: rgba(80, 120, 180, 0.9);
+  color: #fff;
+}
+.theme-angel-modal .tv-controls select {
+  background-color: rgba(20, 40, 70, 0.8);
+  color: #ddeeff;
+  border: 1px solid rgba(100, 150, 255, 0.3);
+}
+.theme-angel-modal .tv-controls label {
+  color: rgba(180, 210, 255, 0.85);
+}
+
+/* --- Hannibal Theme (Green & Detailed) --- */
+.theme-hannibal-modal {
+  background: 
+    linear-gradient(135deg, rgba(15, 35, 25, 0.9), rgba(25, 55, 40, 0.95)), /* Deeper greens */
+    repeating-linear-gradient(60deg, transparent, transparent 80px, rgba(80, 140, 100, 0.03) 80px, rgba(80, 140, 100, 0.03) 160px); /* Subtle green pattern */
+  backdrop-filter: blur(16px) saturate(130%) brightness(0.95); /* Refined filter */
+}
+
 .theme-hannibal-modal-content {
-  border-color: rgba(60, 110, 80, 0.4);
+  /* Add bottom layer color gradient */
+  background: 
+    url('./assets/film-grain.png') repeat,
+    url('./assets/dark-texture.png') repeat,
+    linear-gradient(145deg, rgba(20, 50, 35, 0.98), rgba(15, 40, 25, 0.98) 50%, rgba(10, 30, 15, 0.98));
+  background-blend-mode: overlay, multiply, normal;
+  color: #e0f0e5; /* Pale green text */
+  box-shadow: 
+    0 22px 48px -10px rgba(0, 0, 0, 0.65),
+    0 0 70px rgba(20, 60, 40, 0.35), /* Green glow */
+    inset 0 0 30px rgba(10, 25, 15, 0.3), /* Inner shadow */
+    0 0 0 1px rgba(80, 160, 110, 0.15); /* Subtle green outer line */
+  scrollbar-color: rgba(60, 120, 90, 0.7) rgba(10, 30, 15, 0.5); /* Green scrollbar */
+  font-family: 'Garamond', 'Times New Roman', serif; /* Refined font */
 }
+
 .theme-hannibal-modal-content::before {
-  background: radial-gradient(circle at center, rgba(40, 70, 50, 0.3), rgba(15, 25, 20, 0.7));
+  /* Subtle green border gradient */
+  background: linear-gradient(145deg, rgba(100, 180, 130, 0.2), rgba(60, 120, 90, 0.08)); 
 }
+
+.theme-hannibal-modal .modal-title {
+  color: #a0d0b0; /* Muted, sophisticated green */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 15px rgba(60, 120, 90, 0.3);
+  font-family: 'Garamond', serif; /* Consistent serif */
+  font-size: 2.1em;
+  font-weight: normal; /* More refined */
+  letter-spacing: 1px;
+}
+
 .theme-hannibal-modal .close-button {
-  border-color: rgba(60, 110, 80, 0.4);
+  background: rgba(20, 55, 40, 0.85);
+  color: #b0e0c0;
+  border: 1px solid rgba(80, 160, 110, 0.3);
+  border-radius: 4px; /* Square-ish */
+  width: 30px; height: 30px; line-height: 28px; font-size: 18px;
 }
 .theme-hannibal-modal .close-button:hover {
-  border-color: rgba(80, 130, 100, 0.6);
-  box-shadow: 0 0 10px rgba(60, 110, 80, 0.4);
+  background: #508060; /* Darker muted green */
+  color: #fff;
+  border-color: rgba(100, 180, 130, 0.5);
+  box-shadow: 0 0 12px rgba(80, 160, 110, 0.4);
+  transform: scale(1.05); /* Simple scale */
 }
-.theme-hannibal-modal .modal-title {
+
+.theme-hannibal-modal .source-button,
+.theme-hannibal-modal .trailer-modal-btn,
+.theme-hannibal-btn { /* General Hannibal button style */
+  background: linear-gradient(145deg, #2a5a4a, #1a4a3a); /* Dark, sophisticated greens */
+  color: #d8ebe0;
+  border: 1px solid rgba(80, 160, 110, 0.35);
+  box-shadow: 0 5px 12px rgba(10, 30, 15, 0.4), inset 0 1px 1px rgba(150, 220, 180, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Garamond', serif; /* Consistent font */
+}
+.theme-hannibal-modal .source-button:hover,
+.theme-hannibal-modal .trailer-modal-btn:hover,
+.theme-hannibal-btn:hover {
+  background: linear-gradient(145deg, #3a6a5a, #2a5a4a);
+  border-color: rgba(100, 180, 130, 0.5);
+  box-shadow: 0 7px 16px rgba(15, 45, 25, 0.5), inset 0 1px 2px rgba(180, 240, 200, 0.15);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.theme-hannibal-modal .source-button.active {
+  background: linear-gradient(135deg, #508060, #407050); /* Active state - slightly muted green */
+  border-color: rgba(100, 180, 130, 0.6);
+  box-shadow: 0 7px 18px rgba(20, 60, 40, 0.5), inset 0 1px 2px rgba(180, 240, 200, 0.2);
+  color: #fff;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.theme-hannibal-modal .media-details {
+  background: rgba(15, 40, 25, 0.7); /* Slightly transparent dark green */
+  border-top: 1px solid rgba(80, 160, 110, 0.25);
+  padding: 20px; /* More padding for detail */
+}
+.theme-hannibal-modal .media-details h3 {
+  color: #b0e0c0; /* Match title color */
+  border-bottom-color: rgba(80, 160, 110, 0.2);
+  font-weight: normal;
+}
+.theme-hannibal-modal .genre-tag {
+  background-color: rgba(40, 80, 60, 0.7);
+  border: 1px solid rgba(80, 160, 110, 0.3);
+  color: #d8ebe0;
+  border-radius: 4px; /* Less rounded */
+  font-size: 0.75em; /* Slightly smaller */
+}
+.theme-hannibal-modal .genre-tag:hover {
+  background-color: rgba(60, 110, 90, 0.9);
+  color: #fff;
+}
+.theme-hannibal-modal .tv-controls select {
+  background-color: rgba(15, 40, 25, 0.85);
+  color: #e0f0e5;
+  border: 1px solid rgba(80, 160, 110, 0.3);
+  font-family: 'Garamond', serif;
+}
+.theme-hannibal-modal .tv-controls label {
+  color: rgba(180, 220, 200, 0.85);
+  font-family: 'Garamond', serif;
+  font-weight: normal;
+}
+
+/* Hannibal Specific - Add detail to person modal elements */
+.theme-hannibal-modal .person-modal-content .person-header {
+  border-bottom: 1px solid rgba(80, 160, 110, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.theme-hannibal-modal .person-modal-content .person-profile-image {
+  border: 3px solid rgba(80, 160, 110, 0.25);
+  box-shadow: 0 4px 10px rgba(10, 30, 15, 0.4);
+}
+.theme-hannibal-modal .person-modal-content .person-department,
+.theme-hannibal-modal .person-modal-content .person-popularity {
   color: #a0d0b0;
-  text-shadow: 0 0 10px rgba(60, 120, 90, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.5);
-  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+.theme-hannibal-modal .person-modal-content .person-biography h3,
+.theme-hannibal-modal .person-modal-content .person-credits-section h3 {
+  color: #b0e0c0;
+  border-bottom: 1px solid rgba(80, 160, 110, 0.2);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-weight: normal;
+  font-size: 1.3em;
+}
+.theme-hannibal-modal .person-modal-content .bio-text {
+  line-height: 1.6;
+  color: #d0e0d5;
+}
+.theme-hannibal-modal .person-modal-content .read-more-btn {
+  background: rgba(40, 80, 60, 0.6);
+  color: #b0e0c0;
+  border: 1px solid rgba(80, 160, 110, 0.3);
+}
+.theme-hannibal-modal .person-modal-content .read-more-btn:hover {
+   background: rgba(60, 110, 90, 0.8);
+   color: #fff;
+}
+.theme-hannibal-modal .person-modal-content .known-for-item {
+  background: rgba(20, 50, 35, 0.4);
+  border: 1px solid rgba(80, 160, 110, 0.15);
+}
+.theme-hannibal-modal .person-modal-content .known-for-item:hover {
+  background: rgba(25, 60, 40, 0.6);
+  border-color: rgba(100, 180, 130, 0.3);
+}
+.theme-hannibal-modal .person-modal-content .known-for-title {
+  color: #e0f0e5;
+}
+.theme-hannibal-modal .person-modal-content .known-for-year {
+  color: #a0d0b0;
 }
 
-/* Simplified Hannibal leaf animation */
-.theme-hannibal-modal-content::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100"><path d="M50,10 C40,10 30,20 20,30 C30,30 40,30 40,40 C30,40 20,40 20,50 C30,50 40,40 50,40 C50,50 40,60 30,70 C40,70 50,60 50,50 C50,60 60,70 70,70 C60,60 50,50 50,40 C60,40 70,50 80,50 C80,40 70,40 60,40 C60,30 70,30 80,30 C70,20 60,10 50,10Z" fill="rgba(60,110,80,0.15)"/></svg>');
-  background-position: 0 0;
-  opacity: 0.2;
-  pointer-events: none;
-  z-index: -1;
-  animation: driftingLeaves 100s linear infinite;
-}
+/* ========================================= */
+/* === END: NEW THEME STYLES FROM SCRATCH === */
+/* ========================================= */
 
-@keyframes driftingLeaves {
-  from { background-position: 0 0; }
-  to { background-position: 300px 300px; }
-}
 
-/* === Responsive Adjustments === */
-@media (max-width: 768px) {
-  .modal-content {
-    padding: 20px;
-    width: 95%;
-  }
-  
-  .modal-title {
-    font-size: 1.8em;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-content {
-    padding: 15px;
-    width: 95%;
-  }
-  
-  .modal-title {
-    font-size: 1.6em;
-  }
-  
-  .close-button {
-    top: 10px;
-    right: 10px;
-    font-size: 1.2rem;
-  }
-}
-
-/* Theme Selector Button and Dropdown */
+/* Theme Selector Button and Dropdown (Keep original styles) */
 .theme-toggle-button {
   position: absolute;
   top: 15px;
@@ -1779,60 +2036,665 @@
 
 /* Hannibal Theme */
 .theme-hannibal-modal {
+  /* More intense, red-tinted overlay */
   background: 
-    linear-gradient(135deg, rgba(20, 40, 30, 0.8), rgba(30, 50, 40, 0.8)), 
-    repeating-linear-gradient(45deg, transparent, transparent 150px, rgba(100, 200, 150, 0.05) 150px, rgba(100, 200, 150, 0.05) 300px);
-  backdrop-filter: blur(20px) saturate(150%);
+    linear-gradient(135deg, rgba(60, 20, 30, 0.85), rgba(40, 10, 20, 0.9)), 
+    repeating-linear-gradient(45deg, transparent, transparent 150px, rgba(139, 0, 0, 0.08) 150px, rgba(139, 0, 0, 0.08) 300px); /* Red pattern */
+  backdrop-filter: blur(12px) saturate(140%) brightness(0.9); /* Adjust filter */
 }
 
 .theme-hannibal-modal-content {
+  /* Darker base with red/burgundy hints, plus texture */
+  background: 
+    url('./assets/film-grain.png') repeat, /* Keep film grain */
+    url('./assets/dark-texture.png') repeat, /* Keep dark texture */
+    linear-gradient(145deg, 
+      rgba(35, 25, 30, 0.98), /* Burgundy tinted dark */
+      rgba(25, 15, 20, 0.98) 50%,
+      rgba(20, 10, 15, 0.98));
+  background-blend-mode: overlay, multiply, normal;
+  border-color: rgba(139, 0, 0, 0.6); /* Stronger burgundy border */
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.7), /* Darker shadow */
+    0 0 30px rgba(88, 20, 40, 0.4), /* Burgundy glow */
+    inset 0 0 25px rgba(40, 10, 20, 0.3); /* Inner shadow */
+  color: #E0E8E4;
+  font-family: 'Garamond', 'Times New Roman', serif; 
+}
+
+.theme-hannibal-modal-content::before {
+  /* Redder overlay */
+   background: radial-gradient(circle at center, rgba(88, 20, 40, 0.3), rgba(40, 10, 20, 0.6));
+   border-radius: 20px; /* Ensure this matches modal content */
+}
+
+.theme-hannibal-modal .close-button {
+  border-color: rgba(139, 0, 0, 0.6); 
+  background: rgba(88, 20, 40, 0.85); /* Burgundy background */
+  color: #f5c5c5; /* Lighter red text */
+}
+
+.theme-hannibal-modal .close-button:hover {
+  border-color: rgba(178, 34, 34, 0.8); 
+  box-shadow: 0 0 12px rgba(139, 0, 0, 0.6); 
+  background: #b22222; /* Brighter red background */
+  color: #fff; 
+}
+
+.theme-hannibal-btn {
+  /* Style theme selection button - Make it redder */
+  background: linear-gradient(145deg, #8b0000, #5d0000); /* Dark reds */
+  border: 1px solid rgba(178, 34, 34, 0.5);
+  box-shadow: 
+    0 6px 15px rgba(139, 0, 0, 0.4), 
+    inset 0 1px 1px rgba(255, 100, 100, 0.2);
+}
+.theme-hannibal-btn:hover {
+  background: linear-gradient(145deg, #a52a2a, #800000); /* Brighter reds */
+  border-color: rgba(200, 50, 50, 0.7);
+  box-shadow: 
+    0 8px 20px rgba(178, 34, 34, 0.5),
+    inset 0 1px 1px rgba(255, 150, 150, 0.3);
+}
+
+/* Style Source Buttons */
+.theme-hannibal-modal .source-button { 
+  background: linear-gradient(145deg, #4a2432, #30101b); /* Dark burgundy */
+  border: 1px solid rgba(110, 40, 60, 0.5); 
+  color: #e0e0e0;
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.theme-hannibal-modal .source-button:hover {
+  background: linear-gradient(145deg, #582b3a, #401825); /* Slightly lighter burgundy */
+  border-color: rgba(140, 50, 75, 0.7); 
+  color: #fff;
+}
+
+.theme-hannibal-modal .source-button.active {
+  background: linear-gradient(135deg, #b22222, #8b0000); /* Active is firebrick/dark red */
+  border-color: rgba(178, 34, 34, 0.8); 
+  color: white;
+  box-shadow: 
+    0 8px 20px rgba(139, 0, 0, 0.5), /* Red glow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Media queries for responsive theme selector */
+@media (max-width: 768px) {
+  .theme-toggle-button {
+    width: 34px;
+    height: 34px;
+    top: 12px;
+    left: 12px;
+  }
+  
+  .current-theme-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .theme-selector-dropdown {
+    top: 55px;
+    left: 12px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle-button {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .current-theme-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .theme-selector-dropdown {
+    top: 48px;
+    left: 10px;
+    width: 130px;
+  }
+  
+  .theme-option {
+    padding: 8px;
+  }
+  
+  .theme-option .theme-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+} 
+
+/* ========================================= */
+/* === END: NEW THEME STYLES FROM SCRATCH === */
+/* ========================================= */
+
+/* === START: ADDED/ENHANCED RESPONSIVE STYLES FOR MODALS === */
+@media (max-width: 768px) {
+  /* Apply to all themed modal contents */
+  .theme-devil-modal-content,
+  .theme-angel-modal-content,
+  .theme-hannibal-modal-content {
+    padding: 20px; /* Reduced padding */
+    width: 95%; /* Allow slightly more width */
+    max-height: 95vh;
+    border-radius: 15px; /* Slightly less rounded */
+  }
+  .theme-devil-modal-content::before,
+  .theme-angel-modal-content::before,
+  .theme-hannibal-modal-content::before {
+      border-radius: 15px; /* Match content */
+  }
+  
+  .modal-title {
+    font-size: 1.6em; /* Smaller title */
+    margin-bottom: 15px;
+  }
+
+  .close-button { /* General adjustment */
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .tv-controls.simple {
+      flex-direction: column; /* Stack season/episode */
+      align-items: stretch; /* Full width selects */
+      gap: 10px;
+  }
+  .tv-controls .select-wrapper {
+      width: 100%;
+  }
+  .tv-controls select {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .source-options-grid {
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* Adjust grid */
+      gap: 10px;
+  }
+  .source-button {
+      padding: 12px 15px;
+      font-size: 0.9em;
+      min-height: 45px;
+      border-radius: 12px; /* Adjust radius */
+  }
+
+  .media-details {
+    padding: 15px;
+  }
+  .media-info-item,
+  .media-description {
+      font-size: 0.9em;
+  }
+  .genre-tag {
+      padding: 4px 8px;
+      font-size: 0.75em;
+  }
+  .watchlist-button {
+      margin-left: 0;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      font-size: 0.9em;
+  }
+  .star {
+      font-size: 1.4em; /* Adjust star size */
+  }
+
+  .trailer-modal-btn {
+    width: 90%; /* Don't take full width */
+    padding: 12px 20px;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+  }
+
+  /* Person Modal Specifics */
+  .person-modal-content .person-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .person-modal-content .person-profile-image {
+      width: 100px; /* Smaller image */
+      height: 150px;
+      margin-bottom: 10px;
+  }
+  .person-modal-content .person-credits-section .credits-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust grid */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Apply to all themed modal contents */
+  .theme-devil-modal-content,
+  .theme-angel-modal-content,
+  .theme-hannibal-modal-content {
+    padding: 15px; /* Further reduce padding */
+    width: 95%;
+    max-height: 98vh; /* Allow slightly more height */
+    border-radius: 10px; /* Even less rounded */
+  }
+  .theme-devil-modal-content::before,
+  .theme-angel-modal-content::before,
+  .theme-hannibal-modal-content::before {
+      border-radius: 10px; /* Match content */
+  }
+  
+  .modal-title {
+    font-size: 1.4em; /* Smaller title */
+    padding-right: 35px; /* Ensure space for close button */
+  }
+
+  .close-button { /* General adjustment */
+    top: 10px; right: 10px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 26px;
+  }
+  /* Specific theme button adjustments if needed */
+  .theme-devil-modal .close-button,
+  .theme-angel-modal .close-button {
+      width: 30px; height: 30px; line-height: 28px; font-size: 18px;
+  }
+  .theme-hannibal-modal .close-button {
+      width: 28px; height: 28px; line-height: 26px; font-size: 16px;
+  }
+
+  .tv-controls label {
+      font-size: 0.9em;
+  }
+  .tv-controls select {
+      padding: 8px;
+      font-size: 0.9em;
+  }
+
+  .source-options-grid {
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* Smaller buttons */
+      gap: 8px;
+  }
+  .source-button {
+     padding: 10px 12px;
+     font-size: 0.8em;
+     min-height: 40px;
+     border-radius: 10px;
+  }
+
+  .media-details {
+      padding: 10px;
+  }
+  .media-info-item,
+  .media-description {
+      font-size: 0.85em;
+  }
+  .media-description.collapsed {
+    max-height: 65px; /* Adjust collapsed height */
+  }
+  .genre-tag {
+      padding: 3px 7px;
+      font-size: 0.7em;
+  }
+  .star {
+      font-size: 1.3em; /* Smaller stars */
+  }
+
+  .player-wrapper.placeholder p {
+      font-size: 0.9em;
+      padding: 15px;
+  }
+
+  .trailer-modal-btn {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+
+  /* Person Modal Specifics */
+  .person-modal-content .person-profile-image {
+      width: 80px;
+      height: 120px;
+  }
+  .person-modal-content .person-name {
+      font-size: 1.4em;
+  }
+  .person-modal-content .person-department,
+  .person-modal-content .person-popularity {
+      font-size: 0.8em;
+  }
+   .person-modal-content .person-biography h3,
+   .person-modal-content .person-credits-section h3 {
+      font-size: 1.1em;
+  }
+  .person-modal-content .bio-text {
+      font-size: 0.85em;
+  }
+   .person-modal-content .person-credits-section .credits-grid {
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+  }
+  .person-modal-content .known-for-item img {
+      height: 135px; /* Adjust known for image height */
+  }
+  .person-modal-content .known-for-title {
+      font-size: 0.8em;
+  }
+  .person-modal-content .known-for-year {
+      font-size: 0.7em;
+  }
+}
+/* === END: ADDED/ENHANCED RESPONSIVE STYLES FOR MODALS === */
+
+/* Theme Selector Button and Dropdown (Keep original styles, but add mobile below) */
+.theme-toggle-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(40, 40, 45, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  padding: 0;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-button:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.current-theme-icon {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0.9);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-button:hover .current-theme-icon {
+  filter: brightness(1);
+  transform: rotate(15deg);
+}
+
+.theme-selector-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  background: rgba(30, 30, 35, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 100;
+  width: 150px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 5px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.theme-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-option .theme-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.theme-option span {
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+/* === Enhanced Theme Styling with Consistent dark-texture.png === */
+
+/* Devil Theme */
+.theme-devil-modal {
+  background: 
+    linear-gradient(135deg, rgba(30, 0, 0, 0.8), rgba(50, 0, 0, 0.8)), 
+    repeating-linear-gradient(45deg, transparent, transparent 150px, rgba(255, 0, 0, 0.05) 150px, rgba(255, 0, 0, 0.05) 300px);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+.theme-devil-modal-content {
   background: 
     url('./assets/film-grain.png') repeat,
     url('./assets/dark-texture.png') repeat,
     linear-gradient(145deg, 
-      rgba(30, 50, 40, 0.97), 
-      rgba(25, 40, 30, 0.97) 50%,
-      rgba(20, 30, 25, 0.97));
+      rgba(50, 10, 10, 0.97), 
+      rgba(40, 5, 5, 0.97) 50%,
+      rgba(30, 0, 0, 0.97));
   background-blend-mode: overlay, multiply, normal;
   border: none;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 100px rgba(50, 100, 70, 0.2),
-    inset 0 0 30px rgba(50, 100, 70, 0.15),
-    0 0 0 1px rgba(100, 200, 150, 0.1);
+    0 0 100px rgba(100, 0, 0, 0.2),
+    inset 0 0 30px rgba(100, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 50, 50, 0.1);
 }
 
-.theme-hannibal-modal-content::before {
-  background: radial-gradient(circle at center, rgba(50, 100, 70, 0.2), rgba(30, 50, 40, 0.5));
+.theme-devil-modal-content::before {
+  background: radial-gradient(circle at center, rgba(100, 0, 0, 0.2), rgba(50, 0, 0, 0.5));
   border-radius: 20px;
 }
 
+.theme-devil-modal .close-button {
+  background: rgba(70, 10, 10, 0.8);
+  border: 1px solid rgba(255, 50, 50, 0.2);
+}
+
+.theme-devil-modal .close-button:hover {
+  background: rgba(255, 50, 50, 0.9);
+  color: #fff;
+  border-color: rgba(255, 150, 150, 0.3);
+  box-shadow: 0 0 15px rgba(255, 50, 50, 0.4);
+}
+
+.theme-devil-btn {
+  background: linear-gradient(145deg, #6b0f0f, #4a0505);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  box-shadow: 
+    0 6px 15px rgba(100, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 100, 100, 0.2);
+}
+
+.theme-devil-btn:hover {
+  background: linear-gradient(145deg, #8b1010, #5a0606);
+  border: 1px solid rgba(255, 100, 100, 0.4);
+  box-shadow: 
+    0 8px 20px rgba(150, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 150, 150, 0.3);
+}
+
+/* Angel Theme */
+.theme-angel-modal {
+  background: 
+    linear-gradient(135deg, rgba(10, 30, 50, 0.8), rgba(20, 40, 70, 0.8)), 
+    repeating-linear-gradient(45deg, transparent, transparent 150px, rgba(100, 150, 255, 0.05) 150px, rgba(100, 150, 255, 0.05) 300px);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+.theme-angel-modal-content {
+  background: 
+    url('./assets/film-grain.png') repeat,
+    url('./assets/dark-texture.png') repeat,
+    linear-gradient(145deg, 
+      rgba(20, 40, 60, 0.97), 
+      rgba(15, 30, 50, 0.97) 50%,
+      rgba(10, 20, 40, 0.97));
+  background-blend-mode: overlay, multiply, normal;
+  border: none;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 100px rgba(50, 100, 150, 0.2),
+    inset 0 0 30px rgba(50, 100, 150, 0.15),
+    0 0 0 1px rgba(100, 150, 255, 0.1);
+}
+
+.theme-angel-modal-content::before {
+  background: radial-gradient(circle at center, rgba(50, 100, 150, 0.2), rgba(20, 40, 80, 0.5));
+  border-radius: 20px;
+}
+
+.theme-angel-modal .close-button {
+  background: rgba(30, 50, 80, 0.8);
+  border: 1px solid rgba(100, 150, 255, 0.2);
+}
+
+.theme-angel-modal .close-button:hover {
+  background: rgba(100, 150, 255, 0.9);
+  color: #fff;
+  border-color: rgba(150, 200, 255, 0.3);
+  box-shadow: 0 0 15px rgba(100, 150, 255, 0.4);
+}
+
+.theme-angel-btn {
+  background: linear-gradient(145deg, #1a4b8a, #0a3060);
+  border: 1px solid rgba(100, 150, 255, 0.3);
+  box-shadow: 
+    0 6px 15px rgba(0, 50, 100, 0.3),
+    inset 0 1px 1px rgba(100, 150, 255, 0.2);
+}
+
+.theme-angel-btn:hover {
+  background: linear-gradient(145deg, #2a5baa, #1a4080);
+  border: 1px solid rgba(120, 170, 255, 0.4);
+  box-shadow: 
+    0 8px 20px rgba(0, 70, 150, 0.4),
+    inset 0 1px 1px rgba(150, 200, 255, 0.3);
+}
+
+/* Hannibal Theme */
+.theme-hannibal-modal {
+  /* More intense, red-tinted overlay */
+  background: 
+    linear-gradient(135deg, rgba(60, 20, 30, 0.85), rgba(40, 10, 20, 0.9)), 
+    repeating-linear-gradient(45deg, transparent, transparent 150px, rgba(139, 0, 0, 0.08) 150px, rgba(139, 0, 0, 0.08) 300px); /* Red pattern */
+  backdrop-filter: blur(12px) saturate(140%) brightness(0.9); /* Adjust filter */
+}
+
+.theme-hannibal-modal-content {
+  /* Darker base with red/burgundy hints, plus texture */
+  background: 
+    url('./assets/film-grain.png') repeat, /* Keep film grain */
+    url('./assets/dark-texture.png') repeat, /* Keep dark texture */
+    linear-gradient(145deg, 
+      rgba(35, 25, 30, 0.98), /* Burgundy tinted dark */
+      rgba(25, 15, 20, 0.98) 50%,
+      rgba(20, 10, 15, 0.98));
+  background-blend-mode: overlay, multiply, normal;
+  border-color: rgba(139, 0, 0, 0.6); /* Stronger burgundy border */
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.7), /* Darker shadow */
+    0 0 30px rgba(88, 20, 40, 0.4), /* Burgundy glow */
+    inset 0 0 25px rgba(40, 10, 20, 0.3); /* Inner shadow */
+  color: #E0E8E4;
+  font-family: 'Garamond', 'Times New Roman', serif; 
+}
+
+.theme-hannibal-modal-content::before {
+  /* Redder overlay */
+   background: radial-gradient(circle at center, rgba(88, 20, 40, 0.3), rgba(40, 10, 20, 0.6));
+   border-radius: 20px; /* Ensure this matches modal content */
+}
+
 .theme-hannibal-modal .close-button {
-  background: rgba(30, 50, 40, 0.8);
-  border: 1px solid rgba(100, 200, 150, 0.2);
+  border-color: rgba(139, 0, 0, 0.6); 
+  background: rgba(88, 20, 40, 0.85); /* Burgundy background */
+  color: #f5c5c5; /* Lighter red text */
 }
 
 .theme-hannibal-modal .close-button:hover {
-  background: rgba(100, 200, 150, 0.9);
-  color: #fff;
-  border-color: rgba(150, 255, 200, 0.3);
-  box-shadow: 0 0 15px rgba(100, 200, 150, 0.4);
+  border-color: rgba(178, 34, 34, 0.8); 
+  box-shadow: 0 0 12px rgba(139, 0, 0, 0.6); 
+  background: #b22222; /* Brighter red background */
+  color: #fff; 
 }
 
 .theme-hannibal-btn {
-  background: linear-gradient(145deg, #2a6b4a, #1a4b30);
-  border: 1px solid rgba(100, 200, 150, 0.3);
+  /* Style theme selection button - Make it redder */
+  background: linear-gradient(145deg, #8b0000, #5d0000); /* Dark reds */
+  border: 1px solid rgba(178, 34, 34, 0.5);
   box-shadow: 
-    0 6px 15px rgba(0, 100, 50, 0.3),
-    inset 0 1px 1px rgba(100, 200, 150, 0.2);
+    0 6px 15px rgba(139, 0, 0, 0.4), 
+    inset 0 1px 1px rgba(255, 100, 100, 0.2);
+}
+.theme-hannibal-btn:hover {
+  background: linear-gradient(145deg, #a52a2a, #800000); /* Brighter reds */
+  border-color: rgba(200, 50, 50, 0.7);
+  box-shadow: 
+    0 8px 20px rgba(178, 34, 34, 0.5),
+    inset 0 1px 1px rgba(255, 150, 150, 0.3);
 }
 
-.theme-hannibal-btn:hover {
-  background: linear-gradient(145deg, #3a7b5a, #2a5b40);
-  border: 1px solid rgba(120, 220, 170, 0.4);
+/* Style Source Buttons */
+.theme-hannibal-modal .source-button { 
+  background: linear-gradient(145deg, #4a2432, #30101b); /* Dark burgundy */
+  border: 1px solid rgba(110, 40, 60, 0.5); 
+  color: #e0e0e0;
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.theme-hannibal-modal .source-button:hover {
+  background: linear-gradient(145deg, #582b3a, #401825); /* Slightly lighter burgundy */
+  border-color: rgba(140, 50, 75, 0.7); 
+  color: #fff;
+}
+
+.theme-hannibal-modal .source-button.active {
+  background: linear-gradient(135deg, #b22222, #8b0000); /* Active is firebrick/dark red */
+  border-color: rgba(178, 34, 34, 0.8); 
+  color: white;
   box-shadow: 
-    0 8px 20px rgba(0, 120, 70, 0.4),
-    inset 0 1px 1px rgba(150, 255, 200, 0.3);
+    0 8px 20px rgba(139, 0, 0, 0.5), /* Red glow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Media queries for responsive theme selector */

@@ -1,0 +1,255 @@
+/* --- Instant Search Container --- */
+.search-input-container {
+  position: relative; /* Needed for absolute positioning of dropdown */
+  display: flex; /* Align input and potentially other elements */
+  flex-grow: 1; /* Allow input to take available space */
+  margin-right: 10px; /* Space before filter button */
+}
+
+#search-input {
+  /* Keep existing input styles or add new ones */
+  /* Ensure it takes full width of its container */
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #555; /* Example border */
+  border-radius: 4px;
+  background-color: #333; /* Example background */
+  color: #eee; /* Example text color */
+}
+
+/* --- Instant Search Dropdown --- */
+.instant-search-results {
+  position: absolute;
+  top: calc(100% + 5px); /* Position below parent (.search-input-container) */
+  left: 0; /* Align left edge with parent */
+  width: 100%; /* Make width match parent */
+  background-color: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.instant-search-results.loading,
+.instant-search-results.empty {
+  padding: 20px; /* More padding for messages */
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* --- Category Styling --- */
+.result-category {
+  margin-bottom: 20px;
+}
+
+.result-category:last-child {
+  margin-bottom: 0;
+}
+
+.category-title {
+  padding: 0 0 8px 5px; /* Adjusted padding, added left indent */
+  margin: 0 0 12px 0;
+  font-weight: 600; /* Slightly bolder */
+  color: #ccc; /* Lighter color */
+  font-size: 0.9rem; /* Smaller category titles */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Fainter border */
+  text-transform: uppercase; /* Uppercase for clarity */
+  letter-spacing: 0.5px;
+}
+
+/* --- Grid Layout --- */
+.mini-card-grid {
+  display: grid;
+  /* Dynamic columns: minimum 100px, fill available space */
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px; /* Consistent gap */
+}
+
+/* --- Result Item (Mini Card) --- */
+.mini-card {
+  display: flex;
+  flex-direction: column; /* Stack image and info */
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 6px; /* Slightly rounded */
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05); /* Very subtle background */
+  border: 1px solid transparent; /* Base border for hover */
+  height: 100%; /* Make cards fill grid cell height */
+}
+
+.mini-card:hover {
+  transform: scale(1.03); /* Subtle scale */
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter on hover */
+  border-color: rgba(255, 255, 255, 0.3); /* Visible border on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Hover shadow */
+  z-index: 2;
+}
+
+.mini-card-img {
+  width: 100%;
+  aspect-ratio: 2 / 3; /* Correct aspect ratio for posters */
+  object-fit: cover;
+  display: block; /* Ensure image is block */
+  transition: transform 0.3s ease;
+}
+
+/* No separate poster container needed with aspect-ratio */
+/* Removed .instant-result-poster styles */
+
+/* Hover effect on image */
+.mini-card:hover .mini-card-img {
+  transform: scale(1.05); /* Slightly zoom image on hover */
+}
+
+.mini-card-info {
+  padding: 10px 8px; /* Adjusted padding */
+  background-color: rgba(30, 30, 35, 0.9); /* Darker info background */
+  flex-grow: 1; /* Allow info to take remaining space */
+  display: flex; /* Enable flex for vertical alignment */
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+.mini-card-title {
+  color: #eee;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px; /* Space below title */
+  line-height: 1.2; /* Ensure single line */
+}
+
+.mini-card-detail {
+  color: #aaa;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2; /* Ensure single line */
+}
+
+/* Person-specific styling */
+/* Apply directly to .mini-card with specific media type class */
+.mini-card.media-type-person {
+    /* Style the person card container if needed */
+}
+
+.mini-card.media-type-person .mini-card-img {
+  aspect-ratio: 1 / 1; /* Square aspect ratio */
+  object-fit: cover;
+  object-position: center top; /* Focus on face */
+  border-radius: 50%; /* Make profile pics round */
+  width: 70%; /* Adjust size */
+  margin: 10px auto 5px; /* Center round image with spacing */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.mini-card.media-type-person .mini-card-info {
+    text-align: center; /* Center person name/dept */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mini-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+  
+  .mini-card-title {
+    font-size: 0.85rem;
+  }
+  
+  .mini-card-detail {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+  }
+  
+  .instant-search-results {
+    padding: 10px;
+    max-height: 60vh; /* Slightly reduce height */
+  }
+
+  .mini-card-title {
+    font-size: 0.8rem;
+  }
+}
+
+/* Theme-specific styling */
+/* Use the correct card selector */
+.theme-devil .mini-card:hover {
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+  border-color: rgba(255, 80, 80, 0.5);
+}
+
+.theme-angel .mini-card:hover {
+  box-shadow: 0 4px 12px rgba(135, 206, 250, 0.3);
+  border-color: rgba(135, 206, 250, 0.6);
+}
+
+.theme-hannibal .mini-card:hover {
+  box-shadow: 0 4px 12px rgba(168, 149, 122, 0.4); /* Muted gold shadow */
+  border-color: rgba(168, 149, 122, 0.6); /* Muted gold border */
+}
+
+/* Keep theme-specific overrides for category titles and base card styles if needed */
+.theme-devil .category-title {
+  color: #ff8888; /* Light red */
+  border-bottom-color: rgba(139, 0, 0, 0.5);
+}
+.theme-devil .mini-card {
+  background-color: rgba(40, 10, 10, 0.6); /* Dark red tint */
+}
+.theme-devil .mini-card:hover {
+  background-color: rgba(60, 15, 15, 0.8);
+  /* Keep shadow/border from general hover rule */
+}
+
+.theme-angel .category-title {
+  color: #87CEEB; /* Sky blue */
+  border-bottom-color: rgba(135, 206, 250, 0.3);
+}
+.theme-angel .mini-card {
+  background-color: rgba(240, 248, 255, 0.7); /* Alice blue tint */
+}
+.theme-angel .mini-card:hover {
+  background-color: rgba(220, 235, 255, 0.9);
+  /* Keep shadow/border from general hover rule */
+}
+
+.theme-hannibal .category-title {
+  color: #D2B48C; /* Tan */
+  border-bottom-color: rgba(85, 107, 47, 0.4); /* Olive */
+  font-family: 'Cinzel', serif;
+}
+.theme-hannibal .mini-card {
+  background-color: rgba(30, 35, 30, 0.7); /* Dark olive tint */
+  font-family: 'Garamond', serif; /* Ensure font consistency */
+}
+.theme-hannibal .mini-card:hover {
+  background-color: rgba(40, 45, 40, 0.9);
+  /* Keep shadow/border from general hover rule */
+}
+.theme-hannibal .mini-card-info {
+    font-family: 'Garamond', serif; /* Ensure font consistency */
+}
+.theme-hannibal .mini-card-title,
+.theme-hannibal .mini-card-detail {
+    font-family: 'Garamond', serif; /* Ensure font consistency */
+} 

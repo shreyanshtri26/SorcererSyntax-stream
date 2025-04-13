@@ -107,7 +107,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // New state for collapsible description
   const [watchlistStatus, setWatchlistStatus] = useState(false); // Track if item is in watchlist
   const [userRating, setUserRating] = useState(0); // User's personal rating
-  const [selectedPlayerSource, setSelectedPlayerSource] = useState('vidsrc'); // Default player source
+  const [selectedPlayerSource, setSelectedPlayerSource] = useState('nontongo'); // Default player source
   const [sourceErrorCount, setSourceErrorCount] = useState({}); // Track errors per source
   const [showShareTooltip, setShowShareTooltip] = useState(false);
   // Add state to detect current theme
@@ -124,17 +124,21 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --- Updated Player Sources ---
   // Keep only the original embedded sources
   const embeddedPlayerSources = [
+    { id: 'nontongo', name: 'NontonGo' },
     { id: 'vidsrc', name: 'VidSrc' },
     { id: 'vidsrcme', name: 'VidSrc.me' },
-    { id: 'nontongo', name: 'NontonGo' },
+    { id: '2embed', name: '2embed.cc' },
     { id: 'godriveplayer', name: 'GoDrivePlayer' },
+    { id: 'proxyapi', name: 'Community Proxy' },
   ];
 
   const embeddedPlayerInfo = {
     vidsrc: { name: 'VidSrc', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
     vidsrcme: { name: 'VidSrc.me', website: 'vidsrc.me', features: ['Embedded Player', 'Reliable'] },
+    '2embed': { name: '2embed.cc', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
     nontongo: { name: 'NontonGo', website: 'nontongo.win', features: ['Embedded Player', 'Alternative'] },
     godriveplayer: { name: 'GoDrivePlayer', website: 'godriveplayer.com', features: ['Embedded Player', 'IMDB/TMDB'] },
+    proxyapi: { name: 'Community Proxy', website: 'proxy-api.example.com', features: ['Embedded Player', 'Multi-Source'] },
   };
   
   // VidSrc domains for fallback
@@ -304,18 +308,24 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
     // VidSrc
     if (sourceId === 'vidsrc') {
-    const domain = vidsrcDomains[domainIndex];
+      const domain = vidsrcDomains[domainIndex];
       let baseUrl = type === 'movie' 
         ? `https://${domain}/embed/movie?tmdb=${media.id}` 
         : `https://${domain}/embed/tv?tmdb=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
       if (defaultSubtitleLanguage) baseUrl += `&ds_lang=${defaultSubtitleLanguage}`;
       return baseUrl;
     }
-    // VidSrc.me
+    // VidSrc.me (updated from examples)
     else if (sourceId === 'vidsrcme') {
       return type === 'movie' 
         ? `https://vidsrc.me/embed/movie?tmdb=${media.id}` 
         : `https://vidsrc.me/embed/tv?tmdb=${media.id}&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+    // 2embed.cc (updated from examples)
+    else if (sourceId === '2embed') {
+      return type === 'movie' 
+        ? `https://2embed.cc/embed/movie/tmdb/${media.id}` 
+        : `https://2embed.cc/embed/series/tmdb/${media.id}/${selectedSeason}/${selectedEpisode}`;
     }
     // NontonGo
     else if (sourceId === 'nontongo') {
@@ -323,11 +333,17 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         ? `https://www.NontonGo.win/embed/movie/${media.id}` 
         : `https://www.NontonGo.win/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
     }
-    // GoDrivePlayer
+    // GoDrivePlayer (updated from examples)
     else if (sourceId === 'godriveplayer') {
       return type === 'movie' 
-        ? `https://godriveplayer.com/player.php?imdb=tt${media.id}` // Assuming it handles TMDB ID implicitly if IMDB isn't available
-        : `https://godriveplayer.com/player.php?type=series&tmdb=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
+        ? `https://goplayer.pro/player/movie/tmdb/${media.id}` 
+        : `https://goplayer.pro/player/tv/tmdb/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // Community Proxy API (new from examples)
+    else if (sourceId === 'proxyapi') {
+      return type === 'movie' 
+        ? `https://proxy-api.example.com/embed/tmdb/${media.id}` 
+        : `https://proxy-api.example.com/embed/tmdb/${media.id}/tv/${selectedSeason}/${selectedEpisode}`;
     }
     
     return ''; // Fallback
@@ -583,14 +599,15 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     const releaseDate = type === 'movie' 
       ? (media.release_date && new Date(media.release_date).toLocaleDateString()) 
       : (media.first_air_date && new Date(media.first_air_date).toLocaleDateString());
-    const rating = media.vote_average ? `${media.vote_average.toFixed(1)}/10` : 'Not rated';
+    const ratingLabel = "💲M Rating";
+    const ratingValue = media.vote_average ? `${media.vote_average.toFixed(1)}/10` : 'N/A';
     
     return (
       <>
         <div className="media-details">
           <div className="media-info-row">
             {releaseDate && <span className="media-info-item"><strong>Released:</strong> {releaseDate}</span>}
-            {rating && <span className="media-info-item"><strong>Rating:</strong> {rating}</span>}
+            {ratingValue !== 'N/A' && <span className="media-info-item"><strong>{ratingLabel}:</strong> {ratingValue}</span>}
             <button 
               className={`watchlist-button ${watchlistStatus ? 'in-watchlist' : ''}`}
               onClick={toggleWatchlist}

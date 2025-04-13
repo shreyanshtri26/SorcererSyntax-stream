@@ -11,6 +11,7 @@
   z-index: 900;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.4s ease;
+  overflow: hidden; /* To ensure smoke effects don't overflow */
 }
 
 .main-title {
@@ -78,42 +79,40 @@
   filter: invert(90%); /* Default icon color */
 }
 
-/* Smoke overlay for hannibal theme */
-.full-page-smoke {
+/* Smoke overlay for hannibal theme - Modified for persistence and red tint */
+.theme-hannibal .full-page-smoke {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(20, 35, 30, 0.7), rgba(15, 25, 20, 0.9));
-  opacity: 0;
+  /* Dark green base with a hint of deep red */
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(88, 20, 40, 0.3), transparent 70%), /* Burgundy glow */
+    radial-gradient(circle at 70% 80%, rgba(40, 10, 20, 0.25), transparent 70%), /* Darker red glow */
+    linear-gradient(rgba(15, 25, 20, 0.85), rgba(10, 20, 15, 0.95)); /* Dark green base */
+  opacity: 0.3; /* Make it subtly visible by default */
   pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 5;
+  transition: opacity 1s ease;
+  z-index: -5; /* Place behind header but potentially over body bg */
+  mix-blend-mode: multiply; /* Blend with background */
+  animation: slowSmokeDrift 60s linear infinite alternate; /* Slow drifting */
 }
 
-.theme-hannibal .theme-button:hover ~ .full-page-smoke {
-  opacity: 0;
-  animation: fillSmoke 8s forwards;
-  animation-delay: 1.5s;
+@keyframes slowSmokeDrift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
-@keyframes fillSmoke {
-  0% {
-    opacity: 0;
-    background: linear-gradient(rgba(20, 35, 30, 0), rgba(15, 25, 20, 0));
-  }
-  20% {
-    opacity: 0.3;
-    background: linear-gradient(rgba(20, 35, 30, 0.3), rgba(15, 25, 20, 0.4));
-  }
-  100% {
-    opacity: 0.8;
-    background: linear-gradient(rgba(20, 35, 30, 0.7), rgba(15, 25, 20, 0.9));
-  }
-}
+/* Remove hover trigger for smoke */
+/* .theme-hannibal .theme-button:hover ~ .full-page-smoke { ... } */
+
+/* Remove specific fill/show animations, keep the base style */
+/* @keyframes fillSmoke { ... } */
+/* @keyframes showSmokeTexture { ... } */
 
 .full-page-smoke::before {
+  /* Keep noise texture */
   content: "";
   position: absolute;
   top: 0;
@@ -122,18 +121,12 @@
   height: 100%;
   background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogIDxmaWx0ZXIgaWQ9Im5vaXNlIj4KICAgIDxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjA1IiBudW1PY3RhdmVzPSI0IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+CiAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9ImNvbXBvc2l0ZTUiIGluMj0iU291cmNlR3JhcGhpYyIvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=');
   filter: contrast(170%) brightness(100%);
-  opacity: 0;
+  opacity: 0.5; /* Make texture slightly more visible */
   mix-blend-mode: soft-light;
-  animation: showSmokeTexture 8s forwards;
-  animation-delay: 1.8s;
-}
-
-@keyframes showSmokeTexture {
-  0% { opacity: 0; }
-  100% { opacity: 0.6; }
 }
 
 .full-page-smoke::after {
+  /* Modify pulse glow to be red */
   content: "";
   position: absolute;
   top: 0;
@@ -142,18 +135,19 @@
   height: 100%;
   background: radial-gradient(
     circle at center, 
-    rgba(80, 160, 120, 0.2) 0%, 
-    rgba(40, 80, 60, 0.1) 40%, 
+    rgba(139, 0, 0, 0.25) 0%, /* Dark red center */
+    rgba(88, 20, 40, 0.1) 40%, /* Burgundy mid */
     rgba(20, 40, 30, 0) 70%
   );
-  opacity: 0;
-  animation: pulseGlow 6s infinite alternate;
-  animation-delay: 2s;
+  opacity: 0; 
+  animation: pulseRedGlow 8s infinite alternate; /* Slower pulse */
+  animation-delay: 1s;
 }
 
-@keyframes pulseGlow {
-  0% { opacity: 0; }
-  100% { opacity: 0.8; }
+@keyframes pulseRedGlow {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+  100% { opacity: 0.3; transform: scale(1); }
 }
 
 /* Theme-specific overrides for Header */
@@ -198,22 +192,212 @@
 }
 
 .theme-hannibal .app-header {
-  background-color: rgba(15, 25, 20, 0.9);
-  box-shadow: 0 2px 10px rgba(80, 160, 120, 0.3);
+  /* Match App.css: Slightly darker, less saturated green for header */
+  background-color: rgba(20, 40, 35, 0.95); 
+  /* Subtle burgundy shadow */
+  box-shadow: 0 2px 10px rgba(88, 20, 40, 0.4), 
+              0 0 25px rgba(139, 0, 0, 0.2) inset; /* Inner red glow */
+  border-bottom: 1px solid rgba(139, 0, 0, 0.5); /* Stronger red bottom border */
+  position: relative; /* For proper positioning of bong and joint */
 }
 .theme-hannibal .main-title { 
-  color: #a0d0b0;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  text-shadow: 2px 2px 8px rgba(80, 160, 120, 0.7), 0 0 20px rgba(58, 122, 90, 0.5);
+  /* Match App.css: Off-white, slightly greenish */
+  color: #CEDBCD; 
+  /* Match App.css: Refined font */
+  font-family: 'Garamond', 'Times New Roman', Times, serif; 
+  font-weight: normal; 
+  /* Match App.css: Subtle dark burgundy text shadow */
+  text-shadow: 1px 1px 2px rgba(40, 10, 20, 0.7); 
+  /* Keep existing letter-spacing */
   letter-spacing: 1px;
 }
 .theme-hannibal .theme-button.active { 
-  border-color: #60b090; 
-  box-shadow: 0 0 10px #50a080; 
+  /* Use burgundy for active border/shadow */
+  border-color: #702A40; 
+  box-shadow: 0 0 10px rgba(88, 20, 40, 0.5); 
 }
 .theme-hannibal .theme-icon {
-  filter: invert(80%) sepia(20%) saturate(800%) hue-rotate(80deg);
+  /* Adjust filter for new color scheme - aim for a muted green/burgundy tint */
+  /* This might require tweaking based on the SVG content */
+  filter: grayscale(30%) sepia(50%) hue-rotate(-30deg) saturate(250%) brightness(0.9); /* More intense red/burgundy tint */
+}
+
+/* Bong element for Hannibal theme - REPOSITIONED TO RIGHT */
+.theme-hannibal .app-header::before {
+  content: "";
+  position: absolute;
+  right: calc(50% - 120px); /* Position to the RIGHT of the centered title */
+  bottom: 10px; /* Raise it slightly to be more visible near title */
+  width: 16px; /* Wider tube */
+  height: 50px; /* Increased from 45px to 50px */
+  background: linear-gradient(to bottom, 
+    transparent 0%,
+    rgba(100, 100, 100, 0.7) 10%,
+    rgba(200, 200, 200, 0.8) 30%,
+    rgba(180, 180, 180, 0.9) 50%,
+    rgba(100, 100, 100, 0.7) 80%,
+    rgba(40, 40, 40, 0.6) 100%
+  ); /* Glass texture */
+  border-radius: 8px 8px 3px 3px; /* Adjusted radius for larger size */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 
+              0 0 5px rgba(0, 0, 0, 0.5) inset;
+  z-index: 5;
+}
+
+/* Water chamber of the bong - REPOSITIONED TO RIGHT */
+.theme-hannibal .app-header::after {
+  content: "";
+  position: absolute;
+  right: calc(50% - 127px); /* Position to match the tube on RIGHT */
+  bottom: -3px; /* Raise it to align with the tube */
+  width: 35px; /* Wider chamber */
+  height: 25px; /* Taller chamber */
+  background: linear-gradient(to bottom, 
+    rgba(70, 130, 180, 0.8) 0%, /* More vibrant water */
+    rgba(40, 80, 120, 0.9) 100%
+  ); /* Water color */
+  border-radius: 15px 15px 12px 12px; /* Adjusted radius */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2), 
+              0 0 10px rgba(0, 0, 0, 0.6) inset;
+  z-index: 4;
+}
+
+/* Bong smoke - REPOSITIONED TO RIGHT */
+.theme-hannibal .bong-smoke {
+  position: absolute;
+  right: calc(50% - 120px); /* Match the position of the bong tube on RIGHT */
+  bottom: 35px; /* Position from the top of the tube */
+  width: 8px; /* Wider smoke */
+  height: 40px;
+  background: linear-gradient(to top, 
+    rgba(230, 230, 230, 0.9) 0%, /* More opaque */
+    rgba(200, 200, 200, 0.7) 60%,
+    rgba(200, 200, 200, 0.3) 100%
+  );
+  filter: blur(5px); /* Increased blur for density */
+  border-radius: 50%;
+  opacity: 0;
+  animation: bong-smoke 10s ease-out infinite; /* Longer animation */
+  z-index: 6;
+}
+
+@keyframes bong-smoke {
+  0% { opacity: 0; height: 0; bottom: 30px; width: 6px; }
+  5% { opacity: 0.95; height: 15px; bottom: 40px; width: 8px; } /* More visible */
+  15% { opacity: 0.9; height: 45px; bottom: 40px; transform: translateX(0); width: 10px; }
+  30% { opacity: 0.85; height: 70px; bottom: 50px; transform: translateX(-12px); width: 12px; }
+  50% { opacity: 0.7; height: 90px; bottom: 60px; transform: translateX(8px); width: 14px; }
+  75% { opacity: 0.5; height: 110px; bottom: 80px; transform: translateX(-8px); width: 16px; }
+  90% { opacity: 0.3; height: 130px; bottom: 90px; transform: translateX(10px); width: 18px; }
+  100% { opacity: 0; height: 150px; bottom: 100px; transform: translateX(15px); width: 20px; }
+}
+
+/* Joint element for Hannibal theme - REPOSITIONED TO LEFT */
+.theme-hannibal .joint {
+  position: absolute;
+  left: calc(50% - 120px); /* Position to the LEFT of the centered title */
+  bottom: 30px; /* Position near the title level */
+  width: 30px; /* Longer joint */
+  height: 5px; /* Thicker joint */
+  background: linear-gradient(to right, 
+    rgba(215, 210, 190, 0.95) 0%,
+    rgba(240, 235, 215, 1) 20%,
+    rgba(215, 210, 190, 0.95) 30%,
+    rgba(170, 90, 50, 0.9) 90%,
+    rgba(200, 40, 20, 0.85) 100%
+  ); /* Paper to ember gradient - more vibrant */
+  transform: rotate(-10deg);
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  z-index: 5;
+}
+
+/* Joint smoke - REPOSITIONED TO LEFT */
+.theme-hannibal .joint-smoke {
+  position: absolute;
+  left: calc(50% - 120px); /* Match the position of the joint on LEFT */
+  bottom: 35px; /* Position above the joint */
+  width: 6px; /* Wider smoke */
+  height: 30px;
+  background: linear-gradient(to top, 
+    rgba(230, 230, 230, 0.9) 0%, /* More opaque */
+    rgba(200, 200, 200, 0.7) 60%,
+    rgba(200, 200, 200, 0.3) 100%
+  );
+  filter: blur(4px); /* Increased blur */
+  border-radius: 50%;
+  opacity: 0;
+  animation: joint-smoke 7s ease-out infinite; /* Longer animation */
+  animation-delay: 1s;
+  z-index: 6;
+}
+
+@keyframes joint-smoke {
+  0% { opacity: 0; height: 0; bottom: 18px; width: 4px; }
+  10% { opacity: 0.9; height: 15px; bottom: 20px; width: 6px; } /* More visible initially */
+  30% { opacity: 0.85; height: 40px; bottom: 25px; transform: translateX(0); width: 8px; }
+  50% { opacity: 0.7; height: 60px; bottom: 30px; transform: translateX(12px); width: 10px; }
+  75% { opacity: 0.5; height: 80px; bottom: 40px; transform: translateX(8px); width: 12px; }
+  90% { opacity: 0.3; height: 100px; bottom: 50px; transform: translateX(20px); width: 14px; } /* Increased from 45px to 50px */
+  100% { opacity: 0; height: 120px; bottom: 50px; transform: translateX(25px); width: 16px; }
+}
+
+/* Add these HTML elements to Header component - REPOSITIONED CONTAINERS */
+.bong-smoke-elements {
+  position: absolute;
+  right: calc(50% - 150px); /* Position RIGHT of title */
+  bottom: 0;
+  width: 50px;
+  height: 100px;
+  z-index: 4;
+  pointer-events: none; /* So they don't interfere with clicks */
+}
+
+.joint-smoke-elements {
+  position: absolute;
+  left: calc(50% - 150px); /* Position LEFT of title */
+  bottom: 0;
+  width: 50px;
+  height: 100px;
+  z-index: 4;
+  pointer-events: none; /* So they don't interfere with clicks */
+}
+
+/* Multiple smoke particles for more realistic effect - SWAPPED POSITIONS */
+.theme-hannibal .bong-smoke-particle1 {
+  composes: bong-smoke;
+  animation-delay: 0s;
+  right: calc(50% - 119px);
+}
+
+.theme-hannibal .bong-smoke-particle2 {
+  composes: bong-smoke;
+  animation-delay: 3.5s; /* Staggered delays for continuous smoke */
+  right: calc(50% - 116px);
+}
+
+.theme-hannibal .bong-smoke-particle3 {
+  composes: bong-smoke;
+  animation-delay: 7s;
+  right: calc(50% - 122px);
+}
+
+.theme-hannibal .joint-smoke-particle1 {
+  composes: joint-smoke;
+  animation-delay: 0.5s;
+  left: calc(50% - 119px);
+}
+
+.theme-hannibal .joint-smoke-particle2 {
+  composes: joint-smoke;
+  animation-delay: 3s;
+  left: calc(50% - 115px);
+}
+
+.theme-hannibal .joint-smoke-particle3 {
+  composes: joint-smoke;
+  animation-delay: 5.5s;
+  left: calc(50% - 123px);
 }
 
 /* Responsive adjustments */
@@ -298,35 +482,40 @@
 
 /* Hannibal theme title hover - smoke and burn effect */
 .hannibal-title:hover {
-  color: #ff7f50;
+  /* Use a deep burgundy/blood orange color for hover */
+  color: #C04040; /* Brighter, more distinct red */
   position: relative;
-  text-shadow: 0 0 5px rgba(255, 127, 80, 0.7);
-  animation: burn 2s ease-in-out infinite;
+  /* Darker, more intense shadow */
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.8), 0 0 15px rgba(88, 20, 40, 0.6); /* Enhance red shadow */
+  animation: burn 1.5s ease-in-out infinite; /* Faster burn */
 }
 
 .hannibal-title:hover::before {
   content: "";
   position: absolute;
-  top: -15px;
+  top: -20px; /* Lift smoke higher */
   left: 50%;
-  width: 60%;
-  height: 15px;
-  background: linear-gradient(to top, rgba(169, 169, 169, 0.7), transparent);
-  filter: blur(5px);
+  width: 80%; /* Wider smoke */
+  height: 25px; /* Thicker smoke */
+  /* Darker smoke gradient with red hints */
+  background: linear-gradient(to top, rgba(60, 30, 35, 0.7), transparent);
+  filter: blur(8px); /* Increase blur */
   transform: translateX(-50%);
-  animation: smoke 3s ease-in-out infinite;
+  animation: smoke 2.5s ease-in-out infinite; /* Faster smoke */
 }
 
 @keyframes burn {
-  0% { text-shadow: 0 0 5px rgba(255, 127, 80, 0.7); color: #a0d0b0; }
-  25% { text-shadow: 0 0 10px rgba(255, 127, 80, 0.8); color: #c79c60; }
-  50% { text-shadow: 0 0 15px rgba(255, 127, 80, 0.9); color: #ff7f50; }
-  75% { text-shadow: 0 0 10px rgba(255, 127, 80, 0.8); color: #c79c60; }
-  100% { text-shadow: 0 0 5px rgba(255, 127, 80, 0.7); color: #a0d0b0; }
+  /* Adjust colors in animation to match new palette */
+  0% { text-shadow: 0 0 6px rgba(88, 20, 40, 0.7); color: #CEDBCD; }
+  25% { text-shadow: 0 0 10px rgba(139, 0, 0, 0.8); color: #D8A0A8; } /* Redder tint */
+  50% { text-shadow: 0 0 15px rgba(139, 0, 0, 0.9); color: #C04040; } /* Peak bright red */
+  75% { text-shadow: 0 0 10px rgba(139, 0, 0, 0.8); color: #D8A0A8; }
+  100% { text-shadow: 0 0 6px rgba(88, 20, 40, 0.7); color: #CEDBCD; }
 }
 
 @keyframes smoke {
-  0% { opacity: 0.3; height: 15px; filter: blur(5px); }
-  50% { opacity: 0.7; height: 25px; filter: blur(7px); }
-  100% { opacity: 0.3; height: 15px; filter: blur(5px); }
+  /* Make smoke slightly denser and redder */
+  0% { opacity: 0.5; height: 20px; filter: blur(7px); background: linear-gradient(to top, rgba(60, 30, 35, 0.6), transparent); }
+  50% { opacity: 0.9; height: 30px; filter: blur(9px); background: linear-gradient(to top, rgba(88, 20, 40, 0.8), transparent); } /* More burgundy */
+  100% { opacity: 0.5; height: 20px; filter: blur(7px); background: linear-gradient(to top, rgba(60, 30, 35, 0.6), transparent); }
 }

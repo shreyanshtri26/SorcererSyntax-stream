@@ -63,6 +63,30 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
     );
   };
 
+  // Render bong and joint elements with smoke (only for Hannibal theme)
+  const renderSmokeElements = () => {
+    if (currentTheme !== 'hannibal') return null;
+    
+    return (
+      <>
+        {/* Bong with smoke particles */}
+        <div className="bong-smoke-elements">
+          <div className="bong-smoke-particle1"></div>
+          <div className="bong-smoke-particle2"></div>
+          <div className="bong-smoke-particle3"></div>
+        </div>
+        
+        {/* Joint with smoke particles */}
+        <div className="joint-smoke-elements">
+          <div className="joint"></div>
+          <div className="joint-smoke-particle1"></div>
+          <div className="joint-smoke-particle2"></div>
+          <div className="joint-smoke-particle3"></div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <header className="app-header">
       <h1 className={`main-title ${currentTheme}-title`} onClick={onTitleClick}>
@@ -71,6 +95,7 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
         <span className="title-icon"> {getTitleIcon()} </span>
       </h1>
       {renderThemeButton()}
+      {renderSmokeElements()}
     </header>
   );
 };
