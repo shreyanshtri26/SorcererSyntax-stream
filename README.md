@@ -6,7 +6,8 @@
 
 A modern, feature-rich movie and TV show streaming application built with React and Vite. The app offers an immersive browsing experience with trailer previews, content streaming, and advanced filtering options. Powered by the TMDB API.
 
-![Room 305 App](screenshot.png)
+![Room 305 App](https://github.com/user-attachments/assets/735db41e-6337-453e-b99b-29b538e74387)
+
 
 ---
 
