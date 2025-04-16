@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres } from './api'; // Add genre functions
+import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres } from '../api/api'; // Add genre functions
 import './PlayerModal.css';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube'; // Import a player
@@ -461,7 +461,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
             onClick={handleShareClick} 
             title="Copy shareable link (includes selected embedded player if active)"
           >
-            🔗 Share
+            Share
           </button>
           {showShareTooltip && (
             <div className="share-tooltip">Link copied!</div>
@@ -584,7 +584,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               className={`star ${star <= userRating ? 'filled' : ''}`}
               onClick={() => handleRatingClick(star)}
             >
-              ★
+              
             </span>
           ))}
         </div>
@@ -599,7 +599,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     const releaseDate = type === 'movie' 
       ? (media.release_date && new Date(media.release_date).toLocaleDateString()) 
       : (media.first_air_date && new Date(media.first_air_date).toLocaleDateString());
-    const ratingLabel = "💲M Rating";
+    const ratingLabel = "M Rating";
     const ratingValue = media.vote_average ? `${media.vote_average.toFixed(1)}/10` : 'N/A';
     
     return (
@@ -613,7 +613,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               onClick={toggleWatchlist}
               title={watchlistStatus ? "Remove from Watchlist" : "Add to Watchlist"}
             >
-              {watchlistStatus ? "★ In Watchlist" : "☆ Add to Watchlist"}
+              {watchlistStatus ? " In Watchlist" : " Add to Watchlist"}
             </button>
           </div>
           

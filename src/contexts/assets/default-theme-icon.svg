@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="24" height="24" fill="currentColor">
+  <path d="M50,10 C25,10 10,25 10,50 C10,70 20,90 40,90 C45,90 45,85 50,85 C60,85 75,75 85,60 C95,45 90,20 75,15 C65,12 55,10 50,10 Z M30,40 A7,7 0 1,1 30,54 A7,7 0 0,1 30,40 Z M50,30 A7,7 0 1,1 50,44 A7,7 0 0,1 50,30 Z M70,40 A7,7 0 1,1 70,54 A7,7 0 0,1 70,40 Z M60,60 A7,7 0 1,1 60,74 A7,7 0 0,1 60,60 Z" fill="#cccccc"/>
+  <circle cx="30" cy="47" r="7" fill="#e50914"/>
+  <circle cx="50" cy="37" r="7" fill="#4682B4"/>
+  <circle cx="70" cy="47" r="7" fill="#3a7a5a"/>
+  <circle cx="60" cy="67" r="7" fill="#FFD700"/>
+</svg>

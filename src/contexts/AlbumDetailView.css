@@ -1,0 +1,693 @@
+/* --- Album Detail View Base Styles --- */
+
+.album-detail-view {
+  padding: 25px;
+  background-color: rgba(25, 25, 25, 0.9); /* Default darkish background */
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative; /* For close button positioning */
+}
+
+.close-album-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ccc;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+
+.close-album-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-color: #888;
+}
+
+/* --- Album Header --- */
+.album-header {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--surface-color);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.album-cover-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.album-info-and-player {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.album-text-info {
+  flex: 1;
+}
+
+.album-type {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.album-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.album-artists {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+}
+
+.album-artist-name.clickable {
+  cursor: pointer;
+  color: var(--accent-color);
+  transition: color 0.2s;
+}
+
+.album-artist-name.clickable:hover {
+  color: var(--accent-hover-color);
+  text-decoration: underline;
+}
+
+.album-release, .album-total-tracks {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0.3rem 0;
+}
+
+.album-artist-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.artist-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.album-local-player {
+  background: var(--surface-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 100px;
+}
+
+.local-player-idle-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.local-player-idle-placeholder i {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+/* --- Track List --- */
+.album-tracks-list {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.album-tracks-list h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.album-track-item {
+  position: relative; /* Added for overlay positioning */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.album-track-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.album-track-item .track-number {
+  color: #aaa;
+  font-size: 0.9em;
+  min-width: 25px; /* Ensure alignment */
+  text-align: right;
+}
+
+.album-track-item .track-info {
+  flex-grow: 1;
+  overflow: hidden;
+  cursor: pointer; /* Make info clickable */
+}
+
+.album-track-item .track-name {
+  display: block;
+  font-size: 0.95em;
+  color: #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.album-track-item .track-artists {
+  display: block;
+  font-size: 0.8em;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- NEW: Play Icon Overlay --- */
+.album-track-item .track-play-icon-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  border-radius: 4px; /* Match track item */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  pointer-events: none; /* Initially not interactable */
+}
+.album-track-item:hover .track-play-icon-overlay {
+  opacity: 1;
+  pointer-events: auto; /* Interactable on hover */
+}
+
+/* --- NEW: Local Player Container --- */
+.local-player-container.album-local-player { /* Add specificity */
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+.local-player-container.album-local-player .spotify-player-container,
+.local-player-container.album-local-player .music-player-container {
+   max-width: 100%; 
+   margin: 0;
+}
+
+/* === THEME ENHANCEMENTS FOR ALBUM DETAIL === */
+.theme-devil .album-detail-container {
+  background: rgba(35,10,10,0.95);
+  border: 1.5px solid #cc0000;
+  box-shadow: 0 2px 16px rgba(255,0,0,0.08);
+  border-radius: 7px;
+}
+.theme-angel .album-detail-container {
+  background: rgba(255,255,255,0.96);
+  border: 1.5px solid #aee7ff;
+  box-shadow: 0 2px 16px rgba(142,197,252,0.09);
+  border-radius: 18px;
+}
+.theme-hannibal .album-detail-container {
+  background: rgba(25,30,25,0.96);
+  border: 1.5px solid #6B8E23;
+  box-shadow: 0 2px 16px rgba(139,69,19,0.09);
+  border-radius: 2px;
+}
+
+.album-detail-container {
+  padding: 24px 20px;
+  margin-bottom: 30px;
+  transition: background 0.3s, border 0.3s;
+}
+
+.album-tracks-list {
+  margin-top: 18px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.06);
+  padding: 10px 0;
+}
+.theme-devil .album-tracks-list {
+  background: rgba(50,10,10,0.13);
+}
+.theme-angel .album-tracks-list {
+  background: rgba(245,255,255,0.13);
+}
+.theme-hannibal .album-tracks-list {
+  background: rgba(30,35,25,0.13);
+}
+
+.album-track {
+  padding: 10px 18px;
+  border-bottom: 1px solid #eee4;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.album-track:last-child {
+  border-bottom: none;
+}
+.theme-devil .album-track:hover {
+  background: #cc0000;
+  color: #fff;
+}
+.theme-angel .album-track:hover {
+  background: #aee7ff;
+  color: #4682B4;
+}
+.theme-hannibal .album-track:hover {
+  background: #6B8E23;
+  color: #fff;
+}
+
+.album-detail-title {
+  font-size: 2.1em;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+.theme-devil .album-detail-title {
+  color: #ff4444;
+}
+.theme-angel .album-detail-title {
+  color: #4682B4;
+}
+.theme-hannibal .album-detail-title {
+  color: #D2B48C;
+}
+
+.album-detail-meta {
+  color: #bbb;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+.theme-angel .album-detail-meta {
+  color: #4682B4;
+}
+.theme-hannibal .album-detail-meta {
+  color: #D2B48C;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .album-detail-container {
+    padding: 12px 5px;
+  }
+  .album-detail-title {
+    font-size: 1.3em;
+  }
+  .album-track {
+    padding: 8px 8px;
+  }
+}
+
+/* --- Theme Overrides --- */
+
+/* Adapt themes similarly to ArtistDetailsModal.css, targeting album elements */
+
+/* Devil */
+.theme-devil-album-detail {
+  background-color: rgba(20, 5, 5, 0.9);
+  border-color: rgba(139, 0, 0, 0.4);
+}
+.theme-devil-album-detail .album-name { color: #ffaaaa; }
+.theme-devil-album-detail .album-artists { color: #ff8888; }
+.theme-devil-album-detail .album-type, 
+.theme-devil-album-detail .album-release, 
+.theme-devil-album-detail .album-total-tracks { color: #ff6666; }
+.theme-devil-album-detail h4 { color: #ffcccc; border-bottom-color: rgba(139, 0, 0, 0.3);}
+.theme-devil-album-detail .album-track-item:hover { background-color: rgba(139, 0, 0, 0.2); }
+.theme-devil-album-detail .track-number { color: #ff6666; }
+.theme-devil-album-detail .track-name { color: #ffdddd; }
+.theme-devil-album-detail .track-artists { color: #ffaaaa; }
+.theme-devil-album-detail .play-track-button { border-color: #a50000; color: #ffcccc; }
+.theme-devil-album-detail .play-track-button:hover { background-color: #a50000; border-color: #ff6666; color: #fff; }
+.theme-devil-album-detail .local-spotify-player-container { border-top-color: rgba(139, 0, 0, 0.3); }
+.theme-devil-album-detail .spotify-local-button { color: #ff6666; border-color: #ff6666; background-color: rgba(255, 102, 102, 0.1); }
+.theme-devil-album-detail .spotify-local-button:hover { background-color: rgba(255, 102, 102, 0.3); border-color: #ff8888; color: #ff8888; }
+.theme-devil-album-detail .local-player-container.album-local-player { border-top-color: rgba(139, 0, 0, 0.3); }
+
+/* Angel */
+.theme-angel-album-detail {
+  background-color: rgba(230, 245, 255, 0.95);
+  border-color: rgba(173, 216, 230, 0.4);
+}
+.theme-angel-album-detail .album-name { color: #335577; }
+.theme-angel-album-detail .album-artists { color: #4682B4; }
+.theme-angel-album-detail .album-type, 
+.theme-angel-album-detail .album-release, 
+.theme-angel-album-detail .album-total-tracks { color: #5F9EA0; }
+.theme-angel-album-detail h4 { color: #4682B4; border-bottom-color: rgba(173, 216, 230, 0.5);}
+.theme-angel-album-detail .album-track-item:hover { background-color: rgba(173, 216, 230, 0.2); }
+.theme-angel-album-detail .track-number { color: #5F9EA0; }
+.theme-angel-album-detail .track-name { color: #335; }
+.theme-angel-album-detail .track-artists { color: #5a8db8; }
+.theme-angel-album-detail .play-track-button { border-color: #87CEEB; color: #4682B4; }
+.theme-angel-album-detail .play-track-button:hover { background-color: #87CEEB; border-color: #4682B4; color: #fff; }
+.theme-angel-album-detail .local-spotify-player-container { border-top-color: rgba(173, 216, 230, 0.5); }
+.theme-angel-album-detail .spotify-local-button { color: #64b5f6; border-color: #64b5f6; background-color: rgba(100, 181, 246, 0.1); }
+.theme-angel-album-detail .spotify-local-button:hover { background-color: rgba(100, 181, 246, 0.3); border-color: #81d4fa; color: #81d4fa; }
+.theme-angel-album-detail .local-player-container.album-local-player { border-top-color: rgba(173, 216, 230, 0.5); }
+
+/* Hannibal */
+.theme-hannibal-album-detail {
+  background-color: rgba(30, 35, 30, 0.9);
+  border-color: rgba(85, 107, 47, 0.4);
+}
+.theme-hannibal-album-detail .album-name { color: #D2B48C; font-family: 'Garamond', serif; }
+.theme-hannibal-album-detail .album-artists { color: #e8e0d5; font-family: 'Garamond', serif; }
+.theme-hannibal-album-detail .album-type, 
+.theme-hannibal-album-detail .album-release, 
+.theme-hannibal-album-detail .album-total-tracks { color: #8FBC8F; font-family: 'Garamond', serif; }
+.theme-hannibal-album-detail h4 { color: #D2B48C; border-bottom-color: rgba(85, 107, 47, 0.3); font-family: 'Garamond', serif;}
+.theme-hannibal-album-detail .album-track-item:hover { background-color: rgba(85, 107, 47, 0.2); }
+.theme-hannibal-album-detail .track-number { color: #8FBC8F; }
+.theme-hannibal-album-detail .track-name { color: #e8e0d5; font-family: 'Garamond', serif; }
+.theme-hannibal-album-detail .track-artists { color: #b8a58a; font-family: 'Garamond', serif; }
+.theme-hannibal-album-detail .play-track-button { border-color: #a8957a; color: #e8e0d5; }
+.theme-hannibal-album-detail .play-track-button:hover { background-color: #a8957a; border-color: #b8a58a; color: #14120f; }
+.theme-hannibal-album-detail .local-spotify-player-container { border-top-color: rgba(85, 107, 47, 0.3); }
+.theme-hannibal-album-detail .spotify-local-button { color: #8FBC8F; border-color: #8FBC8F; background-color: rgba(143, 188, 143, 0.1); }
+.theme-hannibal-album-detail .spotify-local-button:hover { background-color: rgba(143, 188, 143, 0.3); border-color: #98FB98; color: #98FB98; }
+.theme-hannibal-album-detail .local-player-container.album-local-player { border-top-color: rgba(85, 107, 47, 0.3); }
+
+.youtube-play-button {
+    /* Style for buttons in list view */
+    display: inline-flex; /* Use flex for icon+text */
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px; /* Adjust padding */
+    font-size: 0.85em; /* Adjust size */
+    width: auto; /* Allow button to size to content */
+    height: auto;
+    border-radius: 15px; /* Rounded corners */
+}
+
+.youtube-play-button .button-icon {
+    font-size: 1.2em; /* Adjust icon size relative to text */
+}
+
+/* Specific theme overrides if needed, maybe inherit from play-track-button */
+.theme-devil .youtube-play-button { /* Devil theme */ }
+.theme-angel .youtube-play-button { /* Angel theme */ }
+.theme-hannibal .youtube-play-button { /* Hannibal theme */ } 
+
+/* --- Animations & Accessibility Enhancements --- */
+.button-base,
+.album-action-btn {
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.button-base:focus-visible,
+.album-action-btn:focus-visible {
+  box-shadow: 0 0 0 3px #ff9800aa, 0 1px 4px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+.button-base:active,
+.album-action-btn:active {
+  transform: scale(0.97);
+  background-color: #6d1a1a;
+}
+.button-base::after,
+.album-action-btn::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0) translate(-50%,-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s, opacity 0.5s;
+}
+.button-base:active::after,
+.album-action-btn:active::after {
+  transform: scale(1.5) translate(-50%,-50%);
+  opacity: 1;
+  transition: 0s;
+}
+.button-base svg,
+.album-action-btn svg {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  fill: currentColor;
+  pointer-events: none;
+}
+.button-base,
+.album-action-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* --- Enhanced Button & Bar Styles (from App.css) --- */
+.button-base,
+.album-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #8B0000;
+  color: #eee;
+  transition: all 0.2s;
+  user-select: none;
+}
+.button-base:hover,
+.album-action-btn:hover {
+  background-color: #A52A2A;
+  border-color: #A52A2A;
+  transform: scale(1.03);
+}
+.theme-devil .button-base,
+.theme-devil .album-action-btn {
+  background-color: #b30000;
+  color: #fff;
+}
+.theme-angel .button-base,
+.theme-angel .album-action-btn {
+  background-color: #e0f7fa;
+  color: #222;
+  border-color: #b2ebf2;
+}
+.theme-hannibal .button-base,
+.theme-hannibal .album-action-btn {
+  background-color: #4b2e09;
+  color: #ffe0b2;
+  border-color: #8d5524;
+}
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .album-detail-container { padding: 10px; }
+  .album-action-btn { font-size: 0.85rem; padding: 8px 12px; }
+}
+@media (max-width: 480px) {
+  .album-action-btn { font-size: 0.8rem; padding: 7px 10px; }
+}
+
+@media (max-width: 768px) {
+    .album-header {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .album-cover-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .album-name {
+        font-size: 2rem;
+    }
+
+    .album-artist-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+  .album-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0.5em;
+  }
+  .album-cover-image {
+    width: 80vw;
+    max-width: 300px;
+    margin-bottom: 18px;
+  }
+  .album-info-and-player {
+    width: 100%;
+    align-items: center;
+    padding: 0;
+  }
+  .album-text-info {
+    text-align: center;
+    padding: 0.5em 0;
+  }
+  .album-artist-buttons {
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+  }
+  .album-tracks-list {
+    padding: 0 0.5em;
+  }
+}
+@media (max-width: 480px) {
+  .album-header {
+    padding: 0 0.1em;
+  }
+  .album-cover-image {
+    width: 96vw;
+    max-width: 180px;
+  }
+  .album-type, .album-name, .album-artists, .album-release, .album-total-tracks {
+    font-size: 0.98em;
+  }
+  .album-tracks-list {
+    padding: 0 0.1em;
+  }
+  .back-button {
+    font-size: 0.95em;
+    padding: 10px 8px;
+  }
+}
+
+/* --- Theme-aware and Mobile-friendly Back Button --- */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--theme-btn-bg, #444);
+  color: var(--theme-accent, #fff);
+  border: none;
+  border-radius: 1.5em;
+  padding: 12px 22px;
+  font-size: 1.08em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  margin-bottom: 18px;
+}
+.back-button:hover, .back-button:focus {
+  background: var(--theme-btn-hover, #666);
+  color: var(--theme-accent-hover, #fff);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+}
+.theme-devil .back-button {
+  background: linear-gradient(135deg, #800000, #500);
+  color: #ffcccc;
+}
+.theme-devil .back-button:hover, .theme-devil .back-button:focus {
+  background: #b22222;
+  color: #fff;
+}
+.theme-angel .back-button {
+  background: linear-gradient(135deg, #e3f0fa, #cfe2f3);
+  color: #1976d2;
+}
+.theme-angel .back-button:hover, .theme-angel .back-button:focus {
+  background: #aee7ff;
+  color: #4682b4;
+}
+.theme-hannibal .back-button {
+  background: linear-gradient(135deg, #23281e, #2c3224);
+  color: #b2df28;
+}
+.theme-hannibal .back-button:hover, .theme-hannibal .back-button:focus {
+  background: #6b8e23;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .back-button {
+    padding: 12px 14px;
+    font-size: 1em;
+    min-width: 44px;
+    min-height: 38px;
+  }
+}
+
+.artist-button, .album-artist-name, .track-artist-name.clickable, .clickable-album-art, .clickable-album-name {
+  color: var(--theme-accent, #1976d2);
+  cursor: pointer;
+  transition: color 0.18s, text-decoration 0.18s;
+}
+.artist-button:hover, .album-artist-name:hover, .track-artist-name.clickable:hover, .clickable-album-art:hover, .clickable-album-name:hover {
+  color: var(--theme-btn-hover, #b22222);
+  text-decoration: underline;
+}
+.theme-devil .artist-button, .theme-devil .album-artist-name, .theme-devil .track-artist-name.clickable {
+  color: #ff6666;
+}
+.theme-devil .artist-button:hover, .theme-devil .album-artist-name:hover, .theme-devil .track-artist-name.clickable:hover {
+  color: #ff2222;
+}
+.theme-angel .artist-button, .theme-angel .album-artist-name, .theme-angel .track-artist-name.clickable {
+  color: #1976d2;
+}
+.theme-angel .artist-button:hover, .theme-angel .album-artist-name:hover, .theme-angel .track-artist-name.clickable:hover {
+  color: #5a8db8;
+}
+.theme-hannibal .artist-button, .theme-hannibal .album-artist-name, .theme-hannibal .track-artist-name.clickable {
+  color: #b2df28;
+}
+.theme-hannibal .artist-button:hover, .theme-hannibal .album-artist-name:hover, .theme-hannibal .track-artist-name.clickable:hover {
+  color: #a8957a;
+}
+@media (max-width: 600px) {
+  .artist-button {
+    font-size: 0.98em;
+    padding: 10px 10px;
+    border-radius: 1em;
+  }
+  .album-artist-name, .track-artist-name.clickable {
+    font-size: 0.98em;
+  }
+}

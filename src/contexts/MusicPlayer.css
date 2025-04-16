@@ -1,0 +1,321 @@
+/* Container for any hoverable element like a track card or player */
+.hover-reveal-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Button that starts hidden */
+.hover-reveal-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+/* Reveal on hover */
+.hover-reveal-container:hover .hover-reveal-button {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Optional: disabled style */
+.hover-reveal-button:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- Enhanced Music Player Styles --- */
+.music-player-container {
+  background: linear-gradient(135deg, #181818 60%, #222 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 1.5px 8px rgba(30,30,50,0.12);
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  margin: 1.5rem auto 0 auto;
+  max-width: 540px;
+  position: relative;
+  transition: box-shadow 0.25s, background 0.25s;
+}
+
+.youtube-player-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  background: #111;
+}
+
+.youtube-iframe {
+  border-radius: 12px;
+  width: 100%;
+  min-height: 220px;
+}
+
+.music-player-container .player-hover-button,
+.spotify-player-container .player-hover-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  background: linear-gradient(135deg, #1db954 60%, #191414 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(30,30,30,0.15);
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+  transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.music-player-container .player-hover-button .fab,
+.spotify-player-container .player-hover-button .fab {
+  font-size: 1.2em;
+}
+
+.music-player-container .player-hover-button .fa-spotify,
+.spotify-player-container .player-hover-button .fa-spotify {
+  color: #1db954;
+}
+
+.music-player-container .player-hover-button .fa-youtube,
+.spotify-player-container .player-hover-button .fa-youtube {
+  color: #ff0000;
+}
+
+.music-player-container .player-hover-button:hover,
+.spotify-player-container .player-hover-button:hover {
+  background: linear-gradient(135deg, #1ed760 80%, #191414 100%);
+  box-shadow: 0 4px 16px rgba(30,30,30,0.21);
+  opacity: 1;
+}
+
+.spotify-player-container {
+  background: linear-gradient(135deg, #222 60%, #191414 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 1.5px 8px rgba(30,30,50,0.12);
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  margin: 1.5rem auto 0 auto;
+  max-width: 540px;
+  position: relative;
+  transition: box-shadow 0.25s, background 0.25s;
+}
+
+.spotify-iframe {
+  border-radius: 12px;
+  width: 100%;
+  min-height: 80px;
+  border: none;
+}
+
+/* === THEME ENHANCEMENTS FOR MUSIC PLAYER === */
+.theme-devil .music-player {
+  background: rgba(35,10,10,0.98);
+  border: 1.5px solid #cc0000;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(255,0,0,0.11);
+}
+.theme-angel .music-player {
+  background: rgba(255,255,255,0.98);
+  border: 1.5px solid #aee7ff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(142,197,252,0.11);
+}
+.theme-hannibal .music-player {
+  background: rgba(25,30,25,0.98);
+  border: 1.5px solid #6B8E23;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px rgba(139,69,19,0.11);
+}
+
+.music-player {
+  padding: 16px 12px;
+  margin: 0 auto;
+  max-width: 420px;
+  transition: background 0.3s, border 0.3s;
+}
+
+.music-player-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.music-player-track-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.theme-devil .music-player-track-title {
+  color: #ff4444;
+}
+.theme-angel .music-player-track-title {
+  color: #4682B4;
+}
+.theme-hannibal .music-player-track-title {
+  color: #D2B48C;
+}
+
+.music-player-progress {
+  width: 100%;
+  height: 6px;
+  background: #eee3;
+  border-radius: 3px;
+  margin: 14px 0;
+  position: relative;
+}
+.theme-devil .music-player-progress {
+  background: #cc0000;
+}
+.theme-angel .music-player-progress {
+  background: #aee7ff;
+}
+.theme-hannibal .music-player-progress {
+  background: #6B8E23;
+}
+
+/* --- Enhanced Player Button & Controls Styles (from App.css) --- */
+.button-base,
+.player-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #8B0000;
+  color: #eee;
+  transition: all 0.2s;
+  user-select: none;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.button-base:hover,
+.player-btn:hover {
+  background-color: #A52A2A;
+  border-color: #A52A2A;
+  transform: scale(1.03);
+}
+.button-base:focus-visible,
+.player-btn:focus-visible {
+  box-shadow: 0 0 0 3px #ff9800aa, 0 1px 4px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+.button-base:active,
+.player-btn:active {
+  transform: scale(0.97);
+  background-color: #6d1a1a;
+}
+.button-base::after,
+.player-btn::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0) translate(-50%,-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s, opacity 0.5s;
+}
+.button-base:active::after,
+.player-btn:active::after {
+  transform: scale(1.5) translate(-50%,-50%);
+  opacity: 1;
+  transition: 0s;
+}
+.button-base svg,
+.player-btn svg {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  fill: currentColor;
+  pointer-events: none;
+}
+.button-base,
+.player-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+.theme-devil .button-base,
+.theme-devil .player-btn {
+  background-color: #b30000;
+  color: #fff;
+}
+.theme-angel .button-base,
+.theme-angel .player-btn {
+  background-color: #e0f7fa;
+  color: #222;
+  border-color: #b2ebf2;
+}
+.theme-hannibal .button-base,
+.theme-hannibal .player-btn {
+  background-color: #4b2e09;
+  color: #ffe0b2;
+  border-color: #8d5524;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .player-btn { font-size: 0.85rem; padding: 8px 12px; }
+}
+@media (max-width: 480px) {
+  .player-btn { font-size: 0.8rem; padding: 7px 10px; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .music-player-container,
+  .spotify-player-container {
+    max-width: 98vw;
+    padding: 0.5rem 0.2rem;
+  }
+  .youtube-iframe {
+    min-height: 160px;
+  }
+  .music-player-container .player-hover-button,
+  .spotify-player-container .player-hover-button {
+    top: 8px;
+    right: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
+  .music-player {
+    padding: 8px 2px;
+    max-width: 100%;
+  }
+  .music-player-track-title {
+    font-size: 1em;
+  }
+}

@@ -204,6 +204,7 @@ h2 {
 
 /* Search Section */
 .search-section {
+  justify-content: center;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
   border-radius: 8px;
@@ -216,11 +217,15 @@ h2 {
 .search-controls-container {
   display: flex;
   align-items: center; /* Vertically center items */
-  gap: 10px; 
-  margin-bottom: 20px; 
-  justify-content: flex-start; /* Align items to the start */
-  position: relative; /* Keep for instant results positioning */
-  z-index: 1001; /* Ensure this container is above other page elements */
+  justify-content: center; /* Center the controls */
+  gap: 16px; /* default gap */
+  margin-bottom: 20px;
+  position: relative; /* Needed for potential absolute positioning of elements */
+  z-index: 1001;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Ensure search input container takes up available space */
@@ -228,14 +233,14 @@ h2 {
   position: relative;
   display: flex; /* Use flex for internal alignment if needed */
   flex-grow: 1; /* Allow container to grow and take up space */
-  /* border: 2px solid red; */ /* REMOVED TEMPORARY DEBUG BORDER */
+  justify-content: center;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1), max-width 0.4s cubic-bezier(0.4,0,0.2,1);
+  width: 350px;
+  max-width: 100%;
 }
 
-/* Adjust filter toggle button margin if needed (handled by gap now) */
-.filter-toggle-button {
-  margin-left: 0; 
-  flex-shrink: 0; /* Prevent button from shrinking */
-  align-self: center; 
+.search-input-container.expanded {
+  width: 525px; /* 1.5x expansion */
 }
 
 #search-input {
@@ -248,9 +253,10 @@ h2 {
   color: #eee;
   outline: none;
   /* Transition only visual styles */
-  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-  width: 100%; /* Input fills its container */
-  flex-shrink: 1; /* Allow input to shrink if needed, though flex-grow on parent helps */
+  transition: background-color 0.4s, border-color 0.4s, box-shadow 0.4s, width 0.4s cubic-bezier(0.4,0,0.2,1);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Only visual styles change on input focus */
@@ -258,7 +264,6 @@ h2 {
   background-color: rgba(20, 20, 20, 0.8);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  /* NO width/max-width changes on focus */
 }
 
 #search-input::placeholder {
@@ -858,7 +863,7 @@ h2 {
 }
 
 .play-btn:hover {
-  transform: scale(1.1); /* Add hover effect */
+  transform: scale(1.5); /* Add hover effect */
 }
 
 /* ... existing styles ... */
@@ -869,20 +874,23 @@ h2 {
   display: flex;
   align-items: center; /* Align items vertically */
   justify-content: center; /* Center the controls */
-  gap: 10px;
+  gap: 16px; /* default gap */
   margin-bottom: 20px;
   position: relative; /* Needed for potential absolute positioning of elements */
   z-index: 1001;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-input-container {
   flex-grow: 1; /* ENSURE THIS IS UNCOMMENTED AND PRESENT */
   position: relative;
   display: flex; /* Keep flex to manage input width */
-  transition: width 0.4s ease, max-width 0.4s ease; /* Adjust transition */
-  /* Limit the max width of the input container itself, not just the input */
-  max-width: 500px; /* Adjust as needed for desktop */
-  /* border: 2px solid red; */ /* REMOVED TEMPORARY DEBUG BORDER */
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1), max-width 0.4s cubic-bezier(0.4,0,0.2,1);
+  width: 350px;
+  max-width: 100%;
 }
 
 #search-input {
@@ -894,7 +902,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.5);
   color: #eee;
   outline: none;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   width: 100%; /* Input takes width of container */
   max-width: 400px; /* Initial max-width on desktop */
   flex-shrink: 0;
@@ -961,11 +969,6 @@ h2 {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-}
-
-.filtered-header .section-title {
-  margin-right: 20px;
-  margin-bottom: 10px;
 }
 
 .filter-active-indicators {
@@ -1223,9 +1226,8 @@ h2 {
 
 /* Theme-specific styling for indicator */
 .theme-devil .sliding-tabs .tab-indicator {
-  background: linear-gradient(135deg, #ff5e62, #cc0000);
-  box-shadow: 0 2px 12px rgba(255, 94, 98, 0.5),
-              0 0 15px rgba(200, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ff4444, #8B0000);
+  box-shadow: 0 2px 12px rgba(255, 50, 50, 0.6), 0 0 15px rgba(200, 0, 0, 0.3);
 }
 .theme-devil .sliding-tabs .tab-button.active {
   color: #fff; /* Ensure contrast */
@@ -2347,7 +2349,7 @@ h2 {
 /* Media items enhancement */
 .theme-hannibal .media-item.hovered {
   border: 3px solid var(--hannibal-bronze);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 20px rgba(139, 69, 19, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(139, 69, 19, 0.3);
 }
 
 /* ... Existing styles ... */

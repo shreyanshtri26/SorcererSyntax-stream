@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import {
   getTrendingMovies,
   getTrendingTVShows,
@@ -11,17 +11,19 @@ import {
   discoverMedia,
   getVideos,
   IMAGE_BASE_URL
-} from './api';
-import PlayerModal from './PlayerModal';
-import Header from './Header';
-import InstantSearchResults from './InstantSearchResults';
-import PersonDetailsModal from './PersonDetailsModal';
+} from './api/api';
+import PlayerModal from './contexts/PlayerModal';
+import Header from './contexts/Header';
+import InstantSearchResults from './context/InstantSearchResults';
+import PersonDetailsModal from './contexts/PersonDetailsModal';
 import './App.css';
-import filterIcon from './assets/filter-icon.svg';
-import devilIcon from './assets/devil-icon.svg';
-import angelIcon from './assets/angel-icon.svg';
-import hannibalIcon from './assets/hannibal-icon.svg';
+import filterIcon from './contexts/assets/filter-icon.svg';
+import devilIcon from './contexts/assets/devil-icon.svg';
+import angelIcon from './contexts/assets/angel-icon.svg';
+import hannibalIcon from './contexts/assets/hannibal-icon.svg';
 import { AnimatePresence, motion } from 'framer-motion';
+import MusicHub from './contexts/MusicHub';
+import { usePlayer } from './context/PlayerContext'; // Import usePlayer hook
 
 // --- Debounce Utility ---
 function debounce(func, wait) {
@@ -32,7 +34,9 @@ function debounce(func, wait) {
       clearTimeout(timeout);
       func(...args);
     };
-    clearTimeout(timeout);
+    if (timeout) {
+      clearTimeout(timeout);
+    }
     timeout = setTimeout(later, wait);
   };
 
@@ -435,6 +439,15 @@ function App() {
   const [isPlayerModalOpen, setIsPlayerModalOpen] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
 
+  // --- NEW: State for Active Section (Media vs Music) ---
+  const [activeSection, setActiveSection] = useState('media'); 
+
+  // Reference to the MusicHub component for accessing its methods
+  const musicHubRef = useRef(null);
+
+  // --- MusicHub navigation stack preservation state ---
+  const [musicNavStackState, setMusicNavStackState] = useState(null);
+
   const handleThemeChange = (themeName) => {
     setCurrentTheme(themeName);
     console.log(`Global theme changed to: ${themeName}`);
@@ -553,6 +566,8 @@ function App() {
     [VITE_API_KEY] // Add API key as dependency for useCallback
   );
 
+  const [searchFocused, setSearchFocused] = useState(false);
+
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
@@ -570,11 +585,13 @@ function App() {
     if (searchQuery.length >= 3 && instantResults.length > 0) {
        setShowInstantResults(true);
     }
+    setSearchFocused(true);
   };
 
   const handleSearchBlur = () => {
     setTimeout(() => {
         setShowInstantResults(false);
+        setSearchFocused(false);
     }, 150);
   };
 
@@ -771,6 +788,8 @@ function App() {
     setIsPersonModalOpen(false);
     setSelectedPerson(null);
     window.scrollTo(0, 0);
+    // Also reset section to media when title is clicked
+    setActiveSection('media');
   };
 
   const handleInstantResultClick = (item) => {
@@ -851,7 +870,8 @@ function App() {
     }
   };
   
-  // *** NEW: Tab Change Handler ***
+  // *** NEW: Filter Tab Change Handler *** - RENAME? This is for filter results (Movies/TV)
+  // Let's keep the name handleTabChange for now, but note its purpose
   const handleTabChange = (tab) => {
     setActiveFilterTab(tab);
     // Reset the page number of the *other* tab when switching?
@@ -1053,372 +1073,438 @@ function App() {
     }
   };
 
-  // Add console logs before the return statement for debugging
-  console.log("[App Render] showInstantResults:", showInstantResults);
-  console.log("[App Render] instantResults:", instantResults);
+  // --- NEW: Handler for Section Change ---
+  const handleSectionChange = (section) => {
+    setActiveSection(section);
+    // Optional: Reset states when switching sections if needed
+    // e.g., clear search, filters, close modals etc.
+    setSearchQuery('');
+    setInstantResults([]);
+    setShowInstantResults(false);
+    setIsFilteredSearch(false);
+    closeModal(); // Close any open media/person modals
+  };
 
   return (
     <div className={`App theme-${currentTheme}`}>
-      <Header 
-        onTitleClick={handleTitleClick} 
-        currentTheme={currentTheme} 
-        onThemeChange={handleThemeChange} 
-      />
+      <Suspense fallback={<div className="loading-text">Loading Header...</div>}>
+         <Header
+           onTitleClick={handleTitleClick}
+           currentTheme={currentTheme}
+           onThemeChange={handleThemeChange}
+         />
+      </Suspense>
 
-      {/* Conditionally render the search section only when no modal is open */}
-      {!isPlayerModalOpen && !isPersonModalOpen && (
-        <div className="search-section">
-          {/* --- Container for Search Input and Filter Button --- */}
-          <div className="search-controls-container">
-            {/* Instant Search Input Area */}
-            <div className="search-input-container">
-               <input
-                 type="text"
-                 id="search-input"
-                 placeholder="Search Movies, TV Shows, People..."
-                 value={searchQuery}
-                 onChange={handleSearchInputChange}
-                 onFocus={handleSearchFocus}
-                 onBlur={handleSearchBlur}
-                 autoComplete="off"
-               />
-               {/* MOVED InstantSearchResults BACK INSIDE input container for precise alignment */}
-               {showInstantResults && (
-                  <InstantSearchResults
-                     results={instantResults}
-                     isLoading={isInstantLoading}
-                     onSelectItem={handleInstantResultClick}
-                     imageBaseUrl={IMAGE_BASE_URL}
-                  />
-               )}
+      {/* --- NEW: Section Navigation Slider --- */}
+      {!isPlayerModalOpen && !isPersonModalOpen && ( // Only show navigator when no modal is open
+        <div className="section-navigator-container"> {/* Optional container for spacing */}
+          <div className="sliding-tabs-container">
+            <div className="sliding-tabs">
+              <div
+                className="tab-indicator"
+                style={{
+                  left: activeSection === 'media' ? '2px' : 'calc(50% - 2px)',
+                  width: 'calc(50% - 4px)'
+                }}
+              ></div>
+              <button
+                className={`tab-button ${activeSection === 'media' ? 'active' : ''}`}
+                onClick={() => handleSectionChange('media')}
+              >
+                Media
+              </button>
+              <button
+                className={`tab-button ${activeSection === 'music' ? 'active' : ''}`}
+                onClick={() => handleSectionChange('music')}
+              >
+                Music
+              </button>
             </div>
-            {/* InstantSearchResults is no longer a sibling */}
-
-            {/* Filter Toggle Button */}
-            <button
-              type="button"
-              onClick={() => setShowFilters(!showFilters)}
-              className={`filter-toggle-button ${showFilters ? 'active' : ''}`}
-              aria-label={showFilters ? 'Hide Filters' : 'Show Filters'}
-              title={showFilters ? 'Hide Filters' : 'Show Filters'}
-            >
-              <img src={filterIcon} alt="Filter" />
-            </button>
-          </div> {/* End search-controls-container */}
-  
-          {/* --- Updated Filter Form --- */}
-          {showFilters && (
-            <form onSubmit={handleApplyFilters} className="filter-form">
-              <div className="filter-controls">
-                <div className="filter-group filter-group-scrollable">
-                  <label htmlFor="genre-search">Genre(s):</label>
-                    <input
-                      type="text"
-                      id="genre-search"
-                      name="genreSearch"
-                      placeholder="Search genres..."
-                      value={genreSearch}
-                      onChange={handleGenreSearchChange}
-                      className="filter-search-input"
-                    />
-                  <ul className="clickable-filter-list genre-list">
-                    {displayedGenres.map(genre => {
-                      const isSelected = filters.genres.includes(genre.id.toString());
-                      return (
-                        <li key={genre.id}>
-                          <button 
-                            type="button" 
-                            className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
-                            onClick={() => handleGenreToggle(genre.id)}
-                          >
-                            {genre.name}
-                          </button>
-                        </li>
-                      );
-                    })}
-                    {displayedGenres.length === 0 && <li className="no-results-message">No matching genres</li>}
-                  </ul>
-                </div>
-
-                <div className="filter-group">
-                  <label htmlFor="rating">Min Rating (0-10):</label>
-                  <div className="rating-input-container">
-                    <input
-                      type="number"
-                      id="rating"
-                      name="rating"
-                      min="0"
-                      max="10"
-                      step="0.1"
-                      value={filters.rating}
-                      onChange={handleFilterInputChange}
-                      className="rating-number-input"
-                    />
-                    <div className="rating-arrows">
-                      <button 
-                        type="button" 
-                        className="rating-arrow up" 
-                        onClick={handleRatingIncrement}
-                        aria-label="Increase rating by 0.1"
-                      >
-                        ▲
-                      </button>
-                      <button 
-                        type="button" 
-                        className="rating-arrow down" 
-                        onClick={handleRatingDecrement}
-                        aria-label="Decrease rating by 0.1"
-                      >
-                        ▼
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="filter-group filter-group-scrollable">
-                  <label htmlFor="language-search">Language(s):</label>
-                    <input
-                      type="text"
-                      id="language-search"
-                      name="languageSearch"
-                      placeholder="Search languages..."
-                      value={languageSearch}
-                      onChange={handleLanguageSearchChange}
-                      className="filter-search-input"
-                    />
-                  <ul className="clickable-filter-list language-list">
-                     {displayedLanguages.map(lang => {
-                       const isSelected = filters.languages.includes(lang.iso_639_1);
-                       return (
-                         <li key={lang.iso_639_1}>
-                           <button 
-                             type="button" 
-                             className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
-                             onClick={() => handleLanguageToggle(lang.iso_639_1)}
-                           >
-                            {lang.english_name}
-                           </button>
-                         </li>
-                       );
-                     })}
-                     {displayedLanguages.length === 0 && <li className="no-results-message">No matching languages</li>}
-                  </ul>
-                </div>
-              </div>
-              <div className="filter-actions">
-                <button type="submit" className="apply-filters-button">Apply Filters</button>
-                <button type="button" onClick={handleClearFilters} className="clear-filters-button">Clear Filters</button>
-              </div>
-            </form>
-          )}
-  
-          {/* Loading Indicator */}
-          {isFilterLoading && <p className="loading-text">Loading filtered results...</p>}
-          
-          {/* Filtered Results Area */}
-          {!isFilterLoading && isFilteredSearch && (
-             <div id="filtered-results" className="discovery-results-container">
-               <div className="filtered-header">
-                 <h2 className="section-title">{getSectionTitle("Filtered Results")}</h2>
-                 
-                 {/* Active Filter Tags */}
-                 <div className="filter-active-indicators">
-                   {filters.genres.length > 0 && (
-                     <>
-                       <span className="filter-tag-title">Genres:</span>
-                       {filters.genres.map(genreId => {
-                         const genre = (activeFilterTab === 'movie' ? movieGenres : tvGenres)
-                           .find(g => g.id.toString() === genreId);
-                         return genre && (
-                           <div className="filter-tag" key={`genre-${genreId}`}>
-                             {genre.name}
-                             <button 
-                               className="remove-tag" 
-                               onClick={() => removeGenreFilter(genreId)}
-                               aria-label={`Remove ${genre.name} filter`}
-                             >
-                               ×
-                             </button>
-                           </div>
-                         );
-                       })}
-                     </>
-                   )}
-                   
-                   {filters.rating && (
-                     <div className="filter-tag">
-                       <span className="filter-tag-title">Min Rating:</span> 
-                       {filters.rating}
-                       <button 
-                         className="remove-tag" 
-                         onClick={() => setFilters(prev => ({...prev, rating: ''}))}
-                         aria-label="Remove rating filter"
-                       >
-                         ×
-                       </button>
-                     </div>
-                   )}
-                   
-                   {filters.languages.length > 0 && (
-                     <>
-                       <span className="filter-tag-title">Languages:</span>
-                       {filters.languages.map(langCode => {
-                         const language = languages.find(l => l.iso_639_1 === langCode);
-                         return language && (
-                           <div className="filter-tag" key={`lang-${langCode}`}>
-                             {language.english_name}
-                             <button 
-                               className="remove-tag"
-                               onClick={() => setFilters(prev => ({
-                                 ...prev, 
-                                 languages: prev.languages.filter(code => code !== langCode)
-                               }))}
-                               aria-label={`Remove ${language.english_name} filter`}
-                             >
-                               ×
-                             </button>
-                           </div>
-                         );
-                       })}
-                     </>
-                   )}
-                 </div>
-               </div>
-               
-               {/* Controls Bar with Sorting and Tabs */}
-               <div className="controls-bar">
-                 {/* Sort Dropdown */}
-                 <div className="sort-control">
-                    <label htmlFor="sort-by">Sort By:</label>
-                    <select 
-                      id="sort-by"
-                      name="sortOption"
-                      value={sortOption}
-                      onChange={handleSortChange} 
-                      className="sort-select"
-                    >
-                      <option value="popularity.desc">Popularity</option>
-                      <option value="vote_average.desc">Rating</option>
-                      <option value="release_date.desc">Latest</option>
-                    </select>
-                 </div>
-                 
-                 {/* Tab Navigation */}
-                 <div className="sliding-tabs-container">
-                    <div className="sliding-tabs">
-                      <div
-                         className="tab-indicator"
-                         style={{
-                           left: activeFilterTab === 'movie' ? '2px' : 'calc(50% - 2px)', // Adjust for padding
-                           width: 'calc(50% - 4px)' // Adjust for padding
-                         }}
-                       ></div>
-                       <button
-                         className={`tab-button ${activeFilterTab === 'movie' ? 'active' : ''}`}
-                         onClick={() => handleTabChange('movie')}
-                       >
-                         Movies
-                       </button>
-                       <button
-                         className={`tab-button ${activeFilterTab === 'tv' ? 'active' : ''}`}
-                         onClick={() => handleTabChange('tv')}
-                       >
-                         TV Shows
-                       </button>
-                    </div>
-                 </div>
-               </div> {/* End controls-bar */}
-
-               {/* Content based on active tab */} 
-               <div className="tab-content">
-                 {activeFilterTab === 'movie' && (
-                   <>
-                     <MediaGrid 
-                       items={filteredMovieResults} 
-                       type="movie" 
-                       onMediaClick={handleMediaClick} 
-                     />
-                     {filteredMovieResults.length > 0 && (
-                       <Pagination 
-                         currentPage={filterMovieCurrentPage} 
-                         totalPages={filterMovieTotalPages} 
-                         onPageChange={handleFilterPageChange} 
-                       />
-                     )}
-                   </>
-                 )}
-                 {activeFilterTab === 'tv' && (
-                   <>
-                     <MediaGrid 
-                       items={filteredTvResults} 
-                       type="tv" 
-                       onMediaClick={handleMediaClick} 
-                     />
-                     {filteredTvResults.length > 0 && (
-                       <Pagination 
-                         currentPage={filterTvCurrentPage} 
-                         totalPages={filterTvTotalPages} 
-                         onPageChange={handleFilterPageChange} 
-                       />
-                     )}
-                   </>
-                 )}
-               </div>
-            </div>
-          )}
+          </div>
         </div>
       )}
-      {/* End of conditional rendering for search section */}
 
-      {!searchQuery && !isFilteredSearch && !isLoading && !isPlayerModalOpen && !isPersonModalOpen && (
+      {/* --- Conditionally Render MEDIA Section --- */}
+      {activeSection === 'media' && !isPlayerModalOpen && !isPersonModalOpen && (
         <>
-          <div id="trending-movies">
-            <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
-            <MediaGrid items={trendingMovies} type="movie" onMediaClick={handleMediaClick} />
-          </div>
+          {/* Conditionally render the search section only when no modal is open */}
+          {/* MODIFIED: Moved condition inside this block */}
+          {/* {!isPlayerModalOpen && !isPersonModalOpen && ( */} 
+            <div className="search-section">
+              {/* --- Container for Search Input and Filter Button --- */}
+              <div className={`search-controls-container${searchFocused ? ' expanded' : ''}`}>
+                 {/* Instant Search Input Area */}
+                 <div className={`search-input-container${searchFocused ? ' expanded' : ''}`}>
+                    <input
+                      type="text"
+                      id="search-input"
+                      placeholder="Search Movies, TV Shows, People..."
+                      value={searchQuery}
+                      onChange={handleSearchInputChange}
+                      onFocus={handleSearchFocus}
+                      onBlur={handleSearchBlur}
+                      autoComplete="off"
+                    />
+                    {/* MOVED InstantSearchResults BACK INSIDE input container for precise alignment */}
+                    {showInstantResults && (
+                       <Suspense fallback={<div className="loading-text instant-loading">Loading results...</div>}>
+                          <InstantSearchResults
+                             results={instantResults}
+                             isLoading={isInstantLoading}
+                             onSelectItem={handleInstantResultClick}
+                             imageBaseUrl={IMAGE_BASE_URL}
+                          />
+                       </Suspense>
+                    )}
+                 </div>
+                 {/* InstantSearchResults is no longer a sibling */}
 
-          <div id="trending-tv">
-            <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
-            <MediaGrid items={trendingTV} type="tv" onMediaClick={handleMediaClick} />
-          </div>
+                 {/* Filter Toggle Button */}
+                 <button
+                   type="button"
+                   onClick={() => setShowFilters(!showFilters)}
+                   className={`filter-toggle-button ${showFilters ? 'active' : ''}`}
+                   aria-label={showFilters ? 'Hide Filters' : 'Show Filters'}
+                   title={showFilters ? 'Hide Filters' : 'Show Filters'}
+                 >
+                   <img src={filterIcon} alt="Filter" />
+                 </button>
+               </div> {/* End search-controls-container */}
+      
+              {/* --- Updated Filter Form --- */}
+              {showFilters && (
+                <form onSubmit={handleApplyFilters} className="filter-form">
+                  <div className="filter-controls">
+                    <div className="filter-group filter-group-scrollable">
+                      <label htmlFor="genre-search">Genre(s):</label>
+                        <input
+                          type="text"
+                          id="genre-search"
+                          name="genreSearch"
+                          placeholder="Search genres..."
+                          value={genreSearch}
+                          onChange={handleGenreSearchChange}
+                          className="filter-search-input"
+                        />
+                      <ul className="clickable-filter-list genre-list">
+                        {displayedGenres.map(genre => {
+                          const isSelected = filters.genres.includes(genre.id.toString());
+                          return (
+                            <li key={genre.id}>
+                              <button 
+                                type="button" 
+                                className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
+                                onClick={() => handleGenreToggle(genre.id)}
+                              >
+                                {genre.name}
+                              </button>
+                            </li>
+                          );
+                        })}
+                        {displayedGenres.length === 0 && <li className="no-results-message">No matching genres</li>}
+                      </ul>
+                    </div>
 
-          <div id="top-movies">
-            <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
-            <MediaGrid items={topMovies} type="movie" onMediaClick={handleMediaClick} />
-          </div>
+                    <div className="filter-group">
+                      <label htmlFor="rating">Min Rating (0-10):</label>
+                      <div className="rating-input-container">
+                        <input
+                          type="number"
+                          id="rating"
+                          name="rating"
+                          min="0"
+                          max="10"
+                          step="0.1"
+                          value={filters.rating}
+                          onChange={handleFilterInputChange}
+                          className="rating-number-input"
+                        />
+                        <div className="rating-arrows">
+                          <button 
+                            type="button" 
+                            className="rating-arrow up" 
+                            onClick={handleRatingIncrement}
+                            aria-label="Increase rating by 0.1"
+                          >
+                            ▲
+                          </button>
+                          <button 
+                            type="button" 
+                            className="rating-arrow down" 
+                            onClick={handleRatingDecrement}
+                            aria-label="Decrease rating by 0.1"
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
-          <div id="top-tv">
-            <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
-            <MediaGrid items={topTV} type="tv" onMediaClick={handleMediaClick} />
-          </div>
+                    <div className="filter-group filter-group-scrollable">
+                      <label htmlFor="language-search">Language(s):</label>
+                        <input
+                          type="text"
+                          id="language-search"
+                          name="languageSearch"
+                          placeholder="Search languages..."
+                          value={languageSearch}
+                          onChange={handleLanguageSearchChange}
+                          className="filter-search-input"
+                        />
+                      <ul className="clickable-filter-list language-list">
+                         {displayedLanguages.map(lang => {
+                           const isSelected = filters.languages.includes(lang.iso_639_1);
+                           return (
+                             <li key={lang.iso_639_1}>
+                               <button 
+                                 type="button" 
+                                 className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
+                                 onClick={() => handleLanguageToggle(lang.iso_639_1)}
+                               >
+                                {lang.english_name}
+                               </button>
+                             </li>
+                           );
+                         })}
+                         {displayedLanguages.length === 0 && <li className="no-results-message">No matching languages</li>}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="filter-actions">
+                    <button type="submit" className="apply-filters-button">Apply Filters</button>
+                    <button type="button" onClick={handleClearFilters} className="clear-filters-button">Clear Filters</button>
+                  </div>
+                </form>
+              )}
+      
+              {/* Loading Indicator */}
+              {isFilterLoading && <p className="loading-text">Loading filtered results...</p>}
+              
+              {/* Filtered Results Area */}
+              {!isFilterLoading && isFilteredSearch && (
+                 <div id="filtered-results" className="discovery-results-container">
+                   <div className="filtered-header">
+                     <h2 className="section-title">{getSectionTitle("Filtered Results")}</h2>
+                     
+                     {/* Active Filter Tags */}
+                     <div className="filter-active-indicators">
+                       {filters.genres.length > 0 && (
+                         <>
+                           <span className="filter-tag-title">Genres:</span>
+                           {filters.genres.map(genreId => {
+                             const genre = (activeFilterTab === 'movie' ? movieGenres : tvGenres)
+                               .find(g => g.id.toString() === genreId);
+                             return genre && (
+                               <div className="filter-tag" key={`genre-${genreId}`}>
+                                 {genre.name}
+                                 <button 
+                                   className="remove-tag" 
+                                   onClick={() => removeGenreFilter(genreId)}
+                                   aria-label={`Remove ${genre.name} filter`}
+                                 >
+                                   ×
+                                 </button>
+                               </div>
+                             );
+                           })}
+                         </>
+                       )}
+                       
+                       {filters.rating && (
+                         <div className="filter-tag">
+                           <span className="filter-tag-title">Min Rating:</span> 
+                           {filters.rating}
+                           <button 
+                             className="remove-tag" 
+                             onClick={() => setFilters(prev => ({...prev, rating: ''}))}
+                             aria-label="Remove rating filter"
+                           >
+                             ×
+                           </button>
+                         </div>
+                       )}
+                       
+                       {filters.languages.length > 0 && (
+                         <>
+                           <span className="filter-tag-title">Languages:</span>
+                           {filters.languages.map(langCode => {
+                             const language = languages.find(l => l.iso_639_1 === langCode);
+                             return language && (
+                               <div className="filter-tag" key={`lang-${langCode}`}>
+                                 {language.english_name}
+                                 <button 
+                                   className="remove-tag"
+                                   onClick={() => setFilters(prev => ({
+                                     ...prev, 
+                                     languages: prev.languages.filter(code => code !== langCode)
+                                   }))}
+                                   aria-label={`Remove ${language.english_name} filter`}
+                                 >
+                                   ×
+                                 </button>
+                               </div>
+                             );
+                           })}
+                         </>
+                       )}
+                     </div>
+                   </div>
+                   
+                   {/* Controls Bar with Sorting and Tabs */}
+                   <div className="controls-bar">
+                     {/* Sort Dropdown */}
+                     <div className="sort-control">
+                        <label htmlFor="sort-by">Sort By:</label>
+                        <select 
+                          id="sort-by"
+                          name="sortOption"
+                          value={sortOption}
+                          onChange={handleSortChange} 
+                          className="sort-select"
+                        >
+                          <option value="popularity.desc">Popularity</option>
+                          <option value="vote_average.desc">Rating</option>
+                          <option value="release_date.desc">Latest</option>
+                        </select>
+                     </div>
+                     
+                     {/* Tab Navigation */}
+                     <div className="sliding-tabs-container">
+                        <div className="sliding-tabs">
+                          <div
+                             className="tab-indicator"
+                             style={{
+                               left: activeFilterTab === 'movie' ? '2px' : 'calc(50% - 2px)', // Adjust for padding
+                               width: 'calc(50% - 4px)' // Adjust for padding
+                             }}
+                           ></div>
+                           <button
+                             className={`tab-button ${activeFilterTab === 'movie' ? 'active' : ''}`}
+                             onClick={() => handleTabChange('movie')}
+                           >
+                             Movies
+                           </button>
+                           <button
+                             className={`tab-button ${activeFilterTab === 'tv' ? 'active' : ''}`}
+                             onClick={() => handleTabChange('tv')}
+                           >
+                             TV Shows
+                           </button>
+                        </div>
+                     </div>
+                   </div> {/* End controls-bar */}
+
+                   {/* Content based on active tab */} 
+                   <div className="tab-content">
+                     {activeFilterTab === 'movie' && (
+                       <>
+                         <MediaGrid 
+                           items={filteredMovieResults} 
+                           type="movie" 
+                           onMediaClick={handleMediaClick} 
+                         />
+                         {filteredMovieResults.length > 0 && (
+                           <Pagination 
+                             currentPage={filterMovieCurrentPage} 
+                             totalPages={filterMovieTotalPages} 
+                             onPageChange={handleFilterPageChange} 
+                           />
+                         )}
+                       </>
+                     )}
+                     {activeFilterTab === 'tv' && (
+                       <>
+                         <MediaGrid 
+                           items={filteredTvResults} 
+                           type="tv" 
+                           onMediaClick={handleMediaClick} 
+                         />
+                         {filteredTvResults.length > 0 && (
+                           <Pagination 
+                             currentPage={filterTvCurrentPage} 
+                             totalPages={filterTvTotalPages} 
+                             onPageChange={handleFilterPageChange} 
+                           />
+                         )}
+                       </>
+                     )}
+                   </div>
+                </div>
+              )}
+            </div>
+          {/* )} */} {/* End of original conditional rendering for search section */}
+          {/* End of conditional rendering for search section */}
+
+          {/* Default Media Grids (Trending/Top Rated) - Show only if NOT searching/filtering */}
+          {!searchQuery && !isFilteredSearch && !isLoading && !isPlayerModalOpen && !isPersonModalOpen &&( // Removed modal checks here as they are handled above
+            <>
+              <div id="trending-movies">
+                <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
+                <MediaGrid items={trendingMovies} type="movie" onMediaClick={handleMediaClick} />
+              </div>
+
+              <div id="trending-tv">
+                <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
+                <MediaGrid items={trendingTV} type="tv" onMediaClick={handleMediaClick} />
+              </div>
+
+              <div id="top-movies">
+                <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
+                <MediaGrid items={topMovies} type="movie" onMediaClick={handleMediaClick} />
+              </div>
+
+              <div id="top-tv">
+                <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
+                <MediaGrid items={topTV} type="tv" onMediaClick={handleMediaClick} />
+              </div>
+            </>
+          )}
         </>
+      )} {/* End of activeSection === 'media' */}
+
+      {/* --- Conditionally Render MUSIC Section (Placeholder) --- */}
+      {activeSection === 'music' && !isPlayerModalOpen && !isPersonModalOpen && (
+        <Suspense fallback={<div className="loading-text">Loading Music Hub...</div>}>
+          <MusicHub
+            currentTheme={currentTheme}
+            ref={musicHubRef}
+            navStackState={musicNavStackState}
+            setNavStackState={setMusicNavStackState}
+          />
+        </Suspense>
       )}
 
-      {/* Player Modal (Conditional) */} 
+      {/* Player Modal (Conditional) - Stays outside section logic */}
       {isPlayerModalOpen && selectedMedia && (
-        <PlayerModal
-          media={selectedMedia.media}
-          type={selectedMedia.type}
-          onClose={closeModal}
-          currentTheme={currentTheme}
-        />
+         <Suspense fallback={<div className="loading-text">Loading Player...</div>}>
+           <PlayerModal
+             media={selectedMedia.media}
+             type={selectedMedia.type}
+             onClose={closeModal}
+             currentTheme={currentTheme}
+           />
+         </Suspense>
       )}
 
-      {/* *** NEW: Person Details Modal (Conditional) *** */}
+      {/* *** NEW: Person Details Modal (Conditional) *** - Stays outside section logic */}
       {isPersonModalOpen && selectedPerson && (
-        <PersonDetailsModal
-          person={selectedPerson}
-          imageBaseUrl={IMAGE_BASE_URL}
-          onClose={closePersonModal}
-          currentTheme={currentTheme}
-          onKnownForItemClick={handleKnownItemClick}
-        />
+         <Suspense fallback={<div className="loading-text">Loading Details...</div>}>
+           <PersonDetailsModal
+             person={selectedPerson}
+             imageBaseUrl={IMAGE_BASE_URL}
+             onClose={closePersonModal}
+             currentTheme={currentTheme}
+             onKnownForItemClick={handleKnownItemClick}
+             // If ArtistDetailsModal is triggered from here, wrap it too
+           />
+         </Suspense>
       )}
 
+      {/* NavBar might not need lazy loading as it's small */}
       <NavBar currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
-    </div>
+
+      </div>
   );
 }
 
 export default App;
-

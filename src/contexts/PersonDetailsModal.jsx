@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getPersonDetails } from './api'; // Import the new API function
+import { getPersonDetails } from '../api/api'; // Import the new API function
 import './PersonDetailsModal.css'; // Create this CSS file
 
 // Re-use MediaItem for displaying known_for works, or create simpler version

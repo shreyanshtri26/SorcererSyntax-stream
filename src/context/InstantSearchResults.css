@@ -252,4 +252,16 @@
 .theme-hannibal .mini-card-title,
 .theme-hannibal .mini-card-detail {
     font-family: 'Garamond', serif; /* Ensure font consistency */
+}
+
+/* Reuse .instant-search-results from App.css/InstantSearchResults.css */
+.instant-search-results.music-instant {
+  /* Position it relative to the search container */
+  position: absolute;
+  top: calc(100% + 5px); /* Position below the input */
+  left: 0;
+  width: 100%; 
+  z-index: 1000; /* Lower z-index than general instant search? */
+  /* Add specific overrides if needed */
+  background-color: rgba(30, 30, 35, 0.98); /* Slightly different base */
 } 
