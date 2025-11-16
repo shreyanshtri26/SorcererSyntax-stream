@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres } from '../api/api'; // Add genre functions
 import './PlayerModal.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube'; // Import a player
 import filterIcon from './assets/filter-icon.svg'; // Import filter icon for sources
 import externalLinkIcon from './assets/external-link.svg'; // ADD: Icon for external links
@@ -100,7 +100,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [currentDomainIndex, setCurrentDomainIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef(null);
-  const { mediaType, id } = useParams(); // Get type and id from URL
+  const { mediaType, id, season: urlSeason, episode: urlEpisode } = useParams(); // Get type, id, season, and episode from URL
   const { loading: trailerLoading, error: trailerError, trailerKey } = useTrailerFetching(mediaType, id, media, type);
   const [isPlayingTrailer, setIsPlayingTrailer] = useState(showTrailer);
   const [genres, setGenres] = useState([]); // Add state for genres
@@ -235,15 +235,26 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
             // Filter out "Specials" (season 0) if present
             const validSeasons = details.seasons.filter(s => s.season_number > 0);
             setTvDetails({ ...details, seasons: validSeasons });
-            // Default to season 1, episode 1 if available
+            
+            // Use URL parameters if available, otherwise default to season 1, episode 1
             if (validSeasons.length > 0) {
-                setSelectedSeason(validSeasons[0].season_number);
-                // Attempt to find episode count for season 1, default to 1 if not found
-                const season1 = validSeasons.find(s => s.season_number === 1);
-                if (season1 && season1.episode_count > 0) {
-                    setSelectedEpisode(1);
+                const initialSeason = urlSeason ? parseInt(urlSeason, 10) : validSeasons[0].season_number;
+                const initialEpisode = urlEpisode ? parseInt(urlEpisode, 10) : 1;
+                
+                // Validate that the URL season exists
+                const seasonExists = validSeasons.find(s => s.season_number === initialSeason);
+                if (seasonExists) {
+                    setSelectedSeason(initialSeason);
+                    // Validate episode number against season's episode count
+                    if (initialEpisode <= seasonExists.episode_count && initialEpisode > 0) {
+                        setSelectedEpisode(initialEpisode);
+                    } else {
+                        setSelectedEpisode(1); // Fallback to episode 1 if invalid episode
+                    }
                 } else {
-                    setSelectedEpisode(1); // Fallback if season 1 has 0 episodes or is missing
+                    // Fallback to first available season if URL season doesn't exist
+                    setSelectedSeason(validSeasons[0].season_number);
+                    setSelectedEpisode(1);
                 }
             } else {
                 setSelectedSeason(1); // Fallback if no valid seasons
@@ -260,7 +271,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
           setIsLoadingDetails(false);
         });
     }
-  }, [type, media]);
+  }, [type, media, urlSeason, urlEpisode]);
   
   // Reset video loading state and error when changing parameters
   useEffect(() => {
@@ -272,18 +283,24 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // Add new effect to fetch genres
   useEffect(() => {
     const fetchGenres = async () => {
-      if (!media || !media.genre_ids || media.genre_ids.length === 0) {
+      if (!media) {
         return;
       }
       
       try {
-        const genreList = type === 'movie' ? await getMovieGenres() : await getTVGenres();
-        if (genreList && genreList.genres) {
-          // Match genre IDs with genre names
-          const mediaGenres = genreList.genres.filter(genre => 
-            media.genre_ids.includes(genre.id)
-          );
-          setGenres(mediaGenres);
+        // Check if media has genres directly (from individual API call) or genre_ids (from search/trending)
+        if (media.genres && Array.isArray(media.genres)) {
+          // Individual movie/TV details API returns genres directly
+          setGenres(media.genres);
+        } else if (media.genre_ids && media.genre_ids.length > 0) {
+          // Search/trending API returns genre_ids that need to be matched
+          const genreList = type === 'movie' ? await getMovieGenres() : await getTVGenres();
+          if (genreList && genreList.genres) {
+            const mediaGenres = genreList.genres.filter(genre => 
+              media.genre_ids.includes(genre.id)
+            );
+            setGenres(mediaGenres);
+          }
         }
       } catch (err) {
         console.error("Error fetching genres:", err);
@@ -350,19 +367,32 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   };
   // --------------------------------------------------
 
-  // --- Share Link Function (no changes needed) ---
+  // --- Share Link Function (updated for new URL structure) ---
   const generateShareLink = () => {
     const baseAppUrl = window.location.origin;
-    let shareLink = `${baseAppUrl}/share?id=${media.id}&type=${type}`;
+    let shareLink;
+    
+    if (type === 'tv') {
+      // Use the new TV URL structure with season and episode in path
+      shareLink = `${baseAppUrl}/tv/${media.id}/season/${selectedSeason}/episode/${selectedEpisode}`;
+    } else {
+      // Movie URL structure remains the same
+      shareLink = `${baseAppUrl}/movie/${media.id}`;
+    }
+    
+    // Add query parameters for additional options
+    const queryParams = new URLSearchParams();
     
     // Only include embedded player source in share link if one is selected
     if (embeddedPlayerSources.some(s => s.id === selectedPlayerSource)) {
-       shareLink += `&source=${selectedPlayerSource}`;
+       queryParams.append('source', selectedPlayerSource);
     }
     
-    if (type === 'tv') {
-      shareLink += `&season=${selectedSeason}&episode=${selectedEpisode}`;
+    // Add query parameters to the URL if any exist
+    if (queryParams.toString()) {
+      shareLink += `?${queryParams.toString()}`;
     }
+    
     return shareLink;
   };
 
@@ -548,18 +578,38 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --------------------------------
 
   // --- Component Return Structure ---
-  if (!media) return null;
+  console.log('PlayerModal render:', { media, type, mediaType, id, urlSeason, urlEpisode });
+  
+  if (!media) {
+    console.log('PlayerModal: No media provided');
+    return null;
+  }
 
   const currentSeasonData = tvDetails?.seasons?.find(s => s.season_number === selectedSeason);
   const episodeCount = currentSeasonData?.episode_count || 0;
 
+  // Add navigate hook
+  const navigate = useNavigate();
+
   const handleSeasonChange = (e) => {
-    setSelectedSeason(parseInt(e.target.value, 10));
+    const newSeason = parseInt(e.target.value, 10);
+    setSelectedSeason(newSeason);
     setSelectedEpisode(1);
+    
+    // Update URL to reflect the new season and episode
+    if (type === 'tv' && media?.id) {
+      navigate(`/tv/${media.id}/season/${newSeason}/episode/1`);
+    }
   };
 
   const handleEpisodeChange = (e) => {
-    setSelectedEpisode(parseInt(e.target.value, 10));
+    const newEpisode = parseInt(e.target.value, 10);
+    setSelectedEpisode(newEpisode);
+    
+    // Update URL to reflect the new episode
+    if (type === 'tv' && media?.id) {
+      navigate(`/tv/${media.id}/season/${selectedSeason}/episode/${newEpisode}`);
+    }
   };
 
   // Get URL only if an embedded player is selected

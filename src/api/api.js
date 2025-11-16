@@ -37,6 +37,7 @@ export const searchTVShows = (query, page = 1, language = TMDB_DEFAULT_LANGUAGE)
 export const searchMultiMedia = (query, page = 1, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB('search/multi', { query, page }, language);
 export const getLanguages = () => fetchFromTMDB('configuration/languages');
 export const getTVShowDetails = (tvId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}`, {}, language);
+export const getMovieDetails = (movieId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`movie/${movieId}`, {}, language);
 export const getVideos = (mediaType, id, language = TMDB_DEFAULT_LANGUAGE) => {
     if (!mediaType || !id) {
         console.error("Media type and ID are required to fetch videos.");

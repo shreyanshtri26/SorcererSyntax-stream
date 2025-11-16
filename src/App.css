@@ -2437,3 +2437,209 @@ h2 {
 }
 
 /* ... rest of CSS ... */
+/* Error
+ Container Styles */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color, #ffffff);
+}
+
+.error-container p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  max-width: 500px;
+}
+
+.back-button {
+  padding: 12px 24px;
+  background: var(--accent-color, #ff6b35);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: var(--accent-hover, #e55a2b);
+  transform: translateY(-2px);
+}
+
+/* Theme-specific error styles */
+.theme-devil .error-container {
+  background: linear-gradient(135deg, #1a0000 0%, #330000 100%);
+}
+
+.theme-devil .back-button {
+  background: #ff4444;
+}
+
+.theme-devil .back-button:hover {
+  background: #ff6666;
+}
+
+.theme-angel .error-container {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #333;
+}
+
+.theme-angel .back-button {
+  background: #007bff;
+}
+
+.theme-angel .back-button:hover {
+  background: #0056b3;
+}
+
+.theme-hannibal .error-container {
+  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+}
+
+.theme-hannibal .back-button {
+  background: #8b4513;
+}
+
+.theme-hannibal .back-button:hover {
+  background: #a0522d;
+}/* Sear
+ch Input Container Styles */
+.search-section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-controls-container {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.search-controls-container.expanded {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.search-input-container {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-input-container.expanded {
+  width: 100%;
+}
+
+#search-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid var(--border-color, #333);
+  border-radius: 8px;
+  background: var(--input-bg, #1a1a1a);
+  color: var(--text-color, #ffffff);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#search-input:focus {
+  border-color: var(--accent-color, #ff6b35);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+#search-input::placeholder {
+  color: var(--placeholder-color, #888);
+}
+
+.filter-toggle-button {
+  padding: 12px 16px;
+  background: var(--button-bg, #333);
+  border: 2px solid var(--border-color, #555);
+  border-radius: 8px;
+  color: var(--text-color, #ffffff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.filter-toggle-button:hover {
+  background: var(--button-hover-bg, #444);
+  border-color: var(--accent-color, #ff6b35);
+}
+
+.filter-toggle-button.active {
+  background: var(--accent-color, #ff6b35);
+  border-color: var(--accent-color, #ff6b35);
+}
+
+.filter-toggle-button img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.filter-toggle-button.active img {
+  filter: brightness(0) invert(0);
+}
+
+/* Loading text for instant search */
+.loading-text.instant-loading {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--text-muted, #888);
+}
+
+/* Theme-specific search styles */
+.theme-devil .search-input-container {
+  --input-bg: #1a0000;
+  --border-color: #ff4444;
+  --accent-color: #ff4444;
+}
+
+.theme-angel .search-input-container {
+  --input-bg: #ffffff;
+  --border-color: #ddd;
+  --accent-color: #007bff;
+  --text-color: #333;
+  --placeholder-color: #666;
+}
+
+.theme-hannibal .search-input-container {
+  --input-bg: #2c1810;
+  --border-color: #8b4513;
+  --accent-color: #8b4513;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .search-controls-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input-container {
+    min-width: unset;
+  }
+  
+  .filter-toggle-button {
+    align-self: flex-start;
+  }
+}
