@@ -1,8 +1,7 @@
-import React from 'react';
 import './SkeletonLoader.css';
 
-export const MediaItemSkeleton = () => (
-  <div className="media-item skeleton">
+export const MediaItemSkeleton = ({ theme = 'devil' }) => (
+  <div className={`media-item skeleton theme-${theme}`}>
     <div className="skeleton-poster"></div>
     <div className="skeleton-info">
       <div className="skeleton-title"></div>
@@ -11,16 +10,16 @@ export const MediaItemSkeleton = () => (
   </div>
 );
 
-export const MediaGridSkeleton = ({ count = 20 }) => (
+export const MediaGridSkeleton = ({ count = 20, theme = 'devil' }) => (
   <div className="media-grid">
     {Array.from({ length: count }).map((_, index) => (
-      <MediaItemSkeleton key={index} />
+      <MediaItemSkeleton key={index} theme={theme} />
     ))}
   </div>
 );
 
-export const SearchResultSkeleton = () => (
-  <div className="search-result-item skeleton">
+export const SearchResultSkeleton = ({ theme = 'devil' }) => (
+  <div className={`search-result-item skeleton theme-${theme}`}>
     <div className="skeleton-search-image"></div>
     <div className="skeleton-search-info">
       <div className="skeleton-search-title"></div>
