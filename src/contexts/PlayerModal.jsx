@@ -22,62 +22,62 @@ function useTrailerFetching(mediaType, id, media, type) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [trailerKey, setTrailerKey] = useState(null);
-  
+
   useEffect(() => {
     const effectiveType = mediaType || type;
     const effectiveId = id || media?.id;
-    
+
     if (!effectiveType || !effectiveId) return;
-    
+
     const fetchTrailer = async () => {
       try {
         setLoading(true);
         setError('');
-        
+
         const videos = await getVideos(effectiveType, effectiveId);
-        
+
         if (!videos || !videos.length) {
           setError('No trailer available');
           setLoading(false);
           return;
         }
-        
+
         // First try to find official trailers
-        let trailer = videos.find(video => 
-          video.type.toLowerCase() === 'trailer' && 
+        let trailer = videos.find(video =>
+          video.type.toLowerCase() === 'trailer' &&
           video.site.toLowerCase() === 'youtube' &&
           video.official === true
         );
-        
+
         // If no official trailer, try any trailer
         if (!trailer) {
-          trailer = videos.find(video => 
-            video.type.toLowerCase() === 'trailer' && 
+          trailer = videos.find(video =>
+            video.type.toLowerCase() === 'trailer' &&
             video.site.toLowerCase() === 'youtube'
           );
         }
-        
+
         // If still no trailer, try teasers
         if (!trailer) {
-          trailer = videos.find(video => 
-            video.type.toLowerCase() === 'teaser' && 
+          trailer = videos.find(video =>
+            video.type.toLowerCase() === 'teaser' &&
             video.site.toLowerCase() === 'youtube'
           );
         }
-        
+
         // If still nothing, use any YouTube video
         if (!trailer) {
-          trailer = videos.find(video => 
+          trailer = videos.find(video =>
             video.site.toLowerCase() === 'youtube'
           );
         }
-        
+
         if (trailer) {
           setTrailerKey(trailer.key);
         } else {
           setError('No suitable trailer found');
         }
-        
+
       } catch (err) {
         console.error("Error fetching trailer:", err);
         setError('Failed to load trailer');
@@ -85,10 +85,10 @@ function useTrailerFetching(mediaType, id, media, type) {
         setLoading(false);
       }
     };
-    
+
     fetchTrailer();
   }, [mediaType, id, media, type]);
-  
+
   return { loading, error, trailerKey };
 }
 
@@ -113,7 +113,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [showShareTooltip, setShowShareTooltip] = useState(false);
   // Add state to detect current theme
   // const [currentTheme, setCurrentTheme] = useState('devil');
-  
+
   // --- WatchMode API Integration ---
   const [watchModeSources, setWatchModeSources] = useState([]);
   const [isLoadingWatchMode, setIsLoadingWatchMode] = useState(false);
@@ -123,25 +123,30 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --------------------------------
 
   // --- Updated Player Sources ---
-  // Keep only the original embedded sources
   const embeddedPlayerSources = [
     { id: 'nontongo', name: 'NontonGo' },
     { id: 'vidsrc', name: 'VidSrc' },
+    { id: 'moviesapi', name: 'MoviesAPI' },
     { id: 'vidsrcme', name: 'VidSrc.me' },
-    { id: '2embed', name: '2embed.cc' },
-    { id: 'godriveplayer', name: 'GoDrivePlayer' },
-    { id: 'proxyapi', name: 'Community Proxy' },
+    { id: 'multiembedmov', name: 'multiembed.mov' },
+    { id: 'vidsrcxyz', name: 'VidSrc.xyz' },
+    { id: 'superembed', name: 'SuperEmbed' },
+    { id: '2embedcc', name: '2Embed (Alt)' },
+    { id: 'smashy', name: 'Smashy Stream' },
   ];
 
   const embeddedPlayerInfo = {
+    nontongo: { name: 'NontonGo', website: 'nontongo.win', features: ['Embedded Player', 'Alternative'] },
     vidsrc: { name: 'VidSrc', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
     vidsrcme: { name: 'VidSrc.me', website: 'vidsrc.me', features: ['Embedded Player', 'Reliable'] },
-    '2embed': { name: '2embed.cc', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
-    nontongo: { name: 'NontonGo', website: 'nontongo.win', features: ['Embedded Player', 'Alternative'] },
-    godriveplayer: { name: 'GoDrivePlayer', website: 'godriveplayer.com', features: ['Embedded Player', 'IMDB/TMDB'] },
-    proxyapi: { name: 'Community Proxy', website: 'proxy-api.example.com', features: ['Embedded Player', 'Multi-Source'] },
+    moviesapi: { name: 'MoviesAPI', website: 'moviesapi.club', features: ['Embedded Player', 'HD Quality'] },
+    multiembedmov: { name: 'multiembed.mov', website: 'multiembed.mov', features: ['Embedded Player', 'TMDB', 'Simple'] },
+    vidsrcxyz: { name: 'VidSrc.xyz', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
+    smashy: { name: 'Smashy Stream', website: 'player.smashy.stream', features: ['Embedded Player', 'Fast'] },
+    superembed: { name: 'SuperEmbed', website: 'multiembed.mov', features: ['Embedded Player', 'Super Fast'] },
+    '2embedcc': { name: '2Embed (Alt)', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
   };
-  
+
   // VidSrc domains for fallback
   const vidsrcDomains = [
     'vidsrc.xyz',
@@ -155,7 +160,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   useEffect(() => {
     const getWatchModeStreamingSources = async (titleName) => {
       if (!titleName) return;
-      
+
       setIsLoadingWatchMode(true);
       setWatchModeError(null);
       setWatchModeSources([]);
@@ -174,7 +179,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         const searchResponse = await fetch(searchUrl);
         if (!searchResponse.ok) throw new Error(`WatchMode Search API Error: ${searchResponse.statusText}`);
         const searchResults = await searchResponse.json();
-        
+
         const potentialTitles = searchResults.title_results;
         if (!potentialTitles || potentialTitles.length === 0) {
           throw new Error('Title not found on WatchMode.');
@@ -194,8 +199,8 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
         // Filter to include relevant types (sub, free, rent, buy, addon)
         const relevantSourceTypes = ['sub', 'free', 'rent', 'buy', 'addon'];
-        const streamingPlayers = sourcesData.filter(source => 
-           relevantSourceTypes.includes(source.type)
+        const streamingPlayers = sourcesData.filter(source =>
+          relevantSourceTypes.includes(source.type)
         ).map(source => ({ // Simplify the structure
           id: source.source_id,
           name: source.name,
@@ -236,33 +241,33 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
             // Filter out "Specials" (season 0) if present
             const validSeasons = details.seasons.filter(s => s.season_number > 0);
             setTvDetails({ ...details, seasons: validSeasons });
-            
+
             // Use URL parameters if available, otherwise default to season 1, episode 1
             if (validSeasons.length > 0) {
-                const initialSeason = urlSeason ? parseInt(urlSeason, 10) : validSeasons[0].season_number;
-                const initialEpisode = urlEpisode ? parseInt(urlEpisode, 10) : 1;
-                
-                // Validate that the URL season exists
-                const seasonExists = validSeasons.find(s => s.season_number === initialSeason);
-                if (seasonExists) {
-                    setSelectedSeason(initialSeason);
-                    // Validate episode number against season's episode count
-                    if (initialEpisode <= seasonExists.episode_count && initialEpisode > 0) {
-                        setSelectedEpisode(initialEpisode);
-                    } else {
-                        setSelectedEpisode(1); // Fallback to episode 1 if invalid episode
-                    }
+              const initialSeason = urlSeason ? parseInt(urlSeason, 10) : validSeasons[0].season_number;
+              const initialEpisode = urlEpisode ? parseInt(urlEpisode, 10) : 1;
+
+              // Validate that the URL season exists
+              const seasonExists = validSeasons.find(s => s.season_number === initialSeason);
+              if (seasonExists) {
+                setSelectedSeason(initialSeason);
+                // Validate episode number against season's episode count
+                if (initialEpisode <= seasonExists.episode_count && initialEpisode > 0) {
+                  setSelectedEpisode(initialEpisode);
                 } else {
-                    // Fallback to first available season if URL season doesn't exist
-                    setSelectedSeason(validSeasons[0].season_number);
-                    setSelectedEpisode(1);
+                  setSelectedEpisode(1); // Fallback to episode 1 if invalid episode
                 }
-            } else {
-                setSelectedSeason(1); // Fallback if no valid seasons
+              } else {
+                // Fallback to first available season if URL season doesn't exist
+                setSelectedSeason(validSeasons[0].season_number);
                 setSelectedEpisode(1);
+              }
+            } else {
+              setSelectedSeason(1); // Fallback if no valid seasons
+              setSelectedEpisode(1);
             }
           } else {
-             setPlayerError('Could not load TV show details.');
+            setPlayerError('Could not load TV show details.');
           }
           setIsLoadingDetails(false);
         })
@@ -273,7 +278,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         });
     }
   }, [type, media, urlSeason, urlEpisode]);
-  
+
   // Reset video loading state and error when changing parameters
   useEffect(() => {
     setVideoLoaded(false);
@@ -287,7 +292,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
       if (!media) {
         return;
       }
-      
+
       try {
         // Check if media has genres directly (from individual API call) or genre_ids (from search/trending)
         if (media.genres && Array.isArray(media.genres)) {
@@ -297,7 +302,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
           // Search/trending API returns genre_ids that need to be matched
           const genreList = type === 'movie' ? await getMovieGenres() : await getTVGenres();
           if (genreList && genreList.genres) {
-            const mediaGenres = genreList.genres.filter(genre => 
+            const mediaGenres = genreList.genres.filter(genre =>
               media.genre_ids.includes(genre.id)
             );
             setGenres(mediaGenres);
@@ -307,7 +312,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         console.error("Error fetching genres:", err);
       }
     };
-    
+
     fetchGenres();
   }, [media, type]);
 
@@ -324,46 +329,64 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const getVideoUrl = (sourceId = selectedPlayerSource, domainIndex = currentDomainIndex) => {
     if (!embeddedPlayerSources.some(s => s.id === sourceId)) return ''; // Only handle embedded sources
 
+    // NontonGo
+    if (sourceId === 'nontongo') {
+      return type === 'movie'
+        ? `https://www.NontonGo.win/embed/movie/${media.id}`
+        : `https://www.NontonGo.win/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
     // VidSrc
-    if (sourceId === 'vidsrc') {
+    else if (sourceId === 'vidsrc') {
       const domain = vidsrcDomains[domainIndex];
-      let baseUrl = type === 'movie' 
-        ? `https://${domain}/embed/movie?tmdb=${media.id}` 
+      let baseUrl = type === 'movie'
+        ? `https://${domain}/embed/movie?tmdb=${media.id}`
         : `https://${domain}/embed/tv?tmdb=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
       if (defaultSubtitleLanguage) baseUrl += `&ds_lang=${defaultSubtitleLanguage}`;
       return baseUrl;
     }
-    // VidSrc.me (updated from examples)
+    // VidSrc.me
     else if (sourceId === 'vidsrcme') {
-      return type === 'movie' 
-        ? `https://vidsrc.me/embed/movie?tmdb=${media.id}` 
+      return type === 'movie'
+        ? `https://vidsrc.me/embed/movie?tmdb=${media.id}`
         : `https://vidsrc.me/embed/tv?tmdb=${media.id}&s=${selectedSeason}&e=${selectedEpisode}`;
     }
-    // 2embed.cc (updated from examples)
-    else if (sourceId === '2embed') {
-      return type === 'movie' 
-        ? `https://2embed.cc/embed/movie/tmdb/${media.id}` 
-        : `https://2embed.cc/embed/series/tmdb/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    // MoviesAPI
+    else if (sourceId === 'moviesapi') {
+      return type === 'movie'
+        ? `https://moviesapi.club/movie/${media.id}`
+        : `https://moviesapi.club/tv/${media.id}-${selectedSeason}-${selectedEpisode}`;
     }
-    // NontonGo
-    else if (sourceId === 'nontongo') {
-      return type === 'movie' 
-        ? `https://www.NontonGo.win/embed/movie/${media.id}` 
-        : `https://www.NontonGo.win/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    // multiembed.mov
+    else if (sourceId === 'multiembedmov') {
+      return type === 'movie'
+        ? `https://multiembed.mov/?video_id=${media.id}&tmdb=1`
+        : `https://multiembed.mov/?video_id=${media.id}&tmdb=1&s=${selectedSeason}&e=${selectedEpisode}`;
     }
-    // GoDrivePlayer (updated from examples)
-    else if (sourceId === 'godriveplayer') {
-      return type === 'movie' 
-        ? `https://goplayer.pro/player/movie/tmdb/${media.id}` 
-        : `https://goplayer.pro/player/tv/tmdb/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    // VidSrc.xyz
+    else if (sourceId === 'vidsrcxyz') {
+      return type === 'movie'
+        ? `https://vidsrc.xyz/embed/movie?tmdb=${media.id}`
+        : `https://vidsrc.xyz/embed/tv?tmdb=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
     }
-    // Community Proxy API (new from examples)
-    else if (sourceId === 'proxyapi') {
-      return type === 'movie' 
-        ? `https://proxy-api.example.com/embed/tmdb/${media.id}` 
-        : `https://proxy-api.example.com/embed/tmdb/${media.id}/tv/${selectedSeason}/${selectedEpisode}`;
+    // Smashy Stream
+    else if (sourceId === 'smashy') {
+      return type === 'movie'
+        ? `https://player.smashy.stream/movie/${media.id}`
+        : `https://player.smashy.stream/tv/${media.id}?s=${selectedSeason}&e=${selectedEpisode}`;
     }
-    
+    // SuperEmbed
+    else if (sourceId === 'superembed') {
+      return type === 'movie'
+        ? `https://multiembed.mov/?video_id=${media.id}&tmdb=1`
+        : `https://multiembed.mov/?video_id=${media.id}&tmdb=1&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+    // 2Embed (Alt)
+    else if (sourceId === '2embedcc') {
+      return type === 'movie'
+        ? `https://www.2embed.cc/embed/${media.id}`
+        : `https://www.2embed.cc/embedtv/${media.id}&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+
     return ''; // Fallback
   };
   // --------------------------------------------------
@@ -372,7 +395,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const generateShareLink = () => {
     const baseAppUrl = window.location.origin;
     let shareLink;
-    
+
     if (type === 'tv') {
       // Use the new TV URL structure with season and episode in path
       shareLink = `${baseAppUrl}/tv/${media.id}/season/${selectedSeason}/episode/${selectedEpisode}`;
@@ -380,20 +403,20 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
       // Movie URL structure remains the same
       shareLink = `${baseAppUrl}/movie/${media.id}`;
     }
-    
+
     // Add query parameters for additional options
     const queryParams = new URLSearchParams();
-    
+
     // Only include embedded player source in share link if one is selected
     if (embeddedPlayerSources.some(s => s.id === selectedPlayerSource)) {
-       queryParams.append('source', selectedPlayerSource);
+      queryParams.append('source', selectedPlayerSource);
     }
-    
+
     // Add query parameters to the URL if any exist
     if (queryParams.toString()) {
       shareLink += `?${queryParams.toString()}`;
     }
-    
+
     return shareLink;
   };
 
@@ -420,7 +443,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     console.log(`Player source changed to: ${sourceId}`);
   };
   // -----------------------------------
-  
+
   // --- WatchMode Source Click Handler ---
   const handleWatchModeSourceClick = (url) => {
     if (url) {
@@ -432,13 +455,13 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --- Auto-switch for Embedded Sources ---
   useEffect(() => {
     const currentErrorCount = sourceErrorCount[selectedPlayerSource] || 0;
-    
+
     // Only auto-switch if the failed source is an embedded one
     if (embeddedPlayerSources.some(s => s.id === selectedPlayerSource) && currentErrorCount >= 3 && !isPlayingTrailer) {
       const currentIndex = embeddedPlayerSources.findIndex(s => s.id === selectedPlayerSource);
       const nextIndex = (currentIndex + 1) % embeddedPlayerSources.length;
       const nextSourceId = embeddedPlayerSources[nextIndex].id;
-      
+
       handlePlayerSourceChange(nextSourceId);
       setPlayerError(`Auto-switched to ${embeddedPlayerInfo[nextSourceId]?.name || 'next source'} after failures.`);
     }
@@ -456,8 +479,8 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         {/* Section 1: Embedded Players */}
         <div className="source-section embedded-players">
           <h4 className="source-section-title">
-             <img src={filterIcon} alt="" className="source-title-icon" /> 
-             Embedded Players
+            <img src={filterIcon} alt="" className="source-title-icon" />
+            Embedded Players
           </h4>
           <div className="source-options-grid">
             {embeddedPlayerSources.map(source => (
@@ -467,25 +490,25 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
                 onClick={() => handlePlayerSourceChange(source.id)}
                 title={`Watch using ${source.name} (Embedded)`}
               >
-                {/* Optionally add icons here if available */} 
+                {/* Optionally add icons here if available */}
                 {source.name}
               </button>
             ))}
           </div>
-          {/* Display features only if an embedded player is selected */} 
+          {/* Display features only if an embedded player is selected */}
           {isEmbeddedPlayerSelected && currentSourceInfo && (
-             <div className="player-attribution compact">
-                <span className="attribution-powered">Using: {currentSourceInfo.name}</span>
-                <div className="attribution-features">
-                  {currentSourceInfo.features.map((feature, index) => (
-                    <span key={index} className="feature-tag compact">{feature}</span>
-                  ))}
-                </div>
+            <div className="player-attribution compact">
+              <span className="attribution-powered">Using: {currentSourceInfo.name}</span>
+              <div className="attribution-features">
+                {currentSourceInfo.features.map((feature, index) => (
+                  <span key={index} className="feature-tag compact">{feature}</span>
+                ))}
               </div>
+            </div>
           )}
         </div>
 
-        {/* Share Buttons */} 
+        {/* Share Buttons */}
         <div className="share-section">
           <ShareButtons
             url={generateShareLink()}
@@ -503,11 +526,11 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     return (
       <div className="streaming-services-container">
         <hr className="source-separator" />
-        
+
         {/* WatchMode Streaming Options */}
         <div className="source-section watchmode-players">
           <h4 className="source-section-title">
-            <img src={externalLinkIcon} alt="" className="source-title-icon" /> 
+            <img src={externalLinkIcon} alt="" className="source-title-icon" />
             Find on Streaming Services
           </h4>
           {isLoadingWatchMode && <p className="loading-text small">Searching options...</p>}
@@ -543,13 +566,13 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
     // VidSrc Fallback Logic
     if (selectedPlayerSource === 'vidsrc') {
-    if (currentDomainIndex < vidsrcDomains.length - 1) {
+      if (currentDomainIndex < vidsrcDomains.length - 1) {
         setCurrentDomainIndex(prev => prev + 1);
-    } else {
+      } else {
         setPlayerError(`VidSrc failed on all domains. Try another source.`);
         setSourceErrorCount(prev => ({ ...prev, vidsrc: (prev.vidsrc || 0) + 1 }));
       }
-    } 
+    }
     // General Embedded Source Error
     else {
       const sourceName = embeddedPlayerInfo[selectedPlayerSource]?.name || 'Selected source';
@@ -561,12 +584,12 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     }
     setVideoLoaded(false); // Ensure loading indicator might reappear if needed
   };
-  
+
   const handleIframeLoad = () => {
     // Only mark as loaded if an embedded source is selected
     if (embeddedPlayerSources.some(s => s.id === selectedPlayerSource)) {
-    setVideoLoaded(true);
-    setPlayerError(null);
+      setVideoLoaded(true);
+      setPlayerError(null);
       // Reset error count for the *successfully loaded* source
       setSourceErrorCount(prev => ({ ...prev, [selectedPlayerSource]: 0 }));
     }
@@ -575,7 +598,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
   // --- Component Return Structure ---
   console.log('PlayerModal render:', { media, type, mediaType, id, urlSeason, urlEpisode });
-  
+
   if (!media) {
     console.log('PlayerModal: No media provided');
     return null;
@@ -591,7 +614,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     const newSeason = parseInt(e.target.value, 10);
     setSelectedSeason(newSeason);
     setSelectedEpisode(1);
-    
+
     // Update URL to reflect the new season and episode
     if (type === 'tv' && media?.id) {
       navigate(`/tv/${media.id}/season/${newSeason}/episode/1`);
@@ -601,7 +624,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const handleEpisodeChange = (e) => {
     const newEpisode = parseInt(e.target.value, 10);
     setSelectedEpisode(newEpisode);
-    
+
     // Update URL to reflect the new episode
     if (type === 'tv' && media?.id) {
       navigate(`/tv/${media.id}/season/${selectedSeason}/episode/${newEpisode}`);
@@ -625,12 +648,12 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         <p className="rating-title">Your Rating:</p>
         <div className="stars-container">
           {[1, 2, 3, 4, 5].map(star => (
-            <span 
-              key={star} 
+            <span
+              key={star}
               className={`star ${star <= userRating ? 'filled' : ''}`}
               onClick={() => handleRatingClick(star)}
             >
-              
+
             </span>
           ))}
         </div>
@@ -640,21 +663,21 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
   const renderMediaDetails = () => {
     if (!media) return null;
-    
+
     const mediaOverview = media.overview || (tvDetails && tvDetails.overview) || 'No description available.';
-    const releaseDate = type === 'movie' 
-      ? (media.release_date && new Date(media.release_date).toLocaleDateString()) 
+    const releaseDate = type === 'movie'
+      ? (media.release_date && new Date(media.release_date).toLocaleDateString())
       : (media.first_air_date && new Date(media.first_air_date).toLocaleDateString());
     const ratingLabel = "M Rating";
     const ratingValue = media.vote_average ? `${media.vote_average.toFixed(1)}/10` : 'N/A';
-    
+
     return (
       <>
         <div className="media-details">
           <div className="media-info-row">
             {releaseDate && <span className="media-info-item"><strong>Released:</strong> {releaseDate}</span>}
             {ratingValue !== 'N/A' && <span className="media-info-item"><strong>{ratingLabel}:</strong> {ratingValue}</span>}
-            <button 
+            <button
               className={`watchlist-button ${watchlistStatus ? 'in-watchlist' : ''}`}
               onClick={toggleWatchlist}
               title={watchlistStatus ? "Remove from Watchlist" : "Add to Watchlist"}
@@ -662,7 +685,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               {watchlistStatus ? " In Watchlist" : " Add to Watchlist"}
             </button>
           </div>
-          
+
           {genres.length > 0 && (
             <div className="media-genres">
               {genres.map(genre => (
@@ -670,14 +693,14 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               ))}
             </div>
           )}
-          
+
           <h3>Overview</h3>
           <div className="media-description-container">
             <p className={`media-description ${isDescriptionExpanded ? 'expanded' : 'collapsed'}`}>
               {mediaOverview}
             </p>
             {mediaOverview.length > 150 && (
-              <button 
+              <button
                 className={`description-toggle ${isDescriptionExpanded ? 'expanded' : ''}`}
                 onClick={toggleDescription}
               >
@@ -685,36 +708,36 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               </button>
             )}
           </div>
-          
+
           {/* User rating feature */}
           {renderStarRating()}
-          
+
           {/* Additional info section for TV shows */}
           {type === 'tv' && tvDetails && (
             <div className="additional-info">
               <h3>Show Info</h3>
               {tvDetails.number_of_seasons && (
                 <div className="info-item">
-                  <span className="info-label">Seasons:</span> 
+                  <span className="info-label">Seasons:</span>
                   <span className="info-value">{tvDetails.number_of_seasons}</span>
                 </div>
               )}
               {tvDetails.status && (
                 <div className="info-item">
-                  <span className="info-label">Status:</span> 
+                  <span className="info-label">Status:</span>
                   <span className="info-value">{tvDetails.status}</span>
                 </div>
               )}
               {tvDetails.networks && tvDetails.networks.length > 0 && (
                 <div className="info-item">
-                  <span className="info-label">Network:</span> 
+                  <span className="info-label">Network:</span>
                   <span className="info-value">{tvDetails.networks[0].name}</span>
                 </div>
               )}
             </div>
           )}
         </div>
-        
+
         {/* Streaming Services after user ratings and additional info */}
         {renderStreamingServices()}
       </>
@@ -724,12 +747,12 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   return (
     <div className={`modal-overlay theme-${currentTheme}-modal`} onClick={onClose}>
       <div className={`modal-content theme-${currentTheme}-modal-content`} onClick={(e) => e.stopPropagation()}>
-        
+
         <button className="close-button" onClick={onClose}>&times;</button>
-        
+
         <h2 className="modal-title">{type === 'movie' ? media.title : media.name}</h2>
-        
-        {/* TV Show Season/Episode Selection (if applicable) */} 
+
+        {/* TV Show Season/Episode Selection (if applicable) */}
         {type === 'tv' && !isPlayingTrailer && (
           <div className={`tv-controls simple theme-${currentTheme}-controls`}>
             {isLoadingDetails && <p className="loading-text">Loading season data...</p>}
@@ -759,54 +782,54 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               </>
             )}
             {!isLoadingDetails && !playerError && tvDetails && tvDetails.seasons.length === 0 && (
-                <p className="info-text">No season data available for this show.</p>
+              <p className="info-text">No season data available for this show.</p>
             )}
           </div>
         )}
 
-        {/* Trailer Toggle Button */} 
+        {/* Trailer Toggle Button */}
         {trailerKey && (
           <button className={`trailer-modal-btn theme-${currentTheme}-btn`} onClick={toggleTrailer}>
             {isPlayingTrailer ? "Back to Content" : "Watch Trailer"}
           </button>
         )}
 
-        {/* Main Content Area: Player or Sources */} 
+        {/* Main Content Area: Player or Sources */}
         <div className={`main-content-area theme-${currentTheme}-content-area`}>
-          {/* Player Area (Trailer or Embedded Player) */} 
+          {/* Player Area (Trailer or Embedded Player) */}
           <div className={`player-container ${isPlayingTrailer || currentVideoUrl ? 'visible' : 'hidden'}`}>
-        {isPlayingTrailer && trailerKey ? (
-               <div className="player-wrapper trailer-active">
-            <ReactPlayer
-              url={`https://www.youtube.com/watch?v=${trailerKey}`}
-              controls={true}
-              width="100%"
-              height="100%"
-              style={{ position: 'absolute', top: 0, left: 0 }}
-              playing={true}
-              className="react-player"
-              onError={() => setError('Failed to play trailer. Please try again.')}
-            />
-          </div>
-             ) : isPlayingTrailer && trailerLoading ? (
-               <div className="player-wrapper loading"><div className="trailer-loading">Loading trailer...</div></div>
-             ) : isPlayingTrailer && trailerError ? (
-               <div className="player-wrapper error"><div className="trailer-error">{trailerError}</div></div>
-             ) : currentVideoUrl ? ( // Show embedded player if URL exists
-               <div className="player-wrapper embedded-active">
-                  {playerError && (
-                    <div className="player-message error-message"><p>{playerError}</p></div>
-                  )}
-                  {/* VidSrc trying alternative message */} 
-                  {selectedPlayerSource === 'vidsrc' && currentDomainIndex > 0 && !videoLoaded && !playerError && (
-                     <div className="player-message"><p>Trying alternative source...</p></div>
+            {isPlayingTrailer && trailerKey ? (
+              <div className="player-wrapper trailer-active">
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${trailerKey}`}
+                  controls={true}
+                  width="100%"
+                  height="100%"
+                  style={{ position: 'absolute', top: 0, left: 0 }}
+                  playing={true}
+                  className="react-player"
+                  onError={() => setError('Failed to play trailer. Please try again.')}
+                />
+              </div>
+            ) : isPlayingTrailer && trailerLoading ? (
+              <div className="player-wrapper loading"><div className="trailer-loading">Loading trailer...</div></div>
+            ) : isPlayingTrailer && trailerError ? (
+              <div className="player-wrapper error"><div className="trailer-error">{trailerError}</div></div>
+            ) : currentVideoUrl ? ( // Show embedded player if URL exists
+              <div className="player-wrapper embedded-active">
+                {playerError && (
+                  <div className="player-message error-message"><p>{playerError}</p></div>
+                )}
+                {/* VidSrc trying alternative message */}
+                {selectedPlayerSource === 'vidsrc' && currentDomainIndex > 0 && !videoLoaded && !playerError && (
+                  <div className="player-message"><p>Trying alternative source...</p></div>
                 )}
                 <iframe
                   ref={iframeRef}
-                    src={currentVideoUrl}
-                    key={`${selectedPlayerSource}-${type}-${media.id}-${selectedSeason}-${selectedEpisode}-${currentDomainIndex}`}
+                  src={currentVideoUrl}
+                  key={`${selectedPlayerSource}-${type}-${media.id}-${selectedSeason}-${selectedEpisode}-${currentDomainIndex}`}
                   width="100%"
-                  height="100%" 
+                  height="100%"
                   frameBorder="0"
                   allowFullScreen
                   allow="autoplay; encrypted-media"
@@ -814,25 +837,25 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
                   onError={handleIframeError}
                   onLoad={handleIframeLoad}
                 ></iframe>
-               </div>
-             ) : ( // Message when no embedded player is selected/active
-                 <div className="player-wrapper placeholder">
-                     <p>Select an embedded player above or choose a streaming service.</p>
-                 </div>
+              </div>
+            ) : ( // Message when no embedded player is selected/active
+              <div className="player-wrapper placeholder">
+                <p>Select an embedded player above or choose a streaming service.</p>
+              </div>
             )}
           </div>
-          
-          {/* Source Selector Area - Now excludes streaming services */} 
+
+          {/* Source Selector Area - Now excludes streaming services */}
           {!isPlayingTrailer && renderPlayerSourceSelector()}
         </div>
-        
-        {/* Media Details Area including Streaming Services */} 
+
+        {/* Media Details Area including Streaming Services */}
         {!isPlayingTrailer && (
           <div className={`media-details-container theme-${currentTheme}-details`}>
             {renderMediaDetails()}
           </div>
         )}
-        
+
       </div>
     </div>
   );
