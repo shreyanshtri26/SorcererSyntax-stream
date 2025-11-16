@@ -1,0 +1,47 @@
+/* Progressive Image Loading */
+.progressive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.progressive-image.loading {
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+.progressive-image.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.progressive-image-error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.error-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  padding: 20px;
+  text-align: center;
+}
+
+.error-placeholder svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+}
+
+.error-placeholder span {
+  font-size: 0.85rem;
+}

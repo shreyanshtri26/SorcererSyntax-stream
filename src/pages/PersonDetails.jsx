@@ -4,6 +4,7 @@ import PersonDetailsModal from '../contexts/PersonDetailsModal';
 import Header from '../contexts/Header';
 import { IMAGE_BASE_URL } from '../api/api';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const PersonDetails = () => {
   const { id } = useParams();
@@ -12,7 +13,17 @@ const PersonDetails = () => {
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentTheme, setCurrentTheme] = useState('devil');
+  
+  // Use shared theme from localStorage
+  const [userPreferences, setUserPreferences] = useLocalStorage('userPreferences', {
+    theme: 'devil',
+    language: 'en',
+    useInfiniteScroll: true,
+    autoplayTrailers: typeof window !== 'undefined' && window.innerWidth > 768,
+    recentSearches: []
+  });
+  
+  const currentTheme = userPreferences.theme;
 
   useEffect(() => {
     const fetchPersonDetails = async () => {
@@ -54,7 +65,7 @@ const PersonDetails = () => {
   };
 
   const handleThemeChange = (theme) => {
-    setCurrentTheme(theme);
+    setUserPreferences(prev => ({ ...prev, theme }));
   };
 
   const handleKnownItemClick = (item, mediaType) => {
@@ -63,7 +74,7 @@ const PersonDetails = () => {
   };
 
   if (loading) {
-    return <LoadingSpinner message="Loading person details..." />;
+    return <LoadingSpinner message="Loading person details..." theme={currentTheme} />;
   }
 
   if (error) {

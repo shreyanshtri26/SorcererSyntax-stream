@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, useRef, lazy, Suspense, useMemo } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import {
   getTrendingMovies,
@@ -24,31 +24,16 @@ import angelIcon from './contexts/assets/angel-icon.svg';
 import hannibalIcon from './contexts/assets/hannibal-icon.svg';
 import { AnimatePresence, motion } from 'framer-motion';
 import MusicHub from './contexts/MusicHub';
-import { usePlayer } from './context/PlayerContext'; // Import usePlayer hook
+import { usePlayer } from './context/PlayerContext';
 import useUrlState from './hooks/useUrlState';
-
-// --- Debounce Utility ---
-function debounce(func, wait) {
-  let timeout;
-
-  const debounced = function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(later, wait);
-  };
-
-  // Add a way to cancel the timer
-  debounced.cancel = function () {
-    clearTimeout(timeout);
-  };
-
-  return debounced;
-}
+// NEW IMPORTS - Custom Hooks & Components
+import { useDebounce } from './hooks/useDebounce';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { useKeyboardNavigation } from './hooks/useKeyboardNavigation';
+import VoiceSearch from './components/VoiceSearch';
+import { MediaGridSkeleton } from './components/SkeletonLoader';
+import InfiniteScrollGrid from './components/InfiniteScrollGrid';
+import JumpToPage from './components/JumpToPage';
 
 // --- Helper Function for Themed Titles ---
 const getThemedTitle = (defaultTitle, theme) => {
@@ -535,32 +520,26 @@ function App() {
   const [tvGenres, setTvGenres] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState({ genres: [], rating: '', languages: [] });
-  const [filteredResults, setFilteredResults] = useState([]);
   const [isFilteredSearch, setIsFilteredSearch] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState('devil');
   const [genreSearch, setGenreSearch] = useState('');
   const [languageSearch, setLanguageSearch] = useState('');
   const [filterCurrentPage, setFilterCurrentPage] = useState(1);
   const [filterTotalPages, setFilterTotalPages] = useState(1);
   const [isFilterLoading, setIsFilterLoading] = useState(false);
-  const VITE_API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95"; // Get API key from Vite env vars
+  const VITE_API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95";
   const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
   const currentLanguage = filters.languages.length > 0 ? filters.languages[0] : '';
 
   // *** NEW/MODIFIED State for Tabs & Sorting ***
-  const [sortOption, setSortOption] = useState('popularity.desc'); // Default sort
-  const [activeFilterTab, setActiveFilterTab] = useState('movie'); // Default tab
+  const [sortOption, setSortOption] = useState('popularity.desc');
+  const [activeFilterTab, setActiveFilterTab] = useState('movie');
 
-  // Movie Filtered Results State
-  const [filteredMovieResults, setFilteredMovieResults] = useState([]);
-  const [filterMovieCurrentPage, setFilterMovieCurrentPage] = useState(1);
-  const [filterMovieTotalPages, setFilterMovieTotalPages] = useState(1);
-
-  // TV Filtered Results State
-  const [filteredTvResults, setFilteredTvResults] = useState([]);
-  const [filterTvCurrentPage, setFilterTvCurrentPage] = useState(1);
-  const [filterTvTotalPages, setFilterTvTotalPages] = useState(1);
+  // CONSOLIDATED Filtered Results State (replaces old duplicate states)
+  const [filteredResults, setFilteredResults] = useState({
+    movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+    tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+  });
 
   const [isPersonModalOpen, setIsPersonModalOpen] = useState(false);
   const [isPlayerModalOpen, setIsPlayerModalOpen] = useState(false);
@@ -575,14 +554,55 @@ function App() {
   // --- MusicHub navigation stack preservation state ---
   const [musicNavStackState, setMusicNavStackState] = useState(null);
 
+  // NEW: User Preferences with localStorage
+  const [userPreferences, setUserPreferences] = useLocalStorage('userPreferences', {
+    theme: 'devil',
+    language: 'en',
+    useInfiniteScroll: true,
+    autoplayTrailers: typeof window !== 'undefined' && window.innerWidth > 768,
+    recentSearches: []
+  });
+
+  // Initialize currentTheme from cached preferences
+  const [currentTheme, setCurrentTheme] = useState(userPreferences.theme || 'devil');
+
+  // NEW: Mobile Detection
+  const [isMobile, setIsMobile] = useState(false);
+
+  // NEW: Touch Gestures State
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
+
   const handleThemeChange = (themeName) => {
     setCurrentTheme(themeName);
-    console.log(`Global theme changed to: ${themeName}`);
+    setUserPreferences(prev => ({ ...prev, theme: themeName }));
+    console.log(`Global theme changed to: ${themeName} (cached to localStorage)`);
     setLanguageSearch('');
     setIsPersonModalOpen(false);
     setSelectedPerson(null);
     window.scrollTo(0, 0);
   };
+
+  // Sync theme with preferences if they change externally
+  useEffect(() => {
+    if (userPreferences.theme && userPreferences.theme !== currentTheme) {
+      setCurrentTheme(userPreferences.theme);
+      console.log(`Theme synced from cache: ${userPreferences.theme}`);
+    }
+  }, [userPreferences.theme]);
+
+  // Mobile Detection Effect
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -616,9 +636,64 @@ function App() {
     fetchData();
   }, []);
 
-  // --- Debounced Function for Instant Search (with Direct Fetch Test) ---
-  const fetchInstantResults = useCallback(
-    debounce(async (query, lang) => {
+  // Touch Gesture Handlers
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isFilteredSearch) {
+      if (isLeftSwipe && activeFilterTab === 'movie') {
+        setActiveFilterTab('tv');
+      }
+      if (isRightSwipe && activeFilterTab === 'tv') {
+        setActiveFilterTab('movie');
+      }
+    }
+    
+    if (isLeftSwipe && activeSection === 'media') {
+      setActiveSection('music');
+    }
+    if (isRightSwipe && activeSection === 'music') {
+      setActiveSection('media');
+    }
+  };
+
+  // Keyboard Navigation
+  useKeyboardNavigation({
+    onEscape: () => {
+      if (isPlayerModalOpen || isPersonModalOpen) {
+        closeModal();
+      } else if (showInstantResults) {
+        setShowInstantResults(false);
+        setSearchQuery('');
+      } else if (showFilters) {
+        setShowFilters(false);
+      }
+    },
+    onEnter: () => {
+      if (showInstantResults && instantResults.length > 0) {
+        handleInstantResultClick(instantResults[0]);
+      }
+    }
+  }, !isPlayerModalOpen && !isPersonModalOpen);
+
+  // --- Debounced Function for Instant Search ---
+  const debouncedQuery = useDebounce(searchQuery, 200);
+  
+  useEffect(() => {
+    const fetchInstantResults = async (query, lang) => {
       if (!query || query.length < 3) {
         setInstantResults([]);
         setShowInstantResults(false);
@@ -684,14 +759,21 @@ function App() {
 
       } catch (error) {
         console.error("[DIRECT FETCH ERROR]:", error);
-        setInstantResults([]); // Clear results on error
+        setInstantResults([]);
       } finally {
         console.log('[DIRECT FETCH END] Setting isLoading to false.');
         setIsInstantLoading(false);
       }
-    }, 300), // Debounce time
-    [VITE_API_KEY] // Add API key as dependency for useCallback
-  );
+    };
+
+    if (debouncedQuery && debouncedQuery.length >= 3) {
+      fetchInstantResults(debouncedQuery, currentLanguage);
+    } else {
+      setInstantResults([]);
+      setShowInstantResults(false);
+      setIsInstantLoading(false);
+    }
+  }, [debouncedQuery, currentLanguage, VITE_API_KEY]);
 
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
@@ -749,61 +831,59 @@ function App() {
     }));
   };
 
-  // *** MODIFIED: Fetch Filtered Results on Page Change ***
+  // *** MODIFIED: Fetch Filtered Results on Page Change (for pagination mode only) ***
   useEffect(() => {
-    // Determine which type and page needs fetching
-    const needsFetch = isFilteredSearch && ((activeFilterTab === 'movie' && filterMovieCurrentPage > 0) || (activeFilterTab === 'tv' && filterTvCurrentPage > 0));
-
-    if (!needsFetch) return;
-
-    const currentPage = activeFilterTab === 'movie' ? filterMovieCurrentPage : filterTvCurrentPage;
+    // Skip if using infinite scroll mode
+    if (userPreferences.useInfiniteScroll) return;
+    
     const mediaType = activeFilterTab;
-
-    console.log(`[useEffect Filtered Fetch] Detected ${mediaType} page change to: ${currentPage}. Fetching...`);
+    const currentPage = filteredResults[mediaType].page;
+    
+    if (!isFilteredSearch || currentPage === 0 || currentPage === 1) return;
 
     const fetchFilteredPage = async () => {
       console.log(`[useEffect Filtered Fetch] Starting fetch for ${mediaType} page ${currentPage}...`);
       setIsFilterLoading(true);
-      let resultsData = null;
+      
       try {
-        // *** Filter genres based on mediaType before API call ***
         const selectedGenreIds = filters.genres || [];
         let apiGenres = [];
+        
         if (mediaType === 'movie') {
           const validMovieGenreIds = movieGenres.map(g => g.id.toString());
           apiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
-        } else { // mediaType === 'tv'
+        } else {
           const validTvGenreIds = tvGenres.map(g => g.id.toString());
           apiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
         }
-        const apiFilters = { ...filters, genres: apiGenres }; // Use filtered genres
-        // *********************************************************
-
-        console.log(`[useEffect Filtered Fetch] Calling discoverMedia with type: ${mediaType}, filters:`, apiFilters, `page: ${currentPage}`, `sort: ${sortOption}`);
-        resultsData = await discoverMedia(mediaType, apiFilters, currentPage, sortOption); // Pass apiFilters
-        console.log(`[useEffect Filtered Fetch] API response for ${mediaType} page ${currentPage}:`, resultsData);
-
+        
+        const apiFilters = { ...filters, genres: apiGenres };
+        const resultsData = await discoverMedia(mediaType, apiFilters, currentPage, sortOption);
         const results = resultsData?.results || [];
-        if (activeFilterTab === 'movie') {
-          console.log(`[useEffect Filtered Fetch] Setting filteredMovieResults for page ${currentPage}. Count:`, results.length);
-          setFilteredMovieResults(results);
-        } else {
-          console.log(`[useEffect Filtered Fetch] Setting filteredTvResults for page ${currentPage}. Count:`, results.length);
-          setFilteredTvResults(results);
-        }
+        
+        setFilteredResults(prev => ({
+          ...prev,
+          [mediaType]: {
+            ...prev[mediaType],
+            items: results,
+            totalPages: resultsData?.total_pages || 1,
+            totalResults: resultsData?.total_results || 0
+          }
+        }));
       } catch (error) {
-        console.error(`[useEffect Filtered Fetch] Failed to fetch ${mediaType} results page ${currentPage}:`, error);
-        if (activeFilterTab === 'movie') setFilteredMovieResults([]); else setFilteredTvResults([]);
+        console.error(`[useEffect Filtered Fetch] Failed to fetch ${mediaType} results:`, error);
+        setFilteredResults(prev => ({
+          ...prev,
+          [mediaType]: { ...prev[mediaType], items: [] }
+        }));
       } finally {
-        console.log(`[useEffect Filtered Fetch] Finished fetch for ${mediaType} page ${currentPage}. Setting loading to false.`);
         setIsFilterLoading(false);
         window.scrollTo(0, 0);
       }
     };
 
     fetchFilteredPage();
-    // Update dependencies slightly - add movieGenres, tvGenres if they might change (unlikely)
-  }, [isFilteredSearch, activeFilterTab, filterMovieCurrentPage, filterTvCurrentPage, filters, sortOption, movieGenres, tvGenres]);
+  }, [isFilteredSearch, activeFilterTab, filteredResults.movie.page, filteredResults.tv.page, filters, sortOption, movieGenres, tvGenres, userPreferences.useInfiniteScroll]);
 
   // *** MODIFIED: Apply Filters Handler ***
   const handleApplyFilters = async (e) => {
@@ -813,8 +893,6 @@ function App() {
     setSearchQuery('');
     setInstantResults([]);
     setShowInstantResults(false);
-    setFilterMovieCurrentPage(1);
-    setFilterTvCurrentPage(1);
     setActiveFilterTab('movie');
 
     try {
@@ -839,21 +917,36 @@ function App() {
       ]);
 
       console.log("Movie results page 1:", movieData);
-      setFilteredMovieResults(movieData?.results || []);
-      setFilterMovieTotalPages(movieData?.total_pages || 1);
-
       console.log("TV results page 1:", tvData);
-      setFilteredTvResults(tvData?.results || []);
-      setFilterTvTotalPages(tvData?.total_pages || 1);
+
+      const movieResults = movieData?.results || [];
+      const tvResults = tvData?.results || [];
+
+      setFilteredResults({
+        movie: {
+          items: movieResults,
+          allItems: movieResults,
+          page: 1,
+          totalPages: movieData?.total_pages || 1,
+          totalResults: movieData?.total_results || 0
+        },
+        tv: {
+          items: tvResults,
+          allItems: tvResults,
+          page: 1,
+          totalPages: tvData?.total_pages || 1,
+          totalResults: tvData?.total_results || 0
+        }
+      });
 
       setIsFilteredSearch(true);
       setShowFilters(false);
     } catch (error) {
       console.error("Failed to apply filters:", error);
-      setFilteredMovieResults([]);
-      setFilterMovieTotalPages(1);
-      setFilteredTvResults([]);
-      setFilterTvTotalPages(1);
+      setFilteredResults({
+        movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+        tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+      });
       setIsFilteredSearch(true);
     } finally {
       setIsFilterLoading(false);
@@ -868,16 +961,14 @@ function App() {
     setGenreSearch('');
     setLanguageSearch('');
     setIsFilterLoading(false);
-    setSortOption('popularity.desc'); // Reset sort
-    setActiveFilterTab('movie'); // Reset tab
-    // Reset movie results
-    setFilteredMovieResults([]);
-    setFilterMovieCurrentPage(1);
-    setFilterMovieTotalPages(1);
-    // Reset TV results
-    setFilteredTvResults([]);
-    setFilterTvCurrentPage(1);
-    setFilterTvTotalPages(1);
+    setSortOption('popularity.desc');
+    setActiveFilterTab('movie');
+    
+    // Reset with new consolidated structure
+    setFilteredResults({
+      movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+      tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+    });
   };
 
   const handleMediaClick = (media, type) => {
@@ -920,6 +1011,18 @@ function App() {
 
   const handleInstantResultClick = (item) => {
     console.log("Instant result selected:", item);
+    
+    // Save to recent searches
+    const searchTerm = item.title || item.name;
+    setUserPreferences(prev => {
+      const recentSearches = [
+        searchTerm,
+        ...prev.recentSearches.filter(s => s !== searchTerm)
+      ].slice(0, 5);
+      
+      return { ...prev, recentSearches };
+    });
+    
     // Clear search and hide dropdown immediately
     setSearchQuery('');
     setInstantResults([]);
@@ -927,10 +1030,8 @@ function App() {
     setIsInstantLoading(false);
 
     if (item && (item.media_type === 'movie' || item.media_type === 'tv')) {
-      // Navigate to media details page
       navigateToMedia(item, item.media_type);
     } else if (item && item.media_type === 'person') {
-      // Navigate to person details page
       navigateToPerson(item);
     } else {
       console.error("Selected item is missing or has unexpected media_type:", item);
@@ -991,20 +1092,65 @@ function App() {
 
   // *** MODIFIED: Filter Page Change Handler ***
   const handleFilterPageChange = (pageNumber) => {
-    if (activeFilterTab === 'movie') {
-      if (pageNumber > 0 && pageNumber <= filterMovieTotalPages) {
-        console.log(`[Pagination] Setting filterMovieCurrentPage to: ${pageNumber}`);
-        setFilterMovieCurrentPage(pageNumber);
+    const mediaType = activeFilterTab;
+    if (pageNumber > 0 && pageNumber <= filteredResults[mediaType].totalPages) {
+      console.log(`[Pagination] Setting ${mediaType} page to: ${pageNumber}`);
+      setFilteredResults(prev => ({
+        ...prev,
+        [mediaType]: { ...prev[mediaType], page: pageNumber }
+      }));
+    }
+  };
+
+  // NEW: Load More Results Handler for Infinite Scroll
+  const handleLoadMoreResults = async (mediaType, page) => {
+    console.log(`[handleLoadMoreResults] Called for ${mediaType}, page ${page}`);
+    console.log(`[handleLoadMoreResults] Current state:`, filteredResults[mediaType]);
+    
+    if (page > filteredResults[mediaType].totalPages) {
+      console.log(`[handleLoadMoreResults] Page ${page} exceeds total pages ${filteredResults[mediaType].totalPages}`);
+      return;
+    }
+    
+    setIsFilterLoading(true);
+    
+    try {
+      const selectedGenreIds = filters.genres || [];
+      let apiGenres = [];
+      
+      if (mediaType === 'movie') {
+        const validMovieGenreIds = movieGenres.map(g => g.id.toString());
+        apiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
       } else {
-        console.log(`[Pagination] Movie page change to ${pageNumber} blocked.`);
+        const validTvGenreIds = tvGenres.map(g => g.id.toString());
+        apiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
       }
-    } else { // Assuming 'tv' tab
-      if (pageNumber > 0 && pageNumber <= filterTvTotalPages) {
-        console.log(`[Pagination] Setting filterTvCurrentPage to: ${pageNumber}`);
-        setFilterTvCurrentPage(pageNumber);
-      } else {
-        console.log(`[Pagination] TV page change to ${pageNumber} blocked.`);
-      }
+      
+      const apiFilters = { ...filters, genres: apiGenres };
+      console.log(`[handleLoadMoreResults] Fetching ${mediaType} page ${page} with filters:`, apiFilters);
+      
+      const resultsData = await discoverMedia(mediaType, apiFilters, page, sortOption);
+      const newItems = resultsData?.results || [];
+      
+      console.log(`[handleLoadMoreResults] Received ${newItems.length} new items`);
+      
+      setFilteredResults(prev => ({
+        ...prev,
+        [mediaType]: {
+          ...prev[mediaType],
+          items: newItems,
+          allItems: [...prev[mediaType].allItems, ...newItems],
+          page: page,
+          totalPages: resultsData?.total_pages || 1,
+          totalResults: resultsData?.total_results || 0
+        }
+      }));
+      
+      console.log(`[handleLoadMoreResults] Updated state, now have ${filteredResults[mediaType].allItems.length + newItems.length} total items`);
+    } catch (error) {
+      console.error(`[handleLoadMoreResults] Failed to load more ${mediaType} results:`, error);
+    } finally {
+      setIsFilterLoading(false);
     }
   };
 
@@ -1023,37 +1169,38 @@ function App() {
     setSortOption(newSortOption);
 
     // Reset the current page of the ACTIVE tab to 1 to trigger re-fetch
-    if (activeFilterTab === 'movie') {
-      console.log('[Sort Change] Resetting movie page to 1');
-      setFilterMovieCurrentPage(1);
-      // Trigger an immediate fetch by setting isFilterLoading
-      setIsFilterLoading(true);
-    } else { // TV tab
-      console.log('[Sort Change] Resetting TV page to 1');
-      setFilterTvCurrentPage(1);
-      // Trigger an immediate fetch by setting isFilterLoading
-      setIsFilterLoading(true);
-    }
+    setFilteredResults(prev => ({
+      ...prev,
+      [activeFilterTab]: {
+        ...prev[activeFilterTab],
+        page: 1,
+        items: [],
+        allItems: []
+      }
+    }));
+    setIsFilterLoading(true);
   };
 
-  // --- Filtering Logic for Genre/Language Lists --- 
-  const displayedGenres = (searchType === 'movie' ? movieGenres : tvGenres)
-    .filter(genre => genre.name.toLowerCase().includes(genreSearch.toLowerCase()));
+  // --- Filtering Logic for Genre/Language Lists (Memoized) --- 
+  const displayedGenres = useMemo(() => {
+    return (activeFilterTab === 'movie' ? movieGenres : tvGenres)
+      .filter(genre => genre.name.toLowerCase().includes(genreSearch.toLowerCase()));
+  }, [activeFilterTab, movieGenres, tvGenres, genreSearch]);
 
-  const displayedLanguages = languages
-    .sort((a, b) => {
-      // Prioritize English and Hindi
-      if (a.iso_639_1 === 'en') return -1;
-      if (b.iso_639_1 === 'en') return 1;
-      if (a.iso_639_1 === 'hi') return -1;
-      if (b.iso_639_1 === 'hi') return 1;
-      // Sort the rest alphabetically
-      return a.english_name.localeCompare(b.english_name);
-    })
-    .filter(lang =>
-      lang.english_name.toLowerCase().includes(languageSearch.toLowerCase()) ||
-      (lang.name && lang.name.toLowerCase().includes(languageSearch.toLowerCase()))
-    );
+  const displayedLanguages = useMemo(() => {
+    return languages
+      .sort((a, b) => {
+        if (a.iso_639_1 === 'en') return -1;
+        if (b.iso_639_1 === 'en') return 1;
+        if (a.iso_639_1 === 'hi') return -1;
+        if (b.iso_639_1 === 'hi') return 1;
+        return a.english_name.localeCompare(b.english_name);
+      })
+      .filter(lang =>
+        lang.english_name.toLowerCase().includes(languageSearch.toLowerCase()) ||
+        (lang.name && lang.name.toLowerCase().includes(languageSearch.toLowerCase()))
+      );
+  }, [languages, languageSearch]);
 
   // Add these handlers to the App component
   const handleRatingIncrement = () => {
@@ -1143,8 +1290,48 @@ function App() {
                   onFocus={handleSearchFocus}
                   onBlur={handleSearchBlur}
                   autoComplete="off"
+                  aria-label="Search for movies, TV shows, or people"
+                  role="searchbox"
+                  aria-autocomplete="list"
+                  aria-controls="instant-search-results"
+                  aria-expanded={showInstantResults}
                 />
-                {/* MOVED InstantSearchResults BACK INSIDE input container for precise alignment */}
+                <VoiceSearch 
+                  onResult={(transcript) => {
+                    setSearchQuery(transcript);
+                  }}
+                  onError={(error) => console.error('Voice search error:', error)}
+                  currentTheme={currentTheme}
+                />
+                {/* Recent Searches */}
+                {searchQuery.length === 0 && 
+                 userPreferences.recentSearches.length > 0 && 
+                 searchFocused && (
+                  <div className="recent-searches">
+                    <h4>Recent Searches</h4>
+                    <div className="recent-searches-list">
+                      {userPreferences.recentSearches.map((search, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setSearchQuery(search)}
+                          className="recent-search-item"
+                        >
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="history-icon">
+                            <path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                          </svg>
+                          {search}
+                        </button>
+                      ))}
+                      <button
+                        className="clear-recent-searches"
+                        onClick={() => setUserPreferences(prev => ({ ...prev, recentSearches: [] }))}
+                      >
+                        Clear History
+                      </button>
+                    </div>
+                  </div>
+                )}
+                {/* Instant Search Results */}
                 {showInstantResults && (
                   <Suspense fallback={<div className="loading-text instant-loading">Loading results...</div>}>
                     <InstantSearchResults
@@ -1163,7 +1350,9 @@ function App() {
                 type="button"
                 onClick={() => setShowFilters(!showFilters)}
                 className={`filter-toggle-button ${showFilters ? 'active' : ''}`}
-                aria-label={showFilters ? 'Hide Filters' : 'Show Filters'}
+                aria-label={showFilters ? 'Hide filters' : 'Show filters'}
+                aria-pressed={showFilters}
+                aria-controls="filter-form"
                 title={showFilters ? 'Hide Filters' : 'Show Filters'}
               >
                 <img src={filterIcon} alt="Filter" />
@@ -1277,7 +1466,7 @@ function App() {
             )}
 
             {/* Loading Indicator */}
-            {isFilterLoading && <p className="loading-text">Loading filtered results...</p>}
+            {isFilterLoading && <MediaGridSkeleton count={8} />}
 
             {/* Filtered Results Area */}
             {!isFilterLoading && isFilteredSearch && (
@@ -1369,12 +1558,17 @@ function App() {
 
                   {/* Tab Navigation */}
                   <div className="sliding-tabs-container">
-                    <div className="sliding-tabs">
+                    <div 
+                      className="sliding-tabs"
+                      onTouchStart={onTouchStart}
+                      onTouchMove={onTouchMove}
+                      onTouchEnd={onTouchEnd}
+                    >
                       <div
                         className="tab-indicator"
                         style={{
-                          left: activeFilterTab === 'movie' ? '2px' : 'calc(50% - 2px)', // Adjust for padding
-                          width: 'calc(50% - 4px)' // Adjust for padding
+                          left: activeFilterTab === 'movie' ? '2px' : 'calc(50% - 2px)',
+                          width: 'calc(50% - 4px)'
                         }}
                       ></div>
                       <button
@@ -1397,33 +1591,83 @@ function App() {
                 <div className="tab-content">
                   {activeFilterTab === 'movie' && (
                     <>
-                      <MediaGrid
-                        items={filteredMovieResults}
-                        type="movie"
-                        onMediaClick={handleMediaClick}
-                      />
-                      {filteredMovieResults.length > 0 && (
-                        <Pagination
-                          currentPage={filterMovieCurrentPage}
-                          totalPages={filterMovieTotalPages}
-                          onPageChange={handleFilterPageChange}
+                      {userPreferences.useInfiniteScroll ? (
+                        <InfiniteScrollGrid
+                          items={filteredResults.movie.allItems}
+                          type="movie"
+                          onMediaClick={handleMediaClick}
+                          hasMore={filteredResults.movie.page < filteredResults.movie.totalPages}
+                          loadMore={(page) => handleLoadMoreResults('movie', page)}
+                          currentPage={filteredResults.movie.page}
+                          totalPages={filteredResults.movie.totalPages}
+                          totalResults={filteredResults.movie.totalResults}
+                          MediaItemComponent={MediaItem}
+                          useInfiniteScroll={true}
                         />
+                      ) : (
+                        <>
+                          <MediaGrid
+                            items={filteredResults.movie.items}
+                            type="movie"
+                            onMediaClick={handleMediaClick}
+                          />
+                          {filteredResults.movie.items.length > 0 && (
+                            <>
+                              <Pagination
+                                currentPage={filteredResults.movie.page}
+                                totalPages={filteredResults.movie.totalPages}
+                                onPageChange={handleFilterPageChange}
+                              />
+                              <JumpToPage
+                                currentPage={filteredResults.movie.page}
+                                totalPages={filteredResults.movie.totalPages}
+                                onPageChange={handleFilterPageChange}
+                                currentTheme={currentTheme}
+                              />
+                            </>
+                          )}
+                        </>
                       )}
                     </>
                   )}
                   {activeFilterTab === 'tv' && (
                     <>
-                      <MediaGrid
-                        items={filteredTvResults}
-                        type="tv"
-                        onMediaClick={handleMediaClick}
-                      />
-                      {filteredTvResults.length > 0 && (
-                        <Pagination
-                          currentPage={filterTvCurrentPage}
-                          totalPages={filterTvTotalPages}
-                          onPageChange={handleFilterPageChange}
+                      {userPreferences.useInfiniteScroll ? (
+                        <InfiniteScrollGrid
+                          items={filteredResults.tv.allItems}
+                          type="tv"
+                          onMediaClick={handleMediaClick}
+                          hasMore={filteredResults.tv.page < filteredResults.tv.totalPages}
+                          loadMore={(page) => handleLoadMoreResults('tv', page)}
+                          currentPage={filteredResults.tv.page}
+                          totalPages={filteredResults.tv.totalPages}
+                          totalResults={filteredResults.tv.totalResults}
+                          MediaItemComponent={MediaItem}
+                          useInfiniteScroll={true}
                         />
+                      ) : (
+                        <>
+                          <MediaGrid
+                            items={filteredResults.tv.items}
+                            type="tv"
+                            onMediaClick={handleMediaClick}
+                          />
+                          {filteredResults.tv.items.length > 0 && (
+                            <>
+                              <Pagination
+                                currentPage={filteredResults.tv.page}
+                                totalPages={filteredResults.tv.totalPages}
+                                onPageChange={handleFilterPageChange}
+                              />
+                              <JumpToPage
+                                currentPage={filteredResults.tv.page}
+                                totalPages={filteredResults.tv.totalPages}
+                                onPageChange={handleFilterPageChange}
+                                currentTheme={currentTheme}
+                              />
+                            </>
+                          )}
+                        </>
                       )}
                     </>
                   )}
@@ -1435,27 +1679,42 @@ function App() {
           {/* End of conditional rendering for search section */}
 
           {/* Default Media Grids (Trending/Top Rated) - Show only if NOT searching/filtering */}
-          {!searchQuery && !isFilteredSearch && !isLoading && !isPlayerModalOpen && !isPersonModalOpen && ( // Removed modal checks here as they are handled above
+          {!searchQuery && !isFilteredSearch && !isPlayerModalOpen && !isPersonModalOpen && (
             <>
-              <div id="trending-movies">
-                <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
-                <MediaGrid items={trendingMovies} type="movie" onMediaClick={handleMediaClick} />
-              </div>
+              {isLoading ? (
+                <>
+                  <div id="trending-movies">
+                    <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
+                    <MediaGridSkeleton count={20} />
+                  </div>
+                  <div id="trending-tv">
+                    <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
+                    <MediaGridSkeleton count={20} />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div id="trending-movies">
+                    <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
+                    <MediaGrid items={trendingMovies} type="movie" onMediaClick={handleMediaClick} />
+                  </div>
 
-              <div id="trending-tv">
-                <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
-                <MediaGrid items={trendingTV} type="tv" onMediaClick={handleMediaClick} />
-              </div>
+                  <div id="trending-tv">
+                    <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
+                    <MediaGrid items={trendingTV} type="tv" onMediaClick={handleMediaClick} />
+                  </div>
 
-              <div id="top-movies">
-                <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
-                <MediaGrid items={topMovies} type="movie" onMediaClick={handleMediaClick} />
-              </div>
+                  <div id="top-movies">
+                    <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
+                    <MediaGrid items={topMovies} type="movie" onMediaClick={handleMediaClick} />
+                  </div>
 
-              <div id="top-tv">
-                <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
-                <MediaGrid items={topTV} type="tv" onMediaClick={handleMediaClick} />
-              </div>
+                  <div id="top-tv">
+                    <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
+                    <MediaGrid items={topTV} type="tv" onMediaClick={handleMediaClick} />
+                  </div>
+                </>
+              )}
             </>
           )}
         </>
@@ -1501,6 +1760,20 @@ function App() {
 
       {/* NavBar might not need lazy loading as it's small */}
       <NavBar currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+
+      {/* Screen Reader Live Region */}
+      <div 
+        className="sr-only" 
+        role="status" 
+        aria-live="polite" 
+        aria-atomic="true"
+      >
+        {isFilterLoading && "Loading filtered results"}
+        {filteredResults.movie.totalResults > 0 && 
+          `Found ${filteredResults.movie.totalResults} movie results`}
+        {filteredResults.tv.totalResults > 0 && 
+          `Found ${filteredResults.tv.totalResults} TV show results`}
+      </div>
 
     </div>
   );

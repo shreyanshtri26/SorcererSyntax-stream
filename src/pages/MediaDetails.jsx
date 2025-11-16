@@ -4,6 +4,7 @@ import PlayerModal from '../contexts/PlayerModal';
 import Header from '../contexts/Header';
 import { getMovieDetails, getTVShowDetails } from '../api/api';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const MediaDetails = ({ type: propType }) => {
   const { id, season, episode } = useParams();
@@ -13,7 +14,17 @@ const MediaDetails = ({ type: propType }) => {
   const [media, setMedia] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentTheme, setCurrentTheme] = useState('devil');
+  
+  // Use shared theme from localStorage
+  const [userPreferences, setUserPreferences] = useLocalStorage('userPreferences', {
+    theme: 'devil',
+    language: 'en',
+    useInfiniteScroll: true,
+    autoplayTrailers: typeof window !== 'undefined' && window.innerWidth > 768,
+    recentSearches: []
+  });
+  
+  const currentTheme = userPreferences.theme;
 
   // Get type from props or URL params
   const mediaType = propType || searchParams.get('type') || 'movie';
@@ -62,11 +73,11 @@ const MediaDetails = ({ type: propType }) => {
   console.log('MediaDetails render:', { id, season, episode, mediaType, media, loading, error });
 
   const handleThemeChange = (theme) => {
-    setCurrentTheme(theme);
+    setUserPreferences(prev => ({ ...prev, theme }));
   };
 
   if (loading) {
-    return <LoadingSpinner message={`Loading ${mediaType === 'movie' ? 'movie' : 'TV show'} details...`} />;
+    return <LoadingSpinner message={`Loading ${mediaType === 'movie' ? 'movie' : 'TV show'} details...`} theme={currentTheme} />;
   }
 
   if (error) {

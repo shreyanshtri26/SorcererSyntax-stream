@@ -1,12 +1,12 @@
 {
   "name": "305-stream",
   "private": true,
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "A modern React + Vite streaming/music/movie hub.",
   "author": "Shreyansh Tripathi",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",

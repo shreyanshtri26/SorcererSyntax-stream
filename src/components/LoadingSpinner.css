@@ -100,17 +100,116 @@
   100% { text-shadow: 0 0 4px #ff0022; opacity: 0.8; }
 }
 
-/* ===== THEMES (works with your existing props) ===== */
+/* ===== DEVIL THEME ===== */
+.theme-devil .loading-spinner {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+}
 
-.theme-devil .spinner-ring:nth-child(1) { border-top-color: #ff0000; }
-.theme-devil .spinner-ring:nth-child(2) { border-right-color: #ff5500; }
-.theme-devil .spinner-ring:nth-child(3) { border-bottom-color: #ff0000; }
+.theme-devil .spinner-ring:nth-child(1) { 
+  border-top-color: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
 
-.theme-angel .spinner-ring:nth-child(1) { border-top-color: #80dfff; }
-.theme-angel .spinner-ring:nth-child(2) { border-right-color: #c3f4ff; }
-.theme-angel .spinner-ring:nth-child(3) { border-bottom-color: #80dfff; }
-.loading-spinner-container.theme-angel .loading-message { color: #e0f8ff; }
+.theme-devil .spinner-ring:nth-child(2) { 
+  border-right-color: #ff4500;
+  box-shadow: 0 0 12px rgba(255, 69, 0, 0.7);
+}
 
-.theme-hannibal .spinner-ring:nth-child(1) { border-top-color: #7a3f12; }
-.theme-hannibal .spinner-ring:nth-child(2) { border-right-color: #bf6a2f; }
-.theme-hannibal .spinner-ring:nth-child(3) { border-bottom-color: #7a3f12; }
+.theme-devil .spinner-ring:nth-child(3) { 
+  border-bottom-color: #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.theme-devil .loading-message {
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes devilPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255,0,0,0.6)); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(255,0,0,1)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255,0,0,0.6)); }
+}
+
+.theme-devil .loading-spinner {
+  animation: devilPulse 1.8s infinite ease-in-out;
+}
+
+/* ===== ANGEL THEME ===== */
+.theme-angel .loading-spinner {
+  filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.5));
+}
+
+.theme-angel .spinner-ring:nth-child(1) { 
+  border-top-color: #87CEEB;
+  box-shadow: 0 0 15px rgba(135, 206, 250, 0.7);
+}
+
+.theme-angel .spinner-ring:nth-child(2) { 
+  border-right-color: #B0E0E6;
+  box-shadow: 0 0 12px rgba(176, 224, 230, 0.6);
+}
+
+.theme-angel .spinner-ring:nth-child(3) { 
+  border-bottom-color: #ADD8E6;
+  box-shadow: 0 0 10px rgba(173, 216, 230, 0.5);
+}
+
+.theme-angel .loading-message {
+  color: #e0f8ff;
+  text-shadow: 0 0 10px rgba(135, 206, 250, 0.8);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@keyframes angelFloat {
+  0% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 10px rgba(135,206,250,0.5)); }
+  50% { transform: scale(1.1) translateY(-5px); filter: drop-shadow(0 0 20px rgba(135,206,250,0.9)); }
+  100% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 10px rgba(135,206,250,0.5)); }
+}
+
+.theme-angel .loading-spinner {
+  animation: angelFloat 2s infinite ease-in-out;
+}
+
+/* ===== HANNIBAL THEME ===== */
+.theme-hannibal .loading-spinner {
+  filter: drop-shadow(0 0 8px rgba(139, 69, 19, 0.5));
+}
+
+.theme-hannibal .spinner-ring:nth-child(1) { 
+  border-top-color: #8B4513;
+  box-shadow: 0 0 12px rgba(139, 69, 19, 0.7);
+}
+
+.theme-hannibal .spinner-ring:nth-child(2) { 
+  border-right-color: #6B8E23;
+  box-shadow: 0 0 10px rgba(107, 142, 35, 0.6);
+}
+
+.theme-hannibal .spinner-ring:nth-child(3) { 
+  border-bottom-color: #8B4513;
+  box-shadow: 0 0 8px rgba(139, 69, 19, 0.5);
+}
+
+.theme-hannibal .loading-message {
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(139, 69, 19, 0.6);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+@keyframes hannibalRotate {
+  0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 8px rgba(139,69,19,0.5)); }
+  50% { transform: scale(1.08) rotate(180deg); filter: drop-shadow(0 0 15px rgba(139,69,19,0.8)); }
+  100% { transform: scale(1) rotate(360deg); filter: drop-shadow(0 0 8px rgba(139,69,19,0.5)); }
+}
+
+.theme-hannibal .loading-spinner {
+  animation: hannibalRotate 2.5s infinite ease-in-out;
+}

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres } from '../api/api'; // Add genre functions
+import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres } from '../api/api';
 import './PlayerModal.css';
 import { useParams, useNavigate } from 'react-router-dom';
-import ReactPlayer from 'react-player/youtube'; // Import a player
-import filterIcon from './assets/filter-icon.svg'; // Import filter icon for sources
-import externalLinkIcon from './assets/external-link.svg'; // ADD: Icon for external links
-import devilIcon from './assets/devil-icon.svg'; // Re-add theme icons
+import ReactPlayer from 'react-player/youtube';
+import filterIcon from './assets/filter-icon.svg';
+import externalLinkIcon from './assets/external-link.svg';
+import devilIcon from './assets/devil-icon.svg';
 import angelIcon from './assets/angel-icon.svg';
 import hannibalIcon from './assets/hannibal-icon.svg';
 import defaultThemeIcon from './assets/default-theme-icon.svg';
+import ShareButtons from '../components/ShareButtons';
 // --- REMOVE Theme Icons (assuming they exist) ---
 // import devilIcon from './assets/devil-icon.svg'; 
 // import angelIcon from './assets/angel-icon.svg';
@@ -484,18 +485,13 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
           )}
         </div>
 
-        {/* Global Share Button */} 
-        <div className="share-button-container global-share">
-          <button 
-            className="share-button compact"
-            onClick={handleShareClick} 
-            title="Copy shareable link (includes selected embedded player if active)"
-          >
-            Share
-          </button>
-          {showShareTooltip && (
-            <div className="share-tooltip">Link copied!</div>
-          )}
+        {/* Share Buttons */} 
+        <div className="share-section">
+          <ShareButtons
+            url={generateShareLink()}
+            title={type === 'movie' ? media.title : media.name}
+            currentTheme={currentTheme}
+          />
         </div>
       </div>
     );

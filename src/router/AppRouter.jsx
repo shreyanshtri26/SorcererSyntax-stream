@@ -9,10 +9,26 @@ const MediaDetails = React.lazy(() => import('../pages/MediaDetails'));
 const PersonDetails = React.lazy(() => import('../pages/PersonDetails'));
 
 const AppRouter = () => {
+  // Get theme from localStorage for the loading spinner
+  const getThemeFromStorage = () => {
+    try {
+      const stored = window.localStorage.getItem('userPreferences');
+      if (stored) {
+        const prefs = JSON.parse(stored);
+        return prefs.theme || 'devil';
+      }
+    } catch (error) {
+      console.error('Error reading theme from localStorage:', error);
+    }
+    return 'devil';
+  };
+
+  const currentTheme = getThemeFromStorage();
+
   return (
     <Router>
       <PlayerProvider>
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={<LoadingSpinner theme={currentTheme} message="Loading..." />}>
           <Routes>
             {/* Main app route */}
             <Route path="/" element={<App />} />
