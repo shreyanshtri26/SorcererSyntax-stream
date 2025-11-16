@@ -108,7 +108,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // New state for collapsible description
   const [watchlistStatus, setWatchlistStatus] = useState(false); // Track if item is in watchlist
   const [userRating, setUserRating] = useState(0); // User's personal rating
-  const [selectedPlayerSource, setSelectedPlayerSource] = useState('nontongo'); // Default player source
+  const [selectedPlayerSource, setSelectedPlayerSource] = useState('moviesapi'); // Default player source
   const [sourceErrorCount, setSourceErrorCount] = useState({}); // Track errors per source
   const [showShareTooltip, setShowShareTooltip] = useState(false);
   // Add state to detect current theme
