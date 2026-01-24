@@ -257,8 +257,10 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* PERSISTENT GLOBAL PLAYER */}
-      <PersistentMusicPlayer currentTheme={currentTheme} />
+      {/* PERSISTENT GLOBAL PLAYER - Now restricted to Music section */}
+      {activeSection === 'music' && (
+        <PersistentMusicPlayer currentTheme={currentTheme} />
+      )}
 
     </div>
   );

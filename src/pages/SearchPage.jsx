@@ -332,14 +332,14 @@ const SearchPage = ({
                             onError={(error) => console.error('Voice search error:', error)}
                             currentTheme={currentTheme}
                         />
+                        <button
+                            type="button"
+                            onClick={() => setShowSearchPanel(!showSearchPanel)}
+                            className={`filter-toggle-button ${showSearchPanel ? 'active' : ''}`}
+                        >
+                            <img src={filterIcon} alt="Filter" />
+                        </button>
                     </div>
-                    <button
-                        type="button"
-                        onClick={() => setShowSearchPanel(!showSearchPanel)}
-                        className={`filter-toggle-button ${showSearchPanel ? 'active' : ''}`}
-                    >
-                        <img src={filterIcon} alt="Filter" />
-                    </button>
                 </div>
 
                 {/* Filters */}

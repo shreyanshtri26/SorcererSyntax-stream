@@ -1,141 +1,80 @@
-// MusicInstantSearchResults redesign inspired by InstantSearchResults.jsx
 import React from "react";
-import './MusicHub.css';
-import MusicPlayer from './MusicPlayer';
-import AlbumDetailView from './AlbumDetailView';
-import ArtistDetailsModal from './ArtistDetailsModal';
 import { usePlayer } from '../context/PlayerContext';
 
-export default function MusicInstantSearchResults({ results, isLoading, onSelect, currentTheme, onSelectArtist, onSelectAlbum, onSelectTrack, onBack }) {
-  if (isLoading) {
-    return (
-      <div className="instant-search-results music-instant loading">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
-  // Defensive checks for grouped Spotify results
-  const hasTracks = results?.tracks?.length > 0;
-  const hasArtists = results?.artists?.length > 0;
-  const hasAlbums = results?.albums?.length > 0;
-
-  // === THEME ENHANCEMENTS FOR MUSIC INSTANT SEARCH RESULTS ===
-  // (Apply theme classes to root container)
-
-  // --- Mini Card Renderer ---
+const MusicInstantSearchResults = ({ results, isLoading, onBack, onSelectArtist, onSelectAlbum, onSelectTrack, currentTheme }) => {
   const { addToQueue, playNext } = usePlayer();
 
-  const renderMiniCard = (item, type) => {
-    let title = item.name || '';
-    let detail = '';
-    let imageUrl = '';
-    let onClick = undefined;
-    if (type === 'track') {
-      title = item.name;
-      detail = item.artists?.map(a => a.name).join(', ') || '';
-      imageUrl = item.album?.images?.[0]?.url || 'no-poster.jpg';
-      onClick = () => onSelectTrack ? onSelectTrack(item) : onSelect?.(item, 'track');
-    } else if (type === 'artist') {
-      title = item.name;
-      detail = item.genres?.join(', ') || '';
-      imageUrl = item.images?.[0]?.url || 'no-poster.jpg';
-      onClick = () => onSelectArtist && onSelectArtist(item.id);
-    } else if (type === 'album') {
-      title = item.name;
-      detail = item.artists?.map(a => a.name).join(', ') || '';
-      imageUrl = item.images?.[0]?.url || 'no-poster.jpg';
-      onClick = () => onSelectAlbum && onSelectAlbum(item.id);
-    }
+  if (isLoading) return <div className="music-hub-loading">Searching the void...</div>;
+
+  const hasResults = results && (results.tracks?.length || results.artists?.length || results.albums?.length);
+
+  const renderCard = (item, type) => {
+    const isTrack = type === 'track';
+    const imageUrl = isTrack ? item.album?.images?.[0]?.url : item.images?.[0]?.url;
+    const subtitle = isTrack ? item.artists?.map(a => a.name).join(', ') : (item.genres?.slice(0, 2).join(', ') || 'Artist');
+
     return (
-      <div
-        key={item.id}
-        className={`music-card media-type-${type} theme-${currentTheme}`}
-        tabIndex={0}
-        onMouseDown={onClick}
-        onKeyDown={e => (e.key === 'Enter' ? onClick() : undefined)}
-        role="button"
-        aria-label={`${title} (${type})`}
-      >
-        <img
-          className="music-card-img"
-          src={imageUrl}
-          alt={title}
-          onError={e => { e.target.onerror = null; e.target.src = 'no-poster.jpg'; }}
-        />
-        <div className="music-card-content">
-          <div className="music-card-title">{title}</div>
-          <div className="music-card-sub">{detail}</div>
-          {type === 'track' && (
-            <div className="track-mini-actions" onMouseDown={e => e.stopPropagation()}>
-              <button
-                className="yt-play-mini"
-                onClick={(e) => { e.stopPropagation(); onSelectTrack(item, item.youtubeId); }}
-                title="Play on YouTube"
-              >
-                <i className="fab fa-youtube"></i>
-              </button>
-              <button onClick={(e) => { e.stopPropagation(); playNext(item); }} title="Play Next">
-                <i className="fas fa-step-forward"></i>
-              </button>
-              <button onClick={(e) => { e.stopPropagation(); addToQueue(item); }} title="Add to Queue">
-                <i className="fas fa-list-ul"></i>
-              </button>
-            </div>
-          )}
+      <div key={item.id} className={`music-card-mini theme-${currentTheme}`} onClick={() => {
+        if (isTrack) onSelectTrack(item);
+        else if (type === 'artist') onSelectArtist(item.id);
+        else onSelectAlbum(item.id);
+      }}>
+        <img src={imageUrl || 'no-poster.jpg'} alt="" className="mini-card-img" />
+        <div className="mini-card-details">
+          <p className="mini-card-title">{item.name}</p>
+          <p className="mini-card-sub">{subtitle}</p>
         </div>
+        {isTrack && (
+          <div className="mini-card-actions" onClick={e => e.stopPropagation()}>
+            <button onClick={() => playNext(item)}>Next</button>
+            <button onClick={() => addToQueue(item)}>+</button>
+          </div>
+        )}
       </div>
     );
   };
 
-  // --- Navigation Bar UI ---
-  const renderNavBar = () => (
-    <div className="music-nav-bar">
-      <button
-        className="back-button"
-        onClick={onBack}
-        title="Back"
-        aria-label="Back"
-      >
-        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M15.5 19a1 1 0 0 1-.7-1.71l-5.09-5.29a1 1 0 0 1 0-1.42l5.09-5.29A1 1 0 1 1 16.91 7.7l-4.38 4.54 4.38 4.54A1 1 0 0 1 15.5 19z" /></svg>
-        Back
-      </button>
-    </div>
-  );
-
-  // --- Main Render ---
   return (
-    <div className={`instant-search-results music-instant-search-results theme-${currentTheme}`}>
-      {renderNavBar()}
-      <div className="music-instant-search-scrollable">
-        {(!hasTracks && !hasArtists && !hasAlbums) && (
-          <div className="no-results">No results found.</div>
-        )}
-        {hasTracks && (
+    <div className={`music-instant-results-container theme-${currentTheme}`}>
+      <div className="modal-header-nav">
+        <button className="back-button" onClick={onBack}>
+          <span>←</span> Back to Explore
+        </button>
+        <h3 className="search-stats">
+          {hasResults ? 'Results match your search' : 'No matches found'}
+        </h3>
+      </div>
+
+      <div className="results-scroll-area">
+        {results?.tracks?.length > 0 && (
           <div className="result-category">
-            <h4 className="category-title">Tracks</h4>
-            <div className="music-section-cards">
-              {results.tracks.map(item => renderMiniCard(item, 'track'))}
+            <h4>Tracks</h4>
+            <div className="mini-grid">
+              {results.tracks.map(t => renderCard(t, 'track'))}
             </div>
           </div>
         )}
-        {hasArtists && (
+
+        {results?.artists?.length > 0 && (
           <div className="result-category">
-            <h4 className="category-title">Artists</h4>
-            <div className="music-section-cards">
-              {results.artists.map(item => renderMiniCard(item, 'artist'))}
+            <h4>Artists</h4>
+            <div className="mini-grid">
+              {results.artists.map(a => renderCard(a, 'artist'))}
             </div>
           </div>
         )}
-        {hasAlbums && (
+
+        {results?.albums?.length > 0 && (
           <div className="result-category">
-            <h4 className="category-title">Albums</h4>
-            <div className="music-section-cards">
-              {results.albums.map(item => renderMiniCard(item, 'album'))}
+            <h4>Albums</h4>
+            <div className="mini-grid">
+              {results.albums.map(al => renderCard(al, 'album'))}
             </div>
           </div>
         )}
       </div>
     </div>
   );
-}
+};
+
+export default MusicInstantSearchResults;

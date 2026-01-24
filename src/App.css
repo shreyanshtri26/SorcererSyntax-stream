@@ -193,17 +193,30 @@ body {
   /* Prevent horizontal scroll */
 }
 
-/* Hide all scrollbars globally but maintain scrollability */
+/* Show scrollbars but make them themed and thin */
 * {
-  scrollbar-width: none !important;
-  /* Firefox */
-  -ms-overflow-style: none !important;
-  /* IE and Edge */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 *::-webkit-scrollbar {
-  display: none !important;
-  /* Chrome, Safari, etc. */
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--theme-bg, #0a0a0c);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--theme-accent, rgba(255, 255, 255, 0.2));
+  border-radius: 20px;
+  border: 2px solid var(--theme-bg, #0a0a0c);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--theme-accent);
+  box-shadow: 0 0 10px var(--theme-accent-glow);
 }
 
 /* Hide .nav-breadcrumb */
@@ -216,6 +229,8 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
+  padding-bottom: 120px;
+  /* Space for the persistent music player */
   transition: all 0.3s ease;
   position: relative;
   /* Establish stacking context */
@@ -316,12 +331,38 @@ h2 {
 }
 
 /* --- Consolidated Base Button/Link Styles --- */
-.filter-toggle-button,
+.filter-toggle-button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.filter-toggle-button img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.filter-toggle-button:hover img {
+  opacity: 1;
+}
+
 .apply-filters-button,
 .clear-filters-button,
 .trailer-btn,
 /* Base page-link styles defined later */
-.button-base {
+.button-base,
+.back-button,
+.close-button-top {
   /* General class if needed elsewhere */
   display: inline-flex;
   /* Use flex for alignment within button */
@@ -350,12 +391,33 @@ h2 {
 .apply-filters-button:hover,
 .clear-filters-button:hover,
 .trailer-btn:hover,
-.button-base:hover {
+.button-base:hover,
+.back-button:hover,
+.close-button-top:hover {
   background-color: #A52A2A;
   /* Lighter red on hover */
   border-color: #A52A2A;
   transform: scale(1.03);
   /* Consistent hover effect */
+}
+
+/* Shared Modal Header Navigation */
+.modal-header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-button-top {
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  line-height: 1;
 }
 
 /* Filter Form Specific Styles */
@@ -798,10 +860,10 @@ h2 {
 
   /* Adjust search controls */
   .search-controls-container {
-    flex-direction: column;
-    /* Stack input and filter button */
-    align-items: stretch;
-    /* Make items take full width */
+    flex-direction: row;
+    /* keep on single line */
+    align-items: center;
+    gap: 10px;
   }
 
   #search-input {
@@ -817,10 +879,7 @@ h2 {
 
   .filter-toggle-button {
     margin-left: 0;
-    margin-top: 10px;
-    /* Add space when stacked */
-    align-self: flex-start;
-    /* Align button left */
+    margin-top: 0;
   }
 
   .instant-search-results {
@@ -887,8 +946,9 @@ h2 {
   .media-grid {
     grid-template-columns: repeat(3, 1fr);
     /* Force 3 columns */
-    gap: 15px;
-    padding: 15px 5px;
+    gap: 12px;
+    padding: 15px 12px;
+    justify-items: center;
   }
 
   .media-item {
@@ -1063,8 +1123,9 @@ h2 {
   .media-grid {
     grid-template-columns: repeat(2, 1fr);
     /* Force 2 columns */
-    gap: 10px;
-    padding: 10px 5px;
+    gap: 12px;
+    padding: 15px 12px;
+    justify-items: center;
   }
 
   .media-item {
@@ -1183,8 +1244,8 @@ h2 {
   /* Align items vertically */
   justify-content: center;
   /* Center the controls */
-  gap: 16px;
-  /* default gap */
+  gap: 10px;
+  /* tighter search controls */
   margin-bottom: 20px;
   position: relative;
   /* Needed for potential absolute positioning of elements */
@@ -1197,13 +1258,13 @@ h2 {
 
 .search-input-container {
   flex-grow: 1;
-  /* ENSURE THIS IS UNCOMMENTED AND PRESENT */
   position: relative;
   display: flex;
-  /* Keep flex to manage input width */
+  align-items: center;
+  gap: 8px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 350px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 600px;
 }
 
 #search-input {
@@ -1216,17 +1277,12 @@ h2 {
   color: #eee;
   outline: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-  /* Input takes width of container */
-  max-width: 400px;
-  /* Initial max-width on desktop */
-  flex-shrink: 0;
+  flex-grow: 1;
+  min-width: 0;
 }
 
 /* Expanded state on focus */
 #search-input:focus {
-  max-width: 500px;
-  /* Expand on desktop */
   background-color: rgba(20, 20, 20, 0.8);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -1629,15 +1685,50 @@ h2 {
 /* === Theme Overrides === */
 
 /* --- Theme: Devil (Enhanced Evil) --- */
+.App.theme-devil {
+  --theme-accent: #cc0000;
+  --theme-accent-glow: rgba(255, 0, 0, 0.5);
+  --theme-bg: #080202;
+  --theme-surface: #1a0505;
+  --theme-text: #e5e5e5;
+  --theme-font: 'Bebas Neue', 'Montserrat', sans-serif;
+  --theme-radius: 4px;
+
+  /* Music Aliases */
+  --music-accent: var(--theme-accent);
+  --music-accent-glow: var(--theme-accent-glow);
+  --music-bg: var(--theme-bg);
+  --music-surface: var(--theme-surface);
+  --music-radius: var(--theme-radius);
+  --music-font: var(--theme-font);
+}
+
 .theme-devil body {
-  /* background: #080202 url(...) no-repeat center center fixed; */
-  /* Keep base color */
-  background-color: #080202;
-  color: #e5e5e5;
-  font-family: 'Montserrat', sans-serif;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  font-family: var(--theme-font);
+  transition: all 0.5s ease;
   position: relative;
-  /* Needed for pseudo-elements */
   isolation: isolate;
+}
+
+.theme-devil .media-item {
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  border-radius: var(--theme-radius);
+}
+
+.theme-devil .media-item:hover {
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 20px var(--theme-accent-glow);
+}
+
+.theme-devil .apply-filters-button,
+.theme-devil .play-btn,
+.theme-devil .trailer-btn {
+  background: var(--theme-accent);
+  color: #fff;
+  border-radius: var(--theme-radius);
+  border: none;
 }
 
 /* Add overlay effects for Devil theme */
@@ -1649,9 +1740,27 @@ h2 {
     radial-gradient(ellipse at top, rgba(50, 0, 0, 0.3) 0%, transparent 70%);
   opacity: 0.6;
   mix-blend-mode: color-dodge;
-  /* Experiment with blend modes */
   pointer-events: none;
   z-index: -1;
+}
+
+/* Modal Specifics */
+.theme-devil-modal .modal-content {
+  background: #080202;
+  border: 2px solid var(--theme-accent);
+  border-radius: var(--theme-radius);
+  color: var(--theme-text);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 20px var(--theme-accent-glow);
+}
+
+.theme-devil-modal .close-button:hover {
+  background: var(--theme-accent);
+  color: #fff;
+}
+
+.theme-devil-modal .genre-tag {
+  background: var(--theme-accent);
+  border-radius: var(--theme-radius);
 }
 
 .theme-devil body::after {
@@ -1809,12 +1918,31 @@ h2 {
   --angel-gradient: linear-gradient(135deg, #8EC5FC, #E0C3FC);
 }
 
-/* Apply ethereal styling to body */
+/* --- Theme: Angel (Ethereal) --- */
+.App.theme-angel {
+  --theme-accent: #8EC5FC;
+  --theme-accent-glow: rgba(142, 197, 252, 0.4);
+  --theme-bg: #f8faff;
+  --theme-surface: #ffffff;
+  --theme-text: #2c78c3;
+  --theme-font: 'Nunito', sans-serif;
+  --theme-radius: 30px;
+
+  /* Music Aliases */
+  --music-accent: var(--theme-accent);
+  --music-accent-glow: var(--theme-accent-glow);
+  --music-bg: var(--theme-bg);
+  --music-surface: var(--theme-surface);
+  --music-radius: var(--theme-radius);
+  --music-font: var(--theme-font);
+}
+
 .theme-angel body {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  background-image: linear-gradient(180deg, var(--angel-cloud) 0%, #E0C3FC 100%);
-  letter-spacing: 0.3px;
+  background-image: linear-gradient(180deg, #f8faff 0%, #E0C3FC 100%);
+  background-attachment: fixed;
+  color: var(--theme-text);
+  font-family: var(--theme-font);
+  transition: all 0.5s ease;
 }
 
 /* Add floating layers with ultra-rounded corners */
@@ -2016,15 +2144,24 @@ h2 {
   border-radius: 8px;
 }
 
-.theme-angel .main-title {
-  color: #4682B4;
-  /* Steel Blue */
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  /* Lighter weight */
-  font-size: 4em;
-  text-shadow: 1px 1px 3px rgba(200, 220, 255, 0.5);
-  letter-spacing: 2px;
+.theme-angel-modal .modal-content {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border: 4px solid #fff;
+  border-radius: var(--theme-radius);
+  color: var(--theme-text);
+  box-shadow: 0 20px 50px rgba(142, 197, 252, 0.3);
+}
+
+.theme-angel-modal .close-button {
+  background: var(--theme-accent);
+  color: #fff;
+}
+
+.theme-angel-modal .genre-tag {
+  background: linear-gradient(135deg, #8EC5FC, #E0C3FC);
+  color: #fff;
+  border-radius: 20px;
 }
 
 .theme-angel .section-title {
@@ -2039,10 +2176,9 @@ h2 {
 
 .theme-angel .media-item {
   background-color: #ffffff;
-  border: 1px solid rgba(173, 216, 230, 0.5);
-  box-shadow: 0 6px 15px rgba(173, 216, 230, 0.25);
-  border-radius: 6px;
-  /* Softer */
+  border: 1px solid rgba(142, 197, 252, 0.3);
+  box-shadow: 0 6px 15px rgba(142, 197, 252, 0.15);
+  border-radius: var(--theme-radius);
 }
 
 .theme-angel .media-item.hovered {
@@ -2119,13 +2255,51 @@ h2 {
 }
 
 
-/* --- Theme: Hannibal (Enhanced Sophistication/Texture) --- */
+/* --- Theme: Hannibal (Sophisticated) --- */
+.App.theme-hannibal {
+  --theme-accent: #8FBC8F;
+  --theme-accent-glow: rgba(143, 188, 143, 0.3);
+  --theme-bg: #1a1d1a;
+  --theme-surface: #252a25;
+  --theme-text: #d8d8d8;
+  --theme-font: 'Garamond', 'Times New Roman', serif;
+  --theme-radius: 2px;
+
+  /* Music Aliases */
+  --music-accent: var(--theme-accent);
+  --music-accent-glow: var(--theme-accent-glow);
+  --music-bg: var(--theme-bg);
+  --music-surface: var(--theme-surface);
+  --music-radius: var(--theme-radius);
+  --music-font: var(--theme-font);
+}
+
 .theme-hannibal body {
-  background-color: #1a1d1a;
-  color: #d8d8d8;
-  font-family: 'Garamond', 'Times New Roman', Times, serif;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  font-family: var(--theme-font);
+  transition: all 0.5s ease;
   position: relative;
   isolation: isolate;
+}
+
+.theme-hannibal .media-item {
+  border: 1px solid var(--theme-accent);
+  border-radius: var(--theme-radius);
+  background: var(--theme-surface);
+}
+
+.theme-hannibal .media-item:hover {
+  box-shadow: 5px 5px 0px var(--theme-accent);
+}
+
+.theme-hannibal .apply-filters-button,
+.theme-hannibal .play-btn,
+.theme-hannibal .trailer-btn {
+  background: transparent;
+  border: 1px solid var(--theme-accent);
+  color: var(--theme-accent);
+  border-radius: var(--theme-radius);
 }
 
 /* Enhance noise/texture overlay for Hannibal theme */
@@ -2196,6 +2370,22 @@ h2 {
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+
+/* Modal Specifics */
+.theme-hannibal-modal .modal-content {
+  background: var(--theme-surface);
+  border: 3px double var(--theme-accent);
+  border-radius: var(--theme-radius);
+  color: var(--theme-text);
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.theme-hannibal-modal .genre-tag {
+  background: transparent;
+  border: 1px solid var(--theme-accent);
+  color: var(--theme-accent);
+  border-radius: 0;
 }
 
 .theme-hannibal #search-input::placeholder {

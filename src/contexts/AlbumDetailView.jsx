@@ -4,98 +4,67 @@ import { getAlbumDetails } from '../api/api';
 import { usePlayer } from '../context/PlayerContext';
 import './AlbumDetailView.css';
 
-const AlbumTrackItem = ({ track, trackNumber, onPlayLocal, onSelectArtist }) => {
-    const { addToQueue, playNext } = usePlayer();
-    if (!track || !track.name) return null;
-
-    const handleTrackClick = () => {
-        if (track.uri && onPlayLocal) {
-            onPlayLocal(track);
-        }
-    };
-
-    return (
-        <div className="album-track-item track-item">
-            <span className="track-number">{trackNumber}.</span>
-            <div className="track-info" onClick={handleTrackClick}>
-                <span className="track-name">{track.name}</span>
-                <div className="track-artists-container">
-                    {track.artists?.map((artist, index) => (
-                        <span key={artist.id} className="track-artist-name clickable" onClick={(e) => { e.stopPropagation(); onSelectArtist(artist.id); }}>
-                            {index > 0 && ', '}
-                            {artist.name}
-                        </span>
-                    ))}
-                </div>
-            </div>
-            <div className="track-actions-buttons">
-                <button
-                    className="yt-play-mini"
-                    onClick={(e) => { e.stopPropagation(); onPlayLocal(track, track.youtubeId); }}
-                    title="Play on YouTube"
-                >
-                    <i className="fab fa-youtube"></i>
-                </button>
-                <button className="mini-btn" onClick={() => playNext(track)} title="Play Next">
-                    <i className="fas fa-step-forward"></i>
-                </button>
-                <button className="mini-btn" onClick={() => addToQueue(track)} title="Add to Queue">
-                    <i className="fas fa-list-ul"></i>
-                </button>
-            </div>
-        </div>
-    );
-};
-
 const AlbumDetailView = ({ albumId, onClose, currentTheme, onSelectArtist, onPlayLocal }) => {
     const navigate = useNavigate();
-    const [albumData, setAlbumData] = useState(null);
+    const { addToQueue, playNext } = usePlayer();
+    const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         if (!albumId) return;
         setIsLoading(true);
         getAlbumDetails(albumId)
-            .then(data => setAlbumData(data))
-            .catch(err => setError(err.message || 'Failed to fetch album'))
+            .then(res => setData(res))
+            .catch(err => console.error("Album Load Error:", err))
             .finally(() => setIsLoading(false));
     }, [albumId]);
 
-    if (isLoading) return <div className="loading-text">Loading album...</div>;
-    if (error) return <div className="error-text">{error}</div>;
-    if (!albumData) return null;
+    if (isLoading) return <div className="loading-text">Spinning Records...</div>;
+    if (!data) return null;
 
     return (
         <div className={`album-detail-view-container theme-${currentTheme}`}>
-            <div className="music-nav-bar">
-                <button className="back-button" onClick={() => navigate(-1)} title="Back">
-                    <span className="music-nav-back-icon">←</span> Back
-                </button>
-            </div>
             <div className="album-detail-view">
+                {/* Nav */}
+                <div className="modal-header-nav">
+                    <button className="back-button" onClick={() => navigate(-1)}>
+                        <span>←</span> Back
+                    </button>
+                    <button className="close-button-top" onClick={onClose || (() => navigate('/music'))}>&times;</button>
+                </div>
+
+                {/* Hero */}
                 <div className="album-header">
-                    <img src={albumData.images?.[0]?.url || 'no-poster.jpg'} alt={albumData.name} className="album-cover-image" />
+                    <img src={data.images?.[0]?.url} alt="" className="album-cover-image" />
                     <div className="album-text-info">
-                        <span className="album-type">{albumData.album_type}</span>
-                        <h3 className="album-name">{albumData.name}</h3>
+                        <span className="album-type">{data.album_type}</span>
+                        <h3 className="album-name">{data.name}</h3>
                         <p className="album-artists">
-                            By: {albumData.artists?.map(a => a.name).join(', ')}
+                            {data.artists?.map(a => (
+                                <span key={a.id} className="clickable" onClick={() => onSelectArtist(a.id)}>
+                                    {a.name}
+                                </span>
+                            ))}
                         </p>
-                        <p className="album-release">{albumData.release_date}</p>
+                        <p className="album-release">{data.release_date} • {data.tracks?.total} songs</p>
                     </div>
                 </div>
 
+                {/* Tracks */}
                 <div className="album-tracks-list">
-                    <h4>Tracks</h4>
-                    {albumData.tracks?.items?.map((track, index) => (
-                        <AlbumTrackItem
-                            key={track.id}
-                            track={track}
-                            trackNumber={index + 1}
-                            onPlayLocal={onPlayLocal}
-                            onSelectArtist={onSelectArtist}
-                        />
+                    <h4>Tracklist</h4>
+                    {data.tracks?.items?.map((track, idx) => (
+                        <div key={track.id} className="track-item" onClick={() => onPlayLocal(track)}>
+                            <span className="track-number">{idx + 1}</span>
+                            <div className="track-info">
+                                <p className="track-name">{track.name}</p>
+                                <p className="track-artist-names">{track.artists.map(a => a.name).join(', ')}</p>
+                            </div>
+                            <div className="track-actions">
+                                <button className="yt-play-mini" onClick={(e) => { e.stopPropagation(); onPlayLocal(track); }}>▶</button>
+                                <button className="yt-play-mini" onClick={(e) => { e.stopPropagation(); addToQueue(track); }}>+</button>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
