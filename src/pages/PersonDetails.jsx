@@ -5,6 +5,7 @@ import Header from '../contexts/Header';
 import { IMAGE_BASE_URL } from '../api/api';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import darkTexture from '../contexts/assets/dark-texture.png';
 
 const PersonDetails = () => {
   const { id } = useParams();
@@ -120,7 +121,17 @@ const PersonDetails = () => {
   }
 
   return (
-    <div className={`App theme-${currentTheme}`}>
+    <div
+      className={`App theme-${currentTheme}`}
+      style={{
+        backgroundImage: `url(${darkTexture})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <Header
         onTitleClick={() => navigate('/')}
         currentTheme={currentTheme}
