@@ -10,6 +10,7 @@ import angelIcon from './assets/angel-icon.svg';
 import hannibalIcon from './assets/hannibal-icon.svg';
 import defaultThemeIcon from './assets/default-theme-icon.svg';
 import ShareButtons from '../components/ShareButtons';
+import darkTexture from './assets/dark-texture.png';
 // --- REMOVE Theme Icons (assuming they exist) ---
 // import devilIcon from './assets/devil-icon.svg'; 
 // import angelIcon from './assets/angel-icon.svg';
@@ -143,10 +144,10 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     { id: 'vidsrcme', name: 'VidSrc.me' },
     { id: 'multiembedmov', name: 'Multiembed' },
     { id: 'vidsrcxyz', name: 'VidSrc.xyz' },
-    { id: 'superembed', name: 'SuperEmbed' },
     { id: '2embedcc', name: '2Embed (Alt)' },
     { id: 'smashy', name: 'Smashy Stream' },
     { id: 'vembed', name: 'Vembed' },
+    { id: 'videasy', name: 'Videasy' },
   ];
 
   const embeddedPlayerInfo = {
@@ -157,9 +158,9 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     multiembedmov: { name: 'Multiembed', website: 'multiembed.mov', features: ['Embedded Player', 'TMDB', 'Simple'] },
     vidsrcxyz: { name: 'VidSrc.xyz', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
     smashy: { name: 'Smashy Stream', website: 'player.smashy.stream', features: ['Embedded Player', 'Fast'] },
-    superembed: { name: 'SuperEmbed', website: 'multiembed.mov', features: ['Embedded Player', 'Super Fast'] },
     '2embedcc': { name: '2Embed (Alt)', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
     vembed: { name: 'Vembed', website: 'vembed.click', features: ['Embedded Player', 'New'] },
+    videasy: { name: 'Videasy', website: 'videasy.net', features: ['Embedded Player', 'HD'] },
   };
 
   // VidSrc domains for fallback
@@ -348,12 +349,6 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         ? `https://player.smashy.stream/movie/${media.id}`
         : `https://player.smashy.stream/tv/${media.id}?s=${selectedSeason}&e=${selectedEpisode}`;
     }
-    // SuperEmbed
-    else if (sourceId === 'superembed') {
-      return type === 'movie'
-        ? `https://multiembed.mov/?video_id=${media.id}&tmdb=1`
-        : `https://multiembed.mov/?video_id=${media.id}&tmdb=1&s=${selectedSeason}&e=${selectedEpisode}`;
-    }
     // 2Embed (Alt)
     else if (sourceId === '2embedcc') {
       return type === 'movie'
@@ -365,6 +360,12 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
       return type === 'movie'
         ? `https://vembed.click/play/${media.id}`
         : `https://vembed.click/play/${media.id}_s${selectedSeason}_e${selectedEpisode}`;
+    }
+    // Videasy
+    else if (sourceId === 'videasy') {
+      return type === 'movie'
+        ? `https://player.videasy.net/movie/${media.id}`
+        : `https://player.videasy.net/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
     }
 
     return ''; // Fallback
@@ -730,7 +731,11 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
   return (
     <div className={`modal-overlay theme-${currentTheme}-modal`} onClick={onClose}>
-      <div className={`modal-content theme-${currentTheme}-modal-content`} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={`modal-content theme-${currentTheme}-modal-content`}
+        onClick={(e) => e.stopPropagation()}
+        style={{ backgroundImage: `url(${darkTexture})`, backgroundRepeat: 'repeat' }}
+      >
 
         <button className="close-button" onClick={onClose}>&times;</button>
 
