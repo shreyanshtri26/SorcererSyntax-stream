@@ -1,6 +1,6 @@
 // Use the API key directly instead of from environment variables
 const TMDB_API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95";
-const TMDB_BASE_URL = 'https://api.themoviedb.org/3/';
+export const TMDB_BASE_URL = 'https://api.themoviedb.org/3/';
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 const TMDB_DEFAULT_LANGUAGE = 'en-US';
 import { apiCache } from './cache';
@@ -64,6 +64,9 @@ export const getVideos = (mediaType, id, language = TMDB_DEFAULT_LANGUAGE) => {
 };
 export const getMovieGenres = () => fetchFromTMDB('genre/movie/list');
 export const getTVGenres = () => fetchFromTMDB('genre/tv/list');
+export const getMovieCredits = (movieId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`movie/${movieId}/credits`, {}, language);
+export const getTVSeasonCredits = (tvId, seasonNumber, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}/season/${seasonNumber}/credits`, {}, language);
+export const getTVSeasonVideos = (tvId, seasonNumber, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}/season/${seasonNumber}/videos`, {}, language);
 
 export const discoverMedia = async (mediaType, filters, page = 1, sortOption = 'popularity.desc') => {
   // Determine the UI language (for metadata) and original language (for filtering)

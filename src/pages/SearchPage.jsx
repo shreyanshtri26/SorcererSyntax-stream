@@ -47,7 +47,6 @@ const SearchPage = ({
 
     const debouncedQuery = useDebounce(searchQuery, 800);
     const currentLanguage = filters.languages.length > 0 ? filters.languages[0] : '';
-    const BASE_URL = 'https://api.themoviedb.org/3';
 
     useEffect(() => {
         const fetchMetadata = async () => {
@@ -75,7 +74,7 @@ const SearchPage = ({
         try {
             if (query && query.length >= 2) {
                 const apiKey = VITE_API_KEY || "9a5a0e6e93d4b73e87566b319e8cfb95";
-                const searchUrl = `${BASE_URL}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}&language=${currentLanguage}&page=1&include_adult=false`;
+                const searchUrl = `${TMDB_BASE_URL}search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}&language=${currentLanguage}&page=1&include_adult=false`;
 
                 const response = await fetch(searchUrl);
                 const data = await response.json();
@@ -188,7 +187,7 @@ const SearchPage = ({
         try {
             if (searchQuery && searchQuery.length >= 2) {
                 const apiKey = VITE_API_KEY || "9a5a0e6e93d4b73e87566b319e8cfb95";
-                const searchUrl = `${BASE_URL}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(searchQuery)}&language=${currentLanguage}&page=${page}&include_adult=false`;
+                const searchUrl = `${TMDB_BASE_URL}search/multi?api_key=${apiKey}&query=${encodeURIComponent(searchQuery)}&language=${currentLanguage}&page=${page}&include_adult=false`;
                 const response = await fetch(searchUrl);
                 const data = await response.json();
                 const newResults = data.results || [];

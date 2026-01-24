@@ -9,11 +9,11 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 const PersonDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Use shared theme from localStorage
   const [userPreferences, setUserPreferences] = useLocalStorage('userPreferences', {
     theme: 'devil',
@@ -22,7 +22,7 @@ const PersonDetails = () => {
     autoplayTrailers: typeof window !== 'undefined' && window.innerWidth > 768,
     recentSearches: []
   });
-  
+
   const currentTheme = userPreferences.theme;
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const PersonDetails = () => {
           popularity: 85.5,
           known_for: []
         };
-        
+
         setPerson(mockPerson);
       } catch (err) {
         console.error('Error fetching person details:', err);
@@ -61,7 +61,11 @@ const PersonDetails = () => {
   }, [id]);
 
   const handleClose = () => {
-    navigate('/');
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
   };
 
   const handleThemeChange = (theme) => {
@@ -122,7 +126,7 @@ const PersonDetails = () => {
         currentTheme={currentTheme}
         onThemeChange={handleThemeChange}
       />
-      
+
       <PersonDetailsModal
         person={person}
         imageBaseUrl={IMAGE_BASE_URL}

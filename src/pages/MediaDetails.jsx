@@ -10,11 +10,11 @@ const MediaDetails = ({ type: propType }) => {
   const { id, season, episode } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  
+
   const [media, setMedia] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Use shared theme from localStorage
   const [userPreferences, setUserPreferences] = useLocalStorage('userPreferences', {
     theme: 'devil',
@@ -23,7 +23,7 @@ const MediaDetails = ({ type: propType }) => {
     autoplayTrailers: typeof window !== 'undefined' && window.innerWidth > 768,
     recentSearches: []
   });
-  
+
   const currentTheme = userPreferences.theme;
 
   // Get type from props or URL params
@@ -43,12 +43,12 @@ const MediaDetails = ({ type: propType }) => {
 
         // Fetch media details using the proper API endpoint
         console.log('Fetching media details for:', { id, mediaType, season, episode });
-        const mediaDetails = mediaType === 'movie' 
-          ? await getMovieDetails(id) 
+        const mediaDetails = mediaType === 'movie'
+          ? await getMovieDetails(id)
           : await getTVShowDetails(id);
-        
+
         console.log('Received media details:', mediaDetails);
-        
+
         if (mediaDetails) {
           setMedia(mediaDetails);
         } else {
@@ -66,7 +66,11 @@ const MediaDetails = ({ type: propType }) => {
   }, [id, mediaType]);
 
   const handleClose = () => {
-    navigate('/');
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
   };
 
   // Debug logging
@@ -125,7 +129,7 @@ const MediaDetails = ({ type: propType }) => {
         currentTheme={currentTheme}
         onThemeChange={handleThemeChange}
       />
-      
+
       <PlayerModal
         media={media}
         type={mediaType}

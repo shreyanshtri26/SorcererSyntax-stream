@@ -13,6 +13,7 @@ import PersonDetailsModal from './contexts/PersonDetailsModal';
 import SearchPage from './pages/SearchPage';
 import MusicPage from './pages/MusicPage';
 
+import { IMAGE_BASE_URL } from './api/api';
 import './App.css';
 
 // --- Helper Function for Themed Titles ---
@@ -56,7 +57,6 @@ function App() {
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [showTrailer, setShowTrailer] = useState(false); // For modal
 
-  // Mobile Detection
   const [isMobile, setIsMobile] = useState(false);
   const VITE_API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95";
 
@@ -247,8 +247,13 @@ function App() {
           <PersonDetailsModal
             isOpen={isPersonModalOpen}
             onClose={closeModal}
-            personId={selectedPerson.id}
+            person={selectedPerson}
+            imageBaseUrl={IMAGE_BASE_URL}
             currentTheme={currentTheme}
+            onKnownForItemClick={(item, type) => {
+              closeModal();
+              navigateToMedia(item, type);
+            }}
           />
         )}
       </AnimatePresence>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres } from '../api/api';
+import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres, getMovieCredits, getTVSeasonCredits, getTVSeasonVideos, IMAGE_BASE_URL } from '../api/api';
 import './PlayerModal.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
@@ -18,7 +18,7 @@ import ShareButtons from '../components/ShareButtons';
 // -------------------------------------------
 
 // Custom hook approach
-function useTrailerFetching(mediaType, id, media, type) {
+function useTrailerFetching(mediaType, id, media, type, season) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [trailerKey, setTrailerKey] = useState(null);
@@ -34,7 +34,23 @@ function useTrailerFetching(mediaType, id, media, type) {
         setLoading(true);
         setError('');
 
-        const videos = await getVideos(effectiveType, effectiveId);
+        let videos = [];
+        // If it's a TV show and we have a season, try to fetch season videos first
+        if ((effectiveType === 'tv' || type === 'tv') && season) {
+          try {
+            const seasonVideos = await getTVSeasonVideos(effectiveId, season);
+            if (seasonVideos && seasonVideos.length > 0) {
+              videos = seasonVideos;
+            }
+          } catch (e) {
+            console.warn("Failed to fetch season videos, falling back to main videos", e);
+          }
+        }
+
+        // If no season videos (or not TV), fetch standard videos
+        if (!videos || videos.length === 0) {
+          videos = await getVideos(effectiveType, effectiveId);
+        }
 
         if (!videos || !videos.length) {
           setError('No trailer available');
@@ -87,7 +103,7 @@ function useTrailerFetching(mediaType, id, media, type) {
     };
 
     fetchTrailer();
-  }, [mediaType, id, media, type]);
+  }, [mediaType, id, media, type, season]);
 
   return { loading, error, trailerKey };
 }
@@ -102,7 +118,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef(null);
   const { mediaType, id, season: urlSeason, episode: urlEpisode } = useParams(); // Get type, id, season, and episode from URL
-  const { loading: trailerLoading, error: trailerError, trailerKey } = useTrailerFetching(mediaType, id, media, type);
+  const { loading: trailerLoading, error: trailerError, trailerKey } = useTrailerFetching(mediaType, id, media, type, selectedSeason);
   const [isPlayingTrailer, setIsPlayingTrailer] = useState(showTrailer);
   const [genres, setGenres] = useState([]); // Add state for genres
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // New state for collapsible description
@@ -114,13 +130,10 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // Add state to detect current theme
   // const [currentTheme, setCurrentTheme] = useState('devil');
 
-  // --- WatchMode API Integration ---
-  const [watchModeSources, setWatchModeSources] = useState([]);
-  const [isLoadingWatchMode, setIsLoadingWatchMode] = useState(false);
-  const [watchModeError, setWatchModeError] = useState(null);
-  const WATCHMODE_API_KEY = 'UmYrr7vHxc4hue3yPSedJYDqoeNH0L2MpnDfVMWo'; // Use the provided key
-  const WATCHMODE_BASE_URL = 'https://api.watchmode.com/v1/';
-  // --------------------------------
+  // --- Cast State ---
+  const [cast, setCast] = useState([]);
+  const [isLoadingCast, setIsLoadingCast] = useState(false);
+  // ------------------
 
   // --- Updated Player Sources ---
   const embeddedPlayerSources = [
@@ -156,75 +169,34 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   ];
   // -----------------------------
 
-  // --- Fetch WatchMode Sources Effect ---
+  // --- Fetch Cast Effect ---
   useEffect(() => {
-    const getWatchModeStreamingSources = async (titleName) => {
-      if (!titleName) return;
+    const fetchCast = async () => {
+      if (!media || !media.id) return;
 
-      setIsLoadingWatchMode(true);
-      setWatchModeError(null);
-      setWatchModeSources([]);
+      setIsLoadingCast(true);
+      setCast([]);
 
       try {
-        // 1. Search for the title by name (using TMDB ID might be more reliable if available)
-        // Using name search as per the provided example
-        const searchUrl = new URL('search/', WATCHMODE_BASE_URL);
-        searchUrl.search = new URLSearchParams({
-          search_field: 'name',
-          search_value: titleName,
-          apiKey: WATCHMODE_API_KEY,
-          types: type === 'movie' ? 'movie' : 'tv_series' // Specify result type
-        });
-
-        const searchResponse = await fetch(searchUrl);
-        if (!searchResponse.ok) throw new Error(`WatchMode Search API Error: ${searchResponse.statusText}`);
-        const searchResults = await searchResponse.json();
-
-        const potentialTitles = searchResults.title_results;
-        if (!potentialTitles || potentialTitles.length === 0) {
-          throw new Error('Title not found on WatchMode.');
+        let credits;
+        if (type === 'movie') {
+          credits = await getMovieCredits(media.id);
+        } else if (type === 'tv' && selectedSeason) {
+          credits = await getTVSeasonCredits(media.id, selectedSeason);
         }
 
-        // Heuristic: Find the best match (e.g., based on year if available)
-        // For now, just take the first result ID
-        const titleId = potentialTitles[0].id;
-
-        // 3. Get streaming sources for the found WatchMode ID
-        const sourcesUrl = new URL(`title/${titleId}/sources/`, WATCHMODE_BASE_URL);
-        sourcesUrl.search = new URLSearchParams({ apiKey: WATCHMODE_API_KEY });
-
-        const sourcesResponse = await fetch(sourcesUrl);
-        if (!sourcesResponse.ok) throw new Error(`WatchMode Sources API Error: ${sourcesResponse.statusText}`);
-        const sourcesData = await sourcesResponse.json();
-
-        // Filter to include relevant types (sub, free, rent, buy, addon)
-        const relevantSourceTypes = ['sub', 'free', 'rent', 'buy', 'addon'];
-        const streamingPlayers = sourcesData.filter(source =>
-          relevantSourceTypes.includes(source.type)
-        ).map(source => ({ // Simplify the structure
-          id: source.source_id,
-          name: source.name,
-          type: source.type,
-          web_url: source.web_url,
-          price: source.price,
-          format: source.format // e.g., HD, SD, 4K
-        }));
-
-        setWatchModeSources(streamingPlayers);
-
+        if (credits && credits.cast) {
+          setCast(credits.cast);
+        }
       } catch (error) {
-        console.error('WatchMode API Error:', error);
-        setWatchModeError(error.message || 'Failed to fetch streaming options.');
+        console.error("Error fetching cast:", error);
       } finally {
-        setIsLoadingWatchMode(false);
+        setIsLoadingCast(false);
       }
     };
 
-    if (media && (media.title || media.name)) {
-      getWatchModeStreamingSources(type === 'movie' ? media.title : media.name);
-    }
-
-  }, [media, type]); // Re-fetch when media or type changes
+    fetchCast();
+  }, [media, type, selectedSeason]);
   // -----------------------------------
 
   useEffect(() => {
@@ -444,11 +416,11 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   };
   // -----------------------------------
 
-  // --- WatchMode Source Click Handler ---
-  const handleWatchModeSourceClick = (url) => {
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
+  // --- Cast Member Click Handler ---
+  // Optional: Could navigate to a person details page
+  const handleCastClick = (personId) => {
+    // Navigate to the person details page
+    navigate(`/person/${personId}`);
   };
   // -------------------------------------
 
@@ -521,40 +493,44 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   };
   // ----------------------------------------
 
-  // WatchMode Streaming Services section - separated from source selector
-  const renderStreamingServices = () => {
-    return (
-      <div className="streaming-services-container">
-        <hr className="source-separator" />
+  // --- Render Cast Section ---
+  const renderCast = () => {
+    if (!cast || cast.length === 0) return null;
 
-        {/* WatchMode Streaming Options */}
-        <div className="source-section watchmode-players">
-          <h4 className="source-section-title">
-            <img src={externalLinkIcon} alt="" className="source-title-icon" />
-            Find on Streaming Services
-          </h4>
-          {isLoadingWatchMode && <p className="loading-text small">Searching options...</p>}
-          {watchModeError && !isLoadingWatchMode && <p className="error-text small">{watchModeError}</p>}
-          {!isLoadingWatchMode && !watchModeError && watchModeSources.length === 0 && (
-            <p className="info-text small">No streaming options found via WatchMode.</p>
-          )}
-          {!isLoadingWatchMode && watchModeSources.length > 0 && (
-            <div className="source-options-grid">
-              {watchModeSources.map(source => (
-                <button
-                  key={`${source.id}-${source.type}-${source.web_url}`}
-                  className="source-button watchmode"
-                  onClick={() => handleWatchModeSourceClick(source.web_url)}
-                  title={`Watch on ${source.name} (${source.type}) - Opens external site`}
-                >
-                  {source.name}
-                  <span className="source-type-badge">{source.type}{source.price ? ` ($${source.price})` : ''}</span>
-                  {source.format && <span className="quality-badge small">{source.format}</span>}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+    return (
+      <div className="cast-section-container">
+        <hr className="source-separator" />
+        <h4 className="source-section-title">
+          Cast
+        </h4>
+
+        {isLoadingCast ? (
+          <p className="loading-text small">Loading cast...</p>
+        ) : (
+          <div className="cast-grid">
+            {cast.slice(0, 10).map(person => ( // Limit to top 10 for cleaner UI
+              <div key={person.id} className="cast-card" onClick={() => handleCastClick(person.id)}>
+                <div className="cast-image-wrapper">
+                  {person.profile_path ? (
+                    <img
+                      src={`${IMAGE_BASE_URL}${person.profile_path}`}
+                      alt={person.name}
+                      className="cast-image"
+                    />
+                  ) : (
+                    <div className="cast-placeholder-image">
+                      <span>{person.name.charAt(0)}</span>
+                    </div>
+                  )}
+                </div>
+                <div className="cast-info">
+                  <p className="cast-name">{person.name}</p>
+                  <p className="cast-character">{person.character}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   };
@@ -738,8 +714,8 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
           )}
         </div>
 
-        {/* Streaming Services after user ratings and additional info */}
-        {renderStreamingServices()}
+        {/* Cast Section after user ratings and additional info */}
+        {renderCast()}
       </>
     );
   };
