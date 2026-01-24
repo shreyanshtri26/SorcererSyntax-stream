@@ -90,21 +90,10 @@ const MusicHub = forwardRef(({ currentTheme }, ref) => {
   };
 
   // --- Playback ---
-  const handlePlayRequest = useCallback(async (track) => {
+  // --- Playback ---
+  const handlePlayRequest = useCallback((track) => {
     if (!track) return;
-    setIsSearchingVideo(true);
-    let vidId = track.youtubeId;
-    if (!vidId) {
-      try {
-        const query = `${track.name} ${track.artists?.map(a => a.name).join(' ')}`;
-        const videos = await searchMusicVideos(query);
-        vidId = videos?.[0]?.id;
-      } catch (err) {
-        console.error("Video search failed:", err);
-      }
-    }
-    playTrack(track, vidId);
-    setIsSearchingVideo(false);
+    playTrack(track); // Context now handles finding the video ID if needed
   }, [playTrack]);
 
   // --- Navigation Helpers ---
@@ -149,13 +138,13 @@ const MusicHub = forwardRef(({ currentTheme }, ref) => {
 
         <div className="music-view-viewport">
           {/* 1. Results Overlay/View */}
-          {showResults && (
+          {viewType === 'home' && showResults && (
             <MusicInstantSearchResults
               results={instantResults}
               isLoading={isLoading}
               onBack={clearSearch}
-              onSelectArtist={id => navigate(`/artist/${id}`)}
-              onSelectAlbum={id => navigate(`/album/${id}`)}
+              onSelectArtist={id => { clearSearch(); navigate(`/artist/${id}`); }}
+              onSelectAlbum={id => { clearSearch(); navigate(`/album/${id}`); }}
               onSelectTrack={handlePlayRequest}
               currentTheme={currentTheme}
             />
@@ -199,6 +188,7 @@ const MusicHub = forwardRef(({ currentTheme }, ref) => {
               artistId={routeId}
               currentTheme={currentTheme}
               onBack={() => navigate('/music')}
+              onSelectArtist={id => navigate(`/artist/${id}`)}
               onSelectAlbum={id => navigate(`/album/${id}`)}
               onPlayLocal={handlePlayRequest}
             />
@@ -209,6 +199,7 @@ const MusicHub = forwardRef(({ currentTheme }, ref) => {
               albumId={routeId}
               currentTheme={currentTheme}
               onBack={() => navigate(-1)}
+              onSelectArtist={id => navigate(`/artist/${id}`)}
               onPlayLocal={handlePlayRequest}
             />
           )}

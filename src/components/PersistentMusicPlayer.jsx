@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlayer } from '../context/PlayerContext';
-import SpotifyPlayer from '../contexts/SpotifyPlayer';
 import MusicPlayer from '../contexts/MusicPlayer';
+import SpotifyPlayer from '../contexts/SpotifyPlayer';
 import './PersistentMusicPlayer.css';
 
 const PersistentMusicPlayer = ({ currentTheme }) => {
@@ -22,7 +22,8 @@ const PersistentMusicPlayer = ({ currentTheme }) => {
         playTrack,
         currentTime,
         duration,
-        setCurrentTime
+        setCurrentTime,
+        handlePlaybackError
     } = usePlayer();
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -33,11 +34,10 @@ const PersistentMusicPlayer = ({ currentTheme }) => {
         const time = parseFloat(e.target.value);
         setCurrentTime(time);
         if (playbackSource === 'spotify' && spotifyPlayerRef.current) spotifyPlayerRef.current.seek(time);
-        else if (playbackSource === 'youtube' && youtubePlayerRef.current) youtubePlayerRef.current.seek(time);
+        else if (youtubePlayerRef.current) youtubePlayerRef.current.seek(time);
     };
 
     const hasSpotify = !!currentTrack.uri;
-    const hasYouTube = !!(playingVideoId || currentTrack.youtubeId);
 
     return (
         <AnimatePresence>
@@ -105,11 +105,9 @@ const PersistentMusicPlayer = ({ currentTheme }) => {
                                         Spotify
                                     </button>
                                 )}
-                                {hasYouTube && (
-                                    <button className={`src-btn ${playbackSource === 'youtube' ? 'active' : ''}`} onClick={() => setSource('youtube')}>
-                                        YouTube
-                                    </button>
-                                )}
+                                <button className={`src-btn ${playbackSource === 'youtube' ? 'active' : ''}`} onClick={() => setSource('youtube')}>
+                                    YouTube
+                                </button>
                             </div>
                             <button className="expand-trigger" onClick={() => setIsExpanded(!isExpanded)}>
                                 {isExpanded ? '▼' : '▲'}
@@ -129,6 +127,7 @@ const PersistentMusicPlayer = ({ currentTheme }) => {
                                             ref={youtubePlayerRef}
                                             videoId={playingVideoId || currentTrack.youtubeId}
                                             onEnd={playNextInQueue}
+                                            onError={handlePlaybackError}
                                         />
                                     )}
                                 </div>

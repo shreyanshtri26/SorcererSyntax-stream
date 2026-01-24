@@ -274,7 +274,7 @@ export async function searchMusicVideos(query, maxResults = 3) {
   const url =
     `https://www.googleapis.com/youtube/v3/search?` +
     `part=snippet&type=video&videoCategoryId=10&q=${encodeURIComponent(query)}` +
-    `&maxResults=${maxResults}&key=${YOUTUBE_API_KEY}`;
+    `&maxResults=${maxResults}&videoEmbeddable=true&key=${YOUTUBE_API_KEY}`;
   const response = await fetch(url);
   if (!response.ok) {
     let errorMsg = response.statusText;

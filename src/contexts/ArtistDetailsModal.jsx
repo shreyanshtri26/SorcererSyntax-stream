@@ -16,11 +16,17 @@ const ArtistDetailsModal = ({ artistId, onClose, currentTheme, onSelectArtist, o
             setIsLoading(true);
             try {
                 const [details, topTracks, albums, related] = await Promise.all([
-                    getArtistDetails(artistId),
-                    getArtistTopTracks(artistId, 'IN'),
-                    getArtistAlbums(artistId, 10, 'IN'),
-                    getRelatedArtists(artistId)
+                    getArtistDetails(artistId).catch(e => { console.error("Artist Details Failed:", e); return null; }),
+                    getArtistTopTracks(artistId, 'IN').catch(e => { console.error("Top Tracks Failed:", e); return []; }),
+                    getArtistAlbums(artistId, 10, 'IN').catch(e => { console.error("Albums Failed:", e); return []; }),
+                    getRelatedArtists(artistId).catch(e => { console.error("Related Artists Failed:", e); return []; })
                 ]);
+
+                if (!details) {
+                    console.error(`Could not load details for artist ID: ${artistId}`);
+                    setIsLoading(false);
+                    return;
+                }
 
                 setData({
                     ...details,
