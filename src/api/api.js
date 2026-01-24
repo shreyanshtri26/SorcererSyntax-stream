@@ -3,17 +3,28 @@ const TMDB_API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95";
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3/';
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 const TMDB_DEFAULT_LANGUAGE = 'en-US';
+import { apiCache } from './cache';
 
 async function fetchFromTMDB(endpoint, params = {}, language = TMDB_DEFAULT_LANGUAGE) {
+  // Generate cache key
+  const cacheKey = `tmdb:${endpoint}:${JSON.stringify(params)}:${language}`;
+
+  // Check cache first
+  const cachedData = apiCache.get(cacheKey);
+  if (cachedData) {
+    // console.log(`[Cache Hit] ${cacheKey}`); 
+    return cachedData;
+  }
+
   const url = new URL(`${TMDB_BASE_URL}${endpoint}`);
   url.searchParams.append('api_key', TMDB_API_KEY);
   url.searchParams.append('language', language || TMDB_DEFAULT_LANGUAGE);
   Object.keys(params).forEach(key => {
-      if (key === 'query' && params[key]) {
-          url.searchParams.append(key, encodeURIComponent(params[key]));
-      } else if (params[key] !== undefined && params[key] !== null) {
-          url.searchParams.append(key, params[key]);
-      }
+    if (key === 'query' && params[key]) {
+      url.searchParams.append(key, encodeURIComponent(params[key]));
+    } else if (params[key] !== undefined && params[key] !== null) {
+      url.searchParams.append(key, params[key]);
+    }
   });
   try {
     const response = await fetch(url);
@@ -21,7 +32,12 @@ async function fetchFromTMDB(endpoint, params = {}, language = TMDB_DEFAULT_LANG
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    return data.results || data;
+    const result = data.results || data;
+
+    // Store in cache
+    apiCache.set(cacheKey, result);
+
+    return result;
   } catch (error) {
     console.error("Error fetching from TMDB API:", error);
     return null;
@@ -39,70 +55,78 @@ export const getLanguages = () => fetchFromTMDB('configuration/languages');
 export const getTVShowDetails = (tvId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}`, {}, language);
 export const getMovieDetails = (movieId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`movie/${movieId}`, {}, language);
 export const getVideos = (mediaType, id, language = TMDB_DEFAULT_LANGUAGE) => {
-    if (!mediaType || !id) {
-        console.error("Media type and ID are required to fetch videos.");
-        return Promise.resolve(null);
-    }
-    const endpoint = `${mediaType}/${id}/videos`;
-    return fetchFromTMDB(endpoint, {}, language);
+  if (!mediaType || !id) {
+    console.error("Media type and ID are required to fetch videos.");
+    return Promise.resolve(null);
+  }
+  const endpoint = `${mediaType}/${id}/videos`;
+  return fetchFromTMDB(endpoint, {}, language);
 };
 export const getMovieGenres = () => fetchFromTMDB('genre/movie/list');
 export const getTVGenres = () => fetchFromTMDB('genre/tv/list');
 
 export const discoverMedia = async (mediaType, filters, page = 1, sortOption = 'popularity.desc') => {
-    // Determine the UI language (for metadata) and original language (for filtering)
-    const uiLanguage = 'en-US'; // Always use English for metadata (or change as needed)
-    let originalLanguage = undefined;
-    if (filters.languages && filters.languages.length === 1) {
-        originalLanguage = filters.languages[0];
-    }
-    const params = new URLSearchParams({
-        api_key: TMDB_API_KEY,
-        language: uiLanguage,
-        sort_by: sortOption,
-        include_adult: false,
-        include_video: false,
-        page: page,
-        'vote_average.gte': filters.rating || 0,
-        with_genres: (filters.genres || []).join(','),
-    });
-    if (originalLanguage) {
-        params.append('with_original_language', originalLanguage);
-    }
+  // Determine the UI language (for metadata) and original language (for filtering)
+  const uiLanguage = 'en-US'; // Always use English for metadata (or change as needed)
+  let originalLanguage = undefined;
+  if (filters.languages && filters.languages.length === 1) {
+    originalLanguage = filters.languages[0];
+  }
+  const params = new URLSearchParams({
+    api_key: TMDB_API_KEY,
+    language: uiLanguage,
+    sort_by: sortOption,
+    include_adult: false,
+    include_video: false,
+    page: page,
+    'vote_average.gte': filters.rating || 0,
+    with_genres: (filters.genres || []).join(','),
+  });
+  if (originalLanguage) {
+    params.append('with_original_language', originalLanguage);
+  }
 
-    const url = `${TMDB_BASE_URL}discover/${mediaType}?${params.toString()}`;
+  const url = `${TMDB_BASE_URL}discover/${mediaType}?${params.toString()}`;
+  const cacheKey = `discover:${mediaType}:${params.toString()}`;
 
-    // Enhanced logging for debugging
-    console.log(`[discoverMedia] Fetching URL: ${url}`);
-    console.log('[discoverMedia] Params:', Object.fromEntries(params.entries()));
+  // Check cache
+  const cachedData = apiCache.get(cacheKey);
+  if (cachedData) {
+    return cachedData;
+  }
 
+
+  // Enhanced logging for debugging
+  console.log(`[discoverMedia] Fetching URL: ${url}`);
+  console.log('[discoverMedia] Params:', Object.fromEntries(params.entries()));
+
+  try {
+    const response = await fetch(url);
+    const text = await response.text();
+    let data;
     try {
-        const response = await fetch(url);
-        const text = await response.text();
-        let data;
-        try {
-            data = JSON.parse(text);
-        } catch (parseErr) {
-            console.error("[discoverMedia] Failed to parse JSON:", parseErr, "Raw response:", text);
-            return null;
-        }
-        if (!response.ok) {
-            console.error(`[discoverMedia] HTTP error! status: ${response.status}`, data);
-            return null;
-        }
-        if (!data || typeof data !== 'object') {
-            console.error("[discoverMedia] No data or invalid data object returned:", data);
-            return null;
-        }
-        if (Array.isArray(data.results) && data.results.length === 0) {
-            console.warn("[discoverMedia] Empty results array returned for:", url);
-        }
-        return data;
-    } catch (error) {
-        console.error(`[discoverMedia] Error discovering ${mediaType}:`, error);
-        console.error("[discoverMedia] Failed API Request URL:", url);
-        return null;
+      data = JSON.parse(text);
+    } catch (parseErr) {
+      console.error("[discoverMedia] Failed to parse JSON:", parseErr, "Raw response:", text);
+      return null;
     }
+    if (!response.ok) {
+      console.error(`[discoverMedia] HTTP error! status: ${response.status}`, data);
+      return null;
+    }
+    if (!data || typeof data !== 'object') {
+      console.error("[discoverMedia] No data or invalid data object returned:", data);
+      return null;
+    }
+    if (Array.isArray(data.results) && data.results.length === 0) {
+      console.warn("[discoverMedia] Empty results array returned for:", url);
+    }
+    return data;
+  } catch (error) {
+    console.error(`[discoverMedia] Error discovering ${mediaType}:`, error);
+    console.error("[discoverMedia] Failed API Request URL:", url);
+    return null;
+  }
 };
 
 const SPOTIFY_CLIENT_ID = "509cc13fb5ad4f57ac0a1ba95bcc99c2";
@@ -154,7 +178,7 @@ export async function getPlaylistTracks(playlistId, limit = 50, offset = 0, mark
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -173,7 +197,7 @@ export async function searchSpotifyTracks(query, limit = 20, offset = 0, market)
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -192,7 +216,7 @@ export async function searchSpotifyAlbums(query, limit = 20, offset = 0, market)
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -211,7 +235,7 @@ export async function getNewReleasesSpotify(limit = 20, offset = 0, market) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -230,7 +254,7 @@ export async function getAlbumDetails(albumId, market) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   return await response.json();
@@ -248,7 +272,7 @@ export async function getArtistDetails(artistId, market) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   return await response.json();
@@ -268,7 +292,7 @@ export async function searchSpotifyAll(query, limit = 5, offset = 0, market) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -289,7 +313,7 @@ export async function getArtistTopTracks(artistId, market = 'IN') {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -305,7 +329,7 @@ export async function getArtistAlbums(artistId, limit = 10, market = 'IN') {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -321,7 +345,7 @@ export async function getRelatedArtists(artistId) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -329,26 +353,26 @@ export async function getRelatedArtists(artistId) {
 }
 
 export const getPersonDetails = async (personId) => {
-    if (!personId) return null;
-    const params = new URLSearchParams({
-        api_key: TMDB_API_KEY,
-        append_to_response: 'combined_credits', // Get credits along with details
-        // language: 'en-US' // Add language if needed
-    });
-    const url = `${TMDB_BASE_URL}person/${personId}?${params.toString()}`;
-    console.log(`Fetching Person Details URL: ${url}`);
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(`Error fetching person details for ID ${personId}:`, error);
-        console.error("Failed API Request URL:", url);
-        return null; // Return null on error
+  if (!personId) return null;
+  const params = new URLSearchParams({
+    api_key: TMDB_API_KEY,
+    append_to_response: 'combined_credits', // Get credits along with details
+    // language: 'en-US' // Add language if needed
+  });
+  const url = `${TMDB_BASE_URL}person/${personId}?${params.toString()}`;
+  console.log(`Fetching Person Details URL: ${url}`);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching person details for ID ${personId}:`, error);
+    console.error("Failed API Request URL:", url);
+    return null; // Return null on error
+  }
 };
 
 // --- YouTube API Key (user provided) ---
@@ -366,7 +390,7 @@ export async function searchMusicVideos(query, maxResults = 3) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`YouTube API Error: ${errorMsg}`);
   }
   const data = await response.json();
@@ -406,7 +430,7 @@ export async function getRandomSpotifyTrackByLanguage(language) {
     try {
       const errJson = await response.json();
       errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch {}
+    } catch { }
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
