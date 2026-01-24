@@ -582,10 +582,10 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --------------------------------
 
   // --- Component Return Structure ---
-  console.log('PlayerModal render:', { media, type, mediaType, id, urlSeason, urlEpisode });
+  // console.log('PlayerModal render:', { media, type, mediaType, id, urlSeason, urlEpisode });
 
   if (!media) {
-    console.log('PlayerModal: No media provided');
+    // console.log('PlayerModal: No media provided');
     return null;
   }
 
