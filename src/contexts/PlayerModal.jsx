@@ -146,6 +146,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     { id: 'superembed', name: 'SuperEmbed' },
     { id: '2embedcc', name: '2Embed (Alt)' },
     { id: 'smashy', name: 'Smashy Stream' },
+    { id: 'vembed', name: 'Vembed' },
   ];
 
   const embeddedPlayerInfo = {
@@ -158,6 +159,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     smashy: { name: 'Smashy Stream', website: 'player.smashy.stream', features: ['Embedded Player', 'Fast'] },
     superembed: { name: 'SuperEmbed', website: 'multiembed.mov', features: ['Embedded Player', 'Super Fast'] },
     '2embedcc': { name: '2Embed (Alt)', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
+    vembed: { name: 'Vembed', website: 'vembed.click', features: ['Embedded Player', 'New'] },
   };
 
   // VidSrc domains for fallback
@@ -357,6 +359,12 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
       return type === 'movie'
         ? `https://www.2embed.cc/embed/${media.id}`
         : `https://www.2embed.cc/embedtv/${media.id}&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+    // Vembed
+    else if (sourceId === 'vembed') {
+      return type === 'movie'
+        ? `https://vembed.click/play/${media.id}`
+        : `https://vembed.click/play/${media.id}_s${selectedSeason}_e${selectedEpisode}`;
     }
 
     return ''; // Fallback
