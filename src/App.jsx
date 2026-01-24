@@ -8,6 +8,7 @@ import useUrlState from './hooks/useUrlState';
 import Header from './contexts/Header';
 import PlayerModal from './contexts/PlayerModal';
 import PersonDetailsModal from './contexts/PersonDetailsModal';
+import PersistentMusicPlayer from './components/PersistentMusicPlayer';
 
 // Pages
 import SearchPage from './pages/SearchPage';
@@ -222,8 +223,6 @@ function App() {
             key="music-section"
             ref={musicHubRef}
             currentTheme={currentTheme}
-            navStackState={musicNavStackState}
-            setNavStackState={setMusicNavStackState}
           />
         )}
       </AnimatePresence>
@@ -257,6 +256,9 @@ function App() {
           />
         )}
       </AnimatePresence>
+
+      {/* PERSISTENT GLOBAL PLAYER */}
+      <PersistentMusicPlayer currentTheme={currentTheme} />
 
     </div>
   );

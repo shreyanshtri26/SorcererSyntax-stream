@@ -12,7 +12,6 @@ async function fetchFromTMDB(endpoint, params = {}, language = TMDB_DEFAULT_LANG
   // Check cache first
   const cachedData = apiCache.get(cacheKey);
   if (cachedData) {
-    // console.log(`[Cache Hit] ${cacheKey}`); 
     return cachedData;
   }
 
@@ -124,6 +123,8 @@ export const discoverMedia = async (mediaType, filters, page = 1, sortOption = '
     if (Array.isArray(data.results) && data.results.length === 0) {
       console.warn("[discoverMedia] Empty results array returned for:", url);
     }
+    // Cache the result
+    apiCache.set(cacheKey, data);
     return data;
   } catch (error) {
     console.error(`[discoverMedia] Error discovering ${mediaType}:`, error);
@@ -169,13 +170,16 @@ function getSpotifyHeaders(token) {
   };
 }
 
-export async function getPlaylistTracks(playlistId, limit = 50, offset = 0, market) {
+async function fetchSpotify(url, market) {
+  const cacheKey = `spotify:${url}:${market || 'default'}`;
+  const cached = apiCache.get(cacheKey);
+  if (cached) return cached;
+
   const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/playlists/${playlistId}/tracks?limit=${limit}&offset=${offset}`;
-  if (market) {
-    url += `&market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
+  const response = await fetch(url + (market ? (url.includes('?') ? '&' : '?') + `market=${market}` : ''), {
+    headers: getSpotifyHeaders(token)
+  });
+
   if (!response.ok) {
     let errorMsg = response.statusText;
     try {
@@ -185,120 +189,48 @@ export async function getPlaylistTracks(playlistId, limit = 50, offset = 0, mark
     throw new Error(`Spotify API Error: ${errorMsg}`);
   }
   const data = await response.json();
+  apiCache.set(cacheKey, data);
+  return data;
+}
+
+export async function getPlaylistTracks(playlistId, limit = 50, offset = 0, market) {
+  const url = `${SPOTIFY_API_BASE}/playlists/${playlistId}/tracks?limit=${limit}&offset=${offset}`;
+  const data = await fetchSpotify(url, market);
   return data.items;
 }
 
 export async function searchSpotifyTracks(query, limit = 20, offset = 0, market) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=track&limit=${limit}&offset=${offset}`;
-  if (market) {
-    url += `&market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=track&limit=${limit}&offset=${offset}`;
+  const data = await fetchSpotify(url, market);
   return data.tracks.items;
 }
 
 export async function searchSpotifyAlbums(query, limit = 20, offset = 0, market) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=album&limit=${limit}&offset=${offset}`;
-  if (market) {
-    url += `&market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=album&limit=${limit}&offset=${offset}`;
+  const data = await fetchSpotify(url, market);
   return data.albums.items;
 }
 
 export async function getNewReleasesSpotify(limit = 20, offset = 0, market) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/browse/new-releases?limit=${limit}&offset=${offset}`;
-  if (market) {
-    url += `&market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/browse/new-releases?limit=${limit}&offset=${offset}`;
+  const data = await fetchSpotify(url, market);
   return data.albums.items;
 }
 
 export async function getAlbumDetails(albumId, market) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/albums/${albumId}`;
-  if (market) {
-    url += `?market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  return await response.json();
+  const url = `${SPOTIFY_API_BASE}/albums/${albumId}`;
+  return await fetchSpotify(url, market);
 }
 
 export async function getArtistDetails(artistId, market) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/artists/${artistId}`;
-  if (market) {
-    url += `?market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  return await response.json();
+  const url = `${SPOTIFY_API_BASE}/artists/${artistId}`;
+  return await fetchSpotify(url, market);
 }
 
 // --- Unified Spotify Search (tracks, albums, artists) ---
-// Uses the /v1/search endpoint with type=track,artist,album
 export async function searchSpotifyAll(query, limit = 5, offset = 0, market) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=track,artist,album&limit=${limit}&offset=${offset}`;
-  if (market) {
-    url += `&market=${market}`;
-  }
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=track,artist,album&limit=${limit}&offset=${offset}`;
+  const data = await fetchSpotify(url, market);
   return {
     tracks: data.tracks?.items || [],
     artists: data.artists?.items || [],
@@ -308,80 +240,36 @@ export async function searchSpotifyAll(query, limit = 5, offset = 0, market) {
 
 // --- Artist Details Helpers ---
 export async function getArtistTopTracks(artistId, market = 'IN') {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/artists/${artistId}/top-tracks?market=${market}`;
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/artists/${artistId}/top-tracks`;
+  const data = await fetchSpotify(url, market);
   return data.tracks || [];
 }
 
 export async function getArtistAlbums(artistId, limit = 10, market = 'IN') {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/artists/${artistId}/albums?limit=${limit}&market=${market}`;
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/artists/${artistId}/albums?limit=${limit}`;
+  const data = await fetchSpotify(url, market);
   return data.items || [];
 }
 
 export async function getRelatedArtists(artistId) {
-  const token = await getSpotifyToken();
-  let url = `${SPOTIFY_API_BASE}/artists/${artistId}/related-artists`;
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/artists/${artistId}/related-artists`;
+  const data = await fetchSpotify(url);
   return data.artists || [];
 }
 
 export const getPersonDetails = async (personId) => {
   if (!personId) return null;
-  const params = new URLSearchParams({
-    api_key: TMDB_API_KEY,
-    append_to_response: 'combined_credits', // Get credits along with details
-    // language: 'en-US' // Add language if needed
-  });
-  const url = `${TMDB_BASE_URL}person/${personId}?${params.toString()}`;
-  console.log(`Fetching Person Details URL: ${url}`);
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(`Error fetching person details for ID ${personId}:`, error);
-    console.error("Failed API Request URL:", url);
-    return null; // Return null on error
-  }
+  return fetchFromTMDB(`person/${personId}`, { append_to_response: 'combined_credits' });
 };
 
 // --- YouTube API Key (user provided) ---
 const YOUTUBE_API_KEY = "AIzaSyBMxxzNxmbowlqERFIjJZjydY2kllv1xI8";
 
 export async function searchMusicVideos(query, maxResults = 3) {
+  const cacheKey = `youtube:search:${query}:${maxResults}`;
+  const cached = apiCache.get(cacheKey);
+  if (cached) return cached;
+
   if (!YOUTUBE_API_KEY) throw new Error("YouTube API key is missing");
   const url =
     `https://www.googleapis.com/youtube/v3/search?` +
@@ -397,7 +285,7 @@ export async function searchMusicVideos(query, maxResults = 3) {
     throw new Error(`YouTube API Error: ${errorMsg}`);
   }
   const data = await response.json();
-  return data.items.map(item => ({
+  const results = data.items.map(item => ({
     id: item.id.videoId,
     title: item.snippet.title,
     thumbnail: item.snippet.thumbnails?.medium?.url,
@@ -405,16 +293,12 @@ export async function searchMusicVideos(query, maxResults = 3) {
     publishedAt: item.snippet.publishedAt,
     description: item.snippet.description
   }));
+  apiCache.set(cacheKey, results);
+  return results;
 }
 
 // --- Get a random Spotify track by language/market ---
-/**
- * Fetches a random popular Spotify track for a given language (market).
- * @param {'english'|'hindi'|'bhojpuri'} language
- * @returns {Promise<Object>} Spotify track object
- */
 export async function getRandomSpotifyTrackByLanguage(language) {
-  // Map language to Spotify market code
   let market = 'US';
   let query = 'top hits';
   if (language === 'hindi') {
@@ -424,22 +308,10 @@ export async function getRandomSpotifyTrackByLanguage(language) {
     market = 'IN';
     query = 'bhojpuri';
   }
-  const token = await getSpotifyToken();
-  // Search for tracks with the query in the right market
-  const url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=track&market=${market}&limit=30`;
-  const response = await fetch(url, { headers: getSpotifyHeaders(token) });
-  if (!response.ok) {
-    let errorMsg = response.statusText;
-    try {
-      const errJson = await response.json();
-      errorMsg = errJson.error?.message || JSON.stringify(errJson);
-    } catch { }
-    throw new Error(`Spotify API Error: ${errorMsg}`);
-  }
-  const data = await response.json();
+  const url = `${SPOTIFY_API_BASE}/search?q=${encodeURIComponent(query)}&type=track&limit=30`;
+  const data = await fetchSpotify(url, market);
   const tracks = data.tracks?.items || [];
   if (tracks.length === 0) throw new Error('No tracks found');
-  // Pick a random track from the results
   const idx = Math.floor(Math.random() * tracks.length);
   return tracks[idx];
 }

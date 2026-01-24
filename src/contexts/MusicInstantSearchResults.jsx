@@ -4,8 +4,9 @@ import './MusicHub.css';
 import MusicPlayer from './MusicPlayer';
 import AlbumDetailView from './AlbumDetailView';
 import ArtistDetailsModal from './ArtistDetailsModal';
+import { usePlayer } from '../context/PlayerContext';
 
-export default function MusicInstantSearchResults({ results, isLoading, onSelect, currentTheme, onSelectArtist, onSelectAlbum, onSelectTrack, navStack, onBack }) {
+export default function MusicInstantSearchResults({ results, isLoading, onSelect, currentTheme, onSelectArtist, onSelectAlbum, onSelectTrack, onBack }) {
   if (isLoading) {
     return (
       <div className="instant-search-results music-instant loading">
@@ -23,6 +24,8 @@ export default function MusicInstantSearchResults({ results, isLoading, onSelect
   // (Apply theme classes to root container)
 
   // --- Mini Card Renderer ---
+  const { addToQueue, playNext } = usePlayer();
+
   const renderMiniCard = (item, type) => {
     let title = item.name || '';
     let detail = '';
@@ -63,6 +66,23 @@ export default function MusicInstantSearchResults({ results, isLoading, onSelect
         <div className="music-card-content">
           <div className="music-card-title">{title}</div>
           <div className="music-card-sub">{detail}</div>
+          {type === 'track' && (
+            <div className="track-mini-actions" onMouseDown={e => e.stopPropagation()}>
+              <button
+                className="yt-play-mini"
+                onClick={(e) => { e.stopPropagation(); onSelectTrack(item, item.youtubeId); }}
+                title="Play on YouTube"
+              >
+                <i className="fab fa-youtube"></i>
+              </button>
+              <button onClick={(e) => { e.stopPropagation(); playNext(item); }} title="Play Next">
+                <i className="fas fa-step-forward"></i>
+              </button>
+              <button onClick={(e) => { e.stopPropagation(); addToQueue(item); }} title="Add to Queue">
+                <i className="fas fa-list-ul"></i>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -74,23 +94,12 @@ export default function MusicInstantSearchResults({ results, isLoading, onSelect
       <button
         className="back-button"
         onClick={onBack}
-        disabled={!navStack || navStack.length <= 1}
         title="Back"
         aria-label="Back"
       >
-        {/* SVG left arrow icon for modern look and scaling */}
-        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M15.5 19a1 1 0 0 1-.7-1.71l-5.09-5.29a1 1 0 0 1 0-1.42l5.09-5.29A1 1 0 1 1 16.91 7.7l-4.38 4.54 4.38 4.54A1 1 0 0 1 15.5 19z"/></svg>
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M15.5 19a1 1 0 0 1-.7-1.71l-5.09-5.29a1 1 0 0 1 0-1.42l5.09-5.29A1 1 0 1 1 16.91 7.7l-4.38 4.54 4.38 4.54A1 1 0 0 1 15.5 19z" /></svg>
         Back
       </button>
-      <span className="music-nav-label">
-        {navStack && navStack.map((item, idx) => (
-          <span key={idx}>
-            {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
-            {item.id ? `: ${item.id}` : ''}
-            {idx < navStack.length - 1 ? ' > ' : ''}
-          </span>
-        ))}
-      </span>
     </div>
   );
 

@@ -1,6 +1,6 @@
-// src/contexts/SpotifyPlayer.jsx
 import React, { useEffect, useImperativeHandle, forwardRef, useRef, useState } from 'react';
 import axios from 'axios';
+import { usePlayer } from '../context/PlayerContext';
 
 const LYRICS_API_BASE = 'https://spotify-lyrics-api-ochre.vercel.app/api/lyrics'; // public REST API for lyrics
 
@@ -12,6 +12,7 @@ const SpotifyPlayer = forwardRef(({ uri, startTime = 0 }, ref) => {
   const [lyrics, setLyrics] = useState(null);
   const [lyricsLoading, setLyricsLoading] = useState(false);
   const [lyricsError, setLyricsError] = useState(null);
+  const { setCurrentTime, setDuration } = usePlayer();
 
   // Debug: Log when component mounts and uri changes
   useEffect(() => {
@@ -60,6 +61,13 @@ const SpotifyPlayer = forwardRef(({ uri, startTime = 0 }, ref) => {
         IFrameAPI.createController(iframeRef.current, { uri }, (controller) => {
           controllerRef.current = controller;
           setIsReady(true);
+
+          controller.addListener('playback_update', e => {
+            const { position, duration } = e.data;
+            setCurrentTime(position / 1000);
+            setDuration(duration / 1000);
+          });
+
           // Play any queued requests
           playQueueRef.current.forEach(args => controller.loadUri(args.uri));
           playQueueRef.current = [];

@@ -1,15 +1,17 @@
-// src/contexts/MusicPlayer.jsx
-import React, { useImperativeHandle, forwardRef, useRef } from 'react';
+import React, { useImperativeHandle, forwardRef, useRef, useEffect } from 'react';
 import YouTube from 'react-youtube';
+import { usePlayer } from '../context/PlayerContext';
 
-const MusicPlayer = forwardRef(({ videoId, startTime = 0 }, ref) => {
+const MusicPlayer = forwardRef(({ videoId, startTime = 0, onEnd }, ref) => {
   const playerRef = useRef(null);
+  const { setCurrentTime, setDuration, isPlaying } = usePlayer();
+  const intervalRef = useRef(null);
 
   const opts = {
     height: '340',
     width: '100%',
     playerVars: {
-      autoplay: 0,
+      autoplay: 1, // Change to autoplay=1 for queue advance
       start: startTime,
       rel: 0,
       modestbranding: 1,
@@ -17,20 +19,34 @@ const MusicPlayer = forwardRef(({ videoId, startTime = 0 }, ref) => {
     },
   };
 
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = setInterval(() => {
+        if (playerRef.current && playerRef.current.getCurrentTime) {
+          setCurrentTime(playerRef.current.getCurrentTime());
+          setDuration(playerRef.current.getDuration());
+        }
+      }, 1000);
+    } else {
+      clearInterval(intervalRef.current);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [isPlaying, setCurrentTime, setDuration]);
+
   useImperativeHandle(ref, () => ({
     start: ({ videoId: newId, startTime = 0 }) => {
       if (playerRef.current) {
-        if (newId && playerRef.current.internalPlayer.loadVideoById)
-          playerRef.current.internalPlayer.loadVideoById({ videoId: newId, startSeconds: startTime });
+        if (newId)
+          playerRef.current.loadVideoById({ videoId: newId, startSeconds: startTime });
         else {
-          playerRef.current.internalPlayer.seekTo(startTime, true);
-          playerRef.current.internalPlayer.playVideo();
+          playerRef.current.seekTo(startTime, true);
+          playerRef.current.playVideo();
         }
       }
     },
-    pause: () => playerRef.current && playerRef.current.internalPlayer.pauseVideo(),
-    resume: () => playerRef.current && playerRef.current.internalPlayer.playVideo(),
-    seek: (time) => playerRef.current && playerRef.current.internalPlayer.seekTo(time, true),
+    pause: () => playerRef.current && playerRef.current.pauseVideo(),
+    resume: () => playerRef.current && playerRef.current.playVideo(),
+    seek: (time) => playerRef.current && playerRef.current.seekTo(time, true),
   }));
 
   return (
@@ -42,6 +58,7 @@ const MusicPlayer = forwardRef(({ videoId, startTime = 0 }, ref) => {
           playerRef.current = e.target;
           if (startTime) e.target.seekTo(startTime, true);
         }}
+        onEnd={onEnd}
         style={{ borderRadius: 12 }}
       />
       {!videoId && <div style={{ color: '#fff', padding: 24, textAlign: 'center' }}>No YouTube video selected.</div>}

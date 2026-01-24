@@ -2,7 +2,7 @@ import React, { Suspense, forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import MusicHub from '../contexts/MusicHub';
 
-const MusicPage = forwardRef(({ currentTheme, navStackState, setNavStackState }, ref) => {
+const MusicPage = forwardRef(({ currentTheme }, ref) => {
     const pageVariants = {
         initial: { opacity: 0, x: 20 },
         animate: { opacity: 1, x: 0, transition: { duration: 0.4 } },
@@ -21,8 +21,6 @@ const MusicPage = forwardRef(({ currentTheme, navStackState, setNavStackState },
                 <MusicHub
                     currentTheme={currentTheme}
                     ref={ref}
-                    navStackState={navStackState}
-                    setNavStackState={setNavStackState}
                 />
             </Suspense>
         </motion.div>

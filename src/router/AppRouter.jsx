@@ -26,7 +26,7 @@ const AppRouter = () => {
   const currentTheme = getThemeFromStorage();
 
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <PlayerProvider>
         <Suspense fallback={<LoadingSpinner theme={currentTheme} message="Loading..." />}>
           <Routes>

@@ -193,6 +193,24 @@ body {
   /* Prevent horizontal scroll */
 }
 
+/* Hide all scrollbars globally but maintain scrollability */
+* {
+  scrollbar-width: none !important;
+  /* Firefox */
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  /* Chrome, Safari, etc. */
+}
+
+/* Hide .nav-breadcrumb */
+.nav-breadcrumb {
+  display: none;
+}
+
 /* Base App styles (apply when NOT in B/W mode) */
 .App {
   max-width: 1400px;
@@ -431,11 +449,13 @@ h2 {
 .filter-group input[type="number"]::-webkit-inner-spin-button,
 .filter-group input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
 .filter-group input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
   /* Firefox */
   /* Remove padding-right as arrows are now external */
   /* padding-right: 30px; */
@@ -592,6 +612,7 @@ h2 {
   /* ADJUST line-height for better 2-line fit */
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
@@ -2546,10 +2567,6 @@ h2 {
   margin: 0;
   gap: 5px;
   /* Space between buttons */
-}
-
-.page-item {
-  /* No display or list-style properties needed here */
 }
 
 .page-link {
