@@ -263,7 +263,7 @@ export const getPersonDetails = async (personId) => {
 };
 
 // --- YouTube API Key (user provided) ---
-const YOUTUBE_API_KEY = "AIzaSyBMxxzNxmbowlqERFIjJZjydY2kllv1xI8";
+const YOUTUBE_API_KEY = "AIzaSyDF46IyZYwPlb6ZBxAD6-IuLxVNYsbTIwQ";
 
 export async function searchMusicVideos(query, maxResults = 3) {
   const cacheKey = `youtube:search:${query}:${maxResults}`;

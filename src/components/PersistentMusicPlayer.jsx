@@ -78,24 +78,7 @@ const PersistentMusicPlayer = ({ currentTheme }) => {
                             </div>
                         </div>
 
-                        {/* 2. Central Buttons */}
-                        <div className="player-controls">
-                            <button className="control-btn" onClick={() => { }} aria-label="Previous">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6L18 18V6z" /></svg>
-                            </button>
-
-                            <button className="control-btn play-pause" onClick={togglePlay}>
-                                {isPlaying ? (
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
-                                ) : (
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                                )}
-                            </button>
-
-                            <button className="control-btn" onClick={playNextInQueue} aria-label="Next">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" /></svg>
-                            </button>
-                        </div>
+                        {/* 2. Central Buttons - REMOVED */}
 
                         {/* 3. Right Side Actions */}
                         <div className="player-extra">

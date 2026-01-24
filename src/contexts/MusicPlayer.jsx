@@ -11,12 +11,12 @@ const MusicPlayer = forwardRef(({ videoId, onEnd, onError }, ref) => {
   const opts = {
     height: '340',
     width: '100%',
+    host: 'https://www.youtube-nocookie.com',
     playerVars: {
       autoplay: 1,
       rel: 0,
       modestbranding: 1,
       controls: 1,
-      origin: window.location.origin,
     },
   };
 
