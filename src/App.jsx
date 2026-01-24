@@ -538,7 +538,8 @@ function App() {
   // CONSOLIDATED Filtered Results State (replaces old duplicate states)
   const [filteredResults, setFilteredResults] = useState({
     movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
-    tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+    tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+    people: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 } // ADDED People state
   });
 
   const [isPersonModalOpen, setIsPersonModalOpen] = useState(false);
@@ -597,10 +598,10 @@ function App() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -648,11 +649,11 @@ function App() {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    
+
     if (isFilteredSearch) {
       if (isLeftSwipe && activeFilterTab === 'movie') {
         setActiveFilterTab('tv');
@@ -661,7 +662,7 @@ function App() {
         setActiveFilterTab('movie');
       }
     }
-    
+
     if (isLeftSwipe && activeSection === 'media') {
       setActiveSection('music');
     }
@@ -689,282 +690,148 @@ function App() {
     }
   }, !isPlayerModalOpen && !isPersonModalOpen);
 
-  // --- Debounced Function for Instant Search ---
-  const debouncedQuery = useDebounce(searchQuery, 200);
-  
-  useEffect(() => {
-    const fetchInstantResults = async (query, lang) => {
-      if (!query || query.length < 3) {
-        setInstantResults([]);
-        setShowInstantResults(false);
-        setIsInstantLoading(false);
-        return;
-      }
+  // *** NEW: Unified Search & Filter State ***
+  const [showSearchPanel, setShowSearchPanel] = useState(false);
+  // Removed standalone showFilters, showInstantResults, etc.
 
-      console.log(`[DIRECT FETCH START] Fetching instant results for: "${query}"`);
-      setIsInstantLoading(true);
-      setShowInstantResults(true);
+  // --- Debounce Search Query update (trigger search on stop typing?) --- 
+  // For this unified plan, we might want to trigger ONLY on Enter or Apply button to be "Structured"
+  // OR we can auto-search into the grid. The user request implied "toggle for combine", "show all in Structured Search format".
+  // "Remove instant search" -> implies no dropdown. 
+  // Let's implement: Type -> Debounce -> Update Grid (Structured)
 
-      // --- Direct TMDB API Call --- 
-      const apiKey = VITE_API_KEY; // Use the key from Vite environment
-      // ** IMPORTANT: Ensure VITE_API_KEY is correctly set in your .env file! **
-      if (!apiKey) {
-        console.error("[CONFIG ERROR] TMDB API Key (VITE_API_KEY) is missing!");
-        setInstantResults([]);
-        setIsInstantLoading(false);
-        setShowInstantResults(true); // Keep dropdown open to show potential error
-        return;
-      }
+  const debouncedQuery = useDebounce(searchQuery, 800); // 800ms debounce for grid update to avoid too many refreshes
 
-      const searchUrl = `${TMDB_BASE_URL}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}&language=${lang}&page=1&include_adult=false`;
-      console.log("[DIRECT FETCH URL]:", searchUrl);
+  // Unified Search Function
+  const performSearch = useCallback(async (queryOverride = null) => {
+    const query = queryOverride !== null ? queryOverride : searchQuery;
+    console.log(`[Unified Search] effectiveQuery: "${query}"`);
 
-      try {
-        const response = await fetch(searchUrl);
-        console.log('[DIRECT FETCH RESPONSE STATUS]:', response.status, response.statusText);
-
-        if (!response.ok) {
-          // Log the response body if available for error details
-          let errorBody = 'Could not read error body';
-          try {
-            errorBody = await response.text();
-            console.error('[DIRECT FETCH ERROR BODY]:', errorBody);
-          } catch (e) { /* Ignore error reading body */ }
-          throw new Error(`API request failed with status ${response.status}: ${response.statusText}`);
-        }
-
-        const resultsData = await response.json();
-        console.log('[DIRECT FETCH RESPONSE JSON]:', resultsData);
-
-        // --- Processing (same as before, now using direct fetch results) --- 
-        const rawResultsArray = resultsData?.results;
-        console.log('[DIRECT FETCH] resultsData.results:', rawResultsArray);
-
-        if (!Array.isArray(rawResultsArray)) {
-          console.error("[DATA ERROR] Direct fetch did not return a results array.");
-          setInstantResults([]);
-          setIsInstantLoading(false);
-          return; // Exit processing
-        }
-
-        const allResults = rawResultsArray.filter(item => {
-          return item.media_type === 'movie' || item.media_type === 'tv' || item.media_type === 'person';
-        });
-        console.log('[DIRECT FILTERED RESULTS]:', allResults);
-
-        const limitedResults = allResults.slice(0, 15);
-        console.log('[DIRECT LIMITED RESULTS]:', limitedResults);
-
-        setInstantResults(limitedResults);
-
-      } catch (error) {
-        console.error("[DIRECT FETCH ERROR]:", error);
-        setInstantResults([]);
-      } finally {
-        console.log('[DIRECT FETCH END] Setting isLoading to false.');
-        setIsInstantLoading(false);
-      }
-    };
-
-    if (debouncedQuery && debouncedQuery.length >= 3) {
-      fetchInstantResults(debouncedQuery, currentLanguage);
-    } else {
-      setInstantResults([]);
-      setShowInstantResults(false);
-      setIsInstantLoading(false);
-    }
-  }, [debouncedQuery, currentLanguage, VITE_API_KEY]);
-
-  const handleSearchInputChange = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    if (query.length >= 3) {
-      fetchInstantResults(query, currentLanguage);
-    } else {
-      setInstantResults([]);
-      setShowInstantResults(false);
-      setIsInstantLoading(false);
-      fetchInstantResults.cancel?.();
-    }
-  };
-
-  const handleSearchFocus = () => {
-    if (searchQuery.length >= 3 && instantResults.length > 0) {
-      setShowInstantResults(true);
-    }
-    setSearchFocused(true);
-  };
-
-  const handleSearchBlur = () => {
-    setTimeout(() => {
-      setShowInstantResults(false);
-      setSearchFocused(false);
-    }, 150);
-  };
-
-  const handleFilterChange = (e) => {
-    const { name, value, options, type } = e.target;
-
-    if (name === 'genreSearch') {
-      setGenreSearch(value);
-      return;
-    }
-    if (name === 'languageSearch') {
-      setLanguageSearch(value);
-      return;
-    }
-
-    if (name === 'genres' || name === 'languages') {
-      const selectedValues = Array.from(options)
-        .filter(option => option.selected)
-        .map(option => option.value);
-      setFilters(prev => ({ ...prev, [name]: selectedValues }));
-    } else {
-      setFilters(prev => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const removeGenreFilter = (genreIdToRemove) => {
-    setFilters(prev => ({
-      ...prev,
-      genres: prev.genres.filter(id => id !== genreIdToRemove.toString())
-    }));
-  };
-
-  // *** MODIFIED: Fetch Filtered Results on Page Change (for pagination mode only) ***
-  useEffect(() => {
-    // Skip if using infinite scroll mode
-    if (userPreferences.useInfiniteScroll) return;
-    
-    const mediaType = activeFilterTab;
-    const currentPage = filteredResults[mediaType].page;
-    
-    if (!isFilteredSearch || currentPage === 0 || currentPage === 1) return;
-
-    const fetchFilteredPage = async () => {
-      console.log(`[useEffect Filtered Fetch] Starting fetch for ${mediaType} page ${currentPage}...`);
-      setIsFilterLoading(true);
-      
-      try {
-        const selectedGenreIds = filters.genres || [];
-        let apiGenres = [];
-        
-        if (mediaType === 'movie') {
-          const validMovieGenreIds = movieGenres.map(g => g.id.toString());
-          apiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
-        } else {
-          const validTvGenreIds = tvGenres.map(g => g.id.toString());
-          apiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
-        }
-        
-        const apiFilters = { ...filters, genres: apiGenres };
-        const resultsData = await discoverMedia(mediaType, apiFilters, currentPage, sortOption);
-        const results = resultsData?.results || [];
-        
-        setFilteredResults(prev => ({
-          ...prev,
-          [mediaType]: {
-            ...prev[mediaType],
-            items: results,
-            totalPages: resultsData?.total_pages || 1,
-            totalResults: resultsData?.total_results || 0
-          }
-        }));
-      } catch (error) {
-        console.error(`[useEffect Filtered Fetch] Failed to fetch ${mediaType} results:`, error);
-        setFilteredResults(prev => ({
-          ...prev,
-          [mediaType]: { ...prev[mediaType], items: [] }
-        }));
-      } finally {
-        setIsFilterLoading(false);
-        window.scrollTo(0, 0);
-      }
-    };
-
-    fetchFilteredPage();
-  }, [isFilteredSearch, activeFilterTab, filteredResults.movie.page, filteredResults.tv.page, filters, sortOption, movieGenres, tvGenres, userPreferences.useInfiniteScroll]);
-
-  // *** MODIFIED: Apply Filters Handler ***
-  const handleApplyFilters = async (e) => {
-    e.preventDefault();
-    console.log("Applying filters:", filters, "Sort by:", sortOption);
     setIsFilterLoading(true);
-    setSearchQuery('');
-    setInstantResults([]);
-    setShowInstantResults(false);
+    // Reset pages
+    setFilteredResults(prev => ({
+      movie: { ...prev.movie, items: [], page: 1 },
+      tv: { ...prev.tv, items: [], page: 1 }
+    }));
     setActiveFilterTab('movie');
 
     try {
-      // *** Filter genres for each API call ***
-      const selectedGenreIds = filters.genres || [];
+      if (query && query.length >= 2) {
+        // --- TEXT SEARCH MODE (using search/multi) ---
+        // Note: search/multi doesn't support advanced filters like genre/rating/lang efficiently in one go
+        // We will fetch search results and THEN client-side filter if needed, or just prioritize text match.
+        // For now: prioritized text match.
 
-      const validMovieGenreIds = movieGenres.map(g => g.id.toString());
-      const movieSpecificGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
-      const movieApiFilters = { ...filters, genres: movieSpecificGenres };
-      console.log("Movie API Filters:", movieApiFilters);
+        const apiKey = VITE_API_KEY;
+        const searchUrl = `${TMDB_BASE_URL}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}&language=${currentLanguage}&page=1&include_adult=false`;
 
-      const validTvGenreIds = tvGenres.map(g => g.id.toString());
-      const tvSpecificGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
-      const tvApiFilters = { ...filters, genres: tvSpecificGenres };
-      console.log("TV API Filters:", tvApiFilters);
-      // ****************************************
+        const response = await fetch(searchUrl);
+        const data = await response.json();
+        const results = data.results || [];
 
-      // Fetch both movie and TV results for page 1 simultaneously
-      const [movieData, tvData] = await Promise.all([
-        discoverMedia('movie', movieApiFilters, 1, sortOption), // Use movie specific filters
-        discoverMedia('tv', tvApiFilters, 1, sortOption)      // Use tv specific filters
-      ]);
+        // Separate into Movie/TV/People
+        const movies = results.filter(i => i.media_type === 'movie');
+        const tvs = results.filter(i => i.media_type === 'tv');
+        const people = results.filter(i => i.media_type === 'person');
+        // We can also include 'person' if we want a tab for it, but currently we have Movie/TV tabs.
 
-      console.log("Movie results page 1:", movieData);
-      console.log("TV results page 1:", tvData);
+        setFilteredResults({
+          movie: {
+            items: movies,
+            allItems: movies,
+            page: 1,
+            totalPages: data.total_pages || 1,
+            totalResults: movies.length
+          },
+          tv: {
+            items: tvs,
+            allItems: tvs,
+            page: 1,
+            totalPages: data.total_pages || 1,
+            totalResults: tvs.length
+          },
+          people: {
+            items: people,
+            allItems: people,
+            page: 1,
+            totalPages: data.total_pages || 1,
+            totalResults: people.length
+          }
+        });
+        setIsFilteredSearch(true);
 
-      const movieResults = movieData?.results || [];
-      const tvResults = tvData?.results || [];
+      } else {
+        // --- FILTER/DISCOVER MODE (using discover) ---
+        // Use existing filter logic
+        const selectedGenreIds = filters.genres || [];
 
-      setFilteredResults({
-        movie: {
-          items: movieResults,
-          allItems: movieResults,
-          page: 1,
-          totalPages: movieData?.total_pages || 1,
-          totalResults: movieData?.total_results || 0
-        },
-        tv: {
-          items: tvResults,
-          allItems: tvResults,
-          page: 1,
-          totalPages: tvData?.total_pages || 1,
-          totalResults: tvData?.total_results || 0
-        }
-      });
+        // Movies
+        const validMovieGenreIds = movieGenres.map(g => g.id.toString());
+        const movieApiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
+        const movieApiFilters = { ...filters, genres: movieApiGenres };
 
-      setIsFilteredSearch(true);
-      setShowFilters(false);
+        // TV
+        const validTvGenreIds = tvGenres.map(g => g.id.toString());
+        const tvApiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
+        const tvApiFilters = { ...filters, genres: tvApiGenres };
+
+        const [movieData, tvData] = await Promise.all([
+          discoverMedia('movie', movieApiFilters, 1, sortOption),
+          discoverMedia('tv', tvApiFilters, 1, sortOption)
+        ]);
+
+        setFilteredResults({
+          movie: {
+            items: movieData?.results || [],
+            allItems: movieData?.results || [],
+            page: 1,
+            totalPages: movieData?.total_pages || 1,
+            totalResults: movieData?.total_results || 0
+          },
+          tv: {
+            items: tvData?.results || [],
+            allItems: tvData?.results || [],
+            page: 1,
+            totalPages: tvData?.total_pages || 1,
+            totalResults: tvData?.total_results || 0
+          },
+          people: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 } // Reset people in discover mode
+        });
+        setIsFilteredSearch(true);
+      }
     } catch (error) {
-      console.error("Failed to apply filters:", error);
-      setFilteredResults({
-        movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
-        tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
-      });
-      setIsFilteredSearch(true);
+      console.error("Search failed:", error);
     } finally {
       setIsFilterLoading(false);
     }
+  }, [searchQuery, filters, sortOption, currentLanguage, movieGenres, tvGenres, VITE_API_KEY]);
+
+  // Trigger search when debounced query changes
+  useEffect(() => {
+    // Only trigger if we are in "Search Panel" mode or have an active query that needs updating
+    if (isFilteredSearch || (debouncedQuery && debouncedQuery.length >= 2)) {
+      performSearch(debouncedQuery);
+    }
+  }, [debouncedQuery]); // Depends on debouncedQuery
+
+  const handleSearchBtnClick = () => {
+    performSearch();
+    // Optional: Close panel on mobile?
+    // setShowSearchPanel(false); 
   };
 
-  // *** MODIFIED: Clear Filters Handler ***
-  const handleClearFilters = () => {
+  const handleVoiceResult = (transcript) => {
+    setSearchQuery(transcript);
+    // Immediate search on voice result
+    performSearch(transcript);
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery('');
     setFilters({ genres: [], rating: '', languages: [] });
     setIsFilteredSearch(false);
-    setShowFilters(false);
-    setGenreSearch('');
-    setLanguageSearch('');
-    setIsFilterLoading(false);
-    setSortOption('popularity.desc');
-    setActiveFilterTab('movie');
-    
-    // Reset with new consolidated structure
+    setShowSearchPanel(false);
+    // Reset results
     setFilteredResults({
       movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
       tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
@@ -989,17 +856,7 @@ function App() {
   };
 
   const handleTitleClick = () => {
-    setSearchQuery('');
-    setInstantResults([]);
-    setShowInstantResults(false);
-    setIsInstantLoading(false);
-    setFilteredResults([]);
-    setIsFilteredSearch(false);
-    setFilterCurrentPage(1);
-    setFilterTotalPages(1);
-    setFilters({ genres: [], rating: '', languages: [] });
-    setGenreSearch('');
-    setLanguageSearch('');
+    handleClearSearch();
     setIsPersonModalOpen(false);
     setSelectedPerson(null);
     window.scrollTo(0, 0);
@@ -1007,35 +864,6 @@ function App() {
     setActiveSection('media');
     // Navigate to home
     navigateToHome();
-  };
-
-  const handleInstantResultClick = (item) => {
-    console.log("Instant result selected:", item);
-    
-    // Save to recent searches
-    const searchTerm = item.title || item.name;
-    setUserPreferences(prev => {
-      const recentSearches = [
-        searchTerm,
-        ...prev.recentSearches.filter(s => s !== searchTerm)
-      ].slice(0, 5);
-      
-      return { ...prev, recentSearches };
-    });
-    
-    // Clear search and hide dropdown immediately
-    setSearchQuery('');
-    setInstantResults([]);
-    setShowInstantResults(false);
-    setIsInstantLoading(false);
-
-    if (item && (item.media_type === 'movie' || item.media_type === 'tv')) {
-      navigateToMedia(item, item.media_type);
-    } else if (item && item.media_type === 'person') {
-      navigateToPerson(item);
-    } else {
-      console.error("Selected item is missing or has unexpected media_type:", item);
-    }
   };
 
   const getSectionTitle = (defaultTitle) => getThemedTitle(defaultTitle, currentTheme);
@@ -1105,52 +933,82 @@ function App() {
   // NEW: Load More Results Handler for Infinite Scroll
   const handleLoadMoreResults = async (mediaType, page) => {
     console.log(`[handleLoadMoreResults] Called for ${mediaType}, page ${page}`);
-    console.log(`[handleLoadMoreResults] Current state:`, filteredResults[mediaType]);
-    
-    if (page > filteredResults[mediaType].totalPages) {
-      console.log(`[handleLoadMoreResults] Page ${page} exceeds total pages ${filteredResults[mediaType].totalPages}`);
-      return;
-    }
-    
-    setIsFilterLoading(true);
-    
+
+    if (page > filteredResults[mediaType].totalPages) return;
+
+    // Do NOT set global isFilterLoading here, as it unmounts the grid and resets scroll
+    // setIsFilterLoading(true); 
+
     try {
-      const selectedGenreIds = filters.genres || [];
-      let apiGenres = [];
-      
-      if (mediaType === 'movie') {
-        const validMovieGenreIds = movieGenres.map(g => g.id.toString());
-        apiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
+      // Determine if text or filter mode for pagination
+      if (searchQuery && searchQuery.length >= 2) {
+        // Pagination for TEXT Search
+        const apiKey = VITE_API_KEY;
+        const searchUrl = `${TMDB_BASE_URL}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(searchQuery)}&language=${currentLanguage}&page=${page}&include_adult=false`;
+        const response = await fetch(searchUrl);
+        const data = await response.json();
+        const newResults = data.results || [];
+
+        // Filter by type again
+        const typedNewResults = newResults.filter(i => i.media_type === mediaType);
+
+        // DEDUPLICATION: Only add items that don't already exist
+        setFilteredResults(prev => {
+          const existingIds = new Set(prev[mediaType].allItems.map(i => i.id));
+          const uniqueNewItems = typedNewResults.filter(i => !existingIds.has(i.id));
+
+          return {
+            ...prev,
+            [mediaType]: {
+              ...prev[mediaType],
+              items: typedNewResults,
+              allItems: [...prev[mediaType].allItems, ...uniqueNewItems],
+              page: page,
+              totalPages: data.total_pages || 1,
+              totalResults: typedNewResults.length
+            }
+          };
+        });
+
       } else {
-        const validTvGenreIds = tvGenres.map(g => g.id.toString());
-        apiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
-      }
-      
-      const apiFilters = { ...filters, genres: apiGenres };
-      console.log(`[handleLoadMoreResults] Fetching ${mediaType} page ${page} with filters:`, apiFilters);
-      
-      const resultsData = await discoverMedia(mediaType, apiFilters, page, sortOption);
-      const newItems = resultsData?.results || [];
-      
-      console.log(`[handleLoadMoreResults] Received ${newItems.length} new items`);
-      
-      setFilteredResults(prev => ({
-        ...prev,
-        [mediaType]: {
-          ...prev[mediaType],
-          items: newItems,
-          allItems: [...prev[mediaType].allItems, ...newItems],
-          page: page,
-          totalPages: resultsData?.total_pages || 1,
-          totalResults: resultsData?.total_results || 0
+        // Pagination for DISCOVER Mode
+        const selectedGenreIds = filters.genres || [];
+        let apiGenres = [];
+
+        if (mediaType === 'movie') {
+          const validMovieGenreIds = movieGenres.map(g => g.id.toString());
+          apiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
+        } else {
+          const validTvGenreIds = tvGenres.map(g => g.id.toString());
+          apiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
         }
-      }));
-      
-      console.log(`[handleLoadMoreResults] Updated state, now have ${filteredResults[mediaType].allItems.length + newItems.length} total items`);
+
+        const apiFilters = { ...filters, genres: apiGenres };
+        const resultsData = await discoverMedia(mediaType, apiFilters, page, sortOption);
+        const newItems = resultsData?.results || [];
+
+        // DEDUPLICATION: Only add items that don't already exist
+        setFilteredResults(prev => {
+          const existingIds = new Set(prev[mediaType].allItems.map(i => i.id));
+          const uniqueNewItems = newItems.filter(i => !existingIds.has(i.id));
+
+          return {
+            ...prev,
+            [mediaType]: {
+              ...prev[mediaType],
+              items: newItems,
+              allItems: [...prev[mediaType].allItems, ...uniqueNewItems], // Append strictly unique items
+              page: page,
+              totalPages: resultsData?.total_pages || 1,
+              totalResults: resultsData?.total_results || 0
+            }
+          };
+        });
+      }
     } catch (error) {
       console.error(`[handleLoadMoreResults] Failed to load more ${mediaType} results:`, error);
     } finally {
-      setIsFilterLoading(false);
+      // setIsFilterLoading(false);
     }
   };
 
@@ -1178,7 +1036,8 @@ function App() {
         allItems: []
       }
     }));
-    setIsFilterLoading(true);
+    // Re-trigger search with new sort
+    setTimeout(() => performSearch(), 100);
   };
 
   // --- Filtering Logic for Genre/Language Lists (Memoized) --- 
@@ -1225,8 +1084,8 @@ function App() {
     // Optional: Reset states when switching sections if needed
     // e.g., clear search, filters, close modals etc.
     setSearchQuery('');
-    setInstantResults([]);
-    setShowInstantResults(false);
+    // setInstantResults([]); Removed
+    // setShowInstantResults(false); Removed
     setIsFilteredSearch(false);
     closeModal(); // Close any open media/person modals
   };
@@ -1274,205 +1133,170 @@ function App() {
       {activeSection === 'media' && !isPlayerModalOpen && !isPersonModalOpen && (
         <>
           {/* Conditionally render the search section only when no modal is open */}
-          {/* MODIFIED: Moved condition inside this block */}
-          {/* {!isPlayerModalOpen && !isPersonModalOpen && ( */}
           <div className="search-section">
+            {/* --- Container for Search Panel Toggle & Controls --- */}
+
             {/* --- Container for Search Input and Filter Button --- */}
-            <div className={`search-controls-container${searchFocused ? ' expanded' : ''}`}>
-              {/* Instant Search Input Area */}
-              <div className={`search-input-container${searchFocused ? ' expanded' : ''}`}>
+            <div className={`search-controls-container expanded`}>
+              <div className={`search-input-container expanded`}>
                 <input
                   type="text"
                   id="search-input"
                   placeholder="Search Movies, TV Shows, People..."
                   value={searchQuery}
-                  onChange={handleSearchInputChange}
-                  onFocus={handleSearchFocus}
-                  onBlur={handleSearchBlur}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && performSearch()}
                   autoComplete="off"
                   aria-label="Search for movies, TV shows, or people"
-                  role="searchbox"
-                  aria-autocomplete="list"
-                  aria-controls="instant-search-results"
-                  aria-expanded={showInstantResults}
                 />
-                <VoiceSearch 
-                  onResult={(transcript) => {
-                    setSearchQuery(transcript);
-                  }}
+                <VoiceSearch
+                  onResult={handleVoiceResult}
                   onError={(error) => console.error('Voice search error:', error)}
                   currentTheme={currentTheme}
                 />
-                {/* Recent Searches */}
-                {searchQuery.length === 0 && 
-                 userPreferences.recentSearches.length > 0 && 
-                 searchFocused && (
-                  <div className="recent-searches">
-                    <h4>Recent Searches</h4>
-                    <div className="recent-searches-list">
-                      {userPreferences.recentSearches.map((search, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setSearchQuery(search)}
-                          className="recent-search-item"
-                        >
-                          <svg viewBox="0 0 24 24" fill="currentColor" className="history-icon">
-                            <path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
-                          </svg>
-                          {search}
-                        </button>
-                      ))}
-                      <button
-                        className="clear-recent-searches"
-                        onClick={() => setUserPreferences(prev => ({ ...prev, recentSearches: [] }))}
-                      >
-                        Clear History
-                      </button>
-                    </div>
-                  </div>
-                )}
-                {/* Instant Search Results */}
-                {showInstantResults && (
-                  <Suspense fallback={<div className="loading-text instant-loading">Loading results...</div>}>
-                    <InstantSearchResults
-                      results={instantResults}
-                      isLoading={isInstantLoading}
-                      onSelectItem={handleInstantResultClick}
-                      imageBaseUrl={IMAGE_BASE_URL}
-                    />
-                  </Suspense>
-                )}
               </div>
-              {/* InstantSearchResults is no longer a sibling */}
 
               {/* Filter Toggle Button */}
               <button
                 type="button"
-                onClick={() => setShowFilters(!showFilters)}
-                className={`filter-toggle-button ${showFilters ? 'active' : ''}`}
-                aria-label={showFilters ? 'Hide filters' : 'Show filters'}
-                aria-pressed={showFilters}
-                aria-controls="filter-form"
-                title={showFilters ? 'Hide Filters' : 'Show Filters'}
+                onClick={() => setShowSearchPanel(!showSearchPanel)}
+                className={`filter-toggle-button ${showSearchPanel ? 'active' : ''}`}
+                aria-label={showSearchPanel ? 'Hide filters' : 'Show filters'}
+                title={showSearchPanel ? 'Hide Filters' : 'Show Filters'}
               >
                 <img src={filterIcon} alt="Filter" />
               </button>
-            </div> {/* End search-controls-container */}
+            </div>
 
-            {/* --- Updated Filter Form --- */}
-            {showFilters && (
-              <form onSubmit={handleApplyFilters} className="filter-form">
-                <div className="filter-controls">
-                  <div className="filter-group filter-group-scrollable">
-                    <label htmlFor="genre-search">Genre(s):</label>
-                    <input
-                      type="text"
-                      id="genre-search"
-                      name="genreSearch"
-                      placeholder="Search genres..."
-                      value={genreSearch}
-                      onChange={handleGenreSearchChange}
-                      className="filter-search-input"
-                    />
-                    <ul className="clickable-filter-list genre-list">
-                      {displayedGenres.map(genre => {
-                        const isSelected = filters.genres.includes(genre.id.toString());
-                        return (
-                          <li key={genre.id}>
+            {/* --- Filter Form (Conditionally Rendered) --- */}
+            <AnimatePresence>
+              {showSearchPanel && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div className="filter-form">
+
+                    {/* 2. Filter Controls (Existing) */}
+                    <div className="filter-controls">
+                      <div className="filter-group filter-group-scrollable">
+                        <label htmlFor="genre-search">Genre(s):</label>
+                        <input
+                          type="text"
+                          id="genre-search"
+                          name="genreSearch"
+                          placeholder="Search genres..."
+                          value={genreSearch}
+                          onChange={handleGenreSearchChange}
+                          className="filter-search-input"
+                        />
+                        <ul className="clickable-filter-list genre-list">
+                          {displayedGenres.map(genre => {
+                            const isSelected = filters.genres.includes(genre.id.toString());
+                            return (
+                              <li key={genre.id}>
+                                <button
+                                  type="button"
+                                  className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
+                                  onClick={() => handleGenreToggle(genre.id)}
+                                >
+                                  {genre.name}
+                                </button>
+                              </li>
+                            );
+                          })}
+                          {displayedGenres.length === 0 && <li className="no-results-message">No matching genres</li>}
+                        </ul>
+                      </div>
+
+                      <div className="filter-group">
+                        <label htmlFor="rating">Min Rating (0-10):</label>
+                        <div className="rating-input-container">
+                          <input
+                            type="number"
+                            id="rating"
+                            name="rating"
+                            min="0"
+                            max="10"
+                            step="0.1"
+                            value={filters.rating}
+                            onChange={handleFilterInputChange}
+                            className="rating-number-input"
+                          />
+                          <div className="rating-arrows">
                             <button
                               type="button"
-                              className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
-                              onClick={() => handleGenreToggle(genre.id)}
+                              className="rating-arrow up"
+                              onClick={handleRatingIncrement}
+                              aria-label="Increase rating by 0.1"
                             >
-                              {genre.name}
+                              ▲
                             </button>
-                          </li>
-                        );
-                      })}
-                      {displayedGenres.length === 0 && <li className="no-results-message">No matching genres</li>}
-                    </ul>
-                  </div>
+                            <button
+                              type="button"
+                              className="rating-arrow down"
+                              onClick={handleRatingDecrement}
+                              aria-label="Decrease rating by 0.1"
+                            >
+                              ▼
+                            </button>
+                          </div>
+                        </div>
+                      </div>
 
-                  <div className="filter-group">
-                    <label htmlFor="rating">Min Rating (0-10):</label>
-                    <div className="rating-input-container">
-                      <input
-                        type="number"
-                        id="rating"
-                        name="rating"
-                        min="0"
-                        max="10"
-                        step="0.1"
-                        value={filters.rating}
-                        onChange={handleFilterInputChange}
-                        className="rating-number-input"
-                      />
-                      <div className="rating-arrows">
-                        <button
-                          type="button"
-                          className="rating-arrow up"
-                          onClick={handleRatingIncrement}
-                          aria-label="Increase rating by 0.1"
-                        >
-                          ▲
-                        </button>
-                        <button
-                          type="button"
-                          className="rating-arrow down"
-                          onClick={handleRatingDecrement}
-                          aria-label="Decrease rating by 0.1"
-                        >
-                          ▼
-                        </button>
+                      <div className="filter-group filter-group-scrollable">
+                        <label htmlFor="language-search">Language(s):</label>
+                        <input
+                          type="text"
+                          id="language-search"
+                          name="languageSearch"
+                          placeholder="Search languages..."
+                          value={languageSearch}
+                          onChange={handleLanguageSearchChange}
+                          className="filter-search-input"
+                        />
+                        <ul className="clickable-filter-list language-list">
+                          {displayedLanguages.map(lang => {
+                            const isSelected = filters.languages.includes(lang.iso_639_1);
+                            return (
+                              <li key={lang.iso_639_1}>
+                                <button
+                                  type="button"
+                                  className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
+                                  onClick={() => handleLanguageToggle(lang.iso_639_1)}
+                                >
+                                  {lang.english_name}
+                                </button>
+                              </li>
+                            );
+                          })}
+                          {displayedLanguages.length === 0 && <li className="no-results-message">No matching languages</li>}
+                        </ul>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="filter-group filter-group-scrollable">
-                    <label htmlFor="language-search">Language(s):</label>
-                    <input
-                      type="text"
-                      id="language-search"
-                      name="languageSearch"
-                      placeholder="Search languages..."
-                      value={languageSearch}
-                      onChange={handleLanguageSearchChange}
-                      className="filter-search-input"
-                    />
-                    <ul className="clickable-filter-list language-list">
-                      {displayedLanguages.map(lang => {
-                        const isSelected = filters.languages.includes(lang.iso_639_1);
-                        return (
-                          <li key={lang.iso_639_1}>
-                            <button
-                              type="button"
-                              className={`filter-tag-button ${isSelected ? 'selected' : ''}`}
-                              onClick={() => handleLanguageToggle(lang.iso_639_1)}
-                            >
-                              {lang.english_name}
-                            </button>
-                          </li>
-                        );
-                      })}
-                      {displayedLanguages.length === 0 && <li className="no-results-message">No matching languages</li>}
-                    </ul>
+                    {/* 3. Action Buttons */}
+                    <div className="filter-actions">
+                      <button type="button" onClick={() => performSearch()} className="apply-filters-button">Search</button>
+                      <button type="button" onClick={handleClearSearch} className="clear-filters-button">Clear All</button>
+                    </div>
                   </div>
-                </div>
-                <div className="filter-actions">
-                  <button type="submit" className="apply-filters-button">Apply Filters</button>
-                  <button type="button" onClick={handleClearFilters} className="clear-filters-button">Clear Filters</button>
-                </div>
-              </form>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Loading Indicator */}
             {isFilterLoading && <MediaGridSkeleton count={8} />}
 
-            {/* Filtered Results Area */}
+            {/* Filtered Results Area (Used for BOTH Search & Filter now) */}
             {!isFilterLoading && isFilteredSearch && (
               <div id="filtered-results" className="discovery-results-container">
                 <div className="filtered-header">
-                  <h2 className="section-title">{getSectionTitle("Filtered Results")}</h2>
+                  <h2 className="section-title">{getSectionTitle(searchQuery ? `Search Results: ${searchQuery}` : "Filtered Results")}</h2>
+
 
                   {/* Active Filter Tags */}
                   <div className="filter-active-indicators">
@@ -1558,7 +1382,7 @@ function App() {
 
                   {/* Tab Navigation */}
                   <div className="sliding-tabs-container">
-                    <div 
+                    <div
                       className="sliding-tabs"
                       onTouchStart={onTouchStart}
                       onTouchMove={onTouchMove}
@@ -1582,6 +1406,12 @@ function App() {
                         onClick={() => handleTabChange('tv')}
                       >
                         TV Shows
+                      </button>
+                      <button
+                        className={`tab-button ${activeFilterTab === 'people' ? 'active' : ''}`}
+                        onClick={() => handleTabChange('people')}
+                      >
+                        People
                       </button>
                     </div>
                   </div>
@@ -1671,6 +1501,38 @@ function App() {
                       )}
                     </>
                   )}
+                  {activeFilterTab === 'people' && (
+                    <>
+                      {userPreferences.useInfiniteScroll ? (
+                        <InfiniteScrollGrid
+                          items={filteredResults.people.allItems}
+                          type="person"
+                          onMediaClick={handleMediaClick}
+                          hasMore={filteredResults.people.page < filteredResults.people.totalPages}
+                          loadMore={(page) => handleLoadMoreResults('people', page)}
+                          currentPage={filteredResults.people.page}
+                          totalPages={filteredResults.people.totalPages}
+                          totalResults={filteredResults.people.totalResults}
+                          MediaItemComponent={MediaItem}
+                          useInfiniteScroll={true} // Add this prop to InfiniteScrollGrid if it needs it
+                        />
+                      ) : (
+                        <MediaGrid
+                          items={filteredResults.people.items}
+                          type="person"
+                          onMediaClick={handlePersonClick} // Use person click handler
+                        />
+                      )}
+
+                      {!userPreferences.useInfiniteScroll && filteredResults.people.items.length > 0 && (
+                        <Pagination
+                          currentPage={filteredResults.people.page}
+                          totalPages={filteredResults.people.totalPages}
+                          onPageChange={handleFilterPageChange}
+                        />
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             )}
@@ -1679,103 +1541,112 @@ function App() {
           {/* End of conditional rendering for search section */}
 
           {/* Default Media Grids (Trending/Top Rated) - Show only if NOT searching/filtering */}
-          {!searchQuery && !isFilteredSearch && !isPlayerModalOpen && !isPersonModalOpen && (
-            <>
-              {isLoading ? (
-                <>
-                  <div id="trending-movies">
-                    <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
-                    <MediaGridSkeleton count={20} />
-                  </div>
-                  <div id="trending-tv">
-                    <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
-                    <MediaGridSkeleton count={20} />
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div id="trending-movies">
-                    <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
-                    <MediaGrid items={trendingMovies} type="movie" onMediaClick={handleMediaClick} />
-                  </div>
+          {
+            !searchQuery && !isFilteredSearch && !isPlayerModalOpen && !isPersonModalOpen && (
+              <>
+                {isLoading ? (
+                  <>
+                    <div id="trending-movies">
+                      <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
+                      <MediaGridSkeleton count={20} />
+                    </div>
+                    <div id="trending-tv">
+                      <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
+                      <MediaGridSkeleton count={20} />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div id="trending-movies">
+                      <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
+                      <MediaGrid items={trendingMovies} type="movie" onMediaClick={handleMediaClick} />
+                    </div>
 
-                  <div id="trending-tv">
-                    <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
-                    <MediaGrid items={trendingTV} type="tv" onMediaClick={handleMediaClick} />
-                  </div>
+                    <div id="trending-tv">
+                      <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
+                      <MediaGrid items={trendingTV} type="tv" onMediaClick={handleMediaClick} />
+                    </div>
 
-                  <div id="top-movies">
-                    <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
-                    <MediaGrid items={topMovies} type="movie" onMediaClick={handleMediaClick} />
-                  </div>
+                    <div id="top-movies">
+                      <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
+                      <MediaGrid items={topMovies} type="movie" onMediaClick={handleMediaClick} />
+                    </div>
 
-                  <div id="top-tv">
-                    <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
-                    <MediaGrid items={topTV} type="tv" onMediaClick={handleMediaClick} />
-                  </div>
-                </>
-              )}
-            </>
-          )}
+                    <div id="top-tv">
+                      <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
+                      <MediaGrid items={topTV} type="tv" onMediaClick={handleMediaClick} />
+                    </div>
+                  </>
+                )}
+              </>
+            )
+          }
         </>
-      )} {/* End of activeSection === 'media' */}
+      )
+      } {/* End of activeSection === 'media' */}
 
       {/* --- Conditionally Render MUSIC Section (Placeholder) --- */}
-      {activeSection === 'music' && !isPlayerModalOpen && !isPersonModalOpen && (
-        <Suspense fallback={<div className="loading-text">Loading Music Hub...</div>}>
-          <MusicHub
-            currentTheme={currentTheme}
-            ref={musicHubRef}
-            navStackState={musicNavStackState}
-            setNavStackState={setMusicNavStackState}
-          />
-        </Suspense>
-      )}
+      {
+        activeSection === 'music' && !isPlayerModalOpen && !isPersonModalOpen && (
+          <Suspense fallback={<div className="loading-text">Loading Music Hub...</div>}>
+            <MusicHub
+              currentTheme={currentTheme}
+              ref={musicHubRef}
+              navStackState={musicNavStackState}
+              setNavStackState={setMusicNavStackState}
+            />
+          </Suspense>
+        )
+      }
 
       {/* Player Modal (Conditional) - Stays outside section logic */}
-      {isPlayerModalOpen && selectedMedia && (
-        <Suspense fallback={<div className="loading-text">Loading Player...</div>}>
-          <PlayerModal
-            media={selectedMedia.media}
-            type={selectedMedia.type}
-            onClose={closeModal}
-            currentTheme={currentTheme}
-          />
-        </Suspense>
-      )}
+      {
+        isPlayerModalOpen && selectedMedia && (
+          <Suspense fallback={<div className="loading-text">Loading Player...</div>}>
+            <PlayerModal
+              media={selectedMedia.media}
+              type={selectedMedia.type}
+              onClose={closeModal}
+              currentTheme={currentTheme}
+            />
+          </Suspense>
+        )
+      }
 
       {/* *** NEW: Person Details Modal (Conditional) *** - Stays outside section logic */}
-      {isPersonModalOpen && selectedPerson && (
-        <Suspense fallback={<div className="loading-text">Loading Details...</div>}>
-          <PersonDetailsModal
-            person={selectedPerson}
-            imageBaseUrl={IMAGE_BASE_URL}
-            onClose={closePersonModal}
-            currentTheme={currentTheme}
-            onKnownForItemClick={handleKnownItemClick}
-          // If ArtistDetailsModal is triggered from here, wrap it too
-          />
-        </Suspense>
-      )}
+      {
+        isPersonModalOpen && selectedPerson && (
+          <Suspense fallback={<div className="loading-text">Loading Details...</div>}>
+            <PersonDetailsModal
+              person={selectedPerson}
+              imageBaseUrl={IMAGE_BASE_URL}
+              onClose={closePersonModal}
+              currentTheme={currentTheme}
+              onKnownForItemClick={handleKnownItemClick}
+            // If ArtistDetailsModal is triggered from here, wrap it too
+            />
+          </Suspense>
+        )
+      }
 
       {/* NavBar might not need lazy loading as it's small */}
       <NavBar currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
 
       {/* Screen Reader Live Region */}
-      <div 
-        className="sr-only" 
-        role="status" 
-        aria-live="polite" 
+      <div
+        className="sr-only"
+        role="status"
+        aria-live="polite"
         aria-atomic="true"
       >
         {isFilterLoading && "Loading filtered results"}
-        {filteredResults.movie.totalResults > 0 && 
+        {filteredResults.movie.totalResults > 0 &&
           `Found ${filteredResults.movie.totalResults} movie results`}
-        {filteredResults.tv.totalResults > 0 && 
+        {filteredResults.tv.totalResults > 0 &&
           `Found ${filteredResults.tv.totalResults} TV show results`}
       </div>
 
-    </div>
+    </div >
   );
 }
 
