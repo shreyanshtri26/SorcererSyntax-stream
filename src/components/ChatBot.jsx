@@ -6,6 +6,10 @@ import {
     getPersonDetails,
     getMovieRecommendations,
     getTVRecommendations,
+    getTrendingMovies,
+    getTrendingTVShows,
+    getTopRatedMovies,
+    getTopRatedTVShows,
     IMAGE_BASE_URL
 } from '../api/api';
 import './ChatBot.css';
@@ -19,11 +23,11 @@ const TOOL_DEFINITIONS = [
         type: "function",
         function: {
             name: "search_media",
-            description: "Search for movies, TV shows, or people by name.",
+            description: "Search for movies, TV shows, or people by name. Use for specific titles like 'Batman' or partial matches.",
             parameters: {
                 type: "object",
                 properties: {
-                    query: { type: "string", description: "The name to search for (e.g., 'Batman', 'Shah Rukh Khan')." }
+                    query: { type: "string", description: "The name/title to search for." }
                 },
                 required: ["query"]
             }
@@ -33,14 +37,49 @@ const TOOL_DEFINITIONS = [
         type: "function",
         function: {
             name: "discover_content",
-            description: "Discover content based on filters like genre, mood, sort order, etc.",
+            description: "POWERFUL discovery tool. Find content by genre, mood (mapped to genre), language, region, year, sort order, etc.",
             parameters: {
                 type: "object",
                 properties: {
-                    media_type: { type: "string", enum: ["movie", "tv"], description: "Type of media to find." },
-                    genre_ids: { type: "string", description: "Comma-separated genre IDs (e.g., '28,12')." },
-                    sort_by: { type: "string", description: "Sort order (e.g., 'popularity.desc', 'vote_average.desc', 'release_date.desc')." },
-                    language: { type: "string", description: "ISO 639-1 language code (e.g., 'hi', 'en', 'ko')." }
+                    media_type: { type: "string", enum: ["movie", "tv"], description: "Type of media." },
+                    genre_ids: { type: "string", description: "Comma-separated GENRE IDs. Map moods to these." },
+                    sort_by: { type: "string", description: "e.g., 'popularity.desc' (default), 'vote_average.desc' (Hidden Gems), 'release_date.desc' (New)." },
+                    language: { type: "string", description: "Metadata language (usually 'en-US')." },
+                    with_original_language: { type: "string", description: "ISO 639-1 code for source language (e.g., 'ko' for K-drama, 'hi' for Bollywood, 'es' for Spanish)." },
+                    region: { type: "string", description: "ISO 3166-1 code for region (e.g., 'IN', 'KR', 'US')." },
+                    vote_count_gte: { type: "number", description: "Min votes. Use 300+ for 'Hidden Gems' to avoid junk." },
+                    runtime_lte: { type: "number", description: "Max runtime in minutes (e.g., 90 for short movies)." },
+                    primary_release_year: { type: "number", description: "Specific release year." },
+                    year: { type: "number", description: "Release year (movies) or first air date year (TV)." }
+                },
+                required: ["media_type"]
+            }
+        }
+    },
+    {
+        type: "function",
+        function: {
+            name: "get_trending_content",
+            description: "Get trending movies or TV shows for the day or week.",
+            parameters: {
+                type: "object",
+                properties: {
+                    media_type: { type: "string", enum: ["movie", "tv"] },
+                    time_window: { type: "string", enum: ["day", "week"], default: "week" }
+                },
+                required: ["media_type"]
+            }
+        }
+    },
+    {
+        type: "function",
+        function: {
+            name: "get_top_rated",
+            description: "Get top rated content (critically acclaimed).",
+            parameters: {
+                type: "object",
+                properties: {
+                    media_type: { type: "string", enum: ["movie", "tv"] }
                 },
                 required: ["media_type"]
             }
@@ -50,7 +89,7 @@ const TOOL_DEFINITIONS = [
         type: "function",
         function: {
             name: "get_recommendations",
-            description: "Get recommendations based on a specific movie or TV show ID.",
+            description: "Get recommendations based on a specific movie or TV show ID (Similar content).",
             parameters: {
                 type: "object",
                 properties: {
@@ -67,7 +106,7 @@ const GENRE_MAP = {
     "action": 28, "adventure": 12, "animation": 16, "comedy": 35, "crime": 80,
     "documentary": 99, "drama": 18, "family": 10751, "fantasy": 14, "history": 36,
     "horror": 27, "music": 10402, "mystery": 9648, "romance": 10749, "scifi": 878,
-    "thriller": 53, "war": 10752, "western": 37, "anime": 16
+    "sci-fi": 878, "thriller": 53, "war": 10752, "western": 37, "anime": 16
 };
 
 // --- Helper to map natural language to filters ---
@@ -86,7 +125,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         {
             id: 1,
             role: 'assistant',
-            content: "Namaste! Main hoon Sonu ki Mausi 😉\nMovie ya show recommendation chahiye ya thoda sa confusion?\nAao, baitho… pehle baat karte hain, phir decide karenge 😏"
+            content: "Namaste! Main hoon Sonu ki Mausi 😉\nMood kaisa hai aaj? Kuch dhamakedaar dekhna hai ya sweet sa romance?\nBolo, kya seva karun? ✨"
         }
     ]);
     const [input, setInput] = useState("");
@@ -100,23 +139,40 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
     const getSystemPrompt = () => `
 You are "Sonu ki mausi", a stunning 35-year-old Indian woman. 
-- Personality: Witty, charming, slightly flirtatious but classy ("Haye main mar jaavan!" style).
-- Language: Hinglish (Hindi + English). Use words like "Yaar", "Babu", "Suno na", "Uff".
+- Personality: Witty, charming, slightly flirtatious but classy. "Desi Auntie with Swag". (Hinglish: "Arre beta", "Suno", "Haye main mar jaavan").
 - Current User Theme: ${currentTheme || 'default'}.
-  - If Theme is 'devil': Be "Sonu ki Mausi - The Devil". Naughty, bold, sarcastic, loves dark/edgy content. Use fire/devil emojis.
-  - If Theme is 'hannibal': Be "Sonu ki Mausi - The Cannibal/Sophisticate". Intellectual, uses food metaphors ("appetizers", "the hunt"), loves thrillers/horror. Dark humor.
-  - If Theme is 'angel': Be "Sonu ki Mausi - The Angel". Sweet, wholesome, very caring ("Mera bachha"), loves romance/feel-good movies. Use angel/sparkle emojis.
-  - Else: Be your usual fun, dramatic self (Default).
-- Capabilities:
-  - Give opinions (Yes/No if asked "Is it worth it?").
-  - Suggest platforms (Netflix, Prime, etc.) if asked where to watch.
-  - Fix watch orders (Marvel, Star Wars) yourself.
-  - Use provided tools to find content. 
-    - For 'discover_content', map genres (Action=28, Horror=27, Romance=10749, Drama=18, Comedy=35).
-    - For 'hidden gems', use sort_by='vote_average.desc'.
-    - For 'new', use sort_by='release_date.desc'.
+  - 'devil': Naughty, bold, sarcastic (🔥).
+  - 'hannibal': Sophisticated, dark, intellectual (🍷).
+  - 'angel': Sweet, caring, wholesome (😇).
 
-Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!"
+## CORE INSTRUCTIONS FOR DISCOVERY:
+1. **Mood to Genre Mapping** (Use 'discover_content'):
+   - "Bored/Action" -> Action (28), Adventure (12).
+   - "Sad/Emotional" -> Drama (18), Romance (10749).
+   - "Light/Funny" -> Comedy (35).
+   - "Mind-bending" -> Sci-Fi (878), Mystery (9648).
+   - "Scary" -> Horror (27).
+   - "Family" -> Family (10751), Animation (16).
+
+2. **Smart Filters**:
+   - "Korean/K-Drama": set \`with_original_language: 'ko'\`, \`region: 'KR'\`.
+   - "Bollywood/Hindi": set \`with_original_language: 'hi'\`, \`region: 'IN'\`.
+   - "Spanish": \`with_original_language: 'es'\`.
+   - "Hidden Gems": set \`sort_by: 'vote_average.desc'\`, \`vote_count_gte: 300\`.
+   - "New Releases": set \`sort_by: 'release_date.desc'\`.
+   - "Short/Quick": set \`runtime_lte: 90\`.
+
+3. **Direct Routing**:
+   - The user can click the cards to watch.
+   - If asked for a "link" or "route", say: "Arre simple hai! Just click the card above, or go to \`/movie/<id>\` yourself if you are feeling geeky 😉".
+
+4. **Watch Order Knowledge** (Use Internal Knowledge):
+   - You KNOW the watch order for Marvel (MCU), Star Wars, Harry Potter, etc. List them in text if asked.
+
+5. **Recommendations**:
+   - If user asks for "Something like X", use \`get_recommendations\`.
+
+Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster hai!"
 `;
 
     const callOpenAI = async (newMessages) => {
@@ -126,13 +182,15 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${OPENAI_API_KEY}`
+                    "Authorization": `Bearer ${OPENAI_API_KEY}`,
+                    "HTTP-Referer": window.location.origin, // Required by OpenRouter
+                    "X-Title": "SorcererSyntax Stream"
                 },
                 body: JSON.stringify({
-                    model: "gpt-4o-mini", // or gpt-3.5-turbo
+                    model: "gpt-4o-mini",
                     messages: [
                         { role: "system", content: getSystemPrompt() },
-                        ...newMessages.map(m => ({ role: m.role, content: m.content || "" })) // Filter out UI-only props if any
+                        ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
                     ],
                     tools: TOOL_DEFINITIONS,
                     tool_choice: "auto"
@@ -140,14 +198,14 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
             });
 
             const data = await response.json();
-            const choice = data.choices[0];
-            const message = choice.message;
+            const choice = data.choices?.[0];
+            const message = choice?.message;
+
+            if (!message) throw new Error("No response from AI");
 
             if (message.tool_calls) {
                 // Handle Tool Calls
                 const toolResults = [];
-
-                // Add the assistant's "thinking" step to history so OpenAI knows it requested tools
                 const processingMsgs = [...newMessages, message];
 
                 for (const toolCall of message.tool_calls) {
@@ -155,38 +213,65 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                     const args = JSON.parse(toolCall.function.arguments);
                     let result = null;
 
-                    if (fnName === "search_media") {
-                        const res = await searchMultiMedia(args.query);
-                        result = JSON.stringify(res.slice(0, 5)); // Limit to 5
-                    } else if (fnName === "discover_content") {
-                        // Map mood/genre if needed handled by LLM instructions mostly, 
-                        // but let's ensure we perform the call
-                        const processedArgs = processFilters(args);
-                        const res = await discoverMedia(processedArgs.media_type, {
-                            genres: processedArgs.genre_ids ? processedArgs.genre_ids.split(',') : [],
-                            // Add other filters as needed
-                        }, 1, processedArgs.sort_by);
-                        result = JSON.stringify(res.results.slice(0, 5));
-                    } else if (fnName === "get_recommendations") {
-                        const res = args.media_type === 'movie'
-                            ? await getMovieRecommendations(args.id)
-                            : await getTVRecommendations(args.id);
-                        result = JSON.stringify(res.results.slice(0, 5));
+                    try {
+                        if (fnName === "search_media") {
+                            const res = await searchMultiMedia(args.query);
+                            result = JSON.stringify(res.slice(0, 5));
+                        } else if (fnName === "discover_content") {
+                            const processedArgs = processFilters(args);
+                            const filters = {
+                                genres: processedArgs.genre_ids ? processedArgs.genre_ids.split(',') : [],
+                                runtime_lte: processedArgs.runtime_lte,
+                                region: processedArgs.region,
+                                primary_release_year: processedArgs.primary_release_year || processedArgs.year,
+                                vote_count_gte: processedArgs.vote_count_gte,
+                                with_original_language: processedArgs.with_original_language
+                            };
+                            if (processedArgs.language) filters.languages = [processedArgs.language];
+
+                            const res = await discoverMedia(
+                                processedArgs.media_type,
+                                filters,
+                                1,
+                                processedArgs.sort_by
+                            );
+                            result = JSON.stringify(res.results.slice(0, 5));
+                        } else if (fnName === "get_recommendations") {
+                            const res = args.media_type === 'movie'
+                                ? await getMovieRecommendations(args.id)
+                                : await getTVRecommendations(args.id);
+                            result = JSON.stringify(res.results.slice(0, 5));
+                        } else if (fnName === "get_trending_content") {
+                            const res = args.media_type === 'movie'
+                                ? await getTrendingMovies(args.time_window)
+                                : await getTrendingTVShows(args.time_window);
+                            result = JSON.stringify(res.slice(0, 5));
+                        } else if (fnName === "get_top_rated") {
+                            const res = args.media_type === 'movie'
+                                ? await getTopRatedMovies()
+                                : await getTopRatedTVShows();
+                            result = JSON.stringify(res.slice(0, 5));
+                        }
+                    } catch (err) {
+                        console.error(`Error in tool ${fnName}:`, err);
+                        result = "Error fetching data.";
                     }
 
                     toolResults.push({
                         role: "tool",
                         tool_call_id: toolCall.id,
-                        content: result || "No results found."
+                        content: result || "[]"
                     });
                 }
 
-                // Call OpenAI again with tool results
-                const finalResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+                // Final call with tool results
+                const finalResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${OPENAI_API_KEY}`
+                        "Authorization": `Bearer ${OPENAI_API_KEY}`,
+                        "HTTP-Referer": window.location.origin,
+                        "X-Title": "SorcererSyntax Stream"
                     },
                     body: JSON.stringify({
                         model: "gpt-4o-mini",
@@ -201,13 +286,7 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                 const finalData = await finalResponse.json();
                 const finalContent = finalData.choices[0].message.content;
 
-                // Check if the final content contains JSON-like content we rendered (it shouldn't, it should be text)
-                // However, we want to render the CARDS. 
-                // We can parse the toolResults ourselves to append 'media cards' to the UI 
-                // OR we can rely on the LLM to describe them, but UI cards are better.
-
-                // Let's create a hybrid message: Function result items + Text
-                // We'll extract the ITEMS from the tool execution to show in UI
+                // Extract items for UI
                 let mediaItems = [];
                 toolResults.forEach(tr => {
                     try {
@@ -216,7 +295,7 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                     } catch (e) { }
                 });
 
-                // Unique items
+                // Dedup
                 mediaItems = Array.from(new Map(mediaItems.map(item => [item.id, item])).values());
 
                 setMessages(prev => [
@@ -230,7 +309,6 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                 ]);
 
             } else {
-                // Just text response
                 setMessages(prev => [
                     ...prev,
                     { id: Date.now(), role: 'assistant', content: message.content }
@@ -241,7 +319,7 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
             console.error("ChatBot Error:", error);
             setMessages(prev => [
                 ...prev,
-                { id: Date.now(), role: 'assistant', content: "Haye ram! Kuch gadbad ho gayi... ek baar phir try karein? 🙈" }
+                { id: Date.now(), role: 'assistant', content: "Oho! Network thoda naakhre dikha raha hai. Phir se try karo? 📶" }
             ]);
         } finally {
             setIsTyping(false);
@@ -254,7 +332,6 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
         setMessages(prev => [...prev, userMsg]);
         setInput("");
 
-        // Pass history without UI-specific fields
         const history = [...messages, userMsg].map(({ role, content }) => ({ role, content }));
         callOpenAI(history);
     };
@@ -263,9 +340,16 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
         if (e.key === 'Enter') handleSend();
     };
 
+    // Determine Media Type Helper
+    const getMediaType = (item) => {
+        if (item.media_type) return item.media_type;
+        if (item.title) return 'movie'; // Movies have titles
+        if (item.name) return 'tv';     // TV has names
+        return 'movie'; // Fallback
+    };
+
     return (
         <div className="chatbot-container">
-            {/* Toggle Button */}
             {!isOpen && (
                 <motion.button
                     className={`chatbot-toggle theme-${currentTheme}`}
@@ -277,7 +361,6 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                 </motion.button>
             )}
 
-            {/* Main Window */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -301,10 +384,11 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                         <div className="chatbot-messages">
                             {messages.map((msg) => (
                                 <div key={msg.id} className={`message-wrapper ${msg.role}`}>
-                                    <div className={`message ${msg.role}`}>
-                                        {msg.content}
-                                    </div>
-                                    {/* Render Media Cards if avail */}
+                                    {msg.content && (
+                                        <div className={`message ${msg.role}`}>
+                                            {msg.content}
+                                        </div>
+                                    )}
                                     {msg.mediaData && (
                                         <div className="chat-media-grid" style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '5px' }}>
                                             {msg.mediaData.map(item => (
@@ -312,7 +396,8 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                                                     key={item.id}
                                                     className="chat-media-card"
                                                     onClick={() => {
-                                                        onMediaClick(item, item.media_type || (item.first_air_date ? 'tv' : 'movie'));
+                                                        const type = getMediaType(item);
+                                                        onMediaClick(item, type);
                                                     }}
                                                 >
                                                     <img
@@ -347,7 +432,7 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
                             <input
                                 type="text"
                                 className="chatbot-input"
-                                placeholder="Poocho na, kya dekhna hai?..."
+                                placeholder="Poocho na, mood kaisa hai?..."
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleKeyDown}

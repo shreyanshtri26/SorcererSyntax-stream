@@ -43,8 +43,8 @@ async function fetchFromTMDB(endpoint, params = {}, language = TMDB_DEFAULT_LANG
   }
 }
 
-export const getTrendingMovies = () => fetchFromTMDB('trending/movie/week');
-export const getTrendingTVShows = () => fetchFromTMDB('trending/tv/week');
+export const getTrendingMovies = (timeWindow = 'week') => fetchFromTMDB(`trending/movie/${timeWindow}`);
+export const getTrendingTVShows = (timeWindow = 'week') => fetchFromTMDB(`trending/tv/${timeWindow}`);
 export const getTopRatedMovies = () => fetchFromTMDB('movie/top_rated');
 export const getTopRatedTVShows = () => fetchFromTMDB('tv/top_rated');
 export const searchMovies = (query, page = 1, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB('search/movie', { query, page }, language);
@@ -86,6 +86,20 @@ export const discoverMedia = async (mediaType, filters, page = 1, sortOption = '
     'vote_average.gte': filters.rating || 0,
     with_genres: (filters.genres || []).join(','),
   });
+
+  // --- Advanced Filters ---
+  if (filters.runtime_lte) params.append('with_runtime.lte', filters.runtime_lte);
+  if (filters.region) {
+    params.append('region', filters.region);
+    // Also likely want original language if region is specified to find content FROM there
+    // but sometimes region is just for release availability. 
+    // For "Korean Dramas", usually we want with_original_language='ko'.
+  }
+  if (filters.primary_release_year) params.append('primary_release_year', filters.primary_release_year);
+  if (filters.vote_count_gte) params.append('vote_count.gte', filters.vote_count_gte);
+  if (filters.with_original_language) params.append('with_original_language', filters.with_original_language);
+  // ------------------------
+
   if (originalLanguage) {
     params.append('with_original_language', originalLanguage);
   }
