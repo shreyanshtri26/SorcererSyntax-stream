@@ -189,6 +189,7 @@
     line-height: 1.5;
     position: relative;
     word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .message.user {
@@ -343,6 +344,53 @@
 
 .chatbot-window.theme-angel .chat-media-meta {
     color: rgba(0, 0, 0, 0.5);
+}
+
+/* Link Styling */
+.chat-link-text {
+    color: #ffd700;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.chatbot-window.theme-angel .chat-link-text {
+    color: #ff0055;
+}
+
+/* Card Overlay */
+.chat-media-card {
+    position: relative;
+    /* ... existing styles ... */
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.chat-media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 40px;
+    color: white;
+}
+
+.chat-media-card:hover .chat-media-overlay {
+    opacity: 1;
 }
 
 /* Input Area */

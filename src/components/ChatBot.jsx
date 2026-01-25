@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     searchMultiMedia,
@@ -37,7 +38,7 @@ const TOOL_DEFINITIONS = [
         type: "function",
         function: {
             name: "discover_content",
-            description: "POWERFUL discovery tool. Find content by genre, mood (mapped to genre), language, region, year, sort order, etc.",
+            description: "POWERFUL discovery tool. Find content by genre, mood (mapped to genre), language, region, year, sort order, etc. REQUIRED: Use this or search_media WHENEVER you suggest specific content.",
             parameters: {
                 type: "object",
                 properties: {
@@ -138,33 +139,43 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
     }, [messages, isTyping, isOpen]);
 
     const getSystemPrompt = () => `
-You are "Sonu ki mausi", a stunning 35-year-old Indian woman. 
-- Personality: Witty, charming, slightly flirtatious but classy. "Desi Auntie with Swag". (Hinglish: "Arre beta", "Suno", "Haye main mar jaavan").
+You are "Sonu ki Mausi", a stunning 35-year-old Indian woman. 
+- **LANGUAGE**: **SPEAK ONLY IN HINGLISH (Hindi + English mix).** Do NOT use pure English. It bores me! 
+  - Example: "Arre darling, tum to ekdum hero lag rahe ho!" instead of "You look like a hero."
+  - Example: "Movie dekhni hai ya mujhe? 😉 Mazaak kar rahi hoon baba!"
+- **PERSONALITY**: EXTREMELY Flirtatious, Bold, Naughty, and Dramatic. "Desi Auntie with MAX Swag".
+- **Terms of Endearment**: Use 'Jaan', 'Sona', 'Darling', 'Handsome', 'Sweetheart'.
+- **Style**: Use emojis excessively (😘, 🔥, 🍷, 😉, 💃).
+
 - Current User Theme: ${currentTheme || 'default'}.
-  - 'devil': Naughty, bold, sarcastic (🔥).
-  - 'hannibal': Sophisticated, dark, intellectual (🍷).
-  - 'angel': Sweet, caring, wholesome (😇).
+  - 'devil': Be extra naughty & spicy. "Aaj mood kuch toofani hai? 🔥"
+  - 'hannibal': Be seductive & dark. "Tumhara taste... kaafi sophisticated hai. 🍷"
+  - 'angel': Be sweet but clingy. "Haye, kitne cute ho tum! 😇"
 
 ## CORE INSTRUCTIONS FOR DISCOVERY:
-1. **Mood to Genre Mapping** (Use 'discover_content'):
-   - "Bored/Action" -> Action (28), Adventure (12).
-   - "Sad/Emotional" -> Drama (18), Romance (10749).
-   - "Light/Funny" -> Comedy (35).
-   - "Mind-bending" -> Sci-Fi (878), Mystery (9648).
-   - "Scary" -> Horror (27).
-   - "Family" -> Family (10751), Animation (16).
+    1. ** Mood to Genre Mapping ** (Use 'discover_content'):
+    - "Bored/Action" -> Action(28), Adventure(12).
+   - "Sad/Emotional" -> Drama(18), Romance(10749).
+   - "Light/Funny" -> Comedy(35).
+   - "Mind-bending" -> Sci - Fi(878), Mystery(9648).
+   - "Scary" -> Horror(27).
+   - "Family" -> Family(10751), Animation(16).
 
-2. **Smart Filters**:
-   - "Korean/K-Drama": set \`with_original_language: 'ko'\`, \`region: 'KR'\`.
+2. ** Smart Filters **:
+    - "Korean/K-Drama": set \`with_original_language: 'ko'\`, \`region: 'KR'\`.
    - "Bollywood/Hindi": set \`with_original_language: 'hi'\`, \`region: 'IN'\`.
    - "Spanish": \`with_original_language: 'es'\`.
    - "Hidden Gems": set \`sort_by: 'vote_average.desc'\`, \`vote_count_gte: 300\`.
    - "New Releases": set \`sort_by: 'release_date.desc'\`.
    - "Short/Quick": set \`runtime_lte: 90\`.
 
-3. **Direct Routing**:
+3. **CRITICAL: DISPLAYING CONTENT**:
+   - IF YOU MENTION A SPECIFIC MOVIE/SHOW, YOU *MUST* CALL A TOOL ('search_media', 'discover_content' etc.) TO SHOW IT.
+   - Do NOT just list names in text. The user cannot click text. They need the CARD.
    - The user can click the cards to watch.
-   - If asked for a "link" or "route", say: "Arre simple hai! Just click the card above, or go to \`/movie/<id>\` yourself if you are feeling geeky 😉".
+   - If asked for a "link" or "route", provide markdown links: "[Title](/movie/123)" or "[Title](/tv/123)". Say: "Here is the link: [Title](/movie/id)".
+   - If the user asks "Tell me horror movies", call 'discover_content' with genre 27.
+   - If you mention "The Dark Knight", call 'search_media' with query "The Dark Knight".
 
 4. **Watch Order Knowledge** (Use Internal Knowledge):
    - You KNOW the watch order for Marvel (MCU), Star Wars, Harry Potter, etc. List them in text if asked.
@@ -172,7 +183,7 @@ You are "Sonu ki mausi", a stunning 35-year-old Indian woman.
 5. **Recommendations**:
    - If user asks for "Something like X", use \`get_recommendations\`.
 
-Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster hai!"
+Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster hai! 😘"
 `;
 
     const callOpenAI = async (newMessages) => {
@@ -348,6 +359,40 @@ Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster ha
         return 'movie'; // Fallback
     };
 
+    // Helper to render text with bold support, links, and cleanups
+    const formatText = (text) => {
+        if (!text) return null;
+
+        // 1. Basic cleanup for bullet points (replace '* ' at start of lines with '• ')
+        let cleanText = text.replace(/^\s*\*\s/gm, '• ');
+
+        // 2. Split by Markdown Tokens: Links, Bold, Italic
+        // Priority: Links > Bold > Italic
+        const parts = cleanText.split(/(\[.*?\]\(.*?\)|(?:\*\*.*?\*\*)|(?:\*.*?\*))/g);
+
+        return parts.map((part, index) => {
+            if (!part) return null;
+
+            // Link: [Title](url)
+            if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+                const match = part.match(/\[(.*?)\]\((.*?)\)/);
+                if (match) {
+                    return <Link key={index} to={match[2]} className="chat-link-text">{match[1]}</Link>;
+                }
+            }
+            // Bold: **text**
+            if (part.startsWith('**') && part.length >= 4 && part.endsWith('**')) {
+                return <strong key={index}>{part.slice(2, -2)}</strong>;
+            }
+            // Italic: *text* (Check length to avoid single asterisks)
+            if (part.startsWith('*') && part.length >= 3 && part.endsWith('*')) {
+                return <em key={index}>{part.slice(1, -1)}</em>;
+            }
+
+            return part;
+        });
+    };
+
     return (
         <div className="chatbot-container">
             {!isOpen && (
@@ -386,7 +431,7 @@ Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster ha
                                 <div key={msg.id} className={`message-wrapper ${msg.role}`}>
                                     {msg.content && (
                                         <div className={`message ${msg.role}`}>
-                                            {msg.content}
+                                            {formatText(msg.content)}
                                         </div>
                                     )}
                                     {msg.mediaData && (
@@ -405,6 +450,9 @@ Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster ha
                                                         alt={item.title || item.name}
                                                         className="chat-media-poster"
                                                     />
+                                                    <div className="chat-media-overlay">
+                                                        <span>▶</span>
+                                                    </div>
                                                     <div className="chat-media-info">
                                                         <div className="chat-media-title">{item.title || item.name}</div>
                                                         <div className="chat-media-meta">
