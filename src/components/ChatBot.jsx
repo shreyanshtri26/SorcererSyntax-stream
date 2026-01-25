@@ -187,7 +187,7 @@ Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster ha
                     "X-Title": "SorcererSyntax Stream"
                 },
                 body: JSON.stringify({
-                    model: "gpt-4o-mini",
+                    model: "google/gemini-2.5-flash-lite",
                     messages: [
                         { role: "system", content: getSystemPrompt() },
                         ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
@@ -274,7 +274,7 @@ Sell the content! Don't just show a list. Say "Yeh wala try karo, blockbuster ha
                         "X-Title": "SorcererSyntax Stream"
                     },
                     body: JSON.stringify({
-                        model: "gpt-4o-mini",
+                        model: "google/gemini-2.5-flash-lite",
                         messages: [
                             { role: "system", content: getSystemPrompt() },
                             ...processingMsgs,
