@@ -11,7 +11,7 @@ import {
 import './ChatBot.css';
 
 // --- OpenAI Configuration ---
-const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const OPENAI_API_KEY = "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";
 
 
 const TOOL_DEFINITIONS = [
@@ -122,7 +122,7 @@ Don't just list data; sell it! "Oho, yeh movie dekh li toh tum toh fan ho jaoge!
     const callOpenAI = async (newMessages) => {
         setIsTyping(true);
         try {
-            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
