@@ -15,6 +15,7 @@ import SearchPage from './pages/SearchPage';
 import MusicPage from './pages/MusicPage';
 
 import { IMAGE_BASE_URL } from './api/api';
+import ChatBot from './components/ChatBot';
 import './App.css';
 
 // --- Helper Function for Themed Titles ---
@@ -261,6 +262,9 @@ function App() {
       {activeSection === 'music' && (
         <PersistentMusicPlayer currentTheme={currentTheme} />
       )}
+
+      {/* Mausi Chatbot */}
+      <ChatBot currentTheme={currentTheme} onMediaClick={handleMediaClick} />
 
     </div>
   );

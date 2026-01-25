@@ -66,6 +66,8 @@ export const getTVGenres = () => fetchFromTMDB('genre/tv/list');
 export const getMovieCredits = (movieId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`movie/${movieId}/credits`, {}, language);
 export const getTVSeasonCredits = (tvId, seasonNumber, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}/season/${seasonNumber}/credits`, {}, language);
 export const getTVSeasonVideos = (tvId, seasonNumber, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}/season/${seasonNumber}/videos`, {}, language);
+export const getMovieRecommendations = (movieId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`movie/${movieId}/recommendations`, {}, language);
+export const getTVRecommendations = (tvId, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB(`tv/${tvId}/recommendations`, {}, language);
 
 export const discoverMedia = async (mediaType, filters, page = 1, sortOption = 'popularity.desc') => {
   // Determine the UI language (for metadata) and original language (for filtering)
