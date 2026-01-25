@@ -125,7 +125,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         {
             id: 1,
             role: 'assistant',
-            content: "Namaste! Main hoon Sonu ki Mausi 😉\nMood kaisa hai aaj? Kuch dhamakedaar dekhna hai ya sweet sa romance?\nBolo, kya seva karun? ✨"
+            content: "Namaste! Main hoon Sonu ki Mausi 😉\nMovie/Series recommendation chahiye ya thoda sa confusion?\nAao, baitho… pehle baat karte hain, phir decide karenge 😏"
         }
     ]);
     const [input, setInput] = useState("");
