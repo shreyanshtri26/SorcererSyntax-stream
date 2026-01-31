@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getTVShowDetails, getVideos, getMovieGenres, getTVGenres, getMovieCredits, getTVSeasonCredits, getTVSeasonVideos, IMAGE_BASE_URL } from '../api/api';
+import { getTVShowDetails, getMovieDetails, getVideos, getMovieGenres, getTVGenres, getMovieCredits, getTVSeasonCredits, getTVSeasonVideos, IMAGE_BASE_URL } from '../api/api';
 import './PlayerModal.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
@@ -111,6 +111,7 @@ function useTrailerFetching(mediaType, id, media, type, season) {
 
 const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showTrailer = false, currentTheme = 'devil' }) => {
   const [tvDetails, setTvDetails] = useState(null);
+  const [movieDetails, setMovieDetails] = useState(null);
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [selectedEpisode, setSelectedEpisode] = useState(1);
   const [isLoadingDetails, setIsLoadingDetails] = useState(false);
@@ -125,7 +126,9 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // New state for collapsible description
   const [watchlistStatus, setWatchlistStatus] = useState(false); // Track if item is in watchlist
   const [userRating, setUserRating] = useState(0); // User's personal rating
-  const [selectedPlayerSource, setSelectedPlayerSource] = useState('moviesapi'); // Default player source
+  const [selectedPlayerSource, setSelectedPlayerSource] = useState(() => {
+    return localStorage.getItem('player_source') || 'vidfast';
+  }); // Default player source from cache or 'vidfast'
   const [sourceErrorCount, setSourceErrorCount] = useState({}); // Track errors per source
   const [showShareTooltip, setShowShareTooltip] = useState(false);
   // Add state to detect current theme
@@ -138,11 +141,14 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
   // --- Updated Player Sources ---
   const embeddedPlayerSources = [
+    { id: 'autoembed', name: 'AutoEmbed' },
     { id: 'nontongo', name: 'NontonGo' },
     { id: 'vidsrc', name: 'VidSrc' },
     { id: 'moviesapi', name: 'MoviesAPI' },
     { id: 'vidsrcme', name: 'VidSrc.me' },
-    { id: 'multiembedmov', name: 'Multiembed' },
+    { id: 'vidfast', name: 'VidFast' },
+    { id: 'vixsrc', name: 'VixSrc' },
+    { id: 'vidrock', name: 'VidRock' },
     { id: 'vidsrcxyz', name: 'VidSrc.xyz' },
     { id: '2embedcc', name: '2Embed (Alt)' },
     { id: 'smashy', name: 'Smashy Stream' },
@@ -151,11 +157,14 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   ];
 
   const embeddedPlayerInfo = {
+    autoembed: { name: 'AutoEmbed', website: 'autoembed.cc', features: ['Embedded Player', 'Multi-Source'] },
     nontongo: { name: 'NontonGo', website: 'nontongo.win', features: ['Embedded Player', 'Alternative'] },
     vidsrc: { name: 'VidSrc', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
     vidsrcme: { name: 'VidSrc.me', website: 'vidsrc.me', features: ['Embedded Player', 'Reliable'] },
     moviesapi: { name: 'MoviesAPI', website: 'moviesapi.club', features: ['Embedded Player', 'HD Quality'] },
-    multiembedmov: { name: 'Multiembed', website: 'multiembed.mov', features: ['Embedded Player', 'TMDB', 'Simple'] },
+    vidfast: { name: 'VidFast', website: 'vidfast.pro', features: ['Embedded Player', 'Fast'] },
+    vixsrc: { name: 'VixSrc', website: 'vixsrc.to', features: ['Embedded Player', 'New'] },
+    vidrock: { name: 'VidRock', website: 'vidrock.net', features: ['Embedded Player', 'HD'] },
     vidsrcxyz: { name: 'VidSrc.xyz', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
     smashy: { name: 'Smashy Stream', website: 'player.smashy.stream', features: ['Embedded Player', 'Fast'] },
     '2embedcc': { name: '2Embed (Alt)', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
@@ -201,6 +210,16 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     fetchCast();
   }, [media, type, selectedSeason]);
   // -----------------------------------
+
+  useEffect(() => {
+    if (type === 'movie' && media?.id) {
+      getMovieDetails(media.id)
+        .then(setMovieDetails)
+        .catch(err => console.error("Error fetching movie details:", err));
+    } else {
+      setMovieDetails(null);
+    }
+  }, [type, media]);
 
   useEffect(() => {
     setIsPlayingTrailer(showTrailer);
@@ -331,12 +350,6 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         ? `https://moviesapi.club/movie/${media.id}`
         : `https://moviesapi.club/tv/${media.id}-${selectedSeason}-${selectedEpisode}`;
     }
-    // multiembed.mov
-    else if (sourceId === 'multiembedmov') {
-      return type === 'movie'
-        ? `https://multiembed.mov/?video_id=${media.id}&tmdb=1`
-        : `https://multiembed.mov/?video_id=${media.id}&tmdb=1&s=${selectedSeason}&e=${selectedEpisode}`;
-    }
     // VidSrc.xyz
     else if (sourceId === 'vidsrcxyz') {
       return type === 'movie'
@@ -366,6 +379,30 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
       return type === 'movie'
         ? `https://player.videasy.net/movie/${media.id}`
         : `https://player.videasy.net/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // AutoEmbed
+    else if (sourceId === 'autoembed') {
+      return type === 'movie'
+        ? `https://test.autoembed.cc/embed/movie/${media.id}`
+        : `https://test.autoembed.cc/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // VidFast
+    else if (sourceId === 'vidfast') {
+      return type === 'movie'
+        ? `https://vidfast.pro/movie/${media.id}`
+        : `https://vidfast.pro/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // VixSrc
+    else if (sourceId === 'vixsrc') {
+      return type === 'movie'
+        ? `https://vixsrc.to/movie/${media.id}`
+        : `https://vixsrc.to/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // VidRock
+    else if (sourceId === 'vidrock') {
+      return type === 'movie'
+        ? `https://vidrock.net/embed/movie/${media.id}`
+        : `https://vidrock.net/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
     }
 
     return ''; // Fallback
@@ -415,6 +452,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --- Player Source Change Handler ---
   const handlePlayerSourceChange = (sourceId) => {
     setSelectedPlayerSource(sourceId);
+    localStorage.setItem('player_source', sourceId); // Cache the selection
     // Reset relevant states only if it's an embedded source
     if (embeddedPlayerSources.some(s => s.id === sourceId)) {
       setVideoLoaded(false);
@@ -649,7 +687,29 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const renderMediaDetails = () => {
     if (!media) return null;
 
-    const mediaOverview = media.overview || (tvDetails && tvDetails.overview) || 'No description available.';
+    const isMovie = type === 'movie';
+    const details = isMovie ? movieDetails : tvDetails;
+
+    // Tagline
+    const tagline = details?.tagline;
+
+    // Runtime / Status
+    let runtime = null;
+    let status = details?.status;
+
+    if (isMovie && details?.runtime) {
+      const hours = Math.floor(details.runtime / 60);
+      const minutes = details.runtime % 60;
+      runtime = `${hours}h ${minutes}m`;
+    } else if (!isMovie && details?.episode_run_time?.length > 0) {
+      // TV shows often have an array of runtimes (min/max)
+      const avgRuntime = details.episode_run_time[0];
+      const hours = Math.floor(avgRuntime / 60);
+      const minutes = avgRuntime % 60;
+      runtime = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
+    }
+
+    const mediaOverview = details?.overview || media.overview || 'No description available.';
     const releaseDate = type === 'movie'
       ? (media.release_date && new Date(media.release_date).toLocaleDateString())
       : (media.first_air_date && new Date(media.first_air_date).toLocaleDateString());
@@ -659,9 +719,12 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     return (
       <>
         <div className="media-details">
+          {tagline && <p className="media-tagline">"{tagline}"</p>}
           <div className="media-info-row">
             {releaseDate && <span className="media-info-item"><strong>Released:</strong> {releaseDate}</span>}
             {ratingValue !== 'N/A' && <span className="media-info-item"><strong>{ratingLabel}:</strong> {ratingValue}</span>}
+            {runtime && <span className="media-info-item"><strong>Runtime:</strong> {runtime}</span>}
+            {status && <span className="media-info-item"><strong>Status:</strong> {status}</span>}
             <button
               className={`watchlist-button ${watchlistStatus ? 'in-watchlist' : ''}`}
               onClick={toggleWatchlist}
@@ -820,6 +883,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
                   width="100%"
                   height="100%"
                   frameBorder="0"
+                  scrolling="no"
                   allowFullScreen
                   allow="autoplay; encrypted-media"
                   title="Video Player"
