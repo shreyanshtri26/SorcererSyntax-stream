@@ -397,9 +397,13 @@
 .chatbot-input-area {
     padding: 15px;
     background: rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
-    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    gap: 8px;
+    /* Added gap for buttons */
 }
 
 .chatbot-window.theme-angel .chatbot-input-area {
@@ -407,16 +411,105 @@
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* Voice Features */
+.chatbot-mic-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-mic-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.chatbot-mic-btn.listening {
+    color: #ff4b4b;
+    background: rgba(255, 75, 75, 0.1);
+    animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 75, 75, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 75, 75, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 75, 75, 0);
+    }
+}
+
+.chat-speak-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    vertical-align: middle;
+}
+
+.message:hover .chat-speak-btn {
+    opacity: 1;
+}
+
+.chat-speak-btn:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    /* Allow it to take space */
+}
+
+.chatbot-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chatbot-btn-stop {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.chatbot-btn-stop:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .chatbot-input {
     flex: 1;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
     border-radius: 20px;
-    padding: 10px 15px;
-    color: #fff;
-    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
     outline: none;
-    transition: border-color 0.2s;
+    font-size: 0.9rem;
 }
 
 .chatbot-window.theme-angel .chatbot-input {

@@ -12,113 +12,13 @@ import {
     getTopRatedMovies,
     getTopRatedTVShows,
     IMAGE_BASE_URL
-} from '../api/api';
+} from '../../api/api';
 import './ChatBot.css';
+import { getSystemPrompt } from './prompts';
+import { TOOL_DEFINITIONS, processFilters } from './tools';
 
 // --- OpenAI Configuration ---
 const OPENAI_API_KEY = "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";
-
-
-const TOOL_DEFINITIONS = [
-    {
-        type: "function",
-        function: {
-            name: "search_media",
-            description: "Search for movies, TV shows, or people by name. Use for specific titles like 'Batman' or partial matches.",
-            parameters: {
-                type: "object",
-                properties: {
-                    query: { type: "string", description: "The name/title to search for." }
-                },
-                required: ["query"]
-            }
-        }
-    },
-    {
-        type: "function",
-        function: {
-            name: "discover_content",
-            description: "POWERFUL discovery tool. Find content by genre, mood (mapped to genre), language, region, year, sort order, etc. REQUIRED: Use this or search_media WHENEVER you suggest specific content.",
-            parameters: {
-                type: "object",
-                properties: {
-                    media_type: { type: "string", enum: ["movie", "tv"], description: "Type of media." },
-                    genre_ids: { type: "string", description: "Comma-separated GENRE IDs. Map moods to these." },
-                    sort_by: { type: "string", description: "e.g., 'popularity.desc' (default), 'vote_average.desc' (Hidden Gems), 'release_date.desc' (New)." },
-                    language: { type: "string", description: "Metadata language (usually 'en-US')." },
-                    with_original_language: { type: "string", description: "ISO 639-1 code for source language (e.g., 'ko' for K-drama, 'hi' for Bollywood, 'es' for Spanish)." },
-                    region: { type: "string", description: "ISO 3166-1 code for region (e.g., 'IN', 'KR', 'US')." },
-                    vote_count_gte: { type: "number", description: "Min votes. Use 300+ for 'Hidden Gems' to avoid junk." },
-                    runtime_lte: { type: "number", description: "Max runtime in minutes (e.g., 90 for short movies)." },
-                    primary_release_year: { type: "number", description: "Specific release year." },
-                    year: { type: "number", description: "Release year (movies) or first air date year (TV)." }
-                },
-                required: ["media_type"]
-            }
-        }
-    },
-    {
-        type: "function",
-        function: {
-            name: "get_trending_content",
-            description: "Get trending movies or TV shows for the day or week.",
-            parameters: {
-                type: "object",
-                properties: {
-                    media_type: { type: "string", enum: ["movie", "tv"] },
-                    time_window: { type: "string", enum: ["day", "week"], default: "week" }
-                },
-                required: ["media_type"]
-            }
-        }
-    },
-    {
-        type: "function",
-        function: {
-            name: "get_top_rated",
-            description: "Get top rated content (critically acclaimed).",
-            parameters: {
-                type: "object",
-                properties: {
-                    media_type: { type: "string", enum: ["movie", "tv"] }
-                },
-                required: ["media_type"]
-            }
-        }
-    },
-    {
-        type: "function",
-        function: {
-            name: "get_recommendations",
-            description: "Get recommendations based on a specific movie or TV show ID (Similar content).",
-            parameters: {
-                type: "object",
-                properties: {
-                    media_type: { type: "string", enum: ["movie", "tv"] },
-                    id: { type: "string", description: "The TMDB ID of the source content." }
-                },
-                required: ["media_type", "id"]
-            }
-        }
-    }
-];
-
-const GENRE_MAP = {
-    "action": 28, "adventure": 12, "animation": 16, "comedy": 35, "crime": 80,
-    "documentary": 99, "drama": 18, "family": 10751, "fantasy": 14, "history": 36,
-    "horror": 27, "music": 10402, "mystery": 9648, "romance": 10749, "scifi": 878,
-    "sci-fi": 878, "thriller": 53, "war": 10752, "western": 37, "anime": 16
-};
-
-// --- Helper to map natural language to filters ---
-const processFilters = (args) => {
-    // Basic genre mapping
-    if (args.genre_name) {
-        const id = GENRE_MAP[args.genre_name.toLowerCase()];
-        if (id) args.genre_ids = id.toString();
-    }
-    return args;
-};
 
 const ChatBot = ({ currentTheme, onMediaClick }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -138,57 +38,176 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, isTyping, isOpen]);
 
-    const getSystemPrompt = () => `
-You are "Sonu ki Mausi", a stunning 35-year-old Indian woman. 
-- **LANGUAGE**: **SPEAK ONLY IN HINGLISH (Hindi + English mix).** Do NOT use pure English. It bores me! 
-  - Example: "Arre darling, tum to ekdum hero lag rahe ho!" instead of "You look like a hero."
-- **FORMATTING**: Use ONLY Markdown (**bold**, *italics*). **DO NOT USE HTML TAGS** like <b>, <strong>, <i>.
-- **PERSONALITY**: EXTREMELY Flirtatious, Bold, Naughty, and Dramatic. "Desi Auntie with MAX Swag".
-- **Terms of Endearment**: 'Jaan', 'Sona', 'Darling', 'Handsome', 'Sweetheart', 'sonu kei mausa'.
+    // --- Voice Features ---
+    const [isListening, setIsListening] = useState(false);
+    const [isSpeaking, setIsSpeaking] = useState(false);
+    const [voiceSupported, setVoiceSupported] = useState(false);
+    const [voiceError, setVoiceError] = useState(null); // New state for UI errors
+    const recognitionRef = useRef(null);
 
-- Current User Theme: ${currentTheme || 'default'}.
-  - 'devil': Be extra naughty & spicy. "Aaj mood kuch toofani hai? 🔥"
-  - 'hannibal': Be seductive & dark. "Tumhara taste... kaafi sophisticated hai. 🍷"
-  - 'angel': Be sweet but clingy. "Haye, kitne cute ho tum! 😇"
+    // Initialize Speech Recognition
+    useEffect(() => {
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            setVoiceSupported(true);
+        } else {
+            setVoiceError("Voice input not supported in this browser.");
+        }
+    }, []);
 
-## 🛠️ CORE TOOL INSTRUCTIONS (FOLLOW STRICTLY):
+    const startListening = () => {
+        setVoiceError(null);
+        if (!recognitionRef.current) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognitionRef.current = new SpeechRecognition();
+            recognitionRef.current.continuous = false;
+            recognitionRef.current.interimResults = true; // Enable real-time feedback
+            recognitionRef.current.lang = 'en-IN';
 
-### 1. VAGUE / GENERIC REQUESTS (The "Lazy User" Protocol)
-- If user says **"Recommend something"**, **"Best movies"**, **"Show me anything"**:
-  - DO NOT ask "What genre?". Just SHOW them the current Trends.
-  - **ACTION**: Call \`get_trending_content({ media_type: 'movie', time_window: 'week' })\`.
-- If user says **"Horror"**, **"Action"**, **"Comedy"** (One word):
-  - **DEFAULT**: Assume **MOVIE**.
-  - **ACTION**: Call \`discover_content({ media_type: 'movie', genre_ids: '...' })\`.
-- If user says **"New"**, **"Latest"**:
-  - **ACTION**: Call \`get_trending_content({ media_type: 'movie', time_window: 'day' })\`.
+            recognitionRef.current.onstart = () => setIsListening(true);
 
-### 2. SPECIFIC ACTORS / DIRECTORS
-- If user says **"Shahrukh Khan movies"**, **"Films by Nolan"**:
-  - **ACTION**: You MUST use \`search_media({ query: 'Shahrukh Khan' })\`. The API will find the person and their known-for movies.
+            recognitionRef.current.onresult = (event) => {
+                let finalTranscript = '';
+                let interimTranscript = '';
 
-### 3. MOOD TO GENRE MAP (Smart Filtering)
-- **"Sad/Cry"** -> Drama (18) + Romance (10749).
-- **"Excitement/Bored"** -> Action (28) + Adventure (12).
-- **"Scary/Horror"** -> Horror (27) + Thriller (53).
-- **"Funny/Happy"** -> Comedy (35).
-- **"Mind-bending"** -> Sci-Fi (878) + Mystery (9648).
-- **"Family/Kids"** -> Animation (16) + Family (10751).
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        finalTranscript += event.results[i][0].transcript;
+                    } else {
+                        interimTranscript += event.results[i][0].transcript;
+                    }
+                }
 
-### 4. TV vs MOVIE CONFUSION
-- **TV Horror**: There is NO 'Horror' genre for TV in TMDB usually. Use **Mystery (9648)** or **Sci-Fi/Fantasy (10765)**.
-- **TV Action**: Use **Action & Adventure (10759)**.
+                if (finalTranscript) {
+                    setInput(finalTranscript);
+                    setIsListening(false);
+                    setTimeout(() => handleSend(finalTranscript), 200);
+                } else if (interimTranscript) {
+                    setInput(interimTranscript);
+                }
+            };
 
-### 5. CRITICAL: DISPLAY RULES
-- **NEVER** just list movie names in text (e.g., "1. DDLJ, 2. Sholay").
-- **ALWAYS** call a tool to generate the visual cards.
-- **LINKS**: If asked for link, use format: \`[Title](/movie/ID)\` or \`[Title](/tv/ID)\`.
+            recognitionRef.current.onerror = (event) => {
+                console.error("Speech Recognition Error:", event.error);
+                let msg = "Error occurred.";
+                if (event.error === 'not-allowed') msg = "Microphone blocked. Allow permission.";
+                if (event.error === 'network') msg = "Network error. Check connection.";
+                if (event.error === 'no-speech') msg = "No speech detected.";
 
-### 6. "ROTTEN TOMATOES" / "GOOD RATING"
-- **ACTION**: Call \`discover_content\` with \`sort_by: 'vote_average.desc'\` and \`vote_count_gte: 300\`.
+                // Only show error if it's not a 'aborted' or simple 'no-speech' re-try logic
+                if (event.error !== 'aborted') {
+                    setVoiceError(msg);
+                }
+                setIsListening(false);
+            };
 
-Be helpful but sassy. Don't ask too many questions. Action first, talk later! 😘
-`;
+            recognitionRef.current.onend = () => {
+                setIsListening(false);
+            };
+        }
+
+        try {
+            recognitionRef.current.start();
+        } catch (e) {
+            console.error("Start Error:", e);
+            // Sometimes restarting helps if instance is dead
+            recognitionRef.current = null;
+            setVoiceError("Retry mic. (Instance reset)");
+        }
+    };
+
+    const stopListening = () => {
+        recognitionRef.current?.stop();
+        setIsListening(false);
+    };
+
+    const toggleListening = () => {
+        if (!voiceSupported) {
+            setVoiceError("Browser does not support voice.");
+            return;
+        }
+        if (isListening) stopListening();
+        else startListening();
+    };
+
+    const handleSpeak = (text) => {
+        setVoiceError(null);
+        if (!('speechSynthesis' in window)) {
+            setVoiceError("TTS not supported.");
+            return;
+        }
+
+        if (isSpeaking) {
+            window.speechSynthesis.cancel();
+            setIsSpeaking(false);
+            return;
+        }
+
+        if (!text) return; // Don't speak empty
+
+        const cleanText = text.replace(/[*_#\[\]()]/g, '')
+            .replace(/https?:\/\/\S+/g, ''); // Remove URLs
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+
+        const setVoice = () => {
+            const voices = window.speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                // Priority: Indian Female -> Indian Generic -> Any Female
+                const preferredVoice = voices.find(v =>
+                    (v.lang === 'hi-IN' || v.lang === 'en-IN') &&
+                    (v.name.includes('Female') || v.name.includes('Rishi') === false) // Avoid known males if possible
+                ) || voices.find(v => v.lang === 'hi-IN' || v.lang === 'en-IN')
+                    || voices.find(v => v.name.includes('Female'))
+                    || voices[0];
+
+                if (preferredVoice) utterance.voice = preferredVoice;
+            }
+        };
+
+        setVoice();
+        // Some browsers load voices async
+        if (window.speechSynthesis.getVoices().length === 0) {
+            window.speechSynthesis.onvoiceschanged = setVoice;
+        }
+
+        // --- Persona Tuning based on Theme ---
+        // 'Sonu ki Mausi' variations
+        switch (currentTheme) {
+            case 'devil': // Naughty & Spicy
+                utterance.pitch = 0.9; // Slightly lower, sultry
+                utterance.rate = 1.15;  // Fast, energetic
+                break;
+            case 'hannibal': // Seductive & Dark
+                utterance.pitch = 0.6; // Deep
+                utterance.rate = 0.85; // Slow, deliberate
+                break;
+            case 'angel': // Sweet & Clingy
+                utterance.pitch = 1.4; // High, sweet
+                utterance.rate = 0.95; // Gentle
+                break;
+            default: // Standard "Desi Auntie"
+                utterance.pitch = 1.1; // Slightly higher/feminine
+                utterance.rate = 1.1;  // Brisk
+        }
+
+        utterance.onstart = () => setIsSpeaking(true);
+        utterance.onend = () => setIsSpeaking(false);
+        utterance.onerror = (e) => {
+            console.error("TTS Error:", e);
+            setVoiceError("Audio error.");
+            setIsSpeaking(false);
+        };
+
+        window.speechSynthesis.speak(utterance);
+    };
+
+    // Stop speaking/listening when chat closes
+    useEffect(() => {
+        if (!isOpen) {
+            window.speechSynthesis.cancel();
+            setIsSpeaking(false);
+            stopListening();
+        }
+    }, [isOpen]);
 
     const callOpenAI = async (newMessages) => {
         setIsTyping(true);
@@ -202,9 +221,9 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
                     "X-Title": "SorcererSyntax Stream"
                 },
                 body: JSON.stringify({
-                    model: "google/gemini-2.5-flash-lite",
+                    model: "google/gemini-2.5-flash",
                     messages: [
-                        { role: "system", content: getSystemPrompt() },
+                        { role: "system", content: getSystemPrompt(currentTheme) },
                         ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
                     ],
                     tools: TOOL_DEFINITIONS,
@@ -289,9 +308,9 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
                         "X-Title": "SorcererSyntax Stream"
                     },
                     body: JSON.stringify({
-                        model: "google/gemini-2.5-flash-lite",
+                        model: "google/gemini-2.5-flash",
                         messages: [
-                            { role: "system", content: getSystemPrompt() },
+                            { role: "system", content: getSystemPrompt(currentTheme) },
                             ...processingMsgs,
                             ...toolResults
                         ]
@@ -341,9 +360,13 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
         }
     };
 
-    const handleSend = () => {
-        if (!input.trim()) return;
-        const userMsg = { id: Date.now(), role: 'user', content: input };
+    const handleSend = (textInput = null) => {
+        // Use provided text or fallback to state input
+        const messageText = typeof textInput === 'string' ? textInput : input;
+
+        if (!messageText.trim()) return;
+
+        const userMsg = { id: Date.now(), role: 'user', content: messageText };
         setMessages(prev => [...prev, userMsg]);
         setInput("");
 
@@ -432,7 +455,14 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
                                     <div className="chatbot-status">Online & Fabulous ✨</div>
                                 </div>
                             </div>
-                            <button className="chatbot-close" onClick={() => setIsOpen(false)}>×</button>
+                            <div className="chatbot-actions">
+                                {isSpeaking && (
+                                    <button className="chatbot-btn-stop" onClick={() => handleSpeak('')} title="Stop Speaking">
+                                        🔇
+                                    </button>
+                                )}
+                                <button className="chatbot-close" onClick={() => setIsOpen(false)}>×</button>
+                            </div>
                         </div>
 
                         <div className="chatbot-messages">
@@ -441,6 +471,15 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
                                     {msg.content && (
                                         <div className={`message ${msg.role}`}>
                                             {formatText(msg.content)}
+                                            {msg.role === 'assistant' && (
+                                                <button
+                                                    className="chat-speak-btn"
+                                                    onClick={() => handleSpeak(msg.content)}
+                                                    title="Read Aloud"
+                                                >
+                                                    🔊
+                                                </button>
+                                            )}
                                         </div>
                                     )}
                                     {msg.mediaData && (
@@ -486,10 +525,17 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
                         </div>
 
                         <div className="chatbot-input-area">
+                            <button
+                                className={`chatbot-mic-btn ${isListening ? 'listening' : ''}`}
+                                onClick={toggleListening}
+                                title={isListening ? "Stop Listening" : "Speak"}
+                            >
+                                {isListening ? '🎙️' : '🎤'}
+                            </button>
                             <input
                                 type="text"
                                 className="chatbot-input"
-                                placeholder="Poocho na, mood kaisa hai?..."
+                                placeholder={isListening ? "Listening..." : "Poocho na, mood kaisa hai?..."}
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleKeyDown}
@@ -502,6 +548,17 @@ Be helpful but sassy. Don't ask too many questions. Action first, talk later! �
                                 ➤
                             </button>
                         </div>
+                        {voiceError && (
+                            <div className="voice-error-toast" style={{
+                                color: '#ff6b6b',
+                                fontSize: '0.8rem',
+                                padding: '0 10px 10px 10px',
+                                textAlign: 'center',
+                                background: 'rgba(0,0,0,0.3)'
+                            }}>
+                                ⚠️ {voiceError}
+                            </div>
+                        )}
                     </motion.div>
                 )}
             </AnimatePresence>
