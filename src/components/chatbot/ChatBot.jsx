@@ -145,18 +145,22 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         if (!text) return; // Don't speak empty
 
         const cleanText = text.replace(/[*_#\[\]()]/g, '')
+            .replace(/<detail>|<\/detail>|<summary>|<\/summary>/gi, '') // Remove tags from speech
             .replace(/https?:\/\/\S+/g, ''); // Remove URLs
         const utterance = new SpeechSynthesisUtterance(cleanText);
 
         const setVoice = () => {
             const voices = window.speechSynthesis.getVoices();
             if (voices.length > 0) {
-                // Priority: Indian Female -> Indian Generic -> Any Female
+                // Priority: Bengali Female (India/Bangladesh) -> Indian Female -> Generic Female
                 const preferredVoice = voices.find(v =>
-                    (v.lang === 'hi-IN' || v.lang === 'en-IN') &&
-                    (v.name.includes('Female') || v.name.includes('Rishi') === false) // Avoid known males if possible
-                ) || voices.find(v => v.lang === 'hi-IN' || v.lang === 'en-IN')
-                    || voices.find(v => v.name.includes('Female'))
+                    (v.lang === 'bn-IN' || v.lang === 'bn-BD') &&
+                    v.name.includes('Female')
+                ) || voices.find(v => v.lang === 'bn-IN' || v.lang === 'bn-BD')
+                    || voices.find(v =>
+                        (v.lang === 'hi-IN' || v.lang === 'en-IN') &&
+                        (v.name.includes('Google') || v.name.includes('Female'))
+                    ) || voices.find(v => v.name.includes('Female'))
                     || voices[0];
 
                 if (preferredVoice) utterance.voice = preferredVoice;
@@ -170,23 +174,23 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         }
 
         // --- Persona Tuning based on Theme ---
-        // 'Sonu ki Mausi' variations
+        // 'Sonu ki Mausi' - 35yo Bengali Deep Seductive Vibe
         switch (currentTheme) {
             case 'devil': // Naughty & Spicy
-                utterance.pitch = 0.9; // Slightly lower, sultry
-                utterance.rate = 1.15;  // Fast, energetic
+                utterance.pitch = 0.8; // Deep & sultry
+                utterance.rate = 1.05;
                 break;
-            case 'hannibal': // Seductive & Dark
-                utterance.pitch = 0.6; // Deep
-                utterance.rate = 0.85; // Slow, deliberate
+            case 'hannibal': // Dark & Dangerous
+                utterance.pitch = 0.6; // Very deep
+                utterance.rate = 0.8;
                 break;
-            case 'angel': // Sweet & Clingy
-                utterance.pitch = 1.4; // High, sweet
-                utterance.rate = 0.95; // Gentle
+            case 'angel': // Sweet but Mature
+                utterance.pitch = 1.1; // Lighter but not high
+                utterance.rate = 0.95;
                 break;
-            default: // Standard "Desi Auntie"
-                utterance.pitch = 1.1; // Slightly higher/feminine
-                utterance.rate = 1.1;  // Brisk
+            default: // Standard "Bengali Mausi"
+                utterance.pitch = 0.85; // Deep (Mature 35yo tone)
+                utterance.rate = 0.92;  // Deliberate, slightly slow
         }
 
         utterance.onstart = () => setIsSpeaking(true);
@@ -392,6 +396,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
         // 0. Pre-process: Clean HTML if the bot slips up
         let cleanText = text
+            .replace(/<detail>|<\/detail>|<summary>|<\/summary>/gi, '') // Remove these specific tags
             .replace(/<\/?strong>/gi, '**')
             .replace(/<\/?b>/gi, '**')
             .replace(/<\/?em>/gi, '*')
@@ -425,8 +430,10 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         });
     };
 
+    const [isFullScreen, setIsFullScreen] = useState(false);
+
     return (
-        <div className="chatbot-container">
+        <div className={`chatbot-container ${isFullScreen ? 'fullscreen-mode' : ''}`}>
             {!isOpen && (
                 <motion.button
                     className={`chatbot-toggle theme-${currentTheme}`}
@@ -441,7 +448,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        className={`chatbot-window theme-${currentTheme}`}
+                        className={`chatbot-window theme-${currentTheme} ${isFullScreen ? 'fullscreen' : ''}`}
                         initial={{ opacity: 0, scale: 0.8, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -456,6 +463,13 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                                 </div>
                             </div>
                             <div className="chatbot-actions">
+                                <button
+                                    className="chatbot-btn-expand"
+                                    onClick={() => setIsFullScreen(!isFullScreen)}
+                                    title={isFullScreen ? "Exit Full Screen" : "Full Screen"}
+                                >
+                                    {isFullScreen ? '↙️' : '↗️'}
+                                </button>
                                 {isSpeaking && (
                                     <button className="chatbot-btn-stop" onClick={() => handleSpeak('')} title="Stop Speaking">
                                         🔇
