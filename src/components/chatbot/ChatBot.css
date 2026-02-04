@@ -574,6 +574,11 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
+    .chatbot-btn-expand {
+        display: none;
+        /* Hide full screen toggle on mobile */
+    }
+
     .chatbot-window {
         position: fixed;
         bottom: 0;
