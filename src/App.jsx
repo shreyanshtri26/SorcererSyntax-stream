@@ -4,11 +4,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useKeyboardNavigation } from './hooks/useKeyboardNavigation';
 import useUrlState from './hooks/useUrlState';
+import useLenis from './hooks/useLenis';
 
 import Header from './contexts/Header';
 import PlayerModal from './contexts/PlayerModal';
 import PersonDetailsModal from './contexts/PersonDetailsModal';
 import PersistentMusicPlayer from './components/PersistentMusicPlayer';
+import ThreeBackground from './components/three/ThreeBackground';
+import CursorTrail from './components/three/CursorTrail';
 
 // Pages
 import SearchPage from './pages/SearchPage';
@@ -17,6 +20,7 @@ import MusicPage from './pages/MusicPage';
 import { IMAGE_BASE_URL } from './api/api';
 import ChatBot from './components/chatbot/ChatBot';
 import './App.css';
+import 'lenis/dist/lenis.css';
 
 // --- Helper Function for Themed Titles ---
 const getThemedTitle = (defaultTitle, theme) => {
@@ -42,6 +46,9 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const { navigateToMedia, navigateToPerson, navigateToHome } = useUrlState();
+
+  // Initialize Lenis smooth scrolling
+  useLenis();
 
   const [userPreferences, setUserPreferences] = useLocalStorage('userPreferences', {
     theme: 'devil',
@@ -161,6 +168,12 @@ function App() {
   };
 
   return (
+    <>
+    {/* Global 3D Background */}
+    <ThreeBackground theme={currentTheme} />
+    {/* 3D Cursor Trail (desktop only) */}
+    <CursorTrail theme={currentTheme} />
+
     <div className={`App theme-${currentTheme}`} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
       <Suspense fallback={<div className="loading-text">Loading Header...</div>}>
         <Header
@@ -267,6 +280,7 @@ function App() {
       <ChatBot currentTheme={currentTheme} onMediaClick={handleMediaClick} />
 
     </div>
+    </>
   );
 }
 

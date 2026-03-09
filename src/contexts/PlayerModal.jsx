@@ -10,6 +10,7 @@ import angelIcon from './assets/angel-icon.svg';
 import hannibalIcon from './assets/hannibal-icon.svg';
 import defaultThemeIcon from './assets/default-theme-icon.svg';
 import ShareButtons from '../components/ShareButtons';
+import ModalBackdrop from '../components/three/ModalBackdrop';
 import darkTexture from './assets/dark-texture.png';
 // --- REMOVE Theme Icons (assuming they exist) ---
 // import devilIcon from './assets/devil-icon.svg'; 
@@ -799,6 +800,8 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         onClick={(e) => e.stopPropagation()}
         style={{ backgroundImage: `url(${darkTexture})`, backgroundRepeat: 'repeat' }}
       >
+        {/* 3D particle border backdrop */}
+        <ModalBackdrop theme={currentTheme} />
 
         <button className="close-button" onClick={onClose}>&times;</button>
 

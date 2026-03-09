@@ -182,15 +182,13 @@
 /* General Styles */
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #0a0a0c;
-  /* Darker background */
+  background-color: transparent;
+  /* Body is transparent — Three.js canvas provides the background */
   color: #e0e0e0;
-  /* Slightly dimmer default text */
   margin: 0;
   padding: 0;
-  transition: background-color 0.5s ease, color 0.5s ease, font-family 0.5s ease;
+  transition: color 0.5s ease, font-family 0.5s ease;
   overflow-x: hidden;
-  /* Prevent horizontal scroll */
 }
 
 /* Show scrollbars but make them themed and thin */
@@ -230,12 +228,11 @@ body {
   margin: 0 auto;
   padding: 20px;
   padding-bottom: 120px;
-  /* Space for the persistent music player */
   transition: all 0.3s ease;
   position: relative;
-  /* Establish stacking context */
+  z-index: 1;
+  /* Ensure app content sits above Three.js background */
   overflow: visible;
-  /* Allow absolutely positioned children (like search results) to be visible */
 }
 
 /* Keep existing styles below, but they might be overridden by theme styles */

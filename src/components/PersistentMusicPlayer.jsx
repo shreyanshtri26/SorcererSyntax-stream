@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { usePlayer } from '../context/PlayerContext';
 import MusicPlayer from '../contexts/MusicPlayer';
 import SpotifyPlayer from '../contexts/SpotifyPlayer';
+import AudioVisualizer from './three/AudioVisualizer';
 import './PersistentMusicPlayer.css';
 
 const PersistentMusicPlayer = ({ currentTheme }) => {
@@ -48,6 +49,9 @@ const PersistentMusicPlayer = ({ currentTheme }) => {
                 exit={{ y: 200 }}
                 transition={{ type: 'spring', stiffness: 100, damping: 20 }}
             >
+                {/* 3D Audio Visualizer behind player */}
+                <AudioVisualizer theme={currentTheme} isPlaying={isPlaying} />
+
                 <div className="player-content-wrapper">
 
                     {/* Progress Bar (Global) */}

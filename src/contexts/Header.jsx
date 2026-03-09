@@ -1,5 +1,7 @@
 import React from 'react';
-import './Header.css'; // We'll create this CSS file next
+import './Header.css';
+import HeaderScene from '../components/three/HeaderScene';
+import ParallaxWrapper from '../components/three/ParallaxWrapper';
 
 // Import theme icons
 import devilIcon from './assets/devil-icon.svg';
@@ -89,13 +91,17 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
 
   return (
     <header className="app-header">
-      <h1 className={`main-title ${currentTheme}-title`} onClick={onTitleClick}>
-        <span className="title-icon"> {getTitleIcon()} </span>
-        Room no: 305
-        <span className="title-icon"> {getTitleIcon()} </span>
-      </h1>
+      {/* 3D effects behind header */}
+      <HeaderScene theme={currentTheme} />
+
+      <ParallaxWrapper intensity={4} style={{ position: 'relative', zIndex: 2 }}>
+        <h1 className={`main-title ${currentTheme}-title`} onClick={onTitleClick}>
+          <span className="title-icon"> {getTitleIcon()} </span>
+          Room no: 305
+          <span className="title-icon"> {getTitleIcon()} </span>
+        </h1>
+      </ParallaxWrapper>
       {renderThemeButton()}
-      {renderSmokeElements()}
     </header>
   );
 };
