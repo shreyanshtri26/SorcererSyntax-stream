@@ -1,16 +1,20 @@
 {
   "name": "305-stream",
   "private": true,
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A modern React + Vite streaming/music/movie hub.",
   "author": "Shreyansh Tripathi",
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "start": "serve -s dist"
+    "start": "serve -s dist",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@openrouter/sdk": "^0.4.0",
@@ -25,7 +29,6 @@
     "react-dom": "^19.0.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-player": "^2.16.0",
-    "react-router": "^6.30.0",
     "react-router-dom": "^6.30.2",
     "react-youtube": "^10.1.0",
     "three": "^0.183.2"

@@ -26,7 +26,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         {
             id: 1,
             role: 'assistant',
-            content: "Namaste! Main hoon Sonu ki Mausi 😉\nMovie/Series recommendation chahiye ya thoda sa confusion?\nAao, baitho… pehle baat karte hain, phir decide karenge 😏"
+            content: "Hey there! I'm Sonu 😊\nYour movie & TV show assistant. Tell me what you'd like to watch — or just say hi! 🎬"
         }
     ]);
     const [input, setInput] = useState("");
@@ -174,7 +174,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         }
 
         // --- Persona Tuning based on Theme ---
-        // 'Sonu ki Mausi' - 35yo Bengali Deep Seductive Vibe
+        // 'Sonu' - Friendly AI Assistant voice tuning
         switch (currentTheme) {
             case 'devil': // Naughty & Spicy
                 utterance.pitch = 0.8; // Deep & sultry
@@ -188,9 +188,9 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                 utterance.pitch = 1.1; // Lighter but not high
                 utterance.rate = 0.95;
                 break;
-            default: // Standard "Bengali Mausi"
-                utterance.pitch = 0.85; // Deep (Mature 35yo tone)
-                utterance.rate = 0.92;  // Deliberate, slightly slow
+            default: // Standard "Sonu" voice
+                utterance.pitch = 1.0;
+                utterance.rate = 0.95;
         }
 
         utterance.onstart = () => setIsSpeaking(true);
@@ -254,7 +254,21 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                     try {
                         if (fnName === "search_media") {
                             const res = await searchMultiMedia(args.query);
-                            result = JSON.stringify(res.slice(0, 5));
+                            // Extract known_for movies from person results
+                            const processed = [];
+                            for (const item of res) {
+                                if (item.media_type === 'person' && item.known_for) {
+                                    // Person result: extract their movies/shows
+                                    for (const kf of item.known_for) {
+                                        processed.push({ ...kf, media_type: kf.media_type || 'movie' });
+                                    }
+                                } else if (item.media_type === 'movie' || item.media_type === 'tv') {
+                                    processed.push(item);
+                                }
+                            }
+                            // Deduplicate by id
+                            const unique = Array.from(new Map(processed.map(i => [i.id, i])).values());
+                            result = JSON.stringify(unique.slice(0, 8));
                         } else if (fnName === "discover_content") {
                             const processedArgs = processFilters(args);
                             const filters = {
@@ -329,7 +343,13 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                 toolResults.forEach(tr => {
                     try {
                         const items = JSON.parse(tr.content);
-                        if (Array.isArray(items)) mediaItems = [...mediaItems, ...items];
+                        if (Array.isArray(items)) {
+                            // Filter out person items (only show movies/TV with posters)
+                            const validItems = items.filter(i => 
+                                i.poster_path && (i.title || i.name) && i.media_type !== 'person'
+                            );
+                            mediaItems = [...mediaItems, ...validItems];
+                        }
                     } catch (e) { }
                 });
 
@@ -441,7 +461,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    <span className="chatbot-toggle-icon">👩‍🎤</span>
+                    <span className="chatbot-toggle-icon">🎬</span>
                 </motion.button>
             )}
 
@@ -456,10 +476,10 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                     >
                         <div className="chatbot-header">
                             <div className="chatbot-header-info">
-                                <div className="chatbot-avatar">👩‍🎤</div>
+                                <div className="chatbot-avatar">🎬</div>
                                 <div>
-                                    <div className="chatbot-name">Sonu ki Mausi</div>
-                                    <div className="chatbot-status">Online & Fabulous ✨</div>
+                                    <div className="chatbot-name">Sonu</div>
+                                    <div className="chatbot-status">Online & Ready to Help ✨</div>
                                 </div>
                             </div>
                             <div className="chatbot-actions">
@@ -549,7 +569,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                             <input
                                 type="text"
                                 className="chatbot-input"
-                                placeholder={isListening ? "Listening..." : "Poocho na, mood kaisa hai?..."}
+                                placeholder={isListening ? "Listening..." : "Ask Sonu for movie recommendations..."}
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleKeyDown}
