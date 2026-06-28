@@ -6,7 +6,7 @@
   "author": "Shreyansh Tripathi",
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": "18.x"
   },
   "scripts": {
     "dev": "vite",
