@@ -594,10 +594,15 @@
         /* Above everything */
     }
 
-    .chatbot-toggle {
+    .chatbot-container {
         bottom: 80px;
-        /* Above bottom nav if exists */
         right: 15px;
+    }
+
+    .chatbot-toggle {
+        /* Reset any relative shifts since container is moved */
+        bottom: auto;
+        right: auto;
     }
 }
 

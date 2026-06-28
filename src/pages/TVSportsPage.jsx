@@ -44,14 +44,14 @@ const TVSportsPage = ({ currentTheme }) => {
 
   // Sync react states with URL search parameters on browser back/forward
   useEffect(() => {
-    const tab = searchParams.get('tab');
-    if (tab && tab !== activeTab) setActiveTab(tab);
+    const tab = searchParams.get('tab') || 'channels';
+    setActiveTab(prev => (prev !== tab ? tab : prev));
 
-    const source = searchParams.get('source');
-    if (source && source !== channelSource) setChannelSource(source);
+    const source = searchParams.get('source') || 'iptv';
+    setChannelSource(prev => (prev !== source ? source : prev));
 
     const country = searchParams.get('country') || 'all';
-    if (country !== selectedCountry) setSelectedCountry(country);
+    setSelectedCountry(prev => (prev !== country ? country : prev));
   }, [searchParams]);
 
   // Load base data on mount
@@ -239,6 +239,7 @@ const TVSportsPage = ({ currentTheme }) => {
   const handleCountryChange = useCallback((countryCode) => {
     // Show loader while new country data loads
     setLoadingIptvChannels(true);
+    setIptvChannels([]); // Clear existing channels to trigger skeleton loader
     setSelectedCountry(countryCode);
     setSelectedCategory('all');
     setSelectedLanguage('all');

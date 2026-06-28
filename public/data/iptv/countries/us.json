@@ -18707,8 +18707,7 @@
     "streams": [
       "https://live.zoomnews.info/live/Zoom_playlist.m3u8"
     ]
-  }
-[
+  },
   {
     "id": "ABC_US_51",
     "name": "ABC USA",
@@ -18947,5 +18946,4 @@
     "languages": [],
     "streams": ["https://dlhd.pk/stream/stream-664.php"]
   }
-  // Additional channels can be added similarly.
 ]
