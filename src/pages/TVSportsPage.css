@@ -3,6 +3,34 @@
    Mobile · Tablet · iPad/Laptop · Desktop/Widescreen
    ============================================================ */
 
+/* ── Theme Definitions (Devil, Angel, Hannibal) ───────────── */
+.theme-devil .tv-sports-page {
+  --bg-primary: #08090d;
+  --bg-secondary: rgba(255, 255, 255, 0.03);
+  --accent-color: #e84118;
+  --text-color: #f1f2f6;
+  --text-muted: #a4b0be;
+  --border-color: rgba(255, 255, 255, 0.05);
+}
+
+.theme-angel .tv-sports-page {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --accent-color: #d4af37; /* Gold */
+  --text-color: #1e272e;
+  --text-muted: #576574;
+  --border-color: rgba(0, 0, 0, 0.08);
+}
+
+.theme-hannibal .tv-sports-page {
+  --bg-primary: #121413;
+  --bg-secondary: rgba(25, 30, 25, 0.7);
+  --accent-color: #8b0000;
+  --text-color: #e0e0e0;
+  --text-muted: #8e9e90;
+  --border-color: rgba(139, 0, 0, 0.3);
+}
+
 /* ── Base Page Layout ─────────────────────────────────────── */
 .tv-sports-page {
   padding: 20px;

@@ -2,6 +2,34 @@
    SportsPlayerView.css — Full Responsive + Premium Back Button
    ============================================================ */
 
+/* ── Theme Definitions (Devil, Angel, Hannibal) ───────────── */
+.theme-devil .sports-player-view {
+  --player-bg: #08090d;
+  --player-text: #f1f2f6;
+  --player-border: rgba(255, 255, 255, 0.06);
+  --player-accent: #e84118;
+  --btn-bg-start: rgba(26, 26, 46, 0.9);
+  --btn-bg-end: rgba(22, 33, 62, 0.9);
+}
+
+.theme-angel .sports-player-view {
+  --player-bg: #f8f9fa;
+  --player-text: #1e272e;
+  --player-border: rgba(0, 0, 0, 0.08);
+  --player-accent: #d4af37; /* Gold */
+  --btn-bg-start: rgba(255, 255, 255, 0.9);
+  --btn-bg-end: rgba(240, 240, 245, 0.9);
+}
+
+.theme-hannibal .sports-player-view {
+  --player-bg: #121413;
+  --player-text: #e0e0e0;
+  --player-border: rgba(139, 0, 0, 0.3);
+  --player-accent: #8b0000;
+  --btn-bg-start: rgba(30, 20, 20, 0.9);
+  --btn-bg-end: rgba(20, 15, 15, 0.9);
+}
+
 /* ── Fade-in animation ────────────────────────────────────── */
 @keyframes fadeInPlayer {
   from { opacity: 0; transform: translateY(12px); }
@@ -26,8 +54,8 @@
   flex-direction: column;
   height: calc(100vh - 70px);
   width: 100%;
-  background-color: #08090d;
-  color: #f1f2f6;
+  background-color: var(--player-bg, #08090d);
+  color: var(--player-text, #f1f2f6);
   padding: 16px 24px 24px 24px;
   overflow: hidden;
   box-sizing: border-box;
@@ -72,13 +100,16 @@
    ══════════════════════════════════════════════════════ */
 .back-btn {
   /* Appearance */
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 3px solid var(--accent-color, #e84118);
-  color: #f1f2f6;
-  padding: 11px 22px 11px 18px;
+  background: linear-gradient(135deg, var(--btn-bg-start, rgba(26, 26, 46, 0.9)) 0%, var(--btn-bg-end, rgba(22, 33, 62, 0.9)) 100%);
+  border: 1px solid var(--player-border, rgba(255, 255, 255, 0.08));
+  border-left: 3px solid var(--player-accent, #e84118);
+  color: var(--player-text, #f1f2f6);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  justify-content: center;
   border-radius: 10px;
-  font-size: 0.88rem;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.3px;
@@ -86,7 +117,6 @@
   /* Layout */
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   position: relative;
   overflow: hidden;
 
@@ -121,28 +151,22 @@
 /* Arrow icon — individual transition */
 .back-btn i {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
-}
-
-/* Always show full label on desktop */
-.back-btn-label {
-  display: inline;
-}
-
-/* Always hide short label on desktop */
-.back-btn-short {
-  display: none !important;
+  position: relative;
+  z-index: 2;
+  color: inherit;
+  font-weight: 900 !important;
 }
 
 /* ── Back Button Hover State ──────────────────────────────── */
 .back-btn:hover {
-  background: linear-gradient(135deg, rgba(232, 65, 24, 0.18) 0%, rgba(232, 65, 24, 0.08) 100%);
-  border-color: rgba(232, 65, 24, 0.35);
-  border-left-color: var(--accent-color, #e84118);
+  background: var(--player-accent, #e84118);
+  border-color: var(--player-accent, #e84118);
+  border-left-color: var(--player-text, #ffffff);
   color: #ffffff;
   box-shadow:
-    0 4px 20px rgba(232, 65, 24, 0.25),
+    0 4px 20px rgba(0, 0, 0, 0.25),
     0 1px 6px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateX(-3px);
@@ -216,10 +240,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #000;
+  background: var(--player-bg, #000);
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--player-border, rgba(255, 255, 255, 0.06));
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
   position: relative;
   min-height: 0;
@@ -555,9 +579,9 @@
 
   /* Compact back button on tablet */
   .back-btn {
-    padding: 9px 16px 9px 14px;
-    font-size: 0.82rem;
-    gap: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 
   .channel-type-tag {
@@ -593,21 +617,12 @@
     margin-bottom: 10px;
   }
 
-  /* Minimal back button on small phones — just icon + short text */
+  /* Minimal back button on small phones — just icon */
   .back-btn {
-    padding: 9px 14px 9px 12px;
-    font-size: 0.8rem;
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
     border-radius: 8px;
-    gap: 6px;
-  }
-
-  /* Swap label text on tiny screens */
-  .back-btn .back-btn-label {
-    display: none !important;
-  }
-
-  .back-btn .back-btn-short {
-    display: inline !important;
   }
 
   .header-meta {

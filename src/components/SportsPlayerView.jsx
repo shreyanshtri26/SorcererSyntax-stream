@@ -120,10 +120,8 @@ const SportsPlayerView = ({
     <div className="sports-player-view animate-fade-in">
       {/* Header Bar */}
       <header className="player-view-header">
-        <button className="back-btn" onClick={onClose} aria-label="Go Back">
+        <button className="back-btn" onClick={onClose} aria-label="Go Back" title="Back to TV & Sports">
           <i className="fa-solid fa-arrow-left"></i>
-          <span className="back-btn-label">Back to TV &amp; Sports</span>
-          <span className="back-btn-short" style={{ display: 'none' }}>Back</span>
         </button>
         <div className="header-meta">
           <span className="badge-live-stream">
