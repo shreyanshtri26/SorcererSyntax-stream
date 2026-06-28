@@ -94,8 +94,18 @@ const TVSportsPage = ({ currentTheme }) => {
                   bgData = bgData.concat(results.flat());
                 }
 
-                sessionStorage.setItem(cacheKey, JSON.stringify(bgData));
-                sessionStorage.setItem(cacheKey + '_time', Date.now().toString());
+                try {
+                  // Clear old caches first to free up quota
+                  Object.keys(sessionStorage).forEach(k => {
+                    if (k.startsWith('iptv_all_countries')) {
+                      sessionStorage.removeItem(k);
+                    }
+                  });
+                  sessionStorage.setItem(cacheKey, JSON.stringify(bgData));
+                  sessionStorage.setItem(cacheKey + '_time', Date.now().toString());
+                } catch (cacheErr) {
+                  console.warn('Failed to cache IPTV data (quota exceeded)', cacheErr);
+                }
                 console.log('Background fetch completed for all IPTV channels');
               } catch (e) {
                 console.error("Background fetch failed", e);
@@ -166,8 +176,18 @@ const TVSportsPage = ({ currentTheme }) => {
                 data = data.concat(results.flat());
               }
 
-              sessionStorage.setItem(cacheKey, JSON.stringify(data));
-              sessionStorage.setItem(cacheKey + '_time', Date.now().toString());
+              try {
+                // Clear old caches first to free up quota
+                Object.keys(sessionStorage).forEach(k => {
+                  if (k.startsWith('iptv_all_countries') && k !== cacheKey) {
+                    sessionStorage.removeItem(k);
+                  }
+                });
+                sessionStorage.setItem(cacheKey, JSON.stringify(data));
+                sessionStorage.setItem(cacheKey + '_time', Date.now().toString());
+              } catch (cacheErr) {
+                console.warn('Failed to cache IPTV data in foreground (quota exceeded)', cacheErr);
+              }
             }
           } else if (selectedCountry) {
             const res = await fetch(`/data/iptv/countries/${selectedCountry}.json`);
