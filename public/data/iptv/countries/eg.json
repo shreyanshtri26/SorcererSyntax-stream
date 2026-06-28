@@ -1,0 +1,201 @@
+[
+  {
+    "id": "AghapyTV.eg",
+    "name": "Aghapy TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b622f07944df.streamlock.net/aghapy.tv/aghapy.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlGhadTV.eg",
+    "name": "Al Ghad TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://eazyvwqssi.erbvr.com/alghadtv/alghadtv.m3u8"
+    ]
+  },
+  {
+    "id": "AlMasriyah.eg",
+    "name": "Al Masriyah",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.9.2.18/chid_247/index.m3u8"
+    ]
+  },
+  {
+    "id": "CBC.eg",
+    "name": "CBC",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://flu.systemnet.tv/CBC/index.m3u8"
+    ]
+  },
+  {
+    "id": "CBCDrama.eg",
+    "name": "CBC Drama",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://flu.systemnet.tv/CBCDrama/index.m3u8"
+    ]
+  },
+  {
+    "id": "CBCSofra.eg",
+    "name": "CBC Sofra",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://flu.systemnet.tv/CBCSofra/index.m3u8"
+    ]
+  },
+  {
+    "id": "CopticTV.eg",
+    "name": "Coptic TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ctv.icopts.app/CTV/index.fmp4.m3u8"
+    ]
+  },
+  {
+    "id": "ElRadio9090FM.eg",
+    "name": "El Radio 9090 FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://9090video.mobtada.com/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "HudaTV.eg",
+    "name": "Huda TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.bestream.io:19360/elfaro1/elfaro1.m3u8"
+    ]
+  },
+  {
+    "id": "KoogiTV.eg",
+    "name": "Koogi TV",
+    "categories": [
+      "kids",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d658d7e9f562.streamlock.net/koogi.tv/koogi.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MBC1Egypt.eg",
+    "name": "MBC 1 Egypt",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-na/eec141533c90dd34722c503a296dd0d8/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBCMasr.eg",
+    "name": "MBC Masr",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr/956eac069c78a35d47245db6cdbb1575/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBCMasr2.eg",
+    "name": "MBC Masr 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8"
+    ]
+  },
+  {
+    "id": "MixHollywood.eg",
+    "name": "Mix Hollywood",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8"
+    ]
+  },
+  {
+    "id": "NogoumFMTV.eg",
+    "name": "NogoumFMTV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nogoumtv.nrpstream.com/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PNCDrama.eg",
+    "name": "PNC Drama",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/pnc-drama/master.m3u8?ads.vf=S1kySuSK58S"
+    ]
+  },
+  {
+    "id": "RotanaCinemaEgypt.eg",
+    "name": "Rotana Cinema Egypt",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rotana.hibridcdn.net/rotananet/cinemamasr_net-7Y83PP5adWixDF93/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "WatanTV.eg",
+    "name": "Watan TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rp.tactivemedia.com/watantv_source/live/playlist.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,356 @@
+[
+  {
+    "id": "ArenaSport1.hr",
+    "name": "Arena Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS1HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport10.hr",
+    "name": "Arena Sport 10",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS10HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport2.hr",
+    "name": "Arena Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS2HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport3.hr",
+    "name": "Arena Sport 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS3HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport4.hr",
+    "name": "Arena Sport 4",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS4HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport5.hr",
+    "name": "Arena Sport 5",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS5HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport6.hr",
+    "name": "Arena Sport 6",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS6HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport7.hr",
+    "name": "Arena Sport 7",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS7HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport8.hr",
+    "name": "Arena Sport 8",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS8HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport9.hr",
+    "name": "Arena Sport 9",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/AS9HRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "BravoKidsTV.hr",
+    "name": "Bravo! Kids TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.social3.hr/play/r3CK_tdsFIFL3bN7w4NW1plrwsCToUBsRFjhxM68sZY/m3u8"
+    ]
+  },
+  {
+    "id": "BravoTV.hr",
+    "name": "Bravo! TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.social3.hr/bravoTVkdjd7djd/XAbSERW5p3/2.m3u8"
+    ]
+  },
+  {
+    "id": "CMCTV.hr",
+    "name": "CMC TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.cmctv.hr:49998/cmc/live.m3u8"
+    ]
+  },
+  {
+    "id": "DiadoraTV.hr",
+    "name": "Diadora TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://diadoratv.stream/live/diadora/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ExtraTV.hr",
+    "name": "Extra TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.social3.hr/ExtraTVudzdhr5/uUankWqpXD/1.m3u8"
+    ]
+  },
+  {
+    "id": "HRT1.hr",
+    "name": "HRT 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bpcdnmanprod.nexttv.ht.hr/bpk-tv/HRT1/default/index.mpd",
+      "https://webtvstream.bhtelecom.ba/hrt1.m3u8"
+    ]
+  },
+  {
+    "id": "HRT2.hr",
+    "name": "HRT 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bpcdnmanprod.nexttv.ht.hr/bpk-tv/HRT2/default/index.mpd",
+      "https://webtvstream.bhtelecom.ba/hrt2.m3u8"
+    ]
+  },
+  {
+    "id": "HRT3.hr",
+    "name": "HRT 3",
+    "categories": [
+      "culture",
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bpcdnmanprod.nexttv.ht.hr/bpk-tv/HRT3/default/index.mpd",
+      "https://webtvstream.bhtelecom.ba/hrt3.m3u8"
+    ]
+  },
+  {
+    "id": "HRT4.hr",
+    "name": "HRT 4",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bpcdnmanprod.nexttv.ht.hr/bpk-tv/HRT4/default/index.mpd"
+    ]
+  },
+  {
+    "id": "KlapeiTambureTV.hr",
+    "name": "Klape i Tambure TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.cmctv.hr:49998/kit/live.m3u8"
+    ]
+  },
+  {
+    "id": "Klasik.hr",
+    "name": "Klasik",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://178.253.194.105/klasiktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LibertasTV.hr",
+    "name": "Libertas TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.luci.xyz/hls/LTV.m3u8"
+    ]
+  },
+  {
+    "id": "NovaTV.hr",
+    "name": "Nova TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://str.gledamsport.com/proxy.php?c=nova&path=mono.m3u8&type=playlist"
+    ]
+  },
+  {
+    "id": "OTV.hr",
+    "name": "OTV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.agatin.hr:3559/live/otvlive.m3u8"
+    ]
+  },
+  {
+    "id": "RadioTelevizijaBanovina.hr",
+    "name": "Radio Televizija Banovina",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://pool.alter-media.hr:1936/live/myStream/playlist.m3u8?DVR="
+    ]
+  },
+  {
+    "id": "SBTV.hr",
+    "name": "SBTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.leveex.hr/hls/live.m3u8"
+    ]
+  },
+  {
+    "id": "ShiftTV.hr",
+    "name": "Shift TV",
+    "categories": [
+      "auto"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.shift.tv/live/shifttv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "STV.hr",
+    "name": "STV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://89.201.163.244:8080/hls/hdmi.m3u8"
+    ]
+  },
+  {
+    "id": "TrendTV.hr",
+    "name": "Trend TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.62.75.22:1935/trend/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVJadran.hr",
+    "name": "TV Jadran",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvjadran.stream.agatin.hr:3412/live/tvjadranlive.m3u8"
+    ]
+  },
+  {
+    "id": "TVNova.hr",
+    "name": "TV Nova",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.agatin.hr:3727/live/tvnovalive.m3u8"
+    ]
+  },
+  {
+    "id": "TVZapad.hr",
+    "name": "TV Zapad",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.94.67.158/TVZAPAD/index.fmp4.m3u8"
+    ]
+  }
+]

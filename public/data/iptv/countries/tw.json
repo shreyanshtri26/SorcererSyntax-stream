@@ -1,0 +1,260 @@
+[
+  {
+    "id": "BeautifulLifeTV.tw",
+    "name": "Beautiful Life TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CGNTVChinese.tw",
+    "name": "CGNTV Chinese",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d3e05csss9c272.cloudfront.net/out/v1/f0bf71c57581470fb9379f603e8f5d83/CGNWebLiveCN.m3u8"
+    ]
+  },
+  {
+    "id": "CTiVariety.tw",
+    "name": "CTi Variety",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://23.237.10.66:16372"
+    ]
+  },
+  {
+    "id": "CTS.tw",
+    "name": "CTS",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "rtmp://59.124.75.138:1935/sat/tv111"
+    ]
+  },
+  {
+    "id": "CTSNews.tw",
+    "name": "CTS News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/sc/hsxw_fhd.m3u8"
+    ]
+  },
+  {
+    "id": "DaAi1.tw",
+    "name": "DaAi 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pulltv1.wanfudaluye.com/live/tv1.m3u8"
+    ]
+  },
+  {
+    "id": "DaAi2.tw",
+    "name": "DaAi 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pulltv2.wanfudaluye.com/live/tv2.m3u8"
+    ]
+  },
+  {
+    "id": "DaliTV.tw",
+    "name": "Dali TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://www.dalitv.com.tw:4568/live/dali/index.m3u8"
+    ]
+  },
+  {
+    "id": "EBCFinancialNews.tw",
+    "name": "EBC Financial News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/sc/dscjxw_fhd.m3u8"
+    ]
+  },
+  {
+    "id": "EBCNews.tw",
+    "name": "EBC News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/sc/dsxw_fhd.m3u8"
+    ]
+  },
+  {
+    "id": "FTV.tw",
+    "name": "FTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/ptv/ftv.php?id=ms"
+    ]
+  },
+  {
+    "id": "FTVOne.tw",
+    "name": "FTV One",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/ptv/ftv.php?id=dy"
+    ]
+  },
+  {
+    "id": "FTVTaiwan.tw",
+    "name": "FTV Taiwan",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/ptv/ftv.php?id=tw"
+    ]
+  },
+  {
+    "id": "Good2.tw",
+    "name": "Good 2",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.streamingfast.net/osmflivech2.m3u8"
+    ]
+  },
+  {
+    "id": "GoodTV.tw",
+    "name": "Good TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.streamingfast.net/osmflivech1.m3u8"
+    ]
+  },
+  {
+    "id": "IndigenousTV.tw",
+    "name": "Indigenous TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streamipcf.akamaized.net/live/_definst_/smil:liveabr.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SETNews.tw",
+    "name": "SET News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/sc/sllive_fhd.m3u8"
+    ]
+  },
+  {
+    "id": "SupremeMasterTV.tw",
+    "name": "Supreme Master TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://lbs-us1.suprememastertv.com/720p.m3u8"
+    ]
+  },
+  {
+    "id": "TaiwanIndigenousTV.tw",
+    "name": "Taiwan Indigenous TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streamipcf.akamaized.net/live/_definst_/live_720/key_b1500.m3u8"
+    ]
+  },
+  {
+    "id": "TaiwanPlusTV.tw",
+    "name": "Taiwan Plus TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://bcovlive-a.akamaihd.net/rce33d845cb9e42dfa302c7ac345f7858/ap-northeast-1/6282251407001/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TTV.tw",
+    "name": "TTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://162.19.247.76:22222/live/taishi/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVBSAsia.tw",
+    "name": "TVBS-Asia",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://38.64.72.148/hls/modn/list/4005/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBSNews.tw",
+    "name": "TVBS News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://seb.sason.top/sc/tvbsxw_fhd.m3u8"
+    ]
+  },
+  {
+    "id": "WXTV.tw",
+    "name": "WXTV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mobile.ccdntech.com/transcoder/_definst_/vod164_Live/live/chunklist_w1177047531.m3u8"
+    ]
+  }
+]

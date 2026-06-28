@@ -9,14 +9,14 @@ import useLenis from './hooks/useLenis';
 import Header from './contexts/Header';
 import PlayerModal from './contexts/PlayerModal';
 import PersonDetailsModal from './contexts/PersonDetailsModal';
-import PersistentMusicPlayer from './components/PersistentMusicPlayer';
+
 import ThreeBackground from './components/three/ThreeBackground';
 import CursorTrail from './components/three/CursorTrail';
 import SlidingTabs from './components/common/SlidingTabs';
 
 // Pages
 import SearchPage from './pages/SearchPage';
-import MusicPage from './pages/MusicPage';
+import TVSportsPage from './pages/TVSportsPage';
 
 import { IMAGE_BASE_URL } from './api/api';
 import ChatBot from './components/chatbot/ChatBot';
@@ -70,17 +70,11 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const VITE_API_KEY = "9a5a0e6e93d4b73e87566b319e8cfb95";
 
-  // MusicHub State (Preserved in App for persistence if we wanted, 
-  // but MusicPage holds the state via MusicHub. 
-  // Wait, if we unmount MusicHub, music stops. 
-  // The structure here unmounts MusicPage when going to Media. 
-  // This is acceptable behavior for "switching apps" metaphor.)
-  const musicHubRef = useRef(null);
-  const [musicNavStackState, setMusicNavStackState] = useState(null);
+
 
   // Determine Active Section based on Path
-  const isMusicSection = location.pathname.startsWith('/music') || location.pathname.startsWith('/artist') || location.pathname.startsWith('/album');
-  const activeSection = isMusicSection ? 'music' : 'media';
+  const isTVSportsSection = location.pathname.startsWith('/tv-sports');
+  const activeSection = isTVSportsSection ? 'tv_sports' : 'media';
 
   useEffect(() => {
     const checkMobile = () => {
@@ -109,7 +103,7 @@ function App() {
   };
 
   const handleSectionChange = (section) => {
-    if (section === 'music') navigate('/music');
+    if (section === 'tv_sports') navigate('/tv-sports');
     else navigate('/');
   };
 
@@ -164,8 +158,8 @@ function App() {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe && activeSection === 'media') navigate('/music');
-    if (isRightSwipe && activeSection === 'music') navigate('/');
+    if (isLeftSwipe && activeSection === 'media') navigate('/tv-sports');
+    if (isRightSwipe && activeSection === 'tv_sports') navigate('/');
   };
 
   return (
@@ -188,7 +182,7 @@ function App() {
       {!isPlayerModalOpen && !isPersonModalOpen && (
         <div className="section-navigator-container">
           <SlidingTabs 
-            tabs={[{id: 'media', label: 'Media'}, {id: 'music', label: 'Music'}]} 
+            tabs={[{id: 'media', label: 'Media'}, {id: 'tv_sports', label: 'TV & Sports'}]} 
             activeTab={activeSection} 
             onTabChange={handleSectionChange} 
           />
@@ -216,9 +210,8 @@ function App() {
             />
           </motion.div>
         ) : (
-          <MusicPage
-            key="music-section"
-            ref={musicHubRef}
+          <TVSportsPage
+            key="tv-sports-section"
             currentTheme={currentTheme}
           />
         )}
@@ -254,10 +247,7 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* PERSISTENT GLOBAL PLAYER - Now restricted to Music section */}
-      {activeSection === 'music' && (
-        <PersistentMusicPlayer currentTheme={currentTheme} />
-      )}
+
 
       {/* Mausi Chatbot */}
       <ChatBot currentTheme={currentTheme} onMediaClick={handleMediaClick} />

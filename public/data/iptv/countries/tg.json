@@ -1,0 +1,124 @@
+[
+  {
+    "id": "ACTV.tg",
+    "name": "AC TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ssh101stream.ssh101.com/akamaissh101/ssh101/actvstream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ChandelTV.tg",
+    "name": "Chandel TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kali.vdopanel.com:3660/live/vj6jlam1rlive.m3u8"
+    ]
+  },
+  {
+    "id": "DynamicGospelTV.tg",
+    "name": "Dynamic Gospel TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ssh101stream.ssh101.com/akamaissh101/ssh101/tvdynamicstream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NWEconomie.tg",
+    "name": "NW Economie",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.newworldtv.com/nw-economie/video/live.m3u8"
+    ]
+  },
+  {
+    "id": "NWInfo.tg",
+    "name": "NW Info",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.newworldtv.com/nw-info/video/live.m3u8"
+    ]
+  },
+  {
+    "id": "NWInfo2.tg",
+    "name": "NW Info 2",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.newworldtv.com/nw-info-2/video/live.m3u8"
+    ]
+  },
+  {
+    "id": "NWMagazine.tg",
+    "name": "NW Magazine",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.newworldtv.com/nw-magazine/video/live.m3u8"
+    ]
+  },
+  {
+    "id": "RTJVA.tg",
+    "name": "RT JVA",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn140m.panaccess.com/HLS/RTVJA/index.m3u8"
+    ]
+  },
+  {
+    "id": "SOSDocteurTV.tg",
+    "name": "SOS Docteur TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://wmoy82n4y2a7-hls-live.5centscdn.com/sostv/live.stream/playlist.m3u8",
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/sosdocteurtv.m3u8"
+    ]
+  },
+  {
+    "id": "TelevisionEspoir47.tg",
+    "name": "Television Espoir 47",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn140m.panaccess.com/HLS/Espoir47/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVT.tg",
+    "name": "TVT",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/tvt/playlist.m3u8"
+    ]
+  }
+]

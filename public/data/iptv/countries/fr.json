@@ -1,0 +1,2245 @@
+[
+  {
+    "id": "20MinutesTV.fr",
+    "name": "20 Minutes TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-20minutestv.digiteka.com/1961167769/index.m3u8"
+    ]
+  },
+  {
+    "id": "4Afghanistan.fr",
+    "name": "4 Afghanistan",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://4afghls.persiana.live/hls/stream.m3u8",
+      "https://4afghls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "4Kurd.fr",
+    "name": "4Kurd",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://4kuhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "4Music.fr",
+    "name": "4 Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://musichls.persiana.live/hls/stream.m3u8",
+      "https://itthls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Action.fr",
+    "name": "Action",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://rezofoot.tv/Action/index.m3u8"
+    ]
+  },
+  {
+    "id": "ADNTVPlus.fr",
+    "name": "ADN TV+",
+    "categories": [
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d3b73b34o7cvkq.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-gz2sgqzp076kf/adn.m3u8"
+    ]
+  },
+  {
+    "id": "Africa24.fr",
+    "name": "Africa 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://africa24.vedge.infomaniak.com/livecast/ik:africa24/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "Africa24English.fr",
+    "name": "Africa 24 English",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge20.vedge.infomaniak.com/livecast/ik:africa24english/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "Africa24Sport.fr",
+    "name": "Africa 24 Sport",
+    "categories": [
+      "news",
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://africa24.vedge.infomaniak.com/livecast/ik:africa24sport/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "AfricanewsEnglish.fr",
+    "name": "Africanews English",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://c3c275b999764df8a2dd55ffe2996818.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6576/bitok/eyJzdGlkIjoiOTU0NDAyODQtOTU0My00Yzc2LThmZjQtNDRhY2YwYmQxYTYwIiwibWt0IjoicGwiLCJjaCI6NjYwNiwicHRmIjo1fQ==/26036/africanews-en.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/africanews-en/25049/index.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/africanews/africanews-en.m3u8?ads.vf=Cxy9froLXMW"
+    ]
+  },
+  {
+    "id": "AfricanewsFrench.fr",
+    "name": "Africanews French",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-euronews.akamaized.net/live/eds/africanews-fr/25050/index.m3u8"
+    ]
+  },
+  {
+    "id": "AlpedHuezTV.fr",
+    "name": "Alpe d'Huez TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge13.vedge.infomaniak.com/livecast/ik:adhtv/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "AngersTele.fr",
+    "name": "Angers Tele",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/angerstele.m3u8"
+    ]
+  },
+  {
+    "id": "AntenneReunion.fr",
+    "name": "Antenne Reunion",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-antenne-reunion.zeop.tv/live/c3eds/antreunihd/hls_fta/antreunihd.m3u8?location=ZEOP01"
+    ]
+  },
+  {
+    "id": "AraBel.fr",
+    "name": "AraBel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/arabel.m3u8"
+    ]
+  },
+  {
+    "id": "arte.fr",
+    "name": "arte",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://artesimulcast.akamaized.net/hls/live/2031003/artelive_fr/index.m3u8"
+    ]
+  },
+  {
+    "id": "BFM2.fr",
+    "name": "BFM2",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d1ib1gsg71oarf.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-scp7wda722jph/BFM2_FR.m3u8",
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM2/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMAlsace.fr",
+    "name": "BFM Alsace",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_ALSACE/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMBusiness.fr",
+    "name": "BFM Business",
+    "categories": [
+      "business",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-cdn-stream-euw1.bfmb.bct.nextradiotv.com/master.m3u8",
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_BUSINESS/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMCotedAzur.fr",
+    "name": "BFM Cote d'Azur",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_NICECOTEDAZUR/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMDICIAlpesduSud.fr",
+    "name": "BFM DICI Alpes du Sud",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_DICI_ALPESDUSUD/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMDICIHauteProvence.fr",
+    "name": "BFM DICI Haute-Provence",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_DICI_HAUTEPROVENCE/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMGrandLille.fr",
+    "name": "BFM Grand Lille",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFMGRANDLILLE/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMGrandLittoral.fr",
+    "name": "BFM Grand Littoral",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFMGRANDLITTORAL/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMLyon.fr",
+    "name": "BFM Lyon",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-cdn-bfmtvlyo-euw1.bfmtv.bct.nextradiotv.com/master.m3u8",
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_LYON/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMMarseille.fr",
+    "name": "BFM Marseille",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_MARSEILLEPROV/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMNormandie.fr",
+    "name": "BFM Normandie",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_NORMANDIE/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMTechCo.fr",
+    "name": "BFM Tech & Co",
+    "categories": [
+      "science",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_TECHANDCO/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMTV.fr",
+    "name": "BFM TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-cdn-stream-euw1.bfmtv.bct.nextradiotv.com/master.m3u8",
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_TV/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BFMVar.fr",
+    "name": "BFM Var",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_TOULONVAR/index.m3u8?end=END&start=LIVE"
+    ]
+  },
+  {
+    "id": "BrionnaisTV.fr",
+    "name": "Brionnais TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream2.mandarine.media/brionnaistv/brionnaistv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BSmartTV.fr",
+    "name": "B Smart TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/bsmart.m3u8"
+    ]
+  },
+  {
+    "id": "Caillou.fr",
+    "name": "Caillou",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://do7nccdsswstc.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-1aso0bc668saa/a5233c83-f772-4a81-959a-45ec7877ef61/5.m3u8"
+    ]
+  },
+  {
+    "id": "Canal32.fr",
+    "name": "Canal 32",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://event.vedge.infomaniak.com/livecast/ik:canal32_4/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "CanalJ.fr",
+    "name": "Canal J",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/CANALJ/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalPlus.fr",
+    "name": "Canal+",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Canal+_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalPlusCinemas.fr",
+    "name": "Canal+ Cinemas",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Canal+_cinema_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalPlusFamily.fr",
+    "name": "Canal+ Family",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Canal+_Family_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalPlusFoot.fr",
+    "name": "Canal+ Foot",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://test.946985.filegear-sg.me/proxy/ef3174f16d4557d2"
+    ]
+  },
+  {
+    "id": "CanalPlusSport.fr",
+    "name": "Canal+ Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Canal+_sport_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "CannesLerinsTV.fr",
+    "name": "Cannes Lerins TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vdo2.pro-fhi.net:3628/live/uppodsfqlive.m3u8"
+    ]
+  },
+  {
+    "id": "CineNanar.fr",
+    "name": "Cine Nanar",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://zylo-cinenanar-rakuten.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CinePlusClassic.fr",
+    "name": "Cine+ Classic",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://99.27.51.147/CineClassic/index.m3u8"
+    ]
+  },
+  {
+    "id": "CinePlusFrisson.fr",
+    "name": "Cine+ Frisson",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://99.27.51.147:8080/CineFrisson/index.m3u8"
+    ]
+  },
+  {
+    "id": "CineWestern.fr",
+    "name": "Cine Western",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg00711-zylo-amg00711c8-rakuten-uk-2686.playouts.now.amagi.tv/playlist/amg00711-zylofast-cinewestern-rakutenuk/playlist.m3u8",
+      "https://f7ad58aa.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWl0X1dQX0hMUw/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CNews.fr",
+    "name": "CNews",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/LeBazarDeBryan/XTVZ_/main/Stream/Live/CNews.m3u8",
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/cnews.m3u8"
+    ]
+  },
+  {
+    "id": "CStar.fr",
+    "name": "C Star",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Paradise-91/ParaTV/refs/heads/main/streams/canalplus/cstar-dm.m3u8"
+    ]
+  },
+  {
+    "id": "DBMTV.fr",
+    "name": "DBM TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dbmtv.vedge.infomaniak.com/livecast/dbmtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DisneyJr.fr",
+    "name": "Disney Jr.",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Disney_Junior_HD/index.m3u8",
+      "http://41.205.64.66/DISNEY-JUNIOR/index.m3u8",
+      "http://41.205.77.102/DISNEY-JUNIOR/index.m3u8"
+    ]
+  },
+  {
+    "id": "EMCITV.fr",
+    "name": "EMCI TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/emciafrique.m3u8"
+    ]
+  },
+  {
+    "id": "EMCITVEurope.fr",
+    "name": "EMCI TV Europe",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/emcieurope.m3u8"
+    ]
+  },
+  {
+    "id": "EmotionL.fr",
+    "name": "Emotion L",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rakutenaa-zylo-emotional-rakuten-r1zkm.amagi.tv/playlist/rakutenAA-zylo-emotional-rakuten/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Equidia.fr",
+    "name": "Equidia",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/equidia/live2.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsEnglish.fr",
+    "name": "Euronews English",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_euronews/playlist.m3u8",
+      "https://jmp2.uk/plu-61de96114757070008d33cae.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-en/25002/index.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/euronews/euronews-en.m3u8?ads.vf=OUBOiYANcV0",
+      "https://jmp2.uk/plu-61de90a47365340007f77c27.m3u8",
+      "https://jmp2.uk/plu-5ca1da6c593a5d78f0e7edce.m3u8",
+      "https://a-cdn.klowdtv.com/live3/euronews_720p/playlist.m3u8",
+      "https://streams.sofast.tv/euronewsen/live/eds/euronews-en/25017/euronews-en.m3u8",
+      "https://aegis-cloudfront-1.tubi.video/b1c4d439-03a5-4c40-ae9d-90a183e010c9/euronews-en.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsFrench.fr",
+    "name": "Euronews French",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://2f6c5bf4.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c0ZyYW5jYWlzX0hMUw/playlist.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-fr/25026/index.m3u8",
+      "https://jmp2.uk/plu-60d35bcaf1ff4a00078af0a6.m3u8",
+      "https://euronews-live-fra-fr.fast.rakuten.tv/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6564/bitok/eyJzdGlkIjoiYjA1ZmVmMzAtYjhkZC00Y2E5LThkM2ItMTRkNjE1MjdmYjE0IiwibWt0IjoiZnIiLCJjaCI6NjU2NCwicHRmIjo1fQ==/26032/euronews-fr.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsGerman.fr",
+    "name": "Euronews German",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-6639d7d4b18d700008da5316.m3u8",
+      "https://575b7833.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c0RldXRzY2hfSExT/playlist.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-de/25027/index.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsGreek.fr",
+    "name": "Euronews Greek",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-el/25068/index.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsHungarian.fr",
+    "name": "Euronews Hungarian",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-hu/25075/index.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsItalian.fr",
+    "name": "Euronews Italian",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acb6ca89.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c0l0YWxpYW5vX0hMUw/playlist.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8",
+      "https://jmp2.uk/plu-61b86ea479a4390007c6d5fc.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsPortuguese.fr",
+    "name": "Euronews Portuguese",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-619e6614c9d9650007a2b171.m3u8",
+      "https://6e52fb8b.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c1BvcnR1Z3Vlc19ITFM/playlist.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-pt/25040/index.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsRussian.fr",
+    "name": "Euronews Russian",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tmptv.sunduk.tv/CH31/index.m3u8",
+      "https://stream8.cinerama.uz/1024/tracks-v1a1/mono.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-ru/25071/index.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsSpanish.fr",
+    "name": "Euronews Spanish",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-60d3583ef310610007fb02b1.m3u8",
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-es/25053/index.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/euronews-spa/euronews-es.m3u8?ads.vf=j3Z4oxuHXXK",
+      "https://jmp2.uk/plu-619d59b7cbef25000728221c.m3u8"
+    ]
+  },
+  {
+    "id": "FashionTVEurope.fr",
+    "name": "FashionTV Europe",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://68f1accef2154d2195cae87dec183843.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-eu_FashionTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FashionTVParisLOriginal.fr",
+    "name": "FashionTV Paris L'Original",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge-fast3.evrideo.tv/bfdbb576-83f7-11f0-9f89-0200170e3e04_1000028043_HLS/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "FashionTVSecrets.fr",
+    "name": "FashionTV Secrets",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ssai.aniview.com/api/v1/hls/stream.m3u8?AVS_SSAIID=67c0c39764ad6f7dab07aa0b&AV_APPNAME=[ADS.APP_NAME]&AV_APPPKGNAME=[ADS.APP_BUNDLE]&AV_APPSTOREURL=[ADS.APP_STORE_URL]&AV_CCPA=[ADS.US_PRIVACY]&AV_CLIENT_SECTION=ftv_secrets&AV_CONSENT=[ADS.GDPR_CONSENT]&AV_CONTENT_CAT=IAB7&AV_CONTENT_CHANNEL=&AV_CONTENT_CONTEXT=&AV_CONTENT_EPISODE=&AV_CONTENT_GENRE=fashion+and+lifestyle&AV_CONTENT_ID=[ADS.VIDAA_ADS_CONTENTID]&AV_CONTENT_KEYWORDS=&AV_CONTENT_LANGUAGE=en&AV_CONTENT_LENGTH=&AV_CONTENT_NETWORK=&AV_CONTENT_PROVIDER=FTV&AV_CONTENT_RATING=R&AV_CONTENT_SEASON=&AV_CONTENT_SERIES=&AV_CONTENT_TITLE=&AV_CONTENT_URL=&AV_DNT=[ADS.DNT]&AV_GDPR=[ADS.GDPR]&AV_HEIGHT=[ADS.H]&AV_IDFA=[ADS.IFA]&AV_IFA_TYPE=[ADS.IFA_TYPE]&AV_LANGUAGE=[ADS.DEVICE_LANGUAGE]&AV_OSVERS=[ADS.DEVICE_OSV]&AV_RTB_DEVICE_TYPE=[ADS.DEVICE_TYPE]&AV_VAUTH=[ADS.VAUTH]&AV_WIDTH=[ADS.W]&Content_Id=[ADS.ADS_CONTENTID]&ads.vidaa_ads_param=1191723366&cb=[CACHEBUSTER]&content_channel_name=ftv+-fashiontv+Secrets&content_livestream=1"
+    ]
+  },
+  {
+    "id": "France2.fr",
+    "name": "France 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/france2/mono.m3u8"
+    ]
+  },
+  {
+    "id": "France24.fr",
+    "name": "France 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.france24.com/hls/live/2037222-b/F24_AR_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037222-b/F24_AR_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037222-b/F24_AR_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037222-b/F24_AR_HI_HLS/master_500.m3u8",
+      "https://live.france24.com/hls/live/2037222/F24_AR_HI_HLS/master_500.m3u8",
+      "https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_2300.m3u8",
+      "https://liveh12.vtvprime.vn/hls/FRANCE24/03.m3u8",
+      "https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_500.m3u8",
+      "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_500.m3u8",
+      "https://amg00106-amg00106c1-samsung-nz-4151.playouts.now.amagi.tv/playlist.m3u8",
+      "https://dash3.antik.sk/live/test_france24_eng/playlist.m3u8",
+      "https://amg00106-france24-france24-samsunguk-qvpp8.amagi.tv/playlist/amg00106-france24-france24-samsunguk/playlist.m3u8",
+      "https://a-cdn.klowdtv.com/live2/france24_720p/playlist.m3u8",
+      "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_500.m3u8",
+      "https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_500.m3u8",
+      "https://dash4.antik.sk/live/test_france24_france/playlist.m3u8",
+      "https://live.france24.com/hls/live/2037220-b/F24_ES_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037220/F24_ES_HI_HLS/master_5000.m3u8",
+      "https://live.france24.com/hls/live/2037220-b/F24_ES_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037220/F24_ES_HI_HLS/master_2300.m3u8",
+      "https://live.france24.com/hls/live/2037220-b/F24_ES_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037220/F24_ES_HI_HLS/master_900.m3u8",
+      "https://live.france24.com/hls/live/2037220-b/F24_ES_HI_HLS/master_500.m3u8",
+      "https://live.france24.com/hls/live/2037220/F24_ES_HI_HLS/master_500.m3u8",
+      "https://a-cdn.klowdtv.com/live2/france24sp_720p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "France3.fr",
+    "name": "France 3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.14.32.26:8800/udp/239.100.10.144:5000"
+    ]
+  },
+  {
+    "id": "France4.fr",
+    "name": "France 4",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sv1.data-stream.top/8c0a287e56a6e1843143904778be3775b4d3edd4fba4ffcc3f72638c7a71d4d4/hls/francetv4.m3u8"
+    ]
+  },
+  {
+    "id": "France5.fr",
+    "name": "France 5",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/france5/mono.m3u8"
+    ]
+  },
+  {
+    "id": "Franceinfo.fr",
+    "name": "Franceinfo",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/franceinfotv.m3u8"
+    ]
+  },
+  {
+    "id": "FranceInter.fr",
+    "name": "France Inter",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/franceinter.m3u8"
+    ]
+  },
+  {
+    "id": "Francophonie24.fr",
+    "name": "Francophonie24",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://mv2.tvfrancophonie.org/live/Stream1/playlist.m3u8",
+      "https://5421175365ea3.streamlock.net/live/smil:switch.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FrequenceNovelas.fr",
+    "name": "Frequence Novelas",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d20oth1416y9a1.cloudfront.net/playlist/amg00711-zylofast-frequencenovelas-rakutenus/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FunRadio.fr",
+    "name": "Fun Radio",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/funradiofr.m3u8"
+    ]
+  },
+  {
+    "id": "GenerationsTV.fr",
+    "name": "Generations TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://event.vedge.infomaniak.com/livecast/ik:generation-tv/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "Gong.fr",
+    "name": "Gong",
+    "categories": [
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg01596-gongnetworks-gong-ono-vh5f2.amagi.tv/1080p-vtt/index.m3u8"
+    ]
+  },
+  {
+    "id": "Gulli.fr",
+    "name": "Gulli",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/GULLI/index.m3u8",
+      "http://99.27.51.147:8080/Gulli/index.m3u8"
+    ]
+  },
+  {
+    "id": "HANDICAPTV.fr",
+    "name": "HANDICAP TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv.webtvmanager.fr:3697/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "iciElsass.fr",
+    "name": "ici Elsass",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/icielsass.m3u8"
+    ]
+  },
+  {
+    "id": "ILTV.fr",
+    "name": "ILTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.creacast.com/iltv/smil:iltv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IntoCrime.fr",
+    "name": "Into Crime",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg00711-zylo-amg00711c10-rakuten-fr-6731.playouts.now.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IranNama.fr",
+    "name": "Iran Nama",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://iran613hls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "KozoomTV.fr",
+    "name": "Kozoom TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/kozoom-tv/manifest.m3u8?ads.vf=CAJPqH6STD0",
+      "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/fdd6f243-f971-4a1a-9510-97ac01d6b37f/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "KTO.fr",
+    "name": "KTO",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-kto.akamaized.net/hls/live/2033284/KTO/master.m3u8"
+    ]
+  },
+  {
+    "id": "LeFigaroTVIledeFrance.fr",
+    "name": "Le Figaro TV Ile-de-France",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://figarotv-live.freecaster.com/live/freecaster/figarotv.m3u8",
+      "https://static.lefigaro.fr/secom/tnt.m3u8"
+    ]
+  },
+  {
+    "id": "LeMediaTV.fr",
+    "name": "Le Media TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/lemedia.m3u8"
+    ]
+  },
+  {
+    "id": "LEquipe.fr",
+    "name": "L'Equipe",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dshn8inoshngm.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-gac2i63dmu8b7/LEquipe_FR.m3u8",
+      "https://raw.githubusercontent.com/ipstreet312/freeiptv/master/ressources/dmotion/py/eqpe/equipe.m3u8"
+    ]
+  },
+  {
+    "id": "LittoralFMTV.fr",
+    "name": "Littoral FM TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.creacast.com/littoralfm-ch1/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LyonCapitaleTV.fr",
+    "name": "Lyon Capitale TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/lyoncapitale.m3u8"
+    ]
+  },
+  {
+    "id": "M6.fr",
+    "name": "M6",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://99.27.51.147:8080/M6/index.m3u8",
+      "http://cdn.haititivi.com/M6-HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "M6Music.fr",
+    "name": "M6 Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://test.946985.filegear-sg.me/proxy/803c517b325bfafc"
+    ]
+  },
+  {
+    "id": "MaisonTravauxTV.fr",
+    "name": "Maison & Travaux TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/maisonettravaux.m3u8"
+    ]
+  },
+  {
+    "id": "MCM.fr",
+    "name": "MCM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://rezofoot.tv/MCM/index.m3u8"
+    ]
+  },
+  {
+    "id": "MDL.fr",
+    "name": "MDL",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://tv.mondeduloisir.fr:1935/tixtv/smil:web.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Melody.fr",
+    "name": "Melody",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/radiokaraoke.m3u8"
+    ]
+  },
+  {
+    "id": "MensUPTV.fr",
+    "name": "Men's UP TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/mensuptv.m3u8"
+    ]
+  },
+  {
+    "id": "Mezzo.fr",
+    "name": "Mezzo",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tmptv.sunduk.tv/CH97/index.m3u8",
+      "https://live-3.otcnet.ru/Mezzo/index.m3u8"
+    ]
+  },
+  {
+    "id": "MezzoLive.fr",
+    "name": "Mezzo Live",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://test.946985.filegear-sg.me/proxy/749755700e4ed9c6"
+    ]
+  },
+  {
+    "id": "MonteCarloDigitalTelevision.fr",
+    "name": "Monte Carlo Digital Television",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://fl718492-exthls-p1.flovp.com/fl718492/live/live.m3u8"
+    ]
+  },
+  {
+    "id": "MoselleTV.fr",
+    "name": "Moselle TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.creacast.com/mirabelletv/smil:mirabelletv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MouvTV.fr",
+    "name": "Mouv' TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/mouv.m3u8"
+    ]
+  },
+  {
+    "id": "MTV.fr",
+    "name": "MTV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://99.27.51.147:8080/MTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "MuseumTVFrench.fr",
+    "name": "Museum TV French",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01492-secomsasmediart-museumtv-eng-samsungit/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MyGospelTV.fr",
+    "name": "My Gospel TV",
+    "categories": [
+      "music",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.cmediahosthosting.net:3046/live/mygospeltvlive.m3u8"
+    ]
+  },
+  {
+    "id": "MyZenTV.fr",
+    "name": "MyZen TV",
+    "categories": [
+      "relax"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01255-secomcofites-my-myzen-en-plex/playlist.m3u8",
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01255-secomcofites-my-myzen-samsungen-samsungit/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NationalGeographicWild.fr",
+    "name": "National Geographic Wild",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/NATGEO-WILD/index.m3u8"
+    ]
+  },
+  {
+    "id": "Nickelodeon.fr",
+    "name": "Nickelodeon",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Nickelodeon_FR/index.m3u8"
+    ]
+  },
+  {
+    "id": "NickelodeonJunior.fr",
+    "name": "Nickelodeon Junior",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Nickelodeon_Junior/index.m3u8"
+    ]
+  },
+  {
+    "id": "NickelodeonTeen.fr",
+    "name": "Nickelodeon Teen",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-60f5fabf0721880007cd50e3.m3u8",
+      "https://jmp2.uk/plu-5f0d668b872e4400073acc68.m3u8",
+      "https://jmp2.uk/plu-5fab09a8749b1a00077d35d2.m3u8"
+    ]
+  },
+  {
+    "id": "Novocomedy.fr",
+    "name": "Novocomedy",
+    "categories": [
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/novo-comedy/video.m3u8?ads.vf=CMRSFvusYbe"
+    ]
+  },
+  {
+    "id": "NRJHits.fr",
+    "name": "NRJ Hits",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://test.946985.filegear-sg.me/proxy/a23981548880f405"
+    ]
+  },
+  {
+    "id": "P2MTV.fr",
+    "name": "P2M TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vdo2.pro-fhi.net:3207/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaCinema.fr",
+    "name": "Persiana Cinema",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cinehls.persiana.live/hls/stream.m3u8",
+      "https://todayhls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaComedy.fr",
+    "name": "Persiana Comedy",
+    "categories": [
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "https://comedyhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaDocs.fr",
+    "name": "Persiana Docs",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://scihls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaFamily.fr",
+    "name": "Persiana Family",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://familyhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaFight.fr",
+    "name": "Persiana Fight",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://fighthls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaFolk.fr",
+    "name": "Persiana Folk",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sonhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaIranian.fr",
+    "name": "Persiana Iranian",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://irhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaJunior.fr",
+    "name": "Persiana Junior",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://junhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaKorea.fr",
+    "name": "Persiana Korea",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://korhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaLatino.fr",
+    "name": "Persiana Latino",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://latinohls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaMedical.fr",
+    "name": "Persiana Medical",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://phd2hls.persiana.live/hls/stream.m3u8",
+      "https://tfnhls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaNostalgia.fr",
+    "name": "Persiana Nostalgia",
+    "categories": [
+      "music",
+      "classic"
+    ],
+    "languages": [],
+    "streams": [
+      "https://noshls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaPlus.fr",
+    "name": "Persiana Plus",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://euhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaReality.fr",
+    "name": "Persiana Reality",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://twohls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaSeries.fr",
+    "name": "Persiana Series",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://onehls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaTeen.fr",
+    "name": "Persiana Teen",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kphls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaTravel.fr",
+    "name": "Persiana Travel",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ptravelhls.persiana.live/hls/stream.m3u8",
+      "https://mardomhls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaTurkiye.fr",
+    "name": "Persiana Turkiye",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://turkhls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PersianaVibe.fr",
+    "name": "Persiana Vibe",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raphls.persiana.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PublicSenat2424.fr",
+    "name": "Public Senat 24/24",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/publicsenat.m3u8"
+    ]
+  },
+  {
+    "id": "PuissanceTV.fr",
+    "name": "Puissance TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://event.vedge.infomaniak.com/livecast/ik:puissancetelevision/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "QwestTV.fr",
+    "name": "Qwest TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://qwestjazz-rakuten.amagi.tv/hls/amagi_hls_data_rakutenAA-qwestjazz-rakuten/CDN/master.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h153/index2.m3u8",
+      "https://amg00447-qwesttv-qwestjazz-cineverse-ve12d.amagi.tv/playlist/amg00447-qwesttv-qwestjazz-cineverse/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "QwestTVJazzBeyond.fr",
+    "name": "Qwest TV Jazz & Beyond",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://samsungau-qwestjazz-samsungtv-zw2jc.amagi.tv/playlist/samsungau-qwestjazz-samsungtv/playlist.m3u8",
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/qwestAAAA-qwestjazz-uk-samsungtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioFrontieres.fr",
+    "name": "Radio Frontieres",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/radiofrontieres.m3u8"
+    ]
+  },
+  {
+    "id": "RadioKaraoke.fr",
+    "name": "Radio Karaoke",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/radiokaraoke-2.m3u8"
+    ]
+  },
+  {
+    "id": "RFMTV.fr",
+    "name": "RFM TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/1038/index.m3u8"
+    ]
+  },
+  {
+    "id": "RMCDecouverte.fr",
+    "name": "RMC Decouverte",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/RMCDECOUVERTE/index.m3u8"
+    ]
+  },
+  {
+    "id": "RMCLife.fr",
+    "name": "RMC Life",
+    "categories": [
+      "entertainment",
+      "interactive"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/CHERIE25/index.m3u8"
+    ]
+  },
+  {
+    "id": "RMCStory.fr",
+    "name": "RMC Story",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://d15aro46bnpfm8.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-fqkqiax1078up/RMC_Story_FR.m3u8"
+    ]
+  },
+  {
+    "id": "RTFrance.fr",
+    "name": "RT France",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rt-fra.rttv.com/dvr/rtfrance/playlist.m3u8",
+      "https://rt-fra.rttv.com/live/rtfrance/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTL2.fr",
+    "name": "RTL2",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/rtl2.m3u8"
+    ]
+  },
+  {
+    "id": "ScreamIN.fr",
+    "name": "ScreamIN",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rakutenaa-zylo-screamin-rakuten-p11ej.amagi.tv/playlist/rakutenAA-zylo-screamin-rakuten/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonyOneBlacklist.fr",
+    "name": "Sony One Blacklist",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://06cb85ad6ccb4a6b97f561e62d16ad3f.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-822-FR-SONYONETHEBLACKLIST-LG_FR/playlist.m3u8",
+      "https://d1x87j1jmcypab.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonyOneFavoris.fr",
+    "name": "Sony One Favoris",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://49d735318d6b4c30a24a7997ea594e1b.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-820-FR-SONYONEFAVORIS-LG_FR/playlist.m3u8",
+      "https://d21fkiqbljd83t.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonyOneHitsAction.fr",
+    "name": "Sony One Hits Action",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5098a8b860504a3690fd2e7c0a18d68f.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-817-FR-SONYONEHITSACTION-LG_FR/playlist.m3u8",
+      "https://d1tvu4639eiqii.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonyOneHitsComedie.fr",
+    "name": "Sony One Hits Comedie",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://7aa9671895264ec9a384dfed1b992171.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-818-FR-SONYONEHITSCOMDIE-LG_FR/playlist.m3u8",
+      "https://d3nvxupr08boay.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonyOneSeriesComedie.fr",
+    "name": "Sony One Series Comedie",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://4f2a3e1ff5274297b115cf0f7da1c2cd.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-819-FR-SONYONESRIESCOMDIE-LG_FR/playlist.m3u8",
+      "https://d1d95b9dbrm3cl.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonyOneSeriesThriller.fr",
+    "name": "Sony One Series Thriller",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://483a1e90c18641c9a6d27becd41ad892.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-821-FR-SONYONESRIESTHRILLER-LG_FR/playlist.m3u8",
+      "https://d1573iiyr4aa7c.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SudRadio.fr",
+    "name": "Sud Radio",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/sudradio.m3u8"
+    ]
+  },
+  {
+    "id": "Syfy.fr",
+    "name": "Syfy",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://99.27.51.147:8080/SYFY/index.m3u8"
+    ]
+  },
+  {
+    "id": "T18.fr",
+    "name": "T18",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/t18/t18-dm.m3u8"
+    ]
+  },
+  {
+    "id": "TeleGohelle.fr",
+    "name": "TeleGohelle",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://videas.agglo-lenslievin.fr/index.m3u8"
+    ]
+  },
+  {
+    "id": "Telenantes.fr",
+    "name": "Telenantes",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/telenantes.m3u8"
+    ]
+  },
+  {
+    "id": "TiJi.fr",
+    "name": "TiJi",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/TIJI/index.m3u8"
+    ]
+  },
+  {
+    "id": "TiVi5Monde.fr",
+    "name": "TiVi5 Monde",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(tivi5)/variant.m3u8"
+    ]
+  },
+  {
+    "id": "TraceAfrica.fr",
+    "name": "Trace Africa",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/AFRICA_FR_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceAfrikora.fr",
+    "name": "Trace Afrikora",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/TERANGA_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceAyiti.fr",
+    "name": "Trace Ayiti",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/AYITI_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceBrazuca.fr",
+    "name": "Trace Brazuca",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01131-tracetv-tracebrazuca-samsungbr/playlist.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/trace-brazuca/encrypted.m3u8?ads.vf=5QzwnXm_tO0",
+      "https://amg01131-tracetv-amg01131c4-stirr-us-4390.playouts.now.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TraceCaribbean.fr",
+    "name": "Trace Caribbean",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/CARIBBEAN_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceGospel.fr",
+    "name": "Trace Gospel",
+    "categories": [
+      "music",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/GOSPEL_FR/.m3u8"
+    ]
+  },
+  {
+    "id": "TraceJama.fr",
+    "name": "Trace Jama",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/JAMA_ld/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceKitoko.fr",
+    "name": "Trace Kitoko",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/KITOKO_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceLatina.fr",
+    "name": "Trace Latina",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01131-tracetv-tracelatinait-samsungit/playlist.m3u8",
+      "https://amg01131-tracetv-tracelatina-glewed-vtnk7.amagi.tv/playlist.m3u8",
+      "https://amg01131-tracetv-tracelatina-klowdtv-v10em.amagi.tv/playlist/amg01131-tracetv-tracelatina-klowdtv/playlist.m3u8",
+      "https://amg01131-tracetv-amg01131c3-stirr-us-4391.playouts.now.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TraceMboa.fr",
+    "name": "Trace Mboa",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/MBOA_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceMuzika.fr",
+    "name": "Trace Muzika",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/MUZIKA_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceMziki.fr",
+    "name": "Trace Mziki",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/MZIKI_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceNaija.fr",
+    "name": "Trace Naija",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/NAIJA_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceSportStars.fr",
+    "name": "Trace Sport Stars",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lightning-tracesport-samsungau.amagi.tv/playlist.m3u8",
+      "http://tracesportstars-samsunges.amagi.tv/hls/amagi_hls_data_samsunguk-tracesport-samsungspain/CDN/playlist.m3u8",
+      "https://trace-sportstars-samsungnz.amagi.tv/playlist.m3u8",
+      "https://tracesportstars-klowdtv.amagi.tv/playlist.m3u8",
+      "https://amg01131-tracetv-amg01131c2-stirr-us-4392.playouts.now.amagi.tv/playlist.m3u8",
+      "http://ott.watch/XE5QWWBZ87/256/tracks-v1a1/mono.ts.m3u8"
+    ]
+  },
+  {
+    "id": "TraceToca.fr",
+    "name": "Trace Toca",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/TOCA_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TraceUrban.fr",
+    "name": "Trace Urban",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/URBAN_FR_hd/index.m3u8",
+      "https://lightning-traceurban-samsungau.amagi.tv/playlist.m3u8",
+      "https://channels.trace.plus/Traceprod/URBAN_FR/.m3u8",
+      "https://amg01131-tracetv-amg01131c1-rakuten-us-1081.playouts.now.amagi.tv/playlist/amg01131-tracetvfast-traceurban-rakutenus/playlist.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/trace-urban/encrypted.m3u8?ads.vf=TBE_v7iuzNi",
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01131-tracetv-traceurbanit-samsungit/playlist.m3u8",
+      "https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-traceurban-samsungnz/playlist.m3u8",
+      "https://amg01131-tracetv-traceurbanse-samsungse-ov22d.amagi.tv/playlist/amg01131-tracetv-traceurbanse-samsungse/playlist.m3u8",
+      "https://amg01131-tracetv-traceurbanuk-samsunguk-6r213.amagi.tv/playlist/amg01131-tracetv-traceurbanuk-samsunguk/playlist.m3u8",
+      "https://amg01131-tracetv-traceurban-glewed-g705j.amagi.tv/playlist.m3u8",
+      "https://amg01131-tracetv-traceurban-klowdtv-utiqd.amagi.tv/playlist/amg01131-tracetv-traceurban-klowdtv/playlist.m3u8",
+      "https://amg01131-tracetv-amg01131c1-stirr-us-4393.playouts.now.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TraceVanillaIslands.fr",
+    "name": "Trace Vanilla Islands",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channels.trace.plus/Traceprod/VANILLA_hd/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV3V.fr",
+    "name": "TV3V",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv3v.live-kd.com/live/tv3v/livestream/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeAfrica.fr",
+    "name": "TV5Monde Africa",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://5.9.121.178:80/tv5monde/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeAsia.fr",
+    "name": "TV5Monde Asia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://liveh12.vtvprime.vn/hls/TV5/03.m3u8",
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(seasie)/variant.m3u8",
+      "http://54.37.19.157:80/TV5MONDE/index.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h121/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MONDEChefs.fr",
+    "name": "TV5MONDE Chefs",
+    "categories": [
+      "lifestyle",
+      "cooking"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvf-tv5ch.otteravision.com/tvf/tv5ch/tv5ch.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeEurope.fr",
+    "name": "TV5Monde Europe",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(europe)/variant.m3u8",
+      "http://45.14.84.37:80/tv5monde/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeFranceBelgiumSwitzerlandMonaco.fr",
+    "name": "TV5Monde France Belgium Switzerland Monaco",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(fbs)/variant.m3u8",
+      "http://5.78.65.164:80/TV5Monde/index.m3u8",
+      "http://109.61.81.129/TV5/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeInfo.fr",
+    "name": "TV5Monde Info",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(info)/variant.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeLatinAmerica.fr",
+    "name": "TV5Monde Latin America",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.235.0.78/TV5_Monde/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondePacific.fr",
+    "name": "TV5Monde Pacific",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(pacifique)/variant.m3u8"
+    ]
+  },
+  {
+    "id": "TV5MondeStyle.fr",
+    "name": "TV5Monde Style",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott.tv5monde.com/Content/HLS/Live/channel(style1)/variant.m3u8"
+    ]
+  },
+  {
+    "id": "TV78.fr",
+    "name": "TV78",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streamtv.cdn.dvmr.fr/TV78/ngrp:tv78.stream_all/master.m3u8"
+    ]
+  },
+  {
+    "id": "TV7Colmar.fr",
+    "name": "TV7 Colmar",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv7.live-kd.com/live/tv7/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVR.fr",
+    "name": "TVR",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streamtv.cdn.dvmr.fr/TVR/ngrp:tvr.stream_all/master.m3u8"
+    ]
+  },
+  {
+    "id": "TZiK.fr",
+    "name": "TZiK",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://54627d4fc5996.streamlock.net/tzik/tzik/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "ViaMatele.fr",
+    "name": "ViaMatele",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5dd226f8f01e8.streamlock.net/via-matele-live/matelelive_1080/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ViaOccitanie.fr",
+    "name": "ViaOccitanie",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer01.myvideoplace.tv/streamer02/hls/MDS_VIA_PAD_301117.m3u8"
+    ]
+  },
+  {
+    "id": "viaTelePaese.fr",
+    "name": "viaTelePaese",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv.webtvmanager.fr:3970/live/viatelepaeselive.m3u8"
+    ]
+  },
+  {
+    "id": "VosgesTV.fr",
+    "name": "Vosges TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://vosgestv.live-kd.com/live/vosgestv/vosgestv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "W9.fr",
+    "name": "W9",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://origin-m6web.live.6cloud.fr/out/v1/6play/6play-w9/cmaf_q2hyb21h/hls-short-hd720.m3u8",
+      "https://origin-m6web.live.6cloud.fr/out/v1/6play/6play-w9/cmaf_q2hyb21h/hls-short-hd.m3u8"
+    ]
+  },
+  {
+    "id": "WildSideTV.fr",
+    "name": "Wild Side TV",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-60b4d6c806ad2a00073b3108.m3u8"
+    ]
+  },
+  {
+    "id": "zenith.fr",
+    "name": "zenith",
+    "categories": [
+      "general",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.azenagroup.com/zenith/index.ll.m3u8",
+      "https://live.azenagroup.com/zenith/index.m3u8"
+    ]
+  }
+]

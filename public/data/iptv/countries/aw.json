@@ -1,0 +1,106 @@
+[
+  {
+    "id": "ArubaTV.aw",
+    "name": "Aruba.TV",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn01.setar.aw/Canal49/canal49/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BalchiTV.aw",
+    "name": "Balchi TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtmpcontrol.com:1936/balchitv/balchitv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CoolFM989.aw",
+    "name": "Cool FM 98.9",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live2.tensila.com/cool-v-1.arubara/hls/master.m3u8"
+    ]
+  },
+  {
+    "id": "NosIslaTV.aw",
+    "name": "Nos Isla TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://backend-server-dot-telearuba-app.appspot.com/media/livestream23/playlist.m3u8",
+      "https://cdn01.setar.aw/Canal23/canal23/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Power1017FM.aw",
+    "name": "Power 101.7 FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp11.myplaytv.com/powerfm/powerfm/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telearuba.aw",
+    "name": "Telearuba",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://backend-server-dot-telearuba-app.appspot.com/media/livestream13/playlist.m3u8",
+      "https://cdn01.setar.aw/Telearuba/telearuba/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VIPTV.aw",
+    "name": "VIP TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ed5ov1.live.opencaster.com/bkyqeDgfaukC/index.m3u8",
+      "https://vs20.live.opencaster.com/viptvaruba_01e417ae/index.m3u8"
+    ]
+  },
+  {
+    "id": "WavezFM.aw",
+    "name": "Wavez FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vs20.live.opencaster.com/wavezfm1075aruba_37766c9d/index.m3u8",
+      "https://media.streambrothers.com:1936/uszqnhpjpa/uszqnhpjpa/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "X1027FM.aw",
+    "name": "X 102.7 FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.castr.com/65dee3aad6beacddbd6cd1af/live_21e811c0d60d11eeaa1a471c2c967e4a/index.m3u8",
+      "https://live2.tensila.com/onair-v-1.xfm1027/hls/master.m3u8"
+    ]
+  }
+]

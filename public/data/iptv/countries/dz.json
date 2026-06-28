@@ -1,0 +1,69 @@
+[
+  {
+    "id": "AL24News.dz",
+    "name": "AL24 News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/corp/66_al24_u4yga6h_240p/chunks.m3u8"
+    ]
+  },
+  {
+    "id": "AmouYazidTV.dz",
+    "name": "Amou Yazid TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://mkstream.servehttp.com:1940/AmouYazid/ay1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CNA.dz",
+    "name": "CNA",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.creacast.com/cna/stream/playlist.m3u8",
+      "https://live.creacast.com/cna/smil:cna.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ElHeddafTV.dz",
+    "name": "El-Heddaf TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.elheddaftv.com:8081/elheddaf/index.mpd"
+    ]
+  },
+  {
+    "id": "ElwataniaTV.dz",
+    "name": "Elwatania TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livesstream.work.gd:5443/WebRTCApp/streams/stream.m3u8"
+    ]
+  },
+  {
+    "id": "TV2.dz",
+    "name": "TV2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.9.2.18/chid_347/index.m3u8"
+    ]
+  }
+]

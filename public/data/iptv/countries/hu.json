@@ -1,0 +1,1080 @@
+[
+  {
+    "id": "16tvBudapest.hu",
+    "name": "16tv Budapest",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/16tv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "7TV.hu",
+    "name": "7.TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.y5.hu/stream/stream_bekescsaba/stream.m3u8"
+    ]
+  },
+  {
+    "id": "AlfoldTV.hu",
+    "name": "Alfold TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront41.lexanetwork.com:1344/relay01/livestream006.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ApostolTV.hu",
+    "name": "Apostol TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.apostoltv.hu/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ATV.hu",
+    "name": "ATV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/atv/index.m3u8",
+      "https://stream.atv.hu/atvlive/atvstream_2_aac/playlist.m3u8",
+      "https://streamservers.atv.hu/atvlive/atvstream_1_aac/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ATVSpirit.hu",
+    "name": "ATV Spirit",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/atvspirit/index.m3u8",
+      "https://streamservers.atv.hu/atvliveedge/_definst_/atvstream_2_aac/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AXNSpin.hu",
+    "name": "AXN Spin",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/AXNSpin/index.m3u8",
+      "http://xplatinmedia.com:8080/@mouilha20/IfXR3J0mu6kes9eunQPVa7kl8YO8iw/85611"
+    ]
+  },
+  {
+    "id": "BajaiTV.hu",
+    "name": "Bajai TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront41.lexanetwork.com:1344/relay01/livestream002.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BalatonTV.hu",
+    "name": "Balaton TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.iptvservice.eu/hls/balatontv.m3u8"
+    ]
+  },
+  {
+    "id": "BerenteTV.hu",
+    "name": "Berente TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/BerenteTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "BTV.hu",
+    "name": "BTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/babolnatv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BudapestEuropaTelevizio.hu",
+    "name": "Budapest Europa Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/bpetv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CityTV.hu",
+    "name": "City TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://citytv.hu/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CoolTV.hu",
+    "name": "Cool TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/coolhd/index.m3u8"
+    ]
+  },
+  {
+    "id": "CsurgoTV.hu",
+    "name": "Csurgo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://79.120.178.90:1935/csurgotv/csurgolive/playlist.m3u8",
+      "https://5cd03f21c7193.streamlock.net/csurgotv/csurgolive/playlist.m3u8",
+      "https://cstv.medialivecdn.hu/csurgotv/27725804dc13aa23b3970414524d2dbf.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DaruTV.hu",
+    "name": "Daru TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cd03f21c7193.streamlock.net/darutv/darutvlive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DikhTV.hu",
+    "name": "Dikh TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "http://195.189.60.31:8003/play/a0gq/index.m3u8"
+    ]
+  },
+  {
+    "id": "DSTV.hu",
+    "name": "DSTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://79.120.178.90:1935/dstv/dstvlive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DTV.hu",
+    "name": "DTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://cloudfront44.lexanetwork.com:1732/hlsrelay003/hls/livestream.sdp.m3u8"
+    ]
+  },
+  {
+    "id": "Duna.hu",
+    "name": "Duna",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/dunahd/index.m3u8"
+    ]
+  },
+  {
+    "id": "DunaWorld.hu",
+    "name": "Duna World",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/dunaworld/index.m3u8"
+    ]
+  },
+  {
+    "id": "EgykerTV.hu",
+    "name": "Egyker TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv01.eurocable.co.hu/EC-EGYKERTVHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ESTV.hu",
+    "name": "ESTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/HDE032.sdp/playlist.m3u8",
+      "https://cloudfront44.lexanetwork.com:1344/relay44_1/HDE040.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EWTNBonumTV.hu",
+    "name": "EWTN/Bonum TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/ewtn_bonum/index.m3u8"
+    ]
+  },
+  {
+    "id": "FehervarTV.hu",
+    "name": "Fehervar TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/fehervartv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FilmMania.hu",
+    "name": "Film Mania",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9015/play/a00v"
+    ]
+  },
+  {
+    "id": "FIXTV.hu",
+    "name": "FIX TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://fixhd.tv:8082/fix/1080i/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GloboTV.hu",
+    "name": "Globo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/GloboTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "GolyaTV.hu",
+    "name": "Golya TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/GolyaTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "GranTV.hu",
+    "name": "Gran TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.medialive.hu/gran/grantvlive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GyongyosiTV.hu",
+    "name": "Gyongyosi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront41.lexanetwork.com:1344/relay02/livestream005.sdp/playlist.m3u8",
+      "https://cloudfront44.lexanetwork.com:1344/relay44_1/HDE043.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HangulatTV.hu",
+    "name": "Hangulat TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv01.eurocable.co.hu/EC-HANGULATTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "Hatoscsatorna.hu",
+    "name": "Hatoscsatorna",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hatoscsatorna.hu:8082/Hatoscsatorna/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HegyvidekTV.hu",
+    "name": "Hegyvidek TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.hegyvidek.hu/stream_mpeg.flv",
+      "https://iptv02.eurocable.co.hu:15400/EC-HEGYVIDEKTV-FTA/index.m3u8"
+    ]
+  },
+  {
+    "id": "HeviziTV.hu",
+    "name": "Hevizi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay03/livestream003.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HirTV.hu",
+    "name": "Hir TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video11.videa.hu/static/live/8.2966061.2530409.1.5.590.590/index.m3u8"
+    ]
+  },
+  {
+    "id": "HtMusicChannel.hu",
+    "name": "H!t Music Channel",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://hitmusic.hu/hitmusic.m3u8"
+    ]
+  },
+  {
+    "id": "IzauraTV.hu",
+    "name": "Izaura TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/izaura/index.m3u8"
+    ]
+  },
+  {
+    "id": "JaszsagiTersegiTV.hu",
+    "name": "Jaszsagi Tersegi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/broadcast007.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JockyTV.hu",
+    "name": "Jocky TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/jocky/index.m3u8"
+    ]
+  },
+  {
+    "id": "KanizsaTV.hu",
+    "name": "Kanizsa TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/kanizsavtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KaposTV.hu",
+    "name": "Kapos TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront63.lexanetwork.com:1344/relay01/livestream004.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KarcagTV.hu",
+    "name": "Karcag TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront41.lexanetwork.com:1344/relay03/livestream003.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KecskemetiTV.hu",
+    "name": "Kecskemeti TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://rtmp1.40e.hu:8000/live/ktv.m3u8",
+      "https://eurobioinvest.hu:444/live/ktv.m3u8"
+    ]
+  },
+  {
+    "id": "KiskorosTV.hu",
+    "name": "Kiskoros TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cd03f21c7193.streamlock.net/kiskorostv/korostvlive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KomaromiTelevizio.hu",
+    "name": "Komaromi Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/HDE017.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KomlosTV.hu",
+    "name": "Komlos TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/KomlosTV/tracks-v1a1/mono.m3u8"
+    ]
+  },
+  {
+    "id": "LiceumTV.hu",
+    "name": "Liceum TV",
+    "categories": [
+      "culture",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://193.225.32.62:8890/live.m3u8"
+    ]
+  },
+  {
+    "id": "Loversenykozvetites.hu",
+    "name": "Loverseny kozvetites",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://87.229.103.60:1935/liverelay/loverseny2.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "M1.hu",
+    "name": "M1",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/m1sd/index.m3u8",
+      "http://195.189.60.31:8003/play/a09o/index.m3u8"
+    ]
+  },
+  {
+    "id": "M2.hu",
+    "name": "M2",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/m2_hun/index.m3u8",
+      "http://146.59.85.40:89/m2hd/index.m3u8",
+      "http://195.189.60.31:8003/play/a0f1/index.m3u8",
+      "http://146.59.85.40:89/m2/index.m3u8"
+    ]
+  },
+  {
+    "id": "M2Petofi.hu",
+    "name": "M2 Petofi",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9005/play/a016"
+    ]
+  },
+  {
+    "id": "M4Sport.hu",
+    "name": "M4 Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/m4_hun/index.m3u8"
+    ]
+  },
+  {
+    "id": "M4SportPlus.hu",
+    "name": "M4 Sport+",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9007/play/a02q"
+    ]
+  },
+  {
+    "id": "M5.hu",
+    "name": "M5",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_m_5_hun_atk_1200/playlist.m3u8",
+      "http://146.59.85.40:89/m5/index.m3u8"
+    ]
+  },
+  {
+    "id": "MakoiVarosiTelevizio.hu",
+    "name": "Makoi Varosi Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://makomedia.mikrohalo.hu/hls/makotv.m3u8"
+    ]
+  },
+  {
+    "id": "MAX4.hu",
+    "name": "MAX4",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/max4/index.m3u8"
+    ]
+  },
+  {
+    "id": "MezokovesdiTelevizio.hu",
+    "name": "Mezokovesdi Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/mezokovesdvtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Minimax.hu",
+    "name": "Minimax",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9002/play/a01y"
+    ]
+  },
+  {
+    "id": "MoraNetTV.hu",
+    "name": "Mora-Net TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.moranettv.hu/live/index.m3u8"
+    ]
+  },
+  {
+    "id": "ObudaTV.hu",
+    "name": "Obuda TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/ObudaTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "OroszlanyiVarosiTelevizio.hu",
+    "name": "Oroszlanyi Varosi Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/broadcast002.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OrszaggyulesOGYplenaris.hu",
+    "name": "Orszaggyules: OGY plenaris",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "http://plenaris.parlament.hu:1935/edgelive/smil:mkogyplen.smil/playlist.m3u8",
+      "https://plenaris.parlament.hu:446/edgelive/smil:mkogyplen.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OrszaggyulesOGYTAB.hu",
+    "name": "Orszaggyules: OGY TAB",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tab.parlament.hu:1935/edgelive/smil:mkogytab.smil/playlist.m3u8",
+      "https://tab.parlament.hu:446/edgelive/smil:mkogytab.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OzdiVarosiTV.hu",
+    "name": "Ozdi Varosi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://stream.nmih.hu:7980/live.m3u8"
+    ]
+  },
+  {
+    "id": "PilisTV.hu",
+    "name": "PilisTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/PilisTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "PVTV.hu",
+    "name": "PVTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://78.47.126.198:5080/LiveApp/streams/902003217052313577741820.m3u8?token=null"
+    ]
+  },
+  {
+    "id": "RakosmenteTV.hu",
+    "name": "Rakosmente TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://rakosmentetv.hu:8080/hls/rmtv.m3u8"
+    ]
+  },
+  {
+    "id": "RegioPluszTV.hu",
+    "name": "RegioPlusz TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/RegioPluszTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTL.hu",
+    "name": "RTL",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9005/play/a018"
+    ]
+  },
+  {
+    "id": "RTLGold.hu",
+    "name": "RTL Gold",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://195.189.60.31:8003/play/a0dy/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTLHarom.hu",
+    "name": "RTL Harom",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9005/play/a01t"
+    ]
+  },
+  {
+    "id": "RTLKetto.hu",
+    "name": "RTL Ketto",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9005/play/a01r"
+    ]
+  },
+  {
+    "id": "SIXOTV.hu",
+    "name": "SIXO TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/HDE038.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SoltvadkertiTelevizio.hu",
+    "name": "Soltvadkerti Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://79.120.178.90:1935/soltvadkerttv/soltvlive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sport1.hu",
+    "name": "Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9005/play/a017",
+      "http://46.149.191.217:9018/play/a01d"
+    ]
+  },
+  {
+    "id": "Sport2.hu",
+    "name": "Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9018/play/a01e"
+    ]
+  },
+  {
+    "id": "SzecsenyTV.hu",
+    "name": "Szecseny TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://iptv.eurocable.co.hu/EC-SZECSENYTVHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "SzolnokTV.hu",
+    "name": "Szolnok TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/livestream004.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TataiTV.hu",
+    "name": "Tatai TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/broadcast006.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TelePaks.hu",
+    "name": "TelePaks",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay02/livestream004.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TiszaTV.hu",
+    "name": "Tisza TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://www.tiszatv.hu/onlinetv/tiszatv_1.m3u8"
+    ]
+  },
+  {
+    "id": "TrimedioTV.hu",
+    "name": "Trimedio TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/TriMedioTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV2.hu",
+    "name": "TV2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9005/play/a01q"
+    ]
+  },
+  {
+    "id": "TV2Kids.hu",
+    "name": "TV2 Kids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://146.59.85.40:89/tv2kids/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVBudakalasz.hu",
+    "name": "TV Budakalasz",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/TVBudakalasz/tracks-v1a1/mono.m3u8"
+    ]
+  },
+  {
+    "id": "TVEger.hu",
+    "name": "TV Eger",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://stream.tveger.hu:8010/live.m3u8"
+    ]
+  },
+  {
+    "id": "TVKeszthely.hu",
+    "name": "TV Keszthely",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/keszthelyivtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSzentendre.hu",
+    "name": "TV Szentendre",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.streaming4u.hu/TVSzentendre/index.m3u8"
+    ]
+  },
+  {
+    "id": "VasarhelyiTelevizio.hu",
+    "name": "Vasarhelyi Televizio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.vasarhelyitelevizio.hu/stream/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Viasat2.hu",
+    "name": "Viasat2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9009/play/a023"
+    ]
+  },
+  {
+    "id": "ViasatFilm.hu",
+    "name": "Viasat Film",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.149.191.217:9009/play/a028"
+    ]
+  },
+  {
+    "id": "VolgyhidTV.hu",
+    "name": "Volgyhid TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cd03f21c7193.streamlock.net/volgyhidtv/mediakft/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VTVFuzesabony.hu",
+    "name": "VTV Fuzesabony",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.nmih.hu:7962/live.m3u8"
+    ]
+  },
+  {
+    "id": "VTVMor.hu",
+    "name": "VTV Mor",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/morvtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "WilliamsTV.hu",
+    "name": "Williams TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://79.120.178.90:1935/williams/williamstv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "XVTV.hu",
+    "name": "XV TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/relay01/HDE051.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ZalaegerszegiTV.hu",
+    "name": "Zalaegerszegi TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/zegtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ZugloTV.hu",
+    "name": "Zuglo TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudfront44.lexanetwork.com:1344/freerelay/zuglotv.sdp/playlist.m3u8"
+    ]
+  }
+]

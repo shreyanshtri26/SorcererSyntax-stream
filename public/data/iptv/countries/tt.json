@@ -1,0 +1,36 @@
+[
+  {
+    "id": "SankhyaTV.tt",
+    "name": "Sankhya TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c59fd5680a05.streamlock.net/live/_definst_/ngrp:SANKHYATV.stream_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TheIslamicNetwork.tt",
+    "name": "The Islamic Network",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://daruttarbiyah.srfms.com:1935/daruttarbiyah/livestream/playlist.m3u8",
+      "https://video1.getstreamhosting.com:1936/8322/8322/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TrinityTV.tt",
+    "name": "Trinity TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d00db0e0fcd5.streamlock.net/7410/7410/playlist.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,750 @@
+[
+  {
+    "id": "360RFTV.cr",
+    "name": "360 RFTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acceso.mediosdecostarica.com:3638/live/360rftvcrlive.m3u8"
+    ]
+  },
+  {
+    "id": "88Stereo.cr",
+    "name": "88 Stereo",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AgrotendenciaTV.cr",
+    "name": "Agrotendencia TV",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5fc584f3f19c9.streamlock.net/agrotendencia/videoagrotendencia_hls1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AntenaSeisTV.cr",
+    "name": "Antena Seis TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.azulstream.com:8081/antenaseistv/index.m3u8"
+    ]
+  },
+  {
+    "id": "BestClasicosTV.cr",
+    "name": "BestClasicosTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://acceso.mediosdecostarica.com:3873/hybrid/play.m3u8",
+      "https://acceso.mediosdecostarica.com:3873/multi_live/play.m3u8",
+      "https://acceso.mediosdecostarica.com:3873/live/bestclasicostvlive.m3u8"
+    ]
+  },
+  {
+    "id": "Canal1.cr",
+    "name": "Canal 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vid.canal1cr.com:3424/multi_live/play_720.m3u8"
+    ]
+  },
+  {
+    "id": "Canal10.cr",
+    "name": "Canal 10",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acceso.mediosdecostarica.com:3606/live/canal10costaricalive.m3u8",
+      "https://acceso.mediosdecostarica.com:3606/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "Canal11.cr",
+    "name": "Canal 11",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-cr-repretel-c11.stream.mediatiquestream.com/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal2.cr",
+    "name": "Canal 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-cr-repretel-c2.stream.mediatiquestream.com/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal3KMKTV.cr",
+    "name": "Canal 3 KMK TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/giatv/giatv-KMKTV/KMKTV/chunks.m3u8"
+    ]
+  },
+  {
+    "id": "Canal4.cr",
+    "name": "Canal 4",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-cr-repretel-c4.stream.mediatiquestream.com/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal6.cr",
+    "name": "Canal 6",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-cr-repretel-c6.stream.mediatiquestream.com/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal8.cr",
+    "name": "Canal 8",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mdstrm.com/live-stream-playlist/5a7b1e63a8da282c34d65445.m3u8"
+    ]
+  },
+  {
+    "id": "CartagoMediosTV.cr",
+    "name": "Cartago Medios TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acceso.mediosdecostarica.com:3511/stream/play.m3u8",
+      "https://acceso.mediosdecostarica.com:3511/live/cartagomediostvlive.m3u8"
+    ]
+  },
+  {
+    "id": "ColosalTV.cr",
+    "name": "Colosal TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tv.ticosmedia.com:1935/COLOSAL/COLOSAL/playlist.m3u8",
+      "https://5eac7b031d945.streamlock.net/COLOSAL/COLOSAL/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ConexionPositivaTelevision.cr",
+    "name": "Conexion Positiva Television",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvstream.conexionpositivaradio.com/memfs/69239c4d-4116-4f4f-b065-bf17e81b1411.m3u8"
+    ]
+  },
+  {
+    "id": "CostaRicaChannel.cr",
+    "name": "Costa Rica Channel",
+    "categories": [
+      "culture",
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video0.rogohosting.com:19360/8006/8006.m3u8"
+    ]
+  },
+  {
+    "id": "CotoBrusTV.cr",
+    "name": "Coto Brus TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudvideo.servers10.com:8081/8030/index.m3u8"
+    ]
+  },
+  {
+    "id": "CristoVisionCanal31.cr",
+    "name": "Cristo Vision Canal 31",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://3a310f6ec721e6b362fcd22772b57f36a2fe6bb2.tabeelcr.com:8080/cristovision31/iptv.m3u8"
+    ]
+  },
+  {
+    "id": "Enlace.cr",
+    "name": "Enlace",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdn.enlace.plus/enlace/smil:enlace-hd.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EnlaceJuvenil.cr",
+    "name": "Enlace Juvenil",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdnusa.enlace.plus/ejtv/smil:ejtv-hd.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ExtremaKidsTV.cr",
+    "name": "Extrema Kids TV",
+    "categories": [
+      "animation",
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://627bb251f23c7.streamlock.net:444/ExtremaKids/ExtremaKids/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ExtremaTV.cr",
+    "name": "Extrema TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://627bb251f23c7.streamlock.net:444/ExtremaTV/ExtremaTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GAMTVcr.cr",
+    "name": "GAMTV.cr",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v2.azulstream.com:8081/gamtv/gamtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "GarabitoTV.cr",
+    "name": "Garabito TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/garabitoTV/garabitotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GexTV.cr",
+    "name": "Gex TV",
+    "categories": [
+      "music",
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/gextvaccess/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GuatusoTV.cr",
+    "name": "Guatuso TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/8176/8176/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ImpactChannel.cr",
+    "name": "Impact Channel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5fe2654d6127d.streamlock.net/impactchannel/videoimpactchannel/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IQChannel.cr",
+    "name": "IQ Channel",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtmp.info/iqtv/envivo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaPotenteRadioTV.cr",
+    "name": "La Potente Radio TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://latamvdo.com:3626/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "LimonTV.cr",
+    "name": "Limon TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://k4.usastreams.com/limontv1/limontv1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LosSantosTV.cr",
+    "name": "Los Santos TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lstv.duckdns.org:449/hls/lstv.m3u8"
+    ]
+  },
+  {
+    "id": "LuzNacienteTV.cr",
+    "name": "Luz Naciente TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streeming.protoscr.com:3858/live/streeminglive.m3u8"
+    ]
+  },
+  {
+    "id": "NicoyaTV.cr",
+    "name": "NicoyaTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/nicoyatv/nicoyatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NorteInformativoTV.cr",
+    "name": "Norte Informativo TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://videohd.live:19360/8076/8076.m3u8"
+    ]
+  },
+  {
+    "id": "OPA.cr",
+    "name": "¡OPA!",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5fc584f3f19c9.streamlock.net/genteopa/videogenteopa/playlist.m3u8",
+      "https://5f1af61612fb5.streamlock.net/genteopa/videogenteopa_720p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "QuinceUCR.cr",
+    "name": "Quince UCR",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://163.178.170.127:1935/quinceucr/quinceucr/playlist.m3u8",
+      "https://wowza.ucr.ac.cr/quinceucr/_definst_/quinceucr.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioTurrialbaTVSports.cr",
+    "name": "Radio Turrialba TV Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-stream.iblups.com/live/a5ae024a1bbc4a05a68debbc9d379db6bb6a6da3.m3u8",
+      "https://sc1.escuela4.com/live/d7316d659b5a77fb8719d49330315886807b02b0.m3u8",
+      "https://sc2.escuela4.com/live/92974f62a8d5e5caf8f6d1c98fe9b2615f2238c5.m3u8"
+    ]
+  },
+  {
+    "id": "RetroxTV.cr",
+    "name": "Retrox TV",
+    "categories": [
+      "classic"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/retyroxtv/playlist.m3u8",
+      "https://live20.bozztv.com/giatv/giatv-TVCHANNEL/TVCHANNEL/chunks.m3u8",
+      "https://live20.bozztv.com/giatv/giatv-TVCHANNEL/TVCHANNEL/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTTV.cr",
+    "name": "RTTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cloudvideo.servers10.com:19360/8212/8212.m3u8"
+    ]
+  },
+  {
+    "id": "RTVChirripo.cr",
+    "name": "RTV Chirripo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lstv.duckdns.org:449/hls/rtchirripo.m3u8"
+    ]
+  },
+  {
+    "id": "SanJoseTV.cr",
+    "name": "San Jose TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtmp.info/sanjosetv/envivo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SanVitoTelevision.cr",
+    "name": "San Vito Television",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.lamegatv.com/hls/sanvitotelevision/index.m3u8"
+    ]
+  },
+  {
+    "id": "SarapiquiTV.cr",
+    "name": "Sarapiqui TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tiquiciatv.com:1935/stv/web/playlist.m3u8",
+      "https://lstv.duckdns.org:449/hls/stv.m3u8"
+    ]
+  },
+  {
+    "id": "SOYPlanchaTV.cr",
+    "name": "SOY Plancha TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/vmtv/soyplancha/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SuperCable.cr",
+    "name": "Super Cable",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://191.102.39.254:5000/live/5up3r5/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TDtv.cr",
+    "name": "TDtv",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudvideo.servers10.com:8081/8230/index.m3u8"
+    ]
+  },
+  {
+    "id": "TeleBrunca.cr",
+    "name": "TeleBrunca",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/telebrunca/telebrunca/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telefides.cr",
+    "name": "Telefides",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s2.cwebtv.net:4433/telefides/telefides/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleMas.cr",
+    "name": "TeleMas",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acceso.mediosdecostarica.com:3192/hybrid/play.m3u8",
+      "https://mist01.homestream.fun/hls/tlmas904/0_1/index.m3u8"
+    ]
+  },
+  {
+    "id": "TeleredTelevision.cr",
+    "name": "Telered Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://k20.usastreams.com:8081/telered/index.m3u8"
+    ]
+  },
+  {
+    "id": "TeleSURCostaRica.cr",
+    "name": "TeleSUR Costa Rica",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://s1.tvdatta.com:3582/live/telesurlive.m3u8"
+    ]
+  },
+  {
+    "id": "Teletica7.cr",
+    "name": "Teletica 7",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn01.teletica.com/TeleticaLiveStream/Stream/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "TeleUno.cr",
+    "name": "Tele Uno",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://tv.teleunotv.cr:1935/TVUNO/TVUNO/playlist.m3u8",
+      "https://5d16127744872.streamlock.net/TVUNO/TVUNO/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TicaVision.cr",
+    "name": "TicaVision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5eac7b031d945.streamlock.net/TICAVISION/TICAVISION/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TigoSports.cr",
+    "name": "Tigo Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/livetigocr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Trivision36.cr",
+    "name": "Trivision 36",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://liveingesta118.cdnmedia.tv/trivisionlive/rtmp01-900/chunklist.m3u8?DVR="
+    ]
+  },
+  {
+    "id": "TV8.cr",
+    "name": "TV8",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://k20.usastreams.com:8081/tv8/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVN14.cr",
+    "name": "TVN 14",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://tvn.obix.tv:1935/TVN/CH14.stream_720p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSurCanal14.cr",
+    "name": "TV Sur Canal 14",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://k20.usastreams.com:8081/tvsur/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVSurCanal9.cr",
+    "name": "TV Sur Canal 9",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://tv.ticosmedia.com:1935/TVSUR/TVSUR/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UrbanoTV.cr",
+    "name": "Urbano TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/tvurbano/tvurbano/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VideoTourChannel.cr",
+    "name": "Video Tour Channel",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://k4.usastreams.com/videotour/videotour/playlist.m3u8",
+      "https://59ef525c24caa.streamlock.net/videotour/videotour/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VintageMusic.cr",
+    "name": "Vintage Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/vmtv/tvvintage/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VMLatino.cr",
+    "name": "VM Latino",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59ef525c24caa.streamlock.net/vmtv/vmlatino/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VoiceOverRadioTV.cr",
+    "name": "VoiceOver Radio TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudvideo.servers10.com:8081/8198/index.m3u8"
+    ]
+  },
+  {
+    "id": "ZonaMusicTV.cr",
+    "name": "Zona Music TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acceso.radiosportstv.online:3022/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "ZurquiTV.cr",
+    "name": "Zurqui TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://videoserver.tmcreativos.com:19360/gesfnvpamn/gesfnvpamn.m3u8"
+    ]
+  }
+]

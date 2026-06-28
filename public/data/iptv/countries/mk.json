@@ -1,0 +1,297 @@
+[
+  {
+    "id": "Alsat.mk",
+    "name": "Alsat",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(Alsat_M)/index.m3u8"
+    ]
+  },
+  {
+    "id": "CoolTV.mk",
+    "name": "Cool TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nasatv.com.mk/cooltv/hls/cooltv_live.m3u8"
+    ]
+  },
+  {
+    "id": "FolkTV.mk",
+    "name": "Folk TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nasatv.com.mk/folktv/hls/folktv_live.m3u8"
+    ]
+  },
+  {
+    "id": "JazzTV.mk",
+    "name": "Jazz TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nasatv.com.mk/jazztv/hls/jazztv_live.m3u8"
+    ]
+  },
+  {
+    "id": "Kanal5.mk",
+    "name": "Kanal 5",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s2.teve.mk/tvstanici/2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LoveTV.mk",
+    "name": "Love TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nasatv.com.mk/lovetv/hls/lovetv_live.m3u8"
+    ]
+  },
+  {
+    "id": "MNetHD.mk",
+    "name": "M-Net HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ares.mnet.mk/hls/mnet.m3u8",
+      "https://live.mnet.mk/hls/mnet.m3u8"
+    ]
+  },
+  {
+    "id": "MNetInfo.mk",
+    "name": "M-Net Info",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.mnet.mk/hls/mnet-info.m3u8"
+    ]
+  },
+  {
+    "id": "MNetKids.mk",
+    "name": "M-Net Kids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ares.mnet.mk/hls/mnet-kids.m3u8"
+    ]
+  },
+  {
+    "id": "MNetSport.mk",
+    "name": "M-Net Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ares.mnet.mk/hls/mnet-sport.m3u8",
+      "https://live.mnet.mk/hls/mnet-sport.m3u8"
+    ]
+  },
+  {
+    "id": "MRT1.mk",
+    "name": "MRT 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s1.teve.mk/tvstanici/6/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MRT2.mk",
+    "name": "MRT 2",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(MRT_2)/index.m3u8"
+    ]
+  },
+  {
+    "id": "MRTSobraniskikanal.mk",
+    "name": "MRT Sobraniski kanal",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(Sobraniski_Kanal)/index.m3u8"
+    ]
+  },
+  {
+    "id": "MTM.mk",
+    "name": "MTM",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(MTM)/index.m3u8"
+    ]
+  },
+  {
+    "id": "NasaTV.mk",
+    "name": "Nasa TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nasatv.com.mk/hls/nasatv_live.m3u8"
+    ]
+  },
+  {
+    "id": "RockTV.mk",
+    "name": "Rock TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nasatv.com.mk/rocktv/hls/rocktv_live.m3u8"
+    ]
+  },
+  {
+    "id": "Sitel.mk",
+    "name": "Sitel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://51.178.133.43:8081/tvstanici/s1/playlist.m3u8",
+      "https://teve.mk/tvstanici/s1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SkyFolkTV.mk",
+    "name": "Sky Folk TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://eu.live.skyfolk.mk/live.m3u8",
+      "https://skyfolk.mk/live.m3u8"
+    ]
+  },
+  {
+    "id": "StarPlusTelevizija.mk",
+    "name": "Star Plus Televizija",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.muzickatv.mk/live/StarMusic2.m3u8"
+    ]
+  },
+  {
+    "id": "SutelTV.mk",
+    "name": "Sutel TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(Shutel)/index.m3u8"
+    ]
+  },
+  {
+    "id": "TopEstradaTV.mk",
+    "name": "TopEstrada TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://live.topestrada.com/live/topestrada/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV21.mk",
+    "name": "TV21",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(TV21)/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV24.mk",
+    "name": "TV 24",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://s1.teve.mk/tvstanici/5/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVERA.mk",
+    "name": "TV ERA",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(ERA)/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVNOVA12.mk",
+    "name": "TV NOVA 12",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.236.247.171:8080/nova/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVShenja.mk",
+    "name": "TV Shenja",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://vipottbpkstream.vip.hr/Content/onevip-hls/Live/Channel(TV_Shenja)/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVZdravkin.mk",
+    "name": "TV Zdravkin",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://zdravkin.hugo.mk:1935/live/zdravkin/playlist.m3u8"
+    ]
+  }
+]

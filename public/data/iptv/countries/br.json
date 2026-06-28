@@ -1,0 +1,2559 @@
+[
+  {
+    "id": "1001Noites.br",
+    "name": "1001 Noites",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-8155/ngrp:LVW8155_41E1ciuCvO_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AdessoTV.br",
+    "name": "Adesso TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-9715/LVW9715_12B26T62tm/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AgroBrasilTV.br",
+    "name": "AgroBrasil TV",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.162.230.234:1935/agrobrasiltv/agrobrasiltv/playlist.m3u8",
+      "https://server.flixtv.com.br/agrobrasiltv/agrobrasiltv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlphaChannel.br",
+    "name": "Alpha Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b01a3d32b65c.streamlock.net:1936/tvalpha/tvalpha/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AmazonSat.br",
+    "name": "Amazon Sat",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArarunaTV.br",
+    "name": "Araruna TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video05.logicahost.com.br/ararunatv/ararunatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AratuOn.br",
+    "name": "Aratu On",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/w/LVW-9359/LVW9359_XSyReL0QVf/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Arte1.br",
+    "name": "Arte 1",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/Arte_1_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "AWTV.br",
+    "name": "AWTV",
+    "categories": [
+      "classic",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://awtv.nuvemplay.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "BandNews.br",
+    "name": "BandNews",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-5.nxplay.com.br/BAND_NEWS/index.m3u8",
+      "http://143.14.178.40:7777/Band_News_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "BandSports.br",
+    "name": "Band Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-5.nxplay.com.br/BAND_SPORTS/index.m3u8",
+      "http://143.14.178.40:7777/Band_Sports_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "BDCTV.br",
+    "name": "BDC TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.kshost.com.br/bdctv/bdctv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Bis.br",
+    "name": "Bis",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/BIS_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "Blitstv.br",
+    "name": "Blitstv",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.transmissaodigital.com/blitstv/blitstv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BMCNews.br",
+    "name": "BM&C News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-666c9c60a7efd40008f552f0.m3u8"
+    ]
+  },
+  {
+    "id": "BoasNovas.br",
+    "name": "Boas Novas",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-9375/LVW9375_6i0wPBCHYc/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BR8TV.br",
+    "name": "BR8 TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/w/LVW-11668/ngrp:LVW11668_wiJpjbMrks_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CaboFrioTV.br",
+    "name": "Cabo Frio TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59f2354c05961.streamlock.net:1443/ararutv/_definst_/ararutv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canal25Jundiai.br",
+    "name": "Canal 25 Jundiai",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream01.msolutionbrasil.com.br/hls/canal25/live.m3u8"
+    ]
+  },
+  {
+    "id": "Canal38.br",
+    "name": "Canal 38",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-8503/LVW8503_d0V5oduFlK/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanaldoCriador.br",
+    "name": "Canal do Criador",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://607d2a1a47b1f.streamlock.net/crur/smil:canaldocriador.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanaldoInter.br",
+    "name": "Canal do Inter",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.soultv.com.br/internacional/internacional/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanalEducacao.br",
+    "name": "Canal Educacao",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://canaleducacao-stream.ebc.com.br/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalFDR.br",
+    "name": "Canal FDR",
+    "categories": [
+      "general",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v-us-01.wisestream.io/memfs/e4ade538-7924-4359-81ef-b9d4dd229e91.m3u8"
+    ]
+  },
+  {
+    "id": "CanalGov.br",
+    "name": "Canal Gov",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://canalgov-stream.ebc.com.br/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalLibras.br",
+    "name": "Canal Libras",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://canallibras-stream.ebc.com.br/mux_video_ts/index-1.m3u8",
+      "https://canallibras-stream.ebc.com.br/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalMetropolitanodeNoticias.br",
+    "name": "Canal Metropolitano de Noticias",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv5.samcast.com.br/claudio8701/claudio8701/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanalOff.br",
+    "name": "Canal Off",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://170.82.202.31/OFF/index.m3u8",
+      "http://143.14.178.40:7777/OFF_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalRicos.br",
+    "name": "Canal Ricos",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d82644094cc0.streamlock.net/ricostv/ricostv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanalRural.br",
+    "name": "Canal Rural",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://607d2a1a47b1f.streamlock.net/crur/smil:canalrural.smil/playlist.m3u8",
+      "https://cdn2.easy.tv.br/canalrural/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalSaude.br",
+    "name": "Canal Saude",
+    "categories": [
+      "education",
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://arkyvbre1g.zoeweb.tv/fiocruz/fiocruz.stream/playlist.m3u8",
+      "https://eitv7.cdn.broadpeak.io/account351-i1495/event/canalsaude/format720p.m3u8"
+    ]
+  },
+  {
+    "id": "CanalSete.br",
+    "name": "Canal Sete",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://play.canalsete.com.br:1935/canalsete/xpl-c7_source/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Catve2.br",
+    "name": "Catve2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b33b873179a2.streamlock.net:1443/catve2/catve2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CatveFM.br",
+    "name": "Catve FM",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b33b873179a2.streamlock.net:1443/radiocamera/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CatveMasterTV.br",
+    "name": "Catve Master TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b33b873179a2.streamlock.net:1443/mastertv/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CazeTV.br",
+    "name": "CazeTV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8"
+    ]
+  },
+  {
+    "id": "ChromaTV.br",
+    "name": "Chroma TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c483b9d1019c.streamlock.net/8054/8054/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CINDIETV.br",
+    "name": "CINDIE TV",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cc-hqw8u5r1nshjc.akamaized.net/scheduler/scheduleMaster/352.m3u8",
+      "https://d20xuwbyc4yoag.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/DistroTV-MuxIP-CINDIE/387.m3u8?ads.vf=grWTpG3NQNi"
+    ]
+  },
+  {
+    "id": "ClassiqueTV.br",
+    "name": "Classique TV",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvif.com/classique/classique/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Combate.br",
+    "name": "Combate",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.ads.ottera.tv/playlist.m3u8?network_id=960"
+    ]
+  },
+  {
+    "id": "COMBrasil.br",
+    "name": "COM Brasil",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://br5093.streamingdevideo.com.br/abc/abc/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ConectaMaisTV.br",
+    "name": "Conecta Mais TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://189.14.239.62:1935/webtv/livestream1/playlist.m3u8",
+      "https://adylnet.streampool.net/10324/live/hls/Conecta/index.m3u8"
+    ]
+  },
+  {
+    "id": "ConecTVBrasil.br",
+    "name": "ConecTV Brasil",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream01.msolutionbrasil.com.br/hls/conectv/live.m3u8"
+    ]
+  },
+  {
+    "id": "ConexaoTV.br",
+    "name": "Conexao TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5a57bda70564a.streamlock.net/conexaotv/conexaotv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CulturaPara.br",
+    "name": "Cultura Para",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://www.portalcultura.com.br/playerhtml/funtelpa/tv_funtelpa/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CWBTV.br",
+    "name": "CWB TV",
+    "categories": [
+      "family",
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/cwbtv/cwbtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DemaisTV.br",
+    "name": "Demais TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.samcast.com.br/demaistv6503/demaistv6503/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DespertarTV.br",
+    "name": "Despertar TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/webtv/pejexypz/playlist/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ElementalChannel.br",
+    "name": "Elemental Channel",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d82644094cc0.streamlock.net/8116/8116/playlist.m3u8",
+      "https://stmv1.samcast.com.br/ricardo2194/ricardo2194/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ElyTV.br",
+    "name": "ElyTV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvsite.com/ely/ely/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EUTV.br",
+    "name": "EUTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-8719/LVW8719_AcLVAxWy5J/playlist.m3u8",
+      "https://video01.logicahost.com.br/ypetv/ypetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FalaLitoral.br",
+    "name": "Fala Litoral",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c483b9d1019c.streamlock.net/falalitoraltv/falalitoraltv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FonteTV.br",
+    "name": "Fonte TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://flash.softhost.com.br:1935/fonte/fontetv/live.m3u8",
+      "https://59fb88a1b1108.streamlock.net/fonte/_definst_/fontetv/chunklist_w1224511652.m3u8"
+    ]
+  },
+  {
+    "id": "ForaTedioTV.br",
+    "name": "Fora Tedio TV",
+    "categories": [
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv2.srvif.com/foratedio/foratedio/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Geekdot.br",
+    "name": "Geekdot",
+    "categories": [
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.ichibantv.com:3764/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "geFast.br",
+    "name": "ge Fast",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+      "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8"
+    ]
+  },
+  {
+    "id": "GhostTV.br",
+    "name": "Ghost TV",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv.video.expressolider.com.br/ghostv/ghostv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GloboNews.br",
+    "name": "GloboNews",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.70.146/GLOBONEWS/index.m3u8",
+      "http://143.14.178.40:7777/GloboNews_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "GloboplayNovelas.br",
+    "name": "Globoplay Novelas",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://170.82.202.31/Viva/index.m3u8",
+      "http://143.14.178.40:7777/Globoplay_Novelas_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "Gloob.br",
+    "name": "Gloob",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.235.0.78/Gloob/playlist.m3u8",
+      "http://79.127.243.211:14436/_.m3u8",
+      "http://143.14.178.40:7777/Gloob_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "Gloobinho.br",
+    "name": "Gloobinho",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/Gloobinho_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "GloobWeb.br",
+    "name": "Gloob Web",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vs20.live.opencaster.com/globiosat_73a904af/index.m3u8"
+    ]
+  },
+  {
+    "id": "GNT.br",
+    "name": "GNT",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://170.82.202.31/GNT/index.m3u8",
+      "http://143.14.178.40:7777/GNT_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "GospelCartoon.br",
+    "name": "Gospel Cartoon",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GospelMovieTV.br",
+    "name": "Gospel Movie TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvif.com/gospelf/gospelf/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IMPDTVWorldwide.br",
+    "name": "IMPD TV Worldwide",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://igrejamundial.nuvemplay.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "ISTV.br",
+    "name": "ISTV",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvstm.com/sistema7933/sistema7933/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JovemPanNews.br",
+    "name": "Jovem Pan News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d6yfbj4xxtrod.cloudfront.net/out/v1/7836eb391ec24452b149f3dc6df15bbd/index.m3u8",
+      "https://jmp2.uk/plu-6317ba014d4d040007227f72.m3u8"
+    ]
+  },
+  {
+    "id": "KpopTVPlay.br",
+    "name": "KpopTV Play",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://giatv.bozztv.com/giatv/giatv-kpoptvplay/kpoptvplay/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Loading.br",
+    "name": "Loading",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvif.com/loadingtv/loadingtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Megapix.br",
+    "name": "Megapix",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/Megapix_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "MKKWebTV.br",
+    "name": "MKK Web TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/mkkwebtv/mkkwebtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Multishow.br",
+    "name": "Multishow",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/Multishow_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "MusicBoxBrazil.br",
+    "name": "Music Box Brazil",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/Music_Box_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "MyTimeMovieNetwork.br",
+    "name": "MyTime Movie Network",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NickOnline.br",
+    "name": "NickOnline",
+    "categories": [
+      "kids",
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://x1co.com.br/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "NickToonsBrasil.br",
+    "name": "NickToons Brasil",
+    "categories": [
+      "kids",
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NickWeb.br",
+    "name": "NickWeb",
+    "categories": [
+      "animation",
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vs20.live.opencaster.com/nickelodeonbrasil_68f1743d/index.m3u8"
+    ]
+  },
+  {
+    "id": "NovaEraTV.br",
+    "name": "Nova Era TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wz3.dnip.com.br:1935/novaeratv/novaeratv.sdp/live.m3u8"
+    ]
+  },
+  {
+    "id": "NovoTempo.br",
+    "name": "Novo Tempo",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.live.novotempo.com/tv/smil:tvnovotempo.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NTV.br",
+    "name": "NTV",
+    "categories": [
+      "general",
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.livespanel.com/nossatv/nossatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NuevoTiempo.br",
+    "name": "Nuevo Tiempo",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.live.novotempo.com/tv/smil:tvnuevotiempo.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PlayTV.br",
+    "name": "Play TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://isaocorp.cloudecast.com/playtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "PlenaTV.br",
+    "name": "Plena TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-9591/LVW9591_PmXtgATnaS/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PremiereFC1.br",
+    "name": "Premiere FC 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20000/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC2.br",
+    "name": "Premiere FC 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20003/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC3.br",
+    "name": "Premiere FC 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20006/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC4.br",
+    "name": "Premiere FC 4",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20009/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC5.br",
+    "name": "Premiere FC 5",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20012/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC6.br",
+    "name": "Premiere FC 6",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20015/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC7.br",
+    "name": "Premiere FC 7",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20018/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PremiereFC8.br",
+    "name": "Premiere FC 8",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/20021/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "PrimerTV.br",
+    "name": "Primer TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://200.194.238.229:8383/live/primer/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RBATV.br",
+    "name": "RBATV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/w/LVW-15748/LVW15748_Yed7yzLuRC/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Record.br",
+    "name": "Record",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "RecordNews.br",
+    "name": "Record News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playplusnews-lh.akamaihd.net/i/pp_nws@377849/master.m3u8",
+      "https://rnw-rn.otteravision.com/rnw/rn/rnw_rn.m3u8",
+      "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2116"
+    ]
+  },
+  {
+    "id": "RecordRS.br",
+    "name": "Record RS",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playpluspoa-lh.akamaihd.net/i/pp_poa@377864/index_720_av-p.m3u8"
+    ]
+  },
+  {
+    "id": "RecordTVBelem.br",
+    "name": "RecordTV Belem",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playpluspa-lh.akamaihd.net/i/pp_pa@377468/index_720_av-p.m3u8"
+    ]
+  },
+  {
+    "id": "RecordTVBrasilia.br",
+    "name": "RecordTV Brasilia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playplusbsa-lh.akamaihd.net/i/pp_bsa@377860/index_720_av-p.m3u8"
+    ]
+  },
+  {
+    "id": "RecordTVGoias.br",
+    "name": "RecordTV Goias",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playplusgoya-lh.akamaihd.net/i/pp_gna@377833/index_720_av-p.m3u8"
+    ]
+  },
+  {
+    "id": "RecordTVInteriorSP.br",
+    "name": "RecordTV Interior SP",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://200.77.176.130:8000/udp/224.0.0.4:49152"
+    ]
+  },
+  {
+    "id": "RecordTVItapoan.br",
+    "name": "RecordTV Itapoan",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playplussdr-lh.akamaihd.net/i/pp_sdr@377858/index_720_av-b.m3u8"
+    ]
+  },
+  {
+    "id": "RecordTVRio.br",
+    "name": "RecordTV Rio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playplusrjo-lh.akamaihd.net/i/pp_rj@377859/index_720_av-p.m3u8"
+    ]
+  },
+  {
+    "id": "RecordTVSaoPaulo.br",
+    "name": "RecordTV Sao Paulo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playplusspo-lh.akamaihd.net/i/pp_sp@350176/index_720_av-p.m3u8"
+    ]
+  },
+  {
+    "id": "RedeBrasil.br",
+    "name": "Rede Brasil",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://redebrasil.nuvemplay.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "RedeCNTSalvador.br",
+    "name": "Rede CNT Salvador",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://168.205.87.198:8555/live/1368/123456/150.m3u8"
+    ]
+  },
+  {
+    "id": "RedeGlobo.br",
+    "name": "Rede Globo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cors-proxy.cooks.fyi/http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8"
+    ]
+  },
+  {
+    "id": "RedeGospel.br",
+    "name": "Rede Gospel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://redegospel-aovivo.nuvemplay.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "RedeMinas.br",
+    "name": "Rede Minas",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v4-slbps-sambavideos.akamaized.net/live/3282,8114,ec4b5a296d97fa99bf990662f5b4f8e1;base64np;Mc8VDxqNjXKCAf8!/amlst:Mc_tFgfGiHOdQXPB/chunklist_.m3u8",
+      "https://8hzcavccys.zoeweb.tv/redeminas/ngrp:redeminas_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedeNGT.br",
+    "name": "Rede NGT",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://isaocorp.cloudecast.com/ngt/index.m3u8"
+    ]
+  },
+  {
+    "id": "RedeRC.br",
+    "name": "Rede RC",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://tv02.logicahost.com.br:1935/rederc/rederc/live.m3u8"
+    ]
+  },
+  {
+    "id": "RedeSPTV.br",
+    "name": "Rede SPTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/websptv/websptv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedeTV.br",
+    "name": "Rede TV!",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.brasilstream.com.br/live/redetv/redetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedeTVES.br",
+    "name": "Rede TV! ES",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.cloudecast.com/hls/redetves/index.m3u8"
+    ]
+  },
+  {
+    "id": "RedeTVMais.br",
+    "name": "Rede TV! Mais",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/webtv/AVJ-15235/playlist/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedeTVParana.br",
+    "name": "RedeTV! Parana",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tv01.zas.media:1936/redetvparana/redetvparana/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedeVida.br",
+    "name": "Rede Vida",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-5.nxplay.com.br/REDE_VIDA/index.m3u8"
+    ]
+  },
+  {
+    "id": "RITTV.br",
+    "name": "RIT TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://acesso.ecast.site:3648/live/ritlive.m3u8",
+      "https://cdn-5.nxplay.com.br/RIT_TV/index.m3u8"
+    ]
+  },
+  {
+    "id": "SantaCeciliaTV.br",
+    "name": "Santa Cecilia TV",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://flash1.crossdigital.com.br/2063/2063/playlist.m3u8",
+      "https://5fb29de4928ea.streamlock.net/2063/2063/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SBTCuiaba.br",
+    "name": "SBT Cuiaba",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video09.logicahost.com.br/sbtcuiaba/sbtcuiaba/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SBTInterior.br",
+    "name": "SBT Interior",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-10801/LVW10801_Xvg4R0u57n/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SBTNovaMutum.br",
+    "name": "SBT Nova Mutum",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://video09.logicahost.com.br/sbtmutum/sbtmutum/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SBTRondonopolis.br",
+    "name": "SBT Rondonopolis",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://video09.logicahost.com.br/sbtroo/sbtroo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SBTSinop.br",
+    "name": "SBT Sinop",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://video09.logicahost.com.br/sbtsinop/sbtsinop/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SertaoTV.br",
+    "name": "Sertao TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://wz4.dnip.com.br/sertaotv/sertaotv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SESCTV.br",
+    "name": "SESC TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://slbps-ml-sambatech.akamaized.net/samba-live/2472/7424/8a00fe7cc36ac263b2c3e9324497d5ff/video/93a9920d-1b24-4c5e-a7d2-63d5489f59b5_index.m3u8"
+    ]
+  },
+  {
+    "id": "SICTV.br",
+    "name": "SIC TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://parecisfmlive.brasilstream.com.br/hls/parecisfmlive/index.m3u8"
+    ]
+  },
+  {
+    "id": "Slime.br",
+    "name": "Slime",
+    "categories": [
+      "animation",
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://slime.x1co.com.br/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "SonyChannel.br",
+    "name": "Sony Channel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn-5.nxplay.com.br/SONY_CHANNEL/index.m3u8"
+    ]
+  },
+  {
+    "id": "SOUTV.br",
+    "name": "SOU TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video10.logicahost.com.br/soutv/soutv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SporTV.br",
+    "name": "SporTV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/21000/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "SporTV2.br",
+    "name": "SporTV 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/21003/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "SporTV2Alternativo.br",
+    "name": "SporTV 2 Alternativo",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/19025/video.m3u8"
+    ]
+  },
+  {
+    "id": "SporTV3.br",
+    "name": "SporTV 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/21006/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+    ]
+  },
+  {
+    "id": "SporTVAlternativo.br",
+    "name": "SporTV Alternativo",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stm.sinalmycn.com/19024/video.m3u8"
+    ]
+  },
+  {
+    "id": "STZTV.br",
+    "name": "STZ TV",
+    "categories": [
+      "news",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/webtv/AVJ-12952/playlist/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TCM10HD.br",
+    "name": "TCM 10 HD",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.tcm10.com.br/tcm10hd/stream.m3u8"
+    ]
+  },
+  {
+    "id": "TikTokRadioBrasil.br",
+    "name": "TikTok Radio Brasil",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d1bl6tskrpq9ze.cloudfront.net/hls/master.m3u8?ads.xumo_channelId=99992529",
+      "https://jmp2.uk/plu-63dac32bda711800088a2ba3.m3u8"
+    ]
+  },
+  {
+    "id": "TimesBrasil.br",
+    "name": "Times Brasil",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ssai2-ads.api.leiniao.com/global-adinsertion-api/hls/live/v2/21fdb6dd7491406bba86497a24390a25/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVACritica.br",
+    "name": "TV A Critica",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.br1.jmvstream.com/w/LVW-20715/LVW20715_50E3x2MCm2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAFolha.br",
+    "name": "TV A Folha",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/tvafolha/tvafolha/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAldeia.br",
+    "name": "TV Aldeia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.samcast.com.br/giovane7843/giovane7843/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAliancaCatarinense.br",
+    "name": "TV Alianca Catarinense",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/tvalianca/tvalianca/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAlternativa.br",
+    "name": "TV Alternativa",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv5.samcast.com.br/wagner7919/wagner7919/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAparecida.br",
+    "name": "TV Aparecida",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-9716/LVW9716_HbtQtezcaw/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVArapuan.br",
+    "name": "TV Arapuan",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b7f3c45ab7c2.streamlock.net/arapuan/ngrp:arapuan_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAratu.br",
+    "name": "TV Aratu",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-8379/LVW8379_rIq6ZYiIiA/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAssembleiaCeara.br",
+    "name": "TV Assembleia Ceara",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jjn5dkk9bd.zoeweb.tv/z404-live/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBahia.br",
+    "name": "TV Bahia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8"
+    ]
+  },
+  {
+    "id": "TVBirigui.br",
+    "name": "TV Birigui",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59f2354c05961.streamlock.net:1443/tvdigitalbirigui/_definst_/tvdigitalbirigui/playlist.m3u8",
+      "http://tv02.logicahost.com.br:1935/tvdigitalbirigui/tvdigitalbirigui/live.m3u8",
+      "https://59f2354c05961.streamlock.net:1443/tvdigitalbirigui/tvdigitalbirigui/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBrasil.br",
+    "name": "TV Brasil",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tvbrasil-stream.ebc.com.br/index.m3u8",
+      "https://lbgo.bozztv.com/ssh101/ssh101/unitvms/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBrasilOeste.br",
+    "name": "TV Brasil Oeste",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ad482a77183d.streamlock.net/operacaotbomt.com/operacaotbomt.com/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBRICSPortuguese.br",
+    "name": "TV BRICS Portuguese",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://porbrics.mediacdn.ru/cdn/brics/portuguese/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBrusque.br",
+    "name": "TV Brusque",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ad482a77183d.streamlock.net/rodrigotvbrusque.com.br/5d880199c902eb4a1e8df00d/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCamara.br",
+    "name": "TV Camara",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream3.camara.gov.br/tv1/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "TVCamara2.br",
+    "name": "TV Camara 2",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream3.camara.gov.br/tv2/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "TVCamaraSalvador.br",
+    "name": "TV Camara Salvador",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://596639ebdd89b.streamlock.net/8114/8114/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCancaoNova.br",
+    "name": "TV Cancao Nova",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5c65286fc6ace.streamlock.net/cancaonova/CancaoNova.stream_720p/playlist.m3u8",
+      "https://cdn-5.nxplay.com.br/CANCAO_NOVA/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVCidadedePetropolis.br",
+    "name": "TV Cidade de Petropolis",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://video01.kshost.com.br:4443/inside2133/inside2133/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCidadeOeste.br",
+    "name": "TV Cidade Oeste",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://radios.dataprimer.com.br:5443/LiveApp/streams/psuqNyPC1AW1BcUZ1573443847601.m3u8"
+    ]
+  },
+  {
+    "id": "TVCidadeVerde.br",
+    "name": "TV Cidade Verde",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.transmissaodigital.com/cidadeverdenovo/cidadeverdenovo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCidadeVerdeCuiaba.br",
+    "name": "TV Cidade Verde Cuiaba",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://televisaocidadeverde.brasilstream.com.br/hls/televisaocidadeverde/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVClube.br",
+    "name": "TV Clube",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5c483b9d1019c.streamlock.net/8186/8186/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCOMMaceio.br",
+    "name": "TVCOM Maceio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv5.zcast.com.br/tvcommaceio/tvcommaceio/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVComunitaria.br",
+    "name": "TV Comunitaria",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5b7f3c45ab7c2.streamlock.net/8008/smil:8008.smil/playlist.m3u8?DVR="
+    ]
+  },
+  {
+    "id": "TVCRio.br",
+    "name": "TVC-Rio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video05.logicahost.com.br/comunitariario/comunitariario/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCultura.br",
+    "name": "TV Cultura",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://player-tvcultura.stream.uol.com.br/live/tvcultura.m3u8",
+      "https://cdn-5.nxplay.com.br/TV_CULTURA/index.m3u8",
+      "https://lbgo.bozztv.com/ssh101/ssh101/tvlafaietehd/playlist.m3u8",
+      "https://jmp2.uk/plu-62e010e6cd663f0007e57dc8.m3u8"
+    ]
+  },
+  {
+    "id": "TVCuruca.br",
+    "name": "TV Curuca",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvif.com/tvcurucasp/tvcurucasp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVdasArtes.br",
+    "name": "TV das Artes",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tv02.logicahost.com.br:1935/tvdasartes/tvdasartes/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVDestak.br",
+    "name": "TV Destak",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tv02.logicahost.com.br:1935/pascoal/pascoal/live.m3u8",
+      "https://59f2354c05961.streamlock.net:1443/pascoal/_definst_/pascoal/playlist.m3u8",
+      "https://59f2354c05961.streamlock.net:1443/pascoal/pascoal/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVDiarioMacapa.br",
+    "name": "TV Diario Macapa",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ad482a77183d.streamlock.net/marliomelohotmail.com/marliomelohotmail.com/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVDifusoraLeste.br",
+    "name": "TV Difusora Leste",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.amsolution.net.br:8443/live/60d0a8ea6b884/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVDigitalBirigui.br",
+    "name": "TV Digital Birigui",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://wse01.logicahost.com.br:1935/tvdigitalbirigui/_definst_/tvdigitalbirigui/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVdoPovo.br",
+    "name": "TV do Povo",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/tvdopovo1/tvdopovo1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVEBahia.br",
+    "name": "TVE Bahia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://selpro1348.procergs.com.br:1935/tve/stve/playlist.m3u8",
+      "http://streaming.procergs.com.br:1935/tve/stve/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVEmpire.br",
+    "name": "TV Empire",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d82644094cc0.streamlock.net/empiremagazinetv/empiremagazinetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVEncontrodasAguas.br",
+    "name": "TV Encontro das Aguas",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv7.samcast.com.br/sistemaencontrodasaguas/sistemaencontrodasaguas/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVERS.br",
+    "name": "TVE RS",
+    "categories": [
+      "culture",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.procergs.com.br:8443/tve/stve/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVEvangelizar.br",
+    "name": "TV Evangelizar",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f593df7851db.streamlock.net/evangelizar/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVFronteira.br",
+    "name": "TV Fronteira",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tvfronteira.brasilstream.com.br/hls/tvfronteira/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVFuturo.br",
+    "name": "TV Futuro",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv02.zas.media:1936/tvfuturo/tvfuturo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVGideoes.br",
+    "name": "TV Gideoes",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming01.zas.media/gideoes/programacao/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVGloboSaoPaulo.br",
+    "name": "TV Globo Sao Paulo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn-5.nxplay.com.br/GLOBO_SP_TK/index.m3u8",
+      "http://187.62.68.32:8080/GLOBO/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVGRANDENATALHDTVBRASIL.br",
+    "name": "TV GRANDE NATAL HDTV BRASIL",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tvgrandenatalhd.duckdns.org:8080/hls/live.m3u8"
+    ]
+  },
+  {
+    "id": "TVGraoPara.br",
+    "name": "TV Grao Para",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.kshost.com.br:4443/moises3834/moises3834/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVGuara.br",
+    "name": "TV Guara",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://video02.logicahost.com.br/tvguara23/tvguara23/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVideoNews.br",
+    "name": "TVideoNews",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/tvideonews/tvideonews/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVInterlagos.br",
+    "name": "TV Interlagos",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://v8.ciclano.io:1443/tvinterlagos/_definst_/tvinterlagos/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVitape.br",
+    "name": "TVitape",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream01.msolutionbrasil.com.br/hls/tvitape/live.m3u8"
+    ]
+  },
+  {
+    "id": "TVLatinaSat.br",
+    "name": "TVLatinaSat",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.latinasat.com.br/hls/live/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVLiberdade.br",
+    "name": "TV Liberdade",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.paineldevideo.com/liberdaderadioetv/liberdaderadioetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVLifeAmerica.br",
+    "name": "TV Life America",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.cloudecast.com/hls/tvlifeamerica/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVMackenzie.br",
+    "name": "TV Mackenzie",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://player.internetaovivo.com:8443/live_tvmackenzieabr/tvmackenzieabr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaisMarica.br",
+    "name": "TV Mais Marica",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/tvmaismarica/tvmaismarica/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMarajoara.br",
+    "name": "TV Marajoara",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv02.zas.media:1936/tvmarajoara/tvmarajoara/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaticComedy.br",
+    "name": "TVMatic Comedy",
+    "categories": [
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn.tvmatic.net/comedy.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaticCrafts.br",
+    "name": "TVMatic Crafts",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://cdn.tvmatic.net/crafts.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaticFacebook.br",
+    "name": "TVMatic Facebook",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://cdn.tvmatic.net/facebook.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaticFight.br",
+    "name": "TVMatic Fight",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn.tvmatic.net/fight.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaticFunny.br",
+    "name": "TVMatic Funny",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://cdn.tvmatic.net/funny.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaticTikTok.br",
+    "name": "TVMatic TikTok",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://cdn.tvmatic.net/tiktok.m3u8"
+    ]
+  },
+  {
+    "id": "TVMAX.br",
+    "name": "TV MAX",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/tvmax/tvmax/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMetropole.br",
+    "name": "TV Metropole",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-fundacao-2110.ciclano.io:1443/fundacao-2110/fundacao-2110/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVModelo.br",
+    "name": "TV Modelo",
+    "categories": [
+      "general",
+      "entertainment",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video09.logicahost.com.br/tvmodelo/tvmodelo/playlist.m3u"
+    ]
+  },
+  {
+    "id": "TVNatal.br",
+    "name": "TV Natal",
+    "categories": [
+      "general",
+      "news",
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.228.163.146:8000/play/a01y/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVNBN.br",
+    "name": "TVNBN",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-8410/LVW8410_uiZOVm6vz1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVPadreCicero.br",
+    "name": "TV Padre Cicero",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.logicahost.com.br/tvpadrecicero/tvpadrecicero/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVPampa.br",
+    "name": "TV Pampa",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video04.logicahost.com.br/tvpampa/tvpampa/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVPantanalMS.br",
+    "name": "TV Pantanal MS",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5a2b083e9f360.streamlock.net/tvpantanal/tvpantanal.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVParaense.br",
+    "name": "TV Paraense",
+    "categories": [
+      "general",
+      "family",
+      "entertainment",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video09.logicahost.com.br/tvparaense/tvparaense/playlist.m3u"
+    ]
+  },
+  {
+    "id": "TVParanaTurismo.br",
+    "name": "TV Parana Turismo",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "http://200.189.113.201/hls/tve.m3u8"
+    ]
+  },
+  {
+    "id": "TVPassoFundo.br",
+    "name": "TV Passo Fundo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5a57bda70564a.streamlock.net/tvpasso/tvpasso.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSandegi.br",
+    "name": "TV Sandegi",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.kshost.com.br/antonio9510/antonio9510/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSaoRaimundo.br",
+    "name": "TV Sao Raimundo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.voxtvhd.com.br/9030/9030/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSeries.br",
+    "name": "TV Series",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvif.com/tvserie/tvserie/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSimCachoeiro.br",
+    "name": "TV Sim Cachoeiro",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/8104/8104/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSimColatina.br",
+    "name": "TV Sim Colatina",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/8132/8132/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSimSaoMateus.br",
+    "name": "TV Sim Sao Mateus",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/8236/8236/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSolComunidade.br",
+    "name": "TV Sol Comunidade",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://streaming03.zas.media:1935/tvsol/tvsol/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSulBahia.br",
+    "name": "TV Sul Bahia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.cdn.upx.com/00046/myStream.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSuldeMinas.br",
+    "name": "TV Sul de Minas",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/tvsuldeminas/tvsuldeminas/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVTerceiroAnjo.br",
+    "name": "TV Terceiro Anjo",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer1.streamhost.org/salive/GMI3anjoh/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVThathi.br",
+    "name": "TV Thathi",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-grupo-10049.ciclano.io:1443/grupo-10049/grupo-10049/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVUFG.br",
+    "name": "TV UFG",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://flash.softhost.com.br:1935/ufg/tvufgweb/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVUFOP.br",
+    "name": "TV UFOP",
+    "categories": [
+      "public",
+      "education",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://app.tvufop.com.br/hls/tvufop.m3u8"
+    ]
+  },
+  {
+    "id": "TVUniversal.br",
+    "name": "TV Universal",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://644398c.ha.azioncdn.net/primary/tvuniversal_480p.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVVicosa.br",
+    "name": "TV Vicosa",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://wz4.dnip.com.br/fratevitv/fratevitv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVVilaReal.br",
+    "name": "TV Vila Real",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-10841/LVW10841_mT77z9o2cP/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVZoom.br",
+    "name": "TV Zoom",
+    "categories": [
+      "entertainment",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.jmvstream.com/w/LVW-9730/LVW9730_LmUwslM8jt/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UMATV.br",
+    "name": "UMA TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://umatv.nuvemplay.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "UnisulTV.br",
+    "name": "Unisul TV",
+    "categories": [
+      "education",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sitetv.brasilstream.com.br/hls/sitetv/index.m3u8?token="
+    ]
+  },
+  {
+    "id": "UniTVPortoAlegre.br",
+    "name": "UniTV Porto Alegre",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://unitvaovivo.ufrgs.br:8080/live.ogg"
+    ]
+  },
+  {
+    "id": "VRTChannel.br",
+    "name": "VRT Channel",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "VV8TV.br",
+    "name": "VV8 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "WooHoo.br",
+    "name": "WooHoo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://143.14.178.40:7777/Woohoo_HD/index.m3u8"
+    ]
+  }
+]

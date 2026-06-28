@@ -1,0 +1,452 @@
+[
+  {
+    "id": "AbuDhabiTV.ae",
+    "name": "Abu Dhabi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.9.2.18/chid_326/index.m3u8"
+    ]
+  },
+  {
+    "id": "AjmanTV.ae",
+    "name": "Ajman TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn1.logichost.in/ajmantv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Alarabiya.ae",
+    "name": "Alarabiya",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8",
+      "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/alarabiapublish/alarabiya_1080p/chunks.m3u8",
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-alarabiya/7f90de73d777d04f3dada92f90d35c44/index.m3u8",
+      "http://185.9.2.18/chid_146/index.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/al-arabiya/master.m3u8?ads.vf=5D6eIL8_jay"
+    ]
+  },
+  {
+    "id": "AlArabiyaBusiness.ae",
+    "name": "Al Arabiya Business",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.alarabiya.net/alarabiapublish/aswaaq.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlArabiyaPrograms.ae",
+    "name": "Al Arabiya Programs",
+    "categories": [
+      "documentary",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.alarabiya.net/alarabiapublish/aaprograms.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlQamarTV.ae",
+    "name": "Al Qamar TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streamer3.premio.link/alqamar/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlShallalTV.ae",
+    "name": "Al Shallal TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg01480-alshallalfze-alshallal-ono-q0hfg.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlSharqiyaMinKabla.ae",
+    "name": "Al Sharqiya Min Kabla",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/kablatvlive/kabtv1.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlWoustaTV.ae",
+    "name": "Al Wousta TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/alwoustalive/alwoustatv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlYaumTV.ae",
+    "name": "Al Yaum TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hlspackager.akamaized.net/live/DB/ALYAUM_TV/HLS/ALYAUM_TV.m3u8"
+    ]
+  },
+  {
+    "id": "CNBCArabiya.ae",
+    "name": "CNBC Arabiya",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cnbc-live.akamaized.net/cnbc/master.m3u8"
+    ]
+  },
+  {
+    "id": "DubaiTVInternational.ae",
+    "name": "Dubai TV International",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.9.2.18/chid_139/index.m3u8"
+    ]
+  },
+  {
+    "id": "FujairahTV.ae",
+    "name": "Fujairah TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kwikmotion.com/fujairahlive/fujairah.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MBC1.ae",
+    "name": "MBC 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1/15cf99af5de54063fdabfefe66adc075/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBC4.ae",
+    "name": "MBC 4",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-4/24f134f1cd63db9346439e96b86ca6ed/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBC5.ae",
+    "name": "MBC 5",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-5/ee6b000cee0629411b666ab26cb13e9b/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBCBollywood.ae",
+    "name": "MBC Bollywood",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBCDrama.ae",
+    "name": "MBC Drama",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-drama/2c28a458e2f3253e678b07ac7d13fe71/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBCFM.ae",
+    "name": "MBC FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dbbv9umqcd7cs.cloudfront.net/out/v1/db15b75c3cc0400c91961468d6a232ac/index.m3u8",
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-fm/3f36f7db6086acf058dc51681c87f8ad/index.m3u8"
+    ]
+  },
+  {
+    "id": "MBCPersia.ae",
+    "name": "MBC Persia",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-persia/818ee8e4b592dc497608f066d825bfb4/index.m3u8",
+      "https://hls.mbcpersia.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "NourTV.ae",
+    "name": "Nour TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.bestream.io:19360/elfaro4/elfaro4.m3u8"
+    ]
+  },
+  {
+    "id": "OSNMoviesAction.ae",
+    "name": "OSN Movies Action",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://116.90.120.151:8000/play/a0ax/index.m3u8"
+    ]
+  },
+  {
+    "id": "PeaceTVBangla.ae",
+    "name": "Peace TV Bangla",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dzkyvlfyge.erbvr.com/PeaceTvBangla/index.m3u8",
+      "https://trs1.aynaott.com/PeaceTvBanglaHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "PeaceTVChinese.ae",
+    "name": "Peace TV Chinese",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dzkyvlfyge.erbvr.com/PeaceTvChinese/index.m3u8"
+    ]
+  },
+  {
+    "id": "PeaceTVEnglish.ae",
+    "name": "Peace TV English",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dzkyvlfyge.erbvr.com/PeaceTvEnglish/index.m3u8"
+    ]
+  },
+  {
+    "id": "PeaceTVUrdu.ae",
+    "name": "Peace TV Urdu",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dzkyvlfyge.erbvr.com/PeaceTvUrdu/index.m3u8"
+    ]
+  },
+  {
+    "id": "PMC.ae",
+    "name": "PMC",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pmchls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PMCRoyale.ae",
+    "name": "PMC Royale",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pmcrohls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Pulse95Radio.ae",
+    "name": "Pulse95 Radio",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/pulse95live/pulse96/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sharjah2.ae",
+    "name": "Sharjah 2",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/smc2live/smc2tv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SharjahRadio.ae",
+    "name": "Sharjah Radio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/smcradiolive/smcradiolive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SharjahRadioQuran.ae",
+    "name": "Sharjah Radio Quran",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kwikmotion.com/smcquranlive/quranradiolive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SharjahSports.ae",
+    "name": "Sharjah Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/smc4sportslive/smc4tv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SharjahTV.ae",
+    "name": "Sharjah TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kwikmotion.com/smc1live/smc1tv.smil/playlist.m3u8",
+      "https://svs.itworkscdn.net/smc1live/smc1.smil/playlist.m3u8",
+      "https://cdn-globecast.akamaized.net/live/eds/sharjah_tv/hls_roku/index.m3u8"
+    ]
+  },
+  {
+    "id": "SkyNewsArabia.ae",
+    "name": "Sky News Arabia",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8",
+      "https://stream.skynewsarabia.com/ott/ott.m3u8",
+      "https://stream.skynewsarabia.com/hls/sna.m3u8"
+    ]
+  },
+  {
+    "id": "SkyNewsArabiaVertical.ae",
+    "name": "Sky News Arabia Vertical",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-stream.skynewsarabia.com/c-vertical-channel/vertical-stream/index.m3u8",
+      "https://stream.skynewsarabia.com/vertical/vertical.m3u8"
+    ]
+  },
+  {
+    "id": "SpacetoonArabic.ae",
+    "name": "Spacetoon Arabic",
+    "categories": [
+      "animation",
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-uae.spacetoongo.com/ST_Live_UAE/hls/index.m3u8"
+    ]
+  },
+  {
+    "id": "WatarRadio.ae",
+    "name": "Watar Radio",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/smcwatarlive/smcwatar/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ZeeAflam.ae",
+    "name": "Zee Aflam",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.223.30.230/ZEEAFLAM/index.m3u8"
+    ]
+  },
+  {
+    "id": "ZeeAlwan.ae",
+    "name": "Zee Alwan",
+    "categories": [
+      "series",
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.223.30.230/ZEEALWAN/index.m3u8",
+      "https://tgn.bozztv.com/gin-dvrfl05/ga-zeealwan/index.m3u8"
+    ]
+  }
+]

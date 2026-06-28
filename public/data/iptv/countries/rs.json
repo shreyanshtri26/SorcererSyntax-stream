@@ -1,0 +1,641 @@
+[
+  {
+    "id": "ArenaFight.rs",
+    "name": "Arena Fight",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaFight/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport1.rs",
+    "name": "Arena Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport1HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport10.rs",
+    "name": "Arena Sport 10",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport10HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport1Premium.rs",
+    "name": "Arena Sport 1 Premium",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaPremium1HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport1x2.rs",
+    "name": "Arena Sport 1x2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://xplatinmedia.com:8080/Elko/mhj8LHTJJC/53449"
+    ]
+  },
+  {
+    "id": "ArenaSport2.rs",
+    "name": "Arena Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport2HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport2Premium.rs",
+    "name": "Arena Sport 2 Premium",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaPremium2HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport3.rs",
+    "name": "Arena Sport 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport3HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport3Premium.rs",
+    "name": "Arena Sport 3 Premium",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaPremium3HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport4.rs",
+    "name": "Arena Sport 4",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport4HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport4Premium.rs",
+    "name": "Arena Sport 4 Premium",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/SK1SRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport5.rs",
+    "name": "Arena Sport 5",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport5HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport5Premium.rs",
+    "name": "Arena Sport 5 Premium",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/SK2SRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport6.rs",
+    "name": "Arena Sport 6",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport6HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport7.rs",
+    "name": "Arena Sport 7",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport7HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport8.rs",
+    "name": "Arena Sport 8",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport8HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport9.rs",
+    "name": "Arena Sport 9",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport9HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSportAdrenalin.rs",
+    "name": "Arena Sport Adrenalin",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/SK3SRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSportTenis.rs",
+    "name": "Arena Sport Tenis",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/SK4SRHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "BelleAmie.rs",
+    "name": "Belle Amie",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://92.60.238.10:1935/live/belleamie/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DMSat.rs",
+    "name": "DM Sat",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.14.32.26:8800/udp/239.100.10.40:5000"
+    ]
+  },
+  {
+    "id": "EDUTV.rs",
+    "name": "EDU TV",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5aa64ca8b95b8.streamlock.net:4443/edutv/edutelevizija/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KitchenTV.rs",
+    "name": "Kitchen TV",
+    "categories": [
+      "cooking"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a03n"
+    ]
+  },
+  {
+    "id": "NarodnaTV.rs",
+    "name": "Narodna TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://edge8.pink.rs/narodnatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Nova.rs",
+    "name": "Nova",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://best-str.umn.cdn.united.cloud/stream?channel=novashd&p=n0v43!23t001&player=m3u8&sp=novas&stream=hp7000&u=novas"
+    ]
+  },
+  {
+    "id": "PannonTV.rs",
+    "name": "Pannon TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.nmih.hu:4102/live.m3u8"
+    ]
+  },
+  {
+    "id": "Pink.rs",
+    "name": "Pink",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://edge8.pink.rs/pinktv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Prva.rs",
+    "name": "Prva",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaTVHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "PrvaFiles.rs",
+    "name": "Prva Files",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaFiles/index.m3u8"
+    ]
+  },
+  {
+    "id": "PrvaKick.rs",
+    "name": "Prva Kick",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaKick/index.m3u8"
+    ]
+  },
+  {
+    "id": "PrvaLife.rs",
+    "name": "Prva Life",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaLife/index.m3u8"
+    ]
+  },
+  {
+    "id": "PrvaMax.rs",
+    "name": "Prva Max",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaMax/index.m3u8"
+    ]
+  },
+  {
+    "id": "PrvaPlus.rs",
+    "name": "Prva Plus",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaPlus/index.m3u8"
+    ]
+  },
+  {
+    "id": "PrvaWorld.rs",
+    "name": "Prva World",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/PrvaWorld/index.m3u8"
+    ]
+  },
+  {
+    "id": "RadioHitFMTV.rs",
+    "name": "Radio Hit FM TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://peer2.tdiradio.com/static/streaming-playlists/hls/bab99862-ec1c-474f-9a02-4f8c8677d565/0.m3u8"
+    ]
+  },
+  {
+    "id": "RadioKarolinaTV.rs",
+    "name": "Radio Karolina TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://peer2.tdiradio.com/static/streaming-playlists/hls/4207de1d-52e8-4591-ad9e-218069b864d1/0.m3u8"
+    ]
+  },
+  {
+    "id": "RadioLolaTV.rs",
+    "name": "Radio Lola TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://peer2.tdiradio.com/static/streaming-playlists/hls/7c3ea8d3-49dc-4e1b-8b1e-dc6fab71f5cf/0.m3u8"
+    ]
+  },
+  {
+    "id": "RTS1.rs",
+    "name": "RTS 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://webtvstream.bhtelecom.ba/rts1.m3u8",
+      "https://de1.dstv.cx/RTS1HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTS2.rs",
+    "name": "RTS 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://webtvstream.bhtelecom.ba/rts2.m3u8",
+      "https://de1.dstv.cx/RTS2HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTS3.rs",
+    "name": "RTS 3",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://185.81.240.65:15000/udp/233.233.233.36:12000"
+    ]
+  },
+  {
+    "id": "RTSDrama.rs",
+    "name": "RTS Drama",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSDrama/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTSKolo.rs",
+    "name": "RTS Kolo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSKolo/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTSMuzika.rs",
+    "name": "RTS Muzika",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSMuzika/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTSPoletarac.rs",
+    "name": "RTS Poletarac",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSPoletarac/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTSSvet.rs",
+    "name": "RTS Svet",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSSvet/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTSTrezor.rs",
+    "name": "RTS Trezor",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSTrezor/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTSZivot.rs",
+    "name": "RTS Zivot",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://de1.dstv.cx/RTSZivot/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTV1.rs",
+    "name": "RTV 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "mmsh://212.200.255.151/rtv1",
+      "rtsp://212.200.255.151/rtv1"
+    ]
+  },
+  {
+    "id": "RTV2.rs",
+    "name": "RTV 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "mmsh://212.200.255.151/rtv2",
+      "rtsp://212.200.255.151/rtv2"
+    ]
+  },
+  {
+    "id": "RTVBap.rs",
+    "name": "RTV Bap",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://53be5ef2d13aa.streamlock.net/rtvbap/uzivo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SandzakTV.rs",
+    "name": "Sandzak TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streaming.iptv.nextfiber.rs/nxt004/master.m3u8"
+    ]
+  },
+  {
+    "id": "SciFi.rs",
+    "name": "Sci Fi",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/SciFiHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "SOSKanalPlus.rs",
+    "name": "SOS Kanal Plus",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://53be5ef2d13aa.streamlock.net/soskanalplus/soskanalplus.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TDIRadioTV.rs",
+    "name": "TDI Radio TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://peer2.tdiradio.com/static/streaming-playlists/hls/8f5d84ce-e8ac-4109-9975-9665f5605557/master.m3u8"
+    ]
+  },
+  {
+    "id": "TopTV.rs",
+    "name": "Top TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://82.165.71.58:8081/TopTV/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAS.rs",
+    "name": "TV AS",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/TVAS/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVDugaPlus.rs",
+    "name": "TV Duga+",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://109.92.29.10:1935/tvduga/tvduga/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVHram.rs",
+    "name": "TV Hram",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://vod1.laki.eu/live/hram/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVKanalM.rs",
+    "name": "TV Kanal M",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://176.67.210.1/hls/kanalm.m3u8"
+    ]
+  },
+  {
+    "id": "TVMarsh.rs",
+    "name": "TV Marsh",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://cdn.dovecher.tv:8081/live/marsh/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVPanon.rs",
+    "name": "TV Panon",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream2.nmih.hu:4102/live.m3u8"
+    ]
+  },
+  {
+    "id": "TVPiKanal.rs",
+    "name": "TV Pi Kanal",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.pikanal.rs/pikanal/pgm.m3u8"
+    ]
+  },
+  {
+    "id": "TVPirot.rs",
+    "name": "TV Pirot",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bc45691ca49f.streamlock.net/tvpirot/uzivo/playlist.m3u8"
+    ]
+  }
+]

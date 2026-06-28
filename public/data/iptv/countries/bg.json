@@ -1,0 +1,615 @@
+[
+  {
+    "id": "100AutoMotoTV.bg",
+    "name": "100% Auto Moto TV",
+    "categories": [
+      "auto"
+    ],
+    "languages": [],
+    "streams": [
+      "http://100automoto.tv:1935/bgtv1/autotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "78TV.bg",
+    "name": "7/8 TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0cn"
+    ]
+  },
+  {
+    "id": "AgroTV.bg",
+    "name": "Agro TV",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://restr2.bgtv.bg/agro/hls/agro.m3u8"
+    ]
+  },
+  {
+    "id": "BloombergTVBulgaria.bg",
+    "name": "Bloomberg TV Bulgaria",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a04m"
+    ]
+  },
+  {
+    "id": "BNT1.bg",
+    "name": "BNT 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a046"
+    ]
+  },
+  {
+    "id": "BNT2.bg",
+    "name": "BNT 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a049"
+    ]
+  },
+  {
+    "id": "BNT3.bg",
+    "name": "BNT 3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a03x"
+    ]
+  },
+  {
+    "id": "BNT4.bg",
+    "name": "BNT 4",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a04u"
+    ]
+  },
+  {
+    "id": "BOXTV.bg",
+    "name": "BOX TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0an"
+    ]
+  },
+  {
+    "id": "bTV.bg",
+    "name": "bTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a03w"
+    ]
+  },
+  {
+    "id": "bTVAction.bg",
+    "name": "bTV Action",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a04n"
+    ]
+  },
+  {
+    "id": "bTVCinema.bg",
+    "name": "bTV Cinema",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a04i"
+    ]
+  },
+  {
+    "id": "bTVComedy.bg",
+    "name": "bTV Comedy",
+    "categories": [
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a04k"
+    ]
+  },
+  {
+    "id": "bTVLady.bg",
+    "name": "bTV Lady",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a05i"
+    ]
+  },
+  {
+    "id": "BulgariaOnAir.bg",
+    "name": "Bulgaria On Air",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a05x"
+    ]
+  },
+  {
+    "id": "cinebox.bg",
+    "name": "cine.box",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://212.70.131.37:8000/play/a08b"
+    ]
+  },
+  {
+    "id": "CityTV.bg",
+    "name": "City TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.city.bg/play/tshls/citytv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Diema.bg",
+    "name": "Diema",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a045"
+    ]
+  },
+  {
+    "id": "DiemaFamily.bg",
+    "name": "Diema Family",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a047"
+    ]
+  },
+  {
+    "id": "DisneyChannel.bg",
+    "name": "Disney Channel",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://84.54.128.52:9090/play/3006/index.m3u8",
+      "http://213.91.179.28:8000/play/a059"
+    ]
+  },
+  {
+    "id": "DSTV.bg",
+    "name": "DSTV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.249.95.140:8081/hls/data.m3u8"
+    ]
+  },
+  {
+    "id": "EKids.bg",
+    "name": "EKids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://78.108.244.134:8899/ekids"
+    ]
+  },
+  {
+    "id": "Eurocom.bg",
+    "name": "Eurocom",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.ecomservice.bg/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "EuronewsBulgaria.bg",
+    "name": "Euronews Bulgaria",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a05e"
+    ]
+  },
+  {
+    "id": "H2.bg",
+    "name": "H2",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a03r"
+    ]
+  },
+  {
+    "id": "History.bg",
+    "name": "History",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0c1"
+    ]
+  },
+  {
+    "id": "HitMixMusic.bg",
+    "name": "Hit Mix Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0cl"
+    ]
+  },
+  {
+    "id": "HopeChannelBulgaria.bg",
+    "name": "Hope Channel Bulgaria",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hc1.hopetv.bg/live/hopetv_all.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KinoNova.bg",
+    "name": "Kino Nova",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a041"
+    ]
+  },
+  {
+    "id": "LightChannel.bg",
+    "name": "Light Channel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer1.streamhost.org/salive/GMIlcbgM/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MagicTV.bg",
+    "name": "Magic TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bss1.neterra.tv/magictv/magictv.m3u8"
+    ]
+  },
+  {
+    "id": "MaxSport1.bg",
+    "name": "Max Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://77.46.130.252:99/maxsport1"
+    ]
+  },
+  {
+    "id": "MaxSport2.bg",
+    "name": "Max Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://77.46.130.252:99/maxsport2"
+    ]
+  },
+  {
+    "id": "MaxSport3.bg",
+    "name": "Max Sport 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://77.46.130.252:99/maxsport3"
+    ]
+  },
+  {
+    "id": "MaxSport4.bg",
+    "name": "Max Sport 4",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a05n"
+    ]
+  },
+  {
+    "id": "MovieStar.bg",
+    "name": "Movie Star",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.14.32.26:8800/udp/239.100.10.160:5000"
+    ]
+  },
+  {
+    "id": "NationalGeographic.bg",
+    "name": "National Geographic",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0ct"
+    ]
+  },
+  {
+    "id": "NationalGeographicWild.bg",
+    "name": "National Geographic Wild",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0cu"
+    ]
+  },
+  {
+    "id": "Nickelodeon.bg",
+    "name": "Nickelodeon",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a056"
+    ]
+  },
+  {
+    "id": "Nostalgia.bg",
+    "name": "Nostalgia",
+    "categories": [
+      "classic"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a03q"
+    ]
+  },
+  {
+    "id": "Nova.bg",
+    "name": "Nova",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a03l"
+    ]
+  },
+  {
+    "id": "NovaNews.bg",
+    "name": "Nova News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a063"
+    ]
+  },
+  {
+    "id": "PlovdivOrthodoxTV.bg",
+    "name": "Plovdiv Orthodox TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://78.130.149.196:1935/live/pptv.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RING.bg",
+    "name": "RING",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a06e"
+    ]
+  },
+  {
+    "id": "RMTV.bg",
+    "name": "RMTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://transcoder1.bitcare.eu/streaming/rimextv/rmtv.m3u8"
+    ]
+  },
+  {
+    "id": "StarChannel.bg",
+    "name": "Star Channel",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0c9"
+    ]
+  },
+  {
+    "id": "StarCrime.bg",
+    "name": "Star Crime",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0cs"
+    ]
+  },
+  {
+    "id": "StarLife.bg",
+    "name": "Star Life",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a0cr"
+    ]
+  },
+  {
+    "id": "TheVoice.bg",
+    "name": "The Voice",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bss1.neterra.tv/thevoice/thevoice.m3u8"
+    ]
+  },
+  {
+    "id": "ThisisBulgariaHD.bg",
+    "name": "This is Bulgaria HD",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer103.neterra.tv/thisisbulgaria/live.m3u8"
+    ]
+  },
+  {
+    "id": "TiankovFolk.bg",
+    "name": "Tiankov Folk",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer103.neterra.tv/tiankov-folk/live.m3u8"
+    ]
+  },
+  {
+    "id": "TiankovOrientFolk.bg",
+    "name": "Tiankov Orient Folk",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer103.neterra.tv/tiankov-orient/live.m3u8"
+    ]
+  },
+  {
+    "id": "TravelTV.bg",
+    "name": "Travel TV",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer103.neterra.tv/travel/live.m3u8"
+    ]
+  },
+  {
+    "id": "TV1000.bg",
+    "name": "TV1000",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.14.32.26:8800/udp/239.100.10.100:5000"
+    ]
+  },
+  {
+    "id": "TVZagora.bg",
+    "name": "TV Zagora",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://zagoratv.ddns.net:8080/tvzagora.m3u8"
+    ]
+  },
+  {
+    "id": "VivacomArena.bg",
+    "name": "Vivacom Arena",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://213.91.179.28:8000/play/a053"
+    ]
+  }
+]

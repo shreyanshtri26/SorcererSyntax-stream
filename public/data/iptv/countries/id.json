@@ -1,0 +1,1653 @@
+[
+  {
+    "id": "AFBTVKupang.id",
+    "name": "AFBTV Kupang",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://afbtv.siar.us/live/afbtv.m3u8"
+    ]
+  },
+  {
+    "id": "AhsanTV.id",
+    "name": "Ahsan TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/ahsantv/ahsantv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlBahjahTV.id",
+    "name": "Al-Bahjah TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://202.150.161.117:8000/play/AlBahjahTV"
+    ]
+  },
+  {
+    "id": "AlImanTV.id",
+    "name": "Al-Iman TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.aliman.id/aliman/live.m3u8"
+    ]
+  },
+  {
+    "id": "AlWafaTarim.id",
+    "name": "Al Wafa Tarim",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ammedia.siar.us/ammedia/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AntaraTV.id",
+    "name": "Antara TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/antara/manifest.mpd"
+    ]
+  },
+  {
+    "id": "ANTV.id",
+    "name": "ANTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.58.160.157:8278/720-ANTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AshiilTV.id",
+    "name": "Ashiil TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://wahyu1ptv.pages.dev/AshiilTV-HD.m3u8"
+    ]
+  },
+  {
+    "id": "AsthaTV.id",
+    "name": "Astha TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://hgmtv.com:19360/asthatv/asthatv.m3u8"
+    ]
+  },
+  {
+    "id": "AstroBlitarTV.id",
+    "name": "Astro Blitar TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/abtv/abtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AtambuaTV.id",
+    "name": "Atambua TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/ATAMBUATV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BalikpapanTV.id",
+    "name": "Balikpapan TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/BALIKPAPANTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BandungTV.id",
+    "name": "Bandung TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://202.150.153.254:65500/bandungtvWEBSITE.m3u8"
+    ]
+  },
+  {
+    "id": "BanjarTV.id",
+    "name": "Banjar TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://banjartv.siar.us/banjartv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BantenTV.id",
+    "name": "Banten TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BatamTV.id",
+    "name": "Batam TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/BATAMTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BeritaSatu.id",
+    "name": "BeritaSatu",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://xtdslboppkkv-pull.bpmedialive.com/live/beritasatu/abr.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h209/index.m3u8"
+    ]
+  },
+  {
+    "id": "BiznetAdventure.id",
+    "name": "Biznet Adventure",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://livestream.biznetvideo.net/biznet_adventure/smil:adventure.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BiznetKids.id",
+    "name": "Biznet Kids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://livestream.biznetvideo.net/biznet_kids/smil:kids.smil/index.m3u8"
+    ]
+  },
+  {
+    "id": "BiznetLifestyle.id",
+    "name": "Biznet Lifestyle",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "http://livestream.biznetvideo.net/biznet_lifestyle/smil:lifestyle.smil/index.m3u8"
+    ]
+  },
+  {
+    "id": "BMSTV.id",
+    "name": "BMS TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/bmstv/bmstv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BNChannel.id",
+    "name": "BN Channel",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://flv.intechmedia.net/live/ch112.m3u8",
+      "http://175.158.57.130:8888/stream/channelid/1402218159",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h39/index.m3u8"
+    ]
+  },
+  {
+    "id": "BRTV.id",
+    "name": "BRTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/brtv/brtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BTV.id",
+    "name": "BTV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h129/S4/mnf.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h210/index.m3u8"
+    ]
+  },
+  {
+    "id": "BungoTV.id",
+    "name": "Bungo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/bungotv/bungotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CarubanTV.id",
+    "name": "Caruban TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.carubantv.id/hls/0/stream.m3u8"
+    ]
+  },
+  {
+    "id": "CelebesTV.id",
+    "name": "Celebes TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ams.juraganstreaming.com:5443/LiveApp/streams/celebesmedia.m3u8"
+    ]
+  },
+  {
+    "id": "ChannelJowo.id",
+    "name": "Channel Jowo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h77/index.m3u8"
+    ]
+  },
+  {
+    "id": "CNBCIndonesia.id",
+    "name": "CNBC Indonesia",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/master.m3u8",
+      "https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DAAITV.id",
+    "name": "DAAI TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pull.daaiplus.com/live-DAAIPLUS/live-DAAIPLUS_HD.m3u8",
+      "https://op-group1-swiftservesd-1.dens.tv/s/s182/index.m3u8"
+    ]
+  },
+  {
+    "id": "DavikaTV.id",
+    "name": "Davika TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/davika/davika/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DensFoodChannel.id",
+    "name": "Dens Food Channel",
+    "categories": [
+      "cooking"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h221/index.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h248/index.m3u8"
+    ]
+  },
+  {
+    "id": "DensKnowledge.id",
+    "name": "Dens Knowledge",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h236/index.m3u8"
+    ]
+  },
+  {
+    "id": "DensLifeStyle.id",
+    "name": "Dens Life & Style",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h222/index.m3u8"
+    ]
+  },
+  {
+    "id": "DensPlay.id",
+    "name": "Dens Play",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h225/index.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h246/index.m3u8"
+    ]
+  },
+  {
+    "id": "DensShowBiz.id",
+    "name": "Dens ShowBiz",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h203/index.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h244/index.m3u8"
+    ]
+  },
+  {
+    "id": "DhammaTV.id",
+    "name": "Dhamma TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://b.webcache.maxindo.net.id/dhamma/dhamma.m3u8"
+    ]
+  },
+  {
+    "id": "DhohoTV.id",
+    "name": "Dhoho TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dhohotv.siar.us/dhohotv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DMITV.id",
+    "name": "DMI TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvstreamcast.com/tawaftv.m3u8"
+    ]
+  },
+  {
+    "id": "DMTVMalang.id",
+    "name": "DM TV Malang",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://e.siar.us/live/dmtv.m3u8"
+    ]
+  },
+  {
+    "id": "DutaTV.id",
+    "name": "Duta TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dutatv.siar.us/dutatv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EfarinaTV.id",
+    "name": "Efarina TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.efarinatv.com/hls/bgtaufikganteng.m3u8"
+    ]
+  },
+  {
+    "id": "ElshintaTV.id",
+    "name": "Elshinta TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ams.juraganstreaming.com:5443/LiveApp/streams/elshintatv.m3u8",
+      "https://op-group2-swiftservesd-1.dens.tv/s/s12/index.m3u8"
+    ]
+  },
+  {
+    "id": "FajarTV.id",
+    "name": "Fajar TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/FAJARTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FicomChannel.id",
+    "name": "Ficom Channel",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v3.siar.us/ficomchannel/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GarudaTV.id",
+    "name": "Garuda TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8"
+    ]
+  },
+  {
+    "id": "HumaBetangTV.id",
+    "name": "Huma Betang TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v3.siar.us/humabetangtv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IAmChannel.id",
+    "name": "I Am Channel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://61146e7ab7a66.streamlock.net:8089/tes/1/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "IDXChannel.id",
+    "name": "IDX Channel",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/idx/manifest.mpd"
+    ]
+  },
+  {
+    "id": "IndonesianaTV.id",
+    "name": "Indonesiana.TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvstreamcast.com/indonesiana.m3u8"
+    ]
+  },
+  {
+    "id": "iNews.id",
+    "name": "iNews",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/inews/manifest.mpd"
+    ]
+  },
+  {
+    "id": "IzzahTV.id",
+    "name": "Izzah TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.radiosalamjambi.com/izzahtv.m3u8"
+    ]
+  },
+  {
+    "id": "JakartaGlobeNewsChannel.id",
+    "name": "Jakarta Globe News Channel",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jktglobe.secureswiftcontent.com/han/jktglobe/jktglober/srtoutput/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "JakTV.id",
+    "name": "Jak TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/JAK_TV/manifest.mpd",
+      "https://op-group1-swiftservesd-1.dens.tv/s/s123/index2.m3u8"
+    ]
+  },
+  {
+    "id": "JambiTV.id",
+    "name": "Jambi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jambitv.globaldigitalcore.com/hls/sah5tu7Eiveepohyieyie3OoteL2anga.m3u8"
+    ]
+  },
+  {
+    "id": "JawaPosTV.id",
+    "name": "Jawa Pos TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/JAWAPOSTVBALI/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JAWAPOSTVJKT/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JAWAPOSTVMADIUN/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JAWAPOSTVMAGELANG/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JAWAPOSTVSBY/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JAWAPOSTVSEMARANG/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JekTV.id",
+    "name": "Jek TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://27.124.81.245:1935/jektv/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JogjaIstimewaTV.id",
+    "name": "Jogja Istimewa TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.255.15.222:1935/tv/jitv_720p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JogjaTV.id",
+    "name": "Jogja TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.jogjatv.co.id/jtvlive/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "JTV.id",
+    "name": "JTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/JTVKEDIRI/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JTVMADIUN/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JTVMADURA/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JTVMALANG/_definst_/myStream/playlist.m3u8",
+      "http://122.248.43.242:1935/JTVSURABAYA/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KawanuaTV.id",
+    "name": "Kawanua TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/KAWANUATV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KidsTV.id",
+    "name": "Kids TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://origin5.mediacdn.ru/live/kidstv/index.m3u8",
+      "http://de.russkoe-iptv.com:88/s/s-e3dc39e0/kids-tv-hd.m3u8"
+    ]
+  },
+  {
+    "id": "KilisuciTV.id",
+    "name": "Kilisuci TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/kstv/kstv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KompasTV.id",
+    "name": "Kompas TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h234/index.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/s/s104/index.m3u8"
+    ]
+  },
+  {
+    "id": "KTV.id",
+    "name": "KTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://flv.intechmedia.net/live/ch118.m3u8",
+      "http://103.66.62.83:8000/play/a04s/index.m3u8"
+    ]
+  },
+  {
+    "id": "LingkarTV.id",
+    "name": "Lingkar TV",
+    "categories": [
+      "news",
+      "music",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lingkartv.my.id/hls/lingkartv.m3u8"
+    ]
+  },
+  {
+    "id": "MadaniTV.id",
+    "name": "Madani TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.asianastream.com/madani/madanitv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MaduTV.id",
+    "name": "Madu TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://re1.siar.us/madutv/hd720/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MagnaChannel.id",
+    "name": "Magna Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge.medcom.id/live-edge/smil:magna.smil/playlist.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h24/index.m3u8"
+    ]
+  },
+  {
+    "id": "MatrixTVYogyakarta.id",
+    "name": "Matrix TV Yogyakarta",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.matrixtv.id/hls/0/stream.m3u8"
+    ]
+  },
+  {
+    "id": "MAXEats.id",
+    "name": "MAX Eats",
+    "categories": [
+      "cooking"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/maxeats/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MAXKids.id",
+    "name": "MAX Kids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/indikids/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MAXReels.id",
+    "name": "MAX Reels",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/useeprime/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MAXSports.id",
+    "name": "MAX Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/useesport/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MAXStreak.id",
+    "name": "MAX Streak",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/maxstreak/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MBGTV.id",
+    "name": "MBG TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.convergen.co/mbg_stream/smil:mbStream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MDTV.id",
+    "name": "MDTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://wahyu1ptv.pages.dev/MDTV-HD.m3u8",
+      "http://103.148.44.38:8000/play/a05b/index.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h223/index.m3u8",
+      "https://op-group1-swiftservesd-1.dens.tv/h/h06/index.m3u8"
+    ]
+  },
+  {
+    "id": "MetroTV.id",
+    "name": "Metro TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MGITV.id",
+    "name": "MGI TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.rodja.live/tasik/ngrp:mgitv_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MGSTV.id",
+    "name": "MGSTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.gunadarma.ac.id/streams/mgstv/ingestmgstv.m3u8"
+    ]
+  },
+  {
+    "id": "MNCTV.id",
+    "name": "MNCTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/mnctv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "Moji.id",
+    "name": "Moji",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h207/index.m3u8"
+    ]
+  },
+  {
+    "id": "MQTV.id",
+    "name": "MQTV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/mqtv/mqtv/playlist.m3u8",
+      "https://indihuy.streamized.net/atm/DASH/mqtv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MTATV.id",
+    "name": "MTA TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/mtatv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "MusicInformationChannel.id",
+    "name": "Music Information Channel",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mic.siar.us/mic/live/mic.m3u8"
+    ]
+  },
+  {
+    "id": "MyCinema.id",
+    "name": "My Cinema",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h192/index.m3u8"
+    ]
+  },
+  {
+    "id": "MyFamily.id",
+    "name": "My Family",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h194/index.m3u8"
+    ]
+  },
+  {
+    "id": "MyKidz.id",
+    "name": "My Kidz",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn10jtedge.indihometv.com/atm/DASH/mykids/manifest.mpd",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h191/index.m3u8"
+    ]
+  },
+  {
+    "id": "NabawiTV.id",
+    "name": "Nabawi TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://202.150.161.117:8000/play/NabawiTV"
+    ]
+  },
+  {
+    "id": "NewTVComprehensive.id",
+    "name": "New TV Comprehensive",
+    "categories": [
+      "entertainment",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/newtvcomprehensive/manifest.mpd"
+    ]
+  },
+  {
+    "id": "NewTVFinance.id",
+    "name": "New TV Finance",
+    "categories": [
+      "entertainment",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/newtvfinance/manifest.mpd"
+    ]
+  },
+  {
+    "id": "NewTVVariety.id",
+    "name": "New TV Variety",
+    "categories": [
+      "entertainment",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/newtvvariety/manifest.mpd"
+    ]
+  },
+  {
+    "id": "NusantaraTV.id",
+    "name": "Nusantara TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nusantaratv.siar.us/nusantaratv/live/playlist.m3u8",
+      "https://indihuy.streamized.net/atm/DASH/nusantaratv/manifest.mpd",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h37/index.m3u8"
+    ]
+  },
+  {
+    "id": "OnlineTVNusantara.id",
+    "name": "Online TV Nusantara",
+    "categories": [
+      "general",
+      "music",
+      "news",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/onlinetvnusantara/onlinetvnusantara/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PadangTV.id",
+    "name": "Padang TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/PADANGTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PJTV.id",
+    "name": "PJTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://pjtv28uhf.siar.us/live/pjtv28uhf.m3u8"
+    ]
+  },
+  {
+    "id": "PKTV.id",
+    "name": "PKTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streaming.id18.tunnel.my.id/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "PONTV.id",
+    "name": "PONTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Prambors.id",
+    "name": "Prambors",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/pramborstv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "PujaTVAceh.id",
+    "name": "Puja TV Aceh",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://v6.siar.us/pujatv/live/chunks.m3u8"
+    ]
+  },
+  {
+    "id": "RadarLampungTV.id",
+    "name": "Radar Lampung TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://www.streaming.radartv.co.id/hls/test.m3u8"
+    ]
+  },
+  {
+    "id": "RadarTasikmalayaTV.id",
+    "name": "Radar Tasikmalaya TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://v2.siar.us/radartasikmalaya/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RajawaliTV.id",
+    "name": "Rajawali TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://175.158.57.130:8888/stream/channelid/412436804",
+      "https://indihuy.streamized.net/atm/DASH/RAJAWALI_TV/manifest.mpd",
+      "https://rtvstream.rtv.co.id:4555/hls/rtv.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h10/index.m3u8"
+    ]
+  },
+  {
+    "id": "RakyatBengkuluTV.id",
+    "name": "Rakyat Bengkulu TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://flv.intechmedia.net/live/ch59.m3u8"
+    ]
+  },
+  {
+    "id": "RCTI.id",
+    "name": "RCTI",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/rcti/manifest.mpd"
+    ]
+  },
+  {
+    "id": "RCTV.id",
+    "name": "RCTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://v10.siar.us/rctv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RiauTV.id",
+    "name": "Riau TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/RIAUTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RinjaniTV.id",
+    "name": "Rinjani TV",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rinjanitv.cloud/hls/tvkabel.m3u8"
+    ]
+  },
+  {
+    "id": "RodjaTV.id",
+    "name": "Rodja TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://rodjatv.com/rodjatv/live.m3u8",
+      "https://indihuy.streamized.net/atm/DASH/rodjatv/manifest.mpd",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h233/index.m3u8"
+    ]
+  },
+  {
+    "id": "RRINet.id",
+    "name": "RRI Net",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://private-streaming.rri.go.id/memfs/6f77c7b5-feb2-4935-9f89-e7e9fca0a54a_output_0.m3u8"
+    ]
+  },
+  {
+    "id": "SaktiTV.id",
+    "name": "Sakti TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://saktitv.siar.us/saktitv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SalamTV.id",
+    "name": "Salam TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://salamtv.siar.us/live/salamtv.m3u8"
+    ]
+  },
+  {
+    "id": "SaliraTV.id",
+    "name": "Salira TV",
+    "categories": [
+      "culture",
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.salira.tv/p/3870/hybrid/play.m3u8",
+      "https://live.salira.tv:3870/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "SampitTV.id",
+    "name": "Sampit TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sampit-tv.siar.us/live/sampit-tv.m3u8"
+    ]
+  },
+  {
+    "id": "SangajiTV.id",
+    "name": "Sangaji TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.adyadigitalteknologi.com:8090/vod/relay.m3u8"
+    ]
+  },
+  {
+    "id": "SCTV.id",
+    "name": "SCTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/h/h217/index.m3u8"
+    ]
+  },
+  {
+    "id": "SelaparangTV.id",
+    "name": "Selaparang TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://selaparangtv.siar.us/live/selaparangtv.m3u8"
+    ]
+  },
+  {
+    "id": "SemarangTV.id",
+    "name": "Semarang TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://116.254.112.74/hls/cakralive.m3u8"
+    ]
+  },
+  {
+    "id": "Simpang5TV.id",
+    "name": "Simpang5 TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/SIMPANG5TV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SindoNewsTV.id",
+    "name": "Sindo News TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/mncnews/manifest.mpd"
+    ]
+  },
+  {
+    "id": "SinPoTV.id",
+    "name": "Sin Po TV",
+    "categories": [
+      "news",
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/sinpotv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "SMTV.id",
+    "name": "SMTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/SMTV/_definst_/myStream/playlist.m3u8",
+      "https://e.siar.us/live/smtv.m3u8"
+    ]
+  },
+  {
+    "id": "SPOTV.id",
+    "name": "SPOTV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://primestreams.tv:826/live/mookie22/49aV7nBsK4/119515.m3u8"
+    ]
+  },
+  {
+    "id": "SPOTV2.id",
+    "name": "SPOTV 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://primestreams.tv:826/live/mookie22/49aV7nBsK4/119516.m3u8"
+    ]
+  },
+  {
+    "id": "SriwijayaTV.id",
+    "name": "Sriwijaya TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sriwijayatv.siar.us/live/sriwijayatv.m3u8"
+    ]
+  },
+  {
+    "id": "StaraTV.id",
+    "name": "Stara TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://bandung.staratv.id/hls/0/stream.m3u8",
+      "https://bojonegoro.staratv.id/hls/stream.m3u8",
+      "https://cianjur.staratv.id/hls/0/stream.m3u8",
+      "https://jakarta.staratv.id/hls/0/stream.m3u8",
+      "https://malang.staratv.id/hls/0/stream.m3u8",
+      "https://parahyangan.staratv.id/hls/0/stream.m3u8",
+      "https://stream.staratv.id/hls/0/stream.m3u8"
+    ]
+  },
+  {
+    "id": "STV.id",
+    "name": "STV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/SAMARINDATV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SultraTV.id",
+    "name": "Sultra TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/SULTRATV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SurabayaTV.id",
+    "name": "Surabaya TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://e.siar.us/live/surabayatv.m3u8"
+    ]
+  },
+  {
+    "id": "SurauTV.id",
+    "name": "Surau TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://surautv.siar.us/live/surautv.m3u8",
+      "https://wahyu1ptv.pages.dev/SurauTV-HD.m3u8"
+    ]
+  },
+  {
+    "id": "TATV.id",
+    "name": "TATV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://v2.siar.us/tatv/live.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TegarTVLampung.id",
+    "name": "Tegar TV Lampung",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.klikhost.com:1935/tegartv/tegartv/playlist.m3u8",
+      "https://5bf7b725107e5.streamlock.net/tegartv/tegartv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TheIndonesiaChannel.id",
+    "name": "The Indonesia Channel",
+    "categories": [
+      "culture",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://restreamer.indonusa.id:8443/d5f4ad43-1b5a-4b0f-8bef-5b37224ed221.m3u8"
+    ]
+  },
+  {
+    "id": "TimorTV.id",
+    "name": "Timor TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://122.248.43.242:1935/TIMORTV/_definst_/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Trans7.id",
+    "name": "Trans7",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video.detik.com/trans7/smil:trans7.smil/index.m3u8"
+    ]
+  },
+  {
+    "id": "TransTV.id",
+    "name": "Trans TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video.detik.com/transtv/smil:transtv.smil/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV9Nusantara.id",
+    "name": "TV 9 Nusantara",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/tv9/tv9/playlist.m3u8",
+      "https://indihuy.streamized.net/atm/DASH/tv9/manifest.mpd"
+    ]
+  },
+  {
+    "id": "TVKU.id",
+    "name": "TVKU",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tvku.tv/hlsstream/hls/live.m3u8"
+    ]
+  },
+  {
+    "id": "TVMu.id",
+    "name": "TV Mu",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://e.siar.us/live/tvmu.m3u8",
+      "https://indihuy.streamized.net/atm/DASH/muhammadiyahtv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "TVMUI.id",
+    "name": "TV MUI",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/muitv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "tvOne.id",
+    "name": "tvOne",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://202.80.222.20/cdn/iptv/Tvod/001/channel2000018/1024.m3u8",
+      "https://op-group1-swiftservehd-1.dens.tv/h/h40/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVRI.id",
+    "name": "TVRI",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott-balancer.tvri.go.id/live/eds/Aceh/hls/Aceh.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Bali/hls/Bali.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Babel/hls/Babel.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Bengkulu/hls/Bengkulu.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Jateng/hls/Jateng.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Kalteng/hls/Kalteng.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sulteng/hls/Sulteng.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Jatim/hls/Jatim.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Kaltim/hls/Kaltim.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/NTT/hls/NTT.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Gorontalo/hls/Gorontalo.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/DKI/hls/DKI.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Jambi/hls/Jambi.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Lampung/hls/Lampung.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Ambon/hls/Ambon.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sulut/hls/Sulut.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sumut/hls/Sumut.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Papua/hls/Papua.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Riau/hls/Riau.m3u8",
+      "https://op-group1-swiftservesd-1.dens.tv/s/s11/index.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sultra/hls/Sultra.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Kalsel/hls/Kalsel.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sulsel/hls/Sulsel.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sumsel/hls/Sumsel.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Jabar/hls/Jabar.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Kalbar/hls/Kalbar.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/NTB/hls/NTB.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Pabar/hls/Pabar.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sulbar/hls/Sulbar.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Sumbar/hls/Sumbar.m3u8",
+      "https://ott-balancer.tvri.go.id/live/eds/Jogjakarta/hls/Jogjakarta.m3u8"
+    ]
+  },
+  {
+    "id": "TVRISport.id",
+    "name": "TVRI Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8",
+      "https://op-group1-swiftservesd-1.dens.tv/s/s107/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVRIWorld.id",
+    "name": "TVRI World",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld.m3u8"
+    ]
+  },
+  {
+    "id": "TVRParlemen.id",
+    "name": "TVR Parlemen",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.18.181.69:1935/golive/livestream/playlist.m3u8",
+      "https://ssv1.dpr.go.id/golive/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVTabalong.id",
+    "name": "TV Tabalong",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5bf7b725107e5.streamlock.net/tvtabalong/tvtabalong/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UChannel.id",
+    "name": "U Channel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srs.u-channel.tv/live/uchannel-tv.m3u8"
+    ]
+  },
+  {
+    "id": "UGTV.id",
+    "name": "UGTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.gunadarma.ac.id/streams/ugtv/ingestugtv.m3u8"
+    ]
+  },
+  {
+    "id": "VTV.id",
+    "name": "VTV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.66.62.83:8000/play/a00c/index.m3u8",
+      "https://flv.intechmedia.net/live/ch107.m3u8"
+    ]
+  },
+  {
+    "id": "WesalTV.id",
+    "name": "Wesal TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ams.juraganstreaming.com:5443/LiveApp/streams/wesaltv.m3u8"
+    ]
+  },
+  {
+    "id": "ZeeBioskop.id",
+    "name": "Zee Bioskop",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://indihuy.streamized.net/atm/DASH/zbioskop/manifest.mpd"
+    ]
+  }
+]

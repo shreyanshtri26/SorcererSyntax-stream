@@ -1,0 +1,79 @@
+[
+  {
+    "id": "ArlaadiTV.so",
+    "name": "Arlaadi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ap02.iqplay.tv:8082/iqb8002/alr114iapp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HirshabelleTV.so",
+    "name": "Hirshabelle TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ap02.iqplay.tv:8081/iqb8002/h1rshbe1iptv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PuntlandTV.so",
+    "name": "Puntland TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn.mediavisionuae.com:1935/live/putlandtv2.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SaabTV.so",
+    "name": "Saab TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ap02.iqplay.tv:8082/iqb8002/s03btv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SBCTV.so",
+    "name": "SBC TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn.mediavisionuae.com:1935/live/sbctv.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SNTVDaljir.so",
+    "name": "SNTV Daljir",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ap02.iqplay.tv:8082/iqb8002/s2tve/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SomaliNationalTV.so",
+    "name": "Somali National TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ap02.iqplay.tv:8082/iqb8002/s4ne/playlist.m3u8"
+    ]
+  }
+]

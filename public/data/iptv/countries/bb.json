@@ -1,0 +1,13 @@
+[
+  {
+    "id": "CBCTV8.bb",
+    "name": "CBC TV8",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://1740288887.rsc.cdn77.org/1740288887/index.m3u8"
+    ]
+  }
+]

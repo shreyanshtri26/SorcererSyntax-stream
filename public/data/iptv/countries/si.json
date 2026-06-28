@@ -1,0 +1,240 @@
+[
+  {
+    "id": "ArenaSport1.si",
+    "name": "Arena Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/AS1SLOHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport2.si",
+    "name": "Arena Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/AS2SLOHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport3.si",
+    "name": "Arena Sport 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://143.244.62.109:80/as3slo/index.m3u8"
+    ]
+  },
+  {
+    "id": "ExodusTV.si",
+    "name": "Exodus TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://584943999.r.worldssl.net/584943999/_definst_/vzivo/playlist.m3u8",
+      "https://584943999.r.worldssl.net/584943999/vzivo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FolxSlovenija.si",
+    "name": "Folx Slovenija",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdne.folxplay.tv/folx-trz/streams/ch-5/master.m3u8"
+    ]
+  },
+  {
+    "id": "H2HD.si",
+    "name": "H2 HD",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/HistoryChannel2/index.m3u8"
+    ]
+  },
+  {
+    "id": "History.si",
+    "name": "History",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/HistoryChannel/index.m3u8",
+      "https://streamer12.xploretv.si/__cl/cg:prod/__c/A1_SI_HISTORYHD_ott/__op/dash-default/__dci/__f/index.m3u8?admin=xploreTv_test_user&redirect=true"
+    ]
+  },
+  {
+    "id": "KanalA.si",
+    "name": "Kanal A",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer01.xploretv.si/__cl/cg:prod/__c/A1_SI_AKANALHD_ott/__op/dash-default/__dci/__f/index.m3u8?admin=xploreTv_test_user&redirect=true"
+    ]
+  },
+  {
+    "id": "StarChannel.si",
+    "name": "Star Channel",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://92.36.202.5:10001/play/a01s"
+    ]
+  },
+  {
+    "id": "StarCrime.si",
+    "name": "Star Crime",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://92.36.202.5:10001/play/a02o"
+    ]
+  },
+  {
+    "id": "StarLife.si",
+    "name": "Star Life",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://92.36.202.5:10001/play/a02n"
+    ]
+  },
+  {
+    "id": "StarMovies.si",
+    "name": "Star Movies",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://92.36.202.5:10001/play/a01o"
+    ]
+  },
+  {
+    "id": "TelevizijaUrslja.si",
+    "name": "Televizija Urslja",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ott.sgn.net/hls/tvurslja.m3u8"
+    ]
+  },
+  {
+    "id": "TrzicTV.si",
+    "name": "Trzic TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://vpn.video2go.live:444/trzic/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV1000.si",
+    "name": "TV1000",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/NovaMax/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVSLO1.si",
+    "name": "TV SLO 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://23.88.66.93/SLO1/index.m3u8",
+      "https://dash2.antik.sk/live/test_slo1_tizen/playlist.m3u8",
+      "https://streamer03.xploretv.si/__cl/cg:prod/__c/A1_SI_SLO1HD_ott/__op/dash-default/__dci/__f/index.m3u8?admin=xploreTv_test_user&redirect=true"
+    ]
+  },
+  {
+    "id": "TVSLO2.si",
+    "name": "TV SLO 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://23.88.66.93/SLO2/index.m3u8",
+      "https://dash2.antik.sk/live/test_slo2_tizen/playlist.m3u8",
+      "https://streamer03.xploretv.si/__cl/cg:prod/__c/A1_SI_SLO2HD_ott/__op/dash-default/__dci/__f/index.m3u8?admin=xploreTv_test_user&redirect=true"
+    ]
+  },
+  {
+    "id": "TVSLO3.si",
+    "name": "TV SLO 3",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streamer03.xploretv.si/__cl/cg:prod/__c/A1_SI_SLO3HD_ott/__op/dash-default/__dci/__f/index.m3u8?admin=xploreTv_test_user&redirect=true"
+    ]
+  },
+  {
+    "id": "TVVeseljakGolicaHD.si",
+    "name": "TV Veseljak Golica HD",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://radio.serv.si/VeseljakGolicaTV/tracks-v1a1/mono.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatExplore.si",
+    "name": "Viasat Explore",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/ViasatExplore/index.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatHistory.si",
+    "name": "Viasat History",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/ViasatHistory/index.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatNature.si",
+    "name": "Viasat Nature",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/ViasatNature/index.m3u8"
+    ]
+  }
+]

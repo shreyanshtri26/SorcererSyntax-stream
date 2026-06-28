@@ -1,0 +1,13 @@
+[
+  {
+    "id": "YadahTV.zw",
+    "name": "Yadah TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_018/Stream/playlist.m3u8"
+    ]
+  }
+]

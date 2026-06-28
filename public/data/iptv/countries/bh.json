@@ -1,0 +1,57 @@
+[
+  {
+    "id": "BahrainInternational.bh",
+    "name": "Bahrain International",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c7b683162943.streamlock.net/live/ngrp:bahraininternational_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BahrainQuran.bh",
+    "name": "Bahrain Quran",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c7b683162943.streamlock.net/live/ngrp:bahrainquran_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BahrainSports1.bh",
+    "name": "Bahrain Sports 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BahrainSports2.bh",
+    "name": "Bahrain Sports 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c7b683162943.streamlock.net/live/ngrp:bahrainsportstwo_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BahrainTV.bh",
+    "name": "Bahrain TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5c7b683162943.streamlock.net/live/ngrp:bahraintvmain_all/playlist.m3u8"
+    ]
+  }
+]

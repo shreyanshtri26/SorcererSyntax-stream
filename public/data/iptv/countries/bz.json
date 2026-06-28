@@ -1,0 +1,200 @@
+[
+  {
+    "id": "BBNTV.bz",
+    "name": "BBN TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/06-BBN/index.m3u8"
+    ]
+  },
+  {
+    "id": "BelizeAdventistTelevisionNetwork.bz",
+    "name": "Belize Adventist Television Network",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer1.nexgen.bz/ATN/index.m3u8"
+    ]
+  },
+  {
+    "id": "BHATV.bz",
+    "name": "BHA TV",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/15-BHA/index.m3u8"
+    ]
+  },
+  {
+    "id": "Channel7.bz",
+    "name": "Channel 7",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/07-CHANNEL7/index.m3u8"
+    ]
+  },
+  {
+    "id": "ColorBlindTV.bz",
+    "name": "Color Blind TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/12-CBTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "CTV3.bz",
+    "name": "CTV3",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/03-CTVOW/index.m3u8"
+    ]
+  },
+  {
+    "id": "FlexStudioRadioTV.bz",
+    "name": "Flex Studio Radio TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/fsradiotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GuadalupeMedia.bz",
+    "name": "Guadalupe Media",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer1.nexgen.bz/GUADALUPE_MEDIA/index.m3u8"
+    ]
+  },
+  {
+    "id": "HitzTV.bz",
+    "name": "Hitz TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/13-HITZ/index.m3u8"
+    ]
+  },
+  {
+    "id": "LoveTelevision.bz",
+    "name": "Love Television",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/01-LOVE/index.m3u8"
+    ]
+  },
+  {
+    "id": "MaxTV.bz",
+    "name": "Max TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/14-MAX/index.m3u8"
+    ]
+  },
+  {
+    "id": "PGTV.bz",
+    "name": "PGTV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/16-PGTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "PlusTV.bz",
+    "name": "PlusTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/04-PLUS/index.m3u8"
+    ]
+  },
+  {
+    "id": "TheNationalChannel10.bz",
+    "name": "The National Channel 10",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/10-TNC/index.m3u8"
+    ]
+  },
+  {
+    "id": "TNCSports.bz",
+    "name": "TNC Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer1.nexgen.bz/TNC_SPORTS/index.m3u8"
+    ]
+  },
+  {
+    "id": "VibesMedia.bz",
+    "name": "Vibes Media",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/09-POSVIBES/index.m3u8"
+    ]
+  },
+  {
+    "id": "WAVETV.bz",
+    "name": "WAVE TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/08-WAVE/index.m3u8"
+    ]
+  },
+  {
+    "id": "XTV.bz",
+    "name": "XTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer2.nexgen.bz/02-KREM/index.m3u8"
+    ]
+  }
+]

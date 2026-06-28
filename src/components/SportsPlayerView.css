@@ -1,0 +1,677 @@
+/* ============================================================
+   SportsPlayerView.css — Full Responsive + Premium Back Button
+   ============================================================ */
+
+/* ── Fade-in animation ────────────────────────────────────── */
+@keyframes fadeInPlayer {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Back button entry animation */
+@keyframes backBtnAppear {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Glow pulse for live badge */
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(232, 65, 24, 0.3); }
+  50%       { box-shadow: 0 0 16px rgba(232, 65, 24, 0.7); }
+}
+
+/* ── Root View ────────────────────────────────────────────── */
+.sports-player-view {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+  width: 100%;
+  background-color: #08090d;
+  color: #f1f2f6;
+  padding: 16px 24px 24px 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sports-player-view-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  color: #a4b0be;
+  gap: 16px;
+}
+
+.sports-player-view-loading .spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid rgba(255, 255, 255, 0.08);
+  border-left-color: var(--accent-color, #e84118);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Header Bar ───────────────────────────────────────────── */
+.player-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   PREMIUM BACK BUTTON
+   ══════════════════════════════════════════════════════ */
+.back-btn {
+  /* Appearance */
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--accent-color, #e84118);
+  color: #f1f2f6;
+  padding: 11px 22px 11px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+
+  /* Animation on mount */
+  animation: backBtnAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  /* Transition */
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.25s ease,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Shimmer sweep layer */
+.back-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+/* Arrow icon — individual transition */
+.back-btn i {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* Always show full label on desktop */
+.back-btn-label {
+  display: inline;
+}
+
+/* Always hide short label on desktop */
+.back-btn-short {
+  display: none !important;
+}
+
+/* ── Back Button Hover State ──────────────────────────────── */
+.back-btn:hover {
+  background: linear-gradient(135deg, rgba(232, 65, 24, 0.18) 0%, rgba(232, 65, 24, 0.08) 100%);
+  border-color: rgba(232, 65, 24, 0.35);
+  border-left-color: var(--accent-color, #e84118);
+  color: #ffffff;
+  box-shadow:
+    0 4px 20px rgba(232, 65, 24, 0.25),
+    0 1px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateX(-3px);
+}
+
+/* Arrow slides further left on hover */
+.back-btn:hover i {
+  transform: translateX(-4px);
+}
+
+/* Shimmer slides across on hover */
+.back-btn:hover::before {
+  transform: translateX(100%);
+}
+
+/* ── Back Button Active/Press State ──────────────────────── */
+.back-btn:active {
+  transform: translateX(-1px) scale(0.97);
+  box-shadow: 0 2px 10px rgba(232, 65, 24, 0.2);
+}
+
+/* ── Header Meta Badges ───────────────────────────────────── */
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.badge-live-stream {
+  background: rgba(232, 65, 24, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(232, 65, 24, 0.25);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.channel-type-tag {
+  background: rgba(255, 255, 255, 0.04);
+  color: #a4b0be;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+/* ── Body Layout ──────────────────────────────────────────── */
+.player-view-body {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Left Column: Player ──────────────────────────────────── */
+.player-left-col {
+  flex: 1.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  min-height: 0;
+}
+
+.sports-player-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iframe-wrapper,
+.react-player-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-player-instance {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.react-player-instance div,
+.react-player-instance video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.player-error-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+  color: #ff6b6b;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.player-error-fallback i {
+  font-size: 2.5rem;
+  opacity: 0.8;
+}
+
+.player-error-fallback .subtext {
+  color: #a4b0be;
+  font-size: 0.85rem;
+}
+
+/* ── Right Column: Metadata Card ─────────────────────────── */
+.player-right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-width: 300px;
+  max-width: 420px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.player-right-col::-webkit-scrollbar {
+  width: 4px;
+}
+
+.player-right-col::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.details-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  backdrop-filter: blur(12px);
+  flex: 1;
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.channel-view-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  background: #141622;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.channel-view-logo img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.title-section h2 {
+  margin: 0 0 4px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.title-section .subtitle {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #a4b0be;
+}
+
+.details-separator {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 0;
+}
+
+.control-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control-section h4 {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-section .help-text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+/* ── DLHD Folder Toggles ──────────────────────────────────── */
+.folders-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.folder-btn-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #a4b0be;
+  padding: 6px 11px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.folder-btn-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.folder-btn-item.active {
+  background: var(--accent-color, #e84118);
+  color: #fff;
+  border-color: var(--accent-color, #e84118);
+  box-shadow: 0 2px 10px rgba(232, 65, 24, 0.35);
+}
+
+.direct-launch-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #c8cdd5;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: 6px;
+}
+
+.direct-launch-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ── Alternative Feeds ────────────────────────────────────── */
+.feeds-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.feed-btn-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #a4b0be;
+  padding: 7px 13px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feed-btn-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.feed-btn-item.active {
+  background: var(--accent-color, #e84118);
+  color: #fff;
+  border-color: var(--accent-color, #e84118);
+  box-shadow: 0 2px 8px rgba(232, 65, 24, 0.3);
+}
+
+/* ── Share Section ────────────────────────────────────────── */
+.share-section {
+  margin-top: auto;
+}
+
+/* ── Fade-in Class ────────────────────────────────────────── */
+.animate-fade-in {
+  animation: fadeInPlayer 0.35s ease-out forwards;
+}
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ── Large Desktop (≥ 1280px) ────────────────────────────── */
+@media (min-width: 1280px) {
+  .player-right-col {
+    max-width: 440px;
+  }
+
+  .sports-player-view {
+    padding: 20px 32px 28px 32px;
+  }
+
+  .title-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── iPad / Tablet (≤ 1024px) ────────────────────────────── */
+@media (max-width: 1024px) {
+  .sports-player-view {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+    padding: 14px 16px 24px 16px;
+  }
+
+  .player-view-body {
+    flex-direction: column;
+    overflow: visible;
+    gap: 18px;
+  }
+
+  .player-left-col {
+    flex: none;
+    width: 100%;
+    border-radius: 12px;
+    /* Fixed 16:9 aspect ratio for the player */
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .sports-player-container {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    position: relative;
+  }
+
+  .player-right-col {
+    max-width: 100%;
+    width: 100%;
+    min-width: unset;
+    overflow-y: visible;
+  }
+
+  .details-card {
+    padding: 18px;
+  }
+}
+
+/* ── Mobile / Tablet Portrait (≤ 768px) ──────────────────── */
+@media (max-width: 768px) {
+  .sports-player-view {
+    padding: 10px 12px 20px 12px;
+  }
+
+  .player-view-header {
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* Compact back button on tablet */
+  .back-btn {
+    padding: 9px 16px 9px 14px;
+    font-size: 0.82rem;
+    gap: 8px;
+  }
+
+  .channel-type-tag {
+    max-width: 160px;
+    font-size: 0.68rem;
+  }
+
+  .player-left-col {
+    border-radius: 10px;
+  }
+
+  .details-card {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .title-section h2 {
+    font-size: 1.15rem;
+  }
+}
+
+/* ── Small Mobile (≤ 480px) ──────────────────────────────── */
+@media (max-width: 480px) {
+  .sports-player-view {
+    height: auto;
+    min-height: 100dvh;
+    padding: 8px 10px 90px 10px; /* bottom padding for fixed nav */
+    overflow-y: auto;
+  }
+
+  .player-view-header {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Minimal back button on small phones — just icon + short text */
+  .back-btn {
+    padding: 9px 14px 9px 12px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    gap: 6px;
+  }
+
+  /* Swap label text on tiny screens */
+  .back-btn .back-btn-label {
+    display: none !important;
+  }
+
+  .back-btn .back-btn-short {
+    display: inline !important;
+  }
+
+  .header-meta {
+    gap: 6px;
+  }
+
+  .badge-live-stream {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    gap: 4px;
+  }
+
+  .channel-type-tag {
+    display: none; /* hide type tag on tiny screens */
+  }
+
+  .player-view-body {
+    gap: 12px;
+  }
+
+  .player-left-col {
+    border-radius: 8px;
+  }
+
+  .details-card {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 10px;
+  }
+
+  .channel-view-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
+
+  .title-section h2 {
+    font-size: 1.05rem;
+  }
+
+  .title-section .subtitle {
+    font-size: 0.75rem;
+  }
+
+  .control-section h4 {
+    font-size: 0.82rem;
+  }
+
+  .control-section .help-text {
+    font-size: 0.75rem;
+  }
+
+  .folder-btn-item {
+    font-size: 0.68rem;
+    padding: 5px 9px;
+  }
+
+  .feed-btn-item {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .direct-launch-link {
+    font-size: 0.78rem;
+    padding: 9px 14px;
+  }
+}

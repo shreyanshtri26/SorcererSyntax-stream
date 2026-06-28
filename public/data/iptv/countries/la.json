@@ -1,0 +1,110 @@
+[
+  {
+    "id": "BrianTV.la",
+    "name": "Brian TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/briantv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DaoLaneXangTV.la",
+    "name": "Dao Lane Xang TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/khaomwungmai.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ISTV.la",
+    "name": "ISTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/ichannel.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaoNetTV.la",
+    "name": "Lao Net TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/laonet.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LookThoongTV.la",
+    "name": "Look Thoong TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/lookthoongtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LSTV.la",
+    "name": "LS TV",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/laostv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MVLaoTV.la",
+    "name": "MV Lao TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge2a.v2h-cdn.com/live_mvhub/mvlao.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NingTV.la",
+    "name": "Ning TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/ningtv.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OhMuangLaoTV.la",
+    "name": "Oh Muang Lao TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/ohmuanglao.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VatiLao.la",
+    "name": "Vati Lao",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livefta.malimarcdn.com/ftaedge00/vatilaotv.stream/playlist.m3u8"
+    ]
+  }
+]

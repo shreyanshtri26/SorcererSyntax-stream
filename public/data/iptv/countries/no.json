@@ -1,0 +1,111 @@
+[
+  {
+    "id": "CanalMotor.no",
+    "name": "Canal Motor",
+    "categories": [
+      "auto"
+    ],
+    "languages": [],
+    "streams": [
+      "https://digicom.hls.iptvdc.com/canalmotor/index.m3u8",
+      "https://digicom.hls.iptvdc.com/motorstv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Frikanalen.no",
+    "name": "Frikanalen",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://frikanalen.no/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "NRK1.no",
+    "name": "NRK1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nrk-live-no.akamaized.net/nrk1/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk8/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk10/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk4/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk5/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk3/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk2/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk7/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk9/muxed.m3u8",
+      "https://nrk-live-no.akamaized.net/nrk1_dk6/muxed.m3u8"
+    ]
+  },
+  {
+    "id": "NRK2.no",
+    "name": "NRK2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nrk-live-no.akamaized.net/nrk2/muxed.m3u8"
+    ]
+  },
+  {
+    "id": "NRK3.no",
+    "name": "NRK3",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nrk-live-no.akamaized.net/nrk3/muxed.m3u8"
+    ]
+  },
+  {
+    "id": "NRKSuper.no",
+    "name": "NRK Super",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nrk-live-no.akamaized.net/nrksuper/muxed.m3u8"
+    ]
+  },
+  {
+    "id": "NRKTegnsprak.no",
+    "name": "NRK Tegnsprak",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nrk-live-no.akamaized.net/nrk_tegnspraak/muxed.m3u8"
+    ]
+  },
+  {
+    "id": "TVModum.no",
+    "name": "TVModum",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn010.panaccess.com/5677_streams/TVMODUM/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVOstfold.no",
+    "name": "TV Ostfold",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamnorge.com:8088/hls/tvo.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "F1Channel.ie",
+    "name": "F1 Channel",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg12058-c15studio-amg12058c1-lg-us-5787.playouts.now.amagi.tv/playlist.m3u8",
+      "https://jmp2.uk/plu-65c69ee3d77d450008c80438.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTV.ie",
+    "name": "Oireachtas TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/oirtv/hls.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTVCommitteeRoom1.ie",
+    "name": "Oireachtas TV Committee Room 1",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/cr1/hls.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTVCommitteeRoom2.ie",
+    "name": "Oireachtas TV Committee Room 2",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/cr2/hls.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTVCommitteeRoom3.ie",
+    "name": "Oireachtas TV Committee Room 3",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/cr3/hls.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTVCommitteeRoom4.ie",
+    "name": "Oireachtas TV Committee Room 4",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/cr4/hls.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTVDailEireann.ie",
+    "name": "Oireachtas TV Dail Eireann",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/dail/hls.m3u8"
+    ]
+  },
+  {
+    "id": "OireachtasTVSeanadEireann.ie",
+    "name": "Oireachtas TV Seanad Eireann",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d33zah5htxvoxb.cloudfront.net/el/live/seanad/hls.m3u8"
+    ]
+  },
+  {
+    "id": "SkyNews.ie",
+    "name": "Sky News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.205.77.102/SKYNEWS/index.m3u8",
+      "https://jmp2.uk/plu-55b285cd2665de274553d66f.m3u8"
+    ]
+  },
+  {
+    "id": "TG4.ie",
+    "name": "TG4",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://fastly.live.brightcove.com/6384196213112/eu-west-1/1555966122001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoieDl2YzlnLmVncmVzcy55ODN1ZWIiLCJhY2NvdW50X2lkIjoiMTU1NTk2NjEyMjAwMSIsImVobiI6ImZhc3RseS5saXZlLmJyaWdodGNvdmUuY29tIiwiaXNzIjoiYmxpdmUtcGxheWJhY2stc291cmNlLWFwaSIsInN1YiI6InBhdGhtYXB0b2tlbiIsImF1ZCI6WyIxNTU1OTY2MTIyMDAxIl0sImp0aSI6IjYzODQxOTYyMTMxMTIifQ.Co2xR3kmJBoxTaFTpwU0b37lJ05vNt-y32-SwfM26EA/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "VirginMediaTwo.ie",
+    "name": "Virgin Media Two",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://41.205.93.154/BBCTHREE/index.m3u8"
+    ]
+  }
+]

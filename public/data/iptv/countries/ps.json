@@ -1,0 +1,197 @@
+[
+  {
+    "id": "AjyalTV.ps",
+    "name": "Ajyal TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://htvajyal.mada.ps:8888/ajyal/index.m3u8",
+      "http://htvmada.mada.ps:8888/ajyal/index.m3u8"
+    ]
+  },
+  {
+    "id": "AlMadina.ps",
+    "name": "Al Madina",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streaming.zaytonatube.com:8081/AlMadinatv/almadina21/index.m3u8"
+    ]
+  },
+  {
+    "id": "AlNajahNews.ps",
+    "name": "Al Najah News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.najah.edu:8443/hls/AlNajah.m3u8"
+    ]
+  },
+  {
+    "id": "FalastiniTV.ps",
+    "name": "Falastini TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rp.tactivemedia.com/palestiniantv_source/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HalaRamallah.ps",
+    "name": "Hala Ramallah",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://halaramallahtv.com:2053/HRamallah-Tv/HalaRamallah/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HolyQuranRadioNablus.ps",
+    "name": "Holy Quran Radio Nablus",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streaming.zaytonatube.com:8080/holyquran/holyquran/video.m3u8"
+    ]
+  },
+  {
+    "id": "KolalnasTV.ps",
+    "name": "Kolalnas TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://htvint.mada.ps/kolalnas/index.m3u8"
+    ]
+  },
+  {
+    "id": "MusawaChannel.ps",
+    "name": "Musawa Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pbc.furrera.ps/musawahd/index.m3u8"
+    ]
+  },
+  {
+    "id": "NablusTV.ps",
+    "name": "Nablus TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://htvint.mada.ps/nabluslive/index.m3u8",
+      "http://htvmada.mada.ps:8888/nabluslive/index.m3u8"
+    ]
+  },
+  {
+    "id": "PalestineEdu.ps",
+    "name": "Palestine Edu",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pbc.furrera.ps/PalestineEDU/index.m3u8"
+    ]
+  },
+  {
+    "id": "PalestineMubasher.ps",
+    "name": "Palestine Mubasher",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pbc.furrera.ps/palestinelivehd/index.m3u8"
+    ]
+  },
+  {
+    "id": "PalestineSatelliteChannel.ps",
+    "name": "Palestine Satellite Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pbc.furrera.ps/palestinehd/index.m3u8",
+      "https://cdn-globecast.akamaized.net/live/eds/palestinian_satellite_channel/hls_roku/palestinian_satellite_channel.m3u8"
+    ]
+  },
+  {
+    "id": "PalestineToday.ps",
+    "name": "Palestine Today",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.paltodaytv.com/paltv/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioAlbaladTV.ps",
+    "name": "Radio Albalad TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streaming.zaytonatube.com:8080/radioalbalad/radioalbalad/playlist.m3u8",
+      "https://streaming.zaytonatube.com:8081/radioalbalad/radioalbalad/index.m3u8"
+    ]
+  },
+  {
+    "id": "RajeenTV.ps",
+    "name": "Rajeen TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://mn-nl.mncdn.com/palabroad/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Raya1.ps",
+    "name": "Raya 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://htvmada.mada.ps:4443/raya/index.m3u8"
+    ]
+  },
+  {
+    "id": "ShababFM.ps",
+    "name": "Shabab FM",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streaming.zaytonatube.com:8081/ShababFM/shabab/index.m3u8"
+    ]
+  },
+  {
+    "id": "WatarTV.ps",
+    "name": "Watar TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://htvint.mada.ps:8889/orient/index.m3u8",
+      "https://htvint.mada.ps/orient/index.m3u8"
+    ]
+  }
+]

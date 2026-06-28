@@ -1,0 +1,13 @@
+[
+  {
+    "id": "QTVGambia.gm",
+    "name": "QTV Gambia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://player.qtv.gm/hls/live.stream.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,206 @@
+[
+  {
+    "id": "AdaTV.cy",
+    "name": "Ada TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://yayin1.canlitv.fun/live/kibrisadatv.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlfaSport.cy",
+    "name": "Alfa Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dev.aftermind.xyz/edge-hls/unitrust/alfasports/index.m3u8?token=8TXWzhY3h6jrzqEqx"
+    ]
+  },
+  {
+    "id": "ANT1Cyprus.cy",
+    "name": "ANT1 Cyprus",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://l2.cloudskep.com/ant1cm2/abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BRT1.cy",
+    "name": "BRT 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/brt1hd/bant1/playlist.m3u8",
+      "https://canlitvulusal.xyz/live/brt1/index.m3u8"
+    ]
+  },
+  {
+    "id": "BRT2.cy",
+    "name": "BRT 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/brt2hd/bant1/playlist.m3u8",
+      "https://canlitvulusal.xyz/live/brt2/index.m3u8"
+    ]
+  },
+  {
+    "id": "BRT3.cy",
+    "name": "BRT 3",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://185.234.111.229:8000/play/a07e"
+    ]
+  },
+  {
+    "id": "CityChannel.cy",
+    "name": "City Channel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://dev.aftermind.xyz/edge-hls/unitrust/citychannel/index.m3u8?token=8TXWzhY3h6jrzqEqx"
+    ]
+  },
+  {
+    "id": "KanalSim.cy",
+    "name": "Kanal Sim",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/simtv/bantp1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KibrisGencTV.cy",
+    "name": "Kibris Genc TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/kibrisgenctv/bant1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KibrisKanalT.cy",
+    "name": "Kibris Kanal T",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/kanalt/bantp1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KibrisTV.cy",
+    "name": "Kibris TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/kibristv/bant1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RIKSat.cy",
+    "name": "RIK Sat",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://l3.cloudskep.com/cybcsat/abr/playlist.m3u8",
+      "http://l3.cloudskep.com/cybcsat/abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sat7Arabic.cy",
+    "name": "Sat 7 Arabic",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/sat7arabiclive/sat7arabic.smil/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "Sat7Kids.cy",
+    "name": "Sat 7 Kids",
+    "categories": [
+      "kids",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/sat7kidslive/sat7kids.smil/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "Sat7Pars.cy",
+    "name": "Sat 7 Pars",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sat7phls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Sat7Turk.cy",
+    "name": "Sat 7 Turk",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist_dvr.m3u8",
+      "https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8",
+      "https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SigmaTV.cy",
+    "name": "Sigma TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sl2.sigmatv.com/hls/live.m3u8"
+    ]
+  },
+  {
+    "id": "TV2020.cy",
+    "name": "TV 2020",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/tv2020/bantp1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVGunes.cy",
+    "name": "TV Gunes",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sc-kuzeykibrissmarttv.ercdn.net/gunestv/bant1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VouliTV.cy",
+    "name": "Vouli TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dev.aftermind.xyz/edge-hls/unitrust/voulitv/index.m3u8?token=8TXWzhY3h6jrzqEqx"
+    ]
+  }
+]

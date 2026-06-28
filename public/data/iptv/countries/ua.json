@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "100NEWS.ua",
+    "name": "100% NEWS",
+    "categories": [
+      "news",
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.238.112.40:8810/hls_sec/239.33.16.32-.m3u8"
+    ]
+  },
+  {
+    "id": "1Plus1International.ua",
+    "name": "1+1 International",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_one_plus_one_int_tizen/playlist.m3u8",
+      "http://34cb12c24-ottiptv.github.io/iptv/MM4E93NGF5LADZ/4829224/index.m3u8"
+    ]
+  },
+  {
+    "id": "1Plus1Marafon.ua",
+    "name": "1+1 Marafon",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/1plus1_marathon/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "2Plus2.ua",
+    "name": "2+2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/6378/index.m3u8"
+    ]
+  },
+  {
+    "id": "366TV.ua",
+    "name": "36.6 TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_tridsatsest_hd_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "4everCinema.ua",
+    "name": "4ever Cinema",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch42/index.m3u8"
+    ]
+  },
+  {
+    "id": "4everDrama.ua",
+    "name": "4ever Drama",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch49/index.m3u8"
+    ]
+  },
+  {
+    "id": "4everMusic.ua",
+    "name": "4ever Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch132/index.m3u8"
+    ]
+  },
+  {
+    "id": "4everTheater.ua",
+    "name": "4ever Theater",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch37/tracks-v2a1/mono.m3u8?21yo=0&e=1783680395&id=922996&ip=178.136.40.86&live=1&secret=yamxdzwl&st=OWDBi-vxSZADl0oF8lHHxw"
+    ]
+  },
+  {
+    "id": "ApostropheTV.ua",
+    "name": "Apostrophe TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.2.165/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/Apostrophe.m3u8"
+    ]
+  },
+  {
+    "id": "ArmyTV.ua",
+    "name": "Army TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://api-tv.ipnet.ua/api/v1/manifest/2118742632.m3u8",
+      "http://195.54.52.40:80/test/index.m3u8"
+    ]
+  },
+  {
+    "id": "ATR.ua",
+    "name": "ATR",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://atr-live.cdn-01.cosmonova.net.ua/hls/atr_ua_hi/index.m3u8"
+    ]
+  },
+  {
+    "id": "Avers.ua",
+    "name": "Avers",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://avers.pp.ua/hls/efir.m3u8"
+    ]
+  },
+  {
+    "id": "AvtoradioUkraine.ua",
+    "name": "Avtoradio Ukraine",
+    "categories": [
+      "auto"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch392/index.m3u8"
+    ]
+  },
+  {
+    "id": "BaltaTV.ua",
+    "name": "Balta TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://194.50.51.34/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BamBarBiaTV.ua",
+    "name": "BamBarBia.TV",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn1.live-tv.od.ua:8081/bbb/bbbtv-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Bigudi.ua",
+    "name": "Bigudi",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/Bigudi.m3u8"
+    ]
+  },
+  {
+    "id": "Bolt.ua",
+    "name": "Bolt",
+    "categories": [
+      "movies",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/BoltUA.m3u8"
+    ]
+  },
+  {
+    "id": "Channel11.ua",
+    "name": "Channel 11",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://11tv-dp.cdn-04.cosmonova.net.ua/hls/11tv-dp_ua_hi/index.m3u8"
+    ]
+  },
+  {
+    "id": "Channel24.ua",
+    "name": "Channel 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamvideol1.luxnet.ua/news24/smil:news24.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Channel5.ua",
+    "name": "Channel 5",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://api-tv.ipnet.ua/api/v1/manifest/2118742539.m3u8"
+    ]
+  },
+  {
+    "id": "Channel7Ukraine.ua",
+    "name": "Channel 7 Ukraine",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn10.live-tv.od.ua:8081/7tvod/7tvod-abr/7tvod/7tvod/playlist.m3u8",
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/7tvod-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Cherniveckiypromin.ua",
+    "name": "Cherniveckiy promin",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://langate.tv/promin/live_720/index.m3u8"
+    ]
+  },
+  {
+    "id": "ChPinfo.ua",
+    "name": "ChP info",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://edge3.iptv.macc.com.ua/life/magnolia_3/index.m3u8"
+    ]
+  },
+  {
+    "id": "Dacha.ua",
+    "name": "Dacha",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_dacha_tv_atktv/playlist.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/DachaUA.m3u8"
+    ]
+  },
+  {
+    "id": "DIM.ua",
+    "name": "DIM",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/telekanal_dim/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DniproTV.ua",
+    "name": "Dnipro TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://vcdn1.produck.company:1935/out/dtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DonbassOnline.ua",
+    "name": "Donbass Online",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://176.110.1.30:1935/live/donbasonline/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DonechchynaTV.ua",
+    "name": "Donechchyna TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lowa8026-cmyk.github.io/Ukraine/DonechchynaTV.m3u8"
+    ]
+  },
+  {
+    "id": "EkoTV.ua",
+    "name": "Eko TV",
+    "categories": [
+      "science"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.1.60/index.m3u8"
+    ]
+  },
+  {
+    "id": "EnterFilm.ua",
+    "name": "Enter-Film",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/Enterfilm.m3u8"
+    ]
+  },
+  {
+    "id": "Equalympic.ua",
+    "name": "Equalympic",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch215/index.m3u8"
+    ]
+  },
+  {
+    "id": "EspresoTV.ua",
+    "name": "Espreso TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_espresso/playlist.m3u8",
+      "https://api-tv.ipnet.ua/api/v1/manifest/2118742594.m3u8",
+      "https://dash2.antik.sk/live/test_espresso/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EUMusic.ua",
+    "name": "EU Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch134/tracks-v2a1/1.m3u8?21yo=1&cs_track=false&e=1782900912&id=742347&ip=104.28.156.59&live=1&secret=vu2y5m72&ses=ca0cfbf5db9d8003&st=j-Ja2visdxrjH_8haQZjNg&uid=vu2y5m72"
+    ]
+  },
+  {
+    "id": "EWTNUkraine.ua",
+    "name": "EWTN Ukraine",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn3.wowza.com/1/WjduMm1tYnlwNXQx/M01NV3Uz/hls/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FashionTV.ua",
+    "name": "Fashion TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch582/tracks-v2a1/mono.m3u8?21yo=1&e=1783350200&id=742347&ip=178.136.40.86&live=1&secret=vu2y5m72&st=RRhh01CY6iYIRs_Kyoc3lw"
+    ]
+  },
+  {
+    "id": "FilmUADrama.ua",
+    "name": "FilmUADrama",
+    "categories": [
+      "movies",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.99.215.227/FilmUADrama/index.m3u8",
+      "https://dash2.antik.sk/live/test_film_drama_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FilmUALive.ua",
+    "name": "FilmUA Live",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_film_life_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FirstBusiness.ua",
+    "name": "First Business",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lowa8026-cmyk.github.io/Ukraine/FirstBussines.m3u8"
+    ]
+  },
+  {
+    "id": "FREEDOM.ua",
+    "name": "FREEDOM",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_uatv/playlist.m3u8",
+      "https://freedom.cdn-01.cosmonova.net.ua/mobile-app/main/freedom/master.m3u8"
+    ]
+  },
+  {
+    "id": "GIT.ua",
+    "name": "GIT",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.uagit.tv/gittv.m3u8"
+    ]
+  },
+  {
+    "id": "Glas.ua",
+    "name": "Glas",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.238.112.69:8811/hls_sec/239.0.4.18-.m3u8"
+    ]
+  },
+  {
+    "id": "HappyRadioTV.ua",
+    "name": "Happy Radio TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.mediacp.eu:8081/happyradio/index.m3u8"
+    ]
+  },
+  {
+    "id": "HersonPlyus.ua",
+    "name": "Herson Plyus",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.175.163.130/ks_plus/index.m3u8"
+    ]
+  },
+  {
+    "id": "HopeChannelUkraine.ua",
+    "name": "Hope Channel Ukraine",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://nadiya.home-net.com.ua/mob/mystream.m3u8"
+    ]
+  },
+  {
+    "id": "ICTV.ua",
+    "name": "ICTV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch2/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/ICTV.m3u8",
+      "http://15.204.53.12:80/ictv/index.m3u8"
+    ]
+  },
+  {
+    "id": "ICTV2.ua",
+    "name": "ICTV2",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/15235/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/ICTV2.m3u8"
+    ]
+  },
+  {
+    "id": "InRatingTV.ua",
+    "name": "InRating TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/16020/index.m3u8"
+    ]
+  },
+  {
+    "id": "InterPlus.ua",
+    "name": "Inter+",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/inter-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IRT.ua",
+    "name": "IRT",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.irt.ua/memfs/8fac7cbb-3356-4a03-bb77-4439b727ebd2.m3u8"
+    ]
+  },
+  {
+    "id": "IT3.ua",
+    "name": "IT3",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn10.live-tv.od.ua:8081/it3od/720p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ITV.ua",
+    "name": "ITV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn10.live-tv.cloud/itvrv/abr-lq/playlist.m3u8",
+      "http://cdn10.live-tv.od.ua:8081/itvrv/abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IUAtv.ua",
+    "name": "I-UA.tv",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kie2.cdn.i-ua.tv/hlsme/iuatv.m3u8"
+    ]
+  },
+  {
+    "id": "IzmailTV.ua",
+    "name": "Izmail TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn10.live-tv.cloud/izod/izod-abr-lq/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "K1.ua",
+    "name": "K1",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/K1.m3u8"
+    ]
+  },
+  {
+    "id": "K2.ua",
+    "name": "K2",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/K2.m3u8"
+    ]
+  },
+  {
+    "id": "KusKus.ua",
+    "name": "Kus-Kus",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_kuskus_tv_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KvartalTV.ua",
+    "name": "Kvartal TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://158.101.222.193:88/georgia_play.php?id=kvartal95"
+    ]
+  },
+  {
+    "id": "KvartalTVInternational.ua",
+    "name": "Kvartal TV International",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/kvartal_tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Kyiv.ua",
+    "name": "Kyiv",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://api-tv.ipnet.ua/api/v1/manifest/1293296300.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/Kyiv.m3u8"
+    ]
+  },
+  {
+    "id": "Lale.ua",
+    "name": "Lale",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch77/index.m3u8"
+    ]
+  },
+  {
+    "id": "Lugansk24.ua",
+    "name": "Lugansk 24",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.televizor-24-tochka.ru/live/29.m3u8"
+    ]
+  },
+  {
+    "id": "M1.ua",
+    "name": "M1",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch122/index.m3u8",
+      "http://158.101.222.193:88/georgia_play.php?id=m1"
+    ]
+  },
+  {
+    "id": "M2.ua",
+    "name": "M2",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch123/index.m3u8",
+      "https://live.m2.tv/hls3/stream.m3u8"
+    ]
+  },
+  {
+    "id": "MEGOGOSport.ua",
+    "name": "MEGOGO Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://471ccec7.tvclub.xyz/iptv/BUYS9YTNABMC25/31612/index.m3u8"
+    ]
+  },
+  {
+    "id": "MistoPlus.ua",
+    "name": "Misto+",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://93.78.206.172:8080/stream3/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Muzvar.ua",
+    "name": "Muzvar",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/muzvar-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NASHEMusic.ua",
+    "name": "NASHE Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/nashemus-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NationalGeographicWild.ua",
+    "name": "National Geographic Wild",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://46.32.176.50/natgeowild/index.m3u8"
+    ]
+  },
+  {
+    "id": "NikiJunior.ua",
+    "name": "Niki Junior",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch72/index.m3u8"
+    ]
+  },
+  {
+    "id": "NikiKids.ua",
+    "name": "Niki Kids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch71/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/NIKIKids.m3u8"
+    ]
+  },
+  {
+    "id": "NovyiChannel.ua",
+    "name": "Novyi Channel",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/NoviyKanal.m3u8"
+    ]
+  },
+  {
+    "id": "NTKTV.ua",
+    "name": "NTK TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.ntktv.ua/s/ntk/ntk.m3u8"
+    ]
+  },
+  {
+    "id": "NTN.ua",
+    "name": "NTN",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/ntn-abr/playlist.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/NTNUA.m3u8"
+    ]
+  },
+  {
+    "id": "ObozrevatelTV.ua",
+    "name": "Obozrevatel TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.148/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/ObozrevatelTV.m3u8"
+    ]
+  },
+  {
+    "id": "ObshchestvennoeNezavisimoeTelevidenie.ua",
+    "name": "Obshchestvennoe Nezavisimoe Televidenie",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.238.112.40:8810/hls_sec/239.33.75.33-.m3u8"
+    ]
+  },
+  {
+    "id": "OrbitaTV.ua",
+    "name": "Orbita TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ftp.orbita.dn.ua/hls/orbita.m3u8"
+    ]
+  },
+  {
+    "id": "OTSE.ua",
+    "name": "OTSE",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/OtseHD.m3u8"
+    ]
+  },
+  {
+    "id": "OTV.ua",
+    "name": "OTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://91.193.128.233:1935/live/otv.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PershiyXTVMedia.ua",
+    "name": "Pershiy XTV Media",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.xtvmedia.pp.ua:8443/hls/trk1tv.m3u8"
+    ]
+  },
+  {
+    "id": "Pershyi.ua",
+    "name": "Pershyi",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.2.45/index.m3u8",
+      "https://api-tv.ipnet.ua/api/v1/manifest/2118742505.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/Pershyi.m3u8"
+    ]
+  },
+  {
+    "id": "Pershyiavtomobilnyi.ua",
+    "name": "Pershyi avtomobilnyi",
+    "categories": [
+      "auto"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/Pershyiavtomobilnyi.m3u8"
+    ]
+  },
+  {
+    "id": "PershyiZahidnyi.ua",
+    "name": "Pershyi Zahidnyi",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.162/index.m3u8"
+    ]
+  },
+  {
+    "id": "PervyygorodskoyOdessa.ua",
+    "name": "Pervyy gorodskoy. Odessa",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://91.194.79.46:8081/stream1/channel1/playlist.m3u8",
+      "http://91.194.79.46:8081/stream2/channel2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PixelTV.ua",
+    "name": "Pixel TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/PikselTV.m3u8"
+    ]
+  },
+  {
+    "id": "PLUSPLUS.ua",
+    "name": "PLUSPLUS",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/6379/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/PlusPlus.m3u8"
+    ]
+  },
+  {
+    "id": "PravdaTUT.ua",
+    "name": "PravdaTUT",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://pravdatytkievshina.cdn-02.cosmonova.net.ua/hls/pravdatytkievshina_ua.m3u8",
+      "https://pravdatytkievshina.cdn-02.cosmonova.net.ua/hls/pravdatytkievshina_ua_hi/index.m3u8",
+      "https://pravdatytkievshina.cdn-02.cosmonova.net.ua/hls/pravdatytkievshina_ua_mid/index.m3u8"
+    ]
+  },
+  {
+    "id": "PravdaTUTLviv.ua",
+    "name": "PravdaTUT Lviv",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch192/tracks-v1a1/mono.m3u8?21yo=1&e=1782901327&id=742347&ip=104.28.156.59&live=1&secret=vu2y5m72&st=bflIqYjnSIr75ACfgV-mug"
+    ]
+  },
+  {
+    "id": "Priamyi.ua",
+    "name": "Priamyi",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.122/index.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/Priamyi.m3u8"
+    ]
+  },
+  {
+    "id": "PTV.ua",
+    "name": "PTV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/hrpl-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadaTV.ua",
+    "name": "Rada TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://api-tv.ipnet.ua/api/v1/manifest/1312714970.m3u8"
+    ]
+  },
+  {
+    "id": "RenomeTV.ua",
+    "name": "Renome TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.238.112.40:8810/hls_sec/online/list-renome.m3u8"
+    ]
+  },
+  {
+    "id": "Reporter.ua",
+    "name": "Reporter",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn1.live-tv.od.ua:8081/31chod/31chod-abr/31chod/31chod/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Rivne1.ua",
+    "name": "Rivne 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn1.live-tv.cloud/rivne1/rivne1-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Rybalka.ua",
+    "name": "Rybalka",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch88/index.m3u8",
+      "https://dash2.antik.sk/live/test_rybalka_tv_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SferaTV.ua",
+    "name": "Sfera-TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn10.live-tv.od.ua:8081/sferarv/sferarv-abr/playlist.m3u8",
+      "https://cdn10.live-tv.cloud/sferarv/sferarv-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Simon.ua",
+    "name": "Simon",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.simon.ua/live-HD/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SK1.ua",
+    "name": "SK 1",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn10.live-tv.od.ua:8081/sk1zt/sk1zt720p/playlist.m3u8",
+      "http://cdn10.live-tv.od.ua:8081/sk1zt/sk1zt-abr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SonataTV.ua",
+    "name": "Sonata TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.24/index.m3u8"
+    ]
+  },
+  {
+    "id": "Sport1Baltic.ua",
+    "name": "Sport 1 Baltic",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ott.watch/XE5QWWBZ87/461/tracks-v2a1/mono.ts.m3u8?sid=c3f03b2b-bf32-49e2-8675-d1a321912ce8"
+    ]
+  },
+  {
+    "id": "SuperPlus.ua",
+    "name": "Super+",
+    "categories": [
+      "general",
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch382/tracks-v1a1/1.m3u8?cs_track=false&e=1783162263&id=921233&ip=178.136.40.86&live=1&secret=9szoe89y&ses=365ec247746bd22d&st=9GLxg7DNUXR_MCB9X30Qew&uid=9szoe89y"
+    ]
+  },
+  {
+    "id": "SuspilneDonbas.ua",
+    "name": "Suspilne. Donbas",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch191/tracks-v1a1/mono.m3u8?21yo=1&e=1783350581&id=742347&ip=178.136.40.86&live=1&secret=vu2y5m72&st=FOBLjQZsAj97omf627Quzg"
+    ]
+  },
+  {
+    "id": "SuspilneIvanoFrankivsk.ua",
+    "name": "Suspilne. Ivano-Frankivsk",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch96/tracks-v1a1/mono.m3u8?21yo=0&e=1783094347&id=921239&ip=5.63.189.224&live=1&secret=z6vxuhnm&st=kGRjEFP8_5qe3vEINbXwBQ"
+    ]
+  },
+  {
+    "id": "SuspilneKrym.ua",
+    "name": "Suspilne. Krym",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.71/index.m3u8"
+    ]
+  },
+  {
+    "id": "SuspilneKultura.ua",
+    "name": "Suspilne. Kultura",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.141/index.m3u8"
+    ]
+  },
+  {
+    "id": "SuspilneKyiv.ua",
+    "name": "Suspilne. Kyiv",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ext.cdn.nashnet.tv/228.0.0.41/index.m3u8",
+      "https://live-nstu.cdn-03.cosmonova.net.ua/mobile-app/main/nstu-kyiv/master.m3u8"
+    ]
+  },
+  {
+    "id": "SuspilneLutsk.ua",
+    "name": "Suspilne. Lutsk",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch222/tracks-v1a1/mono.m3u8?21yo=0&e=1783108254&id=921233&ip=178.136.40.86&live=1&secret=9szoe89y&st=xvdqQHExhHEv8FDqvbjDbg"
+    ]
+  },
+  {
+    "id": "SuspilneLviv.ua",
+    "name": "Suspilne. Lviv",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://91.146.94.234:10001/play/a00l"
+    ]
+  },
+  {
+    "id": "SuspilneMykolaiv.ua",
+    "name": "Suspilne. Mykolaiv",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch211/tracks-v1a1/mono.m3u8?21yo=0&e=1783194414&id=921239&ip=5.63.189.224&live=1&secret=f8z1l7gk&st=Lz1QtjfblUmkawUbk1Mx6w"
+    ]
+  },
+  {
+    "id": "SuspilneRivne.ua",
+    "name": "Suspilne. Rivne",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch229/tracks-v1a1/mono.m3u8?21yo=1&e=1783195240&id=921239&ip=5.63.189.224&live=1&secret=f8z1l7gk&st=4RqJ6hzZ9REJQe0f8U3fTw"
+    ]
+  },
+  {
+    "id": "SuspilneSport.ua",
+    "name": "Suspilne. Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch112/tracks-v2a1/mono.m3u8?21yo=0&e=1783247457&id=921233&ip=178.136.40.86&live=1&secret=9szoe89y&st=jPS6nYqNZLDECF8uSDa74g"
+    ]
+  },
+  {
+    "id": "SuspilneVinnytsia.ua",
+    "name": "Suspilne. Vinnytsia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch188/tracks-v1a1/mono.m3u8?21yo=0&e=1783247585&id=921233&ip=178.136.40.86&live=1&secret=9szoe89y&st=u4uN-dkUOQb4cDe7lNCaeg"
+    ]
+  },
+  {
+    "id": "SuspilneZaporizhzhya.ua",
+    "name": "Suspilne. Zaporizhzhya",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch187/tracks-v1a1/mono.m3u8?21yo=1&e=1783094937&id=921239&ip=5.63.189.224&live=1&secret=z6vxuhnm&st=EzFtzQG2T03aIIo4Sdn-OQ"
+    ]
+  },
+  {
+    "id": "SuspilneZhytomyr.ua",
+    "name": "Suspilne. Zhytomyr",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch183/tracks-v1a1/mono.m3u8?21yo=1&e=1783094567&id=921239&ip=5.63.189.224&live=1&secret=z6vxuhnm&st=eSKzulrNBzvGLO-irrW1Fg"
+    ]
+  },
+  {
+    "id": "Svarozhychy.ua",
+    "name": "Svarozhychy",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch168/index.m3u8"
+    ]
+  },
+  {
+    "id": "TelekanalRAI.ua",
+    "name": "Telekanal RAI",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.rai.ua/rai/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Televsesvit.ua",
+    "name": "Televsesvit",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://televsesvit.cdn-04.cosmonova.net.ua/hls/televsesvit_ua_hi/index.m3u8"
+    ]
+  },
+  {
+    "id": "Ternopil1.ua",
+    "name": "Ternopil 1",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott.columbus.te.ua/ternopil1/index.m3u8"
+    ]
+  },
+  {
+    "id": "TET.ua",
+    "name": "TET",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/6377/index.m3u8"
+    ]
+  },
+  {
+    "id": "TISTV.ua",
+    "name": "TIS TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn10.live-tv.cloud/riood/tisod-abr/riood/tisod720/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TRKAleks.ua",
+    "name": "TRK Aleks",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://46.46.112.223/live/livestream1.m3u8"
+    ]
+  },
+  {
+    "id": "TRKIldana.ua",
+    "name": "TRK Ildana",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pravdatytkyiv.cdn-01.cosmonova.net.ua/hls/pradva-tut-ildana_ua_hi/index.m3u8"
+    ]
+  },
+  {
+    "id": "TUSO.ua",
+    "name": "TUSO",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tuso.cdn-01.cosmonova.net.ua/hls/tuso_ua.m3u8"
+    ]
+  },
+  {
+    "id": "TV4.ua",
+    "name": "TV-4",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://vs2126.vcdn.biz/c27a63fda28be51f87a7d0046de1f4b8_megogo/live/hls/b/700_2490/u_sid/0/o/71044361/rsid/393818da-edd4-44bd-b2db-4ebf226abd3d/u_uid/0/u_vod/1/u_device/cms_webandroid/u_devicekey/_site_mobile/lip/5.63.189.224*asn/u_did/web_0voqy4czLIxD4iwJZ0z0GctEMa9GIH7A/type.live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV7Plus.ua",
+    "name": "TV7+",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv7plus.com/hls/tv7_site.m3u8"
+    ]
+  },
+  {
+    "id": "TVA.ua",
+    "name": "TVA",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://hls.cdn.ua/tva.ua_live/livestream/chunklist_w396178779.m3u8",
+      "https://rtsp.cdn.ua/tva.ua_live/_definst_/livestream/playlist.m3u8",
+      "http://hls.cdn.ua/tva.ua_live/livestream/playlist.m3u8",
+      "http://rtsp.cdn.ua/tva.ua_live/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UAFashionTV.ua",
+    "name": "UA Fashion TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch216/index.m3u8"
+    ]
+  },
+  {
+    "id": "UAMusic.ua",
+    "name": "UA Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch133/index.m3u8"
+    ]
+  },
+  {
+    "id": "UNIANTV.ua",
+    "name": "UNIAN TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/id22/index.m3u8?21yo=&secret=f8z1l7gk"
+    ]
+  },
+  {
+    "id": "ViasatKino.ua",
+    "name": "Viasat Kino",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://c3921155.edmonst.net/iptv/42L7TCH8YYKLBRHNPV52HBRN/31765/index.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatKinoAction.ua",
+    "name": "Viasat Kino Action",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/8XFKA8883W9M5K/12024/index.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatKinoComedy.ua",
+    "name": "Viasat Kino Comedy",
+    "categories": [
+      "movies",
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "http://c3921155.edmonst.net/iptv/42L7TCH8YYKLBRHNPV52HBRN/31764/index.m3u8",
+      "http://ukr.ukrainske.tv/493/keytvainua/video.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatKinoWorld.ua",
+    "name": "Viasat Kino World",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://c3921155.edmonst.net/iptv/42L7TCH8YYKLBRHNPV52HBRN/31448/index.m3u8"
+    ]
+  },
+  {
+    "id": "ViasatSerial.ua",
+    "name": "Viasat Serial",
+    "categories": [
+      "movies",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/17056/index.m3u8"
+    ]
+  },
+  {
+    "id": "VivaLatino.ua",
+    "name": "¡Viva Latino!",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.prosto.tv/ch138/index.m3u8"
+    ]
+  },
+  {
+    "id": "Z.ua",
+    "name": "Z",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.ztv.zp.ua/hls/live.m3u8"
+    ]
+  }
+]

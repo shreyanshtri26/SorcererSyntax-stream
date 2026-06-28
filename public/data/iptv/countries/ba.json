@@ -1,0 +1,311 @@
+[
+  {
+    "id": "ArenaSport1.ba",
+    "name": "Arena Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport1BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport2.ba",
+    "name": "Arena Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport2BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport3.ba",
+    "name": "Arena Sport 3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport3BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport4.ba",
+    "name": "Arena Sport 4",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport4BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport5BH.ba",
+    "name": "Arena Sport 5 BH",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaSport5BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSportPremium1BH.ba",
+    "name": "Arena Sport Premium 1 BH",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaPremium1BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSportPremium2BH.ba",
+    "name": "Arena Sport Premium 2 BH",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaPremium2BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSportPremium3BH.ba",
+    "name": "Arena Sport Premium 3 BH",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nl1.nghk.ai/ArenaPremium3BH/index.m3u8"
+    ]
+  },
+  {
+    "id": "BHRT.ba",
+    "name": "BHRT",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://bhrtstream.bhtelecom.ba/bhrtportal.m3u8",
+      "https://bhrtstream.bhtelecom.ba/hls15/bhrtportal.m3u8"
+    ]
+  },
+  {
+    "id": "BHT1.ba",
+    "name": "BHT 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webtvstream.bhtelecom.ba/hls13/bhrtportal_hd_1200.m3u8"
+    ]
+  },
+  {
+    "id": "Federalnatelevizija.ba",
+    "name": "Federalna televizija",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.81.240.65:15000/udp/233.233.233.39:12000"
+    ]
+  },
+  {
+    "id": "Hayat.ba",
+    "name": "Hayat",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://158.180.39.89:5033/hayat.m3u8"
+    ]
+  },
+  {
+    "id": "HayatFolk.ba",
+    "name": "Hayat Folk",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://158.180.39.89:5033/folk.m3u8"
+    ]
+  },
+  {
+    "id": "HayatMusic.ba",
+    "name": "Hayat Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://158.180.39.89:5033/music.m3u8"
+    ]
+  },
+  {
+    "id": "Hayatovci.ba",
+    "name": "Hayatovci",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://158.180.39.89:5033/hayatovci.m3u8"
+    ]
+  },
+  {
+    "id": "HayatPlus.ba",
+    "name": "Hayat Plus",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://158.180.39.89:5033/hayatplus.m3u8"
+    ]
+  },
+  {
+    "id": "Kanal6.ba",
+    "name": "Kanal 6",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://restreamer1.tnt.ba/hls/kanal6.m3u8"
+    ]
+  },
+  {
+    "id": "MariaPlusVisionMedjugorje.ba",
+    "name": "Maria+Vision Medjugorje",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://1601580044.rsc.cdn77.org/live/_jcn_/amlst:Italiasette/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NTVICKakanj.ba",
+    "name": "NTV IC Kakanj",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lon.rtsp.me/dEqnY-myGj84bKrieCIPfA/1743271667/hls/3dH3YAD6.m3u8"
+    ]
+  },
+  {
+    "id": "RTRSplus.ba",
+    "name": "RTRS plus",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://pluslive.rtrs.tv/plus/plus/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTRSTV.ba",
+    "name": "RTRS TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://uzivo.rtrs.tv/tv/live/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTVGlasDrine.ba",
+    "name": "RTV Glas Drine",
+    "categories": [
+      "general",
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://glasdrine.cutuk.net:8081/433ssdsw/GlasDrineSD/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTVHB.ba",
+    "name": "RTV HB",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://prd-hometv-live-open.spectar.tv/ERO_1_083/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTVZenica.ba",
+    "name": "RTV Zenica",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.rtvze.ba/live/123/123.m3u8"
+    ]
+  },
+  {
+    "id": "SuperTV.ba",
+    "name": "Super TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mirtv.club/live/mirtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Televizija5.ba",
+    "name": "Televizija 5",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://balkanmedia.dynu.net/hls/tv5web.m3u8"
+    ]
+  },
+  {
+    "id": "TelevizijaM.ba",
+    "name": "Televizija M",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.tv-m.net/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "TNTKidsTV.ba",
+    "name": "TNT Kids TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://restreamer1.tnt.ba/hls/tntkids.m3u8"
+    ]
+  },
+  {
+    "id": "TVSlonExtra.ba",
+    "name": "TV Slon Extra",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://31.47.0.130:8082"
+    ]
+  }
+]

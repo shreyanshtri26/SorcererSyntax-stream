@@ -1,0 +1,59 @@
+[
+  {
+    "id": "AlistiqamaTV.om",
+    "name": "Alistiqama TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmc-live.ercdn.net/alistiqama/alistiqama.m3u8"
+    ]
+  },
+  {
+    "id": "OmanSportsTV.om",
+    "name": "Oman Sports TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://partneta.cdn.mgmlcdn.com/omsport/smil:omsport.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "OmanTV.om",
+    "name": "Oman TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://partneta.cdn.mgmlcdn.com/omantv/smil:omantv.stream.smil/chunklist.m3u8",
+      "https://cdn-globecast.akamaized.net/live/eds/oman_tv/hls_roku/index.m3u8",
+      "http://trn03.bozztv.com/gin-omantv/index.m3u8"
+    ]
+  },
+  {
+    "id": "OmanTVCultural.om",
+    "name": "Oman TV Cultural",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://partwota.cdn.mgmlcdn.com/omcultural/smil:omcultural.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "OmanTVMubashir.om",
+    "name": "Oman TV Mubashir",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://partwota.cdn.mgmlcdn.com/omlive/smil:omlive.stream.smil/chunklist.m3u8"
+    ]
+  }
+]

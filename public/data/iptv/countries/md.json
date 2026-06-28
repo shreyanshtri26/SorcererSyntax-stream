@@ -1,0 +1,214 @@
+[
+  {
+    "id": "BaltiTV.md",
+    "name": "Balti TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://77.89.199.174:8000/play/1024/index.m3u8"
+    ]
+  },
+  {
+    "id": "BusuiocTV.md",
+    "name": "Busuioc TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://busuioctv.iforward.eu/hls/busuioc.m3u8"
+    ]
+  },
+  {
+    "id": "DrochiaTV.md",
+    "name": "Drochia TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.drochia.tv/tv/web.m3u8"
+    ]
+  },
+  {
+    "id": "ExclusivTV.md",
+    "name": "Exclusiv TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "rtmp://89.28.25.122/live/tnt_md"
+    ]
+  },
+  {
+    "id": "Moldova1.md",
+    "name": "Moldova 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v0.trm.md/static/streaming-playlists/hls/9b79338b-1870-4cd7-91d4-0f6ce5cac7ca/master.m3u8"
+    ]
+  },
+  {
+    "id": "Moldova2.md",
+    "name": "Moldova 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v0.trm.md/static/streaming-playlists/hls/d5fafab0-9c37-4746-9e7a-b2d6c0427015/master.m3u8"
+    ]
+  },
+  {
+    "id": "MoldovaTV.md",
+    "name": "Moldova TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://moldovatv.ro/live-tv/live.m3u8",
+      "http://89.38.8.130:39435"
+    ]
+  },
+  {
+    "id": "N4.md",
+    "name": "N4",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://web.sats.gstv.tech/cpl11/da8df281-1165-440a-8c86-959f71b695b6/N4web.m3u8"
+    ]
+  },
+  {
+    "id": "NorocTV.md",
+    "name": "Noroc TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.noroc.tv/noroc/noroc.m3u8"
+    ]
+  },
+  {
+    "id": "PrivescEuTV.md",
+    "name": "Privesc.Eu TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cachestar.privesc.eu/liniar/moldova/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PROTVChisinau.md",
+    "name": "PRO TV Chisinau",
+    "categories": [
+      "general",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.protv.md/live/sursa-1/index.m3u8"
+    ]
+  },
+  {
+    "id": "PublikaTV.md",
+    "name": "Publika TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livebeta.publika.press/LIVE/P/6810.m3u8"
+    ]
+  },
+  {
+    "id": "RealitateaTV.md",
+    "name": "Realitatea TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://realitatealive.md/tv/rlive.m3u8"
+    ]
+  },
+  {
+    "id": "SorTV.md",
+    "name": "Sor TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://188.237.212.16:8888/live/cameraFeed.m3u8"
+    ]
+  },
+  {
+    "id": "TezaurTV.md",
+    "name": "Tezaur TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tezaurtv.md/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV8.md",
+    "name": "TV8",
+    "categories": [
+      "news",
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/8KSD5KFDXA6H88/2454/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVNord.md",
+    "name": "TV-Nord",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://6065d3147e895.streamlock.net:4444/npcl/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVRMoldova.md",
+    "name": "TVR Moldova",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvr-moldova.lg.mncdn.com/tvrmoldova/smil:tvrmoldova.smil/chunklist.m3u8",
+      "https://tvr-moldova.lg.mncdn.com/tvrmoldova/smil:tvrmoldova.smil/playlist.m3u8",
+      "https://tvr-tvrmoldova.cdn.zitec.com/live/tvrmoldova/main.m3u8"
+    ]
+  },
+  {
+    "id": "VoceaBasarabieiTV.md",
+    "name": "Vocea Basarabiei TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://storage.voceabasarabiei.md/vocea/vocea.m3u8"
+    ]
+  }
+]

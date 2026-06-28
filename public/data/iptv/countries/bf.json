@@ -1,0 +1,88 @@
+[
+  {
+    "id": "BurkinaInfoTV.bf",
+    "name": "Burkina Info TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/burkinainfo/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal3.bf",
+    "name": "Canal 3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cs2.push2stream.com/CANAL3BENIN/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FilinfoTV.bf",
+    "name": "Filinfo TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d2iqjnqfr8pv3b.cloudfront.net/out/v1/d09d2fc718404cd8bccd3eba2444dd70/index.m3u8"
+    ]
+  },
+  {
+    "id": "ImpactTV.bf",
+    "name": "Impact TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge11.vedge.infomaniak.com/livecast/ik:impacttv-2/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "RTB.bf",
+    "name": "RTB",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://edge12.vedge.infomaniak.com/livecast/ik:rtblive1_8/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "RTB2HautsBasins.bf",
+    "name": "RTB2 Hauts-Basins",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge20.vedge.infomaniak.com/livecast/ik:rtbguiriko-1/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "RTB3.bf",
+    "name": "RTB 3",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge13.vedge.infomaniak.com/livecast/ik:rtb3-1/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "SavaneTV.bf",
+    "name": "Savane TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://savane24.tv:5443/LiveApp/streams/Y4fyif69Q0ll6MeH2190896734859843.m3u8"
+    ]
+  }
+]

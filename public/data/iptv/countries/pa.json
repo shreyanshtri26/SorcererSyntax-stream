@@ -1,0 +1,244 @@
+[
+  {
+    "id": "ARCanal.pa",
+    "name": "A&R Canal",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://51.222.9.192:3589/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "BTVPanama.pa",
+    "name": "BTV Panama",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/btvpanama/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DreikoTV.pa",
+    "name": "Dreiko TV",
+    "categories": [
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudvideo.servers10.com:8081/8138/index.m3u8"
+    ]
+  },
+  {
+    "id": "FabulosaEstereo1005FM.pa",
+    "name": "Fabulosa Estereo 100.5 FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.streaming507.net:19360/videofabulosa/videofabulosa.m3u8"
+    ]
+  },
+  {
+    "id": "HispaniaTV.pa",
+    "name": "Hispania TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.streaming507.net:19360/hispaniamediatv/hispaniamediatv.m3u8"
+    ]
+  },
+  {
+    "id": "HosannaVision.pa",
+    "name": "Hosanna Vision",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://1206618505.rsc.cdn77.org/LS-ATL-59020-1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaXitosaPanama.pa",
+    "name": "LaXitosa Panama",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmvideo2.livecastv.com/lax953/lax953/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Mas23TV.pa",
+    "name": "Mas23 TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://movil.ejeserver.com/live/mas23tv.m3u8"
+    ]
+  },
+  {
+    "id": "MINFAVTV.pa",
+    "name": "MINFAV TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mp.panelchs.com:1936/8044/8044/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NexTVCanal21.pa",
+    "name": "Nex TV Canal 21",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://movil.ejeserver.com/live/nextv.m3u8"
+    ]
+  },
+  {
+    "id": "PindinTV.pa",
+    "name": "Pindin TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sistemastr.tropicalmoonmedia.com/live/7C452409423F57ADC960F6405635267F/7.m3u8"
+    ]
+  },
+  {
+    "id": "Planet1009FM.pa",
+    "name": "Planet 100.9 FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamlov.alsolnet.com/planet1009fm/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PlusTV.pa",
+    "name": "Plus TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp4.myplaytv.com:1936/plustv/plustv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioAncon.pa",
+    "name": "Radio Ancon",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.streaming507.net:19360/anconvideo/anconvideo.m3u8"
+    ]
+  },
+  {
+    "id": "RadioHogar.pa",
+    "name": "Radio Hogar",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.streaming507.net:19360/videoradiohogar/videoradiohogar.m3u8"
+    ]
+  },
+  {
+    "id": "SuperQPanama.pa",
+    "name": "Super Q Panama",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp8.myplaytv.com:1936/superq/superq/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telemetro.pa",
+    "name": "Telemetro",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://181.78.121.15:8000/play/a001/index.m3u8"
+    ]
+  },
+  {
+    "id": "TropicalMoonCumbiaTV.pa",
+    "name": "Tropical Moon Cumbia TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv2.tropicalmoonmedia.com/cumbiatv/cumbiatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TropicalMoonEventosTV.pa",
+    "name": "Tropical Moon Eventos TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv2.tropicalmoonmedia.com/eventostv/eventostv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TropiQ997FM.pa",
+    "name": "Tropi Q 99.7 FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.streaming507.net:19360/videotropiq/videotropiq.m3u8"
+    ]
+  },
+  {
+    "id": "TVMax.pa",
+    "name": "TVMax",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bcovlive-a.akamaihd.net/74f665e9ff8447639d4de4b8b458d8ae/us-east-1/6058004209001/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "TVN.pa",
+    "name": "TVN",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bcovlive-a.akamaihd.net/628aecb4fccb4c52b4f9c8d5cc57fb73/us-west-2/6058004209001/playlist_dvr.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "AltynAsyr.tm",
+    "name": "Altyn Asyr",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch001.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch001.m3u8"
+    ]
+  },
+  {
+    "id": "ArkadagTV.tm",
+    "name": "Arkadag TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch000.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch000.m3u8"
+    ]
+  },
+  {
+    "id": "Asgabat.tm",
+    "name": "Asgabat",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch006.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch006.m3u8"
+    ]
+  },
+  {
+    "id": "Miras.tm",
+    "name": "Miras",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch003.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch003.m3u8"
+    ]
+  },
+  {
+    "id": "Turkmenistan.tm",
+    "name": "Turkmenistan",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch007.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch007.m3u8"
+    ]
+  },
+  {
+    "id": "TurkmenistanSport.tm",
+    "name": "Turkmenistan Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch004.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch004.m3u8"
+    ]
+  },
+  {
+    "id": "TurkmenOwazy.tm",
+    "name": "Turkmen Owazy",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch005.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch005.m3u8"
+    ]
+  },
+  {
+    "id": "Yaslyk.tm",
+    "name": "Yaslyk",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alpha.tv.online.tm/hls/ch002.m3u8",
+      "https://alpha.tv.online.tm/legacyhls/ch002.m3u8"
+    ]
+  }
+]

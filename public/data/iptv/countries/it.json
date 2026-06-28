@@ -1,0 +1,2673 @@
+[
+  {
+    "id": "111TV.it",
+    "name": "111 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/111/111/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "12TVParma.it",
+    "name": "12 TV Parma",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5929b138b139d.streamlock.net/12TVParma/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "20.it",
+    "name": "20",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(lb)/index.m3u8"
+    ]
+  },
+  {
+    "id": "51RadioTV.it",
+    "name": "51 Radio TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/canale51/canale51/playlist.m3u8",
+      "https://59d7d6f47d7fc.streamlock.net/canale51/canale51/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "7080TV.it",
+    "name": "70-80 TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://585b674743bbb.streamlock.net/9050/9050/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "7RadioVisione.it",
+    "name": "7 RadioVisione",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream10.xdevel.com/video1s976543-1932/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "7YOUME.it",
+    "name": "7 YOU & ME",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream10.xdevel.com/video0s977798-2239/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "A2iTV.it",
+    "name": "A2i TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.sen-gt.com/A2itv/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ACISportTV.it",
+    "name": "ACI Sport TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8"
+    ]
+  },
+  {
+    "id": "Adnkronos.it",
+    "name": "Adnkronos",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5e73cf528f404.streamlock.net/GR_sport/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlmaTV.it",
+    "name": "Alma TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.0.207.99:1935/AlmaTv/AlmaTv/playlist.m3u8",
+      "http://80.79.6.221:25461/smash/public/27"
+    ]
+  },
+  {
+    "id": "AltoAdigeTV.it",
+    "name": "AltoAdige TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f204aff97bee.streamlock.net/AltoAdigeTV/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Antenna2TV.it",
+    "name": "Antenna 2 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://58f12ffd2447a.streamlock.net/Antenna2/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AntennaSud.it",
+    "name": "Antenna Sud",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.antennasudwebtv.it:9443/hls/vod.m3u8"
+    ]
+  },
+  {
+    "id": "AntennaSudExtra.it",
+    "name": "Antenna Sud Extra",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.antennasudwebtv.it:9443/hls/vod92.m3u8"
+    ]
+  },
+  {
+    "id": "AntennaTre.it",
+    "name": "Antenna Tre",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d8c0cee6f3d.streamlock.net/antennatreveneto/antennatreveneto.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AuroraArte.it",
+    "name": "Aurora Arte",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/auroraarte/auroraarte/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AzzurraTV.it",
+    "name": "Azzurra TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ed05.top-ix.org/avtvlive/azzurra/streaming/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BeJoykids.it",
+    "name": "BeJoy.kids",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://64b16f23efbee.streamlock.net/bejoy/bejoy/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BergamoTV.it",
+    "name": "Bergamo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://db142859fd5541b09de25d6507f1f2d3.msvdn.net/live/S17501676/oIxAsgEEA46M/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "BomChannel.it",
+    "name": "Bom Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/canale6/canale6/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CafeTV24.it",
+    "name": "CafeTV24",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srvx1.selftv.video/cafe/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CalabriaTV.it",
+    "name": "Calabria TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://64b16f23efbee.streamlock.net/calabriatv/calabriatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CameradeiDeputati.it",
+    "name": "Camera dei Deputati",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canale21Extra.it",
+    "name": "Canale 21 Extra",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S42170132/sT6C3LFaD1iA/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canale2Altamura.it",
+    "name": "Canale 2 Altamura",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/canale2/canale2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canale5.it",
+    "name": "Canale 5",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(C5)/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canale7.it",
+    "name": "Canale 7",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/canale7/canale7/playlist.m3u8",
+      "http://wms.shared.streamshow.it/canale7/mp4:canale7/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canale8.it",
+    "name": "Canale 8",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/canale8/canale8/playlist.m3u8",
+      "http://wms.shared.streamshow.it/canale8/mp4:canale8/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanaleDieci.it",
+    "name": "Canale Dieci",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://37.187.142.147:1935/ch10live/high.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CarinaTV.it",
+    "name": "CarinaTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://samson.streamerr.co:8081/carinatv/tracks-v1a1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CasaItalia53.it",
+    "name": "Casa Italia 53",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ovp-live.akamaized.net/ac115_live/canale3.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CGEntertainment.it",
+    "name": "CG Entertainment",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cgentertainment-cgtv-1-it.samsung.wurl.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Cine34.it",
+    "name": "Cine34",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(b6)/index.m3u8"
+    ]
+  },
+  {
+    "id": "ClassCNBC.it",
+    "name": "Class CNBC",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg14891-amg14891c5-amgplt0020.playout.now3.amagi.tv/playlist.m3u8",
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/classcnbc.m3u8"
+    ]
+  },
+  {
+    "id": "CompanyTV.it",
+    "name": "Company TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5929b138b139d.streamlock.net/CompanyTV/smil:CompanyTV.smil/master.m3u8"
+    ]
+  },
+  {
+    "id": "CusanoItaliaTV.it",
+    "name": "Cusano Italia TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://router.xdevel.com/video0s975363-69/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DeejayTV.it",
+    "name": "Deejay TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DellaTV.it",
+    "name": "DellaTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/giatvplayout7/giatv-211474/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Deluxe139.it",
+    "name": "Deluxe 139",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/pierstyle/pierstyle/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DITV80.it",
+    "name": "DI.TV 80",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/ditv80/ditv80/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DonnaTV.it",
+    "name": "Donna TV",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.softwarecreation.it/DonnaTv/DonnaTv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EliveTVBrescia.it",
+    "name": "Elive TV Brescia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/elivebresciatv/elivebresciatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EntellaTV.it",
+    "name": "Entella TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/EntellaTV/EntellaTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EsperiaTV.it",
+    "name": "Esperia TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/esperiatv/esperiatv/playlist.m3u8",
+      "http://wms.shared.streamshow.it/esperiatv/esperiatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EtnaEspressoChannel.it",
+    "name": "Etna Espresso Channel",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/Etnachannelponte/Etnachannelponte/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "eTvMarche.it",
+    "name": "eTv Marche",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.ipstream.it/etvmarche/etvmarche.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "eTvRete7.it",
+    "name": "eTv Rete 7",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.ipstream.it/etv/etv.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EuroIndieMusicChartTV.it",
+    "name": "Euro Indie Music Chart TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://178.33.224.197:1935/euroindiemusic/euroindiemusic/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EuroTV.it",
+    "name": "Euro TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/eurotv/eurotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FanoTV.it",
+    "name": "Fano TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cbd3bc28341f.streamlock.net:444/fanotv_live/_definst_/43DA-3923-9C72-4E9F/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FMITALIA.it",
+    "name": "FM ITALIA",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream2.xdevel.com/video0s975817-1183/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GamberoRossoChannel.it",
+    "name": "Gambero Rosso Channel",
+    "categories": [
+      "cooking",
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-6971fc07c945e6e4e5bc46bf.m3u8"
+    ]
+  },
+  {
+    "id": "GiornaleRadioTV.it",
+    "name": "Giornale Radio TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f204aff97bee.streamlock.net/GR_tv/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GiovanniPaoloTV.it",
+    "name": "Giovanni Paolo TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://media2021.rtvweb.com/giovannipaolotv/web/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GM24.it",
+    "name": "GM24",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.softwarecreation.it/GM24/GM24/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GoldTV.it",
+    "name": "Gold TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.softwarecreation.it/GoldTv/GoldTv/playlist.m3u8",
+      "https://5a1178b42cc03.streamlock.net/golditalia/golditalia/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GoldTVSat.it",
+    "name": "Gold TV Sat",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.softwarecreation.it/GoldTvSat/GoldTvSat/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GOTVCanale163.it",
+    "name": "GO-TV Canale 163",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://6zklxkbbdw9b-hls-live.mariatvcdn.it/msmotor/2f759512164fc6fe4acbed6a5648993a.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GRPVERATV.it",
+    "name": "GRP VERATV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webstream.multistream.it/memfs/a3195c96-f884-4c74-924f-2648814fc0b5_output_0.m3u8"
+    ]
+  },
+  {
+    "id": "HorseTV.it",
+    "name": "Horse TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://a-cdn.klowdtv.com/live2/horsetv_720p/playlist.m3u8",
+      "https://streams2.sofast.tv/vglive-sk-469239/index.m3u8"
+    ]
+  },
+  {
+    "id": "IcaroTV.it",
+    "name": "Icaro TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/icarotv/icarotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Iris.it",
+    "name": "Iris",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(ki)/index.m3u8"
+    ]
+  },
+  {
+    "id": "Italia1.it",
+    "name": "Italia 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(i1)/index.m3u8"
+    ]
+  },
+  {
+    "id": "Italia2.it",
+    "name": "Italia 2",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/italia2/italia2/playlist.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(i2)/index.m3u8"
+    ]
+  },
+  {
+    "id": "Italia2TV.it",
+    "name": "Italia2TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/italia2/mp4:italia2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Italia7.it",
+    "name": "Italia 7",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://151.0.207.99:1935/italia7/italia7/playlist.m3u8",
+      "https://streaming.softwarecreation.it/Italia7/Italia7/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ItalianFishingTV.it",
+    "name": "Italian Fishing TV",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://fms.premio.link/fishingtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IuniorTV.it",
+    "name": "Iunior TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/iuniortv/iuniortv/chunklist_w774879328.m3u8",
+      "https://5f22d76e220e1.streamlock.net/iuniortv/iuniortv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Juwelo.it",
+    "name": "Juwelo",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sdn-global-live-streaming-packager-cache.3qsdn.com/7841/7841_264_live.m3u8"
+    ]
+  },
+  {
+    "id": "KissKissNapoliTV.it",
+    "name": "Kiss Kiss Napoli TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://58f12ffd2447a.streamlock.net/KKTVNapoli/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KissKissTV.it",
+    "name": "Kiss Kiss TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://58f12ffd2447a.streamlock.net/KKMulti/livestream/playlist.m3u8",
+      "https://58f12ffd2447a.streamlock.net/KKTV01/livestream/playlist.m3u8",
+      "https://59253971be783.streamlock.net/KissKissTV/KissKissTV.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "La5.it",
+    "name": "La5",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(ka)/index.m3u8"
+    ]
+  },
+  {
+    "id": "LA7d.it",
+    "name": "LA7d",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d15umi5iaezxgx.cloudfront.net/LA7D/CLN/HLS-B/Live.m3u8"
+    ]
+  },
+  {
+    "id": "LaCNews24.it",
+    "name": "LaC News 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S27391994/HVvPMzy/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaCTV.it",
+    "name": "La C TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S47282891/JWjL3xqPf4bX/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaltroCorriereTV.it",
+    "name": "L'altro Corriere TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.cp.ets-sistemi.it:1936/laltrocorriere-tv/laltrocorriere-tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaTR3Marsala.it",
+    "name": "La TR3 Marsala",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tsw.streamingwebtv24.it:1936/eslife1/eslife1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LazioTV.it",
+    "name": "Lazio TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.0.207.99:1935/live/LAZIOTV12/playlist.m3u8",
+      "https://streaming.softwarecreation.it/LazioTv/LazioTv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LeCronacheTV.it",
+    "name": "Le Cronache TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://77.68.40.210:8888/hls/cronache.m3u8",
+      "http://stucazz.com:8888/hls/cronache.m3u8"
+    ]
+  },
+  {
+    "id": "LiraTV.it",
+    "name": "Lira TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d79ae45bc63b.streamlock.net/Liratv/Liratv/playlist.m3u8",
+      "https://a928c0678d284da5b383f29ecc5dfeec.msvdn.net/live/S57315730/8kTBWibNteJA/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LunaTV.it",
+    "name": "Luna TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/lunatv/lunatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "m2oTV.it",
+    "name": "m2o TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MadeinBOTV.it",
+    "name": "MadeinBO TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srvx1.selftv.video/dmchannel/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MariaVisionItalia.it",
+    "name": "Maria Vision Italia",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://1601580044.rsc.cdn77.org/live/_jcn_/amlst:CHANNEL_2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MediasetExtra.it",
+    "name": "Mediaset Extra",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kq)/index.m3u8"
+    ]
+  },
+  {
+    "id": "MediasetItalia.it",
+    "name": "Mediaset Italia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live2.msf.cdn.mediaset.net/content/hls_h0_clr_vos/live/channel(i2)/index.m3u8"
+    ]
+  },
+  {
+    "id": "MediterraniaTV.it",
+    "name": "MediterraniaTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59bb40cf810aa.streamlock.net:4443/streamingvincente/streamingvincente/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MedjugorjeItaliaTV.it",
+    "name": "Medjugorje Italia TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/medjugorjeitaliatv/medjugorjeitaliatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MinformoTV.it",
+    "name": "Minformo TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/MinformoTV/MinformoTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NauticalChannel.it",
+    "name": "Nautical Channel",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://a-cdn.klowdtv.com/live2/nautical_720p/playlist.m3u8",
+      "https://streams2.sofast.tv/vglive-sk-231198/index.m3u8"
+    ]
+  },
+  {
+    "id": "NTN.it",
+    "name": "NTN",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream4.xdevel.com/video0s975955-782/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Odeon24.it",
+    "name": "Odeon 24",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.softwarecreation.it/Odeon/Odeon/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OndaNovaraTV.it",
+    "name": "Onda Novara TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://585b674743bbb.streamlock.net/9006/9006/master.m3u8"
+    ]
+  },
+  {
+    "id": "OndaTV.it",
+    "name": "Onda TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5926fc9c7c5b2.streamlock.net/9040/9040/chunklist_w1373908906.m3u8"
+    ]
+  },
+  {
+    "id": "OrlerTV.it",
+    "name": "Orler TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.mediastreaming.it/orlertv/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OttoChannel.it",
+    "name": "Otto Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ottop-live-meride.akamaized.net/hls/live/2039996/ch1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PaciContemporaryChannel.it",
+    "name": "Paci Contemporary Channel",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/pacicontemporarychannel/pacicontemporarychannel/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PadrePioTV.it",
+    "name": "Padre Pio TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://600f07e114306.streamlock.net/PadrePioTV/livestream/playlist.m3u8",
+      "http://80.79.6.221:25461/smash/public/8"
+    ]
+  },
+  {
+    "id": "ParadiseTV.it",
+    "name": "Paradise TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tsw.streamingwebtv24.it:1936/paradisetv/paradisetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ParolediVita.it",
+    "name": "Parole di Vita",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://64b16f23efbee.streamlock.net/paroledivita/paroledivita/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PassioneLotto.it",
+    "name": "Passione Lotto",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://185.63.52.103:8080/hls/passionelotto/1_2/index.m3u8"
+    ]
+  },
+  {
+    "id": "PeerTVAltoAdige.it",
+    "name": "Peer TV Alto Adige",
+    "categories": [
+      "outdoor",
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.peer.biz/live/peertv-it.m3u8"
+    ]
+  },
+  {
+    "id": "PeerTVSouthTyrol.it",
+    "name": "Peer TV South Tyrol",
+    "categories": [
+      "outdoor",
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.peer.biz/live/peertv-en.m3u8"
+    ]
+  },
+  {
+    "id": "PeerTVSudtirol.it",
+    "name": "Peer TV Sudtirol",
+    "categories": [
+      "outdoor",
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.peer.biz/live/peertv.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaFree.it",
+    "name": "Prima Free",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/primafree/primafree/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimAntennaTV.it",
+    "name": "PrimAntenna TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/primantenna14/primantenna14/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaTV.it",
+    "name": "Prima TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/PrimaTV/PrimaTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Primocanale.it",
+    "name": "Primocanale",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://msh0203.stream.seeweb.it/live/flv:stream2.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PromovideoTV.it",
+    "name": "Promovideo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://media2021.rtvweb.com/promovideo_web/promovideo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "QuartoCanaleFlegreo.it",
+    "name": "Quarto Canale Flegreo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.mariatvcdn.com/dialogos/171e41deedf405f10c7dd6311387fb43.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "QVC.it",
+    "name": "QVC",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8"
+    ]
+  },
+  {
+    "id": "Radio51TV.it",
+    "name": "Radio 51 TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://178.32.140.155/canale51/canale51/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioBirikinaTV.it",
+    "name": "Radio Birikina TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://56b50ada2d659.streamlock.net/RadioBirikinaTV/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioCapitalTiVu.it",
+    "name": "Radio Capital TiVu",
+    "categories": [
+      "music",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Radiofreccia.it",
+    "name": "Radiofreccia",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8",
+      "https://streamcdnb1-dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RadioIbizaTV.it",
+    "name": "Radio Ibiza TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5929b138b139d.streamlock.net/RadioIbizaTV/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioIglesias.it",
+    "name": "Radio Iglesias",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/visualradio/mp4:visualradio/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioIglesiasSardegna.it",
+    "name": "Radio Iglesias Sardegna",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/visualradio/visualradio/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioItaliaTrendTV.it",
+    "name": "Radio Italia Trend TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg00745-radioitailaspa-radioitalia-rakuten-sucsc.amagi.tv/hls/amagi_hls_data_rakutenAA-radioitalia-rakuten/CDN/master.m3u8",
+      "https://radioitalia-samsungitaly.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioNorbaTV.it",
+    "name": "Radio Norba TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream12.xdevel.com/video0s975885-2349/stream/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "RadioNumberOne.it",
+    "name": "Radio Number One",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://56b50ada2d659.streamlock.net/RN1TV/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioPiterPanTV.it",
+    "name": "Radio Piter Pan TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://58d921499d3d3.streamlock.net/RadioPiterpanTV/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioRomaNews.it",
+    "name": "Radio Roma News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/radioromanews.m3u8"
+    ]
+  },
+  {
+    "id": "RadioRomaTelevision.it",
+    "name": "Radio Roma Television",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/radioromatv.m3u8"
+    ]
+  },
+  {
+    "id": "RadioStudioDeltaTV.it",
+    "name": "Radio Studio Delta TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5ce9406b73c33.streamlock.net/RSD/ngrp:livestream_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioTaorminaSicilia.it",
+    "name": "Radio Taormina Sicilia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream2.xdevel.com/video1s3-7/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioZeta.it",
+    "name": "Radio Zeta",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8",
+      "https://streamcdnb1-dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "Rai1.it",
+    "name": "Rai 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/Rai1/index.m3u8",
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=2606803",
+      "https://mediapolisevent.rai.it/relinker/relinkerServlet.htm?cont=2606803",
+      "https://dash2.antik.sk/live/test_rai_uno_tizen/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Rai2.it",
+    "name": "Rai 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/Rai2/index.m3u8",
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=308718"
+    ]
+  },
+  {
+    "id": "Rai3.it",
+    "name": "Rai 3",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/Rai3/index.m3u8",
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=308709",
+      "https://dash2.antik.sk/live/test_rai_tre_tizen/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Rai4.it",
+    "name": "Rai 4",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746966",
+      "https://mediapolisevent.rai.it/relinker/relinkerServlet.htm?cont=746966"
+    ]
+  },
+  {
+    "id": "Rai5.it",
+    "name": "Rai 5",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=395276"
+    ]
+  },
+  {
+    "id": "RaiGulp.it",
+    "name": "Rai Gulp",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/RaiGulp/index.m3u8",
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746953"
+    ]
+  },
+  {
+    "id": "RaiItalia.it",
+    "name": "Rai Italia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/19093/index.m3u8",
+      "https://cignalplaymaxcdn.qzz.io/rai_italia_zte/sanjuantv/manifest.mpd"
+    ]
+  },
+  {
+    "id": "RaiMovie.it",
+    "name": "Rai Movie",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=747002"
+    ]
+  },
+  {
+    "id": "RaiNews24.it",
+    "name": "Rai News 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RaiPremium.it",
+    "name": "Rai Premium",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746992"
+    ]
+  },
+  {
+    "id": "RaiScuola.it",
+    "name": "Rai Scuola",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/RaiScuola/index.m3u8",
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=747011"
+    ]
+  },
+  {
+    "id": "RaiSport.it",
+    "name": "Rai Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/RaiSport/index.m3u8"
+    ]
+  },
+  {
+    "id": "RaiStoria.it",
+    "name": "Rai Storia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://srv1.adriatelekom.com/RaiStoria/index.m3u8",
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746990"
+    ]
+  },
+  {
+    "id": "RaiYoyo.it",
+    "name": "Rai Yoyo",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746899"
+    ]
+  },
+  {
+    "id": "RDSSocialTV.it",
+    "name": "RDS Social TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.rdstv.radio/out/v1/ec85f72b87f04555aa41d616d5be41dc/index.m3u8"
+    ]
+  },
+  {
+    "id": "ReggioTV.it",
+    "name": "ReggioTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn10.streamshow.it/cloud-reggiotv/reggiotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Rete4.it",
+    "name": "Rete 4",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(r4)/index.m3u8"
+    ]
+  },
+  {
+    "id": "Rete55.it",
+    "name": "Rete 55",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.internet.one/Rete55_Live/index.m3u8"
+    ]
+  },
+  {
+    "id": "Rete8.it",
+    "name": "Rete 8",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://64b16f23efbee.streamlock.net/rete8/rete8/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ReteBiellaTV.it",
+    "name": "Rete Biella TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sb.top-ix.org/retebiella/streaming/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Retemia.it",
+    "name": "Retemia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/Retemia/Retemia/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ReteOro.it",
+    "name": "Rete Oro",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5926fc9c7c5b2.streamlock.net/9094/9094/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ReteTVItalia.it",
+    "name": "Rete TV Italia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://57068da1deb21.streamlock.net/retetvitalia/retetvitalia/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Reteveneta.it",
+    "name": "Reteveneta",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/reteveneta/reteveneta/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RossiniTV.it",
+    "name": "Rossini TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cbd3bc28341f.streamlock.net:444/rossinitv_live/944A-63A6-9EB8-4492/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTCTelecalabria.it",
+    "name": "RTC Telecalabria",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://fl1.mediastreaming.it:1935/calabriachannel/livestream/playlist.m3u8",
+      "https://w1.mediastreaming.it/calabriachannel/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025Best.it",
+    "name": "RTL 102.5 Best",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S76960628/OEPHRUIctA0M/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025BroSis.it",
+    "name": "RTL 102.5 Bro&Sis",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S75007890/MUGHuxc9dQ3b/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025Caliente.it",
+    "name": "RTL 102.5 Caliente",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S8448465/zTYa1Z5Op9ue/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025Disco.it",
+    "name": "RTL 102.5 Disco",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S51100361/0Fb4R3k82b5Z/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025Napule.it",
+    "name": "RTL 102.5 Napule",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S27134503/0f9AhuwKlhnZ/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025Traffic.it",
+    "name": "RTL 102.5 Traffic",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S38122967/2lyQRIAAGgRR/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTL1025TV.it",
+    "name": "RTL 102.5 TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8"
+    ]
+  },
+  {
+    "id": "RTMTV.it",
+    "name": "RTM TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/rtm/rtm/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTP.it",
+    "name": "RTP",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://flash2.xdevel.com/rtptv/rtptv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTTRTrento.it",
+    "name": "RTTR Trento",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5f204aff97bee.streamlock.net/RTTRlive/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTV38.it",
+    "name": "RTV38",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://845d8509d2cb4f249dd0b2ae5755b6c2.msvdn.net/rtv38/rtv38_live_main/mainabr/rtv38_live_main/main_576/chunks_dvr.m3u8",
+      "https://streamcdne1-845d8509d2cb4f249dd0b2ae5755b6c2.msvdn.net/rtv38/rtv38_live_main/mainabr/rtv38_live_main/main_576/chunks_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "SenatoTV.it",
+    "name": "Senato TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://senato-live.morescreens.com/SENATO_1_001/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SL48TV.it",
+    "name": "SL48 TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://media.velcom.it:1935/sl48/sl48/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SophiaTV.it",
+    "name": "Sophia TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://bild-und-ton.stream/sophiatv-it/smil:sophia-tv-it.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sportitalia.it",
+    "name": "Sportitalia",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge-001.streamup.eu/sportitalia/sihd_abr/playlist.m3u8",
+      "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sportitaliahd.smil/playlist.m3u8",
+      "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/sihd/playlist.m3u8",
+      "https://amg01370-italiansportcom-sportitalia-rakuten-3hmdb.amagi.tv/hls/amagi_hls_data_rakutenAA-sportitalia-rakuten/CDN/master.m3u8",
+      "https://sportsitalia-samsungitaly.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sportitalia24.it",
+    "name": "Sportitalia 24",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:silive24.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SportitaliaMotori.it",
+    "name": "Sportitalia Motori",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:simotori.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SportitaliaSolocalcio.it",
+    "name": "Sportitalia Solocalcio",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://distribution.sportitalialive.it/sportitalia/sisolocalcio_abr/playlist.m3u8",
+      "https://edge-001.streamup.eu/sportitalia/sisolocalcio_abr/playlist.m3u8",
+      "https://italiansport-solocalcio-samsung.amagi.tv/playlist.m3u8",
+      "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sisolocalcio.smil/playlist.m3u8",
+      "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/sisolocalcio.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Stereo5TV.it",
+    "name": "Stereo 5 TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream1.aswifi.it/stereo5/live/index.m3u8"
+    ]
+  },
+  {
+    "id": "STEuropeChannel.it",
+    "name": "ST Europe Channel",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/steuropetv/steuropetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Super.it",
+    "name": "Super!",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SuperJTVTeramo.it",
+    "name": "Super J TV Teramo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://54627d4fc5996.streamlock.net/SuperJtv/SuperJtv/playlist.m3u8",
+      "http://uk4.streamingpulse.com:1935/SuperJtv/SuperJtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SuperSix.it",
+    "name": "Super Six",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/SUPERSIXLombardia/SUPERSIXLombardia/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SuperTennis.it",
+    "name": "SuperTennis",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-embed.supertennix.hiway.media/restreamer/supertennix_client/gpu-a-c0-16/restreamer/outgest/aa3673f1-e178-44a9-a947-ef41db73211a/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "SuperTV.it",
+    "name": "Super TV",
+    "categories": [
+      "general",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/supertv/mp4:supertv/playlist.m3u8",
+      "https://59d7d6f47d7fc.streamlock.net/supertv/supertv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SuperTVOristano.it",
+    "name": "Super TV Oristano",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://193.70.81.40:1935/supertvoristano/supertvoristano/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "T9.it",
+    "name": "T9",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.softwarecreation.it/tnove/tnove/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TaurianovaTV.it",
+    "name": "Taurianova TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/taurianovatv/taurianovatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeatroTV.it",
+    "name": "Teatro TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m.iostream.it/hls/teatrotv/teatrotv.m3u8"
+    ]
+  },
+  {
+    "id": "TeleAbruzzo.it",
+    "name": "Tele Abruzzo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://uk4.streamingpulse.com:1935/TeleabruzzoTV/TeleabruzzoTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Teleacras.it",
+    "name": "Teleacras",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cbd3bc28341f.streamlock.net:444/teleacras/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleArena.it",
+    "name": "TeleArena",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5ce9406b73c33.streamlock.net/TeleArena/TeleArena.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleChiara.it",
+    "name": "Tele Chiara",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://fms.tvavicenza.it:1935/telechiara/diretta/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TelecolorLombardia.it",
+    "name": "Telecolor Lombardia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://1aadf145546f475282c5b4e658c0ac4b.msvdn.net/live/324149/hlbAWtl/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telefoggia.it",
+    "name": "Telefoggia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/telefoggia/mp4:telefoggia/playlist.m3u8",
+      "https://59d7d6f47d7fc.streamlock.net/telefoggia/telefoggia/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telefriuli.it",
+    "name": "Telefriuli",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5757bf2aa08e42248fb9b9d620f5d900.msvdn.net/live/S11646715/pE3ax0lT0rBd/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telegela647.it",
+    "name": "Telegela 647",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://64b16f23efbee.streamlock.net/telegela/telegela/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telegranda.it",
+    "name": "Telegranda",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://live.sloode.com:1935/telegranda_live/C2AD-0664-DC75-4744/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telejato.it",
+    "name": "Telejato",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://telejato.liberotratto.com/hls/0/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Teleliberta.it",
+    "name": "Teleliberta",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://api.new.livestream.com/accounts/17114188/events/4902226/live.m3u8"
+    ]
+  },
+  {
+    "id": "TeleLiguriaSud.it",
+    "name": "Tele Liguria Sud",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/tls/tls/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleMajg.it",
+    "name": "TeleMajg",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/telemajg/telemajg/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telemantova.it",
+    "name": "Telemantova",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ce9406b73c33.streamlock.net/TeleMantova/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleMia.it",
+    "name": "TeleMia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://playerssl.telemia.tv/fileadmin/hls/TelemiaHD/telemia85_mediachunks.m3u8"
+    ]
+  },
+  {
+    "id": "TeleMiaExtra.it",
+    "name": "TeleMia Extra",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://playerssl.telemia.tv/fileadmin/hls/TelemiaExtra/telemiaextra_mediachunks.m3u8"
+    ]
+  },
+  {
+    "id": "TeleMistretta.it",
+    "name": "TeleMistretta",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.mariatvcdn.com/telemistretta/8fbcd205ada81b295ee6c211c3a80dde.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telemolise.it",
+    "name": "Telemolise",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://185.202.128.1:1935/TelemoliseStream/telemoliseTV.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telemontecarlo.it",
+    "name": "Telemontecarlo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream10.xdevel.com/video17s975955-2173/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "teleMonteneve.it",
+    "name": "teleMonteneve",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it:1935/telemonteneve/telemonteneve/live.m3u8"
+    ]
+  },
+  {
+    "id": "Telenord.it",
+    "name": "Telenord",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5db313b643fd8.streamlock.net/Telenord/Telenord/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telenova.it",
+    "name": "Telenova",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://64b16f23efbee.streamlock.net/telenova/telenova/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleOne16.it",
+    "name": "Tele One 16",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://648026e87a75e.streamlock.net/teleone/teleone/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telepace1.it",
+    "name": "Telepace 1",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jk3lz2bwlw79-hls-live.mariatvcdn.it/teleradiopace1/efcc8fc46cab26315ce3f5845d76008f.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telepace2.it",
+    "name": "Telepace 2",
+    "categories": [
+      "religious",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://zkpywrbgdbeg-hls-live.mariatvcdn.it/teleradiopace2/254c9b5c52a73a94ef0f6169cbd05dc2.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telepace3.it",
+    "name": "Telepace 3",
+    "categories": [
+      "religious",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://932y4273djv8-hls-live.mariatvcdn.it/teleradiopace3/d2274c22e9ee09eb2eda01ed0496f8f5.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telepace4.it",
+    "name": "Telepace 4",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://j78dpr7nyq5r-hls-live.mariatvcdn.it/teleradiopace4/13d74f2cfe921bfbc262697203d47d8f.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TelepaceTrento.it",
+    "name": "Telepace Trento",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5a1178b42cc03.streamlock.net/telepacetrento/telepacetrento/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telepavia.it",
+    "name": "Telepavia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/telepavia/telepavia/playlist.m3u8",
+      "http://wms.shared.streamshow.it/telepavia/mp4:telepavia/playlist.m3u8",
+      "http://wms.shared.streamshow.it:1935/telepavia/telepavia/live.m3u8"
+    ]
+  },
+  {
+    "id": "TelePegasoCatania.it",
+    "name": "Tele Pegaso Catania",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://flash2.xdevel.com/telepegasocanale812/telepegasocanale812/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleQuattro.it",
+    "name": "Tele Quattro",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/telequattro/telequattro/playlist.m3u8",
+      "http://wms.shared.streamshow.it/telequattro/telequattro/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleRadioSciacca.it",
+    "name": "Tele Radio Sciacca",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://5cbd3bc28341f.streamlock.net:1935/trs_live/teleradiosciacca-tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleRama.it",
+    "name": "TeleRama",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Teleromagna.it",
+    "name": "Teleromagna",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livetr.teleromagna.it/teleromagna/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleSanDomenico.it",
+    "name": "TeleSanDomenico",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.mariatvcdn.com/tsd/7c59373bfdb38201b9215ff86f0ce6af.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telestense.it",
+    "name": "Telestense",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5e73cf528f404.streamlock.net/TeleEstense/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TelesudTrapani.it",
+    "name": "Telesud Trapani",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://5cbd3bc28341f.streamlock.net:1935/telesud/live/playlist.m3u8",
+      "https://5cbd3bc28341f.streamlock.net:444/telesud/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Teletricolore.it",
+    "name": "Teletricolore",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/rs2/rs2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleTusciaSabina2000.it",
+    "name": "TeleTusciaSabina 2000",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://ts2000tv.streaming.nextware.it:8081/ts2000tv/ts2000tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Televallo.it",
+    "name": "Televallo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cbd3bc28341f.streamlock.net:444/televallo/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleVenezia.it",
+    "name": "TeleVenezia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d8c0cee6f3d.streamlock.net/televenezia/televenezia/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TGCom24.it",
+    "name": "TGCom24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live2-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8"
+    ]
+  },
+  {
+    "id": "TGNorba24.it",
+    "name": "TG Norba 24",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://router.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "TLTMolise.it",
+    "name": "TLT Molise",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/tltmolise/tltmolise/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TopCrime.it",
+    "name": "Top Crime",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live3-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(lt)/index.m3u8"
+    ]
+  },
+  {
+    "id": "TrentinoTV.it",
+    "name": "Trentino TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5e73cf528f404.streamlock.net/TrentinoTV/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TRSport.it",
+    "name": "TR Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livetr.teleromagna.it/mia/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TSNTeleSondrioNews.it",
+    "name": "TSN TeleSondrio News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d8c0cee6f3d.streamlock.net/tsn/tsn_mobile/playlist.m3u8",
+      "http://wms.shared.streamshow.it/tsn/tsn_mobile/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV2000.it",
+    "name": "TV2000",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls-live-tv2000.akamaized.net/hls/live/2028510/tv2000/master.m3u8",
+      "https://videotv2000-meride-tv.akamaized.net/branded/monoscopio/monoscopio.m3u8",
+      "http://cld01ibi16.wz.tv2000.it/tv2000_alfa.m3u8",
+      "http://mi1.wz.tv2000.it/tv2000_alfa.m3u8"
+    ]
+  },
+  {
+    "id": "TV7Benevento.it",
+    "name": "TV7 Benevento",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://streaming.senecadot.com/live/flv:tv7.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV7Triveneta.it",
+    "name": "TV7 Triveneta",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://www.gruppotv7.com:8090/hls/ireporter.m3u8"
+    ]
+  },
+  {
+    "id": "tv9Telemaremma.it",
+    "name": "tv9 Telemaremma",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtmp-live-ingest-us-east-1-universe-dacast-com.akamaized.net/transmuxv1/streams/2095a288-1384-ed2e-5da0-278ccbb72295.m3u8"
+    ]
+  },
+  {
+    "id": "TVAVicenza.it",
+    "name": "TVA Vicenza",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://fms.tvavicenza.it:1935/live/diretta_1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCampane1.it",
+    "name": "TV Campane 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://eu1.servers10.com:8081/8032/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVL.it",
+    "name": "TVL",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.mariatvcdn.com/mariatvcdn/70564e1c6884c007c76f0c128d679eed.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVPrato.it",
+    "name": "TV Prato",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.mariatvcdn.com/tvprato/2db0dd5674586686a867ec52c3aa8e06.sdp/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVQuiModena.it",
+    "name": "TV Qui Modena",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d7d6f47d7fc.streamlock.net/tvqui/tvqui/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVRS.it",
+    "name": "TVRS",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it:1935/tvrs/tvrs/live.m3u8"
+    ]
+  },
+  {
+    "id": "TVSei.it",
+    "name": "TV Sei",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://185.202.128.1:1935/Tv6Stream/tv6TV.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVYesItalia.it",
+    "name": "TV Yes Italia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream1.aswifi.it/radioyes/live/index.m3u8"
+    ]
+  },
+  {
+    "id": "Twentyseven.it",
+    "name": "Twentyseven",
+    "categories": [
+      "movies",
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live2.msf.cdn.mediaset.net/content/hls_h0_cls_vos/live/channel(ts)/index.m3u8"
+    ]
+  },
+  {
+    "id": "UmbriaTV.it",
+    "name": "Umbria TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://umbriatv.stream.rubidia.it:8083/live/umbriatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UniNettunoUniversityTV.it",
+    "name": "UniNettuno University TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Value24TV.it",
+    "name": "Value 24 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f22d76e220e1.streamlock.net/canale1/canale1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VeraTV.it",
+    "name": "Vera TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it/veratv/mp4:veratv/playlist.m3u8",
+      "http://wms.shared.streamshow.it/veratv/veratv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VideolinaSardegna.it",
+    "name": "Videolina Sardegna",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://livestreaming.videolina.it/live/Videolina/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VideoRola.it",
+    "name": "Video Rola",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d3b2epqdk0p7vd.cloudfront.net/out/v1/8a448b5e16384af4a3c8146a7b049c32/index.m3u8"
+    ]
+  },
+  {
+    "id": "VisualRadio.it",
+    "name": "Visual Radio",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://wms.shared.streamshow.it:1935/visualradio/visualradio/live.m3u8"
+    ]
+  },
+  {
+    "id": "WeddingTV.it",
+    "name": "Wedding TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.cp.ets-sistemi.it:1936/profservtv/profservtv/playlist.m3u8"
+    ]
+  }
+]

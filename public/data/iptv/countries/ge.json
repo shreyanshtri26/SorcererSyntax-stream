@@ -1,0 +1,176 @@
+[
+  {
+    "id": "1TV.ge",
+    "name": "1TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.cdn.xsg.ge/gpb-1tv/index.m3u8"
+    ]
+  },
+  {
+    "id": "2TV.ge",
+    "name": "2 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.cdn.xsg.ge/gpb-2tv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Adjarasport1.ge",
+    "name": "Adjarasport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/dvrfl05/gin-adjara/index.m3u8"
+    ]
+  },
+  {
+    "id": "ApsuaTV.ge",
+    "name": "Apsua TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://gcmx3v3owcj.a.trbcdn.net/livemaster/ba7pu_fgej0zelpw.smil/playlist.m3u8?blstid=null"
+    ]
+  },
+  {
+    "id": "BMGTV.ge",
+    "name": "BMG TV",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.nucast.tv/lb/ge/bmg/index.m3u8"
+    ]
+  },
+  {
+    "id": "ComedyTV.ge",
+    "name": "Comedy TV",
+    "categories": [
+      "comedy"
+    ],
+    "languages": [],
+    "streams": [
+      "http://31.146.5.178:8087/play/a00b/index.m3u8"
+    ]
+  },
+  {
+    "id": "Ertsulovneba.ge",
+    "name": "Ertsulovneba",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.sstv.ge/live/sstv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Formula.ge",
+    "name": "Formula",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://c4635.cdn.xsg.ge/c4635/TVFormula/index.m3u8",
+      "https://tv.cdn.xsg.ge/c4635/TVFormula/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GDSTV.ge",
+    "name": "GDS TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://31.146.5.178:8087/play/a00a/index.m3u8"
+    ]
+  },
+  {
+    "id": "ImediTV.ge",
+    "name": "Imedi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.cdn.xsg.ge/imedihd/index.m3u8"
+    ]
+  },
+  {
+    "id": "MtavariArkhi.ge",
+    "name": "Mtavari Arkhi",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/dvrfl05/gin-mtavariarxi/index.m3u8"
+    ]
+  },
+  {
+    "id": "ObieqtiviTV.ge",
+    "name": "Obieqtivi TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/dvrfl05/gin-obieqtivitv/index.m3u8"
+    ]
+  },
+  {
+    "id": "PalitraNews.ge",
+    "name": "Palitra News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.palitranews.ge/hls/palitratv/index.m3u8",
+      "https://livestream.palitra.ge/hls/palitratv/index.m3u8"
+    ]
+  },
+  {
+    "id": "RioniTV.ge",
+    "name": "Rioni TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://video.rionitv.com:9090/hls/live/rioni.m3u8"
+    ]
+  },
+  {
+    "id": "Rustavi2.ge",
+    "name": "Rustavi 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://31.146.5.178:8087/play/a008/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVC.ge",
+    "name": "TVC",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://31.146.5.178:8087/play/a009/index.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "NET.mt",
+    "name": "NET",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.smashmalta.com:25463/live/webplayer/livestream/22.m3u8",
+      "http://80.79.6.221:25461/smash/public/22"
+    ]
+  },
+  {
+    "id": "One.mt",
+    "name": "One",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://2-fss-1.streamhoster.com/pl_148/201830-1293592-1/playlist.m3u8",
+      "http://80.79.6.221:25461/smash/public/21"
+    ]
+  },
+  {
+    "id": "ParliamentofMalta.mt",
+    "name": "Parliament of Malta",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.smashmalta.com:25463/live/webplayer/livestream/23.m3u8",
+      "http://80.79.6.221:25461/smash/public/23"
+    ]
+  },
+  {
+    "id": "SmashTV.mt",
+    "name": "Smash TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.smashmalta.com:25463/live/webplayer/livestream/47.m3u8",
+      "http://80.79.6.221:25461/smash/public/1"
+    ]
+  },
+  {
+    "id": "TVM.mt",
+    "name": "TVM",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.smashmalta.com:25463/live/webplayer/livestream/19.m3u8",
+      "http://80.79.6.221:25461/smash/public/19"
+    ]
+  },
+  {
+    "id": "TVMnewsPlus.mt",
+    "name": "TVMnews+",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://80.79.6.221:25461/smash/public/20"
+    ]
+  },
+  {
+    "id": "TVMsportPlus.mt",
+    "name": "TVMsport+",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.smashmalta.com:25463/live/webplayer/livestream/29.m3u8"
+    ]
+  }
+]

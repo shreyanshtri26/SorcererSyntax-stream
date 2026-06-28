@@ -1,0 +1,204 @@
+[
+  {
+    "id": "AlvinChannelTV.az",
+    "name": "Alvin Channel TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn10-alvinchannel.yayin.com.tr/alvinchannel/alvinchannel/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AnewZTV.az",
+    "name": "AnewZ TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://53be5ef2d13aa.streamlock.net/cubesanewz-secure/smil:cubesanewz-secure-web.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "APATv.az",
+    "name": "APA Tv",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://stream.apa.tv/apastream/index.m3u8"
+    ]
+  },
+  {
+    "id": "ARB.az",
+    "name": "ARB",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/main/myvideo-az/arb.m3u8"
+    ]
+  },
+  {
+    "id": "ARB24.az",
+    "name": "ARB 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/main/myvideo-az/arb-24.m3u8"
+    ]
+  },
+  {
+    "id": "ARBGunes.az",
+    "name": "ARB Gunes",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/main/myvideo-az/arb-gunes.m3u8"
+    ]
+  },
+  {
+    "id": "AzTV.az",
+    "name": "Az TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://109.205.166.68/server124/aztv/index3.m3u8?e=1676581573&st=AzGSZjk1DpXY1SLc1m4OvA",
+      "https://stream8.cinerama.uz/1455/tracks-v1a1/mono.m3u8",
+      "https://str.yodacdn.net/azertv/index.m3u8"
+    ]
+  },
+  {
+    "id": "BakuTV.az",
+    "name": "Baku.TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/refs/heads/main/myvideo-az/baku-tv.m3u8",
+      "https://rtmp.baku.tv/hls/bakutv.m3u8"
+    ]
+  },
+  {
+    "id": "CBCSport.az",
+    "name": "CBC Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mn-nl.mncdn.com/cbcsports_live/cbcsports/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DunyaTV.az",
+    "name": "Dunya TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/refs/heads/main/myvideo-az/dunya-tv.m3u8",
+      "https://stream.ftv.az/live/dunyatv.m3u8"
+    ]
+  },
+  {
+    "id": "ELTV.az",
+    "name": "EL TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.132.53.162:1935/live/eltv/playlist.m3u8",
+      "https://live.eltv.az/live/eltv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IctimaiTV.az",
+    "name": "Ictimai TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.itv.az/itv.m3u8"
+    ]
+  },
+  {
+    "id": "KapazTV.az",
+    "name": "Kapaz TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://85.132.78.122:8050/hls/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "MedeniyyetTV.az",
+    "name": "Medeniyyet TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://str.yodacdn.net/medeniyyettele/index.m3u8"
+    ]
+  },
+  {
+    "id": "NaxcivanTV.az",
+    "name": "Naxcivan TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://str2.yodacdn.net/ntv/video.m3u8"
+    ]
+  },
+  {
+    "id": "SpaceTV.az",
+    "name": "Space TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/main/myvideo-az/space-tv.m3u8"
+    ]
+  },
+  {
+    "id": "StartTV.az",
+    "name": "Start TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/refs/heads/main/myvideo-az/kanal-s.m3u8"
+    ]
+  },
+  {
+    "id": "XezerTV.az",
+    "name": "Xezer TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/UzunMuhalefet/streams/main/myvideo-az/xezer-tv.m3u8",
+      "https://www.xezerxeber.az/stream/index.m3u8"
+    ]
+  }
+]

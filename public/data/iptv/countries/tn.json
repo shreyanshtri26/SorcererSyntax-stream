@@ -1,0 +1,49 @@
+[
+  {
+    "id": "ElWatania1.tn",
+    "name": "El Watania 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sw1.tanitweb.net/TunisiaTV/_definst_/watania1/chunklist.m3u8",
+      "https://sw1.tanitweb.net/TunisiaTV/_definst_/watania1/playlist.m3u8?DVR",
+      "https://sw1.tanitweb.net/TunisiaTV/_definst_/watania2/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "ElWatania2.tn",
+    "name": "El Watania 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sw1.tanitweb.net/TunisiaTV/_definst_/watania2/playlist.m3u8?DVR"
+    ]
+  },
+  {
+    "id": "JawharaTV.tn",
+    "name": "Jawhara TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streaming.toutech.net:1935/live/mp4:jawharafm.sdp/playlist.m3u8",
+      "https://streaming.toutech.net/live/jtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "MosaiqueFM.tn",
+    "name": "Mosaique FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webcam.mosaiquefm.net/mosatv/_definst_/studio/playlist.m3u8?DVR"
+    ]
+  }
+]

@@ -1,0 +1,354 @@
+[
+  {
+    "id": "ApsaraTV11.kh",
+    "name": "Apsara TV11",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.ams.com.kh/app/stream/playlist.m3u8",
+      "https://live-evg5.tv360.metfone.com.kh/app/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ARDBTV.kh",
+    "name": "ARDB TV",
+    "categories": [
+      "outdoor"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ardbtv.ardb.com.kh:8443/tv-live/tv-online.m3u8"
+    ]
+  },
+  {
+    "id": "BayonTV.kh",
+    "name": "Bayon TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-evg2.tv360.metfone.com.kh/livebayontv/bayontvhd.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BTVNews.kh",
+    "name": "BTV News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-evg2.tv360.metfone.com.kh/livetest/bayontest.stream/playlist.m3u8",
+      "https://server.dtvhd.com/memfs/cf0911cf-4ccc-47b1-8996-e5d705442b89.m3u8"
+    ]
+  },
+  {
+    "id": "CITVChannel.kh",
+    "name": "CITV Channel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/CITVChannel.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CNC.kh",
+    "name": "CNC",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://live.happywatch99.com/livehd12/ade9370aadadedbee81fa5e0f228bd37.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CTN.kh",
+    "name": "CTN",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://live.happywatch99.com/livehd10/02587745dbd71d978954203d7ec78497.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CTV8HD.kh",
+    "name": "CTV8 HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://server.dtvhd.com/memfs/92d5968d-1b58-486d-a1ba-7b5a3f21c16c.m3u8",
+      "http://live.happywatch99.com/livehd17/60b8e758d3dac2865fa0cd868d0f7ec4.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CTV9.kh",
+    "name": "CTV 9",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/ctv9_hd_playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DMusic.kh",
+    "name": "D Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/WCVNews.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EACNewsTV.kh",
+    "name": "EAC News TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-evg17.tv360.metfone.com.kh/LiveApp/streams/eacnews.m3u8",
+      "http://43.252.18.195:5080/LiveApp/streams/eacnews.m3u8",
+      "https://live.eac-news.com/LiveApp/streams/eacnews.m3u8"
+    ]
+  },
+  {
+    "id": "EBCGeneralEducation.kh",
+    "name": "EBC General Education",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://iptv.ebc.edu.kh/iptv/channel/1.m3u8"
+    ]
+  },
+  {
+    "id": "FreshNews.kh",
+    "name": "Fresh News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streaming-android.freshnewsasia.tv:1935/live/ngrp:myStream_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HangMeasHDTV.kh",
+    "name": "Hang Meas HDTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://clive.malisresidences.com:1935/hm_hdtv/_definst_/smil:hmhdt12356.smil/playlist.m3u8",
+      "http://clive.malisresidences.com:1935/hmcine/_definst_/smil:hmcine.smil/playlist.m3u8",
+      "http://clive.malisresidences.com:1935/hmgo/_definst_/smil:hmgo.smil/playlist.m3u8",
+      "http://clive.malisresidences.com:1935/hmnow/_definst_/smil:hmnow.smil/playlist.m3u8",
+      "http://clive.malisresidences.com:1935/hmplay/_definst_/smil:hmplay.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "iTVHD.kh",
+    "name": "iTV HD",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.eac-news.com/Khmer/streams/ITVHD.m3u8"
+    ]
+  },
+  {
+    "id": "KomsanTV.kh",
+    "name": "Komsan TV",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tv.cootel.com.kh:8077/streams/d/Komsan/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MOITV.kh",
+    "name": "MOI TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "http://202.62.56.22:8080/hls/MOITV.m3u8"
+    ]
+  },
+  {
+    "id": "MSJTV.kh",
+    "name": "MSJ TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/MSJTV_hd_playlist.m3u8",
+      "http://119.15.85.85:8989/hls/MSJHD.m3u8",
+      "https://live-ali7.tv360.metfone.com.kh/live/myStream/playlist.m3u8",
+      "http://124.248.165.18:1935/live/myStream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MyTV.kh",
+    "name": "My TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://live.happywatch99.com/livehd11/90ecf35382a7597e553200692c3fc384.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NiceTV.kh",
+    "name": "Nice TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/Netflix.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NTV.kh",
+    "name": "NTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/LiveApp/streams/ntvhd.m3u8",
+      "https://live-evg10.tv360.metfone.com.kh/LiveApp/streams/ntvhd.m3u8"
+    ]
+  },
+  {
+    "id": "OneTVCinema2.kh",
+    "name": "One TV Cinema 2",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/ChineseDrama.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OneTVDrama3.kh",
+    "name": "One TV Drama 3",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/KoreanDrama.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OneTVESchoolCambodia.kh",
+    "name": "One TV E-School Cambodia",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://49.156.33.114:5080/live/streams/elearning.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RasmeyHangMeasHDTV.kh",
+    "name": "Rasmey Hang Meas HDTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://clive.malisresidences.com:1935/rhm_hdtv/_definst_/smil:RHMHDTV.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SangkemTV.kh",
+    "name": "Sangkem TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.sangkemtv.com/memfs/sangkem.m3u8"
+    ]
+  },
+  {
+    "id": "SEATV.kh",
+    "name": "SEA TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://seatv.netlinkbroadcaster.com/hls/test.m3u8"
+    ]
+  },
+  {
+    "id": "TownTV.kh",
+    "name": "Town TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://43.252.18.195:5080/live/streams/Town_khmer_etv.playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV5Cambodia.kh",
+    "name": "TV5 Cambodia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://es1-p1-netcdn.metfone.com.kh/netcdn-live-36/36/output/playlist.m3u8",
+      "http://live.happywatch99.com/livehd14/77bbe9df6a93cf229cd40f1400af00fa.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVK.kh",
+    "name": "TVK",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kh.malimarcdn.com/live/tvk.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVK2.kh",
+    "name": "TVK 2",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kh.malimarcdn.com/live/tvk2.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "WikiTV.kh",
+    "name": "Wiki TV",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.wikitv.asia/live/ngrp:myStream_all/playlist.m3u8"
+    ]
+  }
+]

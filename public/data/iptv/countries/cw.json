@@ -1,0 +1,46 @@
+[
+  {
+    "id": "BonceTV.cw",
+    "name": "Bonce TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://seswa.bonce.tv/hls/bonceswa.m3u8"
+    ]
+  },
+  {
+    "id": "NosPais.cw",
+    "name": "Nos Pais",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5f86a49aedff6.streamlock.net/nos_pais_24_7/nos_pais_24_7/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVDirect13.cw",
+    "name": "TV Direct 13",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://oqgdrog4d4rm-hls-live.5centscdn.com/tvdirect/f7b44cfafd5c52223d5498196c8a2e7b.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VAMTV.cw",
+    "name": "VAM TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sincerecloud.stream/loadbalancer/public/J9EmQQGf.m3u8"
+    ]
+  }
+]

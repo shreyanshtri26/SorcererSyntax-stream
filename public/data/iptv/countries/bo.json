@@ -1,0 +1,794 @@
+[
+  {
+    "id": "247TV.bo",
+    "name": "24/7 TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/eldebertv/index.m3u8"
+    ]
+  },
+  {
+    "id": "AbyaYalaTV.bo",
+    "name": "Abya Yala TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://seo.tv.bo/tv/LIpSEO-TV-8.m3u8",
+      "https://seo.tv.bo/live.php?ch=abyayala_sd&token=seotv2026"
+    ]
+  },
+  {
+    "id": "AgendaMineraTV.bo",
+    "name": "Agenda Minera TV",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stv2.boliviaplay.com.bo/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "AlegriaTV.bo",
+    "name": "Alegria TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/confirmatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ATBLaPaz.bo",
+    "name": "ATB La Paz",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://186.121.206.197/live/daniel/index.m3u8",
+      "https://stream.atb.com.bo/live/daniel/index.m3u8"
+    ]
+  },
+  {
+    "id": "AYNITV.bo",
+    "name": "AYNI TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/Aynitv/Aynitv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BoliviaPuntoTV.bo",
+    "name": "Bolivia Punto TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.hostpannel.lat/hls/fc517baca1d452f22f56a2563f93f500/index.m3u8"
+    ]
+  },
+  {
+    "id": "BoliviaTV.bo",
+    "name": "Bolivia TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://boliviatv1.srfms.com:5735/live/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BoliviaTV72.bo",
+    "name": "Bolivia TV 7.2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8224/8224/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Bolivision.bo",
+    "name": "Bolivision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-bo-bolivision-bolivision.stream.mediatiquestream.com/index.m3u8",
+      "https://edgectc.com/BOLIVISION_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "CadenaA.bo",
+    "name": "Cadena A",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5fe2654d6127d.streamlock.net/cadenaa/videocadenaa/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canal15Teleor.bo",
+    "name": "Canal 15 Teleor",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ares.disfrutaenlared.com:1936/activatv/activatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canal56QuieroTV.bo",
+    "name": "Canal 56 Quiero TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.5.118.152:8000/play/a08z/index.m3u8"
+    ]
+  },
+  {
+    "id": "CEACOMTV.bo",
+    "name": "CEACOM TV",
+    "categories": [
+      "news",
+      "lifestyle",
+      "music",
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://eu1.servers10.com:8081/ceacom/index.m3u8"
+    ]
+  },
+  {
+    "id": "CineramaTelevision.bo",
+    "name": "Cinerama Television",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.cineramatvbo.com/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "CN3Television.bo",
+    "name": "CN3 Television",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge.enhdtv.com/cn3/index.m3u8"
+    ]
+  },
+  {
+    "id": "CoralTV.bo",
+    "name": "Coral TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.mediacp.eu:8081/coraltv/index.m3u8"
+    ]
+  },
+  {
+    "id": "CTV.bo",
+    "name": "CTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.ctvbolivia.com/hls/ctv.m3u8",
+      "https://streaming.ctvbolivia.com/hlsweb/ctv.m3u8"
+    ]
+  },
+  {
+    "id": "DeltaTV.bo",
+    "name": "Delta TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://st.deltaboliviainstitucion.org:3778/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "Erbol.bo",
+    "name": "Erbol",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://twitch-m3u8.bastypro112.workers.dev/erboldigital/index.m3u8"
+    ]
+  },
+  {
+    "id": "F10HD.bo",
+    "name": "F10 HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv2.bitstreaming.net:3235/multi_live/play.m3u8"
+    ]
+  },
+  {
+    "id": "FAPTV.bo",
+    "name": "FAP TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://nd106.republicaservers.com/hls/c7284/index.m3u8",
+      "https://edge.enhdtv.com/faptv/index.m3u8"
+    ]
+  },
+  {
+    "id": "FTV.bo",
+    "name": "FTV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/ftvhd/index.m3u8"
+    ]
+  },
+  {
+    "id": "Gigavision.bo",
+    "name": "Gigavision",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tv.bitstreaming.net:3348/live/gigavisionlive.m3u8"
+    ]
+  },
+  {
+    "id": "GoLochTelTV.bo",
+    "name": "GoLochTel TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/songsofangels33/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GTV.bo",
+    "name": "GTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/guadalupetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ImagenTV.bo",
+    "name": "Imagen TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/imagentvpotosib/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ImperialTV.bo",
+    "name": "Imperial TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.centaurychile.com/imperial/streams/EnCyCiwNLsqEQ2kv2852222720686498.m3u8"
+    ]
+  },
+  {
+    "id": "InteractivoTelevision.bo",
+    "name": "Interactivo Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mist01.homestream.fun/hls/interactivotv/index.m3u8"
+    ]
+  },
+  {
+    "id": "LaExitosaTVRiberalta.bo",
+    "name": "La Exitosa TV Riberalta",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ares.disfrutaenlared.com:1936/exitosa/exitosa/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Megavision.bo",
+    "name": "Megavision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://twitch-m3u8.bastypro112.workers.dev/megavisionbo/index.m3u8"
+    ]
+  },
+  {
+    "id": "ONCETV.bo",
+    "name": "ONCE TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/ascontenido/index.m3u8"
+    ]
+  },
+  {
+    "id": "PalenqueTV.bo",
+    "name": "Palenque TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.bitstreaming.net:3234/live/palenquetvlive.m3u8"
+    ]
+  },
+  {
+    "id": "PATLaPaz.bo",
+    "name": "PAT La Paz",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.redpat.tv/proxylpz/index.m3u8"
+    ]
+  },
+  {
+    "id": "PoderdeDiosTV.bo",
+    "name": "Poder de Dios TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s3.tvdatta.com:3846/live/poderdedioslive.m3u8"
+    ]
+  },
+  {
+    "id": "PTV.bo",
+    "name": "PTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://giatv.bozztv.com/giatv/giatv-PTVonLINE/PTVonLINE/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioMegaTVAmazonia.bo",
+    "name": "Radio Mega TV Amazonia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ares.disfrutaenlared.com:1936/megatv/megatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RATelevision.bo",
+    "name": "RA Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/ratvbol/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedADvenirTV.bo",
+    "name": "RedADvenir TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://streamer1.streamhost.org:1935/salive/GMIredadvenirm/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedAmericaTV.bo",
+    "name": "Red America TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge.enhdtv.com/redamerica/index.m3u8"
+    ]
+  },
+  {
+    "id": "RedCCTV.bo",
+    "name": "Red CCTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://solo.disfrutaenlared.com:1936/redcctv/redcctv/playlist.m3u8",
+      "https://ares.disfrutaenlared.com:1936/redcctv/redcctv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedTVShop.bo",
+    "name": "Red TV Shop",
+    "categories": [
+      "shop"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/redtvshop/index.m3u8"
+    ]
+  },
+  {
+    "id": "RedUno.bo",
+    "name": "Red Uno",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.centaurychile.com/interactiva/streams/KIgB6QvZ0L8XaSLd3211668845221245.m3u8"
+    ]
+  },
+  {
+    "id": "RedUnoSantaCruz.bo",
+    "name": "Red Uno Santa Cruz",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/muxredunosc/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTP.bo",
+    "name": "RTP",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtp.noxun.net/hls/stream.m3u8",
+      "https://rtp.noxun.net/hls720/stream3.m3u8"
+    ]
+  },
+  {
+    "id": "RTVNorte.bo",
+    "name": "RTV Norte",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/mbocayatyhd/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SCMTVHD321.bo",
+    "name": "SCM TV HD 32.1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/cinebes/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SolTV.bo",
+    "name": "Sol TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://190.211.140.91:8081/SVTranscoder/SOLTVabr.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TDTMultimedia.bo",
+    "name": "TDT Multimedia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video01.kshost.com.br:4443/juan6318/juan6318/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TELE6.bo",
+    "name": "TELE 6",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/tele6/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleFeBolivia.bo",
+    "name": "Tele Fe Bolivia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/telefehd/telefehd/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TigoSports.bo",
+    "name": "Tigo Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/Amistoso/index.m3u8"
+    ]
+  },
+  {
+    "id": "TLEstrella.bo",
+    "name": "TL Estrella",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/teleestrella/teleestrella/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVLatina.bo",
+    "name": "TV Latina",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://castv10.plugstreaming.com:19360/redtv/redtv.m3u8"
+    ]
+  },
+  {
+    "id": "TVOFF.bo",
+    "name": "TV OFF",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://seo.tv.bo/tv/TV-OFF.m3u8",
+      "https://edge.enhdtv.com/tvoff/index.m3u8"
+    ]
+  },
+  {
+    "id": "UMSATVUInternacional.bo",
+    "name": "UMSA TVU Internacional",
+    "categories": [
+      "education",
+      "science",
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.enhdtv.com:8081/8026/tracks-v1a1/mono.m3u8",
+      "https://edge.enhdtv.com/8026/index.m3u8"
+    ]
+  },
+  {
+    "id": "UMSATVULP.bo",
+    "name": "UMSA TVU LP",
+    "categories": [
+      "news",
+      "culture",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.enhdtv.com:8081/8190/tracks-v1a1/mono.m3u8",
+      "https://edge.enhdtv.com/8190/index.m3u8"
+    ]
+  },
+  {
+    "id": "UnicaTV.bo",
+    "name": "Unica TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/unicatv/unicatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Unifranz.bo",
+    "name": "Unifranz",
+    "categories": [
+      "education",
+      "entertainment",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.enhdtv.com:8081/8192/index.m3u8"
+    ]
+  },
+  {
+    "id": "UnitelCochabamba.bo",
+    "name": "Unitel Cochabamba",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mdstrm.com/live-stream-playlist/691f2aeb5ac95d286c49af8d.m3u8",
+      "https://lbgo.bozztv.com/ssh101/ssh101/tvjoaquiniana26/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UnitelLaPaz.bo",
+    "name": "Unitel La Paz",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://190.60.39.195:8000/play/a01r/index.m3u8",
+      "https://mdstrm.com/live-stream-playlist/6928b14aaa768aad947bf65d.m3u8"
+    ]
+  },
+  {
+    "id": "UnitelSantaCruz.bo",
+    "name": "Unitel Santa Cruz",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://xtream.videx.lol/Yoshiro/admin/338.m3u8",
+      "https://master.tucableip.com/muxunitelsc/index.m3u8",
+      "https://mdstrm.com/live-stream-playlist/692b7e7ac84183fcf9e3462d.m3u8"
+    ]
+  },
+  {
+    "id": "UnivalleTelevision.bo",
+    "name": "Univalle Television",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://master.tucableip.com/univalletv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UPEATV.bo",
+    "name": "UPEA TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tvstream.upea.bo/hls/oSs0jSWumTFIIVY97559.m3u8"
+    ]
+  },
+  {
+    "id": "UPPTV.bo",
+    "name": "UPP TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-bo-bolivision-upptv.stream.mediatiquestream.com/index.m3u8"
+    ]
+  },
+  {
+    "id": "VosTV.bo",
+    "name": "Vos TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/vostv/vostv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VTVCanal17.bo",
+    "name": "VTV Canal 17",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://solo.disfrutaenlared.com:1936/vtvcanal/vtvcanal/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "XTOTV.bo",
+    "name": "XTOTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://190.104.15.135/0.ts",
+      "https://www.sccbolivia.com/dash/720p.mpd"
+    ]
+  },
+  {
+    "id": "ZoyTVPlus.bo",
+    "name": "ZoyTV Plus",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mio.zoymilton.com/ZoyPlus/index.m3u8"
+    ]
+  },
+  {
+    "id": "ZoyTVSports1.bo",
+    "name": "Zoy TV Sports 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mio.zoymilton.com/ZoyEventos/index.m3u8"
+    ]
+  },
+  {
+    "id": "ZoyTVTurcas.bo",
+    "name": "Zoy TV Turcas",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mio.zoymilton.com/ZoyTurcas/index.m3u8"
+    ]
+  },
+  {
+    "id": "ZuracaTV.bo",
+    "name": "Zuraca TV",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv3.bitstreaming.net:3680/live/zuracatvlive.m3u8"
+    ]
+  }
+]

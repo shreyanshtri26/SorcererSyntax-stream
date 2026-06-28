@@ -1,0 +1,504 @@
+[
+  {
+    "id": "ADBTV.pt",
+    "name": "ADB TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-tv.waytv.pt/adbtv/adbtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ARTV.pt",
+    "name": "ARTV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playout172.livextend.cloud/liveiframe/_definst_/liveartvabr/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AXN.pt",
+    "name": "AXN",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://xplatinmedia.com:8080/Tagtech2873/RwCXuUgkg8g5/9782"
+    ]
+  },
+  {
+    "id": "AXNMovies.pt",
+    "name": "AXN Movies",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://50.7.120.34:8080/AXN_BLACK/index.m3u8"
+    ]
+  },
+  {
+    "id": "DisneyChannel.pt",
+    "name": "Disney Channel",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://151.80.18.177:86/Disney_Channel_HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "Famatv.pt",
+    "name": "Famatv",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv2.fastcast4u.com:3310/live/famatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "FUELTV.pt",
+    "name": "FUEL TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg01074-fueltv-fueltvau-samsungau-g09kq.amagi.tv/playlist/amg01074-fueltv-fueltvau-samsungau/playlist.m3u8",
+      "https://amg01074-fueltv-fueltvnz-samsungnz-i8ani.amagi.tv/playlist/amg01074-fueltv-fueltvnz-samsungnz/playlist.m3u8",
+      "https://amg01074-fueltv-fueltvemeaen-rakuten-b6j62.amagi.tv/hls/amagi_hls_data_rakutenAA-fueltvemeaen/CDN/master.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/fuel-tv-ww/playlist.m3u8?ads.vf=rPs_7NoEsnu",
+      "https://amg01074-fueltv-amg01074c1-stirr-us-4214.playouts.now.amagi.tv/playlist.m3u8",
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/fuel-tv/playlist.m3u8?ads.vf=gbdyvfXODOK",
+      "https://amg01074-fueltv-amg01074c1-firetv-us-3150.playouts.now.amagi.tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KuriakosCine.pt",
+    "name": "Kuriakos Cine",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/kcine/smil:kcine.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KuriakosKids.pt",
+    "name": "Kuriakos Kids",
+    "categories": [
+      "animation",
+      "kids",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/kkids/smil:kkids.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KuriakosMusic.pt",
+    "name": "Kuriakos Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://195.23.211.179:1935/kmusic/smil:kmusic.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KuriakosTV.pt",
+    "name": "Kuriakos TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/ktv/smil:ktv.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ManaChurchOnline.pt",
+    "name": "Mana Church Online",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/church-online/smil:church-online.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ManaCirkevOnline.pt",
+    "name": "Mana Cirkev Online",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/cirkev-online/smil:cirkev-online.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ManaEgliseOnline.pt",
+    "name": "Mana Eglise Online",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/eglise-online/smil:eglise-online.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ManaIglesiaOnline.pt",
+    "name": "Mana Iglesia Online",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/iglesia-online/smil:iglesia-online.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ManaIgrejaOnline.pt",
+    "name": "Mana Igreja Online",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/igrejaonline/smil:igrejaonline.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ManaTserkovOnlayn.pt",
+    "name": "Mana Tserkov' Onlayn",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w2.manasat.com/tserkov-online/smil:tserkov-online.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NPCRadioeTV.pt",
+    "name": "NPC Radio e TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv5.samcast.com.br/nasciparacantartv/nasciparacantartv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ONFM.pt",
+    "name": "ON FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ce9406b73c33.streamlock.net/ONFM/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PortoCanal.pt",
+    "name": "Porto Canal",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://pull-live-156-1.global.ssl.fastly.net/pc5865dc25400thmb-ea6bf03b14fa318f7133/smil:pc1-jhrgyuoqe5865db-68tkgb14fa318f7133f03.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RadioSines.pt",
+    "name": "Radio Sines",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://load-balancer.azotosolutions.com/cdnedge19/smil:live19.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RFPtv.pt",
+    "name": "RFPtv",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video03.logicahost.com.br/rfptv/rfptv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTP1.pt",
+    "name": "RTP 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/liverepeater/rtp1HD.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTP2.pt",
+    "name": "RTP 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/liverepeater/rtp2HD.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTPAcores.pt",
+    "name": "RTP Acores",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/liverepeater/smil:rtpacoresHD.smil/playlist.m3u8",
+      "https://streaming-live.rtp.pt/liverepeater/smil:rtpacores.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTPAfrica.pt",
+    "name": "RTP Africa",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/liverepeater/smil:rtpafrica.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTPMadeira.pt",
+    "name": "RTP Madeira",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/liverepeater/smil:rtpmadeira.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTPMemoria.pt",
+    "name": "RTP Memoria",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/liverepeater/smil:rtpmem.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTPMundo.pt",
+    "name": "RTP Mundo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://op-group1-swiftservehd-1.dens.tv/s/s38/index.m3u8",
+      "https://streaming-live.rtp.pt/liverepeater/smil:rtpi.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTPNoticias.pt",
+    "name": "RTP Noticias",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming-live.rtp.pt/livetvhlsDVR/rtpnHDdvr.smil/playlist.m3u8",
+      "https://streaming-live.rtp.pt/livetvhlsDVR/rtpndvr.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SIC.pt",
+    "name": "SIC",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sic.live.impresa.pt/sic.m3u8"
+    ]
+  },
+  {
+    "id": "SICAltaDefinicao.pt",
+    "name": "SIC Alta Definicao",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://production-fast-sic.content.okast.tv/fa2e8c4385712f9aa54bbe52b1bd9b6b/channels/d9070446-8448-455e-8075-773b1ba12562/fc831b20-f252-4e7d-8cc5-2d05f4d43c1c/media_.m3u8"
+    ]
+  },
+  {
+    "id": "SICNoticias.pt",
+    "name": "SIC Noticias",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sicnot.live.impresa.pt/sicnot.m3u8"
+    ]
+  },
+  {
+    "id": "SICReplay.pt",
+    "name": "SIC Replay",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://production-fast-sic.content.okast.tv/fa2e8c4385712f9a7dce4ff2dcebac2e/channels/d9070446-8448-455e-8075-773b1ba12562/d47eae0f-ad77-414a-9a1d-2a6628ba18c3/media_.m3u8"
+    ]
+  },
+  {
+    "id": "TVI.pt",
+    "name": "TVI",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/tvi.m3u8"
+    ]
+  },
+  {
+    "id": "TVIFiccao.pt",
+    "name": "TVI Ficcao",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/tvificcao.m3u8"
+    ]
+  },
+  {
+    "id": "TVIReality.pt",
+    "name": "TVI Reality",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/tvireality.m3u8"
+    ]
+  },
+  {
+    "id": "TVMana1.pt",
+    "name": "TV Mana 1",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/tvmana-1/smil:tvmana-1.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMana2.pt",
+    "name": "TV Mana 2",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/tvmana-2/smil:tvmana-2.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVManaBrasil.pt",
+    "name": "TV Mana Brasil",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/tvmana-brasil/smil:tvmana-brasil.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVManaEnglish.pt",
+    "name": "TV Mana English",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/tvmana-english/smil:tvmana-english.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVManaEspanhol.pt",
+    "name": "TV Mana Espanhol",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/tvmana-espanol/smil:tvmana-espanol.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVManaRusskiy.pt",
+    "name": "TV Mana Russkiy",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/tvmana-leste/smil:tvmana-leste.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VPlusTVI.pt",
+    "name": "V+ TVI",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/thomraider12/canaistvpt/main/m3u8s/vmaistvi.m3u8"
+    ]
+  },
+  {
+    "id": "WayTV.pt",
+    "name": "Way TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-hls.castr-cdn.com/5d714f6a0bd97874e36f14e4/live_057ee4605c1711efbd4135c4457c726c/index.fmp4.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,401 @@
+[
+  {
+    "id": "AgapeTV.sv",
+    "name": "Agape TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5fc584f3f19c9.streamlock.net/agape/smil:agape.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ArboldeVidaTV.sv",
+    "name": "Arbol de Vida TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://yupistream.top:19360/livearbol/livearbol.m3u8"
+    ]
+  },
+  {
+    "id": "AwapaSportsTV.sv",
+    "name": "Awapa Sports TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mgv-awapa.akamaized.net/hls/live/2104282/MGV_CHANNEL15/master.m3u8"
+    ]
+  },
+  {
+    "id": "Canal10.sv",
+    "name": "Canal 10",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ca3e84a76d30.streamlock.net/tves/videotves/playlist.m3u8",
+      "http://45.167.2.101:8000/play/a0r8/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal11TuTV.sv",
+    "name": "Canal 11 TuTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.giostreaming.app/canal11/canal11.m3u8"
+    ]
+  },
+  {
+    "id": "Canal12.sv",
+    "name": "Canal 12",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://alba-sv-c12-c12.stream.mediatiquestream.com/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal15ElZamorano.sv",
+    "name": "Canal 15 El Zamorano",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vdo.tecnoservix.stream:3007/live/canal15zamoranolive.m3u8"
+    ]
+  },
+  {
+    "id": "Canal2.sv",
+    "name": "Canal 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://telecorporacion-es.cdn.vustreams.com/live/d3e259fa-736d-46b0-b1c9-71caf946ace9/live.isml/live.m3u8",
+      "https://signal.teleon.live/stream/canal2sv.m3u8?token=free"
+    ]
+  },
+  {
+    "id": "Canal26TVIAP.sv",
+    "name": "Canal 26 TV IAP",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vdo.tecnoservix.stream:3899/live/canal26tvlive.m3u8"
+    ]
+  },
+  {
+    "id": "Canal3Impresionante.sv",
+    "name": "Canal 3 Impresionante",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud2.streaminglivehd.com:2020/hls/8036/8036.m3u8"
+    ]
+  },
+  {
+    "id": "Canal4.sv",
+    "name": "Canal 4",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://signal.teleon.live/stream/canal4sv.m3u8?token=free"
+    ]
+  },
+  {
+    "id": "Canal6.sv",
+    "name": "Canal 6",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://telecorporacion.cdn.vustreams.com/live/b164ebe7-decf-4a5a-8aea-5bb56fb92dfc/live.isml/live.m3u8",
+      "https://signal.teleon.live/stream/canal6sv.m3u8?token=free"
+    ]
+  },
+  {
+    "id": "Canal65.sv",
+    "name": "Canal 65",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://panel.streamingtv-mediacp.online:1936/tv65/tv65/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "El15TV.sv",
+    "name": "El 15 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.grupocsanetwork.com:19360/canal15/canal15.m3u8"
+    ]
+  },
+  {
+    "id": "ElCaminoTV.sv",
+    "name": "El Camino TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5d32e2b9b7eed.streamlock.net:4443/ectv/ectv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ElimTV.sv",
+    "name": "Elim TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.soporteccrtv.xyz/hls/master-dveo.m3u8"
+    ]
+  },
+  {
+    "id": "GSGTV.sv",
+    "name": "GSG TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://schurch1.bozztv.com/livecdn69/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JFVTV.sv",
+    "name": "JFV TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://2nbyj587d53k-hls-live.5centscdn.com/09/25b94ec89b2aa708c3c4ad0014b09845.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JosueTV.sv",
+    "name": "Josue TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://videoserver.tmcreativos.com:19360/abbftuhxxs/abbftuhxxs.m3u8"
+    ]
+  },
+  {
+    "id": "LegislativeAssemblyofElSalvador.sv",
+    "name": "Legislative Assembly of El Salvador",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.asamblea.gob.sv/hls/plenariahd.m3u8"
+    ]
+  },
+  {
+    "id": "MegavisionCanal19.sv",
+    "name": "Megavision Canal 19",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mgvchannel19-ioriver-cdn.encoders.immergo.tv/master.m3u8"
+    ]
+  },
+  {
+    "id": "MegavisionCanal21.sv",
+    "name": "Megavision Canal 21",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mgvchannel21-ioriver-cdn.encoders.immergo.tv/master.m3u8"
+    ]
+  },
+  {
+    "id": "RTVCanal57.sv",
+    "name": "RTV Canal 57",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.giostreaming.app/rtvcanal57/rtvcanal57.m3u8"
+    ]
+  },
+  {
+    "id": "SolTV.sv",
+    "name": "SolTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://rtmp.info:1935/soltv/envivo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SVPlus.sv",
+    "name": "SV+",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.167.2.101:8000/play/a0qx/index.m3u8"
+    ]
+  },
+  {
+    "id": "TaberTV.sv",
+    "name": "TaberTV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5fc584f3f19c9.streamlock.net/tabertv/videotabertv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TCSPlus.sv",
+    "name": "TCS+",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://telecorporacion.cdn.vustreams.com/live/19b307cf-3f2d-44cb-bce6-0fd65365c56a/live.isml/live.m3u8"
+    ]
+  },
+  {
+    "id": "TigoSports.sv",
+    "name": "Tigo Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://channel03.tigosports.com.sv/out/v1/31f36d52d558475ca18799d8ca5e4b40/index.m3u8"
+    ]
+  },
+  {
+    "id": "TribunaTV.sv",
+    "name": "Tribuna TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudflare.streamgato.us:3300/live/tribunatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "TVCa.sv",
+    "name": "TVCa",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/tvcaelsalvador/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCNetwork.sv",
+    "name": "TVC Network",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.castr.com/643880749cf895435bf8eadf/live_d0b3cf70e24111ed8ed2951b4c7d1b75/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVCRET.sv",
+    "name": "TV CRET",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://radiocret.net:8082/hls/tvcret.m3u8"
+    ]
+  },
+  {
+    "id": "TVGetsemani.sv",
+    "name": "TV Getsemani",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://serversv.com:8080/hls/tvgetsemani.m3u8"
+    ]
+  },
+  {
+    "id": "TVLeondeJuda.sv",
+    "name": "TV Leon de Juda",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://6110f70ea8d0e.streamlock.net/1838/1838/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMElSalvador.sv",
+    "name": "TVM El Salvador",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://201.247.102.189/tmp_hls/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "WOWTV.sv",
+    "name": "WOW TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-edge1.cef-technology.com/wow/wow_tv/playlist.m3u8"
+    ]
+  }
+]

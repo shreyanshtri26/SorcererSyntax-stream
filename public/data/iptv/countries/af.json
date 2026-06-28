@@ -1,0 +1,152 @@
+[
+  {
+    "id": "AMC.af",
+    "name": "AMC",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amchls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "BaharTV.af",
+    "name": "Bahar TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/bahartv/bahartv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BarbudMusic.af",
+    "name": "Barbud Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolomusic.m3u8"
+    ]
+  },
+  {
+    "id": "DunyaNawTV.af",
+    "name": "Dunya Naw TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dunyanhls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "EslahTV.af",
+    "name": "Eslah TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://eslahtvhls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "HewadTV.af",
+    "name": "Hewad TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://51.210.199.58/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "KayhanTV.af",
+    "name": "Kayhan TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playout395.livestreamingcdn.com/live/Stream1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTA.af",
+    "name": "RTA",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rta-tv.akamaized.net/live/SD/RTA-1/RTA/RTA-1.m3u8"
+    ]
+  },
+  {
+    "id": "ShamshadTV.af",
+    "name": "Shamshad TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5a1178b42cc03.streamlock.net/shamshadtelevision/shamshadtelevision/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ShamsTV.af",
+    "name": "Shams TV",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://fflive-darya-educationtv.b-cdn.net/master.m3u8"
+    ]
+  },
+  {
+    "id": "SharqRadioTV.af",
+    "name": "Sharq Radio TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59nyqa5elwap-hls-live.5centscdn.com/Sharq/eec89088ee408b80387155272b113256.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TamadonTV.af",
+    "name": "Tamadon TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://hls.tamadon.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "TOLOnews.af",
+    "name": "TOLOnews",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolonews.m3u8"
+    ]
+  },
+  {
+    "id": "ToloTV.af",
+    "name": "Tolo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tgn.bozztv.com/eshgtv-dvrfl05/gin-tolohd/tracks-v1a1/mono.m3u8"
+    ]
+  }
+]

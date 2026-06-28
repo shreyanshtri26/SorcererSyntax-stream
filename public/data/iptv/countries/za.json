@@ -1,0 +1,312 @@
+[
+  {
+    "id": "1KZNTV.za",
+    "name": "1KZN TV",
+    "categories": [
+      "entertainment",
+      "family",
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.freevisiontv.co.za/sttv/smil:1kzn.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AfriwoodBlockbuster.za",
+    "name": "Afriwood Blockbuster",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamdot.broadpeak.io/cff02a74da64d145c102a2d012758398/afxpstr/AfriwoodBlockbuster/index.m3u8"
+    ]
+  },
+  {
+    "id": "BOKTV.za",
+    "name": "BOKTV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livestream2.bokradio.co.za/hls/Bok5c.m3u8"
+    ]
+  },
+  {
+    "id": "CapeTownTV.za",
+    "name": "Cape Town TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.freevisiontv.co.za/sttv/smil:ctv.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CinemaHausa.za",
+    "name": "Cinema Hausa",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamdot.broadpeak.io/cff02a74da64d1459eeb779df71f0511/afxpstr/CinemaHausa/index.m3u8"
+    ]
+  },
+  {
+    "id": "CrimeandEvidence.za",
+    "name": "Crime and Evidence",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://afxporigin.telemedia.co.za/afxp/abr_crimeandevidence/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "etvNewsSport.za",
+    "name": "e.tv News & Sport",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://origin2.afxp.telemedia.co.za/abr_kapang/enterepreneur/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FaithTV.za",
+    "name": "Faith TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.freevisiontv.co.za/sttv/smil:faith.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GNFTV.za",
+    "name": "GNF TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://oqgdrb8my4rm-hls-live.5centscdn.com/GNF02/bcea197d8b00f79cb716c6288a861000.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HomebaseTV.za",
+    "name": "Homebase TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webstreaming-2.viewmedia.tv/web_022/Stream/playlist.m3u8",
+      "https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_022/Stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HopeChannelAfrica.za",
+    "name": "Hope Channel Africa",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jstre.am/live/jsl:i1onRBELcGV.m3u8"
+    ]
+  },
+  {
+    "id": "LN24SA.za",
+    "name": "LN24SA",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdnstack.internetmultimediaonline.org/ln24/ln24.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NuViewTV.za",
+    "name": "NuView TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_002/Stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RedemptionTelevisionMinistry.za",
+    "name": "Redemption Television Ministry",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.nixsat.com/play/rtm/index.m3u8"
+    ]
+  },
+  {
+    "id": "RLWTV.za",
+    "name": "RLW TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webstreaming-8.viewmedia.tv/web_119/Stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ROVTV.za",
+    "name": "ROV TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_012/Stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SABC1.za",
+    "name": "SABC 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sabconeta.cdn.mangomolo.com/sabc1/smil:sabc1.stream.smil/master.m3u8"
+    ]
+  },
+  {
+    "id": "SABC2.za",
+    "name": "SABC 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://sabctwota.cdn.mangomolo.com/sabc2/smil:sabc2.stream.smil/master.m3u8"
+    ]
+  },
+  {
+    "id": "SABCLehae.za",
+    "name": "SABC Lehae",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sabctretalh.cdn.mangomolo.com/lehae/smil:lehae.stream.smil/master.m3u8"
+    ]
+  },
+  {
+    "id": "SABCNews.za",
+    "name": "SABC News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sabconetanw.cdn.mangomolo.com/news/smil:news.stream.smil/master.m3u8"
+    ]
+  },
+  {
+    "id": "SeraphimTV.za",
+    "name": "Seraphim TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://restream.churchtv247.co.za/Apostle/Hggc@24/1.m3u8"
+    ]
+  },
+  {
+    "id": "SowetoTV.za",
+    "name": "Soweto TV",
+    "categories": [
+      "entertainment",
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.freevisiontv.co.za/sttv/smil:soweto.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SportsConnect.za",
+    "name": "Sports Connect",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamdot.broadpeak.io/cff02a74da64d1459391ce1f72d58f1a/afxpstr/SportsConnect/index.m3u8"
+    ]
+  },
+  {
+    "id": "Trigger.za",
+    "name": "Trigger",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://origin2.afxp.telemedia.co.za/abr/trigger/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TrueAfrican.za",
+    "name": "True African",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streamdot.broadpeak.io/cff02a74da64d1457be50b4b7f746bff/afxpstr/TrueAfrican/index.m3u8"
+    ]
+  },
+  {
+    "id": "TshwaneTV.za",
+    "name": "Tshwane TV",
+    "categories": [
+      "entertainment",
+      "family",
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.freevisiontv.co.za/sttv/smil:tshwane.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBRICSAfrica.za",
+    "name": "TV BRICS Africa",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.freevisiontv.co.za/sttv/smil:brics.stream.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "WildEarth.za",
+    "name": "WildEarth",
+    "categories": [
+      "outdoor",
+      "relax",
+      "documentary",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dqga3jatxofgx.cloudfront.net/WildEarth.m3u8",
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01290-wildearthmediap-wildearth-samsungnl/playlist.m3u8",
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01290-wildearthmediap-wildearth-samsungse/playlist.m3u8",
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01290-wildearth-oando/playlist.m3u8",
+      "https://wildearth-ono.amagi.tv/playlist/amg01290-wildearth-oando/playlist.m3u8",
+      "https://wildearth-xumo.amagi.tv/master.m3u8"
+    ]
+  }
+]

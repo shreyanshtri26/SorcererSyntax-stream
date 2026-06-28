@@ -1,0 +1,304 @@
+[
+  {
+    "id": "7Info.ci",
+    "name": "7 Info",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8042/8042/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "A12TV.ci",
+    "name": "A12 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8250/8250/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "AfrocultureTV.ci",
+    "name": "Afroculture TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.cmediahosthosting.net:3836/live/myafroculturelive.m3u8"
+    ]
+  },
+  {
+    "id": "AfroMagicChannel.ci",
+    "name": "Afro Magic Channel",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8306/8306/playlist.m3u8",
+      "https://video1.getstreamhosting.com:1936/8490/8490/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "APlusIvoire.ci",
+    "name": "A+ Ivoire",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/atv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BenieTV.ci",
+    "name": "Benie TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.voozmedia.fun/benietv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Business24Africa.ci",
+    "name": "Business 24 Africa",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-globecast.akamaized.net/live/eds/business24_tv/hls_video/index.m3u8"
+    ]
+  },
+  {
+    "id": "DivinAmourTV.ci",
+    "name": "Divin Amour TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://voozmedia.fun/divinamourtv/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DNTV.ci",
+    "name": "DNTV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.num221tech.com:5443/LiveApp/streams/dntv.m3u8"
+    ]
+  },
+  {
+    "id": "EcclesiaTV.ci",
+    "name": "Ecclesia TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8294/8294/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GuideLoveTV.ci",
+    "name": "Guide Love TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8056/8056/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IvoireChannel.ci",
+    "name": "Ivoire Channel",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8244/8244/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LifeTV.ci",
+    "name": "Life TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://strhls.streamakaci.tv/str_lifetv_lifetv/str_lifetv_multi/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LMTVFrench.ci",
+    "name": "LM TV French",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8282/8282/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MiracleTVPlus.ci",
+    "name": "Miracle TV+",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://strhlslb01.streamakaci.tv/str_mtv_mtv/str_mtv_multi/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NCI.ci",
+    "name": "NCI",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cs2.push2stream.com/NCI-DVR/playlist.m3u8",
+      "https://video1.getstreamhosting.com:1936/8338/8338/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NovelaChannel.ci",
+    "name": "Novela Channel",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8284/8284/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NTV.ci",
+    "name": "NTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://strhlslb01.streamakaci.tv/str_ntv_ntv/str_ntv_ntv_multi/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PassionNovelas.ci",
+    "name": "Passion Novelas",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://41.223.30.230/PASSIONTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "RefletTV.ci",
+    "name": "Reflet TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge-a3.evrideo.tv/8f37c9f0-fe22-44f4-b64a-76ad11730daf_1000026630_HLS/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "RTI1.ci",
+    "name": "RTI 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208:8080/rti1/playlist.m3u8",
+      "https://video1.getstreamhosting.com:1936/8336/8336/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTI2.ci",
+    "name": "RTI 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208:8080/rti2/playlist.m3u8",
+      "https://video1.getstreamhosting.com:1936/8066/8066/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTILa3.ci",
+    "name": "RTI La 3",
+    "categories": [
+      "music",
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/la3/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTVC.ci",
+    "name": "RTVC",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn140m.panaccess.com/HLS/RTVC/index.m3u8"
+    ]
+  },
+  {
+    "id": "SerieMax.ci",
+    "name": "Serie Max",
+    "categories": [
+      "series"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8330/8330/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVAlBayane.ci",
+    "name": "TV Al Bayane",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/albayanetv/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVLaCapitale.ci",
+    "name": "TV La Capitale",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.berosat.live:19360/tv-capitale-tream/tv-capitale-tream.m3u8"
+    ]
+  }
+]

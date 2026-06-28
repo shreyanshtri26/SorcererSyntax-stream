@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ChannelK.mm",
+    "name": "Channel K",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://l1-xl1.myanmarnet.com/relay/channelk/ch1/stream.m3u8"
+    ]
+  },
+  {
+    "id": "DVBTV.mm",
+    "name": "DVB TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-stream.dvb.no/hls/stream_src/index.m3u8"
+    ]
+  },
+  {
+    "id": "FortuneTV.mm",
+    "name": "Fortune TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.215.194.93:8282/hls/fortunetv/vmix.m3u8"
+    ]
+  },
+  {
+    "id": "HluttawSD.mm",
+    "name": "Hluttaw S & D",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mrtvott.com/cache/MRTV-HLUTTAW/master.m3u8"
+    ]
+  },
+  {
+    "id": "MaharTV.mm",
+    "name": "Mahar TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.mahar.live/mahar/website.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MNTV.mm",
+    "name": "MN TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://l1-xl1.myanmarnet.com/relay/mntv/ch1/stream.m3u8"
+    ]
+  },
+  {
+    "id": "MRTV.mm",
+    "name": "MRTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://asia.sipradius.net/cache/SEAGames4/master.m3u8",
+      "https://mrtvott.com/cache/MRTV-HD/master.m3u8"
+    ]
+  },
+  {
+    "id": "MRTV4.mm",
+    "name": "MRTV 4",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-live-pyone.secureswiftcontent.com/han/MRTV4/MRTV4/LiveOutput/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "MRTVEntertainment.mm",
+    "name": "MRTV Entertainment",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mrtvott.com/cache/MRTV-Ent-HD/master.m3u8"
+    ]
+  },
+  {
+    "id": "MRTVFarmer.mm",
+    "name": "MRTV Farmer",
+    "categories": [
+      "documentary",
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mrtvott.com/cache/MRTV-FARMER/master.m3u8"
+    ]
+  },
+  {
+    "id": "MRTVNews.mm",
+    "name": "MRTV News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mrtvott.com/cache/MRTV-NEWS-HD/master.m3u8"
+    ]
+  },
+  {
+    "id": "MRTVNRC.mm",
+    "name": "MRTV NRC",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mrtvott.com/cache/MRTV-NRC-HD/master.m3u8"
+    ]
+  }
+]

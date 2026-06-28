@@ -1,0 +1,185 @@
+[
+  {
+    "id": "Afrique54TV.cm",
+    "name": "Afrique54 TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video1.getstreamhosting.com:1936/8318/8318/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AfriqueMedia.cm",
+    "name": "Afrique Media",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud.odysee.live/content/fe06b3cdc9412e359368b2455b6ea5e93856e382/master.m3u8"
+    ]
+  },
+  {
+    "id": "CAM10TV.cm",
+    "name": "CAM 10 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.it-innov.com/cam10tv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal2International.cm",
+    "name": "Canal 2 International",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/canal2international/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CENTelevision.cm",
+    "name": "CEN Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://strhlslb01.streamakaci.tv/cen/cen-multi/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CRTV.cm",
+    "name": "CRTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/crtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EquinoxeTV.cm",
+    "name": "Equinoxe TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/equinoxtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ForYouTV.cm",
+    "name": "For You TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.az-multimedia.com:3325/live/foryoutvlive.m3u8"
+    ]
+  },
+  {
+    "id": "KemetTV.cm",
+    "name": "Kemet TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kemettv.cm/memfs/4e7fb105-9f92-4e8d-a7cd-09923f17a577.m3u8"
+    ]
+  },
+  {
+    "id": "LauraDaveMediaTV.cm",
+    "name": "Laura Dave Media TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.lauradavemedia.com/ldm/index.m3u8"
+    ]
+  },
+  {
+    "id": "MyRighteousTV.cm",
+    "name": "My Righteous TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/ssh101/ssh101/myrighteous/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MyTVChannel.cm",
+    "name": "My TV Channel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://connectiktv.ddns.net:5000/mytvchannel/@mytvchannel/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PanafricanMediaTV.cm",
+    "name": "Panafrican Media TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/giatv/giatv-pmtv/pmtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PlayTV.cm",
+    "name": "Play TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://connectiktv.ddns.net:5000/playtv/@playtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PLEXTV.cm",
+    "name": "PLEX TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://connectiktv.ddns.net:5000/plextv/@plextv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TR24Television.cm",
+    "name": "TR24 Television",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.it-innov.com/tr24/index.m3u8"
+    ]
+  },
+  {
+    "id": "TransformersTV.cm",
+    "name": "Transformers TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/plu-60fb053712f22a0007ff14d2.m3u8"
+    ]
+  }
+]

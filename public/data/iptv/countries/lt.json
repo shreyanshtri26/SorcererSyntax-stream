@@ -1,0 +1,115 @@
+[
+  {
+    "id": "DelfiTV.lt",
+    "name": "Delfi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s1.dcdn.lt/live/televizija/playlist.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/DelfiTV.m3u8"
+    ]
+  },
+  {
+    "id": "LietuvosRytasTV.lt",
+    "name": "Lietuvos Rytas TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.lietuvosryto.tv/live/hls/eteris.m3u8",
+      "https://adpnetworkhd-cmd.github.io/iptv/LietuvosRytasTV.m3u8"
+    ]
+  },
+  {
+    "id": "LRTKlasika.lt",
+    "name": "LRT Klasika",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-live.lrt.lt/klasika/master.m3u8"
+    ]
+  },
+  {
+    "id": "LRTLituanica.lt",
+    "name": "LRT Lituanica",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-live.lrt.lt/lituanica/master.m3u8"
+    ]
+  },
+  {
+    "id": "LRTOpus.lt",
+    "name": "LRT Opus",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-live.lrt.lt/opus/master.m3u8"
+    ]
+  },
+  {
+    "id": "LRTPlius.lt",
+    "name": "LRT Plius",
+    "categories": [
+      "culture",
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-live.lrt.lt/plius/master.m3u8"
+    ]
+  },
+  {
+    "id": "LRTRadijas.lt",
+    "name": "LRT Radijas",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-live.lrt.lt/radijas/master.m3u8"
+    ]
+  },
+  {
+    "id": "LRTTV.lt",
+    "name": "LRT TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-syncwords.lrt.lt/out/v1/channel-group-lrt-portal-prod-01/channel-lrt-portal-prod-01/endpoint-lrt-portal-prod-01/index.m3u8"
+    ]
+  },
+  {
+    "id": "M1.lt",
+    "name": "M-1",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m-1.data.lt/m-1/smil:m-1.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PowerHitRadio.lt",
+    "name": "Power Hit Radio",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdnlb.tvplayhome.lt/live/eds/PWR_LTU_Live/GO3_LIVE_HLS/PWR_LTU_Live.m3u8?cdntoken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczNDU2NjEsInBhdGgiOiIvbGl2ZS9lZHMvUFdSX0xUVV9MaXZlL0dPM19MSVZFX0hMUy8iLCJzaXAiOiI3Mi4xMS4xNTcuMTEyIiwiZGV2aWNlX2lkIjoiMCIsInNlc3Npb25faWQiOiIwIiwiY2xpZW50X2lkIjoiMCJ9.oHc5wUgwNPQ-4P7wJy_WvWQh0muFg9Lprhc4STS3cUHi0FI4tAKGdZOOeE-dOhVBHKFUYETmoXSMrrVHOeLC3g"
+    ]
+  }
+]

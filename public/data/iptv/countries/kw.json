@@ -1,0 +1,127 @@
+[
+  {
+    "id": "Ch4TeenDocumentary.kw",
+    "name": "Ch4Teen Documentary",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ch14.tv/live/ch4teendoc/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KTV1.kw",
+    "name": "KTV 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtktv1ta.cdn.mangomolo.com/ktv1/smil:ktv1.stream.smil/chunklist.m3u8",
+      "https://cdn-globecast.akamaized.net/live/eds/kuwait_tv1/hls_roku/index.m3u8"
+    ]
+  },
+  {
+    "id": "KTV2.kw",
+    "name": "KTV 2",
+    "categories": [
+      "culture",
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtktv2ta.cdn.mangomolo.com/ktv2/smil:ktv2.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "KTVAlQurain.kw",
+    "name": "KTV Al Qurain",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtktvaqta.cdn.mangomolo.com/ktvaq/smil:tktvaq.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "KTVArabe.kw",
+    "name": "KTV Arabe",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtktvata.cdn.mangomolo.com/ktva/smil:tktva.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "KTVEthraa.kw",
+    "name": "KTV Ethraa",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtethta.cdn.mangomolo.com/eth/smil:eth.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "KTVNews.kw",
+    "name": "KTV News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtkbta.cdn.mangomolo.com/kb/smil:kb.stream.smil/chunklist.m3u8",
+      "https://kwtktvata.cdn.mangomolo.com/ktva/smil:ktva.stream.smil/chunklist.m3u8",
+      "https://cdn-globecast.akamaized.net/live/eds/ktv_al_akhbar/hls_roku/ktv_al_akhbar.m3u8"
+    ]
+  },
+  {
+    "id": "KTVSport.kw",
+    "name": "KTV Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtspta.cdn.mangomolo.com/sp/smil:sp.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "KTVSportPlus.kw",
+    "name": "KTV Sport Plus",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kwtsplta.cdn.mangomolo.com/spl/smil:spl.stream.smil/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "MarinaTV.kw",
+    "name": "Marina TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ffs.gulfsat.com/Marina-TV-HD/index.m3u8"
+    ]
+  },
+  {
+    "id": "RitmuTV.kw",
+    "name": "Ritmu TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://659605a54e9a6.streamlock.net:8443/live/livestream/playlist.m3u8"
+    ]
+  }
+]

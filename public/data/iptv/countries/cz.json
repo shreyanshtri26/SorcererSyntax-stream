@@ -1,0 +1,503 @@
+[
+  {
+    "id": "BarrandovKrimi.cz",
+    "name": "Barrandov Krimi",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_barrandov_plus_atk_1200/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CNNPrimaNews.cz",
+    "name": "CNN Prima News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_cnn_pirma_news/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CT1.cz",
+    "name": "CT1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_ct1_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CT2.cz",
+    "name": "CT2",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_ct2_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CT24.cz",
+    "name": "CT24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_ct24_hevc/playlist.m3u8",
+      "https://dash2.antik.sk/live/ct24_avc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CTDecko.cz",
+    "name": "CT Decko",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/ct_art_avc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CTSport.cz",
+    "name": "CT Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CurrentTimeTV.cz",
+    "name": "Current Time TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://liveovh010.cda.pl/zkr7GNESGht4_0Wk12c78A/17538736/2782059/enc015/currenttimehdraw/currenttimehdraw.m3u8",
+      "https://rfe-ingest.akamaized.net/hls/live/2033043/tvmc05/master.m3u8",
+      "https://dash3.antik.sk/live/test_current_time_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DisneyChannel.cz",
+    "name": "Disney Channel",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_disney/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ElektrikaTV.cz",
+    "name": "Elektrika TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://rtmp.elektrika.cz/live/myStream.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GolfChannel.cz",
+    "name": "Golf Channel",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_golf_channel/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "History.cz",
+    "name": "History",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_history/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JC1.cz",
+    "name": "JC1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.jc1.cz/hls/jc1.m3u8"
+    ]
+  },
+  {
+    "id": "Jihoceskatelevize.cz",
+    "name": "Jihoceska televize",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vysilani.zaktv.cz/broadcast/hls/jtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "KinoBarrandov.cz",
+    "name": "Kino Barrandov",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://83.167.253.107/hdmi1_ext"
+    ]
+  },
+  {
+    "id": "MinimaxCEE.cz",
+    "name": "Minimax CEE",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_minimax/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MnauTV.cz",
+    "name": "Mnau TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5ca49f2417d90.streamlock.net/mnau/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MusicBoxClassic.cz",
+    "name": "Music Box Classic",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/mb_classic/index.m3u8"
+    ]
+  },
+  {
+    "id": "MusicBoxDance.cz",
+    "name": "Music Box Dance",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/mb_dance/index.m3u8"
+    ]
+  },
+  {
+    "id": "MusicBoxHits.cz",
+    "name": "Music Box Hits",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/mb_hits/index.m3u8"
+    ]
+  },
+  {
+    "id": "MusicBoxSexy.cz",
+    "name": "Music Box Sexy",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/mb_sexy/index.m3u8"
+    ]
+  },
+  {
+    "id": "Ocko.cz",
+    "name": "Ocko",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ocko-live-dash.ssl.cdn.cra.cz/cra_live2/ocko.stream.1.smil/playlist.m3u8",
+      "https://ocko-live.ssl.cdn.cra.cz/channels/ocko/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OckoBlack.cz",
+    "name": "Ocko Black",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_ocko_black/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OckoExpres.cz",
+    "name": "Ocko Expres",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ocko-live.ssl.cdn.cra.cz/channels/ocko_expres/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OckoGold.cz",
+    "name": "Ocko Gold",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ocko-live.ssl.cdn.cra.cz/cra_live2/ocko_gold.stream.1.smil/playlist.m3u8",
+      "https://ocko-live.ssl.cdn.cra.cz/channels/ocko_gold/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OckoStar.cz",
+    "name": "Ocko Star",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_ocko_star/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OIKTV.cz",
+    "name": "OIK TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer05.low-latency.cz/oiktv/index.m3u8"
+    ]
+  },
+  {
+    "id": "PlzenTV.cz",
+    "name": "Plzen TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vysilani.zaktv.cz/broadcast/hls/ptv/index.m3u8"
+    ]
+  },
+  {
+    "id": "Polar2.cz",
+    "name": "Polar2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.polar.cz/polar2/polarlive2-1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PolarTV.cz",
+    "name": "Polar TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.polar.cz/polar/polarlive-1/playlist.m3u8",
+      "https://dash4.antik.sk/live/test_polar_tv_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Prima.cz",
+    "name": "Prima",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/prima_avc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaLove.cz",
+    "name": "Prima Love",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/prima_love_avc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaShow.cz",
+    "name": "Prima Show",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_prima_show_hevc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaStar.cz",
+    "name": "Prima Star",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_prima_star_hevc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaZoom.cz",
+    "name": "Prima Zoom",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/prima_zoom_avc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RetroMusicTV.cz",
+    "name": "Retro Music TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.mediawork.cz/retrotv/retrotvHQ1/playlist.m3u8",
+      "http://89.185.253.55/retrotv/retrotvHQ1/playlist.m3u8",
+      "https://stream.mediawork.cz/retrotv/smil:retrotv2.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTMPlus.cz",
+    "name": "RTM+",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://www.rtmplus.cz/live/1-playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SlagerMuzika.cz",
+    "name": "Slager Muzika",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-23.mazana.tv/slagrmuzika.m3u8s"
+    ]
+  },
+  {
+    "id": "SlagerOriginal.cz",
+    "name": "Slager Original",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-13.mazana.tv/slagroriginal.m3u8s"
+    ]
+  },
+  {
+    "id": "SportyTV.cz",
+    "name": "Sporty TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/sporty_tv/index.m3u8"
+    ]
+  },
+  {
+    "id": "TelevizeSeznam.cz",
+    "name": "Televize Seznam",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_seznam_hevc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBrno1.cz",
+    "name": "TV Brno 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.polar.cz/tvbrno1/tvbrno1live-1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVNoe.cz",
+    "name": "TV Noe",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://n105.quickmedia.tv/noetv/live/noetv/Ifd4_1_4/chunks_dvr_timeshift-0-7200.m3u8"
+    ]
+  },
+  {
+    "id": "TVNoePlus.cz",
+    "name": "TV Noe+",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://n105.quickmedia.tv/noetvplus/live/noetvplus/Shz3_1_1/chunks_dvr_timeshift-0-7200.m3u8"
+    ]
+  },
+  {
+    "id": "UTV.cz",
+    "name": "UTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://vysilani.zaktv.cz/broadcast/hls/utv/index.m3u8"
+    ]
+  },
+  {
+    "id": "VychodoceskaTV.cz",
+    "name": "Vychodoceska TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.polar.cz/vctv/vctvlive-1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "YachtingTV.cz",
+    "name": "Yachting TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streams2.sofast.tv/vglive-sk-461164/index.m3u8"
+    ]
+  }
+]

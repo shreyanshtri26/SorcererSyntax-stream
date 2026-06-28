@@ -1,0 +1,13 @@
+[
+  {
+    "id": "ERiTV1.er",
+    "name": "ERi-TV 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmc-live.ercdn.net/eritreatv/eritreatv.m3u8"
+    ]
+  }
+]

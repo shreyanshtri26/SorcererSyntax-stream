@@ -1,0 +1,147 @@
+[
+  {
+    "id": "AP1TV.np",
+    "name": "AP1 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C22/master.m3u8",
+      "http://103.180.240.141:8080/hls/main1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BagmatiTV.np",
+    "name": "Bagmati TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C167/master.m3u8"
+    ]
+  },
+  {
+    "id": "CapitalTVHD.np",
+    "name": "Capital TV HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.tvnepal.com:19360/capitaltv/capitaltv.m3u8"
+    ]
+  },
+  {
+    "id": "CityOneTelevision.np",
+    "name": "City One Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C209/master.m3u8"
+    ]
+  },
+  {
+    "id": "DhaulagiriTelevision.np",
+    "name": "Dhaulagiri Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C117/master.m3u8"
+    ]
+  },
+  {
+    "id": "DivyaDarshanTV.np",
+    "name": "Divya Darshan TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://live.divyadarshantv.com/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "IndigenousTelevision.np",
+    "name": "Indigenous Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://np.truestreamz.com/broadcaster/INDIGENOUSmob.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JMusicTV.np",
+    "name": "J Music TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C180/master.m3u8"
+    ]
+  },
+  {
+    "id": "KantipurTV.np",
+    "name": "Kantipur TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ktvhdsg.ekantipur.com:8443/high_quality_85840165/hd/playlist.m3u8",
+      "http://103.213.31.109:90/KantipurPiracyHD/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "METVHD.np",
+    "name": "METV HD",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C168/master.m3u8"
+    ]
+  },
+  {
+    "id": "MithilaNepalTV.np",
+    "name": "Mithila Nepal TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://150.107.205.212:1935/live/mithila/playlist.m3u8?DVR="
+    ]
+  },
+  {
+    "id": "NationalGoldTV.np",
+    "name": "National Gold TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C170/master.m3u8"
+    ]
+  },
+  {
+    "id": "News24.np",
+    "name": "News 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://maxotts.maxdigitaltv.com/x-media/C9/master.m3u8"
+    ]
+  }
+]

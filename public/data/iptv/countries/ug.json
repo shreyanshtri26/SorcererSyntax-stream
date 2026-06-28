@@ -1,0 +1,190 @@
+[
+  {
+    "id": "3ABNTVUganda.ug",
+    "name": "3ABN TV Uganda",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://3abn.bozztv.com/3abn/3abn_uganda_live/index.m3u8"
+    ]
+  },
+  {
+    "id": "ACWUGTV.ug",
+    "name": "ACW UG TV",
+    "categories": [
+      "general",
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.acwugtv.com/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "AlphaDigital.ug",
+    "name": "Alpha Digital",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamfi-alphatvdgtl1.zettawiseroutes.com:8181/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "ArkTV.ug",
+    "name": "Ark TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.hydeinnovations.com/arktv-international/index.fmp4.m3u8"
+    ]
+  },
+  {
+    "id": "BTMTV.ug",
+    "name": "BTM TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://btmug.zerocdn.org/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "BTV.ug",
+    "name": "BTV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamfi-alphadgtl1.zettawiseroutes.com:8181/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "BukeddeTV1.ug",
+    "name": "Bukedde TV 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.hydeinnovations.com/bukedde1flussonic/index.m3u8"
+    ]
+  },
+  {
+    "id": "BukeddeTV2.ug",
+    "name": "Bukedde TV 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.hydeinnovations.com/bukedde2flussonic/index.m3u8"
+    ]
+  },
+  {
+    "id": "DreamTV.ug",
+    "name": "Dream TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamfi-dreamtv1.zettawiseroutes.com:8181/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "FarajaTelevision.ug",
+    "name": "Faraja Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://panel.freedomflixtv.org:3868/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "FORTTV.ug",
+    "name": "FORT TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://fort.co-works.org/memfs/87017643-274a-4bc0-a786-7767a0d159c2.m3u8"
+    ]
+  },
+  {
+    "id": "GalaxyTV.ug",
+    "name": "Galaxy TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.castr.com/6463248048d6cd3e143655b2/live_43351ad0f3b411ed81c78fcc31887c54/index.fmp4.m3u8"
+    ]
+  },
+  {
+    "id": "GuguddeTV.ug",
+    "name": "Gugudde TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jk3lzqq4lw79-hls-live.5centscdn.com/gugudde/c9a1fdac6e082dd89e7173244f34d7b3.sdp/chunks.m3u8"
+    ]
+  },
+  {
+    "id": "PraiseJesusTowerTV.ug",
+    "name": "Praise Jesus Tower TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vsrv1.az-streamingserver.com:3555/live/dyjoqlgklive.m3u8"
+    ]
+  },
+  {
+    "id": "SaltTV.ug",
+    "name": "Salt TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.salttelevision.com/app/stream/abr.m3u8"
+    ]
+  },
+  {
+    "id": "TVWest.ug",
+    "name": "TV West",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.hydeinnovations.com/tvwest-flussonic/index.m3u8"
+    ]
+  },
+  {
+    "id": "WanLuoTV.ug",
+    "name": "Wan Luo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.hydeinnovations.com/luotv-flussonic/index.m3u8"
+    ]
+  }
+]

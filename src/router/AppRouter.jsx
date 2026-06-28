@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { PlayerProvider } from '../context/PlayerContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 // Lazy load components for better performance
@@ -27,7 +26,6 @@ const AppRouter = () => {
 
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <PlayerProvider>
         <Suspense fallback={<LoadingSpinner theme={currentTheme} message="Loading..." />}>
           <Routes>
             {/* Main app route */}
@@ -45,16 +43,13 @@ const AppRouter = () => {
             <Route path="/search" element={<App />} />
             <Route path="/search/:query" element={<App />} />
 
-            {/* Music routes */}
-            <Route path="/music" element={<App />} />
-            <Route path="/artist/:id" element={<App />} />
-            <Route path="/album/:id" element={<App />} />
+            {/* TV & Sports route */}
+            <Route path="/tv-sports" element={<App />} />
 
             {/* Catch all route - redirect to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
-      </PlayerProvider>
     </Router>
   );
 };

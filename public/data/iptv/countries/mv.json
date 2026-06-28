@@ -1,0 +1,124 @@
+[
+  {
+    "id": "Channel13.mv",
+    "name": "Channel 13",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.theyraonline.com/live/channel13@live/index.m3u8"
+    ]
+  },
+  {
+    "id": "MaldivesTV.mv",
+    "name": "Maldives TV",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lana.psm.mv/live/mtv.m3u8"
+    ]
+  },
+  {
+    "id": "MMTV.mv",
+    "name": "MMTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sendlive.online/hls/mmtv.m3u8"
+    ]
+  },
+  {
+    "id": "Munnaaru.mv",
+    "name": "Munnaaru",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://customer-ujex1meek7koqd9x.cloudflarestream.com/6a46f90ca384c7419efdbef3ff1892a9/manifest/video.m3u8"
+    ]
+  },
+  {
+    "id": "NTV.mv",
+    "name": "NTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sstv.ssplay.mv/hls/local-channel/ntv-e3d4300b49c8c901e9339174215d7580/index.m3u8"
+    ]
+  },
+  {
+    "id": "PSMNews.mv",
+    "name": "PSM News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://customer-ujex1meek7koqd9x.cloudflarestream.com/21262545317dadfa20dab4f9bd37c7c2/manifest/video.m3u8"
+    ]
+  },
+  {
+    "id": "RaajjeTV.mv",
+    "name": "Raajje TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://raajjetv.yarr-myn.workers.dev/RaajjeTv.m3u8"
+    ]
+  },
+  {
+    "id": "SSTV.mv",
+    "name": "SSTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sstv.ssplay.mv/hls/sstv-live/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaldives.mv",
+    "name": "TV Maldives",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://customer-ujex1meek7koqd9x.cloudflarestream.com/9e93379c0d46ee588b99263d95bd9c42/manifest/video.m3u8"
+    ]
+  },
+  {
+    "id": "VTV.mv",
+    "name": "VTV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vtvstream.vnews.mv/vtvlive/vmedia/playlist.m3u8",
+      "https://sstv.ssplay.mv/hls/local-channel/vtv-7a0f24809c234ea78d972b1f336ac1b9/index.m3u8"
+    ]
+  },
+  {
+    "id": "YES.mv",
+    "name": "YES",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://customer-ujex1meek7koqd9x.cloudflarestream.com/4f0b316cdb0fbb7f8ca93860ed11d38b/manifest/video.m3u8"
+    ]
+  }
+]

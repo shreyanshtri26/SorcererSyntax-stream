@@ -1,0 +1,152 @@
+[
+  {
+    "id": "Badakhshon.tj",
+    "name": "Badakhshon",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/11/3m.m3u8"
+    ]
+  },
+  {
+    "id": "DushanbeHD.tj",
+    "name": "Dushanbe HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/7/3m.m3u8"
+    ]
+  },
+  {
+    "id": "Futbol.tj",
+    "name": "Futbol",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/8/3m.m3u8"
+    ]
+  },
+  {
+    "id": "IlmvaTabiat.tj",
+    "name": "Ilm va Tabiat",
+    "categories": [
+      "science"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/15/3m.m3u8"
+    ]
+  },
+  {
+    "id": "Jahonnamo.tj",
+    "name": "Jahonnamo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/4/3m.m3u8"
+    ]
+  },
+  {
+    "id": "Khatlon.tj",
+    "name": "Khatlon",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/10/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TMT.tj",
+    "name": "TMT",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/9/3m.m3u8"
+    ]
+  },
+  {
+    "id": "Tojikiston.tj",
+    "name": "Tojikiston",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/1/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TVBahoriston.tj",
+    "name": "TV Bahoriston",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/3/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TVKulob.tj",
+    "name": "TV Kulob",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/12/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TVSafina.tj",
+    "name": "TV Safina",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/2/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TVSayohi.tj",
+    "name": "TV Sayohi",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/16/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TVSinamo.tj",
+    "name": "TV Sinamo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/6/3m.m3u8"
+    ]
+  },
+  {
+    "id": "TVSugd.tj",
+    "name": "TV Sugd",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.teleradiocom.tj/14/3m.m3u8"
+    ]
+  }
+]

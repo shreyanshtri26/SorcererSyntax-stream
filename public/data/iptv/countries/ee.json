@@ -1,0 +1,277 @@
+[
+  {
+    "id": "BestofDanceTV.ee",
+    "name": "Best of Dance TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m1b2.worldcast.tv/dancetelevisionone/dancetelevisionone.m3u8"
+    ]
+  },
+  {
+    "id": "DanceTVAlgorhythm.ee",
+    "name": "DanceTV Algorhythm",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m2b2.worldcast.tv:7443/dancetelevisionfour/dancetelevisionfour.m3u8"
+    ]
+  },
+  {
+    "id": "DanceTVDeepHouseDistrict.ee",
+    "name": "DanceTV Deep House District",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m1b2.worldcast.tv/dancetelevisiontwo/dancetelevisiontwo.m3u8"
+    ]
+  },
+  {
+    "id": "DanceTVEDMMainstage.ee",
+    "name": "DanceTV EDM Mainstage",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mbit1.worldcast.tv/dancetelevisionseven/multibit.m3u8"
+    ]
+  },
+  {
+    "id": "DanceTVHouseFloor.ee",
+    "name": "DanceTV House Floor",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m2b2.worldcast.tv:7443/dancetelevisionfive/dancetelevisionfive.m3u8"
+    ]
+  },
+  {
+    "id": "DanceTVMinimalTech.ee",
+    "name": "DanceTV Minimal Tech",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mbit1.worldcast.tv/dancetelevisionsix/multibit.m3u8"
+    ]
+  },
+  {
+    "id": "DanceTVTechnoWarehouse.ee",
+    "name": "DanceTV Techno Warehouse",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://m2b2.worldcast.tv:7443/dancetelevisionthree/dancetelevisionthree.m3u8"
+    ]
+  },
+  {
+    "id": "Duo3.ee",
+    "name": "Duo 3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/Duo3.m3u8"
+    ]
+  },
+  {
+    "id": "Duo6.ee",
+    "name": "Duo 6",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://adpnetworkhd-cmd.github.io/iptv/Duo6.m3u8"
+    ]
+  },
+  {
+    "id": "ETV.ee",
+    "name": "ETV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sb.err.ee/live/etv.m3u8"
+    ]
+  },
+  {
+    "id": "ETV2.ee",
+    "name": "ETV 2",
+    "categories": [
+      "kids",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sb.err.ee/live/etv2.m3u8"
+    ]
+  },
+  {
+    "id": "ETVPlus.ee",
+    "name": "ETV+",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sb.err.ee/live/etvpluss.m3u8"
+    ]
+  },
+  {
+    "id": "FX.ee",
+    "name": "FX",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/19216/index.m3u8"
+    ]
+  },
+  {
+    "id": "FXLife.ee",
+    "name": "FX Life",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/9232/index.m3u8"
+    ]
+  },
+  {
+    "id": "Kanal7.ee",
+    "name": "Kanal 7",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/20079/index.m3u8"
+    ]
+  },
+  {
+    "id": "KidZoneMax.ee",
+    "name": "KidZone Max",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://v4-pan-n79-cdn-01.live.cdn.cgates.lt/live/dash/560706/index.mpd"
+    ]
+  },
+  {
+    "id": "LifeTV.ee",
+    "name": "Life TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://lifetv.bitflip.ee/live/stream1_1/index.m3u8",
+      "https://lifetv.bitflip.ee/live/stream1.m3u8"
+    ]
+  },
+  {
+    "id": "Nickelodeon.ee",
+    "name": "Nickelodeon",
+    "categories": [
+      "animation",
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://195.64.140.147:10121/121",
+      "http://ott.watch/XE5QWWBZ87/443/tracks-v2a1/mono.ts.m3u8?sid=598add99-25dc-4456-8107-ea87a02d8b94"
+    ]
+  },
+  {
+    "id": "Pingviin.ee",
+    "name": "Pingviin",
+    "categories": [
+      "animation",
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://void.greenhosting.ru/PingviinEE_Mpeg4/index.m3u8"
+    ]
+  },
+  {
+    "id": "Riigikogu.ee",
+    "name": "Riigikogu",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://le02.euddn.net/6487956abb8faf0706d8c4c2465f54cb3625b812fec8e13d11668907ff00f44b004ea22691a9216c71ebda22b7e6e57c8b923aeee9e1e6aa447947c014b7a3babd73ab865562f4ae463ce0c617da65805296ed52a0af64d7d881781d282ea970de7a1ab524c1ea73e271a8df71d43212f4850e2d81241308886184db1abf516f2d6d0b9965402fc7c960e27fa968eabb077474e7493c278ebae58d614923fb2f5c76c2865cb681763ffd765a39a629ce/smil:rk_live_1.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TBNBaltia.ee",
+    "name": "TBN Baltia",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://dc.tbnbaltia.eu:8088/dvr/rewind-21600.m3u8"
+    ]
+  },
+  {
+    "id": "VantageClassic.ee",
+    "name": "Vantage Classic",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-backup.lulzy.eu/vclassic_stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "VantageDance.ee",
+    "name": "Vantage Dance",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.vantagetv.ee/vdance_stream/main_stream.m3u8"
+    ]
+  },
+  {
+    "id": "VantageMusic.ee",
+    "name": "Vantage Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.vantagetv.ee/vmusic_stream/main_stream.m3u8",
+      "https://hls.vantagetv.co.uk/vmusicuk_stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "VantageRock.ee",
+    "name": "Vantage Rock",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.vantagetv.ee/vrock_stream/index.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,433 @@
+[
+  {
+    "id": "24.sk",
+    "name": ":24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.27/live/test_trojka_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AntikInfoTV.sk",
+    "name": "Antik Info TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_infokanal_tizen/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport1.sk",
+    "name": "Arena Sport 1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_arenasport/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ArenaSport2.sk",
+    "name": "Arena Sport 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_arenasport_dva/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ducktv.sk",
+    "name": "ducktv",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jmp2.uk/stvp-ESBC4700001GR",
+      "https://mmm-dk.otteravision.com/DexaYJdJXkLqFxTK_DuckTVHDSAMS/DuckTVHDSAMS.stream/playlist.m3u8",
+      "https://stream.ads.ottera.tv/playlist.m3u8?network_id=13168",
+      "https://d6lk10bkdgfae.cloudfront.net/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Dvojka.sk",
+    "name": "Dvojka",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://n5.stv.livebox.sk/stv-tv/addfd31846e34200883cc2b4e9e6c855/stv2.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Jednotka.sk",
+    "name": "Jednotka",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/test_jednotka_25p/playlist.m3u8",
+      "https://n4.stv.livebox.sk/stv-tv/fe09ae603df84846978c9d960f699900/stv1.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LifeTv.sk",
+    "name": "LifeTv",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lifetv.mpks.sk/s.m3u8"
+    ]
+  },
+  {
+    "id": "MTR.sk",
+    "name": "MTR",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdnsk003.panaccess.com/local/Ruzomberok/index.m3u8"
+    ]
+  },
+  {
+    "id": "NZTV.sk",
+    "name": "NZTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://s1.media-planet.sk/live/novezamky/BratuMarian.m3u8",
+      "https://dash2.antik.sk/live/test_nove_zamky/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PrimaCoolSK.sk",
+    "name": "Prima Cool SK",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.19/live/prima_cool_avc_25p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RegioTV.sk",
+    "name": "Regio TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tv.geniusnet.sk:8081/regiotv/pl.m3u8",
+      "https://dash2.antik.sk/live/test_regio_tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Senzi.sk",
+    "name": "Senzi",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://lb.streaming.sk/senzi/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sport.sk",
+    "name": "Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://88.212.15.27/live/test_rtvs_sport_hevc/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleviziaMocenok.sk",
+    "name": "Televizia Mocenok",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ca49f2417d90.streamlock.net/mocenok/livestream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV8.sk",
+    "name": "TV8",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://109.74.145.11:1935/tv8/ngrp:tv8.stream_all/playlist.m3u8",
+      "http://109.74.145.11:1935/tv8/mp4:tv8.stream_360p/playlist.m3u8",
+      "https://dash3.antik.sk/live/test_osem/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV9.sk",
+    "name": "TV9",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_tv9/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVBrezova.sk",
+    "name": "TV Brezova",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://95.105.193.219:88/hls/tvb.m3u8"
+    ]
+  },
+  {
+    "id": "TVCentral.sk",
+    "name": "TV Central",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://arenasportslovakia.ddns.net/hls/cetv2.m3u8",
+      "https://dash4.antik.sk/live/test_central/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVDK.sk",
+    "name": "TV DK",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://80.94.54.11:1935/live/dolnykubin1/playlist.m3u8",
+      "https://5ca49f2417d90.streamlock.net/live/dolnykubin1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVLiptov.sk",
+    "name": "TV Liptov",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://95.105.255.137:1935/tvturiec/tvliptov.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVLocAll.sk",
+    "name": "TV LocAll",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://tv.geniusnet.sk:8081/localltv/pl.m3u8",
+      "https://dash3.antik.sk/live/test_locall/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVLux.sk",
+    "name": "TV Lux",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://stream.tvlux.sk/luxtv/luxtv-livestream/chunklist_w617812057.m3u8",
+      "https://stream.tvlux.sk/lux/ngrp:lux.stream_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMistral.sk",
+    "name": "TV Mistral",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash3.antik.sk/live/test_mistral_atktv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMyjava.sk",
+    "name": "TV Myjava",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://95.105.193.219:88/hls/tvm.m3u8"
+    ]
+  },
+  {
+    "id": "TVNitricka.sk",
+    "name": "TV Nitricka",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash4.antik.sk/live/test_nitricka/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVNRSR.sk",
+    "name": "TV NRSR",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://n11.stv.livebox.sk/stv-tv/stv4.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVPoprad.sk",
+    "name": "TV Poprad",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://213.81.153.221:8080/poprad"
+    ]
+  },
+  {
+    "id": "TVPovazie.sk",
+    "name": "TV Povazie",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://dash3.antik.sk/live/test_povazie/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVRaj.sk",
+    "name": "TV Raj",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://ottst05.flexitv.sk/2827-tv-pc.m3u8"
+    ]
+  },
+  {
+    "id": "TVRomana.sk",
+    "name": "TV Romana",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.7.11/live/test_tv_romana_web_player/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVRuzinov.sk",
+    "name": "TV Ruzinov",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://lb.streaming.sk/tvruzinov/stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSen.sk",
+    "name": "TV Sen",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://95.105.193.219:88/hls/tvsen.m3u8"
+    ]
+  },
+  {
+    "id": "TVSeverka.sk",
+    "name": "TV Severka",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.7.11/live/test_severka_web_player/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSkalica.sk",
+    "name": "TV Skalica",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://95.105.193.219:88/hls/tvs.m3u8"
+    ]
+  },
+  {
+    "id": "TVStaraTura.sk",
+    "name": "TV Stara Tura",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://95.105.193.219:88/hls/tvst.m3u8"
+    ]
+  },
+  {
+    "id": "TVT.sk",
+    "name": "TVT",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5ca49f2417d90.streamlock.net/live/turzovka/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVVega.sk",
+    "name": "TV Vega",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://88.212.7.11/live/test_tv_vega_web_player/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVVita.sk",
+    "name": "TV Vita",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash3.antik.sk/live/test_vita/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "VIOTV.sk",
+    "name": "VIO TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://slovanet-livestream.ceelabs.com:1935/live/VioTV.stream_transcoded/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ZapadoslovenskaTV.sk",
+    "name": "Zapadoslovenska TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://dash2.antik.sk/live/test_zapadoslovenska/playlist.m3u8"
+    ]
+  }
+]

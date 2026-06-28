@@ -1,0 +1,46 @@
+[
+  {
+    "id": "Althingi.is",
+    "name": "Althingi",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://althingi-live.secure.footprint.net/althingi/live/index.m3u8"
+    ]
+  },
+  {
+    "id": "RUV.is",
+    "name": "RUV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ruv-web-live.akamaized.net/streymi/ruverl/ruverl.m3u8"
+    ]
+  },
+  {
+    "id": "RUV2.is",
+    "name": "RUV 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ruvlive.akamaized.net/out/v1/2ff7673de40f419fa5164498fae89089/index.m3u8"
+    ]
+  },
+  {
+    "id": "Visir.is",
+    "name": "Visir",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.visir.is/hls-live/visir.smil/playlist.m3u8"
+    ]
+  }
+]

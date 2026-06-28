@@ -1,0 +1,58 @@
+[
+  {
+    "id": "FUSIONTV.mq",
+    "name": "FUSION TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge20.vedge.infomaniak.com/livecast/ik:fusiontv/manifest.m3u8"
+    ]
+  },
+  {
+    "id": "IdentiteTeleCaraibes.mq",
+    "name": "Identite Tele Caraibes",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vdo2.pro-fhi.net:3769/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "TeleZoukla.mq",
+    "name": "Tele Zoukla",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vdo.pro-fhi.net:3228/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "TVFamille.mq",
+    "name": "TV Famille",
+    "categories": [
+      "family",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer1.streamhost.org/salive/GMItvfh/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ViaATV.mq",
+    "name": "ViaATV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer01.myvideoplace.tv/streamer02/hls/ATV_DIRECT_EV_111018.m3u8"
+    ]
+  }
+]

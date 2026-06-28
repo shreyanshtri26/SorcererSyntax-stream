@@ -1,0 +1,169 @@
+[
+  {
+    "id": "apartTV.lu",
+    "name": "apart TV",
+    "categories": [
+      "lifestyle",
+      "business",
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://2-fss-2.streamhoster.com/pl_124/206820-4338160-1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ChamberTV.lu",
+    "name": "Chamber TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://media02.webtvlive.eu/chd-edge/smil:chamber_tv_hd.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DudelangeTV.lu",
+    "name": "Dudelange TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer20.multimedia.blue/Eltrona/DudelangeTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "eldoTV.lu",
+    "name": "eldo.TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.eldo.lu/data/live/tele/eldotv/1080p.m3u8"
+    ]
+  },
+  {
+    "id": "HesperTV.lu",
+    "name": "Hesper TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer20.multimedia.blue/Eltrona/HesperangeTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LuxeTV.lu",
+    "name": "Luxe TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.154.3.101:5001/live/1736.m3u8"
+    ]
+  },
+  {
+    "id": "MamerTV.lu",
+    "name": "Mamer TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer20.multimedia.blue/Eltrona/MamerTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MierschTV.lu",
+    "name": "MierschTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer20.multimedia.blue/Eltrona/merschTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PetangeInfoTV.lu",
+    "name": "Petange Info TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer20.multimedia.blue/Eltrona/PetangeTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTL9.lu",
+    "name": "RTL9",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://rezofoot.tv/rtl-9/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTLGold.lu",
+    "name": "RTL Gold",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.rtl.lu/data/live/tele/rtlgold/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTLTeleLetzebuerg.lu",
+    "name": "RTL Tele Letzebuerg",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-edge.rtl.lu/channel1/smil:channel1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTLWebRadioTV.lu",
+    "name": "RTL Web Radio TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtlradio-streaming.rtl.lu/rtlradiowebtv/smil:rtlradiowebtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RTLZwee.lu",
+    "name": "RTL Zwee",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-edge.rtl.lu/channel2/smil:channel2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TodayRadio.lu",
+    "name": "Today Radio",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.rtl.lu/data/live/tele/rtltodayradio/playlist.m3u8"
+    ]
+  }
+]

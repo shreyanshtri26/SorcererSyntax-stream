@@ -1,0 +1,24 @@
+[
+  {
+    "id": "KringvarpForoya.fo",
+    "name": "Kringvarp Foroya",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w-live-edge1.kringvarp.fo/uttanlands/_definst_/smil:uttanlands.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KVFSjonvarp.fo",
+    "name": "KVF Sjonvarp",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kringvarp.fo/uttanlands/720/playlist.m3u8"
+    ]
+  }
+]

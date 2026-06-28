@@ -1,0 +1,68 @@
+[
+  {
+    "id": "Bonairetv.bq",
+    "name": "Bonaire.tv",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://media.streambrothers.com:1936/8506/8506/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "EnergiaTV.bq",
+    "name": "Energia TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sincerecloud.stream/loadbalancer/public/actMdyoE.m3u8"
+    ]
+  },
+  {
+    "id": "Live99FM.bq",
+    "name": "Live99FM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://media.streambrothers.com:1936/8014/8014/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NosTVBonaire.bq",
+    "name": "NosTV Bonaire",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streaming.flamingotv.net/nostv/live.m3u8"
+    ]
+  },
+  {
+    "id": "NosTVBonaire2.bq",
+    "name": "NosTV Bonaire 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream2.nostvbonaire.com/hls/0/stream.m3u8"
+    ]
+  },
+  {
+    "id": "VozDiBonaireTV.bq",
+    "name": "Voz Di Bonaire TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.westream.cloud/VozdiBonaireTV/VozdiBonaireTV.m3u8"
+    ]
+  }
+]

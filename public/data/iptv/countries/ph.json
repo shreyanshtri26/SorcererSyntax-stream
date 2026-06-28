@@ -1,0 +1,156 @@
+[
+  {
+    "id": "AbanteTV.ph",
+    "name": "Abante TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg19223-amg19223c12-amgplt0352.playout.now3.amagi.tv/playlist/amg19223-amg19223c12-amgplt0352/playlist.m3u8",
+      "https://streams.comclark.com/transcodesd/abante/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BilyonaryoNewsChannel.ph",
+    "name": "Bilyonaryo News Channel",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg19223-amg19223c11-amgplt0352.playout.now3.amagi.tv/playlist/amg19223-amg19223c11-amgplt0352/playlist.m3u8",
+      "https://streams.comclark.com/transcode/bilyonaryo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CCTN47.ph",
+    "name": "CCTN 47",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://122.55.252.134:8443/live/bba5b536faeacb9b56a3239f1ee8e3b3/1.m3u8"
+    ]
+  },
+  {
+    "id": "CLTV36.ph",
+    "name": "CLTV 36",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.cltv36.tv:5443/LiveApp/streams/cltvlive.m3u8"
+    ]
+  },
+  {
+    "id": "GTV.ph",
+    "name": "GTV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://pro.reott8k.xyz/play/live.php?extension=m3u8&mac=00:1A:79:7B:BB:36&stream=1548700"
+    ]
+  },
+  {
+    "id": "HopeChannelPhilippines.ph",
+    "name": "Hope Channel Philippines",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jstre.am/live/jsl:7A1swL7Fhlh.m3u8"
+    ]
+  },
+  {
+    "id": "IBC13.ph",
+    "name": "IBC 13",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streams.comclark.com/pknsd/ibc_13/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LivingAsiaChannel.ph",
+    "name": "Living Asia Channel",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streams.comclark.com/pknsd/lac/playlist.m3u8",
+      "https://cdn.vegasplus.us/vegas/lac/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MindanowNetworkTV.ph",
+    "name": "Mindanow Network TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streams.comclark.com/overlay/mindanow/playlist.m3u8",
+      "https://cdn.vegasplus.us/vegas/mmn01/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PremierSports.ph",
+    "name": "Premier Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PremierSports2.ph",
+    "name": "Premier Sports 2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PTV.ph",
+    "name": "PTV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://streams.comclark.com/pknsd/ptv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TAPEdge.ph",
+    "name": "TAP Edge",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cignalplaymaxphcorner.vwgsalvador.workers.dev/conv_local_tap_edge/cplaymax/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeleRadyo.ph",
+    "name": "TeleRadyo",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01006-abs-cbn-teleradyo-dash-abscbnono/index.mpd"
+    ]
+  }
+]

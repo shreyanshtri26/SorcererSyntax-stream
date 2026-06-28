@@ -1,0 +1,111 @@
+[
+  {
+    "id": "DR1.dk",
+    "name": "DR1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://drlivedr1hls.akamaized.net/hls/live/2113625/drlivedr1/master.m3u8"
+    ]
+  },
+  {
+    "id": "DR2.dk",
+    "name": "DR2",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://drlivedr2hls.akamaized.net/hls/live/2113623/drlivedr2/master.m3u8"
+    ]
+  },
+  {
+    "id": "DRRamasjang.dk",
+    "name": "DR Ramasjang",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://drlive03hls.akamaized.net/hls/live/2014190/drlive03/master.m3u8"
+    ]
+  },
+  {
+    "id": "DRTV.dk",
+    "name": "DRTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://drlivedrtvahls.akamaized.net/hls/live/2113613/drlivedrtva/master.m3u8"
+    ]
+  },
+  {
+    "id": "KanalHovedstaden.dk",
+    "name": "Kanal Hovedstaden",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://khkbh.dk:8080/hls/livestream/index.m3u8"
+    ]
+  },
+  {
+    "id": "KKRtv.dk",
+    "name": "KKRtv",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://stream.kkr.dk/live/kkr/playlist.m3u8",
+      "http://stream.kkr.dk/live/ngrp:kkr_adaptive/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV2Bornholm.dk",
+    "name": "TV 2/Bornholm",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://livecdn.euw1-0005.jwplive.com/live/sites/J42OBHtp/media/vvNWt4O9/live.isml/.m3u8"
+    ]
+  },
+  {
+    "id": "TVfromtheDanishParliament.dk",
+    "name": "TV from the Danish Parliament",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdnapi.kaltura.com/p/2158211/sp/327418300/playManifest/entryId/1_24gfa7qq/protocol/https/format/applehttp/a.m3u8"
+    ]
+  },
+  {
+    "id": "TVMarineret.dk",
+    "name": "TVMarineret",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://sdream.info:8080/hls/livestream/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVStorbyen.dk",
+    "name": "TV Storbyen",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5eeb3940cfaa0.streamlock.net/webtv_live/_definst_/mp4:kanalnordvest/playlist.m3u8"
+    ]
+  }
+]

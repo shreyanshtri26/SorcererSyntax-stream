@@ -1,0 +1,807 @@
+[
+  {
+    "id": "AguacateTV.ve",
+    "name": "Aguacate TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3040/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "AlcanceTV.ve",
+    "name": "Alcance TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rv100.globalhost1.com:3516/live/tjjqdqurlive.m3u8"
+    ]
+  },
+  {
+    "id": "AnzoateguiTV.ve",
+    "name": "Anzoategui TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp2.myplaytv.com/anzoateguitv/anzoateguitv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AS3SportTV.ve",
+    "name": "AS3 Sport TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.as3sport.online:3394/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "AudazTV.ve",
+    "name": "Audaz TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud2.streaminglivehd.com:1936/8264/8264/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BarinasTV.ve",
+    "name": "Barinas TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp13.myplaytv.com/barinastv/barinastv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BTATV.ve",
+    "name": "BTA TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud.fastchannel.es/manifiest/hls/prog9/btatv.m3u8"
+    ]
+  },
+  {
+    "id": "Canal21Tachira.ve",
+    "name": "Canal 21 Tachira",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv2.voxtvhd.com.br/canal21/canal21/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanalCdelZulia.ve",
+    "name": "Canal C del Zulia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vs20.live.opencaster.com/cristianhilos_314b91b0/index.m3u8",
+      "https://calm-forest-3478.cristianbracho904.workers.dev/master.m3u8"
+    ]
+  },
+  {
+    "id": "CanalDiplomatico.ve",
+    "name": "Canal Diplomatico",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://master.myplaytv.com:2020/hls/canaldiplomatico/canaldiplomatico.m3u8"
+    ]
+  },
+  {
+    "id": "CanalI.ve",
+    "name": "Canal I",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.canal-i.com/canal-i/live/master.m3u8"
+    ]
+  },
+  {
+    "id": "CanalOnce.ve",
+    "name": "Canal Once",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv.streamcasthd.com:3676/live/canal11delzulialive.m3u8"
+    ]
+  },
+  {
+    "id": "CatatumboTV.ve",
+    "name": "Catatumbo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud.fastchannel.es/manifiest/hls/prog9/catatumbotv.m3u8"
+    ]
+  },
+  {
+    "id": "ChivacoaTVInternacional.ve",
+    "name": "Chivacoa TV Internacional",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/1234chivacoa/chunks.m3u8"
+    ]
+  },
+  {
+    "id": "DuacaVision.ve",
+    "name": "DuacaVision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vs20.live.opencaster.com/duacavision_092f3447/index.m3u8"
+    ]
+  },
+  {
+    "id": "eSportsMaxTV.ve",
+    "name": "eSports Max TV",
+    "categories": [
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdnlive.klicgo.net/esportsmax/live/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "EXCTV.ve",
+    "name": "EXC TV",
+    "categories": [
+      "science"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp.myplaytv.com/explosioncreativa/explosioncreativa/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FortunaTV.ve",
+    "name": "Fortuna TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3355/live/fortunatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "GlobalTV.ve",
+    "name": "GlobalTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3179/live/globaltvlive.m3u8"
+    ]
+  },
+  {
+    "id": "Globovision.ve",
+    "name": "Globovision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://181.78.8.199:8000/play/a09k/index.m3u8"
+    ]
+  },
+  {
+    "id": "GrandeTV.ve",
+    "name": "Grande TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/grandetv2240/playlist.m3u8",
+      "https://vs20.live.opencaster.com/grande41_0b593479/index.m3u8"
+    ]
+  },
+  {
+    "id": "GuaroTV.ve",
+    "name": "Guaro TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.guarotv.net:3592/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "InterTV.ve",
+    "name": "Inter TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3439/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "IslaTV.ve",
+    "name": "Isla TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/islatv/islatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Italianissimo.ve",
+    "name": "Italianissimo",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp.myplaytv.com/italianissimo/italianissimo/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KandelaTV.ve",
+    "name": "KandelaTV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3718/live/kandelamedioslive.m3u8"
+    ]
+  },
+  {
+    "id": "LaPuraCremaTelevision.ve",
+    "name": "LaPuraCrema Television",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamlov.alsolnet.com/lapuracrema/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaTeleTuya.ve",
+    "name": "La Tele Tuya",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://181.78.8.199:8000/play/a0fs/index.m3u8"
+    ]
+  },
+  {
+    "id": "LatinaTV.ve",
+    "name": "Latina TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.latinamedios.com:3413/live/latinatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "LGDTelevision.ve",
+    "name": "LGD Television",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3403/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "MasTalk.ve",
+    "name": "Mas Talk",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vod2live.univtec.com/manifest/89290956-94ab-4950-accb-a54bbd7e176f.m3u8"
+    ]
+  },
+  {
+    "id": "MAXAnime.ve",
+    "name": "MAX Anime",
+    "categories": [
+      "animation"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdnlive.klicgo.net/maxanime/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MaximaTV.ve",
+    "name": "Maxima TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://maximatv.net/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "MeridianoTV.ve",
+    "name": "Meridiano TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://e1.viginet.vectormax.com:5210/quickstart/114-934-21/index.m3u8",
+      "http://181.78.8.199:8000/play/a0fr/index.m3u8"
+    ]
+  },
+  {
+    "id": "MonagasVision.ve",
+    "name": "Monagas Vision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud2.streaminglivehd.com:1936/monagasvision-2/monagasvision-2/playlist.m3u8",
+      "https://tv.monagasvision.com/hls/mistream.m3u8"
+    ]
+  },
+  {
+    "id": "NortenaTv.ve",
+    "name": "Nortena Tv",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lbgo.bozztv.com/ssh101/ssh101/nortenatv1234/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OasisTelevision.ve",
+    "name": "Oasis Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://vcp1.myplaytv.com/oasistv/oasistv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OnzaTV.ve",
+    "name": "Onza TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvstm.com/gproducciones/gproducciones/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OxigenoTV.ve",
+    "name": "Oxigeno TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp.myplaytv.com/oxigenotv/oxigenotv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PlousTV.ve",
+    "name": "Plous TV",
+    "categories": [
+      "lifestyle"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp.myplaytv.com/glowtv/glowtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PortuguesaTelevision.ve",
+    "name": "Portuguesa Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3789/live/portutvlive.m3u8"
+    ]
+  },
+  {
+    "id": "ProclamacionTV.ve",
+    "name": "Proclamacion TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video2.getstreamhosting.com:19360/8000/8000.m3u8"
+    ]
+  },
+  {
+    "id": "PromarTV.ve",
+    "name": "PromarTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://vcp1.myplaytv.com:1935/promar/promar/playlist.m3u8",
+      "https://vcp.myplaytv.com/promar/promar/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ReformaTV.ve",
+    "name": "Reforma TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5bf8041cb3fed.streamlock.net/ReformaTV/ReformaTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SiembraTV.ve",
+    "name": "Siembra TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud2.streaminglivehd.com:1936/siembratv/siembratv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SomosTV.ve",
+    "name": "Somos TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp3.myplaytv.com/somostv/somostv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TAMTV.ve",
+    "name": "TAM TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtmp.tamtv.com.ve/tmp_hls/stream/index.m3u8"
+    ]
+  },
+  {
+    "id": "TeleAragua.ve",
+    "name": "TeleAragua",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.173.198.59:8080/hls/nginx3.m3u8?tla="
+    ]
+  },
+  {
+    "id": "Telebocono.ve",
+    "name": "Telebocono",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ssh101stream.ssh101.com/akamaissh101/ssh101/tcbstreaming/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Telecentro.ve",
+    "name": "Telecentro",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3161/live/telecentrolive.m3u8",
+      "https://streamtv.intervenhosting.net:3698/live/telecentrolive.m3u8"
+    ]
+  },
+  {
+    "id": "Telecolor.ve",
+    "name": "Telecolor",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud.livescast.com:19360/telecolor/telecolor.m3u8"
+    ]
+  },
+  {
+    "id": "Telesur.ve",
+    "name": "Telesur",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://mblenmain01.telesur.ultrabase.net/mblivev3/480p/playlist.m3u8",
+      "https://mblenmain01.telesur.ultrabase.net/mblivev3/hd/playlist.m3u8",
+      "https://mblesmain01.telesur.ultrabase.net/mbliveMain/hd/playlist.m3u8",
+      "https://mblesmain01.telesur.ultrabase.net/mbliveMain/480p/playlist.m3u8",
+      "https://edgectc.com/TELESUR/index.m3u8"
+    ]
+  },
+  {
+    "id": "Televen.ve",
+    "name": "Televen",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://181.78.8.199:8000/play/a09j/index.m3u8"
+    ]
+  },
+  {
+    "id": "TelevisoradeOriente.ve",
+    "name": "Televisora de Oriente",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud.fastchannel.es/manifiest/hls/prog9/tvo.m3u8"
+    ]
+  },
+  {
+    "id": "TNORadio.ve",
+    "name": "TNO Radio",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stmv1.srvstm.com/tnovideo1/tnovideo1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TorococoTV.ve",
+    "name": "Torococo TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://us.streaminghd.cl/torococotelevision/video.m3u8"
+    ]
+  },
+  {
+    "id": "TRT.ve",
+    "name": "TRT",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp12.myplaytv.com/trt/trt/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TRV.ve",
+    "name": "TRV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp3.myplaytv.com/trv/trv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TuTV.ve",
+    "name": "Tu TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://astl-mainstr.qvixsolutions.com/asltvtu_ext/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVAndes.ve",
+    "name": "TV Andes",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp3.myplaytv.com/tvandes/tvandes/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVFamilia.ve",
+    "name": "TV Familia",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloudusa.streamingconnect.com/tvfamiliatvbox/tvfamiliaweb.m3u8",
+      "https://59d39900ebfb8.streamlock.net/tvfamilia_270p/tvfamilia_270p/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVMparati.ve",
+    "name": "TVM para ti",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3529/live/tvmparatilive.m3u8"
+    ]
+  },
+  {
+    "id": "TVOasisMonay.ve",
+    "name": "TV Oasis Monay",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://servilive.com:3562/live/vav4c8z38live.m3u8"
+    ]
+  },
+  {
+    "id": "TVS.ve",
+    "name": "TVS",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp10.myplaytv.com/tvs/tvs/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UN24.ve",
+    "name": "UN24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/untv-720/untv-720/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UniTV.ve",
+    "name": "UniTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcp6.myplaytv.com/unitv/unitv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ValeTV.ve",
+    "name": "Vale TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://59d39900ebfb8.streamlock.net/valetv_480/valetv_480/playlist.m3u8",
+      "https://vcp2.myplaytv.com/valetv/valetv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Venevision.ve",
+    "name": "Venevision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://venevision-ioriver-cdn.encoders.immergo.tv/3/streamPlaylist.m3u8",
+      "http://181.78.8.199:8000/play/a0if/index.m3u8"
+    ]
+  },
+  {
+    "id": "VenevisionInternacional.ve",
+    "name": "Venevision Internacional",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vod2live.univtec.com/manifest/4c41c0d8-e2e4-43cc-bd43-79afe715e1b3.m3u8"
+    ]
+  },
+  {
+    "id": "VenezolanadeTelevision.ve",
+    "name": "Venezolana de Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://181.78.8.199:8000/play/a091/index.m3u8"
+    ]
+  },
+  {
+    "id": "VepacoTV.ve",
+    "name": "Vepaco TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cloud.fastchannel.es/manifiest/hls/prog9/vepacotv.m3u8"
+    ]
+  },
+  {
+    "id": "VPItv.ve",
+    "name": "VPItv",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ott3.streann.com/loadbalancer/services/public/channels/5d23d5882cdce61dae029fd8/playlist.m3u8"
+    ]
+  }
+]

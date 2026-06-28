@@ -1,0 +1,264 @@
+[
+  {
+    "id": "Eveo.fi",
+    "name": "Eveo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/eveo/live.m3u8?hd=true"
+    ]
+  },
+  {
+    "id": "Hero.fi",
+    "name": "Hero",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/hero/live.m3u8?hd=true"
+    ]
+  },
+  {
+    "id": "HimlenTV7.fi",
+    "name": "Himlen TV7",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vod.tv7.fi/tv7-se/smil:tv7-se.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Jim.fi",
+    "name": "Jim",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/jim/live.m3u8?hd=true"
+    ]
+  },
+  {
+    "id": "JRTVJarviradio.fi",
+    "name": "JRTV Jarviradio",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer.radiotaajuus.fi/memfs/47f113bf-04ea-493b-a9d4-52945fd9db31.m3u8"
+    ]
+  },
+  {
+    "id": "Liv.fi",
+    "name": "Liv",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/liv/live.m3u8?hd=true"
+    ]
+  },
+  {
+    "id": "MTV3.fi",
+    "name": "MTV3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/mtv3/live.m3u8",
+      "http://195.222.7.17:8002/ch352"
+    ]
+  },
+  {
+    "id": "MTVAva.fi",
+    "name": "MTV Ava",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/ava/live.m3u8"
+    ]
+  },
+  {
+    "id": "MTVSub.fi",
+    "name": "MTV Sub",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/sub/live.m3u8"
+    ]
+  },
+  {
+    "id": "MTVUutiset.fi",
+    "name": "MTV Uutiset",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.streaming.a2d.tv/asset/20025962.isml/.m3u8"
+    ]
+  },
+  {
+    "id": "NarTV.fi",
+    "name": "Nar-TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.nartv.fi/live/ngrp:NAR_TV.stream_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NationalGeographic.fi",
+    "name": "National Geographic",
+    "categories": [
+      "documentary"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/national-geographic/live.m3u8?hd=true"
+    ]
+  },
+  {
+    "id": "NavahangTV.fi",
+    "name": "Navahang TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://hls.navahang.live/hls/stream.m3u8",
+      "https://simahls.wns.live/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "Nelonen.fi",
+    "name": "Nelonen",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/nelonen/live.m3u8"
+    ]
+  },
+  {
+    "id": "NopolaNews.fi",
+    "name": "Nopola News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://virta2.nopolanews.fi:8443/live/smil:Stream1.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OnniTV.fi",
+    "name": "Onni TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://onnitv.digitacdn.net/live/ott/onnitv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "STARChannel.fi",
+    "name": "STAR Channel",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/star-channel/live.m3u8"
+    ]
+  },
+  {
+    "id": "TaevasTV7.fi",
+    "name": "Taevas TV7",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vod.tv7.fi/tv7-ee/smil:tv7-ee.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TaivasTV7.fi",
+    "name": "Taivas TV7",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vod.tv7.fi/tv7-fi/smil:tv7-fi.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ViaplayTV.fi",
+    "name": "Viaplay TV",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live-fi.tvkaista.net/viaplay-tv/live.m3u8?hd=true"
+    ]
+  },
+  {
+    "id": "YleTeemaFem.fi",
+    "name": "Yle Teema & Fem",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://yletv.akamaized.net/hls/live/622367/yletvteemafemfin/playlist.m3u8",
+      "https://yletvworld.akamaized.net/hls/live/622547/yletvteemafemw/index.m3u8",
+      "https://live-fi.tvkaista.net/yle-teema-fem/live.m3u8"
+    ]
+  },
+  {
+    "id": "YleTV1.fi",
+    "name": "Yle TV1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://yletv.akamaized.net/hls/live/622365/yletv1fin/playlist.m3u8",
+      "https://yletvworld.akamaized.net/hls/live/622540/yletv1w/index.m3u8",
+      "https://live-fi.tvkaista.net/yle-tv1/live.m3u8"
+    ]
+  },
+  {
+    "id": "YleTV2.fi",
+    "name": "Yle TV2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://yletv.akamaized.net/hls/live/622366/yletv2fin/playlist.m3u8",
+      "https://yletvworld.akamaized.net/hls/live/622541/yletv2w/index.m3u8",
+      "https://live-fi.tvkaista.net/yle-tv2/live.m3u8"
+    ]
+  },
+  {
+    "id": "YleX.fi",
+    "name": "YleX",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ylestudiolive.akamaized.net/hls/live/2007826/ylestudiolive-YleX/master.m3u8"
+    ]
+  }
+]

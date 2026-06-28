@@ -1,0 +1,494 @@
+[
+  {
+    "id": "AnandaTV.bd",
+    "name": "Ananda TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-AnandaTV/index.m3u8",
+      "https://tvsen6.aynaott.com/anandatv/index.m3u8",
+      "http://103.99.249.139/anandatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "AsianTV.bd",
+    "name": "Asian TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/asiantv/index.m3u8"
+    ]
+  },
+  {
+    "id": "ATNBangla.bd",
+    "name": "ATN Bangla",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen5.aynaott.com/atnbangla/index.m3u8"
+    ]
+  },
+  {
+    "id": "ATNMusic.bd",
+    "name": "ATN Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/atnmusic.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ATNNews.bd",
+    "name": "ATN News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-ATNNews/index.m3u8",
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/1706.m3u8"
+    ]
+  },
+  {
+    "id": "BanglaTV.bd",
+    "name": "Bangla TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/banglatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "BanglaVision.bd",
+    "name": "Bangla Vision",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8",
+      "https://tvsen5.aynaott.com/banglavision/index.m3u8"
+    ]
+  },
+  {
+    "id": "BijoyTV.bd",
+    "name": "Bijoy TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/bijoytv/index.m3u8"
+    ]
+  },
+  {
+    "id": "BoishakhiTV.bd",
+    "name": "Boishakhi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/boishakhitv/index.m3u8",
+      "https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8"
+    ]
+  },
+  {
+    "id": "BTVChattogram.bd",
+    "name": "BTV Chattogram",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-BTVChattagram/index.m3u8",
+      "https://tvsen6.aynaott.com/btvctg/index.m3u8"
+    ]
+  },
+  {
+    "id": "BTVNational.bd",
+    "name": "BTV National",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8",
+      "https://www.btvlive.gov.bd/streams/ef8b8bbc-98b7-4ba7-a49d-a0adaf259d35/ES/355ba051-9a60-48aa-adcf-5a6c64da8c5c/355ba051-9a60-48aa-adcf-5a6c64da8c5c_3_playlist.m3u8",
+      "https://tvsen6.aynaott.com/btvhd/index.m3u8"
+    ]
+  },
+  {
+    "id": "BTVNews.bd",
+    "name": "BTV News",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/BTVNews/index.m3u8"
+    ]
+  },
+  {
+    "id": "BTVWorld.bd",
+    "name": "BTV World",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://www.btvlive.gov.bd/streams/ef8b8bbc-98b7-4ba7-a49d-a0adaf259d35/ES/d96eb7f4-83c2-4472-9597-3568390a8ebf/d96eb7f4-83c2-4472-9597-3568390a8ebf_3_playlist.m3u8",
+      "https://tvsen6.aynaott.com/btv_world/index.m3u8"
+    ]
+  },
+  {
+    "id": "Channel24.bd",
+    "name": "Channel 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-Channel24HD/index.m3u8",
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8"
+    ]
+  },
+  {
+    "id": "Channel9.bd",
+    "name": "Channel 9",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8",
+      "https://tvsen6.aynaott.com/channel9/index.m3u8"
+    ]
+  },
+  {
+    "id": "ChannelI.bd",
+    "name": "Channel I",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8",
+      "https://tvsen6.aynaott.com/channeli/index.m3u8"
+    ]
+  },
+  {
+    "id": "DBCNews.bd",
+    "name": "DBC News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8",
+      "https://tvsen6.aynaott.com/dbcnews/index.m3u8",
+      "http://tvn3.chowdhury-shaheb.com/dbc/index.m3u8"
+    ]
+  },
+  {
+    "id": "DeeptoTV.bd",
+    "name": "Deepto TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8",
+      "https://tvsen5.aynaott.com/DeeptoTVHD/index.m3u8"
+    ]
+  },
+  {
+    "id": "DeshTV.bd",
+    "name": "Desh TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-DeshTV/index.m3u8",
+      "https://tvsen6.aynaott.com/deshtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "DurontoTV.bd",
+    "name": "Duronto TV",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen5.aynaott.com/durontotv/index.m3u8",
+      "https://tvsen6.aynaott.com/durontotv-live/index.m3u8",
+      "https://trs1.aynaott.com/duronto/index.m3u8"
+    ]
+  },
+  {
+    "id": "EkattorTV.bd",
+    "name": "Ekattor TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8",
+      "https://tvsen6.aynaott.com/ekattorbdtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "EkhonTV.bd",
+    "name": "Ekhon TV",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tplay.live/out/bangladesh/ekhontv.index.m3u8",
+      "https://tvsen6.aynaott.com/ekhontv/index.m3u8"
+    ]
+  },
+  {
+    "id": "EkusheyTV.bd",
+    "name": "Ekushey TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/etv/index.m3u8",
+      "https://ekusheyserver.com/etvlivesn.m3u8"
+    ]
+  },
+  {
+    "id": "GaziTV.bd",
+    "name": "Gazi TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://tvn1.chowdhury-shaheb.com/gazitv/index.m3u8",
+      "https://tvsen5.aynaott.com/Ravc7gPCZpxk/index.m3u8"
+    ]
+  },
+  {
+    "id": "GlobalTelevision.bd",
+    "name": "Global Television",
+    "categories": [
+      "entertainment",
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/globaltvhd/index.m3u8"
+    ]
+  },
+  {
+    "id": "GreenTV.bd",
+    "name": "Green TV",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "IndependentTV.bd",
+    "name": "Independent TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8",
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/1704.m3u8",
+      "https://tvsen6.aynaott.com/independenttv/index.m3u8"
+    ]
+  },
+  {
+    "id": "JamunaTV.bd",
+    "name": "Jamuna TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8",
+      "https://tvsen6.aynaott.com/jamunatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "MaasrangaTV.bd",
+    "name": "Maasranga TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8",
+      "https://tvsen5.aynaott.com/maasrangatv/index.m3u8",
+      "https://trs1.aynaott.com/maasrangatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "MadaniChannelBangla.bd",
+    "name": "Madani Channel Bangla",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.madanichannel.tv/static/streaming-playlists/hls/d3e49b76-ac06-4689-a641-9200445b647f/master.m3u8"
+    ]
+  },
+  {
+    "id": "MohonaTV.bd",
+    "name": "Mohona TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8",
+      "https://tvsen6.aynaott.com/mohonatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "MovieBangla.bd",
+    "name": "Movie Bangla",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://alvetv.com/moviebanglatv/8080/index.m3u8"
+    ]
+  },
+  {
+    "id": "MyTV.bd",
+    "name": "My TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/mytv/index.m3u8"
+    ]
+  },
+  {
+    "id": "News24.bd",
+    "name": "News 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-News24HD/index.m3u8",
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/1708.m3u8",
+      "https://tvsen6.aynaott.com/news24/index.m3u8"
+    ]
+  },
+  {
+    "id": "NTV.bd",
+    "name": "NTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8",
+      "https://tvsen5.aynaott.com/xV4jEKf3D9zc/index.m3u8"
+    ]
+  },
+  {
+    "id": "RTV.bd",
+    "name": "RTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-RTV/index.m3u8",
+      "https://tvsen5.aynaott.com/RtvHD/index.m3u8",
+      "http://tvn3.chowdhury-shaheb.com/rtv/index.m3u8"
+    ]
+  },
+  {
+    "id": "SangsadTV.bd",
+    "name": "Sangsad TV",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-SangsadTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "SATV.bd",
+    "name": "SA TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen6.aynaott.com/satv/index.m3u8"
+    ]
+  },
+  {
+    "id": "SomoyNewsTV.bd",
+    "name": "Somoy News TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bozztv.com/rongo/rongo-somoy/index.m3u8",
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8",
+      "https://tvsen6.aynaott.com/somoytv/index.m3u8"
+    ]
+  },
+  {
+    "id": "StarNews.bd",
+    "name": "Star News",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8"
+    ]
+  },
+  {
+    "id": "TSports.bd",
+    "name": "T Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tvsen7.aynaott.com/tsports-hd/index.m3u8",
+      "https://tvsen7.aynaott.com/tsportsfhd/index.m3u8",
+      "https://trs1.aynaott.com/tsports/index.m3u8"
+    ]
+  },
+  {
+    "id": "VoktaTV.bd",
+    "name": "Vokta TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vokta.raytahost.com/live/voktatv/index.m3u8"
+    ]
+  }
+]

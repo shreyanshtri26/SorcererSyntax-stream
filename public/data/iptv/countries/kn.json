@@ -1,0 +1,24 @@
+[
+  {
+    "id": "TelevisionCaribbean.kn",
+    "name": "Television Caribbean",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.kingdom-tv.com:3545/stream/play.m3u8"
+    ]
+  },
+  {
+    "id": "ZIZTV.kn",
+    "name": "ZIZ TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://media.slactech.com:1936/ZIZDirect/ZIZDirect/playlist.m3u8"
+    ]
+  }
+]

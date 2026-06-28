@@ -1,0 +1,664 @@
+[
+  {
+    "id": "AmigosTVChiquimula.gt",
+    "name": "Amigos TV Chiquimula",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://antmedia.cablevisionrobles.com:5443/LiveApp/streams/CqwAgRagMvBNYN8c1731608980342.m3u8"
+    ]
+  },
+  {
+    "id": "AuroraMediaFilms.gt",
+    "name": "Aurora Media Films",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3417/live/auroramflive.m3u8"
+    ]
+  },
+  {
+    "id": "BarbeTV.gt",
+    "name": "Barbe TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3549/live/barbetvlive.m3u8"
+    ]
+  },
+  {
+    "id": "BDTelevision.gt",
+    "name": "BD Television",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/telegtmb/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Canal100Chinique.gt",
+    "name": "Canal 100 Chinique",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/giatv/giatv-chinique100tvenvivo/chinique100tvenvivo/playlist.m3u8",
+      "https://cdn.streamhispanatv.net:3295/live/canal100chilive.m3u8"
+    ]
+  },
+  {
+    "id": "Canal13Esquipulas.gt",
+    "name": "Canal 13 Esquipulas",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://tv91.hostingnuclear.com:19360/intercable/intercable.m3u8"
+    ]
+  },
+  {
+    "id": "Canal27.gt",
+    "name": "Canal 27",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.canal27.tv:3633/live/canal27live.m3u8"
+    ]
+  },
+  {
+    "id": "Canal3.gt",
+    "name": "Canal 3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d2qsan2ut81n2k.cloudfront.net/live/6b4f0a21-94d5-4fb6-9742-0f78923723cd/medialist_5900814650867226228_hls.m3u8"
+    ]
+  },
+  {
+    "id": "Canal30TVBethel.gt",
+    "name": "Canal 30 TV Bethel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s.emisoras.tv:8081/canal30tvbethel/index.m3u8"
+    ]
+  },
+  {
+    "id": "Canal6Panadish.gt",
+    "name": "Canal 6 Panadish",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.meteorito.cloud:1947/canal6/smil:canal6.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanalIglesiaLuzyVerdad.gt",
+    "name": "Canal Iglesia Luz y Verdad",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/IglesialuzyVerdad/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CanalPeniel.gt",
+    "name": "Canal Peniel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3840/live/penielfamlive.m3u8"
+    ]
+  },
+  {
+    "id": "CanalTVRadioMayaTGBA.gt",
+    "name": "Canal TV Radio Maya TGBA",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/radioTGBAgtm/playlist.m3u8",
+      "https://s.emisoras.tv:8081/radiomaya/index.m3u8"
+    ]
+  },
+  {
+    "id": "CanalVisof.gt",
+    "name": "Canal Visof",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/Visof/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CandelariaTV.gt",
+    "name": "Candelaria TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3921/live/candetvlive.m3u8"
+    ]
+  },
+  {
+    "id": "CarinosaTV.gt",
+    "name": "Carinosa TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3110/live/carinosatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "ConectadosconDios.gt",
+    "name": "Conectados con Dios",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.oktvus.com/ConectadoConDios/tracks-v2a1/mono.ts.m3u8"
+    ]
+  },
+  {
+    "id": "CristoTV.gt",
+    "name": "Cristo TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/CristoTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ElRoiTV.gt",
+    "name": "El-Roi TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3648/live/elroitvlive.m3u8"
+    ]
+  },
+  {
+    "id": "EspirituSantoYFuegoTV.gt",
+    "name": "Espiritu Santo Y Fuego TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://inliveserver.com:1936/8392/8392/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ExpresionTV.gt",
+    "name": "Expresion TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ssh101.bozztv.com/ssh101/expresiongrany/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FeViviente.gt",
+    "name": "Fe Viviente",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/feVivienteGtm/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "FranchsTV.gt",
+    "name": "Franchs TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/franchstv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GardeniasTV.gt",
+    "name": "Gardenias TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/gardeniasTv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GTV.gt",
+    "name": "GTV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3126/live/genesistvlive.m3u8"
+    ]
+  },
+  {
+    "id": "IglesiaDelCamino.gt",
+    "name": "Iglesia Del Camino",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://streamingcontrol.com:1935/ectv/ectv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JacalCanal5.gt",
+    "name": "Jacal Canal 5",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/jacaltv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JehovaNissi.gt",
+    "name": "Jehova Nissi",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/nissiGtmH/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JubiloTV.gt",
+    "name": "Jubilo TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://173.249.60.54/hls/jubilotv.m3u8"
+    ]
+  },
+  {
+    "id": "Knal4Quiche.gt",
+    "name": "Knal 4 Quiche",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3482/live/knal4gtlive.m3u8"
+    ]
+  },
+  {
+    "id": "MASTV.gt",
+    "name": "MAS TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3011/live/mastvgtlive.m3u8"
+    ]
+  },
+  {
+    "id": "MaxivisionTV.gt",
+    "name": "Maxivision TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video03.logicahost.com.br/maxivisiontv/maxivisiontv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MCNTelevision.gt",
+    "name": "MCN Television",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://eu1.servers10.com:8081/8338/index.m3u8"
+    ]
+  },
+  {
+    "id": "MultivisionCanal3.gt",
+    "name": "Multivision Canal 3",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.digitalgt.com:3136/live/multivisionlive.m3u8"
+    ]
+  },
+  {
+    "id": "MultivisionSports.gt",
+    "name": "Multivision Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.digitalgt.com:3605/live/multivisionsportslive.m3u8"
+    ]
+  },
+  {
+    "id": "NimTV.gt",
+    "name": "Nim TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3210/live/nimtvgtlive.m3u8"
+    ]
+  },
+  {
+    "id": "NuestraImagenTV.gt",
+    "name": "Nuestra Imagen TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.tvcontrolcp.com:1936/tvnitelevision/tvnitelevision/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PenielKY.gt",
+    "name": "Peniel K&Y",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s.emisoras.tv:8081/penielkids/index.m3u8"
+    ]
+  },
+  {
+    "id": "PenielMusical.gt",
+    "name": "Peniel Musical",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s.emisoras.tv:8081/penielmusical/index.m3u8",
+      "https://stream.oursnetworktv.com/latin/eC3pEmUsYKmcaLeJ/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PenielTVBibliaAbierta.gt",
+    "name": "Peniel TV Biblia Abierta",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s.emisoras.tv:8081/penielbibliaabierta/index.m3u8"
+    ]
+  },
+  {
+    "id": "PlenitudTV.gt",
+    "name": "Plenitud TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/PlenitudGtm/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PresenciaTelevision.gt",
+    "name": "Presencia Television",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.oursnetworktv.com/latin/remaPresencia/playlist.m3u8",
+      "https://cdn.streamhispanatv.net:3473/live/presenciatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "RadioCoatanCanal21.gt",
+    "name": "Radio Coatan Canal 21",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s2.tvdatta.com:3112/hybrid/play.m3u8"
+    ]
+  },
+  {
+    "id": "RhemaTV.gt",
+    "name": "Rhema TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5e85d90130e77.streamlock.net/6006/6006/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SASTV.gt",
+    "name": "SAS TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3390/live/sastvgtlive.m3u8"
+    ]
+  },
+  {
+    "id": "SILTV.gt",
+    "name": "SIL TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/giatv/giatv-SilTvOnline/SilTvOnline/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SolTV.gt",
+    "name": "Sol TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3409/live/soltvlive.m3u8"
+    ]
+  },
+  {
+    "id": "Telecosta.gt",
+    "name": "Telecosta",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tv91.hostingnuclear.com:19360/telecosta/telecosta.m3u8"
+    ]
+  },
+  {
+    "id": "Telemax.gt",
+    "name": "Telemax",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3824/live/telemaxlive.m3u8"
+    ]
+  },
+  {
+    "id": "TeleOnce.gt",
+    "name": "TeleOnce",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://45.5.119.43:4000/play/a0jk/index.m3u8"
+    ]
+  },
+  {
+    "id": "TigoSports.gt",
+    "name": "Tigo Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://162.19.255.233:8080/play/UNbAl57p9hXZClOu56FCTf_5weWAERKDgrt9JpvlAiI/m3u8",
+      "http://45.5.119.43:4000/play/a05t/index.m3u8"
+    ]
+  },
+  {
+    "id": "Totovision.gt",
+    "name": "Totovision",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3652/live/totovisiongtlive.m3u8"
+    ]
+  },
+  {
+    "id": "TreceVision.gt",
+    "name": "TreceVision",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://45.5.119.43:4000/play/a0jj/index.m3u8"
+    ]
+  },
+  {
+    "id": "Tunevision.gt",
+    "name": "Tunevision",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3852/live/tunevisionlive.m3u8"
+    ]
+  },
+  {
+    "id": "TVFlorencia.gt",
+    "name": "TV Florencia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3819/live/tvflorecialive.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaria.gt",
+    "name": "TV Maria",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamtv.intervenhosting.net:3155/live/juandelacruz3live.m3u8"
+    ]
+  },
+  {
+    "id": "TVMaya.gt",
+    "name": "TV Maya",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5ca9af4645e15.streamlock.net/mayas/videomayas/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVSRetro.gt",
+    "name": "TVS Retro",
+    "categories": [
+      "classic"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3531/live/tvsretrogtlive.m3u8"
+    ]
+  },
+  {
+    "id": "TVTun.gt",
+    "name": "TV Tun",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3832/live/tvtunlive.m3u8"
+    ]
+  },
+  {
+    "id": "UnicaTV.gt",
+    "name": "Unica TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3642/live/unicatvlive.m3u8"
+    ]
+  },
+  {
+    "id": "VisionTV.gt",
+    "name": "Vision TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.streamhispanatv.net:3076/live/visiontvlive.m3u8"
+    ]
+  }
+]

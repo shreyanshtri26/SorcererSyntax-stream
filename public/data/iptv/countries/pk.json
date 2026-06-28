@@ -1,0 +1,907 @@
+[
+  {
+    "id": "8XM.pk",
+    "name": "8XM",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/582886861"
+    ]
+  },
+  {
+    "id": "92NewsHD.pk",
+    "name": "92 News HD",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://92news.vdn.dstreamone.net/92newshd/92hd/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AajEntertainment.pk",
+    "name": "Aaj Entertainment",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ml-pull-dvc-myco.io:2096/AAJ_ENTERTAINMENT/index.m3u8"
+    ]
+  },
+  {
+    "id": "AajNews.pk",
+    "name": "Aaj News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/750987367"
+    ]
+  },
+  {
+    "id": "AbbTakk.pk",
+    "name": "Abb Takk",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/852828604"
+    ]
+  },
+  {
+    "id": "ABNNews.pk",
+    "name": "ABN News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/966869781",
+      "https://vodzong.mjunoon.tv:8087/streamtest/ABN-161/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AikNews.pk",
+    "name": "Aik News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video.primexsports.com/pnn/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "APlusTV.pk",
+    "name": "A-Plus TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/113328724"
+    ]
+  },
+  {
+    "id": "ApnaChannel.pk",
+    "name": "Apna Channel",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/1273966657"
+    ]
+  },
+  {
+    "id": "ARYDigital.pk",
+    "name": "ARY Digital",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://6zklx4wryw9b-hls-live.5centscdn.com/arydigitalusa/498f1704b692c3ad4dbfdf5ba5d04536.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ARYMusik.pk",
+    "name": "ARY Musik",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://arymusik.aryzap.com/3fd38b2c62d0c3bbd74aedabb533c03a/6459fa78/v1/01847ac7a4930b8ed5aa6ed04aba/01847ac8f5f70b8ed5aa6ed04abd/main.m3u8"
+    ]
+  },
+  {
+    "id": "ARYNews.pk",
+    "name": "ARY News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/322092446"
+    ]
+  },
+  {
+    "id": "ARYZindagi.pk",
+    "name": "ARY Zindagi",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/1064070262"
+    ]
+  },
+  {
+    "id": "ATV.pk",
+    "name": "ATV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/299762256"
+    ]
+  },
+  {
+    "id": "aurLifeHD.pk",
+    "name": "aurLife HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://124.109.47.101/hls/stream1.m3u8"
+    ]
+  },
+  {
+    "id": "AVTKhyber.pk",
+    "name": "AVT Khyber",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://115.42.65.142:9981/stream/channelid/1380586642"
+    ]
+  },
+  {
+    "id": "BolEntertainment.pk",
+    "name": "Bol Entertainment",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ml-pull-dvc-myco.io:2096/BOL_ENTERTAINMENT/index.m3u8",
+      "https://trs1.aynaott.com/BOLEntertainment/index.m3u8"
+    ]
+  },
+  {
+    "id": "City41.pk",
+    "name": "City 41",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://163.61.227.29:8000/play/a02r/index.m3u8"
+    ]
+  },
+  {
+    "id": "DiscoverPakistan.pk",
+    "name": "Discover Pakistan",
+    "categories": [
+      "travel"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "DunyaNews.pk",
+    "name": "Dunya News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://imob.dunyanews.tv/livehd/ngrp:dunyalivehd_2_all/playlist.m3u8",
+      "https://intl.dunyanews.tv/livehd/ngrp:dunyalivehd_2_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ExpressEntertainment.pk",
+    "name": "Express Entertainment",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ml-pull-dvc-myco.io:2096/EXPRESS_ENTERTAINMENT/index.m3u8"
+    ]
+  },
+  {
+    "id": "FazalTV.pk",
+    "name": "Fazal TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://cdn9.live247stream.com/punjabitvcanada/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Filmax.pk",
+    "name": "Filmax",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "https://s3.ideationtec.live/Filmax/Filmax.m3u8"
+    ]
+  },
+  {
+    "id": "Filmazia.pk",
+    "name": "Filmazia",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a02k/index.m3u8"
+    ]
+  },
+  {
+    "id": "GeoKahani.pk",
+    "name": "Geo Kahani",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://116.90.120.151:8000/play/a023/index.m3u8"
+    ]
+  },
+  {
+    "id": "GeoNews.pk",
+    "name": "Geo News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://116.90.120.151:8000/play/a020/index.m3u8"
+    ]
+  },
+  {
+    "id": "GeoTez.pk",
+    "name": "Geo Tez",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jk3lz82elw79-hls-live.5centscdn.com/newgeonews/07811dc6c422334ce36a09ff5cd6fe71.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "GodStandsKidsClubTV.pk",
+    "name": "God Stands Kids Club TV",
+    "categories": [
+      "kids",
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://online.godstands.tv:5443/WebRTCApp/streams/KidsArabic.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/KidsChinese.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/kidsenglish.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/KidsUrdu.m3u8"
+    ]
+  },
+  {
+    "id": "GodStandsTV.pk",
+    "name": "God Stands TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://online.godstands.tv:5443/WebRTCApp/streams/Arabic.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/chineselive.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/EnglishStreaming.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/HindiStreaming.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/mainlive.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/PunjabiStreaming.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/Tagalog.m3u8",
+      "https://online.godstands.tv:5443/WebRTCApp/streams/UrduStreaming.m3u8"
+    ]
+  },
+  {
+    "id": "GraceNetwork.pk",
+    "name": "Grace Network",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdn.live247stream.com/grace/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HarPalGeo.pk",
+    "name": "HarPal Geo",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://jk3lz82elw79-hls-live.5centscdn.com/harPalGeo/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "HumNews.pk",
+    "name": "Hum News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://116.90.120.151:8000/play/a024/index.m3u8"
+    ]
+  },
+  {
+    "id": "IsaacTV.pk",
+    "name": "Isaac TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdn.live247stream.com/isaac/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JooMusic.pk",
+    "name": "JooMusic",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdn.live247stream.com/joomusic/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "JoshuaTV.pk",
+    "name": "Joshua TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://livecdn.live247stream.com/joshua/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Kay2HD.pk",
+    "name": "Kay2 HD",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a027/index.m3u8"
+    ]
+  },
+  {
+    "id": "KidsZone.pk",
+    "name": "Kids Zone",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a04m/index.m3u8"
+    ]
+  },
+  {
+    "id": "KingTV.pk",
+    "name": "King TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streamer12.vdn.dstreamone.net/kingtv/kingtv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KohenoorNews.pk",
+    "name": "Kohenoor News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a00r/index.m3u8"
+    ]
+  },
+  {
+    "id": "KTNNews.pk",
+    "name": "KTN News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vodzong.mjunoon.tv:8087/streamtest/KTNNews-151/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LahoreNews.pk",
+    "name": "Lahore News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vcdn.dunyanews.tv/lahorelive/ngrp:lnews_1_all/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LahoreRang.pk",
+    "name": "Lahore Rang",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a01q/index.m3u8"
+    ]
+  },
+  {
+    "id": "LTNFamily.pk",
+    "name": "LTN Family",
+    "categories": [
+      "family"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a02j/index.m3u8"
+    ]
+  },
+  {
+    "id": "MadaniChannelEnglish.pk",
+    "name": "Madani Channel English",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.madanichannel.tv/static/streaming-playlists/hls/c6a600b0-82cb-454a-8953-2bb2bb372edc/master.m3u8",
+      "https://trs1.aynaott.com/MadaniTV/index.m3u8"
+    ]
+  },
+  {
+    "id": "MadaniChannelUrdu.pk",
+    "name": "Madani Channel Urdu",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://streaming.madanichannel.tv/static/streaming-playlists/hls/b9790f10-cb0d-4e30-82bf-84a756234e58/master.m3u8"
+    ]
+  },
+  {
+    "id": "MasalaTV.pk",
+    "name": "Masala TV",
+    "categories": [
+      "cooking"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a02x/index.m3u8"
+    ]
+  },
+  {
+    "id": "MashriqTV.pk",
+    "name": "Mashriq TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a02s/index.m3u8"
+    ]
+  },
+  {
+    "id": "MehranTV.pk",
+    "name": "Mehran TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a00m/index.m3u8"
+    ]
+  },
+  {
+    "id": "Metro1News.pk",
+    "name": "Metro1 News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a04u/index.m3u8"
+    ]
+  },
+  {
+    "id": "Minimax.pk",
+    "name": "Minimax",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vodzong.mjunoon.tv:8087/streamtest/disckids-157-1/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NeoNews.pk",
+    "name": "Neo News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a01p/index.m3u8",
+      "https://vodzong.mjunoon.tv:8087/streamtest/Neo-110/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NewsOne.pk",
+    "name": "News One",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://vodzong.mjunoon.tv:8087/streamtest/NEWS1-128/playlist.m3u8",
+      "http://103.250.28.74:8000/play/a04j/index.m3u8"
+    ]
+  },
+  {
+    "id": "OneGolf.pk",
+    "name": "One Golf",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://162.250.201.58:6211/pk/ONEGOLF/index.m3u8"
+    ]
+  },
+  {
+    "id": "ONNewsHD.pk",
+    "name": "ON News HD",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a046/index.m3u8"
+    ]
+  },
+  {
+    "id": "PaighanTV.pk",
+    "name": "Paighan TV",
+    "categories": [
+      "religious",
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "http://116.90.120.151:8000/play/a00h/index.m3u8"
+    ]
+  },
+  {
+    "id": "Pashto1.pk",
+    "name": "Pashto 1",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a00t/index.m3u8"
+    ]
+  },
+  {
+    "id": "PlayEntertainment.pk",
+    "name": "Play Entertainment",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a050/index.m3u8"
+    ]
+  },
+  {
+    "id": "PMITV.pk",
+    "name": "PMI TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://cdn.live247stream.com/pmi/tv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "PraiseTV.pk",
+    "name": "Praise TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://livecdn.live247stream.com/praise/tv/playlist.m3u8",
+      "https://pixelsmedia.live/livepraisetv/index.m3u8"
+    ]
+  },
+  {
+    "id": "PTVGlobal.pk",
+    "name": "PTV Global",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a018/index.m3u8"
+    ]
+  },
+  {
+    "id": "PTVNews.pk",
+    "name": "PTV News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a017/index.m3u8"
+    ]
+  },
+  {
+    "id": "PTVSports.pk",
+    "name": "PTV Sports",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a019/index.m3u8",
+      "https://trs1.aynaott.com/ptvsports/index.m3u8"
+    ]
+  },
+  {
+    "id": "PublicNews.pk",
+    "name": "Public News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a04g/index.m3u8"
+    ]
+  },
+  {
+    "id": "QuranTV.pk",
+    "name": "Quran TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a03e/index.m3u8"
+    ]
+  },
+  {
+    "id": "RaaviTV.pk",
+    "name": "Raavi TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://116.90.120.149:8000/play/a01f/index.m3u8"
+    ]
+  },
+  {
+    "id": "Rohi.pk",
+    "name": "Rohi",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a00d/index.m3u8"
+    ]
+  },
+  {
+    "id": "RozeNews.pk",
+    "name": "Roze News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a01k/index.m3u8"
+    ]
+  },
+  {
+    "id": "SABTV.pk",
+    "name": "SAB TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "https://ml-pull-dvc-myco.io:2096/SAB_ENTERTAINMENT/tracks-v1a1/mono.ts.m3u8"
+    ]
+  },
+  {
+    "id": "SamaaTV.pk",
+    "name": "Samaa TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a022/index.m3u8",
+      "https://vodzong.mjunoon.tv:8087/streamtest/SAMAA-173/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ShineStarTV.pk",
+    "name": "Shine Star TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://f-tx-edge-87.christianworldmedia.com/shinetvpak2/mp4:shinetvpak2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SilverScreen.pk",
+    "name": "Silver Screen",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a044/index.m3u8"
+    ]
+  },
+  {
+    "id": "SindhTV.pk",
+    "name": "Sindh TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://mumt01.tangotv.in/SINDHTV/index.m3u8",
+      "http://103.250.28.74:8000/play/a00u/index.m3u8"
+    ]
+  },
+  {
+    "id": "SindhTVNews.pk",
+    "name": "Sindh TV News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a00v/index.m3u8"
+    ]
+  },
+  {
+    "id": "StarAsia.pk",
+    "name": "Star Asia",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a010/index.m3u8"
+    ]
+  },
+  {
+    "id": "SuchTV.pk",
+    "name": "Such TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://video.primexsports.com/suchnews/live/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SunoNewsHD.pk",
+    "name": "Suno News HD",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a02a/index.m3u8"
+    ]
+  },
+  {
+    "id": "TenSportsPakistan.pk",
+    "name": "Ten Sports Pakistan",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "http://121.91.61.106:8000/play/a04h/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVOneGlobal.pk",
+    "name": "TV One Global",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a04i/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVToday.pk",
+    "name": "TV Today",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a06e/index.m3u8"
+    ]
+  },
+  {
+    "id": "VenusHD.pk",
+    "name": "Venus HD",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a04x/index.m3u8"
+    ]
+  },
+  {
+    "id": "VSHNews.pk",
+    "name": "VSH News",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a00w/index.m3u8"
+    ]
+  },
+  {
+    "id": "WasebTV.pk",
+    "name": "Waseb TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://103.250.28.74:8000/play/a04k/index.m3u8"
+    ]
+  },
+  {
+    "id": "ZindagiTV.pk",
+    "name": "Zindagi TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://5ad386ff92705.streamlock.net/live_transcoder/ngrp:zindagitv.stream_all/chunklist.m3u8"
+    ]
+  }
+]

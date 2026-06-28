@@ -1,0 +1,247 @@
+[
+  {
+    "id": "Channel13.il",
+    "name": "Channel 13",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8"
+    ]
+  },
+  {
+    "id": "Channel9.il",
+    "name": "Channel 9",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "http://ott.watch/XE5QWWBZ87/20/tracks-v1a1/mono.ts.m3u8?sid=6a3725e1-2094-4453-9252-c089475ef330"
+    ]
+  },
+  {
+    "id": "DisneyChannel.il",
+    "name": "Disney Channel",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/yes-disney-il-hd/video.m3u8"
+    ]
+  },
+  {
+    "id": "HalaTV.il",
+    "name": "Hala TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.panet.com/edge/halaTV/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Hidabroot.il",
+    "name": "Hidabroot",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.cybercdn.live/HidabrootIL/Live97/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Hop.il",
+    "name": "Hop!",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/hop-childhood-il/video.m3u8"
+    ]
+  },
+  {
+    "id": "i24NEWSEnglishUSA.il",
+    "name": "i24NEWS English USA",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://fastly.live.brightcove.com/6386790908112/eu-central-1/5377161796001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiZXJmajYzLmVncmVzcy53YzQ3bTEiLCJhY2NvdW50X2lkIjoiNTM3NzE2MTc5NjAwMSIsImVobiI6ImZhc3RseS5saXZlLmJyaWdodGNvdmUuY29tIiwiaXNzIjoiYmxpdmUtcGxheWJhY2stc291cmNlLWFwaSIsInN1YiI6InBhdGhtYXB0b2tlbiIsImF1ZCI6WyI1Mzc3MTYxNzk2MDAxIl0sImp0aSI6IjYzODY3OTA5MDgxMTIifQ._w5c3EwfnEecDCEpDaKuVz07uuEyUb3vXvQN3svv-oU/chunklist.m3u8"
+    ]
+  },
+  {
+    "id": "i24NEWSEnglishWorld.il",
+    "name": "i24NEWS English World",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bcovlive-a.akamaihd.net/ecf224f43f3b43e69471a7b626481af0/eu-central-1/5377161796001/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "i24NEWSFrench.il",
+    "name": "i24NEWS French",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bcovlive-a.akamaihd.net/41814196d97e433fb401c5e632d985e9/eu-central-1/5377161796001/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "i24NEWSHebrew.il",
+    "name": "i24NEWS Hebrew",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://bcovlive-a.akamaihd.net/d89ede8094c741b7924120b27764153c/eu-central-1/5377161796001/playlist.m3u8",
+      "https://bcovlive-a.akamaihd.net/d89ede8094c741b7924120b27764153c/eu-central-1/5377161796001/profile_0/chunklist.m3u8",
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/i24-il/video.m3u8"
+    ]
+  },
+  {
+    "id": "Junior.il",
+    "name": "Junior",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/junior-il/video.m3u8"
+    ]
+  },
+  {
+    "id": "KabbalahforthePeopleIsrael.il",
+    "name": "Kabbalah for the People Israel",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://edge3.uk.kab.tv/live/tv66-heb-high/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Kan11.il",
+    "name": "Kan 11",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/kan11/live.livx/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "KanEducational.il",
+    "name": "Kan Educational",
+    "categories": [
+      "education"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kan23.media.kan.org.il/hls/live/2024691/2024691/master.m3u8"
+    ]
+  },
+  {
+    "id": "KnessetChannel.il",
+    "name": "Knesset Channel",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://contact.gostreaming.tv/Knesset/myStream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Makan33.il",
+    "name": "Makan 33",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/makan/live.livx/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Nickelodeon.il",
+    "name": "Nickelodeon",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/yes-nickelodeon-il/video.m3u8"
+    ]
+  },
+  {
+    "id": "NickJr.il",
+    "name": "Nick Jr.",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/nick-jr-il/video.m3u8"
+    ]
+  },
+  {
+    "id": "Now14.il",
+    "name": "Now 14",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://r.il.cdn-redge.media/livehls/oil/ch14/live/ch14/live.livx/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "RelevantTV.il",
+    "name": "Relevant TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://6180c994cb835402.mediapackage.eu-west-1.amazonaws.com/out/v1/f1339272dd24416ca60b00e69075d783/index.m3u8"
+    ]
+  },
+  {
+    "id": "ShelanuTV.il",
+    "name": "Shelanu.TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://1247634592.rsc.cdn77.org/1247634592/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TeenNick.il",
+    "name": "TeenNick",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "http://315e5a5d.ottrast.com/iptv/MM4E93NGF5LADZ/2334/index.m3u8",
+      "http://bethoven.af-stream.com:1600/s/kwtlxswl/teennick-il/video.m3u8"
+    ]
+  }
+]

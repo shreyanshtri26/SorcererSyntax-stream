@@ -1,0 +1,157 @@
+[
+  {
+    "id": "312Kino.kg",
+    "name": "312 Kino",
+    "categories": [
+      "movies"
+    ],
+    "languages": [],
+    "streams": [
+      "http://176.126.166.43:1935/live/312kino/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "312TV.kg",
+    "name": "312 TV",
+    "categories": [
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://176.126.166.43:1935/live/312musik/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "AlaToo24.kg",
+    "name": "Ala-Too 24",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://st2.mediabay.tv/KG_KTRK-Ala-too/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Balastan.kg",
+    "name": "Balastan",
+    "categories": [
+      "kids"
+    ],
+    "languages": [],
+    "streams": [
+      "https://st2.mediabay.tv/KG_KTRK-Balastan/index.m3u8"
+    ]
+  },
+  {
+    "id": "BilimIlim.kg",
+    "name": "Bilim Ilim",
+    "categories": [
+      "kids",
+      "science"
+    ],
+    "languages": [],
+    "streams": [
+      "http://gohoski.fvds.ru:3000/mediabay/611/index.m3u8"
+    ]
+  },
+  {
+    "id": "ElTR.kg",
+    "name": "ElTR",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://gohoski.fvds.ru:3000/mediabay/162/index.m3u8"
+    ]
+  },
+  {
+    "id": "ManasTV.kg",
+    "name": "Manas TV",
+    "categories": [
+      "education",
+      "culture",
+      "entertainment"
+    ],
+    "languages": [],
+    "streams": [
+      "http://212.42.111.152:8080/hls/manas.m3u8"
+    ]
+  },
+  {
+    "id": "Music.kg",
+    "name": "Music",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://st2.mediabay.tv/KG_KTRK-Muzika/index.m3u8"
+    ]
+  },
+  {
+    "id": "NextTV.kg",
+    "name": "Next TV",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "http://gohoski.fvds.ru:3000/mediabay/601/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "OshPirim.kg",
+    "name": "Osh Pirim",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://gohoski.fvds.ru:3000/mediabay/697/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "Sport.kg",
+    "name": "Sport",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://st2.mediabay.tv/KG_KTRK-Sport/index.m3u8"
+    ]
+  },
+  {
+    "id": "TV15.kg",
+    "name": "TV15",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://gohoski.fvds.ru:3000/mediabay/655/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TV1KG.kg",
+    "name": "TV1.KG",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://212.2.225.30:1935/live/site.stream/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "UTRK.kg",
+    "name": "UTRK",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://st2.mediabay.tv/KG_KTRK-UTRK/index.m3u8"
+    ]
+  }
+]

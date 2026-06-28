@@ -1,0 +1,81 @@
+[
+  {
+    "id": "AfricableTV.ml",
+    "name": "Africable TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/africable/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "CheriflaTV.ml",
+    "name": "Cherifla TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/cherifla/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "D3TV.ml",
+    "name": "D3 TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live20.bozztv.com/akamaissh101/ssh101/d3tvnet/playlist.m3u8",
+      "https://lbgo.bozztv.com/ssh101/ssh101/d3tvnet/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "NietaTV.ml",
+    "name": "Nieta TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/nieta/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ORTM1.ml",
+    "name": "ORTM 1",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/ortm/playlist.m3u8",
+      "https://cs2.push2stream.com/ORTM-DVR/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "ORTM2.ml",
+    "name": "ORTM 2",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/tm2/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TM1TV.ml",
+    "name": "TM1 TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "http://69.64.57.208/tm1/playlist.m3u8"
+    ]
+  }
+]

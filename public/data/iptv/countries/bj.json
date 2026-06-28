@@ -1,0 +1,125 @@
+[
+  {
+    "id": "ADOTV.bj",
+    "name": "ADO TV",
+    "categories": [
+      "kids",
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://strhls.streamakaci.tv/ortb/ortb2-multi/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "BeninWebTV.bj",
+    "name": "Benin Web TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.beninwebtv.bj/2/live/stream.m3u8"
+    ]
+  },
+  {
+    "id": "EdenTV.bj",
+    "name": "Eden TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtmp.edentv.bj/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "HC2TV.bj",
+    "name": "HC2 TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream.hc2tv.bj/2/live/stream.m3u8"
+    ]
+  },
+  {
+    "id": "ICONETV.bj",
+    "name": "ICONE TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lecteur.iconetv.bj/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "KassouaTV.bj",
+    "name": "KassouaTV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://playtv4k.live/live/kassouatv/index.m3u8"
+    ]
+  },
+  {
+    "id": "LaVoixduRoutierTV.bj",
+    "name": "La Voix du Routier TV",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://webtv.lavoixduroutiertv.bj/hls/stream.m3u8"
+    ]
+  },
+  {
+    "id": "LeNouveauManagerTV.bj",
+    "name": "Le Nouveau Manager TV",
+    "categories": [
+      "business"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lnmlive.com/live/lnmtv.m3u8"
+    ]
+  },
+  {
+    "id": "ORTBTV.bj",
+    "name": "ORTB TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://strhls.streamakaci.tv/ortb/ortb1-multi/playlist.m3u8",
+      "http://69.64.57.208/ortb/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "SpeedlineTV.bj",
+    "name": "Speedline TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn-us-east-prod-ingest-infra-dacast-com.akamaized.net/dbe59037-07a0-4f1c-82a2-7de94b4b62d2/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVCBenin.bj",
+    "name": "TVC Benin",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://live.tvcbenin.com/direct/729c37a1d3319ee21991227b1f84c687.sdp/playlist.m3u8"
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "KKTV.ao",
+    "name": "KK TV",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://w1.manasat.com/ktv-angola/smil:ktv-angola.smil/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "MuzangalaTV.ao",
+    "name": "Muzangala TV",
+    "categories": [
+      "music"
+    ],
+    "languages": [],
+    "streams": [
+      "https://5cf4a2c2512a2.streamlock.net/tvmuzangala/tvmuzangala/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVZimbo.ao",
+    "name": "TV Zimbo",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://sgn-cdn-video.vods2africa.com/Tv-Zimbo/index.fmp4.m3u8"
+    ]
+  }
+]

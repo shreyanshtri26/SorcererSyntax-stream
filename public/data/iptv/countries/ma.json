@@ -1,0 +1,202 @@
+[
+  {
+    "id": "2M.ma",
+    "name": "2M",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/2m-tnt/hls/master.m3u8",
+      "http://185.9.2.18/chid_218/index.m3u8"
+    ]
+  },
+  {
+    "id": "2MMonde.ma",
+    "name": "2M Monde",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/2m/hls/master.m3u8",
+      "https://d2qh3gh0k5vp3v.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-n6pess5lwbghr/2M_ES.m3u8",
+      "https://cdn-globecast.akamaized.net/live/eds/2m_monde/hls_video_ts_tuhawxpiemz257adfc/2m_monde.m3u8"
+    ]
+  },
+  {
+    "id": "AlAoula.ma",
+    "name": "Al Aoula",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/alaoula-tnt/hls/master.m3u8",
+      "https://stream-lb.livemediama.com/alaoula/hls/master.m3u8",
+      "https://snrtworker.kharazbelaid.workers.dev/?id=alaoula.m3u8"
+    ]
+  },
+  {
+    "id": "AlMaghribia.ma",
+    "name": "Al Maghribia",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://snrtworker.kharazbelaid.workers.dev/?id=almaghribia.m3u8",
+      "http://185.9.2.18/chid_205/index.m3u8"
+    ]
+  },
+  {
+    "id": "Arryadia.ma",
+    "name": "Arryadia",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/arryadia/hls/master.m3u8",
+      "https://stream-lb.livemediama.com/arryadia-tnt/hls/master.m3u8",
+      "https://snrtworker.kharazbelaid.workers.dev/?id=arryadia.m3u8"
+    ]
+  },
+  {
+    "id": "ArryadiaHD1.ma",
+    "name": "Arryadia HD1",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/arryadia-hd-01/hls/master.m3u8"
+    ]
+  },
+  {
+    "id": "ArryadiaHD2.ma",
+    "name": "Arryadia HD2",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/arryadia-hd-02/hls/master.m3u8"
+    ]
+  },
+  {
+    "id": "ArryadiaHD3.ma",
+    "name": "Arryadia HD3",
+    "categories": [
+      "sports"
+    ],
+    "languages": [],
+    "streams": [
+      "https://stream-lb.livemediama.com/arryadia-hd-03/hls/master.m3u8"
+    ]
+  },
+  {
+    "id": "Assadissa.ma",
+    "name": "Assadissa",
+    "categories": [
+      "religious"
+    ],
+    "languages": [],
+    "streams": [
+      "https://snrtworker.kharazbelaid.workers.dev/?id=assadisa.m3u8"
+    ]
+  },
+  {
+    "id": "Athaqafia.ma",
+    "name": "Athaqafia",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://snrtworker.kharazbelaid.workers.dev/?id=arrabia.m3u8"
+    ]
+  },
+  {
+    "id": "ChadaTV.ma",
+    "name": "Chada TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://chadatv.vedge.infomaniak.com/livecast/chadatv/playlist.m3u8",
+      "https://edge13.vedge.infomaniak.com/livecast/ik:chadatv/manifest.m3u8",
+      "https://edge19.vedge.infomaniak.com/livecast/ik:chadatv/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "LaayouneTV.ma",
+    "name": "Laayoune TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://snrtworker.kharazbelaid.workers.dev/?id=laayoune.m3u8"
+    ]
+  },
+  {
+    "id": "Medi1TVAfrique.ma",
+    "name": "Medi1TV Afrique",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.easybroadcast.io/abr_corp/83_medi1tv-afrique_tm7tu45/playlist.m3u8",
+      "https://cdn.live.easybroadcast.io/abr_corp/83_medi1tv-afrique_tm7tu45/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "Medi1TVArabic.ma",
+    "name": "Medi1TV Arabic",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.easybroadcast.io/abr_corp/83_medi1tv-arabic_g90v4ec/playlist.m3u8",
+      "https://cdn.live.easybroadcast.io/abr_corp/83_medi1tv-arabic_g90v4ec/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "Medi1TVMaghreb.ma",
+    "name": "Medi1TV Maghreb",
+    "categories": [
+      "news"
+    ],
+    "languages": [],
+    "streams": [
+      "https://cdn.live.easybroadcast.io/abr_corp/83_medi1tv-maghreb_jnbspmg/playlist.m3u8",
+      "https://cdn.live.easybroadcast.io/abr_corp/83_medi1tv-maghreb_jnbspmg/playlist_dvr.m3u8"
+    ]
+  },
+  {
+    "id": "StoryChannelTV.ma",
+    "name": "StoryChannel TV",
+    "categories": [
+      "culture"
+    ],
+    "languages": [],
+    "streams": [
+      "https://136044159.r.cdnsun.net/storychannel.m3u8"
+    ]
+  },
+  {
+    "id": "TamazightTV.ma",
+    "name": "Tamazight TV",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://snrtworker.kharazbelaid.workers.dev/?id=tamazight.m3u8"
+    ]
+  }
+]

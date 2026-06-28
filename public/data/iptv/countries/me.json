@@ -1,0 +1,71 @@
+[
+  {
+    "id": "PrvaMontenegro.me",
+    "name": "Prva Montenegro",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://lb.dstvmultimedia.com/PrvaTVCG/index.m3u8"
+    ]
+  },
+  {
+    "id": "RadiotelevizijaRozaje.me",
+    "name": "Radio televizija Rozaje",
+    "categories": [
+      "general"
+    ],
+    "languages": [],
+    "streams": [
+      "https://glb.bozztv.com/glb/ssh101/tvrozaje/index.m3u8"
+    ]
+  },
+  {
+    "id": "TVCG1.me",
+    "name": "TVCG 1",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://rtcg-live-open-geo.morescreens.com/RTCG_1_001/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCG2.me",
+    "name": "TVCG 2",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://rtcg-live-open-geo.morescreens.com/RTCG_1_002/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCG3.me",
+    "name": "TVCG 3",
+    "categories": [
+      "legislative"
+    ],
+    "languages": [],
+    "streams": [
+      "https://rtcg-live-open-geo.morescreens.com/RTCG_1_003/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVCGMNE.me",
+    "name": "TVCG MNE",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://rtcg-live-open.morescreens.com/RTCG_1_004/playlist.m3u8"
+    ]
+  },
+  {
+    "id": "TVNiksic.me",
+    "name": "TV Niksic",
+    "categories": [],
+    "languages": [],
+    "streams": [
+      "https://tv.rtv-niksic.me/hls/stream.m3u8"
+    ]
+  }
+]
