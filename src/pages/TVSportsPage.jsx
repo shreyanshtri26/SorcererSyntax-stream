@@ -838,7 +838,7 @@ const TVSportsPage = ({ currentTheme }) => {
           onClick={() => { handleTabChange('channels'); handleSourceChange('dlhd'); }}
         >
           <i className="fa-solid fa-star"></i>
-          <span>Premium</span>
+          <span>Sports</span>
         </button>
         <button
           className={`mobile-nav-item ${activeTab === 'channels' && channelSource === 'iptv' ? 'active' : ''}`}
