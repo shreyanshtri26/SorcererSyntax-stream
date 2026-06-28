@@ -50,15 +50,6 @@ const DlhdIframeModal = ({ isOpen, onClose, streamId, folder = 'stream', iframeU
               </div>
             )}
             
-            <a 
-              href={src} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="open-tab-btn"
-              title="Open stream in a new window to bypass iframe blocks"
-            >
-              <i className="fa-solid fa-arrow-up-right-from-square"></i> Open in New Tab
-            </a>
             
             <button className="dlhd-iframe-modal__close" onClick={onClose} aria-label="Close">
               ×

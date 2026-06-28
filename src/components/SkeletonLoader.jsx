@@ -28,4 +28,22 @@ export const SearchResultSkeleton = ({ theme = 'devil' }) => (
   </div>
 );
 
+export const TVChannelSkeleton = ({ theme = 'devil' }) => (
+  <div className={`channel-card skeleton theme-${theme}`}>
+    <div className="skeleton-tv-logo"></div>
+    <div className="channel-info">
+      <div className="skeleton-tv-title"></div>
+      <div className="skeleton-tv-meta"></div>
+    </div>
+  </div>
+);
+
+export const TVGridSkeleton = ({ count = 12, theme = 'devil' }) => (
+  <div className="channels-grid">
+    {Array.from({ length: count }).map((_, index) => (
+      <TVChannelSkeleton key={index} theme={theme} />
+    ))}
+  </div>
+);
+
 export default MediaGridSkeleton;

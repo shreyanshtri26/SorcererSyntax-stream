@@ -1,8 +1,15 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useDeferredValue, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchDlhdChannels, fetchDlhdSchedule, getDlhdLogoUrl } from '../api/dlhdApi';
 import { fetchDamiStreams } from '../api/damiApi';
 import SportsPlayerView from '../components/SportsPlayerView';
+import TVSidebar from '../components/TVSports/TVSidebar';
+import TVHeader from '../components/TVSports/TVHeader';
+import PremiumChannelsGrid from '../components/TVSports/PremiumChannelsGrid';
+import WorldwideTVGrid from '../components/TVSports/WorldwideTVGrid';
+import SportsEventsGrid from '../components/TVSports/SportsEventsGrid';
+import ScheduleView from '../components/TVSports/ScheduleView';
+import MobileBottomNav from '../components/TVSports/MobileBottomNav';
 import './TVSportsPage.css';
 
 const TVSportsPage = ({ currentTheme }) => {
@@ -16,6 +23,7 @@ const TVSportsPage = ({ currentTheme }) => {
 
   // DLHD Data states
   const [dlhdChannels, setDlhdChannels] = useState([]);
+  const [cinemaChannels, setCinemaChannels] = useState([]);
   const [damiStreams, setDamiStreams] = useState([]);
   const [dlhdSchedule, setDlhdSchedule] = useState({});
   const [loading, setLoading] = useState(true);
@@ -30,6 +38,7 @@ const TVSportsPage = ({ currentTheme }) => {
 
   // Filter & Search states
   const [searchQuery, setSearchQuery] = useState('');
+  const deferredSearchQuery = useDeferredValue(searchQuery);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedLanguage, setSelectedLanguage] = useState('all');
 
@@ -68,6 +77,55 @@ const TVSportsPage = ({ currentTheme }) => {
           // If URL has a specific country, honour it; otherwise default to 'all'
           const urlCountry = searchParams.get('country');
           setSelectedCountry(urlCountry || 'all');
+          
+          // Background fetch all IPTV channels
+          const cacheKey = 'iptv_all_countries_v2';
+          const cacheTime = sessionStorage.getItem(cacheKey + '_time');
+          if (!cacheTime || (Date.now() - parseInt(cacheTime)) >= 3600 * 1000) {
+            (async () => {
+              try {
+                let bgData = [];
+                // Process in chunks to prevent network blocking
+                const chunkArray = (arr, size) => Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
+                const chunks = chunkArray(indexData, 15);
+                for (const chunk of chunks) {
+                  const promises = chunk.map(c => fetch(`/data/iptv/countries/${c.code}.json`).then(r => r.ok ? r.json() : []).catch(() => []));
+                  const results = await Promise.all(promises);
+                  bgData = bgData.concat(results.flat());
+                }
+
+                sessionStorage.setItem(cacheKey, JSON.stringify(bgData));
+                sessionStorage.setItem(cacheKey + '_time', Date.now().toString());
+                console.log('Background fetch completed for all IPTV channels');
+              } catch (e) {
+                console.error("Background fetch failed", e);
+              }
+            })();
+          }
+        }
+        
+        // Fetch CinemaOS Channels
+        try {
+          const cinemaRes = await fetch('/api/cinemaos');
+          if (cinemaRes.ok) {
+            const cinemaData = await cinemaRes.json();
+            if (cinemaData && Array.isArray(cinemaData.channels)) {
+              const mappedCinemaChannels = cinemaData.channels
+                .filter(c => c.playable)
+                .map(c => ({
+                  id: c.id,
+                  name: c.name,
+                  logo: c.logo_url,
+                  categories: [(c.category || 'general').toLowerCase()],
+                  languages: ['all'],
+                  countries: ['all'],
+                  iframeUrl: `https://embed.st/embed/admin/${c.id}/1`
+                }));
+              setCinemaChannels(mappedCinemaChannels);
+            }
+          }
+        } catch (e) {
+          console.error('Failed to fetch CinemaOS channels', e);
         }
         setLoading(false);
       } catch (err) {
@@ -88,21 +146,28 @@ const TVSportsPage = ({ currentTheme }) => {
           let data = [];
 
           if (selectedCountry === 'all') {
-            // Get list of all country codes
-            const idxRes = await fetch('/data/iptv/index.json');
-            const idx = idxRes.ok ? await idxRes.json() : [];
-            console.log('Aggregating IPTV channels from', idx.length, 'countries');
-            // Fetch each country's JSON sequentially to avoid overwhelming the network
-            for (const c of idx) {
-              try {
-                const res = await fetch(`/data/iptv/countries/${c.code}.json`);
-                if (res.ok) {
-                  const arr = await res.json();
-                  if (Array.isArray(arr)) data = data.concat(arr);
-                }
-              } catch (e) {
-                console.error('Failed to load country', c.code, e);
+            const cacheKey = 'iptv_all_countries_v2';
+            const cacheTime = sessionStorage.getItem(cacheKey + '_time');
+            const cachedData = sessionStorage.getItem(cacheKey);
+            
+            if (cachedData && cacheTime && (Date.now() - parseInt(cacheTime)) < 3600 * 1000) {
+              data = JSON.parse(cachedData);
+            } else {
+              // Fetch using Promise.all to load them concurrently
+              const idxRes = await fetch('/data/iptv/index.json');
+              const idx = idxRes.ok ? await idxRes.json() : [];
+              
+              // Process in chunks
+              const chunkArray = (arr, size) => Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
+              const chunks = chunkArray(idx, 15);
+              for (const chunk of chunks) {
+                const promises = chunk.map(c => fetch(`/data/iptv/countries/${c.code}.json`).then(r => r.ok ? r.json() : []).catch(() => []));
+                const results = await Promise.all(promises);
+                data = data.concat(results.flat());
               }
+
+              sessionStorage.setItem(cacheKey, JSON.stringify(data));
+              sessionStorage.setItem(cacheKey + '_time', Date.now().toString());
             }
           } else if (selectedCountry) {
             const res = await fetch(`/data/iptv/countries/${selectedCountry}.json`);
@@ -122,7 +187,7 @@ const TVSportsPage = ({ currentTheme }) => {
   }, [activeTab, channelSource, selectedCountry]);
 
   // Handle Tab Navigation Changes & update query parameters
-  const handleTabChange = (tab) => {
+  const handleTabChange = useCallback((tab) => {
     setActiveTab(tab);
     setSelectedCategory('all');
     setSearchQuery('');
@@ -135,10 +200,10 @@ const TVSportsPage = ({ currentTheme }) => {
       }
     }
     setSearchParams(params);
-  };
+  }, [channelSource, selectedCountry, setSearchParams]);
 
   // Handle Source Toggle Changes & update query parameters
-  const handleSourceChange = (src) => {
+  const handleSourceChange = useCallback((src) => {
     setChannelSource(src);
     setSelectedCategory('all');
     setSearchQuery('');
@@ -148,10 +213,10 @@ const TVSportsPage = ({ currentTheme }) => {
       params.country = selectedCountry;
     }
     setSearchParams(params);
-  };
+  }, [selectedCountry, setSearchParams]);
 
   // Handle Country Selection Dropdown Changes & update query parameters
-  const handleCountryChange = (countryCode) => {
+  const handleCountryChange = useCallback((countryCode) => {
     // Show loader while new country data loads
     setLoadingIptvChannels(true);
     setSelectedCountry(countryCode);
@@ -164,7 +229,7 @@ const TVSportsPage = ({ currentTheme }) => {
       params.country = countryCode;
     }
     setSearchParams(params);
-  };
+  }, [setSearchParams]);
 
   // Reset category & language filters when active tab or channel source changes
   useEffect(() => {
@@ -177,7 +242,7 @@ const TVSportsPage = ({ currentTheme }) => {
   const channelCategories = useMemo(() => {
     const cats = new Set(['all']);
     dlhdChannels.forEach(ch => {
-      const name = ch.channel_name.toLowerCase();
+      const name = (ch.channel_name || '').toLowerCase();
       if (name.includes('sport') || name.includes('bein') || name.includes('espn') || name.includes('racing') || name.includes('sky')) {
         cats.add('sports');
       } else if (name.includes('news') || name.includes('cnn') || name.includes('bbc')) {
@@ -195,14 +260,8 @@ const TVSportsPage = ({ currentTheme }) => {
 
   // Dynamically categorize IPTV channels
   const iptvCategories = useMemo(() => {
-    const cats = new Set(['all']);
-    iptvChannels.forEach(ch => {
-      if (ch.categories && ch.categories.length > 0) {
-        ch.categories.forEach(cat => cats.add(cat.toLowerCase()));
-      }
-    });
-    return Array.from(cats);
-  }, [iptvChannels]);
+    return ['all', 'news', 'music', 'religious', 'entertainment', 'movies', 'culture', 'lifestyle', 'business', 'education', 'general', 'kids', 'sports'];
+  }, []);
 
   // Languages memo for both DLHD and IPTV
   const channelLanguages = useMemo(() => {
@@ -225,7 +284,7 @@ const TVSportsPage = ({ currentTheme }) => {
     const cats = new Set(['all']);
     damiStreams.forEach(group => {
       if (group.category) {
-        cats.add(group.category.toLowerCase());
+        cats.add((group.category || '').toLowerCase());
       }
     });
     return Array.from(cats);
@@ -255,10 +314,10 @@ const TVSportsPage = ({ currentTheme }) => {
   const handlePlayHlsChannel = (channel) => {
     const params = {
       tab: 'channels',
-      source: 'iptv',
+      source: channelSource,
       play: channel.id
     };
-    if (selectedCountry !== 'all') {
+    if (channelSource === 'iptv' && selectedCountry !== 'all') {
       params.country = selectedCountry;
     }
     setSearchParams(params);
@@ -311,9 +370,15 @@ const TVSportsPage = ({ currentTheme }) => {
 
   // Filtered DLHD Channels
   const filteredDlhdChannels = useMemo(() => {
+    const seenNames = new Set();
+    const query = (deferredSearchQuery || '').toLowerCase();
     return dlhdChannels.filter(ch => {
-      const name = ch.channel_name.toLowerCase();
-      const matchesSearch = name.includes(searchQuery.toLowerCase());
+      const name = (ch.channel_name || '').toLowerCase();
+      if (seenNames.has(name)) return false;
+      seenNames.add(name);
+      
+      if (query && !name.includes(query)) return false;
+
       if (selectedCategory !== 'all') {
         let cat = 'general';
         if (name.includes('sport') || name.includes('bein') || name.includes('espn') || name.includes('racing') || name.includes('sky')) cat = 'sports';
@@ -323,25 +388,47 @@ const TVSportsPage = ({ currentTheme }) => {
         if (cat !== selectedCategory) return false;
       }
       if (selectedLanguage !== 'all') {
-        if (!ch.languages || !ch.languages.map(l => l.toLowerCase()).includes(selectedLanguage)) return false;
+        if (!ch.languages || !ch.languages.map(l => (l || '').toLowerCase()).includes(selectedLanguage)) return false;
       }
-      return matchesSearch;
+      return true;
     });
-  }, [dlhdChannels, searchQuery, selectedCategory, selectedLanguage]);
+  }, [dlhdChannels, deferredSearchQuery, selectedCategory, selectedLanguage]);
 
   // Filtered IPTV Channels
   const filteredIptvChannels = useMemo(() => {
+    const seenNames = new Set();
+    const query = (deferredSearchQuery || '').toLowerCase();
     return iptvChannels.filter(ch => {
-      const matchesSearch = ch.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const name = (ch.name || '').toLowerCase();
+      if (seenNames.has(name)) return false;
+      seenNames.add(name);
+      
+      if (query && !name.includes(query)) return false;
+
       if (selectedCategory !== 'all') {
-        if (!ch.categories || !ch.categories.some(cat => cat.toLowerCase() === selectedCategory)) return false;
+        if (!ch.categories || !ch.categories.some(cat => (cat || '').toLowerCase().includes(selectedCategory))) return false;
       }
       if (selectedLanguage !== 'all') {
-        if (!ch.languages || !ch.languages.map(l => l.toLowerCase()).includes(selectedLanguage)) return false;
+        if (!ch.languages || !ch.languages.map(l => (l || '').toLowerCase()).includes(selectedLanguage)) return false;
       }
-      return matchesSearch;
+      return true;
     });
-  }, [iptvChannels, searchQuery, selectedCategory, selectedLanguage]);
+  }, [iptvChannels, deferredSearchQuery, selectedCategory, selectedLanguage]);
+
+  // Filtered CinemaOS Channels
+  const filteredCinemaChannels = useMemo(() => {
+    const query = (deferredSearchQuery || '').toLowerCase();
+    return cinemaChannels.filter(ch => {
+      const name = (ch.name || '').toLowerCase();
+      
+      if (query && !name.includes(query)) return false;
+
+      if (selectedCategory !== 'all') {
+        if (!ch.categories || !ch.categories.some(cat => (cat || '').toLowerCase().includes(selectedCategory))) return false;
+      }
+      return true;
+    });
+  }, [cinemaChannels, deferredSearchQuery, selectedCategory]);
 
   // Filtered DAMITV Streams (Events)
   const filteredEvents = useMemo(() => {
@@ -349,21 +436,22 @@ const TVSportsPage = ({ currentTheme }) => {
     const nowSecs = Math.floor(Date.now() / 1000);
     const minTime = nowSecs - 4 * 3600;
     const maxTime = nowSecs + 20 * 3600;
+    const query = (deferredSearchQuery || '').toLowerCase();
 
     damiStreams.forEach(group => {
-      const categoryMatches = selectedCategory === 'all' || group.category.toLowerCase() === selectedCategory;
+      const categoryMatches = selectedCategory === 'all' || (group.category && group.category.toLowerCase() === selectedCategory);
       if (categoryMatches) {
         group.streams.forEach(stream => {
           const startsAt = stream.starts_at;
           const withinTimeRange = startsAt >= minTime && startsAt <= maxTime;
-          if (withinTimeRange && stream.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+          if (withinTimeRange && (!query || (stream.name || '').toLowerCase().includes(query))) {
             result.push(stream);
           }
         });
       }
     });
     return result;
-  }, [damiStreams, searchQuery, selectedCategory]);
+  }, [damiStreams, deferredSearchQuery, selectedCategory]);
 
   // Filtered Schedule Events
   const filteredSchedule = useMemo(() => {
@@ -371,6 +459,7 @@ const TVSportsPage = ({ currentTheme }) => {
     const nowMs = Date.now();
     const minTime = nowMs - 4 * 3600 * 1000;
     const maxTime = nowMs + 20 * 3600 * 1000;
+    const query = (deferredSearchQuery || '').toLowerCase();
 
     Object.keys(dlhdSchedule).forEach(day => {
       if (selectedCategory === 'all' || selectedCategory === day) {
@@ -383,7 +472,7 @@ const TVSportsPage = ({ currentTheme }) => {
             const evtDate = getEventDateTime(day, evt.time);
             const evtTimeMs = evtDate.getTime();
             const withinTimeRange = evtTimeMs >= minTime && evtTimeMs <= maxTime;
-            return withinTimeRange && evt.event.toLowerCase().includes(searchQuery.toLowerCase());
+            return withinTimeRange && (!query || (evt.event || '').toLowerCase().includes(query));
           });
 
           if (matchedEvents.length > 0) {
@@ -397,7 +486,7 @@ const TVSportsPage = ({ currentTheme }) => {
       }
     });
     return result;
-  }, [dlhdSchedule, searchQuery, selectedCategory]);
+  }, [dlhdSchedule, deferredSearchQuery, selectedCategory]);
 
   // Fallback initial/placeholder generator
   const getChannelInitial = (name) => {
@@ -405,15 +494,6 @@ const TVSportsPage = ({ currentTheme }) => {
   };
 
   const playId = searchParams.get('play');
-
-  if (loading) {
-    return (
-      <div className="tv-sports-page-loading">
-        <div className="spinner"></div>
-        <p>Loading live broadcasts and event schedules...</p>
-      </div>
-    );
-  }
 
   if (error) {
     return (
@@ -433,6 +513,7 @@ const TVSportsPage = ({ currentTheme }) => {
         source={channelSource}
         dlhdChannels={dlhdChannels}
         iptvChannels={iptvChannels}
+        cinemaChannels={cinemaChannels}
         damiStreams={damiStreams}
         countriesList={countriesList}
         selectedCountry={selectedCountry}
@@ -447,82 +528,23 @@ const TVSportsPage = ({ currentTheme }) => {
     if (activeTab === 'events') return eventCategories;
     if (activeTab === 'schedule') return scheduleDays;
     if (activeTab === 'channels' && channelSource === 'dlhd') return channelCategories;
+    if (activeTab === 'channels' && channelSource === 'cinemaos') return iptvCategories.slice(0, 20);
     if (activeTab === 'channels' && channelSource === 'iptv') return iptvCategories.slice(0, 20);
     return ['all'];
   };
 
-  const categoryLabel = activeTab === 'schedule' ? 'Days' : 'Categories';
-
-  return (
+  const categoryLabel = activeTab === 'schedule' ? 'Days' : 'Categories';  return (
     <div className="tv-sports-page">
-      {/* Sidebar */}
-      <aside className="tv-sidebar" data-lenis-prevent>
-        {/* Browse By */}
-        <div className="sidebar-section">
-          <h3>Browse By</h3>
-          <ul className="sidebar-menu">
-            <li
-              className={activeTab === 'channels' ? 'active' : ''}
-              onClick={() => handleTabChange('channels')}
-            >
-              <i className="fa-solid fa-tv"></i> Live TV
-            </li>
-            <li
-              className={activeTab === 'events' ? 'active' : ''}
-              onClick={() => handleTabChange('events')}
-            >
-              <i className="fa-solid fa-trophy"></i> Sports Events
-            </li>
+      <TVSidebar
+        activeTab={activeTab}
+        handleTabChange={handleTabChange}
+        channelSource={channelSource}
+        handleSourceChange={handleSourceChange}
+        countriesList={countriesList}
+        selectedCountry={selectedCountry}
+        handleCountryChange={handleCountryChange}
+      />
 
-          </ul>
-        </div>
-
-        {/* TV Source Toggle */}
-        {activeTab === 'channels' && (
-          <div className="sidebar-section">
-            <h3>TV Source</h3>
-            <ul className="source-menu">
-              <li
-                className={channelSource === 'dlhd' ? 'active' : ''}
-                onClick={() => handleSourceChange('dlhd')}
-              >
-                <i className="fa-solid fa-star"></i> Premium Sports
-              </li>
-              <li
-                className={channelSource === 'iptv' ? 'active' : ''}
-                onClick={() => handleSourceChange('iptv')}
-              >
-                <i className="fa-solid fa-globe"></i> Worldwide TV
-              </li>
-            </ul>
-          </div>
-        )}
-
-        {/* Country Selector for Worldwide IPTV */}
-        {activeTab === 'channels' && channelSource === 'iptv' && countriesList.length > 0 && (
-          <div className="sidebar-section country-section">
-            <h3>Select Country</h3>
-            <div className="country-selector-wrapper">
-              <select
-                value={selectedCountry}
-                onChange={(e) => handleCountryChange(e.target.value)}
-                className="country-dropdown"
-              >
-                <option value="all">🌍 All Countries</option>
-                {countriesList.map(c => (
-                  <option key={c.code} value={c.code}>
-                    {c.name} ({c.count})
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        )}
-
-
-      </aside>
-
-      {/* Main Content Area */}
       <main className="tv-content">
         {/* Mobile-only: Country Selector row (shown when IPTV + mobile) */}
         {activeTab === 'channels' && channelSource === 'iptv' && countriesList.length > 0 && (
@@ -542,319 +564,86 @@ const TVSportsPage = ({ currentTheme }) => {
             </select>
           </div>
         )}
-        <header className="tv-header">
-          <div className="header-title">
-            <h2>
-              {activeTab === 'channels' && channelSource === 'dlhd' && 'Premium Sports Channels'}
-              {activeTab === 'channels' && channelSource === 'iptv' && (
-                selectedCountry === 'all'
-                  ? 'Worldwide TV — All Countries'
-                  : `${countriesList.find(c => c.code === selectedCountry)?.name || 'Worldwide'} TV`
-              )}
-              {activeTab === 'events' && 'Live & Upcoming Sports Events'}
-              {activeTab === 'schedule' && 'Live Events Schedule'}
-            </h2>
-            <p className="subtitle">
-              {activeTab === 'channels' && channelSource === 'dlhd' && `${filteredDlhdChannels.length} networks live`}
-              {activeTab === 'channels' && channelSource === 'iptv' && `${filteredIptvChannels.length} channels loaded`}
-              {activeTab === 'events' && `${filteredEvents.length} events scheduled`}
-              {activeTab === 'schedule' && 'Click on any channel link to tune in'}
-            </p>
-          </div>
 
-          <div className="tv-search-wrapper">
-            <i className="fa-solid fa-magnifying-glass search-icon"></i>
-            <input
-              type="text"
-              className="tv-search"
-              placeholder={`Search ${activeTab === 'channels' ? (channelSource === 'dlhd' ? 'premium channels' : 'worldwide channels') : activeTab}...`}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            {searchQuery && (
-              <button className="clear-search-btn" onClick={() => setSearchQuery('')}>
-                <i className="fa-solid fa-xmark"></i>
-              </button>
-            )}
-          </div>
+        <TVHeader
+          activeTab={activeTab}
+          channelSource={channelSource}
+          selectedCountry={selectedCountry}
+          countriesList={countriesList}
+          filteredDlhdChannelsCount={filteredDlhdChannels.length}
+          filteredIptvChannelsCount={filteredIptvChannels.length}
+          filteredCinemaChannelsCount={filteredCinemaChannels.length}
+          filteredEventsCount={filteredEvents.length}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          activeCategoryList={activeCategoryList}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          channelLanguages={channelLanguages}
+          selectedLanguage={selectedLanguage}
+          setSelectedLanguage={setSelectedLanguage}
+        />
 
-          {/* Inline Category Filter Pills */}
-          {activeTab === 'channels' && (
-            <div className="inline-filter-pills">
-              {(channelSource === 'dlhd' ? channelCategories : iptvCategories.slice(0, 12)).map(cat => (
-                <button
-                  key={cat}
-                  className={`filter-pill ${selectedCategory === cat ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  {cat === 'all' ? '⭐ All' : cat.charAt(0).toUpperCase() + cat.slice(1)}
-                </button>
-              ))}
-            </div>
-          )}
-          {activeTab === 'events' && (
-            <div className="inline-filter-pills">
-              {eventCategories.map(cat => (
-                <button
-                  key={cat}
-                  className={`filter-pill ${selectedCategory === cat ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  {cat === 'all' ? '⭐ All' : cat.charAt(0).toUpperCase() + cat.slice(1)}
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Inline Language Filter Pills — shown for all tabs */}
-          {channelLanguages.length > 1 && (
-            <div className="inline-filter-pills lang-filter-pills">
-              <span className="filter-pills-label"><i className="fa-solid fa-language"></i></span>
-              {channelLanguages.map(lang => (
-                <button
-                  key={lang}
-                  className={`filter-pill lang-pill ${selectedLanguage === lang ? 'active' : ''}`}
-                  onClick={() => setSelectedLanguage(lang)}
-                >
-                  {lang === 'all' ? '🌐 All Languages' : lang.charAt(0).toUpperCase() + lang.slice(1)}
-                </button>
-              ))}
-            </div>
-          )}
-        </header>
-
-
-        {/* Dynamic Display area based on tabs */}
         <div className="tv-viewport" data-lenis-prevent>
-
-          {/* TAB 1: Premium DLHD Channels */}
           {activeTab === 'channels' && channelSource === 'dlhd' && (
-            <div className="channels-grid">
-              {filteredDlhdChannels.length > 0 ? (
-                filteredDlhdChannels.map(ch => (
-                  <div
-                    key={ch.channel_id}
-                    className="channel-card"
-                    onClick={() => handlePlayDlhdChannel(ch.channel_id)}
-                  >
-                    <div className="logo-container">
-                      {ch.logo_url ? (
-                        <img
-                          src={getDlhdLogoUrl(ch.logo_url)}
-                          alt={ch.channel_name}
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                      ) : null}
-                      <div
-                        className="channel-logo-fallback"
-                        style={{ display: ch.logo_url ? 'none' : 'flex' }}
-                      >
-                        {getChannelInitial(ch.channel_name)}
-                      </div>
-                    </div>
-                    <div className="channel-info">
-                      <h4 className="channel-name" title={ch.channel_name}>{ch.channel_name}</h4>
-                      <span className="live-pill">
-                        <span className="live-dot"></span> LIVE
-                      </span>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="no-results">
-                  <i className="fa-regular fa-folder-open"></i>
-                  <p>No premium channels matching "{searchQuery}" found.</p>
-                </div>
-              )}
-            </div>
+            <PremiumChannelsGrid
+              isLoading={loading}
+              currentTheme={currentTheme}
+              filteredDlhdChannels={filteredDlhdChannels}
+              handlePlayDlhdChannel={handlePlayDlhdChannel}
+              searchQuery={searchQuery}
+              getChannelInitial={getChannelInitial}
+            />
           )}
 
-          {/* TAB 1b: Worldwide IPTV Channels */}
           {activeTab === 'channels' && channelSource === 'iptv' && (
-            loadingIptvChannels ? (
-              <div className="tv-sports-page-loading">
-                <div className="spinner"></div>
-                <p>{selectedCountry === 'all' ? 'Aggregating all country channels...' : 'Fetching country channels...'}</p>
-              </div>
-            ) : (
-              <div className="channels-grid">
-                {filteredIptvChannels.length > 0 ? (
-                  filteredIptvChannels.map(ch => (
-                    <div
-                      key={ch.id}
-                      className="channel-card"
-                      onClick={() => handlePlayHlsChannel(ch)}
-                    >
-                      <div className="logo-container">
-                        {ch.logo ? (
-                          <img
-                            src={ch.logo}
-                            alt={ch.name}
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div
-                          className="channel-logo-fallback"
-                          style={{ display: ch.logo ? 'none' : 'flex' }}
-                        >
-                          {getChannelInitial(ch.name)}
-                        </div>
-                      </div>
-                      <div className="channel-info">
-                        <h4 className="channel-name" title={ch.name}>{ch.name}</h4>
-                        <span className="live-pill">
-                          <span className="live-dot"></span> HLS STREAM
-                        </span>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="no-results">
-                    <i className="fa-regular fa-folder-open"></i>
-                    <p>No channels found{searchQuery ? ` matching "${searchQuery}"` : ''}.</p>
-                  </div>
-                )}
-              </div>
-            )
+            <WorldwideTVGrid
+              isIptvLoading={loadingIptvChannels}
+              currentTheme={currentTheme}
+              selectedCountry={selectedCountry}
+              filteredIptvChannels={filteredIptvChannels}
+              handlePlayHlsChannel={handlePlayHlsChannel}
+              searchQuery={searchQuery}
+              getChannelInitial={getChannelInitial}
+            />
           )}
 
-          {/* TAB 2: Sports Events Grid */}
+          {activeTab === 'channels' && channelSource === 'cinemaos' && (
+            <WorldwideTVGrid
+              isIptvLoading={loading}
+              currentTheme={currentTheme}
+              selectedCountry="all"
+              filteredIptvChannels={filteredCinemaChannels}
+              handlePlayHlsChannel={handlePlayHlsChannel}
+              searchQuery={searchQuery}
+              getChannelInitial={getChannelInitial}
+            />
+          )}
+
           {activeTab === 'events' && (
-            <div className="events-grid">
-              {filteredEvents.length > 0 ? (
-                filteredEvents.map(evt => (
-                  <div
-                    key={evt.id}
-                    className="event-card"
-                    onClick={() => handlePlayEvent(evt.id)}
-                  >
-                    <div className="event-poster-container">
-                      <img src={evt.poster} alt={evt.name} onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop&q=60';
-                      }} />
-                      <div className="event-status">
-                        {evt.status === 'live' ? (
-                          <span className="badge-live"><span className="live-dot"></span> LIVE</span>
-                        ) : (
-                          <span className="badge-upcoming">UPCOMING</span>
-                        )}
-                      </div>
-                      {evt.viewers > 0 && (
-                        <div className="event-viewers">
-                          <i className="fa-solid fa-eye"></i> {evt.viewers} watching
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="event-info">
-                      <span className="event-league">{evt.league || evt.category_name?.toUpperCase()}</span>
-                      <h4 className="event-title">{evt.name}</h4>
-
-                      <div className="event-teams">
-                        {evt.teams && (
-                          <>
-                            <span className="team">{evt.teams.home.name}</span>
-                            <span className="vs">VS</span>
-                            <span className="team">{evt.teams.away.name}</span>
-                          </>
-                        )}
-                      </div>
-
-                      <div className="event-time">
-                        <i className="fa-regular fa-clock"></i>{' '}
-                        {new Date(evt.starts_at * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="no-results">
-                  <i className="fa-regular fa-calendar-minus"></i>
-                  <p>No active/upcoming events found.</p>
-                </div>
-              )}
-            </div>
+            <SportsEventsGrid
+              isLoading={loading}
+              currentTheme={currentTheme}
+              filteredEvents={filteredEvents}
+              handlePlayEvent={handlePlayEvent}
+            />
           )}
 
-          {/* TAB 3: Schedule View */}
           {activeTab === 'schedule' && (
-            <div className="schedule-container">
-              {Object.keys(filteredSchedule).length > 0 ? (
-                Object.keys(filteredSchedule).map(day => (
-                  <div key={day} className="schedule-day-group">
-                    <h3 className="schedule-day-header">{day}</h3>
-                    {Object.keys(filteredSchedule[day]).map(category => (
-                      <div key={category} className="schedule-category-group">
-                        <h4 className="schedule-category-header">
-                          <i className="fa-solid fa-circle-play"></i> {category}
-                        </h4>
-                        <div className="schedule-events-list">
-                          {filteredSchedule[day][category].map((evt, idx) => (
-                            <div key={idx} className="schedule-event-row">
-                              <div className="event-time-col">{evt.time}</div>
-                              <div className="event-detail-col">
-                                <span className="event-title">{evt.event}</span>
-                                <div className="event-channels-tags">
-                                  {evt.channels && evt.channels.map(ch => (
-                                    <button
-                                      key={ch.channel_id}
-                                      className="channel-tag"
-                                      onClick={() => handlePlayDlhdChannel(ch.channel_id)}
-                                    >
-                                      <i className="fa-solid fa-play"></i> {ch.channel_name}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))
-              ) : (
-                <div className="no-results">
-                  <i className="fa-regular fa-calendar-times"></i>
-                  <p>No schedule listings found.</p>
-                </div>
-              )}
-            </div>
+            <ScheduleView
+              filteredSchedule={filteredSchedule}
+              handlePlayDlhdChannel={handlePlayDlhdChannel}
+            />
           )}
-
         </div>
       </main>
 
-      {/* Mobile Bottom Navigation Bar — shown only on ≤ 480px via CSS */}
-      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
-        <button
-          className={`mobile-nav-item ${activeTab === 'channels' && channelSource === 'dlhd' ? 'active' : ''}`}
-          onClick={() => { handleTabChange('channels'); handleSourceChange('dlhd'); }}
-        >
-          <i className="fa-solid fa-star"></i>
-          <span>Sports</span>
-        </button>
-        <button
-          className={`mobile-nav-item ${activeTab === 'channels' && channelSource === 'iptv' ? 'active' : ''}`}
-          onClick={() => { handleTabChange('channels'); handleSourceChange('iptv'); }}
-        >
-          <i className="fa-solid fa-globe"></i>
-          <span>Worldwide</span>
-        </button>
-        <button
-          className={`mobile-nav-item ${activeTab === 'events' ? 'active' : ''}`}
-          onClick={() => handleTabChange('events')}
-        >
-          <i className="fa-solid fa-trophy"></i>
-          <span>Events</span>
-        </button>
-      </nav>
+      <MobileBottomNav
+        activeTab={activeTab}
+        channelSource={channelSource}
+        handleTabChange={handleTabChange}
+        handleSourceChange={handleSourceChange}
+      />
     </div>
   );
 };

@@ -11,4 +11,13 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
+  server: {
+    proxy: {
+      '/api/cinemaos': {
+        target: 'https://cinemaos.live',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/cinemaos/, '/api/channels')
+      }
+    }
+  }
 })

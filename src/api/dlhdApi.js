@@ -126,27 +126,20 @@ const FALLBACK_CHANNELS = [
     logo_url: "https://dlhd.pk/logos/cast_5061.png",
     iframeUrl: "https://dlhd.pk/cast/stream-5061.php"
   },
-  // ── Unite8 Sports (HLS) ───────────────────────────────────────────────
+
+  // ── User Added Channels ───────────────────────────────────────────────
   {
-    channel_id: "unite8sports1",
-    channel_name: "Unite8 Sports 1",
-    logo_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Unite8_Sports_1_logo.jpg/250px-Unite8_Sports_1_logo.jpg",
-    hlsUrls: [
-      "https://livepk.zeeindia.com/unite8sports1/index.m3u8",
-      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/unite8-sports-1/master.m3u8",
-      "https://mumt01.tangotv.in/UNITE8SPORTS1/index.m3u8",
-      "https://cdn-1.pishow.tv/live/unite8sports1/master.m3u8"
-    ]
+    channel_id: "willow_cricket_custom",
+    channel_name: "Willow Cricket",
+    logo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Willow_TV_logo.svg/1200px-Willow_TV_logo.svg.png",
+    iframeUrl: "https://embed.st/embed/admin/admin-willow-cricket/1"
   },
   {
-    channel_id: "unite8sports2",
-    channel_name: "Unite8 Sports 2",
-    logo_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Unite8_Sports_1_logo.jpg/250px-Unite8_Sports_1_logo.jpg",
+    channel_id: "premium_custom_stream",
+    channel_name: "Premium Stream HD",
+    logo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Video-icon.svg/240px-Video-icon.svg.png",
     hlsUrls: [
-      "https://livepk.zeeindia.com/unite8sports2/index.m3u8",
-      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/unite8-sports-2/master.m3u8",
-      "https://mumt01.tangotv.in/UNITE8SPORTS2/index.m3u8",
-      "https://cdn-1.pishow.tv/live/unite8sports2/master.m3u8"
+      "https://lb8.strmd.st/secure/cNEeqMNTSHgNdUmQCYSLTsMWdCmTqeKG/rtmp/stream/SGUXAdo5nuj90EH7mPUHOe9hbAvTl0yQZPsRJDUqg5S5vXewNNELJa3la3bfWoBCFxaWmjYstw/1/playlist.m3u8"
     ]
   }
 ];
@@ -165,24 +158,47 @@ export const fetchDlhdChannels = async () => {
   const cached = apiCache.get(cacheKey);
   if (cached) return cached;
 
+  let baseChannels = [];
+
   if (!DLHD_API_KEY || DLHD_API_KEY === 'YOUR_KEY') {
     console.warn('DLHD API Key not configured. Using fallback channels.');
-    return FALLBACK_CHANNELS;
+    baseChannels = [...FALLBACK_CHANNELS];
+  } else {
+    try {
+      const response = await axios.get(`${BASE_URL}?key=${DLHD_API_KEY}&endpoint=channels`, { timeout: 8000 });
+      if (response.data && response.data.success && Array.isArray(response.data.data)) {
+        baseChannels = response.data.data;
+      } else {
+        baseChannels = [...FALLBACK_CHANNELS];
+      }
+    } catch (error) {
+      console.error('Error fetching DLHD channels, using fallback:', error);
+      baseChannels = [...FALLBACK_CHANNELS];
+    }
   }
 
+  // Fetch dynamic channels from CinemaOS
   try {
-    const response = await axios.get(`${BASE_URL}?key=${DLHD_API_KEY}&endpoint=channels`, { timeout: 8000 });
-    if (response.data && response.data.success && Array.isArray(response.data.data)) {
-      apiCache.set(cacheKey, response.data.data, CACHE_EXPIRY);
-      return response.data.data;
+    const cinemaRes = await axios.get('https://cinemaos.live/api/channels', { timeout: 8000 });
+    if (cinemaRes.data && Array.isArray(cinemaRes.data.channels)) {
+      const cinemaChannels = cinemaRes.data.channels
+        .filter(c => c.playable)
+        .map(c => ({
+          channel_id: c.id,
+          channel_name: c.name,
+          logo_url: c.logo_url,
+          // Guessing standard embed format based on the previous willow cricket example
+          iframeUrl: `https://embed.st/embed/admin/${c.id}/1`
+        }));
+      baseChannels = [...baseChannels, ...cinemaChannels];
+      console.log(`Loaded ${cinemaChannels.length} additional channels from CinemaOS.`);
     }
-    // If API responded but not successful, fallback
-    console.warn('DLHD API endpoint returned error:', response.data);
-    return FALLBACK_CHANNELS;
   } catch (error) {
-    console.error('Error fetching DLHD channels, using fallback:', error);
-    return FALLBACK_CHANNELS;
+    console.error('Error fetching CinemaOS channels:', error);
   }
+
+  apiCache.set(cacheKey, baseChannels, CACHE_EXPIRY);
+  return baseChannels;
 };
 
 const FALLBACK_SCHEDULE = {

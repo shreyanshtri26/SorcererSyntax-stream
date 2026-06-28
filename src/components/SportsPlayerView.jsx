@@ -14,6 +14,7 @@ const SportsPlayerView = ({
   source,
   dlhdChannels,
   iptvChannels,
+  cinemaChannels,
   damiStreams,
   countriesList,
   selectedCountry,
@@ -63,7 +64,18 @@ const SportsPlayerView = ({
           type: `IPTV Channel (${countriesList.find(c => c.code === selectedCountry)?.name || 'Worldwide'})`,
           logo: match.logo,
           hlsUrls: match.streams,
-          activeStream: match.streams[0]
+          activeStream: match.streams && match.streams.length > 0 ? match.streams[0] : null,
+          iframeUrl: match.iframeUrl || null
+        });
+      }
+    } else if (tab === 'channels' && source === 'cinemaos') {
+      const match = cinemaChannels?.find(c => c.id === playId);
+      if (match) {
+        setChannelDetails({
+          name: match.name,
+          type: 'CinemaOS TV',
+          logo: match.logo,
+          iframeUrl: match.iframeUrl
         });
       }
     } else if (tab === 'events') {
@@ -97,7 +109,7 @@ const SportsPlayerView = ({
         });
       }
     }
-  }, [playId, tab, source, dlhdChannels, iptvChannels, damiStreams, countriesList, selectedCountry]);
+  }, [playId, tab, source, dlhdChannels, iptvChannels, cinemaChannels, damiStreams, countriesList, selectedCountry]);
 
   if (!channelDetails) {
     return (
@@ -150,6 +162,7 @@ const SportsPlayerView = ({
                   height="100%"
                   allowFullScreen
                   allow="autoplay; fullscreen; picture-in-picture"
+                  referrerPolicy="no-referrer"
                   key={`${currentFolder}-${playId}`}
                 />
               </div>
