@@ -17,6 +17,7 @@ import filterIcon from '../contexts/assets/filter-icon.svg';
 import { MediaGridSkeleton } from '../components/SkeletonLoader';
 import { useDebounce } from '../hooks/useDebounce';
 import HomePage from './HomePage';
+import SlidingTabs from '../components/common/SlidingTabs';
 
 const SearchPage = ({
     currentTheme,
@@ -432,17 +433,15 @@ const SearchPage = ({
                                     <option value="release_date.desc">Latest</option>
                                 </select>
                             </div>
-                            <div className="sliding-tabs-container">
-                                <div className="sliding-tabs">
-                                    <div className="tab-indicator" style={{
-                                        left: activeFilterTab === 'movie' ? '2px' : (activeFilterTab === 'tv' ? 'calc(33% + 2px)' : 'calc(66% + 2px)'),
-                                        width: 'calc(33% - 4px)'
-                                    }}></div>
-                                    <button className={`tab-button ${activeFilterTab === 'movie' ? 'active' : ''}`} onClick={() => handleTabChange('movie')}>Movies</button>
-                                    <button className={`tab-button ${activeFilterTab === 'tv' ? 'active' : ''}`} onClick={() => handleTabChange('tv')}>TV Shows</button>
-                                    <button className={`tab-button ${activeFilterTab === 'people' ? 'active' : ''}`} onClick={() => handleTabChange('people')}>People</button>
-                                </div>
-                            </div>
+                            <SlidingTabs 
+                                tabs={[
+                                    {id: 'movie', label: 'Movies'},
+                                    {id: 'tv', label: 'TV Shows'},
+                                    {id: 'people', label: 'People'}
+                                ]}
+                                activeTab={activeFilterTab}
+                                onTabChange={handleTabChange}
+                            />
                         </div>
 
                         <div className="tab-content">

@@ -12,6 +12,7 @@ import PersonDetailsModal from './contexts/PersonDetailsModal';
 import PersistentMusicPlayer from './components/PersistentMusicPlayer';
 import ThreeBackground from './components/three/ThreeBackground';
 import CursorTrail from './components/three/CursorTrail';
+import SlidingTabs from './components/common/SlidingTabs';
 
 // Pages
 import SearchPage from './pages/SearchPage';
@@ -186,29 +187,11 @@ function App() {
       {/* Navigator Slider */}
       {!isPlayerModalOpen && !isPersonModalOpen && (
         <div className="section-navigator-container">
-          <div className="sliding-tabs-container">
-            <div className="sliding-tabs">
-              <div
-                className="tab-indicator"
-                style={{
-                  left: activeSection === 'media' ? '2px' : 'calc(50% - 2px)',
-                  width: 'calc(50% - 4px)'
-                }}
-              ></div>
-              <button
-                className={`tab-button ${activeSection === 'media' ? 'active' : ''}`}
-                onClick={() => handleSectionChange('media')}
-              >
-                Media
-              </button>
-              <button
-                className={`tab-button ${activeSection === 'music' ? 'active' : ''}`}
-                onClick={() => handleSectionChange('music')}
-              >
-                Music
-              </button>
-            </div>
-          </div>
+          <SlidingTabs 
+            tabs={[{id: 'media', label: 'Media'}, {id: 'music', label: 'Music'}]} 
+            activeTab={activeSection} 
+            onTabChange={handleSectionChange} 
+          />
         </div>
       )}
 

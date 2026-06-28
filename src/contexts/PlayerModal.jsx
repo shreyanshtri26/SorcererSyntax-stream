@@ -128,10 +128,17 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [watchlistStatus, setWatchlistStatus] = useState(false); // Track if item is in watchlist
   const [userRating, setUserRating] = useState(0); // User's personal rating
   const [selectedPlayerSource, setSelectedPlayerSource] = useState(() => {
-    return localStorage.getItem('player_source') || 'vidfast';
-  }); // Default player source from cache or 'vidfast'
+    return localStorage.getItem('player_source') || 'cinemaos';
+  }); // Default player source from cache or 'cinemaos'
   const [sourceErrorCount, setSourceErrorCount] = useState({}); // Track errors per source
   const [showShareTooltip, setShowShareTooltip] = useState(false);
+  
+  // --- HDHub State ---
+  const [hdhubStreams, setHdhubStreams] = useState([]);
+  const [selectedHdhubStream, setSelectedHdhubStream] = useState(null);
+  const [isLoadingHdhub, setIsLoadingHdhub] = useState(false);
+  const [hdhubError, setHdhubError] = useState(null);
+  // ------------------
   // Add state to detect current theme
   // const [currentTheme, setCurrentTheme] = useState('devil');
 
@@ -142,22 +149,42 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
   // --- Updated Player Sources ---
   const embeddedPlayerSources = [
-    { id: 'autoembed', name: 'AutoEmbed' },
+    { id: 'cinemaos', name: 'CinemaOS' },
+    { id: 'vidking', name: 'Vidking' },
+    { id: 'rivestream', name: 'RiveStream' },
+    { id: '1embed', name: '1Embed' },
+    { id: 'hdhub', name: 'HDHub' },
+    { id: 'vidnest', name: 'Vidnest' },
+    { id: '2embedimdb', name: '2Embed (IMDB)' },
+    { id: 'aeonwatch', name: 'AeonWatch' },
+    { id: 'cinesrc', name: 'CineSrc' },
+    { id: 'fmovies4u', name: 'FMovies4U' },
+    { id: 'mappleplayer', name: 'MapplePlayer' },
+    { id: 'primesrc', name: 'PrimeSrc' },
+    { id: 'vidzee', name: 'Vidzee' },
     { id: 'nontongo', name: 'NontonGo' },
-    { id: 'vidsrc', name: 'VidSrc' },
-    { id: 'moviesapi', name: 'MoviesAPI' },
     { id: 'vidsrcme', name: 'VidSrc.me' },
     { id: 'vidfast', name: 'VidFast' },
     { id: 'vixsrc', name: 'VixSrc' },
     { id: 'vidrock', name: 'VidRock' },
-    { id: 'vidsrcxyz', name: 'VidSrc.xyz' },
     { id: '2embedcc', name: '2Embed (Alt)' },
-    { id: 'smashy', name: 'Smashy Stream' },
-    { id: 'vembed', name: 'Vembed' },
     { id: 'videasy', name: 'Videasy' },
+    { id: 'vsembed', name: 'VsEmbed' },
   ];
 
   const embeddedPlayerInfo = {
+    cinemaos: { name: 'CinemaOS', website: 'cinemaos.tech', features: ['Embedded Player', 'Ad-Free'] },
+    vidnest: { name: 'Vidnest', website: 'vidnest.fun', features: ['Embedded Player'] },
+    '2embedimdb': { name: '2Embed (IMDB)', website: '2embed.cc', features: ['Embedded Player'] },
+    aeonwatch: { name: 'AeonWatch', website: 'thisiscinema.pages.dev', features: ['Embedded Player'] },
+    cinesrc: { name: 'CineSrc', website: 'cinesrc.st', features: ['Embedded Player'] },
+    fmovies4u: { name: 'FMovies4U', website: 'fmovies4u.com', features: ['Embedded Player'] },
+    godriveplayer: { name: 'GoDrivePlayer', website: 'godriveplayer.com', features: ['Embedded Player'] },
+    mappleplayer: { name: 'MapplePlayer', website: 'mapple.uk', features: ['Embedded Player'] },
+    primesrc: { name: 'PrimeSrc', website: 'primesrc.me', features: ['Embedded Player'] },
+    multiembeddirect: { name: 'MultiEmbed Direct', website: 'multiembed.mov', features: ['Embedded Player'] },
+    vidzee: { name: 'Vidzee', website: 'vidzee.wtf', features: ['Embedded Player'] },
+    zxcstream: { name: 'ZXCStream', website: 'zxcstream.xyz', features: ['Embedded Player'] },
     autoembed: { name: 'AutoEmbed', website: 'autoembed.cc', features: ['Embedded Player', 'Multi-Source'] },
     nontongo: { name: 'NontonGo', website: 'nontongo.win', features: ['Embedded Player', 'Alternative'] },
     vidsrc: { name: 'VidSrc', website: 'vidsrc.xyz', features: ['Embedded Player', 'Fast'] },
@@ -171,6 +198,11 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     '2embedcc': { name: '2Embed (Alt)', website: '2embed.cc', features: ['Embedded Player', 'Alternative'] },
     vembed: { name: 'Vembed', website: 'vembed.click', features: ['Embedded Player', 'New'] },
     videasy: { name: 'Videasy', website: 'videasy.net', features: ['Embedded Player', 'HD'] },
+    vsembed: { name: 'VsEmbed', website: 'vsembed.ru', features: ['Embedded Player'] },
+    vidking: { name: 'Vidking', website: 'vidking.net', features: ['Embedded Player', 'AutoPlay'] },
+    rivestream: { name: 'RiveStream', website: 'rivestream.app', features: ['Embedded Player'] },
+    '1embed': { name: '1Embed', website: '1embed.cc', features: ['Embedded Player'] },
+    hdhub: { name: 'HDHub', website: 'hdhub.net', features: ['Direct Stream', '4K/1080p'] },
   };
 
   // VidSrc domains for fallback
@@ -225,6 +257,50 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   useEffect(() => {
     setIsPlayingTrailer(showTrailer);
   }, [showTrailer]);
+
+  // --- Fetch HDHub Streams Effect ---
+  useEffect(() => {
+    if (selectedPlayerSource !== 'hdhub') return;
+    
+    const fetchHdhubStreams = async () => {
+      setIsLoadingHdhub(true);
+      setHdhubError(null);
+      setHdhubStreams([]);
+      setSelectedHdhubStream(null);
+
+      try {
+        const imdbId = movieDetails?.imdb_id || tvDetails?.external_ids?.imdb_id || media.id;
+        if (!imdbId) throw new Error("No IMDB ID available for HDHub");
+
+        // Format: tt1234567 or tt1234567:season:episode
+        const streamId = type === 'movie' ? imdbId : `${imdbId}:${selectedSeason}:${selectedEpisode}`;
+        const prefix = "eyJ0b3Jib3giOiJ1bnNldCIsInF1YWxpdGllcyI6IjIxNjBwLDEwODBwLDcyMHAiLCJzb3J0IjoiZGVzYyJ9";
+        
+        const url = `https://hdhub.thevolecitor.qzz.io/${prefix}/stream/${type === 'movie' ? 'movie' : 'series'}/${streamId}.json`;
+        const res = await fetch(url);
+        
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
+        
+        if (data.streams && data.streams.length > 0) {
+          setHdhubStreams(data.streams);
+          // Auto-select a web-ready stream if available
+          const playable = data.streams.filter(s => !s.behaviorHints?.notWebReady && !s.behaviorHints?.proxyHeaders);
+          setSelectedHdhubStream(playable.length > 0 ? playable[0] : data.streams[0]);
+        } else {
+          setHdhubError("No streams found for this media on HDHub.");
+        }
+      } catch (err) {
+        console.error("HDHub fetch error:", err);
+        setHdhubError(err.message || "An error occurred fetching HDHub streams.");
+      } finally {
+        setIsLoadingHdhub(false);
+      }
+    };
+
+    fetchHdhubStreams();
+  }, [selectedPlayerSource, media, type, selectedSeason, selectedEpisode, movieDetails, tvDetails]);
+  // ----------------------------------
 
   useEffect(() => {
     if (type === 'tv' && media?.id) {
@@ -324,8 +400,71 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const getVideoUrl = (sourceId = selectedPlayerSource, domainIndex = currentDomainIndex) => {
     if (!embeddedPlayerSources.some(s => s.id === sourceId)) return ''; // Only handle embedded sources
 
+    const imdbId = movieDetails?.imdb_id || tvDetails?.external_ids?.imdb_id || media.id;
+
+    // CinemaOS
+    if (sourceId === 'cinemaos') {
+      return type === 'movie'
+        ? `https://cinemaos.tech/player/${media.id}`
+        : `https://cinemaos.tech/player/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    else if (sourceId === 'vidnest') {
+      return type === 'movie'
+        ? `https://vidnest.fun/movie/${media.id}`
+        : `https://vidnest.fun/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    else if (sourceId === '2embedimdb') {
+      return type === 'movie'
+        ? `https://www.2embed.cc/embed/${imdbId}`
+        : `https://www.2embed.cc/embedtv/${imdbId}&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+    else if (sourceId === 'aeonwatch') {
+      return type === 'movie'
+        ? `https://thisiscinema.pages.dev/?type=movie&version=v3&id=${media.id}`
+        : `https://thisiscinema.pages.dev/?type=tv&version=v3&id=${imdbId}&season=${selectedSeason}&episode=${selectedEpisode}`;
+    }
+    else if (sourceId === 'cinesrc') {
+      return type === 'movie'
+        ? `https://cinesrc.st/embed/movie/${media.id}`
+        : `https://cinesrc.st/embed/tv/${media.id}?s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+    else if (sourceId === 'fmovies4u') {
+      return type === 'movie'
+        ? `https://fmovies4u.com/embed/movie/${media.id}`
+        : `https://fmovies4u.com/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    else if (sourceId === 'godriveplayer') {
+      return type === 'movie'
+        ? `https://godriveplayer.com/player.php?imdb=${imdbId}`
+        : `https://godriveplayer.com/player.php?type=series&tmdb=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
+    }
+    else if (sourceId === 'mappleplayer') {
+      return type === 'movie'
+        ? `https://mapple.uk/watch/movie/${media.id}`
+        : `https://mapple.uk/watch/tv/${media.id}-${selectedSeason}-${selectedEpisode}`;
+    }
+    else if (sourceId === 'primesrc') {
+      return type === 'movie'
+        ? `https://primesrc.me/embed/movie?imdb=${imdbId}`
+        : `https://primesrc.me/embed/tv?tmdb=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
+    }
+    else if (sourceId === 'multiembeddirect') {
+      return type === 'movie'
+        ? `https://multiembed.mov/directstream.php?video_id=${imdbId}`
+        : `https://multiembed.mov/directstream.php?video_id=${imdbId}&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
+    else if (sourceId === 'vidzee') {
+      return type === 'movie'
+        ? `https://player.vidzee.wtf/v2/embed/movie/${imdbId}`
+        : `https://player.vidzee.wtf/v2/embed/tv/${imdbId}/${selectedSeason}/${selectedEpisode}`;
+    }
+    else if (sourceId === 'zxcstream') {
+      return type === 'movie'
+        ? `https://zxcstream.xyz/embed/movie/${media.id}`
+        : `https://zxcstream.xyz/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
     // NontonGo
-    if (sourceId === 'nontongo') {
+    else if (sourceId === 'nontongo') {
       return type === 'movie'
         ? `https://www.NontonGo.win/embed/movie/${media.id}`
         : `https://www.NontonGo.win/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
@@ -378,8 +517,36 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     // Videasy
     else if (sourceId === 'videasy') {
       return type === 'movie'
-        ? `https://player.videasy.net/movie/${media.id}`
-        : `https://player.videasy.net/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+        ? `https://player.videasy.net/movie/${media.id}?autoplay=1&autoplayNextEpisode=1&color=06b6d4&muted=1`
+        : `https://player.videasy.net/tv/${media.id}/${selectedSeason}/${selectedEpisode}?autoplay=1&autoplayNextEpisode=1&color=06b6d4&muted=1`;
+    }
+    // VsEmbed
+    else if (sourceId === 'vsembed') {
+      return type === 'movie'
+        ? `https://vsembed.ru/embed/movie/${media.id}`
+        : `https://vsembed.ru/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // Vidking
+    else if (sourceId === 'vidking') {
+      return type === 'movie'
+        ? `https://www.vidking.net/embed/movie/${media.id}?color=0dcaf0&autoPlay=true`
+        : `https://www.vidking.net/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}?color=0dcaf0&autoPlay=true&nextEpisode=true&episodeSelector=true`;
+    }
+    // RiveStream
+    else if (sourceId === 'rivestream') {
+      return type === 'movie'
+        ? `https://www.rivestream.app/embed?type=movie&id=${media.id}`
+        : `https://www.rivestream.app/embed?type=tv&id=${media.id}&season=${selectedSeason}&episode=${selectedEpisode}`;
+    }
+    // 1Embed
+    else if (sourceId === '1embed') {
+      return type === 'movie'
+        ? `https://1embed.cc/embed/movie/${media.id}`
+        : `https://1embed.cc/embed/tv/${media.id}/${selectedSeason}/${selectedEpisode}`;
+    }
+    // HDHub returns empty string, playback handled by ReactPlayer natively
+    else if (sourceId === 'hdhub') {
+      return '';
     }
     // AutoEmbed
     else if (sourceId === 'autoembed') {
@@ -852,7 +1019,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         {/* Main Content Area: Player or Sources */}
         <div className={`main-content-area theme-${currentTheme}-content-area`}>
           {/* Player Area (Trailer or Embedded Player) */}
-          <div className={`player-container ${isPlayingTrailer || currentVideoUrl ? 'visible' : 'hidden'}`}>
+          <div className={`player-container ${isPlayingTrailer || currentVideoUrl || selectedPlayerSource === 'hdhub' ? 'visible' : 'hidden'}`}>
             {isPlayingTrailer && trailerKey ? (
               <div className="player-wrapper trailer-active">
                 <ReactPlayer
@@ -870,6 +1037,57 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               <div className="player-wrapper loading"><div className="trailer-loading">Loading trailer...</div></div>
             ) : isPlayingTrailer && trailerError ? (
               <div className="player-wrapper error"><div className="trailer-error">{trailerError}</div></div>
+            ) : selectedPlayerSource === 'hdhub' ? (
+              <div className="player-wrapper hdhub-active">
+                {isLoadingHdhub ? (
+                  <div className="player-message"><div className="trailer-loading">Loading streams...</div></div>
+                ) : hdhubError ? (
+                  <div className="player-message error-message"><p>{hdhubError}</p></div>
+                ) : selectedHdhubStream ? (
+                  <div style={{width: '100%', height: '100%', position: 'relative'}}>
+                    <ReactPlayer
+                      url={selectedHdhubStream.url}
+                      controls={true}
+                      width="100%"
+                      height="100%"
+                      style={{ position: 'absolute', top: 0, left: 0 }}
+                      playing={true}
+                      config={{
+                        file: {
+                          attributes: {
+                            crossOrigin: 'anonymous'
+                          },
+                          tracks: selectedHdhubStream.subtitles ? selectedHdhubStream.subtitles.map((s, idx) => ({
+                            kind: 'subtitles', src: s.url, srcLang: s.lang, default: idx === 0, label: s.lang
+                          })) : []
+                        }
+                      }}
+                      onError={(e) => {
+                        console.error("ReactPlayer Error:", e);
+                        // If it fails, log it. Might be an unsupported MKV format.
+                      }}
+                    />
+                    {/* Overlay to switch streams if multiple exist */}
+                    {hdhubStreams.length > 1 && (
+                      <div className="hdhub-stream-selector" style={{position: 'absolute', top: 10, right: 10, zIndex: 10, background: 'rgba(0,0,0,0.7)', padding: '5px', borderRadius: '5px'}}>
+                        <select 
+                          value={selectedHdhubStream.url} 
+                          onChange={(e) => setSelectedHdhubStream(hdhubStreams.find(s => s.url === e.target.value))}
+                          style={{background: 'transparent', color: 'white', border: 'none', outline: 'none', fontSize: '12px'}}
+                        >
+                          {hdhubStreams.map((s, idx) => (
+                            <option key={idx} value={s.url} style={{color: 'black'}}>
+                              {s.name} {s.description ? `(${s.description.split('\\n')[0].slice(0, 30)}...)` : ''}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="player-message"><p>No stream selected</p></div>
+                )}
+              </div>
             ) : currentVideoUrl ? ( // Show embedded player if URL exists
               <div className="player-wrapper embedded-active">
                 {playerError && (

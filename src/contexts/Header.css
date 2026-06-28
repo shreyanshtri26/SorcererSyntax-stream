@@ -400,14 +400,76 @@
   left: calc(50% - 123px);
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   RESPONSIVENESS / MEDIA QUERIES (HEADER)
+   ========================================================================== */
+
+/* 0. 4K TVs and 32+ Inch Monitors (min-width: 2560px) */
+@media (min-width: 2560px) {
+  .app-header {
+    padding: 35px 80px;
+  }
+  .main-title {
+    font-size: calc(4em + 30px);
+  }
+  .theme-button {
+    width: 80px;
+    height: 80px;
+    right: 80px;
+  }
+  .theme-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* 1. Standard 1080p TV / Wide Monitors (min-width: 1920px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .app-header {
+    padding: 25px 60px;
+  }
+  .main-title {
+    font-size: calc(3em + 20px);
+  }
+  .theme-button {
+    width: 60px;
+    height: 60px;
+    right: 60px;
+  }
+  .theme-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 2. Tablet / iPad (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .app-header {
+    padding: 15px 25px;
+  }
+}
+
+/* 3. Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   .app-header {
     padding: 15px 20px;
+    flex-direction: row; /* Allow elements to sit side by side if possible */
+    flex-wrap: wrap; /* Wrap if they run out of space */
+    justify-content: space-between;
   }
   
   .main-title {
     font-size: calc(1.7em + 10px);
+    text-align: left; /* Better for mobile with side button */
+    width: auto;
+  }
+  
+  .theme-switcher {
+    position: relative; /* Remove absolute positioning on mobile */
+    right: auto;
+    top: auto;
+    transform: none;
+    margin-left: auto;
   }
   
   .theme-button {
@@ -419,8 +481,14 @@
     width: 24px;
     height: 24px;
   }
+  
+  /* Hide decorative elements on mobile to save space and performance */
+  .bong-smoke-elements, .joint-smoke-elements {
+    display: none;
+  }
 }
 
+/* 4. Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
   .app-header {
     padding: 10px 15px;
@@ -433,7 +501,6 @@
   .theme-button {
     width: 32px;
     height: 32px;
-    right: 15px;
   }
   
   .theme-icon {
