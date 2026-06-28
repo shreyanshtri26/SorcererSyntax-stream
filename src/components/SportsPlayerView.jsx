@@ -121,7 +121,11 @@ const SportsPlayerView = ({
       {/* Header Bar */}
       <header className="player-view-header">
         <button className="back-btn" onClick={onClose} aria-label="Go Back" title="Back to TV & Sports">
-          <i className="fa-solid fa-arrow-left"></i>
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" className="back-arrow-svg">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span className="back-btn-text">Back</span>
         </button>
         <div className="header-meta">
           <span className="badge-live-stream">
