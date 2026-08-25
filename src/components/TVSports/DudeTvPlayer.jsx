@@ -386,8 +386,11 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
 
   const eventInfo = item?.eventInfo;
   const isMatch = !!eventInfo && (eventInfo.teamA || eventInfo.eventName);
-  const displayName = eventInfo?.eventName || item?.title || 'Live Broadcast';
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const displayName = eventInfo?.eventName || item?.title || item?.name || 'Live Broadcast';
+  const canonicalSlug = item?.slug || (item?.id && !String(item.id).startsWith('http') ? String(item.id) : '');
+  const shareUrl = typeof window !== 'undefined' ? (
+    canonicalSlug ? `${window.location.origin}/channel/${canonicalSlug}` : window.location.href
+  ) : '';
 
   return (
     <div className={`dudetv-player-container theme-${currentTheme}`}>

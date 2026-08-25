@@ -43,8 +43,12 @@ const AppRouter = () => {
             <Route path="/search" element={<App />} />
             <Route path="/search/:query" element={<App />} />
 
-            {/* TV & Sports route */}
+            {/* TV & Sports direct channel routes */}
             <Route path="/tv-sports" element={<App />} />
+            <Route path="/channel/:slug" element={<App />} />
+            <Route path="/channel" element={<App />} />
+            <Route path="/sports/:id" element={<App />} />
+            <Route path="/sports" element={<App />} />
 
             {/* Catch all route - redirect to home */}
             <Route path="*" element={<Navigate to="/" replace />} />

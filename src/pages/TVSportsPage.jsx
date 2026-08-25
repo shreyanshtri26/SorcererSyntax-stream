@@ -227,17 +227,22 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
     };
   }, [selectedCategoryLink]);
 
-  // Deep Link Autoplay Handler: watches URL path (/channel/:slug) and ?channel= / ?play= query params
+  // Deep Link Autoplay Handler: watches URL path (/channel/:slug, /sports/:id) and ?channel= / ?play= query params
   useEffect(() => {
     let targetSlug = '';
     const path = window.location.pathname;
     if (path.startsWith('/channel/')) {
       targetSlug = path.replace('/channel/', '').split('/')[0].trim();
+    } else if (path.startsWith('/sports/')) {
+      targetSlug = path.replace('/sports/', '').split('/')[0].trim();
     }
     if (!targetSlug) {
       targetSlug = searchParams.get('channel') || searchParams.get('play') || '';
     }
     if (!targetSlug || activeItem?.slug === targetSlug || activeItem?.id === targetSlug) return;
+
+    const normalizedTarget = decodeURIComponent(targetSlug).toLowerCase().trim();
+    const cleanAlphaTarget = normalizedTarget.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
     // Check across all catalogs
     const allCandidates = [
@@ -248,21 +253,52 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       ...RAJHODEDARA_ALL_CHANNELS
     ];
 
-    const match = allCandidates.find(c =>
-      String(c.slug || '').toLowerCase() === targetSlug.toLowerCase() ||
-      String(c.id || '').toLowerCase() === targetSlug.toLowerCase() ||
-      (c.title || c.name || '').toLowerCase() === targetSlug.toLowerCase()
-    );
+    const match = allCandidates.find(c => {
+      const s = String(c.slug || '').toLowerCase();
+      const id = String(c.id || '').toLowerCase();
+      const cdx = String(c.cdxSlug || '').toLowerCase();
+      const title = (c.title || c.name || '').toLowerCase();
+      const alphaTitle = title.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+      return s === normalizedTarget ||
+             s === cleanAlphaTarget ||
+             id === normalizedTarget ||
+             cdx === normalizedTarget ||
+             title === normalizedTarget ||
+             alphaTitle === cleanAlphaTarget;
+    });
 
     if (match) {
       handlePlayItem(match, false);
-    } else if (FALLBACK_CHANNEL_STREAMS[targetSlug]) {
+    } else if (FALLBACK_CHANNEL_STREAMS[cleanAlphaTarget] || FALLBACK_CHANNEL_STREAMS[normalizedTarget]) {
       const customItem = {
-        id: targetSlug,
-        slug: targetSlug,
-        title: targetSlug.toUpperCase(),
+        id: cleanAlphaTarget || normalizedTarget,
+        slug: cleanAlphaTarget || normalizedTarget,
+        title: (cleanAlphaTarget || normalizedTarget).replace(/[-_]+/g, ' ').toUpperCase(),
         cat: 'TV Channel',
-        decoded_channels: FALLBACK_CHANNEL_STREAMS[targetSlug]
+        decoded_channels: FALLBACK_CHANNEL_STREAMS[cleanAlphaTarget] || FALLBACK_CHANNEL_STREAMS[normalizedTarget]
+      };
+      handlePlayItem(customItem, false);
+    } else {
+      // Dynamic fallback embed resolver for any shared channel link
+      const readableTitle = (cleanAlphaTarget || normalizedTarget).replace(/[-_]+/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      const customItem = {
+        id: cleanAlphaTarget || normalizedTarget,
+        slug: cleanAlphaTarget || normalizedTarget,
+        title: readableTitle,
+        cat: 'Live Stream',
+        decoded_channels: [
+          {
+            title: `${readableTitle} (Server 1 - Live)`,
+            link: `https://embed.st/embed/admin/${cleanAlphaTarget || normalizedTarget}/1`,
+            type: '0'
+          },
+          {
+            title: `${readableTitle} (CDX Mirror)`,
+            link: `https://cdx-08192.website/embed/${cleanAlphaTarget || normalizedTarget}`,
+            type: '0'
+          }
+        ]
       };
       handlePlayItem(customItem, false);
     }

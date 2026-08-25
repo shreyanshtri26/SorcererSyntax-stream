@@ -73,7 +73,9 @@ function App() {
 
 
   // Determine Active Section based on Path
-  const isTVSportsSection = location.pathname.startsWith('/tv-sports') || location.pathname.startsWith('/channel');
+  const isTVSportsSection = location.pathname.startsWith('/tv-sports') || 
+                            location.pathname.startsWith('/channel') || 
+                            location.pathname.startsWith('/sports');
   const activeSection = isTVSportsSection ? 'tv_sports' : 'media';
 
   useEffect(() => {
