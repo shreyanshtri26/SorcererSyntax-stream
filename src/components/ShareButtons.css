@@ -122,28 +122,36 @@
 @media (max-width: 768px) {
   .share-buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     width: 100%;
-    gap: 6px;
+    gap: 5px;
+    box-sizing: border-box;
   }
 
   .share-btn {
     width: 100%;
-    padding: 7px 4px;
-    font-size: 0.76rem;
+    min-width: 0;
+    padding: 7px 2px;
+    font-size: 0.72rem;
     min-height: 38px;
-    gap: 4px;
+    gap: 3px;
     border-radius: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   .share-btn svg {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
   }
 
   .share-btn span {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -153,17 +161,17 @@
   }
 
   .share-btn {
-    padding: 6px 2px;
-    gap: 3px;
+    padding: 6px 1px;
+    gap: 2px;
     min-height: 36px;
   }
 
   .share-btn svg {
-    width: 13px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
   }
 
   .share-btn span {
-    font-size: 0.66rem;
+    font-size: 0.65rem;
   }
 }

@@ -8,7 +8,7 @@ const ShareButtons = ({ url, title, currentTheme = 'devil' }) => {
   const handleCopyLink = () => {
     navigator.clipboard.writeText(url)
       .then(() => {
-        setTooltipMessage('Link copied!');
+        setTooltipMessage('Stream link copied!');
         setShowTooltip(true);
         setTimeout(() => setShowTooltip(false), 2000);
       })
@@ -21,19 +21,20 @@ const ShareButtons = ({ url, title, currentTheme = 'devil' }) => {
   };
 
   const handleWhatsAppShare = () => {
-    const text = encodeURIComponent(`Check out ${title}: ${url}`);
-    const whatsappUrl = `https://wa.me/?text=${text}`;
+    const message = `🔥 Watch *${title}* Live on 305 Stream! 📺⚡\n\nHigh-definition live stream with fast multi-server failover.\n\n👉 Watch Now: ${url}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleTwitterShare = () => {
-    const text = encodeURIComponent(`Check out ${title}`);
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(url)}`;
+    const text = `🔥 Watch ${title} Live on 305 Stream! 📺⚡\n\n👉 Watch Now:`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleFacebookShare = () => {
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+    const quote = `🔥 Watch ${title} Live on 305 Stream! 📺⚡`;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`;
     window.open(facebookUrl, '_blank', 'noopener,noreferrer');
   };
 
