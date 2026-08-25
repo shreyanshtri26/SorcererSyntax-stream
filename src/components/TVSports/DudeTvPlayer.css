@@ -1,0 +1,668 @@
+/* DudeTV Player Theme-Aware & iOS Mobile Optimized Styles */
+
+.dudetv-player-container {
+  display: flex;
+  flex-direction: column;
+  background: #08080c;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7);
+  margin-bottom: 28px;
+  animation: fadeInPlayer 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+/* 1. Devil Theme */
+.theme-devil .dudetv-player-container,
+.dudetv-player-container.theme-devil {
+  --player-accent: #e50914;
+  --player-glow: rgba(229, 9, 20, 0.45);
+  --player-border: rgba(229, 9, 20, 0.35);
+  --player-badge-bg: rgba(229, 9, 20, 0.15);
+}
+
+/* 2. Hannibal Theme (🌿 Toxic Green) */
+.theme-hannibal .dudetv-player-container,
+.dudetv-player-container.theme-hannibal {
+  --player-accent: #1ce783;
+  --player-glow: rgba(28, 231, 131, 0.45);
+  --player-border: rgba(28, 231, 131, 0.35);
+  --player-badge-bg: rgba(28, 231, 131, 0.15);
+}
+
+/* 3. Angel Theme (✨ Heavenly Cyan) */
+.theme-angel .dudetv-player-container,
+.dudetv-player-container.theme-angel {
+  --player-accent: #00a8e1;
+  --player-glow: rgba(0, 168, 225, 0.45);
+  --player-border: rgba(0, 168, 225, 0.35);
+  --player-badge-bg: rgba(0, 168, 225, 0.15);
+}
+
+/* 4. Cyberpunk Theme */
+.theme-cyberpunk .dudetv-player-container,
+.dudetv-player-container.theme-cyberpunk {
+  --player-accent: #00f3ff;
+  --player-glow: rgba(0, 243, 255, 0.45);
+  --player-border: rgba(0, 243, 255, 0.35);
+  --player-badge-bg: rgba(0, 243, 255, 0.15);
+}
+
+/* 5. Luxury Theme */
+.theme-luxury .dudetv-player-container,
+.dudetv-player-container.theme-luxury {
+  --player-accent: #d4af37;
+  --player-glow: rgba(212, 175, 55, 0.45);
+  --player-border: rgba(212, 175, 55, 0.35);
+  --player-badge-bg: rgba(212, 175, 55, 0.15);
+}
+
+/* Default */
+.dudetv-player-container {
+  --player-accent: #e50914;
+  --player-glow: rgba(229, 9, 20, 0.45);
+  --player-border: rgba(229, 9, 20, 0.35);
+  --player-badge-bg: rgba(229, 9, 20, 0.15);
+}
+
+@keyframes fadeInPlayer {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.dudetv-player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(18, 18, 24, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 12px;
+}
+
+.player-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  min-height: 38px;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+.stream-badge-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--player-badge-bg);
+  border: 1px solid var(--player-border);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  background: #1ce783;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #1ce783;
+  animation: pulseLive 1.4s infinite;
+}
+
+@keyframes pulseLive {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.live-label {
+  color: #1ce783;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+}
+
+.stream-type-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+.player-match-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.match-flag {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #222;
+}
+
+.match-names {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.player-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-action-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  min-height: 36px;
+  white-space: nowrap;
+}
+
+.player-action-btn.whatsapp-btn {
+  background: rgba(37, 211, 102, 0.15);
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.player-action-btn.whatsapp-btn:hover {
+  background: #25d366;
+  color: #000;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.5);
+}
+
+.player-action-btn.copy-btn:hover {
+  background: var(--player-accent);
+  border-color: var(--player-accent);
+  box-shadow: 0 0 12px var(--player-glow);
+}
+
+.btn-icon {
+  font-size: 0.72rem;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  min-height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.share-toast-notification {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #25d366;
+  color: #000;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 120;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.footer-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-share-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 36px;
+}
+
+.footer-share-btn.whatsapp {
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.footer-share-btn.whatsapp:hover {
+  background: #25d366;
+  color: #000;
+}
+
+.footer-share-btn.copy:hover {
+  background: var(--player-accent);
+  border-color: var(--player-accent);
+}
+
+/* Screen Wrapper */
+.dudetv-screen-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+
+.dudetv-video,
+.dudetv-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: #000;
+  display: block;
+}
+
+.player-loading-overlay,
+.player-error-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 8, 12, 0.92);
+  color: #fff;
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--player-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 14px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-icon {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #ff6666;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Footer & Controls */
+.dudetv-controls-footer {
+  padding: 16px 22px;
+  background: rgba(14, 14, 20, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.channel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.channel-id-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-channel-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px;
+}
+
+.footer-title {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+
+.footer-cat-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.auto-failover-toast {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 30, 0.95);
+  border: 1px solid var(--player-accent);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 15px var(--player-glow);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.failover-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--player-accent);
+  box-shadow: 0 0 8px var(--player-accent);
+  animation: pulse 1s infinite alternate;
+}
+
+.auto-switch-badge {
+  background: rgba(0, 168, 225, 0.15);
+  border: 1px solid rgba(0, 168, 225, 0.4);
+  color: #00a8e1;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.switching-hint {
+  color: #aaa;
+  font-size: 0.78rem;
+  margin-top: 6px;
+}
+
+.error-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.retry-all-servers-btn,
+.next-server-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 40px;
+}
+
+.retry-all-servers-btn:hover {
+  background: var(--player-accent);
+  border-color: var(--player-accent);
+}
+
+.next-server-btn:hover {
+  background: #00a8e1;
+  border-color: #00a8e1;
+}
+
+.quick-switch-server-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.quick-switch-server-btn:hover {
+  background: var(--player-accent);
+  border-color: var(--player-accent);
+  box-shadow: 0 0 12px var(--player-glow);
+}
+
+.stream-servers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.servers-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.servers-subhint {
+  color: #777;
+  font-size: 0.75rem;
+}
+
+.servers-label {
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.servers-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.server-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ccc;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 36px;
+}
+
+.server-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.server-pill-btn.active {
+  background: var(--player-accent);
+  border-color: var(--player-accent);
+  color: #fff;
+  box-shadow: 0 0 14px var(--player-glow);
+}
+
+.server-pill-btn.failed {
+  opacity: 0.6;
+  border-color: rgba(255, 50, 50, 0.3);
+}
+
+.server-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1ce783;
+}
+
+.server-dot.failed {
+  background: #ff4444;
+}
+
+.server-pill-btn.active .server-dot {
+  background: #fff;
+}
+
+.server-ping-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.server-ping-badge.fast {
+  background: rgba(28, 231, 131, 0.18);
+  color: #1ce783;
+  border: 1px solid rgba(28, 231, 131, 0.35);
+}
+
+.server-ping-badge.medium {
+  background: rgba(255, 180, 0, 0.18);
+  color: #ffb400;
+  border: 1px solid rgba(255, 180, 0, 0.35);
+}
+
+.server-ping-badge.slow {
+  background: rgba(255, 100, 100, 0.18);
+  color: #ff6666;
+  border: 1px solid rgba(255, 100, 100, 0.35);
+}
+
+.ping-connecting-tag {
+  color: #1ce783;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.server-drm-badge {
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 0.65rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 800;
+}
+
+.server-failed-badge {
+  background: rgba(255, 0, 0, 0.25);
+  color: #ff6666;
+  font-size: 0.65rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 800;
+}
+
+/* Mobile & iOS */
+@media (max-width: 768px) {
+  .dudetv-player-header {
+    padding: 8px 12px;
+  }
+  
+  .player-match-preview {
+    display: none; /* Hide in compact header on phones */
+  }
+
+  .dudetv-controls-footer {
+    padding: 12px 14px;
+  }
+
+  .footer-title {
+    font-size: 0.98rem;
+  }
+
+  .server-pill-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .auto-failover-toast {
+    width: 90%;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}
