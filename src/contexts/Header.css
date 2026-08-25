@@ -1,89 +1,235 @@
-/* src/Header.css */
+/* ==========================================================================
+   ROOM 305 NAVBAR - DESKTOP-FIDELITY UNIFIED STYLESHEET
+   ========================================================================== */
+
+/* 1. Header Container */
 .app-header {
-  padding: 15px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(10, 10, 15, 0.8); /* Dark background, can be themed */
   position: sticky;
   top: 0;
-  z-index: 900;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.4s ease;
-  overflow: hidden; /* To ensure smoke effects don't overflow */
+  z-index: 1000;
+  width: 100%;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) clamp(14px, 3vw, 40px) 10px clamp(14px, 3vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  overflow: visible !important;
 }
 
+/* 2. Symmetrical Left Spacer */
+.header-left-spacer {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 3. Main Title (Desktop Reference Baseline) */
 .main-title {
   color: #f5f5f7;
   font-family: 'Raleway', sans-serif;
-  font-size: calc(2em + 15px);
+  font-size: clamp(1.3rem, 4.2vw, 2.5rem);
+  font-weight: 700;
   margin: 0;
   cursor: pointer;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  transition: color 0.4s ease, text-shadow 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 100%;
+  white-space: nowrap;
+  padding: 4px 14px;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.main-title:hover,
+.main-title:active {
+  transform: scale(1.05);
 }
 
 .title-icon {
-  margin: 0 10px;
-  font-size: 0.8em;
+  margin: 0 clamp(4px, 1.2vw, 10px);
+  font-size: 0.82em;
   vertical-align: middle;
-  opacity: 0.8;
+  display: inline-block;
+  opacity: 0.9;
 }
 
-/* Theme Switcher Styles (moved from PlayerModal.css) */
+/* 4. Theme Switcher */
 .theme-switcher {
   display: flex;
-  gap: 10px;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-  pointer-events: auto;
+  align-items: center;
+  justify-content: flex-end;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  z-index: 1010;
 }
 
 .theme-button {
-  background: rgba(50, 50, 55, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(50, 50, 55, 0.75);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
-  width: 40px; /* Larger as requested */
+  width: 40px;
   height: 40px;
   padding: 0;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  position: relative;
-  z-index: 1001;
-  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .theme-button:hover {
-  transform: scale(1.1);
-  background: rgba(80, 80, 85, 0.9);
-  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.12);
+  background: rgba(80, 80, 90, 0.95);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-.theme-button.active {
-  transform: scale(1.15);
-  border-width: 2px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Default active glow */
+.theme-button:active {
+  transform: scale(0.95);
 }
 
 .theme-icon {
-  width: 30px; /* Larger icon */
-  height: 30px;
-  filter: invert(90%); /* Default icon color */
+  width: 22px;
+  height: 22px;
   pointer-events: none;
 }
 
-/* Smoke overlay for hannibal theme - Modified for persistence and red tint */
+/* ==========================================================================
+   DEVIL THEME (Desktop Fire Aesthetic for Both Mobile & Desktop)
+   ========================================================================== */
+
+.theme-devil .app-header {
+  background-color: rgba(30, 0, 0, 0.92);
+  box-shadow: 0 4px 25px rgba(255, 0, 0, 0.45), 0 0 35px rgba(180, 0, 0, 0.2) inset;
+  border-bottom: 1px solid rgba(255, 50, 50, 0.4);
+}
+
+.theme-devil .main-title,
+.theme-devil .devil-title {
+  color: #ff8c00;
+  font-family: 'Creepster', cursive;
+  letter-spacing: 1px;
+  animation: devilDesktopFire 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes devilDesktopFire {
+  0% {
+    color: #ff8c00;
+    text-shadow: 
+      0 -1px 4px #FFF, 
+      0 -2px 10px #ff0, 
+      0 -8px 20px #ff8000, 
+      0 -16px 35px #F00;
+  }
+  50% {
+    color: #ffa500;
+    text-shadow: 
+      0 -1px 6px #FFF, 
+      0 -3px 14px #ffff33, 
+      0 -10px 25px #ff9900, 
+      0 -20px 45px #ff1a1a;
+  }
+  100% {
+    color: #ff8c00;
+    text-shadow: 
+      0 -1px 4px #FFF, 
+      0 -2px 10px #ff0, 
+      0 -8px 20px #ff8000, 
+      0 -16px 35px #F00;
+  }
+}
+
+.theme-devil .title-icon {
+  color: #ff3333;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.9), 0 0 24px rgba(255, 0, 0, 0.6);
+}
+
+.theme-devil .theme-button.active {
+  border-color: #ff4444;
+  box-shadow: 0 0 14px #ff0000;
+}
+
+.theme-devil .theme-icon {
+  filter: invert(30%) sepia(100%) saturate(5000%) hue-rotate(350deg);
+}
+
+/* ==========================================================================
+   ANGEL THEME
+   ========================================================================== */
+
+.theme-angel .app-header {
+  background-color: rgba(220, 235, 255, 0.92);
+  border-bottom: 1px solid rgba(100, 150, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(100, 150, 255, 0.35);
+}
+
+.theme-angel .main-title,
+.theme-angel .angel-title {
+  color: #4682B4;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(173, 216, 230, 0.9), 0 0 30px rgba(135, 206, 250, 0.6);
+}
+
+.theme-angel .title-icon {
+  color: #3182ce;
+  text-shadow: 0 0 10px rgba(135, 206, 250, 0.9);
+}
+
+.theme-angel .theme-button {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.theme-angel .theme-button.active {
+  border-color: #87CEEB;
+  box-shadow: 0 0 12px rgba(100, 150, 255, 0.7);
+}
+
+.theme-angel .theme-icon {
+  filter: invert(30%) sepia(80%) saturate(1000%) hue-rotate(180deg) brightness(1.2);
+}
+
+/* ==========================================================================
+   HANNIBAL THEME
+   ========================================================================== */
+
+.theme-hannibal .app-header {
+  background-color: rgba(20, 40, 35, 0.95);
+  border-bottom: 1px solid rgba(139, 0, 0, 0.6);
+  box-shadow: 0 4px 20px rgba(88, 20, 40, 0.45), 0 0 30px rgba(139, 0, 0, 0.25) inset;
+}
+
+.theme-hannibal .main-title,
+.theme-hannibal .hannibal-title {
+  color: #CEDBCD;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(40, 10, 20, 0.8), 0 0 15px rgba(139, 0, 0, 0.5);
+}
+
+.theme-hannibal .theme-button.active {
+  border-color: #702A40;
+  box-shadow: 0 0 12px rgba(88, 20, 40, 0.7);
+}
+
+.theme-hannibal .theme-icon {
+  filter: grayscale(30%) sepia(50%) hue-rotate(-30deg) saturate(250%) brightness(0.9);
+}
+
+/* Hannibal Smoke Overlay */
 .full-page-smoke,
 .theme-hannibal .full-page-smoke {
   position: fixed;
@@ -91,17 +237,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* Dark green base with a hint of deep red */
   background: 
-    radial-gradient(circle at 30% 20%, rgba(88, 20, 40, 0.3), transparent 70%), /* Burgundy glow */
-    radial-gradient(circle at 70% 80%, rgba(40, 10, 20, 0.25), transparent 70%), /* Darker red glow */
-    linear-gradient(rgba(15, 25, 20, 0.85), rgba(10, 20, 15, 0.95)); /* Dark green base */
-  opacity: 0.3; /* Make it subtly visible by default */
+    radial-gradient(circle at 30% 20%, rgba(88, 20, 40, 0.3), transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(40, 10, 20, 0.25), transparent 70%),
+    linear-gradient(rgba(15, 25, 20, 0.85), rgba(10, 20, 15, 0.95));
+  opacity: 0.3;
   pointer-events: none !important;
   transition: opacity 1s ease;
-  z-index: -5; /* Place behind header but potentially over body bg */
-  mix-blend-mode: multiply; /* Blend with background */
-  animation: slowSmokeDrift 60s linear infinite alternate; /* Slow drifting */
+  z-index: -5;
+  mix-blend-mode: multiply;
+  animation: slowSmokeDrift 60s linear infinite alternate;
 }
 
 @keyframes slowSmokeDrift {
@@ -109,420 +254,151 @@
   100% { background-position: 100% 100%; }
 }
 
-.full-page-smoke::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogIDxmaWx0ZXIgaWQ9Im5vaXNlIj4KICAgIDxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjA1IiBudW1PY3RhdmVzPSI0IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+CiAgICA8ZmVDb21wb3NpdGUgb3BlcmF0b3I9ImNvbXBvc2l0ZTUiIGluMj0iU291cmNlR3JhcGhpYyIvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=');
-  filter: contrast(170%) brightness(100%);
-  opacity: 0.5;
-  mix-blend-mode: soft-light;
-  pointer-events: none !important;
-}
-
-.full-page-smoke::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at center, 
-    rgba(139, 0, 0, 0.25) 0%, 
-    rgba(88, 20, 40, 0.1) 40%, 
-    rgba(20, 40, 30, 0) 70%
-  );
-  opacity: 0; 
-  animation: pulseRedGlow 8s infinite alternate;
-  animation-delay: 1s;
-  pointer-events: none !important;
-}
-
-@keyframes pulseRedGlow {
-  0% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-  100% { opacity: 0.3; transform: scale(1); }
-}
-
-/* Theme-specific overrides for Header */
-.theme-devil .app-header {
-  background-color: rgba(30, 0, 0, 0.9);
-  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
-}
-.theme-devil .main-title { 
-  color: #ff4444; 
-  font-family: 'Creepster', cursive;
-  text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.7), 0 0 20px rgba(139, 0, 0, 0.5);
-  letter-spacing: 2px;
-}
-.theme-devil .theme-button.active { 
-  border-color: #ff4444; 
-  box-shadow: 0 0 10px #ff0000; 
-}
-.theme-devil .theme-icon { 
-  filter: invert(30%) sepia(100%) saturate(5000%) hue-rotate(350deg);
-}
-
-.theme-angel .app-header {
-  background-color: rgba(220, 235, 255, 0.9);
-  box-shadow: 0 2px 10px rgba(100, 150, 255, 0.3);
-}
-.theme-angel .main-title { 
-  color: #4682B4;
-  text-shadow: 0 0 15px rgba(173, 216, 230, 0.8), 0 0 30px rgba(135, 206, 250, 0.6);
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-.theme-angel .theme-button { 
-  background: rgba(255, 255, 255, 0.8); 
-}
-.theme-angel .theme-button.active { 
-  border-color: #87CEEB; 
-  box-shadow: 0 0 10px #add8e6; 
-}
-.theme-angel .theme-icon { 
-  filter: invert(30%) sepia(80%) saturate(1000%) hue-rotate(180deg) brightness(1.2);
-}
-
-.theme-hannibal .app-header {
-  background-color: rgba(20, 40, 35, 0.95); 
-  box-shadow: 0 2px 10px rgba(88, 20, 40, 0.4), 
-              0 0 25px rgba(139, 0, 0, 0.2) inset;
-  border-bottom: 1px solid rgba(139, 0, 0, 0.5);
-  position: relative;
-}
-.theme-hannibal .main-title { 
-  color: #CEDBCD; 
-  font-family: 'Garamond', 'Times New Roman', Times, serif; 
-  font-weight: normal; 
-  text-shadow: 1px 1px 2px rgba(40, 10, 20, 0.7); 
-  letter-spacing: 1px;
-}
-.theme-hannibal .theme-button.active { 
-  border-color: #702A40; 
-  box-shadow: 0 0 10px rgba(88, 20, 40, 0.5); 
-}
-.theme-hannibal .theme-icon {
-  filter: grayscale(30%) sepia(50%) hue-rotate(-30deg) saturate(250%) brightness(0.9);
-}
-
-/* Bong element for Hannibal theme */
-.theme-hannibal .app-header::before {
-  content: "";
-  position: absolute;
-  right: calc(50% - 120px);
-  bottom: 10px;
-  width: 16px;
-  height: 50px;
-  background: linear-gradient(to bottom, 
-    transparent 0%,
-    rgba(100, 100, 100, 0.7) 10%,
-    rgba(200, 200, 200, 0.8) 30%,
-    rgba(180, 180, 180, 0.9) 50%,
-    rgba(100, 100, 100, 0.7) 80%,
-    rgba(40, 40, 40, 0.6) 100%
-  );
-  border-radius: 8px 8px 3px 3px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 
-              0 0 5px rgba(0, 0, 0, 0.5) inset;
-  z-index: 5;
-}
-
-.theme-hannibal .app-header::after {
-  content: "";
-  position: absolute;
-  right: calc(50% - 128px);
-  bottom: 5px;
-  width: 32px;
-  height: 25px;
-  background: rgba(180, 180, 180, 0.7);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
-              0 0 8px rgba(0, 0, 0, 0.6) inset;
-  z-index: 5;
-}
-
-.bong-smoke {
-  position: absolute;
-  right: calc(50% - 120px);
-  bottom: 60px;
-  width: 12px;
-  height: 25px;
-  background: rgba(220, 220, 220, 0.6);
-  filter: blur(5px);
-  border-radius: 50%;
-  opacity: 0;
-  animation: smoke-rise 6s ease-out infinite;
-  z-index: 6;
-}
-
-@keyframes smoke-rise {
-  0% { opacity: 0; transform: translateY(0) scale(0.5); }
-  20% { opacity: 0.8; transform: translateY(-15px) scale(1); }
-  50% { opacity: 0.5; transform: translateY(-40px) scale(1.5) translateX(10px); }
-  80% { opacity: 0.2; transform: translateY(-70px) scale(2) translateX(-5px); }
-  100% { opacity: 0; transform: translateY(-90px) scale(2.5) translateX(15px); }
-}
-
-.theme-hannibal .joint {
-  position: absolute;
-  left: calc(50% - 120px);
-  bottom: 20px;
-  width: 30px;
-  height: 8px;
-  background: linear-gradient(to right, #ffffff, #dcdcdc, #ff4500);
-  transform: rotate(-10deg);
-  border-radius: 2px;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  z-index: 5;
-}
-
-.theme-hannibal .joint-smoke {
-  position: absolute;
-  left: calc(50% - 120px);
-  bottom: 35px;
-  width: 6px;
-  height: 30px;
-  background: linear-gradient(to top, 
-    rgba(230, 230, 230, 0.9) 0%,
-    rgba(200, 200, 200, 0.7) 60%,
-    rgba(200, 200, 200, 0.3) 100%
-  );
-  filter: blur(4px);
-  border-radius: 50%;
-  opacity: 0;
-  animation: joint-smoke 7s ease-out infinite;
-  animation-delay: 1s;
-  z-index: 6;
-}
-
-@keyframes joint-smoke {
-  0% { opacity: 0; height: 0; bottom: 18px; width: 4px; }
-  10% { opacity: 0.9; height: 15px; bottom: 20px; width: 6px; }
-  30% { opacity: 0.85; height: 40px; bottom: 25px; transform: translateX(0); width: 8px; }
-  50% { opacity: 0.7; height: 60px; bottom: 30px; transform: translateX(12px); width: 10px; }
-  75% { opacity: 0.5; height: 80px; bottom: 40px; transform: translateX(8px); width: 12px; }
-  90% { opacity: 0.3; height: 100px; bottom: 50px; transform: translateX(20px); width: 14px; }
-  100% { opacity: 0; height: 120px; bottom: 50px; transform: translateX(25px); width: 16px; }
-}
-
-.bong-smoke-elements {
-  position: absolute;
-  right: calc(50% - 150px);
-  bottom: 0;
-  width: 50px;
-  height: 100px;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.joint-smoke-elements {
-  position: absolute;
-  left: calc(50% - 150px);
-  bottom: 0;
-  width: 50px;
-  height: 100px;
-  z-index: 4;
-  pointer-events: none;
-}
-
-/* Devil theme title hover - fire effect */
-.devil-title:hover {
-  color: #ff8c00;
-  text-shadow: 
-    0 -1px 4px #FFF, 
-    0 -2px 10px #ff0, 
-    0 -10px 20px #ff8000, 
-    0 -18px 40px #F00;
-  animation: fire-text 1s ease-in-out infinite alternate;
-}
-
-@keyframes fire-text {
-  0% { text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00; }
-  25% { text-shadow: 0 -1px 4px #FFF, 0 -2px 6px #ff0, 0 -8px 15px #ff8000, 0 -12px 30px #F00; }
-  50% { text-shadow: 0 -1px 4px #FFF, 0 -2px 8px #ff0, 0 -6px 18px #ff8000, 0 -14px 35px #F00; }
-  75% { text-shadow: 0 -1px 4px #FFF, 0 -2px 7px #ff0, 0 -9px 16px #ff8000, 0 -16px 38px #F00; }
-  100% { text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00; }
-}
-
-/* Angel theme title hover - sparkle effect */
-.angel-title:hover {
-  color: #5f9ea0;
-  animation: sparkle 1.5s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #87CEEB, 0 0 20px #87CEEB; }
-  25% { text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #87CEEB, 0 0 30px #87CEEB; }
-  50% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #87CEEB, 0 0 20px #87CEEB; }
-  75% { text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #87CEEB, 0 0 30px #87CEEB; }
-  100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #87CEEB, 0 0 20px #87CEEB; }
-}
-
-/* Hannibal theme title hover - smoke and burn effect */
-.hannibal-title:hover {
-  color: #C04040;
-  position: relative;
-  text-shadow: 0 0 8px rgba(139, 0, 0, 0.8), 0 0 15px rgba(88, 20, 40, 0.6);
-  animation: burn 1.5s ease-in-out infinite;
-}
-
-.hannibal-title:hover::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  width: 80%;
-  height: 25px;
-  background: linear-gradient(to top, rgba(60, 30, 35, 0.7), transparent);
-  filter: blur(8px);
-  transform: translateX(-50%);
-  animation: smoke 2.5s ease-in-out infinite;
-}
-
-@keyframes burn {
-  0% { text-shadow: 0 0 6px rgba(88, 20, 40, 0.7); color: #CEDBCD; }
-  25% { text-shadow: 0 0 10px rgba(139, 0, 0, 0.8); color: #D8A0A8; }
-  50% { text-shadow: 0 0 15px rgba(139, 0, 0, 0.9); color: #C04040; }
-  75% { text-shadow: 0 0 10px rgba(139, 0, 0, 0.8); color: #D8A0A8; }
-  100% { text-shadow: 0 0 6px rgba(88, 20, 40, 0.7); color: #CEDBCD; }
-}
-
-@keyframes smoke {
-  0% { opacity: 0.5; height: 20px; filter: blur(7px); background: linear-gradient(to top, rgba(60, 30, 35, 0.6), transparent); }
-  50% { opacity: 0.9; height: 30px; filter: blur(9px); background: linear-gradient(to top, rgba(88, 20, 40, 0.8), transparent); }
-  100% { opacity: 0.5; height: 20px; filter: blur(7px); background: linear-gradient(to top, rgba(60, 30, 35, 0.6), transparent); }
-}
-
 /* ==========================================================================
-   RESPONSIVENESS / MEDIA QUERIES (HEADER)
+   MOBILE & TABLET RESPONSIVENESS
    ========================================================================== */
 
-/* 0. 4K TVs and 32+ Inch Monitors (min-width: 2560px) */
-@media (min-width: 2560px) {
+@media (max-width: 768px) {
   .app-header {
-    padding: 35px 80px;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
   }
-  .main-title {
-    font-size: calc(4em + 30px);
+
+  /* EXPLICITLY SHOW THEME BUTTON AND BALANCER ON MOBILE */
+  .header-left-spacer,
+  .theme-switcher {
+    width: 36px;
+    height: 36px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1050 !important;
+    pointer-events: auto !important;
   }
+
+  .header-left-spacer {
+    visibility: hidden;
+    pointer-events: none !important;
+  }
+
   .theme-button {
-    width: 80px;
-    height: 80px;
-    right: 80px;
+    width: 36px;
+    height: 36px;
+    display: flex !important;
+    z-index: 1050 !important;
+    pointer-events: auto !important;
   }
+
   .theme-icon {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none !important;
+  }
+
+  /* 0.5x Zoom Out for ALL Themes on Mobile */
+  .main-title {
+    font-size: clamp(1.4rem, 5.2vw, 2.2rem);
+    padding: 2px 8px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+
+  .main-title:hover,
+  .main-title:active {
+    transform: scale(0.55);
+  }
+
+  /* Devil Theme letter spacing with 0.5x scale */
+  .theme-devil .main-title,
+  .theme-devil .devil-title {
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+
+  .theme-devil .main-title:hover,
+  .theme-devil .main-title:active {
+    transform: scale(0.55);
   }
 }
 
-/* 1. Standard 1080p TV / Wide Monitors (min-width: 1920px) */
-@media (min-width: 1920px) and (max-width: 2559px) {
+@media (max-width: 480px) {
+  .app-header {
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 8px 6px 8px;
+  }
+
+  .header-left-spacer,
+  .theme-switcher {
+    width: 34px;
+    height: 34px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .theme-button {
+    width: 34px;
+    height: 34px;
+    display: flex !important;
+  }
+
+  .theme-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  /* 0.5x Zoom Out for ALL Themes on Small Mobile */
+  .main-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    padding: 2px 4px;
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+
+  .theme-devil .main-title,
+  .theme-devil .devil-title {
+    letter-spacing: 0.2px;
+    padding: 2px 4px;
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+  
+  .title-icon {
+    margin: 0 2px;
+    font-size: 0.78em;
+  }
+}
+
+/* Ultrawide 4K Displays */
+@media (min-width: 2560px) {
   .app-header {
     padding: 25px 60px;
   }
   .main-title {
-    font-size: calc(3em + 20px);
+    font-size: 3.5rem;
+  }
+  .header-left-spacer,
+  .theme-switcher {
+    width: 60px;
+    height: 60px;
   }
   .theme-button {
     width: 60px;
     height: 60px;
-    right: 60px;
   }
   .theme-icon {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* 2. Tablet / iPad (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .app-header {
-    padding: 15px 25px;
-  }
-}
-
-/* 3. Mobile Devices (max-width: 768px) */
-@media (max-width: 768px) {
-  .app-header {
-    padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px 16px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 950;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  
-  .main-title {
-    font-size: clamp(1.15rem, 4.8vw, 1.65rem);
-    text-align: center;
-    width: 100%;
-    padding: 0 44px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-sizing: border-box;
-  }
-  
-  .theme-switcher {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 960;
-  }
-  
-  .theme-button {
     width: 36px;
     height: 36px;
-  }
-  
-  .theme-icon {
-    width: 22px;
-    height: 22px;
-  }
-  
-  .bong-smoke-elements, .joint-smoke-elements {
-    display: none;
-  }
-}
-
-/* 4. Small Mobile (max-width: 480px) */
-@media (max-width: 480px) {
-  .app-header {
-    padding: calc(8px + env(safe-area-inset-top, 0px)) 10px 8px 10px;
-  }
-  
-  .main-title {
-    font-size: clamp(0.95rem, 4vw, 1.25rem);
-    padding: 0 36px;
-  }
-  
-  .theme-switcher {
-    right: 8px;
-  }
-  
-  .theme-button {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .theme-icon {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .title-icon {
-    margin: 0 3px;
-    font-size: 0.75em;
   }
 }

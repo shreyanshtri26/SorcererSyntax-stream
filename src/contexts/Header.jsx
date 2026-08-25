@@ -99,11 +99,14 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
       {/* 3D effects behind header */}
       <HeaderScene theme={currentTheme} />
 
-      <ParallaxWrapper intensity={4} style={{ position: 'relative', zIndex: 2 }}>
+      {/* Symmetrical Left Spacer to guarantee true centering against theme button */}
+      <div className="header-left-spacer" aria-hidden="true"></div>
+
+      <ParallaxWrapper intensity={3} style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', width: 'auto', maxWidth: '100%', overflow: 'visible' }}>
         <h1 className={`main-title ${currentTheme}-title`} onClick={onTitleClick}>
-          <span className="title-icon"> {getTitleIcon()} </span>
+          <span className="title-icon">{getTitleIcon()}</span>
           Room no: 305
-          <span className="title-icon"> {getTitleIcon()} </span>
+          <span className="title-icon">{getTitleIcon()}</span>
         </h1>
       </ParallaxWrapper>
       

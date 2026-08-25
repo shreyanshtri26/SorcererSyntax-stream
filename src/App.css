@@ -4013,27 +4013,53 @@ h2 {
 
   .sort-control {
     width: 100%;
+    min-height: 44px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    border-radius: 12px;
+    gap: 10px;
+  }
+
+  .sort-control label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #ddd;
   }
 
   .sort-select {
     flex: 1;
     min-width: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    min-height: 36px;
+    border-radius: 8px;
+    background: rgba(45, 45, 55, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
   }
 
   .search-filter-tabs {
     margin: 0 !important;
+    width: 100%;
   }
 
   .search-filter-tabs .sliding-tabs {
     max-width: 100%;
     width: 100%;
+    min-height: 42px;
+    padding: 3px;
   }
 
   .search-filter-tabs .sliding-tabs .tab-button {
-    padding: 8px 10px;
-    font-size: 0.8rem;
+    padding: 9px 12px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    min-height: 38px;
   }
   
   /* Solid 2-Column Edge-to-Edge Mobile Grid (No cutoffs, perfectly aligned) */
