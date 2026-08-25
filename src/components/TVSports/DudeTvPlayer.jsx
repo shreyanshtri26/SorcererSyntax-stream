@@ -494,9 +494,8 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
             height="100%"
             frameBorder="0"
             scrolling="no"
-            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; accelerometer; gyroscope; clipboard-write; web-share"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             allowFullScreen
-            sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
           />
         ) : (
           <video
