@@ -512,6 +512,8 @@ const SearchPage = ({
                                 ]}
                                 activeTab={activeFilterTab}
                                 onTabChange={handleTabChange}
+                                layoutId="search-filter-tab"
+                                className="search-filter-tabs"
                             />
                         </div>
 

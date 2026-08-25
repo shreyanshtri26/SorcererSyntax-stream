@@ -43,10 +43,30 @@ async function fetchFromTMDB(endpoint, params = {}, language = TMDB_DEFAULT_LANG
   }
 }
 
-export const getTrendingMovies = (timeWindow = 'week') => fetchFromTMDB(`trending/movie/${timeWindow}`);
-export const getTrendingTVShows = (timeWindow = 'week') => fetchFromTMDB(`trending/tv/${timeWindow}`);
-export const getTopRatedMovies = () => fetchFromTMDB('movie/top_rated');
-export const getTopRatedTVShows = () => fetchFromTMDB('tv/top_rated');
+export const getTrendingMovies = (timeWindow = 'week', page = 1) => fetchFromTMDB(`trending/movie/${timeWindow}`, { page });
+export const getTrendingTVShows = (timeWindow = 'week', page = 1) => fetchFromTMDB(`trending/tv/${timeWindow}`, { page });
+export const getTopRatedMovies = (page = 1) => fetchFromTMDB('movie/top_rated', { page });
+export const getTopRatedTVShows = (page = 1) => fetchFromTMDB('tv/top_rated', { page });
+
+export const getTrendingMoviesMulti = async (pages = 2, timeWindow = 'week') => {
+  const results = await Promise.all(Array.from({ length: pages }, (_, i) => getTrendingMovies(timeWindow, i + 1)));
+  return results.flat().filter(Boolean);
+};
+
+export const getTrendingTVShowsMulti = async (pages = 2, timeWindow = 'week') => {
+  const results = await Promise.all(Array.from({ length: pages }, (_, i) => getTrendingTVShows(timeWindow, i + 1)));
+  return results.flat().filter(Boolean);
+};
+
+export const getTopRatedMoviesMulti = async (pages = 2) => {
+  const results = await Promise.all(Array.from({ length: pages }, (_, i) => getTopRatedMovies(i + 1)));
+  return results.flat().filter(Boolean);
+};
+
+export const getTopRatedTVShowsMulti = async (pages = 2) => {
+  const results = await Promise.all(Array.from({ length: pages }, (_, i) => getTopRatedTVShows(i + 1)));
+  return results.flat().filter(Boolean);
+};
 export const searchMovies = (query, page = 1, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB('search/movie', { query, page }, language);
 export const searchTVShows = (query, page = 1, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB('search/tv', { query, page }, language);
 export const searchMultiMedia = (query, page = 1, language = TMDB_DEFAULT_LANGUAGE) => fetchFromTMDB('search/multi', { query, page }, language);

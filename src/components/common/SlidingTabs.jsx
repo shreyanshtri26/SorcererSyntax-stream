@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const SlidingTabs = ({ tabs, activeTab, onTabChange }) => {
+const SlidingTabs = ({ tabs, activeTab, onTabChange, layoutId = 'sliding-tab-pill', className = '' }) => {
   return (
-    <div className="sliding-tabs-container">
+    <div className={`sliding-tabs-container ${className}`}>
       <div className="sliding-tabs" role="tablist">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -17,7 +17,7 @@ const SlidingTabs = ({ tabs, activeTab, onTabChange }) => {
             >
               {isActive && (
                 <motion.div
-                  layoutId="sliding-tab-pill"
+                  layoutId={layoutId}
                   className="tab-indicator"
                   transition={{ type: 'spring', stiffness: 450, damping: 35 }}
                 />

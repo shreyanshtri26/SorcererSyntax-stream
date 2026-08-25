@@ -2,9 +2,9 @@
 
 .dudetv-page {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: calc(16px + env(safe-area-inset-top, 0px)) clamp(14px, 3.5vw, 44px) calc(40px + env(safe-area-inset-bottom, 0px)) clamp(14px, 3.5vw, 44px);
+  max-width: 100%;
+  margin: 0;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) clamp(16px, 2.5vw, 48px) calc(40px + env(safe-area-inset-bottom, 0px)) clamp(16px, 2.5vw, 48px);
   box-sizing: border-box;
   color: #fff;
   min-height: 85vh;
@@ -855,14 +855,9 @@
 
 .modern-channels-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-@media (min-width: 1280px) {
-  .modern-channels-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
 @media (max-width: 640px) {
@@ -1202,41 +1197,275 @@
 }
 
 /* ==========================================================================
-   iOS & MOBILE RESPONSIVE OPTIMIZATIONS
+   iOS & MOBILE RESPONSIVE OPTIMIZATIONS (Cross-Device Fluid)
    ========================================================================== */
 
+/* 1. Tablet & iPad (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .modern-channels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* 2. Mobile Landscape & Phablet (max-width: 768px) */
 @media (max-width: 768px) {
   .dudetv-page {
-    padding: calc(12px + env(safe-area-inset-top, 0px)) 12px calc(32px + env(safe-area-inset-bottom, 0px)) 12px;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 10px calc(80px + env(safe-area-inset-bottom, 0px)) 10px;
+    min-height: auto;
   }
 
   .dudetv-header-banner {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 18px;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
-  .dude-search-box {
-    max-width: 100%;
-    min-height: 44px; /* iOS standard touch size */
+  .dudetv-header-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
   }
 
-  .dude-tab-bar {
-    gap: 8px;
-    margin-bottom: 18px;
-    padding-bottom: 8px;
-  }
-
-  .dude-tab-btn {
-    padding: 8px 16px;
+  .tv-premium-back-btn {
+    padding: 7px 14px;
     font-size: 0.82rem;
     min-height: 40px;
   }
 
+  .dudetv-brand {
+    gap: 8px;
+  }
+
+  .dude-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .dude-page-title {
+    font-size: clamp(1.1rem, 4vw, 1.45rem);
+  }
+
+  .tv-search-section {
+    margin-bottom: 18px;
+    gap: 10px;
+  }
+
+  .tv-search-input-container {
+    padding: 4px 10px 4px 14px;
+    border-radius: 14px;
+  }
+
+  .tv-search-input {
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+
+  .tv-search-input::placeholder {
+    font-size: 0.85rem;
+  }
+
+  .tv-trending-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+
+  .tv-trending-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .popular-search-pill {
+    flex-shrink: 0;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    min-height: 32px;
+  }
+
+  .search-summary-banner {
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .search-pills-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .search-pills-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .search-tab-pill {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    padding: 6px 12px;
+  }
+
+  /* Main Tab Switcher as horizontal scrolling pills */
+  .dude-tab-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 4px 2px 8px 2px;
+    width: 100%;
+  }
+
+  .dude-tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dude-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    min-height: 40px;
+    border-radius: 9999px;
+  }
+
+  /* Hide Desktop arrows on touch devices to maximize width */
+  .carousel-arrow-btn {
+    display: none !important;
+  }
+
+  .carousel-slider-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .dude-categories-carousel {
+    padding: 4px 4px 10px 4px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+
+  .dude-categories-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-chip-btn {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    min-height: 36px;
+    border-radius: 9999px;
+    flex-shrink: 0;
+  }
+
+  .cat-chip-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* 1-Column Live Match Card on Mobile */
   .events-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .event-card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .event-top-bar {
+    margin-bottom: 10px;
+  }
+
+  .event-category-badge {
+    font-size: 0.72rem;
+    padding: 2px 7px;
+  }
+
+  .live-status-pill,
+  .hot-pill,
+  .lsp-pill {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .event-teams-row {
+    padding: 8px 0 12px 0;
+    gap: 8px;
+  }
+
+  .team-col {
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .team-flag,
+  .safe-fallback-flag,
+  .team-placeholder {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+
+  .team-name {
+    font-size: 0.82rem;
+    line-height: 1.25;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .vs-badge {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  .event-title {
+    font-size: 0.88rem;
+  }
+
+  .channels-pill,
+  .watch-now-cta {
+    font-size: 0.74rem;
+  }
+
+  /* Modern Channels Grid */
+  .modern-channels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 14px;
+  }
+
+  .channel-modern-card {
+    border-radius: 18px;
+  }
+
+  .channel-modern-banner {
+    height: 145px;
+  }
+
+  .channel-modern-info {
+    padding: 14px;
+  }
+
+  .channel-modern-title {
+    font-size: 14px;
+  }
+
+  .channel-modern-desc {
+    font-size: 11px;
+    height: 30px;
+    margin-bottom: 8px;
   }
 
   .channels-grid {
@@ -1246,6 +1475,7 @@
 
   .channel-card {
     padding: 10px;
+    border-radius: 12px;
   }
 
   .channel-name {
@@ -1253,6 +1483,65 @@
   }
 
   .section-heading {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+  .section-count {
+    font-size: 0.75rem;
+  }
+}
+
+/* 3. Small Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .dudetv-page {
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 6px calc(75px + env(safe-area-inset-bottom, 0px)) 6px;
+  }
+
+  .dudetv-header-left {
+    flex-wrap: nowrap;
+  }
+
+  .tv-back-text {
+    display: none; /* Icon only on extra small screens */
+  }
+
+  .tv-premium-back-btn {
+    padding: 6px 10px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+  }
+
+  .tv-back-arrow {
+    font-size: 1.2rem;
+  }
+
+  .dude-page-title {
+    font-size: 1.15rem;
+  }
+
+  .modern-channels-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .channel-modern-banner {
+    height: 135px;
+  }
+
+  .channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .channel-logo-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .dude-tab-btn {
+    padding: 7px 13px;
+    font-size: 0.78rem;
+    min-height: 36px;
   }
 }

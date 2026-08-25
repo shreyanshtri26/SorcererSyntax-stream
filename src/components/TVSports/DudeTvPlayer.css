@@ -637,32 +637,136 @@
   font-weight: 800;
 }
 
-/* Mobile & iOS */
+/* Mobile & iOS Responsive */
 @media (max-width: 768px) {
+  .dudetv-player-container {
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
   .dudetv-player-header {
-    padding: 8px 12px;
+    padding: 8px 10px;
+    gap: 8px;
   }
   
+  .player-meta-left {
+    gap: 8px;
+  }
+
+  .back-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    min-height: 34px;
+  }
+
+  .stream-badge-info {
+    padding: 3px 8px;
+  }
+
+  .live-label {
+    font-size: 0.68rem;
+  }
+
+  .player-actions-right {
+    gap: 6px;
+  }
+
+  .player-action-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    min-height: 34px;
+  }
+
   .player-match-preview {
     display: none; /* Hide in compact header on phones */
   }
 
   .dudetv-controls-footer {
-    padding: 12px 14px;
+    padding: 12px 12px;
+    gap: 10px;
+  }
+
+  .channel-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .footer-channel-logo {
+    width: 34px;
+    height: 34px;
   }
 
   .footer-title {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
+  }
+
+  .quick-switch-server-btn {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .servers-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 6px;
+  }
+
+  .servers-label {
+    font-size: 0.75rem;
+  }
+
+  .servers-subhint {
+    font-size: 0.7rem;
+  }
+
+  .servers-pill-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+
+  .servers-pill-list::-webkit-scrollbar {
+    display: none;
   }
 
   .server-pill-btn {
-    padding: 5px 10px;
+    padding: 6px 12px;
     font-size: 0.75rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-height: 34px;
   }
 
   .auto-failover-toast {
-    width: 90%;
+    width: calc(100% - 24px);
     font-size: 0.75rem;
     padding: 6px 12px;
+    top: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dudetv-player-container {
+    border-radius: 10px;
+  }
+
+  .player-meta-left .stream-type-tag {
+    display: none;
+  }
+
+  .player-action-btn span:not(.btn-icon) {
+    display: none; /* Icon-only on extra narrow phones */
+  }
+
+  .player-action-btn {
+    padding: 6px;
+    min-width: 34px;
+    justify-content: center;
   }
 }

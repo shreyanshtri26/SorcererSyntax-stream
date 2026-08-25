@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    getTrendingMovies,
-    getTrendingTVShows,
-    getTopRatedMovies,
-    getTopRatedTVShows
+    getTrendingMoviesMulti,
+    getTrendingTVShowsMulti,
+    getTopRatedMoviesMulti,
+    getTopRatedTVShowsMulti
 } from '../api/api';
 import { MediaGridSkeleton } from '../components/SkeletonLoader';
 import MediaGrid from '../components/MediaGrid';
@@ -29,10 +29,10 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                     topRatedMovies,
                     topRatedTV
                 ] = await Promise.all([
-                    getTrendingMovies(),
-                    getTrendingTVShows(),
-                    getTopRatedMovies(),
-                    getTopRatedTVShows()
+                    getTrendingMoviesMulti(2),
+                    getTrendingTVShowsMulti(2),
+                    getTopRatedMoviesMulti(2),
+                    getTopRatedTVShowsMulti(2)
                 ]);
                 setTrendingMovies(trendMovies || []);
                 setTrendingTV(trendTV || []);
@@ -100,11 +100,11 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                 <>
                     <div id="trending-movies" className="home-section-container">
                         <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
-                        <MediaGridSkeleton count={20} />
+                        <MediaGridSkeleton count={24} />
                     </div>
                     <div id="trending-tv" className="home-section-container">
                         <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
-                        <MediaGridSkeleton count={20} />
+                        <MediaGridSkeleton count={24} />
                     </div>
                 </>
             ) : (

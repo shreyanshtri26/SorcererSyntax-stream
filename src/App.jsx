@@ -182,9 +182,11 @@ function App() {
       {!isPlayerModalOpen && !isPersonModalOpen && (
         <div className="section-navigator-container">
           <SlidingTabs 
-            tabs={[{id: 'media', label: 'Media'}, {id: 'tv_sports', label: 'TV & Sports'}]} 
+            tabs={[{id: 'media', label: '🎬 Media Hub'}, {id: 'tv_sports', label: '⚽ Live TV & Sports'}]} 
             activeTab={activeSection} 
             onTabChange={handleSectionChange} 
+            layoutId="main-section-tab"
+            className="main-section-tabs"
           />
         </div>
       )}

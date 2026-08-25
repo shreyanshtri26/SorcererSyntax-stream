@@ -462,76 +462,10 @@
   to { width: 100%; }
 }
 
-/* --- Mobile Responsiveness --- */
-@media (max-width: 900px) {
+/* --- Mobile Responsiveness: Completely hide autoslide banner on mobile --- */
+@media (max-width: 768px) {
   .hero-billboard {
-    height: auto;
-    min-height: 480px;
-  }
-
-  .billboard-content-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 28px 24px;
-    gap: 20px;
-  }
-
-  .billboard-title {
-    font-size: 1.8rem;
-  }
-
-  .billboard-overview {
-    font-size: 0.88rem;
-    -webkit-line-clamp: 2;
-    margin-bottom: 18px;
-  }
-
-  .billboard-actions {
-    gap: 10px;
-  }
-
-  .billboard-btn {
-    padding: 10px 18px;
-    font-size: 0.85rem;
-  }
-
-  .billboard-carousel-controls {
-    align-self: flex-end;
-  }
-}
-
-@media (max-width: 540px) {
-  .hero-billboard {
-    border-radius: 14px;
-    margin: 5px 0 25px 0;
-  }
-
-  .billboard-content-wrapper {
-    padding: 20px 16px;
-  }
-
-  .billboard-title {
-    font-size: 1.5rem;
-  }
-
-  .billboard-badge-row {
-    gap: 6px;
-  }
-
-  .billboard-pill {
-    font-size: 0.65rem;
-    padding: 3px 8px;
-  }
-
-  .billboard-actions {
-    width: 100%;
-  }
-
-  .billboard-btn {
-    flex: 1;
-    min-width: 120px;
-    padding: 10px 12px;
-    font-size: 0.8rem;
+    display: none !important;
   }
 }
 
