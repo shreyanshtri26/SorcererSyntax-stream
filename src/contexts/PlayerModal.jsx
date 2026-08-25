@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getTVShowDetails, getMovieDetails, getVideos, getMovieGenres, getTVGenres, getMovieCredits, getTVSeasonCredits, getTVSeasonVideos, IMAGE_BASE_URL } from '../api/api';
+import { getTVShowDetails, getMovieDetails, getVideos, getMovieGenres, getTVGenres, getMovieCredits, getTVSeasonCredits, getTVSeasonVideos, getSimilarMedia, IMAGE_BASE_URL } from '../api/api';
 import './PlayerModal.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
@@ -12,6 +12,8 @@ import defaultThemeIcon from './assets/default-theme-icon.svg';
 import ShareButtons from '../components/ShareButtons';
 import ModalBackdrop from '../components/three/ModalBackdrop';
 import darkTexture from './assets/dark-texture.png';
+import useWatchlist from '../hooks/useWatchlist';
+import useContinueWatching from '../hooks/useContinueWatching';
 // --- REMOVE Theme Icons (assuming they exist) ---
 // import devilIcon from './assets/devil-icon.svg'; 
 // import angelIcon from './assets/angel-icon.svg';
@@ -125,7 +127,8 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [isPlayingTrailer, setIsPlayingTrailer] = useState(showTrailer);
   const [genres, setGenres] = useState([]); // Add state for genres
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // New state for collapsible description
-  const [watchlistStatus, setWatchlistStatus] = useState(false); // Track if item is in watchlist
+  const { isInWatchlist, toggleWatchlist: toggleWatchlistStore } = useWatchlist();
+  const isBookmarked = media?.id ? isInWatchlist(media.id) : false;
   const [userRating, setUserRating] = useState(0); // User's personal rating
   const [selectedPlayerSource, setSelectedPlayerSource] = useState(() => {
     return localStorage.getItem('player_source') || 'cinemaos';
@@ -145,6 +148,10 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   // --- Cast State ---
   const [cast, setCast] = useState([]);
   const [isLoadingCast, setIsLoadingCast] = useState(false);
+  
+  // --- Similar Media (More to Watch) State ---
+  const [similarMedia, setSimilarMedia] = useState([]);
+  const [isLoadingSimilar, setIsLoadingSimilar] = useState(false);
   // ------------------
 
   // --- Updated Player Sources ---
@@ -243,6 +250,32 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     fetchCast();
   }, [media, type, selectedSeason]);
   // -----------------------------------
+
+  // --- Fetch Similar Media (More to Watch) ---
+  useEffect(() => {
+    const fetchSimilar = async () => {
+      const targetId = media?.id || id;
+      const targetType = type || mediaType || 'movie';
+      if (!targetId) return;
+
+      setIsLoadingSimilar(true);
+      setSimilarMedia([]);
+
+      try {
+        const data = await getSimilarMedia(targetType === 'tv' ? 'tv' : 'movie', targetId);
+        if (data && data.results && data.results.length > 0) {
+          setSimilarMedia(data.results.filter(item => item.poster_path).slice(0, 10));
+        }
+      } catch (error) {
+        console.error("Error fetching similar media:", error);
+      } finally {
+        setIsLoadingSimilar(false);
+      }
+    };
+
+    fetchSimilar();
+  }, [media?.id, id, type, mediaType]);
+  // -------------------------------------------
 
   useEffect(() => {
     if (type === 'movie' && media?.id) {
@@ -750,6 +783,65 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     );
   };
 
+  // --- Render More to Watch Section (Related Movies & Shows) ---
+  const renderMoreToWatch = () => {
+    if (!similarMedia || similarMedia.length === 0) return null;
+
+    return (
+      <div className="more-to-watch-section">
+        <h4 className="more-to-watch-header">
+          <span className="section-dot-accent"></span>
+          More to Watch
+        </h4>
+        {isLoadingSimilar ? (
+          <p className="loading-text small">Finding recommendations...</p>
+        ) : (
+          <div className="more-to-watch-grid">
+            {similarMedia.map(item => {
+              const matchScore = Math.min(99, Math.max(75, Math.round((item.vote_average || 7.0) * 10 + 4)));
+              const year = (item.release_date || item.first_air_date || '').substring(0, 4);
+              return (
+                <div 
+                  key={item.id} 
+                  className="similar-card"
+                  onClick={() => {
+                    const itemType = type || mediaType || 'movie';
+                    if (itemType === 'tv') {
+                      navigate(`/tv/${item.id}/season/1/episode/1`);
+                    } else {
+                      navigate(`/movie/${item.id}`);
+                    }
+                  }}
+                  title={`Stream ${item.title || item.name}`}
+                >
+                  <div className="similar-poster-wrapper">
+                    <img
+                      src={item.poster_path ? `${IMAGE_BASE_URL}${item.poster_path}` : 'no-poster.jpg'}
+                      alt={item.title || item.name}
+                      className="similar-poster-img"
+                      loading="lazy"
+                      onError={(e) => { e.target.onerror = null; e.target.src = 'no-poster.jpg'; }}
+                    />
+                    <div className="similar-play-overlay">
+                      <span className="similar-play-icon">▶</span>
+                    </div>
+                  </div>
+                  <div className="similar-card-info">
+                    <div className="similar-card-meta">
+                      <span className="similar-match">{matchScore}% Match</span>
+                      {year && <span className="similar-year">{year}</span>}
+                    </div>
+                    <p className="similar-title">{item.title || item.name}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   // --- Iframe Error/Load Handlers ---
   const handleIframeError = () => {
     // Only handle errors for embedded players
@@ -829,7 +921,9 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const toggleDescription = () => setIsDescriptionExpanded(!isDescriptionExpanded);
   const toggleWatchlist = (e) => {
     e.stopPropagation();
-    setWatchlistStatus(!watchlistStatus);
+    if (media) {
+      toggleWatchlistStore(media, type);
+    }
   };
   const handleRatingClick = (rating) => setUserRating(rating);
 
@@ -881,7 +975,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     const releaseDate = type === 'movie'
       ? (media.release_date && new Date(media.release_date).toLocaleDateString())
       : (media.first_air_date && new Date(media.first_air_date).toLocaleDateString());
-    const ratingLabel = "M Rating";
+    const ratingLabel = "TMDB Rating";
     const ratingValue = media.vote_average ? `${media.vote_average.toFixed(1)}/10` : 'N/A';
 
     return (
@@ -894,11 +988,11 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
             {runtime && <span className="media-info-item"><strong>Runtime:</strong> {runtime}</span>}
             {status && <span className="media-info-item"><strong>Status:</strong> {status}</span>}
             <button
-              className={`watchlist-button ${watchlistStatus ? 'in-watchlist' : ''}`}
+              className={`watchlist-button ${isBookmarked ? 'in-watchlist' : ''}`}
               onClick={toggleWatchlist}
-              title={watchlistStatus ? "Remove from Watchlist" : "Add to Watchlist"}
+              title={isBookmarked ? "Remove from Watchlist" : "Add to Watchlist"}
             >
-              {watchlistStatus ? " In Watchlist" : " Add to Watchlist"}
+              {isBookmarked ? "✓ In Watchlist" : "＋ Add to Watchlist"}
             </button>
           </div>
 
@@ -956,6 +1050,9 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
         {/* Cast Section after user ratings and additional info */}
         {renderCast()}
+
+        {/* More to Watch / Related Recommendations Section */}
+        {renderMoreToWatch()}
       </>
     );
   };
@@ -1020,6 +1117,8 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         <div className={`main-content-area theme-${currentTheme}-content-area`}>
           {/* Player Area (Trailer or Embedded Player) */}
           <div className={`player-container ${isPlayingTrailer || currentVideoUrl || selectedPlayerSource === 'hdhub' ? 'visible' : 'hidden'}`}>
+            {/* Dynamic Theater Ambilight Glow */}
+            <div className="player-ambilight-glow"></div>
             {isPlayingTrailer && trailerKey ? (
               <div className="player-wrapper trailer-active">
                 <ReactPlayer

@@ -5,7 +5,8 @@ import {
     getMovieGenres,
     getTVGenres,
     discoverMedia,
-    TMDB_BASE_URL
+    TMDB_BASE_URL,
+    IMAGE_BASE_URL
 } from '../api/api';
 import VoiceSearch from '../components/VoiceSearch';
 import InfiniteScrollGrid from '../components/InfiniteScrollGrid';
@@ -39,7 +40,6 @@ const SearchPage = ({
     const [isFilterLoading, setIsFilterLoading] = useState(false);
     const [sortOption, setSortOption] = useState('popularity.desc');
     const [activeFilterTab, setActiveFilterTab] = useState('movie');
-
     const [filteredResults, setFilteredResults] = useState({
         movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
         tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
@@ -322,10 +322,14 @@ const SearchPage = ({
                         <input
                             type="text"
                             id="search-input"
-                            placeholder="Search Movies, TV Shows, People..."
+                            placeholder="Search Movies, TV Shows, People, Genres..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && performSearch()}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    performSearch();
+                                }
+                            }}
                             autoComplete="off"
                         />
                         <VoiceSearch
@@ -343,6 +347,33 @@ const SearchPage = ({
                     </div>
                 </div>
 
+                {/* Sleek Minimalist Quick Category Bar */}
+                <div className="popular-searches-row">
+                    <span className="popular-searches-label">Trending:</span>
+                    {[
+                        { label: 'Movies', query: 'Avengers' },
+                        { label: 'TV Series', query: 'Stranger Things' },
+                        { label: 'Action', query: 'John Wick' },
+                        { label: 'Sci-Fi', query: 'Interstellar' },
+                        { label: 'Comedy', query: 'Deadpool' },
+                        { label: 'Drama', query: 'Breaking Bad' },
+                        { label: 'Thriller', query: 'Inception' },
+                        { label: 'Horror', query: 'Conjuring' }
+                    ].map(pill => (
+                        <button
+                            key={pill.label}
+                            type="button"
+                            className="popular-search-pill"
+                            onClick={() => {
+                                setSearchQuery(pill.query);
+                                performSearch(pill.query);
+                            }}
+                        >
+                            {pill.label}
+                        </button>
+                    ))}
+                </div>
+
                 {/* Filters */}
                 <AnimatePresence>
                     {showSearchPanel && (
@@ -354,61 +385,101 @@ const SearchPage = ({
                             style={{ overflow: 'hidden' }}
                         >
                             <div className="filter-form">
+                                <div className="filter-header-bar">
+                                    <span className="filter-header-title">⚡ Advanced Content Filters</span>
+                                    <span className="filter-header-subtitle">Filter by Genre, Rating & Audio/Language</span>
+                                </div>
                                 <div className="filter-controls">
-                                    <div className="filter-group filter-group-scrollable">
-                                        <label>Genre(s):</label>
-                                        <input
-                                            type="text"
-                                            value={genreSearch}
-                                            onChange={(e) => setGenreSearch(e.target.value)}
-                                            placeholder="Search genres..."
-                                            className="filter-search-input"
-                                        />
-                                        <ul className="clickable-filter-list genre-list">
-                                            {displayedGenres.map(g => (
-                                                <li key={g.id}>
+                                    {/* 1. Genres Section */}
+                                    <div className="filter-group filter-group-full">
+                                        <div className="filter-label-row">
+                                            <label>🎭 Genre(s):</label>
+                                            <input
+                                                type="text"
+                                                value={genreSearch}
+                                                onChange={(e) => setGenreSearch(e.target.value)}
+                                                placeholder="Quick filter genres..."
+                                                className="filter-search-input"
+                                            />
+                                        </div>
+                                        <div className="filter-chips-container">
+                                            {displayedGenres.map(g => {
+                                                const isSelected = filters.genres.includes(g.id.toString());
+                                                return (
                                                     <button
+                                                        key={g.id}
                                                         type="button"
-                                                        className={`filter-tag-button ${filters.genres.includes(g.id.toString()) ? 'selected' : ''}`}
+                                                        className={`filter-chip-pill ${isSelected ? 'selected' : ''}`}
                                                         onClick={() => toggleGenre(g.id)}
                                                     >
+                                                        {isSelected && <span className="chip-check">✓</span>}
                                                         {g.name}
                                                     </button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div className="filter-group">
-                                        <label>Min Rating (0-10):</label>
-                                        <div className="rating-input-container">
-                                            <input type="number" value={filters.rating} onChange={(e) => setFilters(prev => ({ ...prev, rating: e.target.value }))} className="rating-number-input" />
-                                            <div className="rating-arrows">
-                                                <button type="button" className="rating-arrow up" onClick={incrementRating}>▲</button>
-                                                <button type="button" className="rating-arrow down" onClick={decrementRating}>▼</button>
-                                            </div>
+                                                );
+                                            })}
                                         </div>
                                     </div>
-                                    <div className="filter-group filter-group-scrollable">
-                                        <label>Language(s):</label>
-                                        <input type="text" value={languageSearch} onChange={(e) => setLanguageSearch(e.target.value)} placeholder="Search languages..." className="filter-search-input" />
-                                        <ul className="clickable-filter-list language-list">
-                                            {displayedLanguages.map(l => (
-                                                <li key={l.iso_639_1}>
+
+                                    {/* 2. Rating Section */}
+                                    <div className="filter-group">
+                                        <label>⭐ Minimum Rating (TMDB Score):</label>
+                                        <div className="rating-quick-pills">
+                                            {[
+                                                { label: 'Any', val: '' },
+                                                { label: '★ 6.0+', val: '6.0' },
+                                                { label: '★ 7.0+', val: '7.0' },
+                                                { label: '★ 8.0+', val: '8.0' },
+                                                { label: '★ 8.5+', val: '8.5' }
+                                            ].map(r => (
+                                                <button
+                                                    key={r.label}
+                                                    type="button"
+                                                    className={`rating-pill-btn ${filters.rating === r.val ? 'active' : ''}`}
+                                                    onClick={() => setFilters(prev => ({ ...prev, rating: r.val }))}
+                                                >
+                                                    {r.label}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* 3. Language Section */}
+                                    <div className="filter-group filter-group-full">
+                                        <div className="filter-label-row">
+                                            <label>🌐 Audio / Language(s):</label>
+                                            <input
+                                                type="text"
+                                                value={languageSearch}
+                                                onChange={(e) => setLanguageSearch(e.target.value)}
+                                                placeholder="Search languages..."
+                                                className="filter-search-input"
+                                            />
+                                        </div>
+                                        <div className="filter-chips-container">
+                                            {displayedLanguages.slice(0, 18).map(l => {
+                                                const isSelected = filters.languages.includes(l.iso_639_1);
+                                                return (
                                                     <button
+                                                        key={l.iso_639_1}
                                                         type="button"
-                                                        className={`filter-tag-button ${filters.languages.includes(l.iso_639_1) ? 'selected' : ''}`}
+                                                        className={`filter-chip-pill ${isSelected ? 'selected' : ''}`}
                                                         onClick={() => toggleLanguage(l.iso_639_1)}
                                                     >
+                                                        {isSelected && <span className="chip-check">✓</span>}
                                                         {l.english_name}
                                                     </button>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="filter-actions">
-                                    <button type="button" onClick={() => performSearch()} className="apply-filters-button">Search</button>
-                                    <button type="button" onClick={handleClearSearch} className="clear-filters-button">Clear All</button>
+                                    <button type="button" onClick={() => performSearch()} className="apply-filters-button">
+                                        <span>🔍 Apply Filters</span>
+                                    </button>
+                                    <button type="button" onClick={handleClearSearch} className="clear-filters-button">
+                                        <span>✕ Reset All</span>
+                                    </button>
                                 </div>
                             </div>
                         </motion.div>
@@ -500,7 +571,7 @@ const SearchPage = ({
                 )}
 
                 {!isFilterLoading && !isFilteredSearch && !searchQuery && (
-                    <HomePage onMediaClick={onMediaClick} getSectionTitle={getSectionTitle} />
+                    <HomePage onMediaClick={onMediaClick} getSectionTitle={getSectionTitle} currentTheme={currentTheme} />
                 )}
             </div>
         </motion.div>

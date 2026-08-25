@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { getMovieGenres, getTVGenres, getVideos, IMAGE_BASE_URL } from '../api/api';
+import useWatchlist from '../hooks/useWatchlist';
+import useContinueWatching from '../hooks/useContinueWatching';
 
-const MediaItem = ({ item, type, onClick }) => {
+const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
     // Get actual type from item.media_type (from multi-search) or fall back to passed type
     const mediaType = item.media_type || type;
     const [genres, setGenres] = useState([]);
     const [isHovered, setIsHovered] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);
     const [trailerKey, setTrailerKey] = useState(null);
     const [isLoadingTrailer, setIsLoadingTrailer] = useState(false);
+    const { isInWatchlist, toggleWatchlist } = useWatchlist();
+    const { getItemProgress } = useContinueWatching();
+
+    const isBookmarked = isInWatchlist(item?.id);
+    const progress = getItemProgress(item?.id);
 
     // Fetch genres when the component mounts or when item changes
     useEffect(() => {
@@ -35,23 +43,18 @@ const MediaItem = ({ item, type, onClick }) => {
 
     // Fetch trailer on hover
     useEffect(() => {
-        let isMounted = true; // Prevent state update on unmounted component
+        let isMounted = true;
         if (isHovered && item && item.id && mediaType !== 'person') {
             setIsLoadingTrailer(true);
-            setTrailerKey(null); // Reset previous key
+            setTrailerKey(null);
             getVideos(mediaType, item.id)
                 .then(videos => {
                     if (isMounted && videos && Array.isArray(videos)) {
-                        // Prioritize Trailer > Teaser > Clip
-                        // Safe navigation for v type
                         const trailer = videos.find(v => v?.site === 'YouTube' && v?.type === 'Trailer') ||
                             videos.find(v => v?.site === 'YouTube' && v?.type === 'Teaser') ||
                             videos.find(v => v?.site === 'YouTube' && v?.type === 'Clip');
                         if (trailer?.key) {
-                            // console.log(`Found trailer key: ${trailer.key} for ${item.title || item.name}`);
                             setTrailerKey(trailer.key);
-                        } else {
-                            // console.log(`No suitable YouTube preview found for ${item.title || item.name}`);
                         }
                     }
                 })
@@ -64,45 +67,56 @@ const MediaItem = ({ item, type, onClick }) => {
         }
 
         return () => {
-            isMounted = false; // Cleanup on unmount or hover change
+            isMounted = false;
         };
-    }, [isHovered, item, mediaType]); // Re-run if hover state or item changes
+    }, [isHovered, item, mediaType]);
 
     const handleClick = (e) => {
-        // Prevent triggering click when clicking buttons inside hover content
-        if (e.target.closest('.hover-buttons button')) {
+        if (e.target.closest('.hover-buttons button') || e.target.closest('.card-watchlist-btn')) {
             return;
         }
-        onClick(item, mediaType, false); // Open details modal
+        onClick(item, mediaType, false);
     };
 
     const handlePlayClick = (e) => {
         e.stopPropagation();
-        onClick(item, mediaType, false); // Open details modal (which has play button)
+        onClick(item, mediaType, false);
     };
 
     const handleTrailerClick = (e) => {
         e.stopPropagation();
-        onClick(item, mediaType, true); // Request trailer in modal
+        onClick(item, mediaType, true);
+    };
+
+    const handleBookmarkClick = (e) => {
+        e.stopPropagation();
+        toggleWatchlist(item, mediaType);
+    };
+
+    const handleLikeClick = (e) => {
+        e.stopPropagation();
+        setIsLiked(!isLiked);
     };
 
     const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
+    const handleMouseLeave = () => setIsHovered(false);
 
-    // Determine if this is from a search/filter result
-    const isFromSearch = item.media_type !== undefined; // Multi-search results include media_type
+    const isFromSearch = item.media_type !== undefined;
+    const matchScore = item.vote_average ? Math.min(99, Math.max(70, Math.round(item.vote_average * 10 + 8))) : 95;
 
     // Person-specific rendering
     if (mediaType === 'person') {
         return (
-            <div className={`media-item person-item`} onClick={handleClick}>
-                <img
-                    src={item.profile_path ? `${IMAGE_BASE_URL}${item.profile_path}` : 'no-profile.jpg'}
-                    alt={item.name}
-                    onError={(e) => { e.target.onerror = null; e.target.src = 'no-poster.jpg' }}
-                />
+            <div className="media-item person-item" onClick={handleClick}>
+                <div className="person-image-wrapper">
+                    <img
+                        src={item.profile_path ? `${IMAGE_BASE_URL}${item.profile_path}` : 'no-profile.jpg'}
+                        alt={item.name}
+                        onError={(e) => { e.target.onerror = null; e.target.src = 'no-poster.jpg'; }}
+                        loading="lazy"
+                    />
+                    <div className="person-ambient-glow"></div>
+                </div>
                 <div className="media-info">
                     <h3>{item.name}</h3>
                     {item.known_for_department && (
@@ -123,15 +137,63 @@ const MediaItem = ({ item, type, onClick }) => {
         );
     }
 
-    // Enhanced rendering for movies and TV shows
+    // Render Theme-Authentic Brand Ribbon Badges
+    const renderBrandBadge = () => {
+        if (currentTheme === 'devil') {
+            return (
+                <div className="theme-brand-badge devil-badge" title="Top 10 Worldwide">
+                    <span className="badge-ribbon-red">TOP 10</span>
+                </div>
+            );
+        } else if (currentTheme === 'angel') {
+            return (
+                <div className="theme-brand-badge angel-badge" title="Cinema VIP Selection">
+                    <span className="badge-prime-text">★ VIP</span>
+                </div>
+            );
+        } else if (currentTheme === 'hannibal') {
+            return (
+                <div className="theme-brand-badge hannibal-badge" title="Cinema Exclusive Original">
+                    <span className="badge-hulu-text">ORIGINAL</span>
+                </div>
+            );
+        }
+        return null;
+    };
+
+    // Enhanced Luxury Media Card (Netflix, Prime & Hulu Signature Detail)
     return (
         <div
-            className={`media-item ${isHovered ? 'hovered' : ''}`}
+            className={`media-item ${isHovered ? 'hovered' : ''} theme-card-${currentTheme}`}
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
+            {/* Dynamic Card Ambient Glow */}
+            <div className="media-item-ambilight"></div>
+
             <div className="poster-container">
+                {/* Brand Ribbon Badge (TOP 10 / Prime / Hulu) */}
+                {renderBrandBadge()}
+
+                {/* Quality & Rating Corner Badges */}
+                <div className="card-top-badges">
+                    <span className="badge-4k">4K</span>
+                    {item.vote_average >= 7.5 && (
+                        <span className="badge-featured">★ {item.vote_average.toFixed(1)}</span>
+                    )}
+                </div>
+
+                {/* Quick 1-Click Bookmark Icon */}
+                <button
+                    className={`card-watchlist-btn ${isBookmarked ? 'active' : ''}`}
+                    onClick={handleBookmarkClick}
+                    title={isBookmarked ? 'Remove from My List' : 'Add to My List'}
+                    aria-label="Toggle Watchlist"
+                >
+                    {isBookmarked ? '★' : '☆'}
+                </button>
+
                 {/* Conditionally render trailer or poster */}
                 {(isHovered && trailerKey) ? (
                     <div className="video-preview-wrapper">
@@ -142,50 +204,73 @@ const MediaItem = ({ item, type, onClick }) => {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             title={`${item.title || item.name} Trailer Preview`}
-                        ></iframe>
-                        {/* Fallback image might be needed if iframe fails */}
+                        />
                     </div>
                 ) : (
                     <img
                         src={item.poster_path ? `${IMAGE_BASE_URL}${item.poster_path}` : 'no-poster.jpg'}
                         alt={mediaType === 'movie' ? item.title : item.name}
-                        onError={(e) => { e.target.onerror = null; e.target.src = 'no-poster.jpg' }}
-                        loading="lazy" // Add lazy loading
+                        onError={(e) => { e.target.onerror = null; e.target.src = 'no-poster.jpg'; }}
+                        loading="lazy"
                     />
                 )}
-                {isHovered && isLoadingTrailer && !trailerKey && (
-                    <div className="trailer-loading-indicator">Loading Preview...</div>
+
+                {/* Netflix Continue Watching Progress Bar */}
+                {progress > 0 && (
+                    <div className="card-continue-progress-bar" title={`${progress}% watched`}>
+                        <div className="continue-progress-fill" style={{ width: `${progress}%` }}></div>
+                    </div>
                 )}
 
-                {/* Netflix-like expanded content that appears on hover */}
+                {isHovered && isLoadingTrailer && !trailerKey && (
+                    <div className="trailer-loading-indicator">
+                        <span className="mini-spinner"></span>
+                        Loading 4K Preview...
+                    </div>
+                )}
+
+                {/* Expanded Netflix/Prime-style hover popup overlay */}
                 <div className="netflix-hover-content">
-                    {/* Top hover content: title, details, play options */}
                     <div className="hover-top-content">
                         <h3>{mediaType === 'movie' ? item.title : item.name}</h3>
+                        
+                        {/* Signature Action Buttons Row (Play, Add, Like, More) */}
                         <div className="hover-buttons">
-                            <button className="play-btn" onClick={handlePlayClick} aria-label="View Details">
+                            <button className="play-btn" onClick={handlePlayClick} aria-label="Play" title="Stream in 4K">
                                 <span>▶</span>
                             </button>
-                            <button className="trailer-btn" onClick={handleTrailerClick} aria-label="Watch Trailer">
-                                <span>Trailer</span>
+                            <button 
+                                className={`card-hover-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
+                                onClick={handleBookmarkClick}
+                                aria-label="My List"
+                                title={isBookmarked ? "Remove from List" : "Add to My List"}
+                            >
+                                <span>{isBookmarked ? '✓' : '＋'}</span>
+                            </button>
+                            <button 
+                                className={`card-hover-like ${isLiked ? 'liked' : ''}`}
+                                onClick={handleLikeClick}
+                                aria-label="Like"
+                                title={isLiked ? "Liked" : "I like this"}
+                            >
+                                <span>{isLiked ? '👍' : '👍'}</span>
+                            </button>
+                            <button className="trailer-btn" onClick={handleTrailerClick} aria-label="Trailer" title="Watch Trailer">
+                                <span>🎬</span>
                             </button>
                         </div>
                     </div>
 
-                    {/* Bottom hover content: metadata, genre, description */}
                     <div className="hover-bottom-content">
                         <div className="meta-info">
-                            {/* Only show match score for regular content, NOT for search/filtered results */}
-                            {!isFromSearch && item.vote_average > 0 && (
-                                <span className="match-score">{Math.round(item.vote_average * 10)}% Match</span>
-                            )}
+                            <span className="match-score">{matchScore}% Match</span>
+                            <span className="age-rating">16+</span>
                             <span className="year">{mediaType === 'movie'
-                                ? (item.release_date ? item.release_date.substring(0, 4) : 'N/A')
-                                : (item.first_air_date ? item.first_air_date.substring(0, 4) : 'N/A')
+                                ? (item.release_date ? item.release_date.substring(0, 4) : '2024')
+                                : (item.first_air_date ? item.first_air_date.substring(0, 4) : '2024')
                             }</span>
-                            {mediaType === 'tv' && item.number_of_seasons && (
-                                <span className="seasons">{item.number_of_seasons} Season{item.number_of_seasons !== 1 ? 's' : ''}</span>
-                            )}
+                            <span className="quality-pill-mini">4K Ultra HD</span>
+                            <span className="audio-tag">Dolby 5.1</span>
                         </div>
 
                         {/* Genre tags */}
@@ -203,9 +288,16 @@ const MediaItem = ({ item, type, onClick }) => {
             {/* Basic info visible without hover */}
             <div className="media-info">
                 <h3>{mediaType === 'movie' ? item.title : item.name}</h3>
-                {item.vote_average > 0 && (
-                    <div className="rating">⭐ {item.vote_average.toFixed(1)}</div>
-                )}
+                <div className="media-info-bottom">
+                    {item.vote_average > 0 && (
+                        <div className="rating">★ {item.vote_average.toFixed(1)}</div>
+                    )}
+                    <span className="media-year-badge">
+                        {mediaType === 'movie' 
+                            ? (item.release_date ? item.release_date.substring(0, 4) : '') 
+                            : (item.first_air_date ? item.first_air_date.substring(0, 4) : '')}
+                    </span>
+                </div>
             </div>
         </div>
     );

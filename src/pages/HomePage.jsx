@@ -7,43 +7,17 @@ import {
     getTopRatedTVShows
 } from '../api/api';
 import { MediaGridSkeleton } from '../components/SkeletonLoader';
-
-// We need to impart the MediaGrid component or move it to a shared file. 
-// For now, assuming MediaGrid is still in App.jsx or needs to be shared.
-// Ideally, MediaGrid should be its own component. 
-// I will create a temporary internal version if I can't move it yet, 
-// BUT the plan says "Refactor App.jsx structure". 
-// To avoid "MediaGrid is not defined", I should probably extract MediaGrid to a file first 
-// OR define it here if it's small.
-// Looking at App.jsx, MediaGrid is small, but MediaItem is large.
-// I will import them from App or (better) move them to components.
-// For this step, I will ASSUME I can move MediaGrid and MediaItem to a separate file 
-// OR simpler: I'll duplicate the logic for a "Strict UI Preservation" 
-// and then clean up. 
-// UNLESS I move MediaGrid/Item to `src/components` first. 
-// That makes the most sense.
-
-// Let's check if MediaGrid exists in components?
-// Checked `src/components`, it has 14 children. 
-// I'll assume I need to create `src/components/MediaGrid.jsx` and `src/components/MediaItem.jsx` 
-// to properly share them between pages.
-
-// WAIT. The plan said "extract major sections". 
-// If I leave MediaGrid in App.jsx, I can't import it easily here without circular depends if App imports HomePage.
-
-// REVISED PLAN FOR THIS STEP: 
-// 1. Create `src/components/MediaItem.jsx` (extracted from App.jsx)
-// 2. Create `src/components/MediaGrid.jsx` (extracted from App.jsx)
-// 3. Then create HomePage.jsx using those.
-
 import MediaGrid from '../components/MediaGrid';
+import HeroBillboard from '../components/HeroBillboard';
+import useWatchlist from '../hooks/useWatchlist';
 
-const HomePage = ({ onMediaClick, getSectionTitle }) => {
+const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [trendingTV, setTrendingTV] = useState([]);
     const [topMovies, setTopMovies] = useState([]);
     const [topTV, setTopTV] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const { watchlist } = useWatchlist();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -82,6 +56,11 @@ const HomePage = ({ onMediaClick, getSectionTitle }) => {
         exit: { opacity: 0, transition: { duration: 0.3 } }
     };
 
+    // Combine top trending items for the spotlight billboard
+    const spotlightItems = trendingMovies.length > 0 
+        ? [...trendingMovies.slice(0, 4), ...trendingTV.slice(0, 3)] 
+        : [];
+
     return (
         <motion.div
             className="home-page"
@@ -90,52 +69,103 @@ const HomePage = ({ onMediaClick, getSectionTitle }) => {
             animate="visible"
             exit="exit"
         >
+            {/* Ultra-Premium Hero Spotlight Billboard */}
+            {!isLoading && spotlightItems.length > 0 && (
+                <HeroBillboard
+                    items={spotlightItems}
+                    onMediaClick={onMediaClick}
+                    currentTheme={currentTheme}
+                />
+            )}
+
+            {/* User's Personal Watchlist (VIP Collection) */}
+            {watchlist && watchlist.length > 0 && (
+                <div id="user-watchlist-section" className="home-section-container">
+                    <div className="section-header-row">
+                        <h2 className="section-title">
+                            <span className="section-title-icon">⭐</span>
+                            My Watchlist <span className="section-count-badge">({watchlist.length})</span>
+                        </h2>
+                    </div>
+                    <MediaGrid
+                        items={watchlist}
+                        type="movie"
+                        onMediaClick={onMediaClick}
+                        currentTheme={currentTheme}
+                    />
+                </div>
+            )}
+
             {isLoading ? (
                 <>
-                    <div id="trending-movies">
+                    <div id="trending-movies" className="home-section-container">
                         <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
                         <MediaGridSkeleton count={20} />
                     </div>
-                    <div id="trending-tv">
+                    <div id="trending-tv" className="home-section-container">
                         <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
                         <MediaGridSkeleton count={20} />
                     </div>
                 </>
             ) : (
                 <>
-                    <div id="trending-movies">
-                        <h2 className="section-title">{getSectionTitle("Trending Movies")}</h2>
+                    <div id="trending-movies" className="home-section-container">
+                        <div className="section-header-row">
+                            <h2 className="section-title">
+                                <span className="section-title-icon">🎬</span>
+                                {getSectionTitle("Trending Movies")}
+                            </h2>
+                        </div>
                         <MediaGrid
                             items={trendingMovies}
                             type="movie"
                             onMediaClick={onMediaClick}
+                            currentTheme={currentTheme}
                         />
                     </div>
 
-                    <div id="trending-tv">
-                        <h2 className="section-title">{getSectionTitle("Trending TV Shows")}</h2>
+                    <div id="trending-tv" className="home-section-container">
+                        <div className="section-header-row">
+                            <h2 className="section-title">
+                                <span className="section-title-icon">📺</span>
+                                {getSectionTitle("Trending TV Shows")}
+                            </h2>
+                        </div>
                         <MediaGrid
                             items={trendingTV}
                             type="tv"
                             onMediaClick={onMediaClick}
+                            currentTheme={currentTheme}
                         />
                     </div>
 
-                    <div id="top-movies">
-                        <h2 className="section-title">{getSectionTitle("Top Rated Movies")}</h2>
+                    <div id="top-movies" className="home-section-container">
+                        <div className="section-header-row">
+                            <h2 className="section-title">
+                                <span className="section-title-icon">🏆</span>
+                                {getSectionTitle("Top Rated Movies")}
+                            </h2>
+                        </div>
                         <MediaGrid
                             items={topMovies}
                             type="movie"
                             onMediaClick={onMediaClick}
+                            currentTheme={currentTheme}
                         />
                     </div>
 
-                    <div id="top-tv">
-                        <h2 className="section-title">{getSectionTitle("Top Rated TV Shows")}</h2>
+                    <div id="top-tv" className="home-section-container">
+                        <div className="section-header-row">
+                            <h2 className="section-title">
+                                <span className="section-title-icon">💎</span>
+                                {getSectionTitle("Top Rated TV Shows")}
+                            </h2>
+                        </div>
                         <MediaGrid
                             items={topTV}
                             type="tv"
                             onMediaClick={onMediaClick}
+                            currentTheme={currentTheme}
                         />
                     </div>
                 </>

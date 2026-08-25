@@ -156,4 +156,10 @@ export const getPersonDetails = async (personId) => {
   return fetchFromTMDB(`person/${personId}`, { append_to_response: 'combined_credits' });
 };
 
+export const getSimilarMedia = async (mediaType = 'movie', id) => {
+  if (!id) return null;
+  return fetchFromTMDB(`${mediaType}/${id}/similar`);
+};
+
+
 

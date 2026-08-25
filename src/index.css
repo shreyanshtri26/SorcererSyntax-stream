@@ -1,25 +1,61 @@
 :root {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f0f12;
+  color: rgba(255, 255, 255, 0.92);
+  background-color: #08080a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* ==========================================================================
+     Master Theme Design Tokens
+     ========================================================================== */
+  
+  /* 🔴 Netflix Edition (Devil Theme) */
+  --netflix-red: #E50914;
+  --netflix-red-hover: #f40612;
+  --netflix-black: #0c0c0e;
+  --netflix-card: #141416;
+  --netflix-glow: rgba(229, 9, 20, 0.45);
+  --netflix-border: rgba(229, 9, 20, 0.35);
+
+  /* 🔵 Prime Video / Apple TV+ Edition (Angel Theme) */
+  --prime-blue: #00A8E1;
+  --prime-blue-hover: #1ab7ee;
+  --prime-midnight: #070d1e;
+  --prime-card: #0f172a;
+  --prime-glow: rgba(0, 168, 225, 0.45);
+  --prime-border: rgba(0, 210, 255, 0.35);
+
+  /* 🟢 Hulu Edition (Hannibal Theme) */
+  --hulu-green: #1CE783;
+  --hulu-green-hover: #00ed82;
+  --hulu-forest: #05100a;
+  --hulu-card: #091c13;
+  --hulu-glow: rgba(28, 231, 131, 0.45);
+  --hulu-border: rgba(28, 231, 131, 0.35);
+
+  /* Global Surfaces */
+  --glass-bg: rgba(20, 20, 25, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(16px);
 }
 
-a {
-  font-weight: 500;
-  color: #e50914;
-  text-decoration: inherit;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
-a:hover {
-  color: #b2070f;
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -27,69 +63,99 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background: #0f0f12;
+  background: #08080a;
+  overflow-x: hidden;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Ensure the root takes full width and centers content smoothly */
+#root {
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  font-family: 'Raleway', sans-serif;
+a {
+  font-weight: 500;
+  color: var(--netflix-red);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
+a:hover {
+  color: #ff3344;
+}
+
+/* Base button styling with spring response */
 button {
-  border-radius: 4px;
+  border-radius: 9999px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.65em 1.4em;
+  font-size: 0.95em;
+  font-weight: 600;
   font-family: 'Montserrat', sans-serif;
-  background-color: rgba(30, 30, 35, 0.7);
+  background-color: rgba(35, 35, 42, 0.75);
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
 }
+
 button:hover {
-  background-color: rgba(40, 40, 45, 0.9);
+  background-color: rgba(50, 50, 60, 0.9);
+  transform: translateY(-1px);
 }
-button:focus,
+
+button:active {
+  transform: scale(0.97);
+}
+
 button:focus-visible {
-  outline: 2px solid rgba(229, 9, 20, 0.6);
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #b2070f;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* Ensure the root takes full width */
-#root {
-  width: 100%;
-}
-
-/* Custom scrollbar */
+/* Modern Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 15, 18, 0.8);
+  background: rgba(10, 10, 12, 0.9);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(229, 9, 20, 0.5);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(229, 9, 20, 0.8);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Theme-specific scrollbars */
+.theme-devil ::-webkit-scrollbar-thumb {
+  background: rgba(229, 9, 20, 0.5);
+}
+.theme-devil ::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 9, 20, 0.85);
+}
+
+.theme-angel ::-webkit-scrollbar-thumb {
+  background: rgba(0, 168, 225, 0.5);
+}
+.theme-angel ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 168, 225, 0.85);
+}
+
+.theme-hannibal ::-webkit-scrollbar-thumb {
+  background: rgba(28, 231, 131, 0.5);
+}
+.theme-hannibal ::-webkit-scrollbar-thumb:hover {
+  background: rgba(28, 231, 131, 0.85);
 }

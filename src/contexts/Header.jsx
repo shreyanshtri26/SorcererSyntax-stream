@@ -13,10 +13,10 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
   // Function to get the appropriate icon character for the title
   const getTitleIcon = () => {
     switch (currentTheme) {
-      case 'devil': return '⛧'; // Devil icon
-      case 'angel': return '✨'; // Sparkle for angel
-      case 'hannibal': return '🌿'; // Leaf for hannibal
-      default: return '⛧'; // Default to devil icon
+      case 'devil': return '⛧';
+      case 'angel': return '✨';
+      case 'hannibal': return '🌿';
+      default: return '⛧';
     }
   };
 
@@ -54,13 +54,18 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
     return (
       <div className="theme-switcher">
         <button 
-          className="theme-button theme-cycle-button"
-          onClick={cycleTheme}
+          className="theme-button theme-cycle-button active"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            cycleTheme();
+          }}
+          type="button"
+          aria-label="Change Theme"
           title={`Current: ${themeTitle} - Click to change theme`}
         >
-          <img src={iconSrc} alt={themeTitle} className="theme-icon" />
+          <img src={iconSrc} alt={themeTitle} className="theme-icon" style={{ pointerEvents: 'none' }} />
         </button>
-        <div className="full-page-smoke"></div>
       </div>
     );
   };
@@ -101,7 +106,10 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
           <span className="title-icon"> {getTitleIcon()} </span>
         </h1>
       </ParallaxWrapper>
+      
+      {renderSmokeElements()}
       {renderThemeButton()}
+      <div className="full-page-smoke"></div>
     </header>
   );
 };

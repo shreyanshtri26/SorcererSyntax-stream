@@ -23,29 +23,11 @@
   letter-spacing: 0.5px;
 }
 
-/* Jagged edges for containers - like shattered glass */
+/* Netflix Edition Theme - Clean Modern Styling */
 .theme-devil .App,
-.theme-devil .media-item,
 .theme-devil .filter-form,
 .theme-devil #filtered-results {
-  clip-path: polygon(0 0,
-      5% 0,
-      20% 3%,
-      35% 0,
-      60% 2%,
-      85% 0,
-      100% 0,
-      98% 20%,
-      100% 40%,
-      98% 60%,
-      100% 80%,
-      97% 100%,
-      80% 98%,
-      60% 100%,
-      30% 97%,
-      15% 100%,
-      0 95%);
-  border: 1px solid var(--devil-blood);
+  border: none;
 }
 
 /* Pulsing glow for active elements */
@@ -222,18 +204,17 @@ body {
   display: none;
 }
 
-/* Base App styles (apply when NOT in B/W mode) */
+/* Base App styles (apply when NOT in B/W mode) - True Edge-to-Edge Fluid Canvas */
 .App {
   max-width: 100%;
   width: 100%;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-  margin: 0 auto;
-  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px clamp(14px, 3.2vw, 64px);
   padding-bottom: 120px;
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
-  /* Ensure app content sits above Three.js background */
   overflow: visible;
 }
 
@@ -252,18 +233,16 @@ h2 {
   width: 100%;
 }
 
-/* Search Section */
+/* Search Section - Transparent fluid container */
 .search-section {
+  width: 100%;
+  max-width: 100%;
   justify-content: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  /* Dark semi-transparent background */
-  border-radius: 8px;
+  padding: 0;
+  background-color: transparent;
   margin-bottom: 30px;
   position: relative;
-  /* Ensure it creates a stacking context if needed */
   overflow: visible;
-  /* Explicitly allow content to overflow */
 }
 
 /* New container for input + button */
@@ -425,129 +404,244 @@ h2 {
 
 /* Filter Form Specific Styles */
 .filter-form {
-  background: linear-gradient(135deg, rgba(20, 20, 25, 0.95) 0%, rgba(35, 30, 30, 0.9) 100%);
+  background: rgba(18, 18, 24, 0.92);
   padding: 24px;
-  border-radius: 12px;
+  border-radius: 16px;
   margin-top: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.filter-header-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.filter-header-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.filter-header-subtitle {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .filter-controls {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  /* Keep gap for overall layout */
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  /* Space between label and input/list */
-  position: relative;
-  /* Added for rating arrows positioning */
+  width: 100%;
+}
+
+.filter-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .filter-group label {
-  font-size: 0.9rem;
-  color: #ccc;
-  font-weight: 500;
-  /* Slightly bolder */
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 700;
   text-transform: uppercase;
-  /* Uppercase labels */
   letter-spacing: 0.5px;
 }
 
-/* Consistent styling for select and number input */
-.filter-group select,
-.filter-group input[type="number"] {
-  padding: 10px 12px;
-  /* Consistent padding */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  /* Lighter border */
-  border-radius: 4px;
-  background-color: rgba(35, 35, 40, 0.8);
-  /* Darker input background */
-  color: #eee;
-  font-size: 0.95rem;
-  font-family: 'Montserrat', sans-serif;
-  -webkit-appearance: none;
-  /* Remove default styling */
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* Style the multi-select specifically - REVERTED TO LIST APPEARANCE */
-/* Remove height styling for select[multiple] */
-
-/* Style options within selects */
-.filter-group select option {
-  background-color: #333;
-  /* Darker background for options */
-  color: #eee;
-  padding: 5px 10px;
-  /* Padding for options */
-}
-
-/* Style selected options in multi-select */
-.filter-group select[multiple] option:checked {
-  background-color: #d00000;
-  /* Highlight selected */
+.filter-search-input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
   color: #fff;
+  outline: none;
+  min-width: 180px;
+  transition: all 0.2s ease;
 }
 
-/* Add dropdown arrow for single selects (using background image) */
-.filter-group select:not([multiple]) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23cccccc' d='M6 8L0 2l1.4-1.4L6 5.2 10.6.6 12 2z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 12px 8px;
-  padding-right: 35px;
-  /* Space for the arrow */
+.filter-search-input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Style number input arrows (optional, browser support varies) */
-.filter-group input[type="number"]::-webkit-inner-spin-button,
-.filter-group input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
+.filter-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 4px 2px;
 }
 
-.filter-group input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-  /* Firefox */
-  /* Remove padding-right as arrows are now external */
-  /* padding-right: 30px; */
+.filter-chip-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* NEW Styles for Rating Input Container and Arrows */
-.rating-input-container {
-  position: relative;
+.filter-chip-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.filter-chip-pill.selected {
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+}
+
+.theme-devil .filter-chip-pill.selected {
+  background: #E50914;
+  color: #ffffff;
+  border-color: #E50914;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5);
+}
+
+.theme-angel .filter-chip-pill.selected {
+  background: #00A8E1;
+  color: #ffffff;
+  border-color: #00A8E1;
+  box-shadow: 0 4px 16px rgba(0, 168, 225, 0.5);
+}
+
+.theme-hannibal .filter-chip-pill.selected {
+  background: #1CE783;
+  color: #04140c;
+  border-color: #1CE783;
+  box-shadow: 0 4px 16px rgba(28, 231, 131, 0.5);
+}
+
+.chip-check {
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+/* Rating Quick Pills */
+.rating-quick-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rating-pill-btn {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rating-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.rating-pill-btn.active {
+  background: #ffaa00;
+  color: #000000;
+  border-color: #ffaa00;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(255, 170, 0, 0.4);
+}
+
+/* Action buttons */
+.filter-actions {
   display: flex;
   align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
 }
 
-.rating-number-input {
-  /* Use the class from JSX */
-  flex-grow: 1;
-  /* Allow input to take available space */
-  padding-right: 25px;
-  /* Add some padding back to prevent text overlapping arrows */
+.apply-filters-button {
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
 }
 
-.rating-arrows {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
+.apply-filters-button:hover {
+  transform: scale(1.04);
+  background: #eaeaea;
+}
+
+.theme-devil .apply-filters-button {
+  background: #E50914 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5) !important;
+}
+
+.theme-angel .apply-filters-button {
+  background: linear-gradient(135deg, #00A8E1, #0077c2) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(0, 168, 225, 0.5) !important;
+}
+
+.theme-hannibal .apply-filters-button {
+  background: #1CE783 !important;
+  color: #04140c !important;
+  box-shadow: 0 4px 16px rgba(28, 231, 131, 0.5) !important;
+}
+
+.clear-filters-button {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-filters-button:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
 }
 
 .rating-arrow {
@@ -602,16 +696,15 @@ h2 {
 }
 
 /* Media Grid - USE GAP INSTEAD OF MARGIN */
-/* Media Grid - Force specific column counts for stability */
+/* Media Grid - True Fluid Responsive Columns */
 .media-grid {
   display: grid;
-  /* Default Desktop: Fit as many as possible with min 200px */
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px 0; /* Removed left/right padding to align with title */
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(160px, 11vw, 220px), 1fr));
+  gap: clamp(12px, 1.4vw, 24px);
+  padding: 16px 0;
   position: relative;
   overflow: visible;
-  /* Removed justify-items: center so they stretch */
 }
 
 /* Base media item styling */
@@ -706,80 +799,80 @@ h2 {
   bottom: 0;
   opacity: 0;
   visibility: hidden;
-  display: none;
-  /* Use display none */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%);
+  display: flex;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 45%, rgba(0, 0, 0, 0.96) 100%);
   flex-direction: column;
   justify-content: flex-end;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  padding: 15px;
-  border-radius: 4px;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
+  padding: 10px;
+  border-radius: 12px;
   pointer-events: none;
-  z-index: 3;
-  /* Above poster image */
+  z-index: 4;
   color: #fff;
-  /* Ensure text is visible */
+  overflow: hidden;
 }
 
-/* Apply scaling and bring item to front on hover */
+/* Elegant micro-elevation on hover */
 .media-item.hovered {
-  transform: scale(1.4);
-  /* ADJUSTED scale to 1.4 */
-  z-index: 10;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), z-index 0s 0s linear;
+  transform: scale(1.06) translateY(-4px);
+  z-index: 20;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
 /* Show detailed hover content when item is hovered */
 .media-item.hovered .netflix-hover-content {
   opacity: 1;
   visibility: visible;
-  display: flex;
-  /* Use display flex */
   pointer-events: all;
-  /* Position remains covering the poster area */
-}
-
-/* Optional: Slightly fade out basic info on hover */
-/* .media-item.hovered .media-info {
-  opacity: 0.7;
-} */
-
-/* Restore subtle sibling push/pull effect */
-.media-item.hovered~.media-item {
-  transform: translateX(25px);
-  /* Adjust as needed */
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.media-grid:hover .media-item:not(.hovered) {
-  transform: translateX(-12px);
-  /* Adjust as needed */
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Content within hover overlay */
-.hover-top-content h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 10px;
-  line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+.hover-top-content {
+  width: 100%;
 }
 
-/* ... rest of hover content styles (.hover-buttons, .meta-info etc.) remain the same ... */
+.hover-top-content h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
 
-/* Theme Specific Adjustments (ensure these use .hovered) */
+.hover-bottom-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Theme Specific Adjustments */
 .theme-devil .media-item.hovered {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(139, 0, 0, 0.3);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 9, 20, 0.4);
 }
 
 .theme-devil .media-item.hovered .poster-container {
-  border-color: rgba(229, 9, 20, 0.6);
+  border-color: rgba(229, 9, 20, 0.7);
 }
 
 .theme-angel .media-item.hovered {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(135, 206, 250, 0.3);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 168, 225, 0.4);
+}
+
+.theme-angel .media-item.hovered .poster-container {
+  border-color: rgba(0, 168, 225, 0.7);
+}
+
+.theme-hannibal .media-item.hovered {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(28, 231, 131, 0.4);
+}
+
+.theme-hannibal .media-item.hovered .poster-container {
+  border-color: rgba(28, 231, 131, 0.7);
 }
 
 .theme-angel .media-item.hovered .poster-container {
@@ -792,6 +885,577 @@ h2 {
 
 .theme-hannibal .media-item.hovered .poster-container {
   border-color: rgba(139, 69, 19, 0.6);
+}
+
+/* --- Ultra-Premium Card Enhancements --- */
+.media-item {
+  border-radius: 12px;
+  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s 0s linear;
+}
+
+.poster-container {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background: #121216;
+}
+
+/* Card Top Badges */
+.card-top-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.badge-4k {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.badge-featured {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.85), rgba(255, 140, 0, 0.85));
+  color: #000000;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Quick Card Watchlist Button */
+.card-watchlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.25s ease;
+}
+
+.media-item:hover .card-watchlist-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-watchlist-btn:hover {
+  background: rgba(255, 215, 0, 0.9);
+  color: #000;
+  transform: scale(1.15);
+}
+
+.card-watchlist-btn.active {
+  opacity: 1;
+  background: rgba(255, 215, 0, 0.9);
+  color: #000;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* --- Brand Ribbon Badges (Netflix TOP 10, Prime Video, Hulu) --- */
+.theme-brand-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.badge-ribbon-red {
+  display: inline-block;
+  background: linear-gradient(135deg, #E50914 0%, #b2070f 100%);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  padding: 4px 9px 4px 7px;
+  border-radius: 12px 0 8px 0;
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.badge-prime-text {
+  display: inline-block;
+  background: linear-gradient(135deg, #00A8E1 0%, #0077c2 100%);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 4px 9px 4px 7px;
+  border-radius: 12px 0 8px 0;
+  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.5);
+}
+
+.badge-hulu-text {
+  display: inline-block;
+  background: #1CE783;
+  color: #04140c;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  padding: 4px 9px 4px 7px;
+  border-radius: 12px 0 8px 0;
+  box-shadow: 0 4px 12px rgba(28, 231, 131, 0.5);
+}
+
+/* --- Card Hover Action Buttons (Play, Add, Like, More) --- */
+.hover-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.hover-buttons button {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(30, 30, 35, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  font-size: 0.8rem !important;
+  flex-shrink: 0 !important;
+}
+
+.hover-buttons button:hover {
+  transform: scale(1.12) !important;
+  border-color: #ffffff !important;
+  background: rgba(60, 60, 70, 0.95) !important;
+}
+
+/* Netflix Style White Circular Play Button */
+.hover-buttons .play-btn {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.35) !important;
+  font-size: 0.9rem !important;
+}
+
+.hover-buttons .play-btn:hover {
+  background: #eaeaea !important;
+  transform: scale(1.15) !important;
+}
+
+/* Theme specifics for play buttons */
+.theme-angel .hover-buttons .play-btn {
+  background: linear-gradient(135deg, #00A8E1, #0077c2) !important;
+  color: #ffffff !important;
+  border-color: #00A8E1 !important;
+  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.5) !important;
+}
+
+.theme-hannibal .hover-buttons .play-btn {
+  background: #1CE783 !important;
+  color: #04140c !important;
+  border-color: #1CE783 !important;
+  box-shadow: 0 4px 12px rgba(28, 231, 131, 0.5) !important;
+}
+
+/* Hover Bookmark */
+.card-hover-bookmark.bookmarked {
+  background: #ffd700 !important;
+  color: #000000 !important;
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* Hover Like Button */
+.card-hover-like.liked {
+  background: rgba(255, 0, 50, 0.25);
+  border-color: #ff0033;
+}
+
+/* --- Continue Watching Progress Bar (Netflix Red) --- */
+.card-continue-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.continue-progress-fill {
+  height: 100%;
+  background: #E50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.8);
+  transition: width 0.3s ease;
+}
+
+.theme-angel .continue-progress-fill {
+  background: #00A8E1;
+  box-shadow: 0 0 8px rgba(0, 168, 225, 0.8);
+}
+
+.theme-hannibal .continue-progress-fill {
+  background: #1CE783;
+  box-shadow: 0 0 8px rgba(28, 231, 131, 0.8);
+}
+
+/* --- Popular Quick Searches Pills (Clean Luxury UI) --- */
+.popular-searches-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.popular-searches-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-right: 4px;
+}
+
+.popular-search-pill {
+  padding: 5px 15px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.popular-search-pill:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.theme-devil .popular-search-pill:hover {
+  border-color: #E50914;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
+}
+
+.theme-angel .popular-search-pill:hover {
+  border-color: #00A8E1;
+  box-shadow: 0 0 10px rgba(0, 168, 225, 0.35);
+}
+
+.theme-hannibal .popular-search-pill:hover {
+  border-color: #1CE783;
+  box-shadow: 0 0 10px rgba(28, 231, 131, 0.35);
+}
+
+/* --- Live Autocomplete Suggestions Popover (Netflix Search) --- */
+.live-suggestions-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(18, 18, 24, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 380px;
+}
+
+.suggestions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.close-suggestions-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-suggestions-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+
+.suggestion-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.suggestion-row:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
+}
+
+.theme-devil .suggestion-row:hover {
+  background: rgba(229, 9, 20, 0.15);
+  border-left: 3px solid #E50914;
+}
+
+.theme-angel .suggestion-row:hover {
+  background: rgba(0, 168, 225, 0.15);
+  border-left: 3px solid #00A8E1;
+}
+
+.theme-hannibal .suggestion-row:hover {
+  background: rgba(28, 231, 131, 0.15);
+  border-left: 3px solid #1CE783;
+}
+
+.suggestion-thumb {
+  width: 36px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #111;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.suggestion-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestion-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestion-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.suggestion-type-badge {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.suggestion-rating {
+  color: #ffaa00;
+  font-weight: 700;
+}
+
+.suggestion-arrow {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+  margin-right: 4px;
+  transition: transform 0.2s ease;
+}
+
+.suggestion-row:hover .suggestion-arrow {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* --- Metadata Tags (Match %, Age, Resolution) --- */
+.meta-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+
+.match-score {
+  color: #46d369;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 8px rgba(70, 211, 105, 0.3);
+}
+
+.age-rating,
+.quality-pill-mini,
+.audio-tag {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Dynamic Ambilight Glow for Cards */
+.media-item-ambilight {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 18px;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(20px);
+  transition: opacity 0.35s ease;
+}
+
+.theme-devil .media-item.hovered .media-item-ambilight {
+  opacity: 0.65;
+  background: radial-gradient(circle, rgba(255, 0, 50, 0.5) 0%, rgba(255, 0, 0, 0) 70%);
+}
+
+.theme-angel .media-item.hovered .media-item-ambilight {
+  opacity: 0.65;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.5) 0%, rgba(0, 150, 255, 0) 70%);
+}
+
+.theme-hannibal .media-item.hovered .media-item-ambilight {
+  opacity: 0.65;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.45) 0%, rgba(5, 150, 105, 0) 70%);
+}
+
+/* Media Info Bottom metadata */
+.media-info-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+.media-year-badge {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+}
+
+/* Home Section Layouts - 100% Fluid Edge-to-Edge */
+.home-page {
+  width: 100%;
+}
+
+.home-section-container {
+  width: 100%;
+  margin-bottom: 45px;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: clamp(1.2rem, 1.6vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.section-title-icon {
+  margin-right: 8px;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+.section-count-badge {
+  font-size: 0.75em;
+  color: rgba(255, 215, 0, 0.9);
+  font-weight: 600;
+  margin-left: 6px;
 }
 
 /* --- Responsive adjustments --- */
@@ -859,391 +1523,8 @@ h2 {
   margin-bottom: 2px;
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-    /* Slightly reduce base font size */
-  }
+/* Clean Modern Media Grid Defaults */
 
-  .App {
-    padding: 15px;
-  }
-
-  /* Adjust search controls */
-  .search-controls-container {
-    flex-direction: row;
-    /* keep on single line */
-    align-items: center;
-    gap: 10px;
-  }
-
-  #search-input {
-    max-width: 100%;
-    /* Allow input to fill width */
-    font-size: 0.95rem;
-  }
-
-  #search-input:focus {
-    max-width: 100%;
-    /* No expansion on mobile */
-  }
-
-  .filter-toggle-button {
-    margin-left: 0;
-    margin-top: 0;
-  }
-
-  .instant-search-results {
-    max-height: 50vh;
-    /* Reduce max height on mobile */
-  }
-
-  /* Filter form adjustments */
-  .filter-form {
-    padding: 15px;
-  }
-
-  .filter-controls {
-    grid-template-columns: 1fr;
-    /* Single column layout */
-    gap: 15px;
-  }
-
-  /* Title adjustments */
-  .main-title {
-    font-size: 2.5em;
-    /* Reduce drastically */
-    letter-spacing: 2px;
-  }
-
-  .section-title {
-    font-size: 1.8em;
-    /* Reduce drastically */
-    letter-spacing: 1px;
-  }
-
-  .theme-devil .main-title {
-    font-size: 3em;
-  }
-
-  /* Devil specific adjustment */
-  .theme-devil .section-title {
-    font-size: 2.2em;
-  }
-
-  /* Devil specific adjustment */
-  .theme-angel .main-title {
-    font-size: 2.8em;
-  }
-
-  /* Angel specific adjustment */
-  .theme-angel .section-title {
-    font-size: 2em;
-  }
-
-  /* Angel specific adjustment */
-  .theme-hannibal .main-title {
-    font-size: 2.8em;
-  }
-
-  /* Hannibal specific adjustment */
-  .theme-hannibal .section-title {
-    font-size: 2em;
-  }
-
-  /* Hannibal specific adjustment */
-
-  /* Media Grid - Tablet (3 columns) */
-  .media-grid {
-    grid-template-columns: repeat(3, 1fr);
-    /* Force 3 columns */
-    gap: 12px;
-    padding: 15px 12px;
-    justify-items: center;
-  }
-
-  .media-item {
-    width: 100%;
-    /* Fill the grid cell */
-    min-height: auto;
-    /* Let content dictate height or aspect ratio */
-    aspect-ratio: 2 / 3;
-    /* Maintain poster aspect ratio */
-  }
-
-  .media-item.hovered {
-    transform: scale(1.15);
-    /* Reduce hover scale */
-    z-index: 10;
-    /* Keep z-index */
-    /* Disable sibling push/pull on mobile */
-  }
-
-  .media-item.hovered~.media-item {
-    transform: none;
-  }
-
-  .media-grid:hover .media-item:not(.hovered) {
-    transform: none;
-  }
-
-  .theme-devil .media-item.hovered {
-    transform: scale(1.15);
-  }
-
-  /* Consistent scale */
-  .theme-angel .media-item.hovered {
-    transform: scale(1.15) translateY(-5px);
-  }
-
-  /* Consistent scale */
-  .theme-hannibal .media-item.hovered {
-    transform: scale(1.15);
-  }
-
-  /* Consistent scale */
-
-  /* Controls Bar */
-  .controls-bar {
-    justify-content: center;
-    /* Center items when wrapped */
-  }
-
-  .sort-control {
-    min-width: 160px;
-    /* Allow slightly smaller sort */
-    order: 0;
-    /* Reset order if needed */
-  }
-
-  .sliding-tabs-container {
-    width: auto;
-    /* Allow tabs to take natural width */
-    margin-top: 15px;
-    /* Add space when wrapped */
-  }
-
-  .sliding-tabs {
-    max-width: 90%;
-  }
-
-  /* Pagination */
-  .page-link {
-    padding: 7px 12px;
-    /* Slightly smaller buttons */
-    font-size: 0.9em;
-  }
-
-  /* Enhanced Theme Adjustments */
-  .theme-hannibal .App,
-  .theme-hannibal .media-item,
-  .theme-hannibal .filter-form,
-  .theme-hannibal #filtered-results,
-  .theme-devil .App,
-  .theme-devil .media-item,
-  .theme-devil .filter-form,
-  .theme-devil #filtered-results {
-    clip-path: none;
-    /* Remove complex clip-paths on smaller screens */
-    border-radius: 4px;
-    /* Restore basic rounding */
-  }
-
-  .theme-angel .App,
-  .theme-angel .media-item,
-  .theme-angel .filter-form,
-  .theme-angel #filtered-results {
-    border-radius: 20px;
-    /* Slightly reduce rounding */
-  }
-
-  .theme-devil .apply-filters-button:hover:before,
-  .theme-devil .clear-filters-button:hover:before,
-  .theme-devil .trailer-btn:hover:before,
-  .theme-devil .filter-toggle-button:hover:before {
-    opacity: 0;
-    /* Disable crack effect on hover for touch */
-  }
-
-  .theme-angel .apply-filters-button:hover,
-  .theme-angel .clear-filters-button:hover,
-  .theme-angel .trailer-btn:hover,
-  .theme-angel .filter-toggle-button:hover {
-    animation: none;
-    /* Disable feather float on mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  .App {
-    padding: 10px;
-  }
-
-  /* Further reduce title sizes */
-  .main-title {
-    font-size: 2em;
-    letter-spacing: 1px;
-  }
-
-  .section-title {
-    font-size: 1.5em;
-  }
-
-  .theme-devil .main-title {
-    font-size: 2.5em;
-  }
-
-  /* Devil specific adjustment */
-  .theme-devil .section-title {
-    font-size: 1.8em;
-  }
-
-  /* Devil specific adjustment */
-  .theme-angel .main-title {
-    font-size: 2.2em;
-  }
-
-  /* Angel specific adjustment */
-  .theme-angel .section-title {
-    font-size: 1.6em;
-  }
-
-  /* Angel specific adjustment */
-  .theme-hannibal .main-title {
-    font-size: 2.2em;
-  }
-
-  /* Hannibal specific adjustment */
-  .theme-hannibal .section-title {
-    font-size: 1.6em;
-  }
-
-  /* Hannibal specific adjustment */
-
-  /* Search */
-  #search-input {
-    font-size: 0.9rem;
-    padding: 8px 14px;
-  }
-
-  /* Media Grid - Mobile (2 columns) */
-  .media-grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* Force 2 columns */
-    gap: 12px;
-    padding: 15px 12px;
-    justify-items: center;
-  }
-
-  .media-item {
-    width: 100%;
-    min-height: auto;
-    aspect-ratio: 2 / 3;
-    /* ADDED: Poster (120 * 3/2 = 180) + Info (65) */
-  }
-
-  .media-item.hovered {
-    transform: scale(1.1);
-    /* Further reduce hover scale */
-  }
-
-  .theme-devil .media-item.hovered {
-    transform: scale(1.1);
-  }
-
-  /* Consistent scale */
-  .theme-angel .media-item.hovered {
-    transform: scale(1.1) translateY(-3px);
-  }
-
-  /* Consistent scale */
-  .theme-hannibal .media-item.hovered {
-    transform: scale(1.1);
-  }
-
-  /* Consistent scale */
-
-  .media-info h3 {
-    font-size: 0.8rem;
-    /* Reduce title size in card */
-  }
-
-  .media-info .rating {
-    font-size: 0.75rem;
-  }
-
-  /* Buttons */
-  .filter-toggle-button,
-  .apply-filters-button,
-  .clear-filters-button,
-  .trailer-btn,
-  .button-base {
-    font-size: 0.85rem;
-    padding: 8px 12px;
-  }
-
-  /* Sliding Tabs */
-  .sliding-tabs .tab-button {
-    padding: 8px 15px;
-    /* Reduce padding */
-    font-size: 0.9em;
-  }
-
-  /* Pagination */
-  .pagination {
-    gap: 3px;
-  }
-
-  .page-link {
-    padding: 6px 10px;
-    font-size: 0.85em;
-  }
-
-  /* Enhanced Theme Adjustments */
-  .theme-angel .App,
-  .theme-angel .media-item,
-  .theme-angel .filter-form,
-  .theme-angel #filtered-results {
-    border-radius: 15px;
-    /* Further reduce rounding */
-  }
-
-  /* Remove some intense title effects on smallest screens */
-  .theme-devil .section-title:before,
-  .theme-angel .section-title:after,
-  .theme-angel .main-title:after,
-  .theme-hannibal .section-title::after {
-    display: none;
-  }
-}
-
-/* Play Button Style Check/Ensure */
-.play-btn {
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background-color: white;
-  /* Ensure visibility */
-  color: black;
-  /* Ensure visibility */
-  font-size: 1rem;
-  /* Ensure icon size */
-}
-
-.play-btn:hover {
-  transform: scale(1.5);
-  /* Add hover effect */
-}
 
 /* ... existing styles ... */
 
@@ -1733,9 +2014,7 @@ h2 {
   box-shadow: 0 0 20px var(--theme-accent-glow);
 }
 
-.theme-devil .apply-filters-button,
-.theme-devil .play-btn,
-.theme-devil .trailer-btn {
+.theme-devil .apply-filters-button {
   background: var(--theme-accent);
   color: #fff;
   border-radius: var(--theme-radius);
@@ -2304,9 +2583,7 @@ h2 {
   box-shadow: 5px 5px 0px var(--theme-accent);
 }
 
-.theme-hannibal .apply-filters-button,
-.theme-hannibal .play-btn,
-.theme-hannibal .trailer-btn {
+.theme-hannibal .apply-filters-button {
   background: transparent;
   border: 1px solid var(--theme-accent);
   color: var(--theme-accent);
@@ -2997,21 +3274,11 @@ h2 {
   mix-blend-mode: multiply;
 }
 
-/* Sharp uneven edges for containers */
+/* Hulu Edition Theme - Clean Modern Styling */
 .theme-hannibal .App,
-.theme-hannibal .media-item,
 .theme-hannibal .filter-form,
 .theme-hannibal #filtered-results {
-  clip-path: polygon(0 0,
-      100% 0,
-      98% 2%,
-      100% 3%,
-      99% 98%,
-      100% 100%,
-      2% 100%,
-      0 97%,
-      1% 1%);
-  border: 1px solid var(--hannibal-olive);
+  border: none;
 }
 
 /* Enhanced buttons with tactical look */
@@ -3556,92 +3823,112 @@ ch Input Container Styles */
 }
 
 /* ==========================================================================
-   RESPONSIVENESS / MEDIA QUERIES
+   SUPER-SMOOTH RESPONSIVE CROSS-DEVICE FLUID ARCHITECTURE
+   (6-inch Mobile -> Tablets -> 34-inch Ultrawides -> 4K TVs)
    ========================================================================== */
 
-/* 0. 4K TVs and 32+ Inch Monitors (min-width: 2560px) */
-@media (min-width: 2560px) {
+/* 0. 34-inch Ultrawide Monitors & 4K Displays (min-width: 1920px) */
+@media (min-width: 1920px) {
   .App {
-    padding: 40px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 16px 2vw !important;
+    box-sizing: border-box !important;
+  }
+  .home-page,
+  .home-section-container,
+  .search-page-container,
+  .discovery-results-container {
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)) !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
-  .media-item {
-    min-height: 500px;
+  .search-controls-container {
+    max-width: 800px;
   }
-  .media-info h3 {
-    font-size: 1.3rem; /* Larger text for reading from a distance */
-  }
-  .media-info .rating {
+  #search-input {
     font-size: 1.1rem;
+    padding: 14px 24px;
+  }
+}
+
+/* 1. Desktop & Laptops (1025px - 1919px) */
+@media (min-width: 1025px) and (max-width: 1919px) {
+  .App {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 16px 2.2vw !important;
+    box-sizing: border-box !important;
+  }
+  .home-page,
+  .home-section-container,
+  .search-page-container,
+  .discovery-results-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)) !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+}
+
+/* 2. iPad & Tablets (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .App {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 16px !important;
+    box-sizing: border-box !important;
+  }
+  .home-page,
+  .home-section-container,
+  .search-page-container,
+  .discovery-results-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   .search-controls-container {
-    max-width: 1400px;
-    gap: 24px;
+    width: 100%;
   }
-  #search-input {
-    font-size: 1.5rem;
-    padding: 20px 30px;
-    border-radius: 40px;
+  .sliding-tabs-container {
+    margin: 14px auto;
   }
-  .filter-toggle-button, .filter-toggle-button img {
-    width: 50px;
-    height: 50px;
+  .sliding-tabs .tab-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
   }
 }
 
-/* 1. Standard 1080p TV / Wide Monitors (min-width: 1920px) */
-@media (min-width: 1920px) and (max-width: 2559px) {
+/* 3. Mobile Devices (max-width: 640px) */
+@media (max-width: 640px) {
   .App {
-    padding: 30px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 8px !important;
+    padding-bottom: 95px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
-  .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
-  }
-  .media-item {
-    min-height: 400px;
-  }
-  .search-controls-container {
-    max-width: 1000px;
-  }
-  #search-input {
-    font-size: 1.2rem;
-    padding: 15px 25px;
-  }
-}
-
-/* 2. Desktop (min-width: 1025px) */
-@media (min-width: 1025px) {
-  .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  }
-}
-
-/* 3. Tablet / iPad (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .App {
-    padding: 15px;
-  }
-  .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-  }
-  .media-item {
-    min-height: 290px;
-  }
-  .filter-controls {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-}
-
-/* 4. Mobile Devices (max-width: 768px) */
-@media (max-width: 768px) {
-  .App {
-    padding: 10px;
-    padding-bottom: 100px;
+  
+  .home-page,
+  .home-section-container,
+  .search-page-container,
+  .discovery-results-container {
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .search-controls-container {
@@ -3651,76 +3938,142 @@ ch Input Container Styles */
   .search-input-container, .search-input-container.expanded {
     width: 100%;
     max-width: 100%;
-    gap: 5px; /* Add small gap between flex items */
+    gap: 8px;
   }
   #search-input {
     width: 100%;
-    font-size: 16px;
+    font-size: 0.95rem;
+    padding: 12px 18px;
   }
-  .filter-toggle-button {
-    /* Removed absolute positioning */
+
+  .popular-searches-row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-bottom: 4px;
   }
+  .popular-searches-row::-webkit-scrollbar {
+    display: none;
+  }
+  
   .filter-controls {
     grid-template-columns: 1fr;
   }
   
+  /* Solid 2-Column Edge-to-Edge Mobile Grid */
   .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 10px;
-    padding: 10px 0;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 10px 0 !important;
+    width: 100% !important;
   }
+  
   .media-item {
     width: 100%;
-    min-height: 240px;
   }
-  .media-item.hovered {
-    transform: scale(1.05);
-    z-index: 10;
+  
+  .media-info h3 {
+    font-size: 0.82rem;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
   }
   
   .sliding-tabs-container {
     margin: 10px auto;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sliding-tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+  .sliding-tabs {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    min-width: 100%;
+    justify-content: center;
   }
   .sliding-tabs .tab-button {
-    font-size: 0.9rem;
-    padding: 8px 10px;
+    font-size: 0.82rem;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .pagination-container {
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .page-button {
+    padding: 7px 11px;
+    font-size: 0.82rem;
+    min-width: 36px;
+    min-height: 36px;
   }
   
   .modal-overlay {
-    padding: 10px;
+    padding: 0;
+    align-items: flex-end;
   }
   .modal-content, .person-modal-content {
     width: 100%;
     max-width: 100vw;
     margin: 0;
-    max-height: 95vh;
-    border-radius: 10px;
-  }
-  .modal-layout {
-    flex-direction: column;
-  }
-  .modal-poster-container {
-    flex: 0 0 auto;
-    width: 50%;
-    margin: 0 auto 15px auto;
-  }
-  .modal-details {
-    padding: 15px;
-  }
-  .player-container {
-    height: 35vh;
+    max-height: 92vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 14px;
   }
 }
 
-/* 5. Small Mobile (max-width: 480px) */
-@media (max-width: 480px) {
+/* Extra Small Phone (< 380px) */
+@media (max-width: 380px) {
+  .App {
+    padding: 6px 4px !important;
+  }
   .media-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 6px !important;
   }
   .media-info h3 {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
   }
-  .section-title {
-    font-size: 1.5rem;
+  .sliding-tabs .tab-button {
+    font-size: 0.76rem;
+    padding: 6px 9px;
+  }
+}
+
+/* 4. Touch Device Behavior (No stuck hover zooms) */
+@media (hover: none) or (pointer: coarse) {
+  .media-item:hover {
+    transform: none !important;
+  }
+  .media-item.hovered {
+    transform: none !important;
+  }
+  .media-item.hovered ~ .media-item {
+    transform: none !important;
+  }
+  .media-grid:hover .media-item:not(.hovered) {
+    transform: none !important;
+  }
+  .card-watchlist-btn {
+    opacity: 0.9;
+  }
+}
+
+/* 5. Desktop Mouse Pointer Behavior (Smooth subtle hover) */
+@media (hover: hover) and (pointer: fine) {
+  .media-item:hover {
+    transform: translateY(-4px);
+  }
+  .media-item.hovered {
+    transform: scale(1.08) translateY(-4px);
   }
 }

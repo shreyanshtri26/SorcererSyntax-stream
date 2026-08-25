@@ -586,4 +586,49 @@
 .theme-hannibal-modal-content .known-for-year {
     color: #8FBC8F;
     font-family: 'Garamond', serif;
+}
+
+/* ============================================================
+   Mobile Responsiveness (Person Details Modal)
+   ============================================================ */
+@media (max-width: 640px) {
+  .person-modal-content {
+    padding: 20px 14px;
+    max-width: 100vw;
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .person-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+
+  .person-profile-image {
+    width: 120px;
+    height: 180px;
+    border-radius: 12px;
+  }
+
+  .person-name {
+    font-size: 1.6em;
+  }
+
+  .known-for-grid,
+  .credits-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .known-for-info {
+    padding: 6px 4px;
+  }
+
+  .known-for-title {
+    font-size: 0.75em;
+  }
 } 
