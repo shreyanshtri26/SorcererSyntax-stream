@@ -3,7 +3,7 @@
   left: 16px;
   right: 16px;
   bottom: 16px;
-  z-index: 9999;
+  z-index: 9990;
   max-width: 440px;
   margin: 0 auto;
   background: linear-gradient(155deg, rgba(14, 14, 18, 0.97) 0%, rgba(6, 6, 8, 0.99) 100%);
@@ -141,6 +141,23 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 640px) {
+  .install-prompt {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 16px 16px;
+    /* Ensure room on the right for the floating chatbot button in front */
+    padding-right: 76px;
+    z-index: 9990;
+  }
+
+  .install-prompt-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
 @media (min-width: 640px) {
   .install-prompt {
     left: auto;
@@ -149,4 +166,5 @@
     margin: 0;
   }
 }
+
 
