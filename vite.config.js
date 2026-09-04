@@ -27,6 +27,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        maximumFileSizeToCacheInBytes: 5000000,
         // Only precache/cache static build assets. Live streams and API calls
         // (TMDB, IPTV, streaming providers) must always hit the network.
         globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
