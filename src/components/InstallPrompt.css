@@ -22,9 +22,9 @@
 }
 
 .install-prompt-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: var(--theme-radius, 18px);
+  width: 90px;
+  height: 90px;
+  border-radius: var(--theme-radius, 15px);
   flex-shrink: 0;
   object-fit: cover;
   background: var(--theme-bg, #000);

@@ -38,7 +38,7 @@ const getManualInstructions = () => {
     return { steps: ['Open the File menu and choose "Add to Dock" (Safari 17+), or use Share > Add to Home Screen on iPhone/iPad.'] };
   }
   if (isEdge()) return { steps: ['Click the "•••" menu in the toolbar, then choose "Apps" > "Install this site as an app".'] };
-  return { steps: ['Open your browser menu and look for "Install app" or "Add to Home Screen".'] };
+  return { steps: ['Step 1: Click on the 3 dots (⋮) menu in the top right.', 'Step 2: Select the "Install or Add shortcut" option.'] };
 };
 
 /**
