@@ -22,12 +22,12 @@
 }
 
 .install-prompt-icon {
-  width: 90px;
-  height: 90px;
-  border-radius: var(--theme-radius, 15px);
+  width: 110px;
+  height: 110px;
+  border-radius: var(--theme-radius, 18px);
   flex-shrink: 0;
-  object-fit: cover;
-  background: var(--theme-bg, #000);
+  object-fit: contain;
+  background: transparent;
 }
 
 .install-prompt-text h3 {
