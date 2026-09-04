@@ -4,50 +4,58 @@
   right: 16px;
   bottom: 16px;
   z-index: 9999;
-  max-width: 420px;
+  max-width: 440px;
   margin: 0 auto;
-  background: var(--theme-surface, #12160f);
-  border: 1px solid var(--theme-accent, rgba(255, 255, 255, 0.15));
-  border-radius: calc(var(--theme-radius, 4px) + 12px);
-  padding: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px var(--theme-accent-glow, transparent);
+  background: linear-gradient(155deg, rgba(14, 14, 18, 0.97) 0%, rgba(6, 6, 8, 0.99) 100%);
+  border: 1.5px solid var(--theme-accent, #E50914);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 28px var(--theme-accent-glow, rgba(229, 9, 20, 0.35)), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   color: var(--theme-text, #f2f4f0);
   font-family: var(--theme-font, inherit);
+  box-sizing: border-box;
 }
 
 .install-prompt-row {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: center;
+  gap: 16px;
 }
 
+
 .install-prompt-icon {
-  width: 110px;
-  height: 110px;
-  border-radius: var(--theme-radius, 10px);
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
   flex-shrink: 0;
-  object-fit: contain;
+  object-fit: cover;
+  background: #000000;
+  padding: 2px;
+  border: 1.5px solid var(--theme-accent, rgba(229, 9, 20, 0.4));
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 16px var(--theme-accent-glow, rgba(229, 9, 20, 0.25));
 }
 
 .install-prompt-text h3 {
   margin: 0 0 4px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--theme-text, #ffffff);
+  color: #ffffff;
+  letter-spacing: 0.2px;
 }
 
 .install-prompt-text p {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--theme-text, rgba(255, 255, 255, 0.75));
-  opacity: 0.8;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .install-prompt-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   margin-top: 16px;
 }
 
@@ -55,19 +63,22 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: none;
-  border-radius: calc(var(--theme-radius, 4px) + 16px);
-  padding: 10px 18px;
-  background: var(--theme-accent, #9ccc4d);
-  color: var(--theme-bg, #10230b);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  background: var(--theme-accent, #E50914);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: filter 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 18px var(--theme-accent-glow, rgba(229, 9, 20, 0.45));
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .install-prompt-install-btn:hover {
-  filter: brightness(1.15);
+  filter: brightness(1.18);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px var(--theme-accent-glow, rgba(229, 9, 20, 0.65));
 }
 
 .install-prompt-install-btn:active {
@@ -75,37 +86,47 @@
 }
 
 .install-prompt-dismiss-btn {
-  background: none;
-  border: none;
-  color: var(--theme-text, rgba(255, 255, 255, 0.65));
-  opacity: 0.75;
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  padding: 8px 4px;
+  padding: 9px 18px;
+  transition: all 0.2s ease;
 }
 
 .install-prompt-dismiss-btn:hover {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .install-prompt-manual-steps {
   margin-top: 14px;
-  font-size: 14px;
-  color: var(--theme-text, rgba(255, 255, 255, 0.85));
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }
 
 .install-prompt-manual-steps ol {
   margin: 0 0 10px;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 .install-prompt-manual-steps li {
   margin-bottom: 4px;
 }
 
-/* Devil theme: match the app's Creepster horror-style headline treatment */
+/* Devil theme: match horror-style headline treatment */
 .theme-devil .install-prompt-text h3 {
   font-family: 'Creepster', cursive;
   font-size: 20px;
@@ -129,3 +150,4 @@
     margin: 0;
   }
 }
+
