@@ -24,10 +24,11 @@
 .install-prompt-icon {
   width: 110px;
   height: 110px;
-  border-radius: var(--theme-radius, 18px);
+  border-radius: var(--theme-radius, 10px);
   flex-shrink: 0;
   object-fit: contain;
-  background: transparent;
+  background: linear-gradient(145deg, rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.8));
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 .install-prompt-text h3 {
