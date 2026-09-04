@@ -836,14 +836,18 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                     );
                                 }
                                 if (isRealMadrid) {
+                                    // Only show channels that are specifically for LaLiga/Real Madrid
+                                    // NOT generic DAZN Germany, CANAL+ Poland, or regional beIN variants
                                     return (
                                         compactHaystack.includes('laliga') ||
                                         haystack.includes('la liga') ||
+                                        haystack.includes('dazn laliga') ||
                                         haystack.includes('sky sports football') ||
-                                        haystack.includes('dazn') ||
-                                        haystack.includes('fox soccer') ||
-                                        haystack.includes('bein sports') ||
-                                        haystack.includes('canal+')
+                                        haystack.includes('fox soccer plus') ||
+                                        haystack.includes('canal+ extra') ||
+                                        haystack.includes('supersport laliga') ||
+                                        // beIN Sports 1 or 2 (primary, not country-specific like beIN Sports France)
+                                        (/bein sports\s*(1|2)?(\s|$)/i.test(ch.title || '') && !haystack.includes('france') && !haystack.includes('mena') && !haystack.includes('arabic'))
                                     );
                                 }
                                 if (isIndiaSl) {
@@ -856,23 +860,35 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                     );
                                 }
                                 if (isLaLiga) {
-                                    return compactHaystack.includes('laliga') || haystack.includes('la liga') || (ch.id && String(ch.id).includes('laliga')) || haystack.includes('dazn');
-                                }
-                                if (isFootball) {
+                                    // Specific LaLiga channels only — no generic DAZN Germany
                                     return (
                                         compactHaystack.includes('laliga') ||
+                                        haystack.includes('la liga') ||
+                                        haystack.includes('dazn laliga') ||
+                                        haystack.includes('sky sports football') ||
+                                        haystack.includes('supersport laliga') ||
+                                        (ch.id && String(ch.id).includes('laliga'))
+                                    );
+                                }
+                                if (isFootball) {
+                                    // Sport-specific channels, avoid generic DAZN country variants
+                                    const isGenericDazn = haystack.includes('dazn') && !compactHaystack.includes('laliga') && !haystack.includes('dazn laliga');
+                                    const isGenericCanal = haystack.includes('canal+') && !haystack.includes('canal+ extra') && !haystack.includes('canal+ sport');
+                                    if (isGenericDazn || isGenericCanal) return false;
+                                    return (
+                                        compactHaystack.includes('laliga') ||
+                                        haystack.includes('dazn laliga') ||
                                         haystack.includes('football') ||
                                         haystack.includes('soccer') ||
                                         haystack.includes('premier league') ||
-                                        haystack.includes('sky sports') ||
+                                        haystack.includes('sky sports football') ||
+                                        haystack.includes('sky sports main event') ||
                                         haystack.includes('tnt sports') ||
-                                        haystack.includes('bein sports') ||
+                                        haystack.includes('bein sports 1') ||
+                                        haystack.includes('bein sports 2') ||
                                         haystack.includes('supersport') ||
-                                        haystack.includes('dazn') ||
-                                        haystack.includes('golazo') ||
-                                        haystack.includes('sports18') ||
-                                        haystack.includes('sony sports') ||
-                                        haystack.includes('sony ten')
+                                        haystack.includes('fox soccer') ||
+                                        haystack.includes('golazo')
                                     );
                                 }
                                 if (isCricket) {
@@ -1011,13 +1027,26 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                 });
 
 
-                // Dedup and sort so CDX channels appear first in order
+                // Dedup and sort: live_event cards first, then live_channel (BEST first), then media
                 mediaItems = Array.from(new Map(mediaItems.map(item => [`${item._kind || 'media'}_${item.id}`, item])).values());
                 mediaItems.sort((a, b) => {
-                    const aCdx = Boolean(a.isCdx || (a.id && String(a.id).startsWith('cdx_')) || a.cdxSlug);
-                    const bCdx = Boolean(b.isCdx || (b.id && String(b.id).startsWith('cdx_')) || b.cdxSlug);
-                    if (aCdx && !bCdx) return -1;
-                    if (!aCdx && bCdx) return 1;
+                    // Priority tier: live_event (0) > live_channel BEST (1) > live_channel other (2) > media (3)
+                    const tier = (item) => {
+                        if (item._kind === 'live_event') return 0;
+                        if (item._kind === 'live_channel') {
+                            const isBest = Boolean(item.isCdx || item.isBest || (item.id && String(item.id).startsWith('cdx_')) || item.cdxSlug);
+                            return isBest ? 1 : 2;
+                        }
+                        return 3;
+                    };
+                    const tA = tier(a);
+                    const tB = tier(b);
+                    if (tA !== tB) return tA - tB;
+                    // Within same tier: LIVE NOW before UPCOMING for live_event
+                    if (a._kind === 'live_event' && b._kind === 'live_event') {
+                        if (a.isLive && !b.isLive) return -1;
+                        if (!a.isLive && b.isLive) return 1;
+                    }
                     return 0;
                 });
 
