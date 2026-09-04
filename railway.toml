@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm ci && npm run build"
+buildCommand = "npm run build"
 
 [deploy]
 startCommand = "npx serve -s dist -l $PORT"
@@ -10,7 +10,7 @@ restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
 [environments.production.build]
-buildCommand = "npm ci && npm run build"
+buildCommand = "npm run build"
 
 [environments.production.deploy]
 startCommand = "npx serve -s dist -l $PORT"
