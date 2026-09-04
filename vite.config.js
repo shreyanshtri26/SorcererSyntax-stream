@@ -13,8 +13,8 @@ export default defineConfig({
       includeAssets: ['logo.png', 'tabicon.png', 'pwa-192x192.png', 'pwa-512x512.png', 'pwa-maskable-512x512.png', 'apple-touch-icon.png'],
       manifest: {
         id: '/',
-        name: 'Room no: 305 | Premium Cinema',
-        short_name: 'Room 305',
+        name: 'Room no: 305',
+        short_name: 'Room no: 305',
         description: 'A modern React streaming/music/movie hub.',
         start_url: '/',
         display: 'standalone',
