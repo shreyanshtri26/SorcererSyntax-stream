@@ -64,6 +64,17 @@
   opacity: 0.9;
 }
 
+/* Decorative smoke wrappers (Hannibal theme only) — MUST be taken out of the
+   header's flex flow, otherwise they count as extra flex items and break
+   justify-content: space-between centering of the title (even at 0 width). */
+.bong-smoke-elements,
+.joint-smoke-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* 4. Theme Switcher */
 .theme-switcher {
   display: flex;
@@ -170,18 +181,18 @@
    ========================================================================== */
 
 .theme-angel .app-header {
-  background-color: rgba(220, 235, 255, 0.92);
+  background: var(--angel-pill-gradient, linear-gradient(135deg, #a1c4fd, #87CEEB));
   border-bottom: 1px solid rgba(100, 150, 255, 0.4);
   box-shadow: 0 4px 20px rgba(100, 150, 255, 0.35);
 }
 
 .theme-angel .main-title,
 .theme-angel .angel-title {
-  color: #4682B4;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
+  color: #0a2540;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
   letter-spacing: 1px;
-  text-shadow: 0 0 15px rgba(173, 216, 230, 0.9), 0 0 30px rgba(135, 206, 250, 0.6);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .theme-angel .title-icon {
@@ -272,8 +283,8 @@
   /* EXPLICITLY SHOW THEME BUTTON AND BALANCER ON MOBILE */
   .header-left-spacer,
   .theme-switcher {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -288,47 +299,35 @@
   }
 
   .theme-button {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     display: flex !important;
     z-index: 1050 !important;
     pointer-events: auto !important;
   }
 
   .theme-icon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     pointer-events: none !important;
   }
 
-  /* 0.5x Zoom Out for ALL Themes on Mobile */
+  /* Mobile-sized title — sized via font-size directly (NOT transform:scale,
+     which only affects paint, not layout, and previously caused the header's
+     flex row to overflow and throw off centering). */
   .main-title {
-    font-size: clamp(1.4rem, 5.2vw, 2.2rem);
+    font-size: clamp(1.7rem, 6.4vw, 2.6rem);
     padding: 2px 8px;
     text-align: center;
     white-space: nowrap;
     overflow: visible;
-    transform: scale(0.5);
-    transform-origin: center center;
   }
 
-  .main-title:hover,
-  .main-title:active {
-    transform: scale(0.55);
-  }
-
-  /* Devil Theme letter spacing with 0.5x scale */
+  /* Devil Theme letter spacing at mobile size */
   .theme-devil .main-title,
   .theme-devil .devil-title {
     letter-spacing: 0.5px;
     padding: 2px 8px;
-    transform: scale(0.5);
-    transform-origin: center center;
-  }
-
-  .theme-devil .main-title:hover,
-  .theme-devil .main-title:active {
-    transform: scale(0.55);
   }
 }
 
@@ -339,8 +338,8 @@
 
   .header-left-spacer,
   .theme-switcher {
-    width: 34px;
-    height: 34px;
+    width: 26px;
+    height: 26px;
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -348,30 +347,26 @@
   }
 
   .theme-button {
-    width: 34px;
-    height: 34px;
+    width: 26px;
+    height: 26px;
     display: flex !important;
   }
 
   .theme-icon {
-    width: 19px;
-    height: 19px;
+    width: 15px;
+    height: 15px;
   }
 
-  /* 0.5x Zoom Out for ALL Themes on Small Mobile */
+  /* Small-mobile-sized title — font-size directly, no transform:scale. */
   .main-title {
-    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    font-size: clamp(1.55rem, 6vw, 2.2rem);
     padding: 2px 4px;
-    transform: scale(0.5);
-    transform-origin: center center;
   }
 
   .theme-devil .main-title,
   .theme-devil .devil-title {
     letter-spacing: 0.2px;
     padding: 2px 4px;
-    transform: scale(0.5);
-    transform-origin: center center;
   }
   
   .title-icon {

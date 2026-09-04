@@ -5,6 +5,8 @@ import {
     getMovieGenres,
     getTVGenres,
     discoverMedia,
+    getTrendingMovies,
+    getTrendingTVShows,
     TMDB_BASE_URL,
     IMAGE_BASE_URL
 } from '../api/api';
@@ -33,13 +35,14 @@ const SearchPage = ({
     const [movieGenres, setMovieGenres] = useState([]);
     const [tvGenres, setTvGenres] = useState([]);
     const [languages, setLanguages] = useState([]);
-    const [filters, setFilters] = useState({ genres: [], rating: '', languages: [] });
+    const [filters, setFilters] = useState({ genres: [], rating: '7.0', languages: [] });
     const [isFilteredSearch, setIsFilteredSearch] = useState(false);
     const [genreSearch, setGenreSearch] = useState('');
     const [languageSearch, setLanguageSearch] = useState('');
     const [isFilterLoading, setIsFilterLoading] = useState(false);
     const [sortOption, setSortOption] = useState('popularity.desc');
     const [activeFilterTab, setActiveFilterTab] = useState('movie');
+    const [isShowingTrending, setIsShowingTrending] = useState(false);
     const [filteredResults, setFilteredResults] = useState({
         movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
         tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
@@ -151,24 +154,91 @@ const SearchPage = ({
     }, [searchQuery, filters, sortOption, currentLanguage, movieGenres, tvGenres, VITE_API_KEY]);
 
     useEffect(() => {
-        if (isFilteredSearch || (debouncedQuery && debouncedQuery.length >= 2)) {
+        if (!isShowingTrending && (isFilteredSearch || (debouncedQuery && debouncedQuery.length >= 2))) {
             performSearch(debouncedQuery);
         }
-    }, [debouncedQuery]);
+    }, [debouncedQuery, isShowingTrending]);
 
     const handleVoiceResult = (transcript) => {
         setSearchQuery(transcript);
         performSearch(transcript);
     };
 
+    const handleTrendingClick = async (mediaType) => {
+        console.log('handleTrendingClick called with:', mediaType);
+        setSearchQuery('');
+        setActiveFilterTab(mediaType); // Switch to the correct tab
+        setIsShowingTrending(true); // Prevent automatic search
+        setIsFilterLoading(true);
+        
+        // Clear current results
+        setFilteredResults(prev => ({
+            ...prev,
+            [mediaType]: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+        }));
+
+        try {
+            console.log('Fetching trending for:', mediaType);
+            const results = mediaType === 'movie' 
+                ? await getTrendingMovies('week', 1)
+                : await getTrendingTVShows('week', 1);
+            
+            console.log('Trending results:', results);
+
+            if (results && results.results && results.results.length > 0) {
+                const processedItems = results.results.map(item => ({
+                    ...item,
+                    media_type: mediaType
+                }));
+
+                console.log('Processed items:', processedItems.length, 'items');
+
+                setFilteredResults(prev => ({
+                    ...prev,
+                    [mediaType]: {
+                        items: processedItems,
+                        allItems: processedItems,
+                        page: 1,
+                        totalPages: results.total_pages || 1,
+                        totalResults: results.total_results || processedItems.length
+                    }
+                }));
+            } else {
+                console.log('No results found or invalid response');
+                setFilteredResults(prev => ({
+                    ...prev,
+                    [mediaType]: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+                }));
+            }
+        } catch (error) {
+            console.error('Error fetching trending content:', error);
+            setFilteredResults(prev => ({
+                ...prev,
+                [mediaType]: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+            }));
+        } finally {
+            setIsFilterLoading(false);
+        }
+    };
+
+    const handleGenreClick = async (genreId, genreLabel) => {
+        setSearchQuery(genreLabel);
+        setIsShowingTrending(false); // Reset trending flag
+        setFilters(prev => ({ ...prev, genres: [genreId] }));
+        setIsFilteredSearch(true);
+        setTimeout(() => performSearch(), 100);
+    };
+
     const handleClearSearch = () => {
         setSearchQuery('');
-        setFilters({ genres: [], rating: '', languages: [] });
+        setIsShowingTrending(false); // Reset trending flag
+        setFilters({ genres: [], rating: '7.0', languages: [] });
         setIsFilteredSearch(false);
         setShowSearchPanel(false);
         setFilteredResults({
             movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
-            tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+            tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+            people: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
         });
     };
 
@@ -324,7 +394,10 @@ const SearchPage = ({
                             id="search-input"
                             placeholder="Search Movies, TV Shows, People, Genres..."
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onChange={(e) => {
+                                setSearchQuery(e.target.value);
+                                setIsShowingTrending(false); // Reset trending flag when user types
+                            }}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
                                     performSearch();
@@ -351,22 +424,19 @@ const SearchPage = ({
                 <div className="popular-searches-row">
                     <span className="popular-searches-label">Trending:</span>
                     {[
-                        { label: 'Movies', query: 'Avengers' },
-                        { label: 'TV Series', query: 'Stranger Things' },
-                        { label: 'Action', query: 'John Wick' },
-                        { label: 'Sci-Fi', query: 'Interstellar' },
-                        { label: 'Comedy', query: 'Deadpool' },
-                        { label: 'Drama', query: 'Breaking Bad' },
-                        { label: 'Thriller', query: 'Inception' },
-                        { label: 'Horror', query: 'Conjuring' }
+                        { label: 'Action', type: 'genre', genreId: 28 },
+                        { label: 'Sci-Fi', type: 'genre', genreId: 878 },
+                        { label: 'Comedy', type: 'genre', genreId: 35 },
+                        { label: 'Drama', type: 'genre', genreId: 18 },
+                        { label: 'Thriller', type: 'genre', genreId: 53 },
+                        { label: 'Horror', type: 'genre', genreId: 27 }
                     ].map(pill => (
                         <button
                             key={pill.label}
                             type="button"
                             className="popular-search-pill"
                             onClick={() => {
-                                setSearchQuery(pill.query);
-                                performSearch(pill.query);
+                                handleGenreClick(pill.genreId, pill.label);
                             }}
                         >
                             {pill.label}
@@ -386,14 +456,14 @@ const SearchPage = ({
                         >
                             <div className="filter-form">
                                 <div className="filter-header-bar">
-                                    <span className="filter-header-title">⚡ Advanced Content Filters</span>
+                                    <span className="filter-header-title">Advanced Content Filters</span>
                                     <span className="filter-header-subtitle">Filter by Genre, Rating & Audio/Language</span>
                                 </div>
                                 <div className="filter-controls">
                                     {/* 1. Genres Section */}
                                     <div className="filter-group filter-group-full">
                                         <div className="filter-label-row">
-                                            <label>🎭 Genre(s):</label>
+                                            <label>Genre(s):</label>
                                             <input
                                                 type="text"
                                                 value={genreSearch}
@@ -422,31 +492,29 @@ const SearchPage = ({
 
                                     {/* 2. Rating Section */}
                                     <div className="filter-group">
-                                        <label>⭐ Minimum Rating (TMDB Score):</label>
-                                        <div className="rating-quick-pills">
-                                            {[
-                                                { label: 'Any', val: '' },
-                                                { label: '★ 6.0+', val: '6.0' },
-                                                { label: '★ 7.0+', val: '7.0' },
-                                                { label: '★ 8.0+', val: '8.0' },
-                                                { label: '★ 8.5+', val: '8.5' }
-                                            ].map(r => (
-                                                <button
-                                                    key={r.label}
-                                                    type="button"
-                                                    className={`rating-pill-btn ${filters.rating === r.val ? 'active' : ''}`}
-                                                    onClick={() => setFilters(prev => ({ ...prev, rating: r.val }))}
-                                                >
-                                                    {r.label}
-                                                </button>
-                                            ))}
+                                        <label>Minimum Rating:</label>
+                                        <div className="rating-slider-row">
+                                            <input
+                                                type="range"
+                                                min="0"
+                                                max="10"
+                                                step="0.1"
+                                                value={filters.rating === '' ? 0 : parseFloat(filters.rating)}
+                                                onChange={(e) => setFilters(prev => ({ ...prev, rating: e.target.value === '0' ? '' : e.target.value }))}
+                                                className="rating-slider"
+                                                style={{ '--range-percent': `${((filters.rating === '' ? 0 : parseFloat(filters.rating)) / 10) * 100}%` }}
+                                                aria-label="Minimum rating slider"
+                                            />
+                                            <span className="rating-slider-value">
+                                                {filters.rating === '' ? 'Any' : `★ ${parseFloat(filters.rating).toFixed(1)}+`}
+                                            </span>
                                         </div>
                                     </div>
 
                                     {/* 3. Language Section */}
                                     <div className="filter-group filter-group-full">
                                         <div className="filter-label-row">
-                                            <label>🌐 Audio / Language(s):</label>
+                                            <label> Audio / Language(s):</label>
                                             <input
                                                 type="text"
                                                 value={languageSearch}

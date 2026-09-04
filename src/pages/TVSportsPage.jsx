@@ -295,7 +295,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
           },
           {
             title: `${readableTitle} (CDX Mirror)`,
-            link: `https://cdx-08192.website/embed/${cleanAlphaTarget || normalizedTarget}`,
+            link: `https://epiembeds.online/embed/${cleanAlphaTarget || normalizedTarget}`,
             type: '0'
           }
         ]

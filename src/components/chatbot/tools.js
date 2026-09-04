@@ -79,6 +79,35 @@ export const TOOL_DEFINITIONS = [
                 required: ["media_type", "id"]
             }
         }
+    },
+    {
+        type: "function",
+        function: {
+            name: "get_live_sports_events",
+            description: "Get LIVE or upcoming sports matches/events (football, cricket, UFC, basketball, etc). Use for questions like 'is there a live match', 'when does Real Madrid play', 'live cricket score', 'UFC tonight'. Returns team names, event name, status and start/end time — NEVER invent scores or times not present in the result.",
+            parameters: {
+                type: "object",
+                properties: {
+                    query: { type: "string", description: "Team name, league, sport, or competition to search for. Leave empty to get all currently live/upcoming events." }
+                },
+                required: []
+            }
+        }
+    },
+    {
+        type: "function",
+        function: {
+            name: "find_live_channel",
+            description: "Find a live TV channel to watch (news, entertainment, kids, sports channels, regional channels like Bangla/India/Pakistan/Arabic/USA). Use for 'PTV Sports channel', 'BBC News live', 'kids channels', 'Bollywood channel'. NOT for on-demand movies/shows — those use search_media/discover_content instead.",
+            parameters: {
+                type: "object",
+                properties: {
+                    query: { type: "string", description: "Channel name to search for, e.g. 'ESPN', 'BBC News', 'Sony SAB'." },
+                    category: { type: "string", description: "Category/country to browse if no specific channel name given, e.g. 'sports', 'news', 'india', 'kids', 'usa'." }
+                },
+                required: []
+            }
+        }
     }
 ];
 

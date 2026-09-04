@@ -26,7 +26,7 @@ async function build() {
     const name = c.name || slug;
     const logo = c.logo || '';
     const flag = c.flag || 'us';
-    const rawUrl = (c.streams && c.streams[0]) ? c.streams[0].url : `https://cdx-08192.website/embed/${slug}`;
+    const rawUrl = (c.streams && c.streams[0]) ? c.streams[0].url : `https://epiembeds.online/embed/${slug}`;
     
     let category = 'Entertainment';
     let genre = 'Entertainment';

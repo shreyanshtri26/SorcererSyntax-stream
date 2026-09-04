@@ -32,6 +32,14 @@
   color: #ff4444;
 }
 
+.voice-search-button.loading {
+  cursor: wait;
+}
+
+.voice-search-button.loading .mic-icon {
+  color: #4da6ff;
+}
+
 @keyframes pulse {
 
   0%,

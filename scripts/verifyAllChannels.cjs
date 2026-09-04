@@ -16,7 +16,7 @@ function fetchJson(url) {
 
 function checkCdx(slug) {
   return new Promise(resolve => {
-    const url = `https://cdx-08192.website/embed/${slug}`;
+    const url = `https://epiembeds.online/embed/${slug}`;
     const req = https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' }, timeout: 3500 }, res => {
       let d = '';
       res.on('data', c => d += c);
@@ -45,7 +45,7 @@ async function run() {
     const rawSlug = c.url;
     const flag = c.flag || 'us';
     const cleanRaw = rawSlug.replace(/[^a-z0-9]+/g, '');
-    const directStream = (c.streams && c.streams[0]) ? c.streams[0].url.replace('https://cdx-08192.website/embed/', '') : null;
+    const directStream = (c.streams && c.streams[0]) ? c.streams[0].url.replace('https://epiembeds.online/embed/', '') : null;
 
     const candidates = [
       directStream,
@@ -76,11 +76,11 @@ async function run() {
     }
 
     // Sanitize any nested prefixes
-    if (foundUrl.includes('https://cdx-08192.website/embed/http')) {
-      foundUrl = foundUrl.replace('https://cdx-08192.website/embed/http://cdx-08192.website/embed/', 'https://cdx-08192.website/embed/');
+    if (foundUrl.includes('https://epiembeds.online/embed/http')) {
+      foundUrl = foundUrl.replace('https://epiembeds.online/embed/http://epiembeds.online/embed/', 'https://epiembeds.online/embed/');
     }
-    if (foundUrl.includes('https://cdx-08192.website/embed/https://')) {
-      foundUrl = foundUrl.replace('https://cdx-08192.website/embed/https://cdx-08192.website/play/', 'https://cdx-08192.website/embed/');
+    if (foundUrl.includes('https://epiembeds.online/embed/https://')) {
+      foundUrl = foundUrl.replace('https://epiembeds.online/embed/https://epiembeds.online/play/', 'https://epiembeds.online/embed/');
     }
 
     const item = {

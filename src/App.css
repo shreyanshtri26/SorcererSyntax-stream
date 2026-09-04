@@ -1,8 +1,8 @@
 /* Add Google Font Import for Creepster at the top */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap');
-/* Updated Nunito with 200 weight for Angel */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+/* Rubik used as the Angel theme font */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
 /* Added Cinzel for enhanced Hannibal - military serif style */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
@@ -338,6 +338,13 @@ h2 {
   opacity: 1;
 }
 
+/* Devil theme: the filter icon SVG renders with its own black fill (img tags
+   don't inherit currentColor), making it invisible on the dark red button.
+   Invert it to a soft white/grey so the lines are clearly visible. */
+.theme-devil .filter-toggle-button img {
+  filter: invert(1) brightness(0.9) grayscale(0.3);
+}
+
 .apply-filters-button,
 .clear-filters-button,
 .trailer-btn,
@@ -435,6 +442,63 @@ h2 {
 .filter-header-subtitle {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+/* Devil theme: match the Bebas Neue/Creepster horror titles used elsewhere */
+.theme-devil .filter-header-title {
+  font-family: 'Creepster', cursive;
+  color: var(--devil-blood);
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6), 1px 1px 3px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1.5px;
+}
+
+.theme-devil .filter-header-subtitle,
+.theme-devil .filter-group label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+.theme-devil .filter-group label {
+  color: var(--devil-blood);
+}
+
+/* Angel theme: match the light, airy Nunito titles with a soft glow */
+.theme-angel .filter-header-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 200;
+  color: #5a8db8;
+  text-shadow: 0 0 12px rgba(142, 197, 252, 0.6);
+  letter-spacing: 1px;
+}
+
+.theme-angel .filter-header-subtitle {
+  font-family: 'Rubik', sans-serif;
+  color: rgba(90, 141, 184, 0.65);
+}
+
+.theme-angel .filter-group label {
+  font-family: 'Rubik', sans-serif;
+  color: #5a8db8;
+}
+
+/* Hannibal theme: match the sophisticated Cinzel serif titles */
+.theme-hannibal .filter-header-title {
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--hannibal-bronze, #d4af37);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.theme-hannibal .filter-header-subtitle {
+  font-family: 'Garamond', 'Times New Roman', serif;
+  color: rgba(212, 175, 55, 0.6);
+}
+
+.theme-hannibal .filter-group label {
+  font-family: 'Cinzel', serif;
+  color: var(--hannibal-bronze, #d4af37);
+  letter-spacing: 1px;
 }
 
 .filter-controls {
@@ -550,36 +614,149 @@ h2 {
   font-weight: 900;
 }
 
-/* Rating Quick Pills */
-.rating-quick-pills {
+/* Rating Slider */
+.rating-slider-row {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  width: 100%;
 }
 
-.rating-pill-btn {
-  padding: 6px 14px;
+.rating-slider {
+  flex: 1;
+  --range-percent: 0%;
+  --fill-color: #b6e84b;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.8rem;
-  font-weight: 600;
+  background: linear-gradient(to right,
+    var(--fill-color) var(--range-percent),
+    rgba(20, 20, 22, 0.65) var(--range-percent));
+  outline: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.rating-pill-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: #ffffff;
+.rating-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-top: 0;
+  background: radial-gradient(circle at 32% 28%, #ffffff 0%, #e4e4e4 22%, #b9b9bc 48%, #7d7d82 75%, #4a4a4e 100%);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.6) inset,
+    0 -2px 3px rgba(0, 0, 0, 0.35) inset,
+    0 2px 6px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.rating-pill-btn.active {
-  background: #ffaa00;
-  color: #000000;
-  border-color: #ffaa00;
+.rating-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.7) inset,
+    0 -2px 3px rgba(0, 0, 0, 0.4) inset,
+    0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.rating-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #ffffff 0%, #e4e4e4 22%, #b9b9bc 48%, #7d7d82 75%, #4a4a4e 100%);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.6) inset,
+    0 -2px 3px rgba(0, 0, 0, 0.35) inset,
+    0 2px 6px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rating-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+.rating-slider::-moz-range-progress {
+  background: var(--fill-color);
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.rating-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(20, 20, 22, 0.65);
+}
+
+.rating-slider-value {
+  min-width: 64px;
+  text-align: right;
+  font-size: 0.85rem;
   font-weight: 700;
-  box-shadow: 0 0 12px rgba(255, 170, 0, 0.4);
+  color: #b6e84b;
+  white-space: nowrap;
+}
+
+/* Theme-specific slider fill colors (thumb stays chrome/metallic in all themes) */
+.theme-devil .rating-slider {
+  --fill-color: #E50914;
+}
+.theme-devil .rating-slider-value {
+  color: #E50914;
+}
+
+.theme-angel .rating-slider {
+  --fill-color: #00A8E1;
+}
+.theme-angel .rating-slider-value {
+  color: #00A8E1;
+}
+
+.theme-hannibal .rating-slider {
+  --fill-color: #1CE783;
+}
+.theme-hannibal .rating-slider-value {
+  color: #1CE783;
+}
+
+@media (max-width: 768px) {
+  .rating-slider-row {
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .rating-slider::-webkit-slider-thumb {
+    width: 26px;
+    height: 26px;
+  }
+  .rating-slider::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+  }
+  .rating-slider-value {
+    font-size: 0.8rem;
+    min-width: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rating-slider-row {
+    flex-wrap: wrap;
+  }
+  .rating-slider {
+    flex-basis: 100%;
+    order: 1;
+  }
+  .rating-slider-value {
+    order: 2;
+    margin-left: auto;
+    min-width: auto;
+  }
 }
 
 /* Action buttons */
@@ -2078,12 +2255,19 @@ h2 {
   color: #cc0000;
   /* Brighter, more aggressive red */
   font-family: 'Creepster', cursive;
-  font-size: 4.5em;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.7),
     0 0 20px rgba(255, 0, 0, 0.5),
     0 0 30px rgba(139, 0, 0, 0.5),
     1px 1px 5px rgba(0, 0, 0, 0.8);
   letter-spacing: 4px;
+}
+
+/* Large desktop-only title size (restored). Gated to desktop so it never
+   overrides the responsive mobile clamp defined in Header.css. */
+@media (min-width: 769px) {
+  .theme-devil .main-title {
+    font-size: 4.5em;
+  }
 }
 
 .theme-devil .section-title {
@@ -2206,6 +2390,7 @@ h2 {
   --angel-mist: rgba(142, 197, 252, 0.2);
   --angel-halo: 0 0 20px rgba(142, 197, 252, 0.5);
   --angel-gradient: linear-gradient(135deg, #8EC5FC, #E0C3FC);
+  --angel-pill-gradient: linear-gradient(135deg, #a1c4fd, #87CEEB);
 }
 
 /* --- Theme: Angel (Ethereal) --- */
@@ -2215,7 +2400,7 @@ h2 {
   --theme-bg: #f8faff;
   --theme-surface: #ffffff;
   --theme-text: #2c78c3;
-  --theme-font: 'Nunito', sans-serif;
+  --theme-font: 'Rubik', sans-serif;
   --theme-radius: 30px;
 
   /* Music Aliases */
@@ -2307,7 +2492,7 @@ h2 {
 .theme-angel .filter-toggle-button {
   background-color: var(--angel-cloud);
   color: #5a8db8;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   border: 1px solid rgba(142, 197, 252, 0.5);
   border-radius: 25px;
@@ -2373,13 +2558,21 @@ h2 {
 /* Enhanced section titles */
 .theme-angel .section-title,
 .theme-angel .main-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 200;
-  color: #5a8db8;
-  text-shadow: 0 0 15px rgba(142, 197, 252, 0.6);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #0a2540;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.5);
   letter-spacing: 1px;
   position: relative;
   display: inline-block;
+}
+
+/* Large desktop-only title size (matches devil/hannibal). Gated to desktop so
+   it never overrides the responsive mobile clamp defined in Header.css. */
+@media (min-width: 769px) {
+  .theme-angel .main-title {
+    font-size: 4em;
+  }
 }
 
 /* Add floating effect to titles */
@@ -2415,7 +2608,7 @@ h2 {
   /* Very rounded */
   color: #5a8db8;
   box-shadow: 0 3px 10px rgba(142, 197, 252, 0.15);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Rubik', sans-serif;
   /* Consistent font */
 }
 
@@ -2457,7 +2650,7 @@ h2 {
 .theme-angel .section-title {
   color: #5F9EA0;
   /* Cadet Blue */
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Rubik', sans-serif;
   border-bottom: 1px solid rgba(173, 216, 230, 0.7);
   font-size: 2.5em;
   font-weight: 400;
@@ -2492,10 +2685,9 @@ h2 {
 .theme-angel .apply-filters-button,
 .theme-angel .clear-filters-button,
 .theme-angel .trailer-btn {
-  background-color: #B0E0E6;
-  /* Powder Blue */
+  background: var(--angel-pill-gradient);
   border: 1px solid rgba(135, 206, 250, 0.6);
-  color: #191970;
+  color: #113a5c;
   /* Midnight Blue */
   border-radius: 20px;
   /* Softer */
@@ -2505,8 +2697,7 @@ h2 {
 .theme-angel .apply-filters-button:hover,
 .theme-angel .clear-filters-button:hover,
 .theme-angel .trailer-btn:hover {
-  background-color: #ADD8E6;
-  /* Light Blue */
+  background: linear-gradient(135deg, #87CEEB, #a1c4fd);
   border-color: rgba(135, 206, 250, 0.9);
   color: #003366;
   /* Darker Blue */
@@ -2542,6 +2733,115 @@ h2 {
 .theme-angel .filter-tag-button.selected {
   background-color: #B0E0E6;
   color: #191970;
+}
+
+/* --- Angel Theme: unified lavender->sky-blue pill treatment for navbar & filter ---
+   Placed last within the Angel section so it wins over the legacy/duplicate
+   rules above for the same selectors, without touching Devil/Hannibal. */
+
+/* Navbar: whole tab track gets a translucent gradient wash, active tab full gradient */
+.theme-angel .sliding-tabs {
+  background: linear-gradient(135deg, rgba(161, 196, 253, 0.28), rgba(135, 206, 235, 0.28));
+  border: 1px solid rgba(135, 206, 250, 0.4);
+}
+
+.theme-angel .tab-button.active,
+.theme-angel .sliding-tabs .tab-button.active {
+  background: var(--angel-pill-gradient);
+  color: #113a5c;
+  font-weight: 600;
+}
+
+.theme-angel .sliding-tabs .tab-indicator {
+  background: var(--angel-pill-gradient);
+}
+
+/* Pagination pill */
+.theme-angel .page-item.active .page-link {
+  background: var(--angel-pill-gradient);
+  background-color: transparent;
+  border-color: #87CEEB;
+  color: #113a5c;
+  text-shadow: none;
+}
+
+/* Filter list selected pill */
+.theme-angel .filter-tag-button.selected {
+  background: var(--angel-pill-gradient);
+  background-color: transparent;
+  color: #113a5c;
+}
+
+/* Genre / language chip pills (Advanced Content Filters) */
+.theme-angel .filter-chip-pill.selected {
+  background: var(--angel-pill-gradient);
+  background-color: transparent;
+  border-color: #87CEEB;
+  color: #113a5c;
+  box-shadow: 0 4px 16px rgba(142, 197, 252, 0.45);
+}
+
+/* Rating quick pills */
+.theme-angel .rating-pill-btn.active {
+  background: var(--angel-pill-gradient);
+  background-color: transparent;
+  border-color: #87CEEB;
+  color: #113a5c;
+  box-shadow: 0 0 12px rgba(142, 197, 252, 0.45);
+}
+
+/* Trending / popular search pills */
+.theme-angel .popular-search-pill {
+  background: rgba(142, 197, 252, 0.12);
+  border-color: rgba(135, 206, 250, 0.4);
+  color: #335;
+}
+
+.theme-angel .popular-search-pill:hover {
+  background: var(--angel-pill-gradient);
+  border-color: #87CEEB;
+  color: #113a5c;
+}
+
+/* Genre tag pill (modal) */
+.theme-angel-modal .genre-tag {
+  background: var(--angel-pill-gradient);
+  color: #113a5c;
+}
+
+/* Filter toggle button + filter panel action buttons: full gradient pill,
+   not just a hover tint, so the whole filter area reads as themed pills */
+.theme-angel .filter-toggle-button {
+  background: var(--angel-pill-gradient);
+  background-color: transparent;
+  border-color: #87CEEB;
+  color: #113a5c;
+}
+
+.theme-angel .filter-toggle-button:hover {
+  background: linear-gradient(135deg, #87CEEB, #a1c4fd);
+  color: #002a4d;
+}
+
+.theme-angel .apply-filters-button,
+.theme-angel .clear-filters-button {
+  background: var(--angel-pill-gradient);
+  background-color: transparent;
+  border-color: #87CEEB;
+  color: #113a5c;
+}
+
+.theme-angel .apply-filters-button:hover,
+.theme-angel .clear-filters-button:hover {
+  background: linear-gradient(135deg, #87CEEB, #a1c4fd);
+  color: #002a4d;
+}
+
+/* Filter panel picks up a subtle gradient-tinted border to tie it to the pill theme */
+.theme-angel .filter-form {
+  border: 1px solid rgba(135, 206, 250, 0.5);
+  box-shadow: var(--angel-halo), 0 10px 30px rgba(142, 197, 252, 0.2),
+    inset 0 2px 0 rgba(161, 196, 253, 0.5);
 }
 
 
@@ -2631,9 +2931,16 @@ h2 {
   font-family: 'Metal Mania', cursive;
   /* Keep distinct title font */
   font-weight: normal;
-  font-size: 4em;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(139, 0, 0, 0.4);
   letter-spacing: 3px;
+}
+
+/* Large desktop-only title size (restored). Gated to desktop so it never
+   overrides the responsive mobile clamp defined in Header.css. */
+@media (min-width: 769px) {
+  .theme-hannibal .main-title {
+    font-size: 4em;
+  }
 }
 
 .theme-hannibal .section-title {
@@ -2898,7 +3205,7 @@ h2 {
 .theme-angel .sort-select {
   background-color: rgba(255, 255, 255, 0.9);
   color: #33475f;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Rubik', sans-serif;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -3166,7 +3473,7 @@ h2 {
   border-radius: 20px;
   /* Rounded */
   box-shadow: 0 1px 3px rgba(173, 216, 230, 0.3);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .theme-angel .page-link:hover {
@@ -3179,10 +3486,10 @@ h2 {
 }
 
 .theme-angel .page-item.active .page-link {
-  background-color: #87CEEB;
+  background: var(--angel-pill-gradient);
   border-color: #4682B4;
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #113a5c;
+  text-shadow: none;
   box-shadow: 0 3px 8px rgba(135, 206, 250, 0.5);
   font-weight: bold;
   transform: none;
@@ -3399,7 +3706,7 @@ h2 {
   /* Very rounded */
   color: #5a8db8;
   box-shadow: 0 3px 10px rgba(142, 197, 252, 0.15);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Rubik', sans-serif;
   /* Consistent font */
 }
 
@@ -3726,8 +4033,8 @@ h2 {
     box-sizing: border-box !important;
   }
   .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)) !important;
-    gap: 20px !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 24px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -3764,8 +4071,8 @@ h2 {
     box-sizing: border-box !important;
   }
   .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)) !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 20px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -3797,8 +4104,8 @@ h2 {
     box-sizing: border-box !important;
   }
   .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
-    gap: 12px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -3856,7 +4163,7 @@ h2 {
   .App {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 8px 8px !important;
+    padding: 8px 4px !important;
     padding-bottom: 95px !important;
     box-sizing: border-box !important;
     overflow-x: hidden !important;
@@ -4065,7 +4372,7 @@ h2 {
   /* Solid 2-Column Edge-to-Edge Mobile Grid (No cutoffs, perfectly aligned) */
   .media-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+    gap: 8px !important;
     padding: 8px 0 16px 0 !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -4287,4 +4594,5 @@ h2 {
   .media-item.hovered {
     transform: scale(1.08) translateY(-4px);
   }
-}
+}
+

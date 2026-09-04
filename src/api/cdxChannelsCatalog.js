@@ -23,12 +23,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/abc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/abc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/abc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/abc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ABC (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/abc-usa",
+        "link": "https://epiembeds.online/embed/abc-usa",
         "type": "0"
       },
       {
@@ -49,12 +49,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/accn-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/accn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/accn-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/accn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ACC Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/accn-usa",
+        "link": "https://epiembeds.online/embed/accn-usa",
         "type": "0"
       },
       {
@@ -75,12 +75,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/ae-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/ae-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/ae-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/ae-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "AE (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/ae-usa",
+        "link": "https://epiembeds.online/embed/ae-usa",
         "type": "0"
       },
       {
@@ -101,12 +101,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/amc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/amc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/amc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/amc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "AMC (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/amc-usa",
+        "link": "https://epiembeds.online/embed/amc-usa",
         "type": "0"
       },
       {
@@ -127,12 +127,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/ahc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/ahc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/ahc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/ahc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "American Heroes Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/ahc-usa",
+        "link": "https://epiembeds.online/embed/ahc-usa",
         "type": "0"
       },
       {
@@ -153,12 +153,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/animalplanet-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/animalplanet-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/animalplanet-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/animalplanet-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Animal Planet (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/animalplanet-usa",
+        "link": "https://epiembeds.online/embed/animalplanet-usa",
         "type": "0"
       },
       {
@@ -179,12 +179,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/axs-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/axs-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/axs-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/axs-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "AXS TV (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/axs-usa",
+        "link": "https://epiembeds.online/embed/axs-usa",
         "type": "0"
       },
       {
@@ -205,12 +205,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/bbc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/bbc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/bbc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/bbc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "BBC America (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/bbc-usa",
+        "link": "https://epiembeds.online/embed/bbc-usa",
         "type": "0"
       },
       {
@@ -231,12 +231,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/bbcone-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/bbcone-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/bbcone-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/bbcone-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "BBC One London (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/bbcone-uk",
+        "link": "https://epiembeds.online/embed/bbcone-uk",
         "type": "0"
       },
       {
@@ -257,12 +257,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/bbctwo-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/bbctwo-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/bbctwo-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/bbctwo-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "BBC Two (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/bbctwo-uk",
+        "link": "https://epiembeds.online/embed/bbctwo-uk",
         "type": "0"
       },
       {
@@ -283,12 +283,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/beinsports-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/beinsports-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/beinsports-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/beinsports-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "beIN Sports (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/beinsports-usa",
+        "link": "https://epiembeds.online/embed/beinsports-usa",
         "type": "0"
       },
       {
@@ -309,12 +309,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/bravo-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/bravo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/bravo-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/bravo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Bravo (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/bravo-usa",
+        "link": "https://epiembeds.online/embed/bravo-usa",
         "type": "0"
       },
       {
@@ -335,12 +335,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/boomerang-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/boomerang-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/boomerang-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/boomerang-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Boomerang (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/boomerang-usa",
+        "link": "https://epiembeds.online/embed/boomerang-usa",
         "type": "0"
       },
       {
@@ -361,12 +361,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/canalsport-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalsport-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalsport-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalsport-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Sport PL (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalsport-pl",
+        "link": "https://epiembeds.online/embed/canalsport-pl",
         "type": "0"
       },
       {
@@ -387,12 +387,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/canalsport2-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalsport2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalsport2-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalsport2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Sport 2 PL (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalsport2-pl",
+        "link": "https://epiembeds.online/embed/canalsport2-pl",
         "type": "0"
       },
       {
@@ -413,12 +413,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/canalsport3-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalsport3-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalsport3-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalsport3-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Sport 3 PL (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalsport3-pl",
+        "link": "https://epiembeds.online/embed/canalsport3-pl",
         "type": "0"
       },
       {
@@ -439,12 +439,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/canalsport4-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalsport4-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalsport4-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalsport4-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Sport 4 PL (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalsport4-pl",
+        "link": "https://epiembeds.online/embed/canalsport4-pl",
         "type": "0"
       },
       {
@@ -465,12 +465,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/canalsport5-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalsport5-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalsport5-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalsport5-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Sport 5 PL (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalsport5-pl",
+        "link": "https://epiembeds.online/embed/canalsport5-pl",
         "type": "0"
       },
       {
@@ -491,12 +491,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/cartoonnetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/cartoonnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/cartoonnetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/cartoonnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Cartoon Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/cartoonnetwork-usa",
+        "link": "https://epiembeds.online/embed/cartoonnetwork-usa",
         "type": "0"
       },
       {
@@ -517,12 +517,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/cbeebies-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/cbeebies-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/cbeebies-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/cbeebies-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CBeebies (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/cbeebies-uk",
+        "link": "https://epiembeds.online/embed/cbeebies-uk",
         "type": "0"
       },
       {
@@ -543,12 +543,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/cbs-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/cbs-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/cbs-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/cbs-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CBS (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/cbs-usa",
+        "link": "https://epiembeds.online/embed/cbs-usa",
         "type": "0"
       },
       {
@@ -569,12 +569,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/cbssn-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/cbssn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/cbssn-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/cbssn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CBS Sports Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/cbssn-usa",
+        "link": "https://epiembeds.online/embed/cbssn-usa",
         "type": "0"
       },
       {
@@ -595,12 +595,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/cnbc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/cnbc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/cnbc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/cnbc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CNBC (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/cnbc-usa",
+        "link": "https://epiembeds.online/embed/cnbc-usa",
         "type": "0"
       },
       {
@@ -621,12 +621,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/comedycentral-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/comedycentral-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/comedycentral-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/comedycentral-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Comedy Central (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/comedycentral-usa",
+        "link": "https://epiembeds.online/embed/comedycentral-usa",
         "type": "0"
       },
       {
@@ -647,12 +647,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/cw-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/cw-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/cw-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/cw-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CW (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/cw-usa",
+        "link": "https://epiembeds.online/embed/cw-usa",
         "type": "0"
       },
       {
@@ -673,12 +673,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/dazn1-de",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn1-de\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn1-de",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn1-de\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 1 Germany (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn1-de",
+        "link": "https://epiembeds.online/embed/dazn1-de",
         "type": "0"
       },
       {
@@ -699,12 +699,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/dazn2-de",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn2-de\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn2-de",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn2-de\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 2 Germany (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn2-de",
+        "link": "https://epiembeds.online/embed/dazn2-de",
         "type": "0"
       },
       {
@@ -725,12 +725,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/dazn1-it",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn1-it\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn1-it",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn1-it\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 1 Italia (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn1-it",
+        "link": "https://epiembeds.online/embed/dazn1-it",
         "type": "0"
       },
       {
@@ -751,12 +751,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/dazn1-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn1-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn1-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn1-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 1 Spain (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn1-es",
+        "link": "https://epiembeds.online/embed/dazn1-es",
         "type": "0"
       },
       {
@@ -777,12 +777,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/dazn2-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn2-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn2-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn2-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 2 Spain (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn2-es",
+        "link": "https://epiembeds.online/embed/dazn2-es",
         "type": "0"
       },
       {
@@ -803,12 +803,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/dazn1-pt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn1-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn1-pt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn1-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 1 Portugal (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn1-pt",
+        "link": "https://epiembeds.online/embed/dazn1-pt",
         "type": "0"
       },
       {
@@ -829,12 +829,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/dazn1-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/dazn1-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/dazn1-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/dazn1-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN 1 USA (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/dazn1-usa",
+        "link": "https://epiembeds.online/embed/dazn1-usa",
         "type": "0"
       },
       {
@@ -855,12 +855,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/daznf1-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/daznf1-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/daznf1-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/daznf1-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN F1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/daznf1-es",
+        "link": "https://epiembeds.online/embed/daznf1-es",
         "type": "0"
       },
       {
@@ -881,12 +881,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/daznlaliga-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/daznlaliga-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/daznlaliga-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/daznlaliga-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "DAZN LaLiga (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/daznlaliga-es",
+        "link": "https://epiembeds.online/embed/daznlaliga-es",
         "type": "0"
       },
       {
@@ -907,12 +907,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/discovery-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/discovery-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/discovery-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/discovery-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Discovery Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/discovery-usa",
+        "link": "https://epiembeds.online/embed/discovery-usa",
         "type": "0"
       },
       {
@@ -933,12 +933,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/discoveryfamily-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/discoveryfamily-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/discoveryfamily-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/discoveryfamily-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Discovery Family (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/discoveryfamily-usa",
+        "link": "https://epiembeds.online/embed/discoveryfamily-usa",
         "type": "0"
       },
       {
@@ -959,12 +959,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/discoveryturbo-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/discoveryturbo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/discoveryturbo-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/discoveryturbo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Discovery Turbo (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/discoveryturbo-usa",
+        "link": "https://epiembeds.online/embed/discoveryturbo-usa",
         "type": "0"
       },
       {
@@ -985,12 +985,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/disneychannel-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/disneychannel-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/disneychannel-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/disneychannel-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Disney Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/disneychannel-usa",
+        "link": "https://epiembeds.online/embed/disneychannel-usa",
         "type": "0"
       },
       {
@@ -1011,12 +1011,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/disneyjunior-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/disneyjunior-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/disneyjunior-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/disneyjunior-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Disney Junior (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/disneyjunior-usa",
+        "link": "https://epiembeds.online/embed/disneyjunior-usa",
         "type": "0"
       },
       {
@@ -1037,12 +1037,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/disneyxd-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/disneyxd-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/disneyxd-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/disneyxd-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Disney XD (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/disneyxd-usa",
+        "link": "https://epiembeds.online/embed/disneyxd-usa",
         "type": "0"
       },
       {
@@ -1063,12 +1063,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/elevensports1-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/elevensports1-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/elevensports1-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/elevensports1-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Eleven Sports 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/elevensports1-pl",
+        "link": "https://epiembeds.online/embed/elevensports1-pl",
         "type": "0"
       },
       {
@@ -1089,12 +1089,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/elevensports2-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/elevensports2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/elevensports2-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/elevensports2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Eleven Sports 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/elevensports2-pl",
+        "link": "https://epiembeds.online/embed/elevensports2-pl",
         "type": "0"
       },
       {
@@ -1115,12 +1115,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/elevensports3-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/elevensports3-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/elevensports3-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/elevensports3-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Eleven Sports 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/elevensports3-pl",
+        "link": "https://epiembeds.online/embed/elevensports3-pl",
         "type": "0"
       },
       {
@@ -1141,12 +1141,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/elevensports4-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/elevensports4-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/elevensports4-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/elevensports4-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Eleven Sports 4 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/elevensports4-pl",
+        "link": "https://epiembeds.online/embed/elevensports4-pl",
         "type": "0"
       },
       {
@@ -1167,12 +1167,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 13,
-    "embedUrl": "https://cdx-08192.website/embed/espn-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/espn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/espn-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/espn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ESPN (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/espn-usa",
+        "link": "https://epiembeds.online/embed/espn-usa",
         "type": "0"
       },
       {
@@ -1193,12 +1193,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/espndeportes-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/espndeportes-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/espndeportes-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/espndeportes-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ESPN Deportes (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/espndeportes-usa",
+        "link": "https://epiembeds.online/embed/espndeportes-usa",
         "type": "0"
       },
       {
@@ -1219,12 +1219,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 9,
-    "embedUrl": "https://cdx-08192.website/embed/espn2-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/espn2-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/espn2-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/espn2-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ESPN2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/espn2-usa",
+        "link": "https://epiembeds.online/embed/espn2-usa",
         "type": "0"
       },
       {
@@ -1245,12 +1245,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/espnews-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/espnews-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/espnews-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/espnews-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ESPNEWS (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/espnews-usa",
+        "link": "https://epiembeds.online/embed/espnews-usa",
         "type": "0"
       },
       {
@@ -1271,12 +1271,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/espnu-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/espnu-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/espnu-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/espnu-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "ESPNU (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/espnu-usa",
+        "link": "https://epiembeds.online/embed/espnu-usa",
         "type": "0"
       },
       {
@@ -1297,12 +1297,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/foodnetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/foodnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/foodnetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/foodnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Food Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/foodnetwork-usa",
+        "link": "https://epiembeds.online/embed/foodnetwork-usa",
         "type": "0"
       },
       {
@@ -1323,12 +1323,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/fox-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-usa",
+        "link": "https://epiembeds.online/embed/fox-usa",
         "type": "0"
       },
       {
@@ -1349,12 +1349,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/foxdeportes-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/foxdeportes-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/foxdeportes-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/foxdeportes-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Deportes (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/foxdeportes-usa",
+        "link": "https://epiembeds.online/embed/foxdeportes-usa",
         "type": "0"
       },
       {
@@ -1375,12 +1375,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-1",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-1",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-1",
+        "link": "https://epiembeds.online/embed/fox-sports-1",
         "type": "0"
       },
       {
@@ -1401,12 +1401,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-2",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-2\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-2",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-2\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-2",
+        "link": "https://epiembeds.online/embed/fox-sports-2",
         "type": "0"
       },
       {
@@ -1427,12 +1427,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-501",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-501\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-501",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-501\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 501 (Cricket) (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-501",
+        "link": "https://epiembeds.online/embed/fox-sports-501",
         "type": "0"
       },
       {
@@ -1453,12 +1453,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-502",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-502\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-502",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-502\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 502 (League) (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-502",
+        "link": "https://epiembeds.online/embed/fox-sports-502",
         "type": "0"
       },
       {
@@ -1479,12 +1479,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-503",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-503\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-503",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-503\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 503 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-503",
+        "link": "https://epiembeds.online/embed/fox-sports-503",
         "type": "0"
       },
       {
@@ -1505,12 +1505,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-504",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-504\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-504",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-504\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 504 (Footy) (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-504",
+        "link": "https://epiembeds.online/embed/fox-sports-504",
         "type": "0"
       },
       {
@@ -1531,12 +1531,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-505",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-505\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-505",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-505\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 505 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-505",
+        "link": "https://epiembeds.online/embed/fox-sports-505",
         "type": "0"
       },
       {
@@ -1557,12 +1557,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-506",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-506\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-506",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-506\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 506 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-506",
+        "link": "https://epiembeds.online/embed/fox-sports-506",
         "type": "0"
       },
       {
@@ -1583,12 +1583,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/fox-sports-507",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fox-sports-507\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fox-sports-507",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fox-sports-507\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Sports 507 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fox-sports-507",
+        "link": "https://epiembeds.online/embed/fox-sports-507",
         "type": "0"
       },
       {
@@ -1609,12 +1609,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/fx-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fx-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fx-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fx-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "FX (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fx-usa",
+        "link": "https://epiembeds.online/embed/fx-usa",
         "type": "0"
       },
       {
@@ -1635,12 +1635,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/fxm-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fxm-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fxm-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fxm-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "FXM (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fxm-usa",
+        "link": "https://epiembeds.online/embed/fxm-usa",
         "type": "0"
       },
       {
@@ -1661,12 +1661,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/fxx-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/fxx-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/fxx-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/fxx-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "FXX (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/fxx-usa",
+        "link": "https://epiembeds.online/embed/fxx-usa",
         "type": "0"
       },
       {
@@ -1687,12 +1687,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/freeform-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/freeform-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/freeform-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/freeform-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Freeform (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/freeform-usa",
+        "link": "https://epiembeds.online/embed/freeform-usa",
         "type": "0"
       },
       {
@@ -1713,12 +1713,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/go3sport1-lt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/go3sport1-lt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/go3sport1-lt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/go3sport1-lt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Go3 Sport 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/go3sport1-lt",
+        "link": "https://epiembeds.online/embed/go3sport1-lt",
         "type": "0"
       },
       {
@@ -1739,12 +1739,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/go3sport2-lt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/go3sport2-lt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/go3sport2-lt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/go3sport2-lt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Go3 Sport 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/go3sport2-lt",
+        "link": "https://epiembeds.online/embed/go3sport2-lt",
         "type": "0"
       },
       {
@@ -1765,12 +1765,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/go3sport2-lt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/go3sport2-lt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/go3sport2-lt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/go3sport2-lt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Go3 Sport 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/go3sport2-lt",
+        "link": "https://epiembeds.online/embed/go3sport2-lt",
         "type": "0"
       },
       {
@@ -1791,12 +1791,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/golfchannel-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/golfchannel-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/golfchannel-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/golfchannel-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "GOLF Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/golfchannel-usa",
+        "link": "https://epiembeds.online/embed/golfchannel-usa",
         "type": "0"
       },
       {
@@ -1817,12 +1817,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/hbo-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/hbo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/hbo-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/hbo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "HBO (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/hbo-usa",
+        "link": "https://epiembeds.online/embed/hbo-usa",
         "type": "0"
       },
       {
@@ -1843,12 +1843,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/hbocomedy-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/hbocomedy-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/hbocomedy-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/hbocomedy-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "HBO Comedy (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/hbocomedy-usa",
+        "link": "https://epiembeds.online/embed/hbocomedy-usa",
         "type": "0"
       },
       {
@@ -1869,12 +1869,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/hbodrama-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/hbodrama-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/hbodrama-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/hbodrama-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "HBO Drama (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/hbodrama-usa",
+        "link": "https://epiembeds.online/embed/hbodrama-usa",
         "type": "0"
       },
       {
@@ -1895,12 +1895,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/hbolatino-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/hbolatino-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/hbolatino-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/hbolatino-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "HBO Latino (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/hbolatino-usa",
+        "link": "https://epiembeds.online/embed/hbolatino-usa",
         "type": "0"
       },
       {
@@ -1921,12 +1921,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/hbomovies-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/hbomovies-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/hbomovies-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/hbomovies-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "HBO Movies (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/hbomovies-usa",
+        "link": "https://epiembeds.online/embed/hbomovies-usa",
         "type": "0"
       },
       {
@@ -1947,12 +1947,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/hgtv-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/hgtv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/hgtv-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/hgtv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "HGTV (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/hgtv-usa",
+        "link": "https://epiembeds.online/embed/hgtv-usa",
         "type": "0"
       },
       {
@@ -1973,12 +1973,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/mlbnetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/mlbnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/mlbnetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/mlbnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "MLB Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/mlbnetwork-usa",
+        "link": "https://epiembeds.online/embed/mlbnetwork-usa",
         "type": "0"
       },
       {
@@ -1999,12 +1999,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/motpgp-tv",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/motpgp-tv\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/motpgp-tv",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/motpgp-tv\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "MotoGP Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/motpgp-tv",
+        "link": "https://epiembeds.online/embed/motpgp-tv",
         "type": "0"
       },
       {
@@ -2025,12 +2025,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/mtv-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/mtv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/mtv-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/mtv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "MTV (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/mtv-usa",
+        "link": "https://epiembeds.online/embed/mtv-usa",
         "type": "0"
       },
       {
@@ -2051,12 +2051,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/nbatv-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nbatv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nbatv-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nbatv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "NBA TV (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nbatv-usa",
+        "link": "https://epiembeds.online/embed/nbatv-usa",
         "type": "0"
       },
       {
@@ -2077,12 +2077,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/nbc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nbc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nbc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nbc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "NBC (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nbc-usa",
+        "link": "https://epiembeds.online/embed/nbc-usa",
         "type": "0"
       },
       {
@@ -2103,12 +2103,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/nbc-sports-bayarea",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nbc-sports-bayarea\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nbc-sports-bayarea",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nbc-sports-bayarea\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "NBC Sports Bay Area (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nbc-sports-bayarea",
+        "link": "https://epiembeds.online/embed/nbc-sports-bayarea",
         "type": "0"
       },
       {
@@ -2129,12 +2129,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/nbc-sports-philly",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nbc-sports-philly\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nbc-sports-philly",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nbc-sports-philly\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "NBC Sports Philadelphia (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nbc-sports-philly",
+        "link": "https://epiembeds.online/embed/nbc-sports-philly",
         "type": "0"
       },
       {
@@ -2155,12 +2155,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/nflnetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nflnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nflnetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nflnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "NFL Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nflnetwork-usa",
+        "link": "https://epiembeds.online/embed/nflnetwork-usa",
         "type": "0"
       },
       {
@@ -2181,12 +2181,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/nhlnetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nhlnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nhlnetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nhlnetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "NHL Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nhlnetwork-usa",
+        "link": "https://epiembeds.online/embed/nhlnetwork-usa",
         "type": "0"
       },
       {
@@ -2207,12 +2207,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/nickjr-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nickjr-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nickjr-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nickjr-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Nick Jr. (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nickjr-usa",
+        "link": "https://epiembeds.online/embed/nickjr-usa",
         "type": "0"
       },
       {
@@ -2233,12 +2233,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/nickelodeon-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nickelodeon-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nickelodeon-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nickelodeon-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Nickelodeon (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nickelodeon-usa",
+        "link": "https://epiembeds.online/embed/nickelodeon-usa",
         "type": "0"
       },
       {
@@ -2259,12 +2259,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/nicktoons-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/nicktoons-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/nicktoons-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/nicktoons-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Nicktoons (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/nicktoons-usa",
+        "link": "https://epiembeds.online/embed/nicktoons-usa",
         "type": "0"
       },
       {
@@ -2285,12 +2285,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/polsatsport1-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/polsatsport1-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/polsatsport1-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/polsatsport1-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Polsat Sport 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/polsatsport1-pl",
+        "link": "https://epiembeds.online/embed/polsatsport1-pl",
         "type": "0"
       },
       {
@@ -2311,12 +2311,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/polsatsport2-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/polsatsport2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/polsatsport2-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/polsatsport2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Polsat Sport 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/polsatsport2-pl",
+        "link": "https://epiembeds.online/embed/polsatsport2-pl",
         "type": "0"
       },
       {
@@ -2337,12 +2337,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/polsatsport3-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/polsatsport3-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/polsatsport3-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/polsatsport3-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Polsat Sport 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/polsatsport3-pl",
+        "link": "https://epiembeds.online/embed/polsatsport3-pl",
         "type": "0"
       },
       {
@@ -2363,12 +2363,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/polsatsportfight-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/polsatsportfight-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/polsatsportfight-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/polsatsportfight-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Polsat Sport Fight (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/polsatsportfight-pl",
+        "link": "https://epiembeds.online/embed/polsatsportfight-pl",
         "type": "0"
       },
       {
@@ -2381,7 +2381,7 @@ export const CDX_USA_WORLD_CHANNELS = [
   {
     "id": "cdx_premier_sports_1_ie",
     "slug": "premier-sports-1-ie",
-    "cdxSlug": "http://cdx-08192.website/embed/premiersports1-ie",
+    "cdxSlug": "https://epiembeds.online/embed/premiersports1-ie",
     "name": "Premier Sports 1 IE",
     "title": "Premier Sports 1 IE",
     "image": "https://cdn.jsdelivr.net/gh/willthequeencome/img-cdn/premiersports.png",
@@ -2389,12 +2389,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/premiersports1-ie",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/premiersports1-ie\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/premiersports1-ie",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/premiersports1-ie\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Premier Sports 1 IE (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/premiersports1-ie",
+        "link": "https://epiembeds.online/embed/premiersports1-ie",
         "type": "0"
       },
       {
@@ -2407,7 +2407,7 @@ export const CDX_USA_WORLD_CHANNELS = [
   {
     "id": "cdx_premier_sports_2_ie",
     "slug": "premier-sports-2-ie",
-    "cdxSlug": "http://cdx-08192.website/embed/premiersports2-ie",
+    "cdxSlug": "https://epiembeds.online/embed/premiersports2-ie",
     "name": "Premier Sports 2 IE",
     "title": "Premier Sports 2 IE",
     "image": "https://cdn.jsdelivr.net/gh/willthequeencome/img-cdn/premiersports.png",
@@ -2415,12 +2415,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/premiersports2-ie",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/premiersports2-ie\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/premiersports2-ie",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/premiersports2-ie\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Premier Sports 2 IE (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/premiersports2-ie",
+        "link": "https://epiembeds.online/embed/premiersports2-ie",
         "type": "0"
       },
       {
@@ -2441,12 +2441,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/premiere-br",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/premiere-br\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/premiere-br",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/premiere-br\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Premiere (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/premiere-br",
+        "link": "https://epiembeds.online/embed/premiere-br",
         "type": "0"
       },
       {
@@ -2467,12 +2467,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/racernetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/racernetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/racernetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/racernetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "RACER Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/racernetwork-usa",
+        "link": "https://epiembeds.online/embed/racernetwork-usa",
         "type": "0"
       },
       {
@@ -2493,12 +2493,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/showtime-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/showtime-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/showtime-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/showtime-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Showtime (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/showtime-usa",
+        "link": "https://epiembeds.online/embed/showtime-usa",
         "type": "0"
       },
       {
@@ -2519,12 +2519,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/showtime2-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/showtime2-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/showtime2-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/showtime2-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Showtime 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/showtime2-usa",
+        "link": "https://epiembeds.online/embed/showtime2-usa",
         "type": "0"
       },
       {
@@ -2545,12 +2545,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/showtimeextreme-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/showtimeextreme-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/showtimeextreme-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/showtimeextreme-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Showtime Extreme (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/showtimeextreme-usa",
+        "link": "https://epiembeds.online/embed/showtimeextreme-usa",
         "type": "0"
       },
       {
@@ -2571,12 +2571,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/showtimefamilyzone-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/showtimefamilyzone-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/showtimefamilyzone-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/showtimefamilyzone-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Showtime Family Zone (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/showtimefamilyzone-usa",
+        "link": "https://epiembeds.online/embed/showtimefamilyzone-usa",
         "type": "0"
       },
       {
@@ -2597,12 +2597,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/showtimenext-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/showtimenext-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/showtimenext-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/showtimenext-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Showtime Next (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/showtimenext-usa",
+        "link": "https://epiembeds.online/embed/showtimenext-usa",
         "type": "0"
       },
       {
@@ -2623,12 +2623,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/showtimewomen-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/showtimewomen-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/showtimewomen-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/showtimewomen-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Showtime Women (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/showtimewomen-usa",
+        "link": "https://epiembeds.online/embed/showtimewomen-usa",
         "type": "0"
       },
       {
@@ -2649,12 +2649,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/skysport1-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport1-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport1-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport1-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 1 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport1-nz",
+        "link": "https://epiembeds.online/embed/skysport1-nz",
         "type": "0"
       },
       {
@@ -2675,12 +2675,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysport2-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport2-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport2-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport2-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 2 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport2-nz",
+        "link": "https://epiembeds.online/embed/skysport2-nz",
         "type": "0"
       },
       {
@@ -2701,12 +2701,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/skysport3-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport3-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport3-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport3-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 3 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport3-nz",
+        "link": "https://epiembeds.online/embed/skysport3-nz",
         "type": "0"
       },
       {
@@ -2727,12 +2727,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/skysport4-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport4-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport4-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport4-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 4 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport4-nz",
+        "link": "https://epiembeds.online/embed/skysport4-nz",
         "type": "0"
       },
       {
@@ -2753,12 +2753,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/skysport5-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport5-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport5-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport5-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 5 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport5-nz",
+        "link": "https://epiembeds.online/embed/skysport5-nz",
         "type": "0"
       },
       {
@@ -2779,12 +2779,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysport6-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport6-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport6-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport6-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 6 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport6-nz",
+        "link": "https://epiembeds.online/embed/skysport6-nz",
         "type": "0"
       },
       {
@@ -2805,12 +2805,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysport7-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport7-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport7-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport7-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 7 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport7-nz",
+        "link": "https://epiembeds.online/embed/skysport7-nz",
         "type": "0"
       },
       {
@@ -2831,12 +2831,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysport8-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport8-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport8-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport8-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 8 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport8-nz",
+        "link": "https://epiembeds.online/embed/skysport8-nz",
         "type": "0"
       },
       {
@@ -2857,12 +2857,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysport9-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysport9-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysport9-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysport9-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport 9 NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysport9-nz",
+        "link": "https://epiembeds.online/embed/skysport9-nz",
         "type": "0"
       },
       {
@@ -2883,12 +2883,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysportselect-nz",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportselect-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportselect-nz",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportselect-nz\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sport Select NZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportselect-nz",
+        "link": "https://epiembeds.online/embed/skysportselect-nz",
         "type": "0"
       },
       {
@@ -2909,12 +2909,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsplus-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsplus-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsplus-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsplus-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports+ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsplus-uk",
+        "link": "https://epiembeds.online/embed/skysportsplus-uk",
         "type": "0"
       },
       {
@@ -2935,12 +2935,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsaction-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsaction-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsaction-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsaction-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Action (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsaction-uk",
+        "link": "https://epiembeds.online/embed/skysportsaction-uk",
         "type": "0"
       },
       {
@@ -2961,12 +2961,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/skysportscricket-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportscricket-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportscricket-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportscricket-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Cricket (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportscricket-uk",
+        "link": "https://epiembeds.online/embed/skysportscricket-uk",
         "type": "0"
       },
       {
@@ -2987,12 +2987,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsf1-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsf1-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsf1-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsf1-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports F1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsf1-uk",
+        "link": "https://epiembeds.online/embed/skysportsf1-uk",
         "type": "0"
       },
       {
@@ -3013,12 +3013,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsfootball-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsfootball-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsfootball-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsfootball-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Football (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsfootball-uk",
+        "link": "https://epiembeds.online/embed/skysportsfootball-uk",
         "type": "0"
       },
       {
@@ -3039,12 +3039,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsgolf-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsgolf-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsgolf-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsgolf-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Golf (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsgolf-uk",
+        "link": "https://epiembeds.online/embed/skysportsgolf-uk",
         "type": "0"
       },
       {
@@ -3065,12 +3065,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsmainevent-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsmainevent-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsmainevent-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsmainevent-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Main Event (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsmainevent-uk",
+        "link": "https://epiembeds.online/embed/skysportsmainevent-uk",
         "type": "0"
       },
       {
@@ -3091,12 +3091,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsmix-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsmix-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsmix-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsmix-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Mix (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsmix-uk",
+        "link": "https://epiembeds.online/embed/skysportsmix-uk",
         "type": "0"
       },
       {
@@ -3117,12 +3117,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsnews-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsnews-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsnews-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsnews-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports News (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsnews-uk",
+        "link": "https://epiembeds.online/embed/skysportsnews-uk",
         "type": "0"
       },
       {
@@ -3143,12 +3143,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/skysportspremierleague-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportspremierleague-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportspremierleague-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportspremierleague-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Premier League (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportspremierleague-uk",
+        "link": "https://epiembeds.online/embed/skysportspremierleague-uk",
         "type": "0"
       },
       {
@@ -3169,12 +3169,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/skysportsracing-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportsracing-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportsracing-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportsracing-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Racing (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportsracing-uk",
+        "link": "https://epiembeds.online/embed/skysportsracing-uk",
         "type": "0"
       },
       {
@@ -3195,12 +3195,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 5,
-    "embedUrl": "https://cdx-08192.website/embed/skysportstennis-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/skysportstennis-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/skysportstennis-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/skysportstennis-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sky Sports Tennis (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/skysportstennis-uk",
+        "link": "https://epiembeds.online/embed/skysportstennis-uk",
         "type": "0"
       },
       {
@@ -3221,12 +3221,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/sonysportsnetwork-in",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sonysportsnetwork-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sonysportsnetwork-in",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sonysportsnetwork-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sony Sports Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sonysportsnetwork-in",
+        "link": "https://epiembeds.online/embed/sonysportsnetwork-in",
         "type": "0"
       },
       {
@@ -3247,12 +3247,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/sonysportsnetwork2-in",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sonysportsnetwork2-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sonysportsnetwork2-in",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sonysportsnetwork2-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sony Sports Network 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sonysportsnetwork2-in",
+        "link": "https://epiembeds.online/embed/sonysportsnetwork2-in",
         "type": "0"
       },
       {
@@ -3273,12 +3273,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/sonysportsnetwork3-in",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sonysportsnetwork3-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sonysportsnetwork3-in",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sonysportsnetwork3-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sony Sports Network 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sonysportsnetwork3-in",
+        "link": "https://epiembeds.online/embed/sonysportsnetwork3-in",
         "type": "0"
       },
       {
@@ -3299,12 +3299,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/sonysportsnetwork4-in",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sonysportsnetwork4-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sonysportsnetwork4-in",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sonysportsnetwork4-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sony Sports Network 4 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sonysportsnetwork4-in",
+        "link": "https://epiembeds.online/embed/sonysportsnetwork4-in",
         "type": "0"
       },
       {
@@ -3325,12 +3325,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/sonysportsnetwork5-in",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sonysportsnetwork5-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sonysportsnetwork5-in",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sonysportsnetwork5-in\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sony Sports Network 5 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sonysportsnetwork5-in",
+        "link": "https://epiembeds.online/embed/sonysportsnetwork5-in",
         "type": "0"
       },
       {
@@ -3343,7 +3343,7 @@ export const CDX_USA_WORLD_CHANNELS = [
   {
     "id": "cdx_sport_tv1",
     "slug": "sport-tv1",
-    "cdxSlug": "https://cdx-08192.website/play/sporttv1-pt",
+    "cdxSlug": "https://epiembeds.online/play/sporttv1-pt",
     "name": "Sport TV1",
     "title": "Sport TV1",
     "image": "https://cdn.jsdelivr.net/gh/willthequeencome/img-cdn/sportv-pt.png",
@@ -3351,12 +3351,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/sporttv1-pt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sporttv1-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sporttv1-pt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sporttv1-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sport TV1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sporttv1-pt",
+        "link": "https://epiembeds.online/embed/sporttv1-pt",
         "type": "0"
       },
       {
@@ -3377,12 +3377,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/sporttv2-pt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sporttv2-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sporttv2-pt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sporttv2-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sport TV2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sporttv2-pt",
+        "link": "https://epiembeds.online/embed/sporttv2-pt",
         "type": "0"
       },
       {
@@ -3403,12 +3403,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/sporttv3-pt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sporttv3-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sporttv3-pt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sporttv3-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sport TV3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sporttv3-pt",
+        "link": "https://epiembeds.online/embed/sporttv3-pt",
         "type": "0"
       },
       {
@@ -3429,12 +3429,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/sporttv4-pt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sporttv4-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sporttv4-pt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sporttv4-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sport TV4 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sporttv4-pt",
+        "link": "https://epiembeds.online/embed/sporttv4-pt",
         "type": "0"
       },
       {
@@ -3455,12 +3455,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/sporttv5-pt",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sporttv5-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sporttv5-pt",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sporttv5-pt\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Sport TV5 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sporttv5-pt",
+        "link": "https://epiembeds.online/embed/sporttv5-pt",
         "type": "0"
       },
       {
@@ -3481,12 +3481,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/starz-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/starz-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/starz-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/starz-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "STARZ (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/starz-usa",
+        "link": "https://epiembeds.online/embed/starz-usa",
         "type": "0"
       },
       {
@@ -3507,12 +3507,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/starzcinema-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/starzcinema-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/starzcinema-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/starzcinema-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "STARZ Cinema (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/starzcinema-usa",
+        "link": "https://epiembeds.online/embed/starzcinema-usa",
         "type": "0"
       },
       {
@@ -3533,12 +3533,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/starzcomedy-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/starzcomedy-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/starzcomedy-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/starzcomedy-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "STARZ Comedy (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/starzcomedy-usa",
+        "link": "https://epiembeds.online/embed/starzcomedy-usa",
         "type": "0"
       },
       {
@@ -3559,12 +3559,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/starzkidsfamily-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/starzkidsfamily-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/starzkidsfamily-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/starzkidsfamily-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "STARZ Kids and Family (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/starzkidsfamily-usa",
+        "link": "https://epiembeds.online/embed/starzkidsfamily-usa",
         "type": "0"
       },
       {
@@ -3585,12 +3585,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/syfy-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/syfy-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/syfy-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/syfy-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "SYFY (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/syfy-usa",
+        "link": "https://epiembeds.online/embed/syfy-usa",
         "type": "0"
       },
       {
@@ -3611,12 +3611,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/tbs-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tbs-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tbs-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tbs-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TBS (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tbs-usa",
+        "link": "https://epiembeds.online/embed/tbs-usa",
         "type": "0"
       },
       {
@@ -3637,12 +3637,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Cartoons",
     "genre": "Cartoons",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/teenick-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/teenick-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/teenick-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/teenick-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Teenick (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/teenick-usa",
+        "link": "https://epiembeds.online/embed/teenick-usa",
         "type": "0"
       },
       {
@@ -3663,12 +3663,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/telemundo-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/telemundo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/telemundo-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/telemundo-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Telemundo (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/telemundo-usa",
+        "link": "https://epiembeds.online/embed/telemundo-usa",
         "type": "0"
       },
       {
@@ -3689,12 +3689,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/tennischannel-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tennischannel-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tennischannel-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tennischannel-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Tennis Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tennischannel-usa",
+        "link": "https://epiembeds.online/embed/tennischannel-usa",
         "type": "0"
       },
       {
@@ -3715,12 +3715,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "News",
     "genre": "News",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/twc-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/twc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/twc-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/twc-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "The Weather Channel (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/twc-usa",
+        "link": "https://epiembeds.online/embed/twc-usa",
         "type": "0"
       },
       {
@@ -3741,12 +3741,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/tnt-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tnt-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tnt-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tnt-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TNT (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tnt-usa",
+        "link": "https://epiembeds.online/embed/tnt-usa",
         "type": "0"
       },
       {
@@ -3767,12 +3767,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/btsports1-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/btsports1-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/btsports1-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/btsports1-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TNT Sports 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/btsports1-uk",
+        "link": "https://epiembeds.online/embed/btsports1-uk",
         "type": "0"
       },
       {
@@ -3793,12 +3793,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/tntsports2-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tntsports2-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tntsports2-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tntsports2-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TNT Sports 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tntsports2-uk",
+        "link": "https://epiembeds.online/embed/tntsports2-uk",
         "type": "0"
       },
       {
@@ -3819,12 +3819,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/tntsports3-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tntsports3-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tntsports3-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tntsports3-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TNT Sports 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tntsports3-uk",
+        "link": "https://epiembeds.online/embed/tntsports3-uk",
         "type": "0"
       },
       {
@@ -3845,12 +3845,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/tntsports4-uk",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tntsports4-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tntsports4-uk",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tntsports4-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TNT Sports 4 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tntsports4-uk",
+        "link": "https://epiembeds.online/embed/tntsports4-uk",
         "type": "0"
       },
       {
@@ -3871,12 +3871,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/trutv-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/trutv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/trutv-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/trutv-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TruTV (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/trutv-usa",
+        "link": "https://epiembeds.online/embed/trutv-usa",
         "type": "0"
       },
       {
@@ -3897,12 +3897,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/tudn-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tudn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tudn-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tudn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TUDN (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tudn-usa",
+        "link": "https://epiembeds.online/embed/tudn-usa",
         "type": "0"
       },
       {
@@ -3923,12 +3923,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/tycsports-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/tycsports-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/tycsports-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/tycsports-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "TYC Sports Internacional (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/tycsports-usa",
+        "link": "https://epiembeds.online/embed/tycsports-usa",
         "type": "0"
       },
       {
@@ -3949,12 +3949,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/ufc-fight-pass",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/ufc-fight-pass\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/ufc-fight-pass",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/ufc-fight-pass\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "UFC Fight Pass 24/7 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/ufc-fight-pass",
+        "link": "https://epiembeds.online/embed/ufc-fight-pass",
         "type": "0"
       },
       {
@@ -3975,12 +3975,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/usanetwork-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/usanetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/usanetwork-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/usanetwork-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "USA Network (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/usanetwork-usa",
+        "link": "https://epiembeds.online/embed/usanetwork-usa",
         "type": "0"
       },
       {
@@ -4001,12 +4001,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/wapaamerica-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/wapaamerica-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/wapaamerica-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/wapaamerica-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "WAPA America (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/wapaamerica-usa",
+        "link": "https://epiembeds.online/embed/wapaamerica-usa",
         "type": "0"
       },
       {
@@ -4027,12 +4027,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/wapadeportes-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/wapadeportes-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/wapadeportes-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/wapadeportes-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "WAPA Deportes (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/wapadeportes-usa",
+        "link": "https://epiembeds.online/embed/wapadeportes-usa",
         "type": "0"
       },
       {
@@ -4053,12 +4053,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/willow-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/willow-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/willow-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/willow-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Willow Cricket (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/willow-usa",
+        "link": "https://epiembeds.online/embed/willow-usa",
         "type": "0"
       },
       {
@@ -4079,12 +4079,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/willow2-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/willow2-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/willow2-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/willow2-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Willow Cricket 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/willow2-usa",
+        "link": "https://epiembeds.online/embed/willow2-usa",
         "type": "0"
       },
       {
@@ -4105,12 +4105,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Entertainment",
     "genre": "Entertainment",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/movistarplus-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/movistarplus-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/movistarplus-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/movistarplus-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Movistar Plus (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/movistarplus-es",
+        "link": "https://epiembeds.online/embed/movistarplus-es",
         "type": "0"
       },
       {
@@ -4131,12 +4131,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/movistardeportes-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/movistardeportes-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/movistardeportes-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/movistardeportes-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Movistar Deportes (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/movistardeportes-es",
+        "link": "https://epiembeds.online/embed/movistardeportes-es",
         "type": "0"
       },
       {
@@ -4157,12 +4157,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/movistardeportes2-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/movistardeportes2-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/movistardeportes2-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/movistardeportes2-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Movistar Deportes 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/movistardeportes2-es",
+        "link": "https://epiembeds.online/embed/movistardeportes2-es",
         "type": "0"
       },
       {
@@ -4183,12 +4183,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/movistardeportes3-es",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/movistardeportes3-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/movistardeportes3-es",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/movistardeportes3-es\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Movistar Deportes 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/movistardeportes3-es",
+        "link": "https://epiembeds.online/embed/movistardeportes3-es",
         "type": "0"
       },
       {
@@ -4209,12 +4209,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/beinsports1-fr",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/beinsports1-fr\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/beinsports1-fr",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/beinsports1-fr\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "beIN Sports Francais 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/beinsports1-fr",
+        "link": "https://epiembeds.online/embed/beinsports1-fr",
         "type": "0"
       },
       {
@@ -4235,12 +4235,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/beinsports2-fr",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/beinsports2-fr\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/beinsports2-fr",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/beinsports2-fr\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "beIN Sports Francais 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/beinsports2-fr",
+        "link": "https://epiembeds.online/embed/beinsports2-fr",
         "type": "0"
       },
       {
@@ -4261,12 +4261,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/beinsports3-fr",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/beinsports3-fr\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/beinsports3-fr",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/beinsports3-fr\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "beIN Sports Francais 3 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/beinsports3-fr",
+        "link": "https://epiembeds.online/embed/beinsports3-fr",
         "type": "0"
       },
       {
@@ -4287,12 +4287,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 2,
-    "embedUrl": "https://cdx-08192.website/embed/foxsoccerplus-usa",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/foxsoccerplus-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/foxsoccerplus-usa",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/foxsoccerplus-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "Fox Soccer Plus (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/foxsoccerplus-usa",
+        "link": "https://epiembeds.online/embed/foxsoccerplus-usa",
         "type": "0"
       },
       {
@@ -4313,12 +4313,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 4,
-    "embedUrl": "https://cdx-08192.website/embed/sportdigitalfussball-de",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/sportdigitalfussball-de\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/sportdigitalfussball-de",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/sportdigitalfussball-de\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "SPORTDIGITAL FUSSBALL (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/sportdigitalfussball-de",
+        "link": "https://epiembeds.online/embed/sportdigitalfussball-de",
         "type": "0"
       },
       {
@@ -4339,12 +4339,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 3,
-    "embedUrl": "https://cdx-08192.website/embed/canalextra1-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalextra1-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalextra1-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalextra1-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Extra 1 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalextra1-pl",
+        "link": "https://epiembeds.online/embed/canalextra1-pl",
         "type": "0"
       },
       {
@@ -4365,12 +4365,12 @@ export const CDX_USA_WORLD_CHANNELS = [
     "category": "Sports",
     "genre": "Sports",
     "viewers": 1,
-    "embedUrl": "https://cdx-08192.website/embed/canalextra2-pl",
-    "iframeHtml": "<iframe src=\"https://cdx-08192.website/embed/canalextra2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
+    "embedUrl": "https://epiembeds.online/embed/canalextra2-pl",
+    "iframeHtml": "<iframe src=\"https://epiembeds.online/embed/canalextra2-pl\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>",
     "decoded_channels": [
       {
         "title": "CANAL+ Extra 2 (CDX Ultra HD)",
-        "link": "https://cdx-08192.website/embed/canalextra2-pl",
+        "link": "https://epiembeds.online/embed/canalextra2-pl",
         "type": "0"
       },
       {

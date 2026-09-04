@@ -77,14 +77,14 @@ const Header = ({ onTitleClick, currentTheme, onThemeChange }) => {
     return (
       <>
         {/* Bong with smoke particles */}
-        <div className="bong-smoke-elements">
+        <div className="bong-smoke-elements" aria-hidden="true">
           <div className="bong-smoke-particle1"></div>
           <div className="bong-smoke-particle2"></div>
           <div className="bong-smoke-particle3"></div>
         </div>
         
         {/* Joint with smoke particles */}
-        <div className="joint-smoke-elements">
+        <div className="joint-smoke-elements" aria-hidden="true">
           <div className="joint"></div>
           <div className="joint-smoke-particle1"></div>
           <div className="joint-smoke-particle2"></div>

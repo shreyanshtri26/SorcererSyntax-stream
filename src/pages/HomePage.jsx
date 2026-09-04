@@ -34,10 +34,10 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                     getTopRatedMoviesMulti(2),
                     getTopRatedTVShowsMulti(2)
                 ]);
-                setTrendingMovies(trendMovies || []);
-                setTrendingTV(trendTV || []);
-                setTopMovies(topRatedMovies || []);
-                setTopTV(topRatedTV || []);
+                setTrendingMovies((trendMovies || []).slice(0, 30));
+                setTrendingTV((trendTV || []).slice(0, 30));
+                setTopMovies((topRatedMovies || []).slice(0, 30));
+                setTopTV((topRatedTV || []).slice(0, 30));
             } catch (error) {
                 console.error("Error fetching home data:", error);
             } finally {

@@ -1,0 +1,132 @@
+.install-prompt {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--theme-surface, #12160f);
+  border: 1px solid var(--theme-accent, rgba(255, 255, 255, 0.15));
+  border-radius: calc(var(--theme-radius, 4px) + 12px);
+  padding: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px var(--theme-accent-glow, transparent);
+  color: var(--theme-text, #f2f4f0);
+  font-family: var(--theme-font, inherit);
+}
+
+.install-prompt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.install-prompt-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--theme-radius, 18px);
+  flex-shrink: 0;
+  object-fit: cover;
+  background: var(--theme-bg, #000);
+}
+
+.install-prompt-text h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--theme-text, #ffffff);
+}
+
+.install-prompt-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--theme-text, rgba(255, 255, 255, 0.75));
+  opacity: 0.8;
+}
+
+.install-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.install-prompt-install-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: calc(var(--theme-radius, 4px) + 16px);
+  padding: 10px 18px;
+  background: var(--theme-accent, #9ccc4d);
+  color: var(--theme-bg, #10230b);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+.install-prompt-install-btn:hover {
+  filter: brightness(1.15);
+}
+
+.install-prompt-install-btn:active {
+  transform: scale(0.97);
+}
+
+.install-prompt-dismiss-btn {
+  background: none;
+  border: none;
+  color: var(--theme-text, rgba(255, 255, 255, 0.65));
+  opacity: 0.75;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+
+.install-prompt-dismiss-btn:hover {
+  opacity: 1;
+}
+
+.install-prompt-manual-steps {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--theme-text, rgba(255, 255, 255, 0.85));
+  line-height: 1.5;
+}
+
+.install-prompt-manual-steps ol {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+.install-prompt-manual-steps li {
+  margin-bottom: 4px;
+}
+
+/* Devil theme: match the app's Creepster horror-style headline treatment */
+.theme-devil .install-prompt-text h3 {
+  font-family: 'Creepster', cursive;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6), 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.theme-devil .install-prompt-install-btn {
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .install-prompt {
+    left: auto;
+    right: 24px;
+    bottom: 24px;
+    margin: 0;
+  }
+}

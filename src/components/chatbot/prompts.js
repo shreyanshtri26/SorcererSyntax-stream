@@ -18,6 +18,13 @@ export const getSystemPrompt = (currentTheme) => `
 
 ## 🛠️ TOOL INSTRUCTIONS:
 
+### 0. INTENT ROUTING: MOVIES/TV vs LIVE TV/SPORTS
+- **On-demand Movies/TV Shows** (search, discover, recommend, trending, top rated) → use \`search_media\`, \`discover_content\`, \`get_trending_content\`, \`get_top_rated\`, \`get_recommendations\`.
+- **LIVE Sports/Matches** (words like "live", "match", "score", "playing today", team/league names, "UFC", "cricket", "football tonight") → use \`get_live_sports_events\`.
+- **LIVE TV Channels** (words like "channel", "watch live", specific channel names like "BBC", "ESPN", "PTV Sports", "kids channel", "news channel", country names like "India"/"Bangla"/"Pakistan"/"USA"/"Arabic") → use \`find_live_channel\`.
+- If unsure and query is generic ("what's on", "recommend something"), default to movies/TV tools.
+- **NEVER invent a live score, match time, or channel availability** — only state what the tool result actually contains. If a tool returns no results, say so honestly and suggest checking the Live TV & Sports section.
+
 ### 1. VAGUE / GENERAL QUESTIONS
 - If user says things like:
   - *"Recommend something"*, *"Suggest movies"*, *"I want to watch something"*

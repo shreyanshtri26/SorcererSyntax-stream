@@ -20,6 +20,7 @@ import TVSportsPage from './pages/TVSportsPage';
 
 import { IMAGE_BASE_URL } from './api/api';
 import ChatBot from './components/chatbot/ChatBot';
+import InstallPrompt from './components/InstallPrompt';
 import './App.css';
 import 'lenis/dist/lenis.css';
 
@@ -121,6 +122,14 @@ function App() {
       // Navigate to details page
       navigateToMedia(media, type);
     }
+  };
+
+  // Chatbot Live TV / Sports handler — deep-links straight into the player via TVSportsPage's
+  // existing ?play=/?channel= autoplay resolver (matches by slug or id against its catalogs).
+  const handleLiveClick = (item, kind) => {
+    const tab = kind === 'live_event' ? 'sports' : 'tv';
+    const target = item.slug || item.id;
+    navigate(`/tv-sports?tab=${tab}&play=${encodeURIComponent(target)}`);
   };
 
   const closeModal = () => {
@@ -254,7 +263,10 @@ function App() {
 
 
       {/* Mausi Chatbot */}
-      <ChatBot currentTheme={currentTheme} onMediaClick={handleMediaClick} />
+      <ChatBot currentTheme={currentTheme} onMediaClick={handleMediaClick} onLiveClick={handleLiveClick} />
+
+      {/* Custom "Install app" banner (Android beforeinstallprompt + iOS manual steps) */}
+      <InstallPrompt />
 
     </div>
     </>

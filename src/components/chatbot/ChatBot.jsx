@@ -13,14 +13,22 @@ import {
     getTopRatedTVShows,
     IMAGE_BASE_URL
 } from '../../api/api';
+import { fetchUnifiedLiveEvents, fetchDudeCategories, fetchDudeCategoryItems } from '../../api/dudeTvApi';
+import { CDX_USA_WORLD_CHANNELS } from '../../api/cdxChannelsCatalog';
 import './ChatBot.css';
 import { getSystemPrompt } from './prompts';
 import { TOOL_DEFINITIONS, processFilters } from './tools';
 
-// --- OpenAI Configuration ---
-const OPENAI_API_KEY = "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";
+// ---ni Configuration ---
+// Paste your Google Gemini API key below (get one at https://aistudio.google.com/apikey)
+const API_K = import.meta.env.VITE_GEMINI_API_KEY || "";
+const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
+// Using the "flash-lite" tier: Gemini's lowest-cost, lowest-token/fastest
+// model family (cheaper and quicker than gemini-2.5-flash), while still
+// supporting tool/function calling. Helps stay under free-tier rate limits.
+const GEMINI_MODEL = "gemini-2.5-flash-lite";
 
-const ChatBot = ({ currentTheme, onMediaClick }) => {
+const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         {
@@ -43,25 +51,135 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [voiceSupported, setVoiceSupported] = useState(false);
     const [voiceError, setVoiceError] = useState(null); // New state for UI errors
+    const [loadingOfflineVoice, setLoadingOfflineVoice] = useState(false);
     const recognitionRef = useRef(null);
+
+    // Offline (Vosk WASM) fallback refs — used when the native browser
+    // SpeechRecognition API is unsupported or blocked (e.g. Brave, which
+    // disables Google's cloud speech backend entirely for privacy reasons).
+    const voskModelRef = useRef(null);
+    const voskRecognizerRef = useRef(null);
+    const audioContextRef = useRef(null);
+    const mediaStreamRef = useRef(null);
+    const processorNodeRef = useRef(null);
+    const usingOfflineVoiceRef = useRef(false);
+    const VOSK_MODEL_URL = '/models/vosk-model-small-en-us-0.15.tar.gz';
 
     // Initialize Speech Recognition
     useEffect(() => {
-        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        const hasNative = 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
+        const hasMic = typeof navigator !== 'undefined' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
+        if (hasNative || hasMic) {
             setVoiceSupported(true);
         } else {
             setVoiceError("Voice input not supported in this browser.");
         }
     }, []);
 
+    const stopOfflineVoiceRecognition = () => {
+        try {
+            if (processorNodeRef.current) {
+                processorNodeRef.current.disconnect();
+                processorNodeRef.current.onaudioprocess = null;
+                processorNodeRef.current = null;
+            }
+            if (mediaStreamRef.current) {
+                mediaStreamRef.current.getTracks().forEach((t) => t.stop());
+                mediaStreamRef.current = null;
+            }
+            if (audioContextRef.current) {
+                audioContextRef.current.close();
+                audioContextRef.current = null;
+            }
+            if (voskRecognizerRef.current) {
+                try { voskRecognizerRef.current.retrieveFinalResult(); } catch (e) {}
+                try { voskRecognizerRef.current.remove(); } catch (e) {}
+                voskRecognizerRef.current = null;
+            }
+        } catch (e) {
+            // best-effort cleanup
+        }
+    };
+
+    // Offline fallback: fully client-side speech recognition (no network call,
+    // so it works even in browsers like Brave that block the native API).
+    const startOfflineListening = async () => {
+        try {
+            setLoadingOfflineVoice(true);
+            const { createModel } = await import('vosk-browser');
+
+            if (!voskModelRef.current) {
+                voskModelRef.current = await createModel(VOSK_MODEL_URL);
+            }
+            const model = voskModelRef.current;
+            setLoadingOfflineVoice(false);
+
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaStreamRef.current = stream;
+
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            audioContextRef.current = audioContext;
+
+            const recognizer = new model.KaldiRecognizer(audioContext.sampleRate);
+            recognizer.setWords(true);
+            voskRecognizerRef.current = recognizer;
+
+            recognizer.on('result', (message) => {
+                const text = message?.result?.text?.trim();
+                if (text) {
+                    setInput(text);
+                    stopListening();
+                    setTimeout(() => handleSend(text), 200);
+                }
+            });
+            recognizer.on('partialresult', (message) => {
+                const text = message?.result?.partial?.trim();
+                if (text) setInput(text);
+            });
+
+            const source = audioContext.createMediaStreamSource(stream);
+            // ScriptProcessorNode is deprecated but universally supported;
+            // vosk-browser doesn't yet ship an AudioWorklet build.
+            const processor = audioContext.createScriptProcessor(4096, 1, 1);
+            processorNodeRef.current = processor;
+            processor.onaudioprocess = (event) => {
+                try {
+                    recognizer.acceptWaveform(event.inputBuffer);
+                } catch (e) {
+                    // ignore transient buffer errors
+                }
+            };
+            source.connect(processor);
+            processor.connect(audioContext.destination);
+
+            usingOfflineVoiceRef.current = true;
+            setIsListening(true);
+        } catch (err) {
+            setLoadingOfflineVoice(false);
+            console.error('[ChatBot] Offline voice recognition failed:', err);
+            setIsListening(false);
+            usingOfflineVoiceRef.current = false;
+            setVoiceError('Voice search unavailable: ' + (err?.message || 'could not start offline recognizer.'));
+        }
+    };
+
     const startListening = () => {
         setVoiceError(null);
+
+        const hasNative = 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
+        if (!hasNative) {
+            startOfflineListening();
+            return;
+        }
+
         if (!recognitionRef.current) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             recognitionRef.current = new SpeechRecognition();
             recognitionRef.current.continuous = false;
             recognitionRef.current.interimResults = true; // Enable real-time feedback
             recognitionRef.current.lang = 'en-IN';
+
+            let settled = false;
 
             recognitionRef.current.onstart = () => setIsListening(true);
 
@@ -88,6 +206,18 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
             recognitionRef.current.onerror = (event) => {
                 console.error("Speech Recognition Error:", event.error);
+
+                // Brave (and some other Chromium forks) block the Google cloud
+                // speech backend entirely, surfacing as 'network' or
+                // 'service-not-allowed' the instant recognition starts.
+                // Transparently fall back to the fully offline recognizer.
+                if (!settled && (event.error === 'network' || event.error === 'service-not-allowed' || event.error === 'audio-capture')) {
+                    settled = true;
+                    recognitionRef.current = null;
+                    startOfflineListening();
+                    return;
+                }
+
                 let msg = "Error occurred.";
                 if (event.error === 'not-allowed') msg = "Microphone blocked. Allow permission.";
                 if (event.error === 'network') msg = "Network error. Check connection.";
@@ -101,7 +231,9 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
             };
 
             recognitionRef.current.onend = () => {
-                setIsListening(false);
+                if (!usingOfflineVoiceRef.current) {
+                    setIsListening(false);
+                }
             };
         }
 
@@ -117,6 +249,8 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
     const stopListening = () => {
         recognitionRef.current?.stop();
+        stopOfflineVoiceRecognition();
+        usingOfflineVoiceRef.current = false;
         setIsListening(false);
     };
 
@@ -125,7 +259,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
             setVoiceError("Browser does not support voice.");
             return;
         }
-        if (isListening) stopListening();
+        if (isListening || loadingOfflineVoice) stopListening();
         else startListening();
     };
 
@@ -213,29 +347,69 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
         }
     }, [isOpen]);
 
-    const callOpenAI = async (newMessages) => {
-        setIsTyping(true);
-        try {
-            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    // Wraps the Gemini fetch call with automatic retry on 429 (rate limit).
+    // Gemini's free tier enforces both per-minute and per-day request quotas;
+    // a 429 usually means the per-minute limit was hit and clears itself
+    // within a few seconds, so a short backoff-and-retry resolves most cases
+    // instead of surfacing a scary error to the user immediately.
+    const fetchGeminiWithRetry = async (body, retries = 2) => {
+        let lastResponse = null;
+        let lastData = null;
+
+        for (let attempt = 0; attempt <= retries; attempt++) {
+            const response = await fetch(GEMINI_BASE_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${OPENAI_API_KEY}`,
-                    "HTTP-Referer": window.location.origin, // Required by OpenRouter
-                    "X-Title": "SorcererSyntax Stream"
+                    "Authorization": `Bearer ${API_K}`
                 },
-                body: JSON.stringify({
-                    model: "google/gemini-2.5-flash",
-                    messages: [
-                        { role: "system", content: getSystemPrompt(currentTheme) },
-                        ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
-                    ],
-                    tools: TOOL_DEFINITIONS,
-                    tool_choice: "auto"
-                })
+                body: JSON.stringify(body)
+            });
+
+            if (response.status !== 429) {
+                return response;
+            }
+
+            lastResponse = response;
+            lastData = await response.json().catch(() => null);
+
+            if (attempt < retries) {
+                const retryAfterHeader = parseInt(response.headers.get('retry-after'), 10);
+                const waitMs = Number.isFinite(retryAfterHeader) ? retryAfterHeader * 1000 : 1500 * Math.pow(2, attempt);
+                await new Promise(res => setTimeout(res, waitMs));
+            }
+        }
+
+        const rateLimitError = new Error(
+            lastData?.error?.message || "Gemini API rate limit reached (429 Too Many Requests)."
+        );
+        rateLimitError.rateLimited = true;
+        rateLimitError.status = 429;
+        throw rateLimitError;
+    };
+
+    const callOpenAI = async (newMessages) => {
+        setIsTyping(true);
+        try {
+            const response = await fetchGeminiWithRetry({
+                model: GEMINI_MODEL,
+                messages: [
+                    { role: "system", content: getSystemPrompt(currentTheme) },
+                    ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
+                ],
+                tools: TOOL_DEFINITIONS,
+                tool_choice: "auto"
             });
 
             const data = await response.json();
+
+            if (!response.ok) {
+                const apiError = new Error(data?.error?.message || `Gemini API error (${response.status})`);
+                apiError.status = response.status;
+                apiError.rateLimited = response.status === 429;
+                throw apiError;
+            }
+
             const choice = data.choices?.[0];
             const message = choice?.message;
 
@@ -303,6 +477,65 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                                 ? await getTopRatedMovies()
                                 : await getTopRatedTVShows();
                             result = JSON.stringify(res.slice(0, 5));
+                        } else if (fnName === "get_live_sports_events") {
+                            const events = await fetchUnifiedLiveEvents();
+                            const query = (args.query || '').toLowerCase().trim();
+                            const filtered = query
+                                ? events.filter(ev => {
+                                    const haystack = [
+                                        ev.title, ev.cat,
+                                        ev.eventInfo?.eventName, ev.eventInfo?.teamA, ev.eventInfo?.teamB
+                                    ].filter(Boolean).join(' ').toLowerCase();
+                                    return haystack.includes(query);
+                                })
+                                : events;
+                            const compact = filtered.slice(0, 6).map(ev => ({
+                                id: ev.id,
+                                title: ev.eventInfo?.eventName || ev.title,
+                                image: ev.image,
+                                cat: ev.cat,
+                                teamA: ev.eventInfo?.teamA,
+                                teamB: ev.eventInfo?.teamB,
+                                startTime: ev.eventInfo?.startTime,
+                                endTime: ev.eventInfo?.endTime,
+                                isLive: (ev.eventInfo?.startTime || '').toUpperCase().includes('LIVE') || ev.eventInfo?.isHot === '1',
+                                _kind: 'live_event'
+                            }));
+                            result = JSON.stringify(compact);
+                        } else if (fnName === "find_live_channel") {
+                            const query = (args.query || '').toLowerCase().trim();
+                            const categoryQuery = (args.category || '').toLowerCase().trim();
+                            let matches = CDX_USA_WORLD_CHANNELS.filter(ch => {
+                                const haystack = [ch.title, ch.name, ch.category, ch.genre].filter(Boolean).join(' ').toLowerCase();
+                                const queryMatch = query ? haystack.includes(query) : true;
+                                const catMatch = categoryQuery ? haystack.includes(categoryQuery) : true;
+                                return queryMatch && catMatch;
+                            });
+
+                            if (matches.length < 3 && categoryQuery) {
+                                try {
+                                    const categories = await fetchDudeCategories();
+                                    const cat = categories.find(c => (c.title || '').toLowerCase().includes(categoryQuery));
+                                    if (cat) {
+                                        const items = await fetchDudeCategoryItems(cat.catLink);
+                                        const extra = query
+                                            ? items.filter(it => (it.title || '').toLowerCase().includes(query))
+                                            : items;
+                                        matches = [...matches, ...extra];
+                                    }
+                                } catch (e) { /* ignore category fetch failure */ }
+                            }
+
+                            const unique = Array.from(new Map(matches.map(ch => [ch.id || ch.title, ch])).values());
+                            const compact = unique.slice(0, 6).map(ch => ({
+                                id: ch.id,
+                                slug: ch.slug || ch.cdxSlug,
+                                title: ch.title || ch.name,
+                                image: ch.image,
+                                category: ch.category || ch.cat || ch.genre,
+                                _kind: 'live_channel'
+                            }));
+                            result = JSON.stringify(compact);
                         }
                     } catch (err) {
                         console.error(`Error in tool ${fnName}:`, err);
@@ -317,25 +550,24 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                 }
 
                 // Final call with tool results
-                const finalResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${OPENAI_API_KEY}`,
-                        "HTTP-Referer": window.location.origin,
-                        "X-Title": "SorcererSyntax Stream"
-                    },
-                    body: JSON.stringify({
-                        model: "google/gemini-2.5-flash",
-                        messages: [
-                            { role: "system", content: getSystemPrompt(currentTheme) },
-                            ...processingMsgs,
-                            ...toolResults
-                        ]
-                    })
+                const finalResponse = await fetchGeminiWithRetry({
+                    model: GEMINI_MODEL,
+                    messages: [
+                        { role: "system", content: getSystemPrompt(currentTheme) },
+                        ...processingMsgs,
+                        ...toolResults
+                    ]
                 });
 
                 const finalData = await finalResponse.json();
+
+                if (!finalResponse.ok) {
+                    const apiError = new Error(finalData?.error?.message || `Gemini API error (${finalResponse.status})`);
+                    apiError.status = finalResponse.status;
+                    apiError.rateLimited = finalResponse.status === 429;
+                    throw apiError;
+                }
+
                 const finalContent = finalData.choices[0].message.content;
 
                 // Extract items for UI
@@ -344,9 +576,11 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                     try {
                         const items = JSON.parse(tr.content);
                         if (Array.isArray(items)) {
-                            // Filter out person items (only show movies/TV with posters)
-                            const validItems = items.filter(i => 
-                                i.poster_path && (i.title || i.name) && i.media_type !== 'person'
+                            // Movies/TV need a poster; live events/channels need an image + _kind tag
+                            const validItems = items.filter(i =>
+                                (i._kind === 'live_event' || i._kind === 'live_channel')
+                                    ? Boolean(i.title)
+                                    : (i.poster_path && (i.title || i.name) && i.media_type !== 'person')
                             );
                             mediaItems = [...mediaItems, ...validItems];
                         }
@@ -354,7 +588,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                 });
 
                 // Dedup
-                mediaItems = Array.from(new Map(mediaItems.map(item => [item.id, item])).values());
+                mediaItems = Array.from(new Map(mediaItems.map(item => [`${item._kind || 'media'}_${item.id}`, item])).values());
 
                 setMessages(prev => [
                     ...prev,
@@ -375,9 +609,12 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
         } catch (error) {
             console.error("ChatBot Error:", error);
+            const errorText = error?.rateLimited
+                ? "Arre yaar, thoda zyada log mujhse baat kar rahe hain abhi (rate limit) 😅. Thodi der ruk ke phir try karo!"
+                : "Oho! Network thoda naakhre dikha raha hai. Phir se try karo? 📶";
             setMessages(prev => [
                 ...prev,
-                { id: Date.now(), role: 'assistant', content: "Oho! Network thoda naakhre dikha raha hai. Phir se try karo? 📶" }
+                { id: Date.now(), role: 'assistant', content: errorText }
             ]);
         } finally {
             setIsTyping(false);
@@ -404,10 +641,20 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
     // Determine Media Type Helper
     const getMediaType = (item) => {
+        if (item._kind === 'live_event' || item._kind === 'live_channel') return item._kind;
         if (item.media_type) return item.media_type;
         if (item.title) return 'movie'; // Movies have titles
         if (item.name) return 'tv';     // TV has names
         return 'movie'; // Fallback
+    };
+
+    const handleCardClick = (item) => {
+        const type = getMediaType(item);
+        if (type === 'live_event' || type === 'live_channel') {
+            onLiveClick?.(item, type);
+        } else {
+            onMediaClick(item, type);
+        }
     };
 
     // Helper to render text with bold support, links, and cleanups
@@ -421,6 +668,7 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
             .replace(/<\/?b>/gi, '**')
             .replace(/<\/?em>/gi, '*')
             .replace(/<\/?i>/gi, '*')
+            .replace(/^\s*#{1,6}\s+(.*)$/gm, '**$1**') // Markdown headings -> bold
             .replace(/^\s*\*\s/gm, '• '); // Bullet points
 
         // 2. Split by Markdown Tokens: Links, Bold, Italic
@@ -461,7 +709,12 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    <span className="chatbot-toggle-icon">🎬</span>
+                    <svg className="chatbot-toggle-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3C7.03 3 3 6.58 3 11c0 2.39 1.19 4.53 3.08 6.02-.1.98-.5 2.24-1.48 3.48a.5.5 0 0 0 .5.78c2.1-.42 3.7-1.28 4.72-1.96A11.6 11.6 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8Z" fill="currentColor" />
+                        <circle cx="8.5" cy="11" r="1.3" fill="var(--chat-icon-dot, #14141a)" />
+                        <circle cx="12" cy="11" r="1.3" fill="var(--chat-icon-dot, #14141a)" />
+                        <circle cx="15.5" cy="11" r="1.3" fill="var(--chat-icon-dot, #14141a)" />
+                    </svg>
                 </motion.button>
             )}
 
@@ -476,7 +729,14 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                     >
                         <div className="chatbot-header">
                             <div className="chatbot-header-info">
-                                <div className="chatbot-avatar">🎬</div>
+                                <div className="chatbot-avatar">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 3C7.03 3 3 6.58 3 11c0 2.39 1.19 4.53 3.08 6.02-.1.98-.5 2.24-1.48 3.48a.5.5 0 0 0 .5.78c2.1-.42 3.7-1.28 4.72-1.96A11.6 11.6 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8Z" fill="currentColor" />
+                                        <circle cx="8.5" cy="11" r="1.2" fill="var(--chat-icon-dot, #14141a)" />
+                                        <circle cx="12" cy="11" r="1.2" fill="var(--chat-icon-dot, #14141a)" />
+                                        <circle cx="15.5" cy="11" r="1.2" fill="var(--chat-icon-dot, #14141a)" />
+                                    </svg>
+                                </div>
                                 <div>
                                     <div className="chatbot-name">Sonu</div>
                                     <div className="chatbot-status">Online & Ready to Help ✨</div>
@@ -488,7 +748,21 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                                     onClick={() => setIsFullScreen(!isFullScreen)}
                                     title={isFullScreen ? "Exit Full Screen" : "Full Screen"}
                                 >
-                                    {isFullScreen ? '↙️' : '↗️'}
+                                    {isFullScreen ? (
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M8 3v3a2 2 0 0 1-2 2H3"></path>
+                                            <path d="M21 8h-3a2 2 0 0 1-2-2V3"></path>
+                                            <path d="M21 16v3a2 2 0 0 1-2 2h-3"></path>
+                                            <path d="M8 21H5a2 2 0 0 1-2-2v-3"></path>
+                                        </svg>
+                                    ) : (
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M15 3h6v6"></path>
+                                            <path d="M9 21H3v-6"></path>
+                                            <path d="M21 3l-7 7"></path>
+                                            <path d="M3 21l7-7"></path>
+                                        </svg>
+                                    )}
                                 </button>
                                 {isSpeaking && (
                                     <button className="chatbot-btn-stop" onClick={() => handleSpeak('')} title="Stop Speaking">
@@ -517,33 +791,50 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
                                         </div>
                                     )}
                                     {msg.mediaData && (
-                                        <div className="chat-media-grid" style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '5px' }}>
-                                            {msg.mediaData.map(item => (
+                                        <div className="chat-media-grid">
+                                            {msg.mediaData.map(item => {
+                                                const kind = getMediaType(item);
+                                                const isLiveItem = kind === 'live_event' || kind === 'live_channel';
+                                                return (
                                                 <div
-                                                    key={item.id}
-                                                    className="chat-media-card"
-                                                    onClick={() => {
-                                                        const type = getMediaType(item);
-                                                        onMediaClick(item, type);
-                                                    }}
+                                                    key={`${kind}_${item.id}`}
+                                                    className={`chat-media-card ${isLiveItem ? 'chat-live-card' : ''}`}
+                                                    onClick={() => handleCardClick(item)}
                                                 >
                                                     <img
-                                                        src={item.poster_path ? `${IMAGE_BASE_URL}${item.poster_path}` : 'https://via.placeholder.com/150'}
+                                                        src={item.poster_path ? `${IMAGE_BASE_URL}${item.poster_path}` : (item.image || 'https://via.placeholder.com/150')}
                                                         alt={item.title || item.name}
                                                         className="chat-media-poster"
                                                     />
+                                                    {isLiveItem && (
+                                                        <span className={`chat-live-badge ${item.isLive ? 'is-live' : ''}`}>
+                                                            {item.isLive ? '🔴 LIVE' : (item.startTime && item.startTime.toUpperCase() !== 'LIVE NOW' ? item.startTime : 'Live TV')}
+                                                        </span>
+                                                    )}
                                                     <div className="chat-media-overlay">
-                                                        <span>▶</span>
+                                                        <svg viewBox="0 0 24 24" width="40" height="40" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/>
+                                                            <path d="M10 8L16 12L10 16V8Z" fill="white" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        </svg>
                                                     </div>
                                                     <div className="chat-media-info">
                                                         <div className="chat-media-title">{item.title || item.name}</div>
-                                                        <div className="chat-media-meta">
-                                                            <span>⭐ {item.vote_average?.toFixed(1)}</span>
-                                                            <span>{item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4)}</span>
-                                                        </div>
+                                                        {isLiveItem ? (
+                                                            <div className="chat-media-meta">
+                                                                {kind === 'live_event'
+                                                                    ? <span>{[item.teamA, item.teamB].filter(Boolean).join(' vs ') || item.cat}</span>
+                                                                    : <span>{item.category || 'Live TV'}</span>}
+                                                            </div>
+                                                        ) : (
+                                                            <div className="chat-media-meta">
+                                                                <span>⭐ {item.vote_average?.toFixed(1)}</span>
+                                                                <span>{item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4)}</span>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </div>
-                                            ))}
+                                                );
+                                            })}
                                         </div>
                                     )}
                                 </div>
@@ -560,11 +851,24 @@ const ChatBot = ({ currentTheme, onMediaClick }) => {
 
                         <div className="chatbot-input-area">
                             <button
-                                className={`chatbot-mic-btn ${isListening ? 'listening' : ''}`}
+                                className={`chatbot-mic-btn ${isListening ? 'listening' : ''} ${loadingOfflineVoice ? 'loading' : ''}`}
                                 onClick={toggleListening}
-                                title={isListening ? "Stop Listening" : "Speak"}
+                                title={loadingOfflineVoice ? "Loading offline voice model…" : isListening ? "Stop Listening" : "Speak"}
                             >
-                                {isListening ? '🎙️' : '🎤'}
+                                {loadingOfflineVoice ? (
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <circle cx="12" cy="12" r="9" strokeDasharray="42" strokeLinecap="round">
+                                            <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.9s" repeatCount="indefinite" />
+                                        </circle>
+                                    </svg>
+                                ) : (
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                                        <line x1="8" y1="23" x2="16" y2="23"></line>
+                                    </svg>
+                                )}
                             </button>
                             <input
                                 type="text"
