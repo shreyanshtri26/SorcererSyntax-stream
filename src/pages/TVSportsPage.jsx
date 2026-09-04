@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import {
   fetchDudeCategories,
   fetchDudeCategoryItems,
@@ -24,6 +24,7 @@ import './TVSportsPage.css';
 
 const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = searchParams.get('tab') || 'tv';
 
@@ -302,7 +303,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       };
       handlePlayItem(customItem, false);
     }
-  }, [searchParams, liveEvents, sportsChannels, categoryItems]);
+  }, [searchParams, location.pathname, liveEvents, sportsChannels, categoryItems]);
 
   // Handle browser back button (popstate)
   useEffect(() => {

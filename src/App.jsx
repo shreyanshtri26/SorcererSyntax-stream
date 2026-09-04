@@ -127,9 +127,15 @@ function App() {
   // Chatbot Live TV / Sports handler — deep-links straight into the player via TVSportsPage's
   // existing ?play=/?channel= autoplay resolver (matches by slug or id against its catalogs).
   const handleLiveClick = (item, kind) => {
-    const tab = kind === 'live_event' ? 'sports' : 'tv';
-    const target = item.slug || item.id;
-    navigate(`/tv-sports?tab=${tab}&play=${encodeURIComponent(target)}`);
+    if (kind === 'live_channel' && item.slug) {
+      navigate(`/channel/${encodeURIComponent(item.slug)}`);
+    } else if (kind === 'live_event' && item.id) {
+      navigate(`/sports/${encodeURIComponent(item.id)}`);
+    } else {
+      const tab = kind === 'live_event' ? 'sports' : 'tv';
+      const target = item.slug || item.id;
+      navigate(`/tv-sports?tab=${tab}&play=${encodeURIComponent(target)}`);
+    }
   };
 
   const closeModal = () => {

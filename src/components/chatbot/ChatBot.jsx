@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     searchMultiMedia,
@@ -15,6 +15,7 @@ import {
 } from '../../api/api';
 import { fetchUnifiedLiveEvents, fetchDudeCategories, fetchDudeCategoryItems } from '../../api/dudeTvApi';
 import { CDX_USA_WORLD_CHANNELS } from '../../api/cdxChannelsCatalog';
+import { RAJHODEDARA_ALL_CHANNELS } from '../../api/rajhodedaraPluginApi';
 import './ChatBot.css';
 import { getSystemPrompt } from './prompts';
 import { TOOL_DEFINITIONS, processFilters } from './tools';
@@ -24,17 +25,44 @@ import { TOOL_DEFINITIONS, processFilters } from './tools';
 const API_K = import.meta.env.VITE_GEMINI_API_KEY || "";
 const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
 
-// Default to Gemini 3.1 Flash Lite (fast, generous limits, supports function calling).
-// Includes fallbacks in case of transient spikes in demand (503) or rate limits (429).
-const PRIMARY_MODEL = import.meta.env.VITE_GEMINI_MODEL || "gemini-3.1-flash-lite";
-const GEMINI_FALLBACK_MODELS = [
-    PRIMARY_MODEL,
-    "gemini-3.1-flash-lite",
+// Higher capability models for Live TV, Sports fixtures, schedules & 'where to watch' queries
+const SPORTS_MODELS = [
+    "gemini-3.5-flash",
     "gemini-3-flash-preview",
-    "gemini-3.5-flash"
-].filter((m, idx, arr) => arr.indexOf(m) === idx);
+    "gemini-flash-latest",
+    "gemini-3.1-flash-lite",
+    "gemini-flash-lite-latest"
+];
+
+// Lower token, ultra-fast models for on-demand movies, TV shows, and general chat
+const MOVIE_MODELS = [
+    "gemini-3.1-flash-lite",
+    "gemini-flash-lite-latest",
+    "gemini-3.5-flash-lite",
+    "gemini-3.5-flash",
+    "gemini-flash-latest"
+];
+
+const isSportsOrLiveTvQuery = (text) => {
+    if (!text) return false;
+    const t = text.toLowerCase();
+    const sportsKeywords = [
+        'sport', 'sports', 'match', 'matches', 'live tv', 'channel', 'channels',
+        'cricket', 'ipl', 't20', 'odi', 'test match', 'willow', 'star sports', 'sports18',
+        'football', 'soccer', 'futbol', 'laliga', 'la liga', 'epl', 'premier league',
+        'champions league', 'ucl', 'bundesliga', 'serie a', 'ligue 1', 'isl', 'fifa',
+        'real madrid', 'madrid', 'barcelona', 'india vs sl', 'sri lanka', 'arsenal', 'liverpool',
+        'wwe', 'wrestling', 'raw', 'smackdown', 'nxt', 'wrestlemania', 'ple', 'aew',
+        'ufc', 'mma', 'f1', 'formula 1', 'motogp', 'nba', 'basketball', 'tennis',
+        'where to watch', 'live streaming', 'schedule', 'fixtures', 'who is playing',
+        'next match', 'today match', 'tomorrow match', 'today football', 'today cricket',
+        'news', 'cnbc', 'bbc', 'weather', 'cartoon', 'cartoons', 'kids', 'disney', 'nickelodeon', 'nick'
+    ];
+    return sportsKeywords.some(kw => t.includes(kw));
+};
 
 const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         {
@@ -355,13 +383,14 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
 
     // Wraps the Gemini fetch call with automatic retry on 429 (rate limit) or 503 (demand spike),
     // and automatic fallback across candidate models if one is retired (404), overloaded, or rate-limited.
-    const fetchGeminiWithFallback = async (bodyBuilder, preferredModel = null) => {
+    const fetchGeminiWithFallback = async (bodyBuilder, preferredModel = null, customCandidateList = null) => {
         let lastError = null;
         let lastStatus = null;
 
+        const baseList = (customCandidateList && customCandidateList.length > 0) ? customCandidateList : MOVIE_MODELS;
         const candidateModels = preferredModel
-            ? [preferredModel, ...GEMINI_FALLBACK_MODELS.filter(m => m !== preferredModel)]
-            : GEMINI_FALLBACK_MODELS;
+            ? [preferredModel, ...baseList.filter(m => m !== preferredModel)]
+            : baseList;
 
         for (const model of candidateModels) {
             for (let attempt = 0; attempt < 2; attempt++) {
@@ -419,17 +448,38 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
             return;
         }
 
+        // Dynamically select higher model for Live TV & Sports vs lower/fast model for Movies
+        const lastUserMessage = [...newMessages].reverse().find(m => m.role === 'user')?.content || '';
+        const isSportsIntent = isSportsOrLiveTvQuery(lastUserMessage);
+        const activeModels = isSportsIntent ? SPORTS_MODELS : MOVIE_MODELS;
+
+        // --- IST Time Context ---
+        // Always compute current IST time fresh for every API call so the AI knows
+        // the real current time (works for 3 AM, 3 PM, 9 PM IST, etc.)
+        const nowForPrompt = new Date();
+        const currentTimeIST = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Kolkata',
+            hour: 'numeric', minute: '2-digit', hour12: true
+        }).format(nowForPrompt);
+        const currentDateIST = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Kolkata',
+            weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+        }).format(nowForPrompt);
+        const timeContext = { currentTimeIST, currentDateIST };
+
         setIsTyping(true);
         try {
             const step1 = await fetchGeminiWithFallback((model) => ({
                 model,
                 messages: [
-                    { role: "system", content: getSystemPrompt(currentTheme) },
+                    { role: "system", content: getSystemPrompt(currentTheme, timeContext) },
                     ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
                 ],
                 tools: TOOL_DEFINITIONS,
-                tool_choice: "auto"
-            }));
+                tool_choice: "auto",
+                parallel_tool_calls: false
+            }), null, activeModels);
+
 
             const data = step1.data;
             const choice = data.choices?.[0];
@@ -501,40 +551,366 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                             result = JSON.stringify(res.slice(0, 5));
                         } else if (fnName === "get_live_sports_events") {
                             const events = await fetchUnifiedLiveEvents();
-                            const query = (args.query || '').toLowerCase().trim();
-                            const filtered = query
-                                ? events.filter(ev => {
-                                    const haystack = [
-                                        ev.title, ev.cat,
-                                        ev.eventInfo?.eventName, ev.eventInfo?.teamA, ev.eventInfo?.teamB
-                                    ].filter(Boolean).join(' ').toLowerCase();
-                                    return haystack.includes(query);
-                                })
-                                : events;
-                            const compact = filtered.slice(0, 6).map(ev => ({
-                                id: ev.id,
-                                title: ev.eventInfo?.eventName || ev.title,
-                                image: ev.image,
-                                cat: ev.cat,
-                                teamA: ev.eventInfo?.teamA,
-                                teamB: ev.eventInfo?.teamB,
-                                startTime: ev.eventInfo?.startTime,
-                                endTime: ev.eventInfo?.endTime,
-                                isLive: (ev.eventInfo?.startTime || '').toUpperCase().includes('LIVE') || ev.eventInfo?.isHot === '1',
-                                _kind: 'live_event'
-                            }));
-                            result = JSON.stringify(compact);
+                            const rawQuery = (args.query || '').toLowerCase().trim();
+
+                            // ─── IST Clock ───────────────────────────────────────────
+                            // Get the current IST hour & minute accurately each time the tool runs
+                            const nowIST = new Date();
+                            const istFormatter = new Intl.DateTimeFormat('en-US', {
+                                timeZone: 'Asia/Kolkata',
+                                hour: 'numeric', minute: '2-digit', hour12: false
+                            });
+                            const istParts = istFormatter.formatToParts(nowIST);
+                            const istHourNow = parseInt(istParts.find(p => p.type === 'hour')?.value || '0', 10);
+                            const istMinNow  = parseInt(istParts.find(p => p.type === 'minute')?.value || '0', 10);
+                            const currentISTMins = istHourNow * 60 + istMinNow; // 0–1439
+
+                            // Parse a time string like "9:00 PM IST", "12:30 AM IST", "5:30 AM IST", "LIVE NOW"
+                            // into total minutes from midnight (0–1439), or null if unparseable
+                            const parseKickoffMins = (ev) => {
+                                // Prefer structured kickoffHour / kickoffMinute fields
+                                const kH = ev.eventInfo?.kickoffHour;
+                                const kM = ev.eventInfo?.kickoffMinute;
+                                if (typeof kH === 'number' && typeof kM === 'number') {
+                                    return kH * 60 + kM;
+                                }
+                                // Try to parse startTime string e.g. "9:00 PM IST"
+                                const st = (ev.eventInfo?.startTime || '').replace(/\s*IST\s*/i, '').trim();
+                                if (!st || st.toUpperCase().includes('LIVE') || st.toUpperCase().includes('TBD') || st.toUpperCase().includes('SOON')) return null;
+                                const m = st.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+                                if (!m) return null;
+                                let h = parseInt(m[1], 10);
+                                const min = parseInt(m[2], 10);
+                                const ampm = m[3].toUpperCase();
+                                if (ampm === 'AM') { if (h === 12) h = 0; }
+                                else               { if (h !== 12) h += 12; }
+                                return h * 60 + min;
+                            };
+
+                            // Determine if a match is currently LIVE based on IST time
+                            // Match is LIVE if: kickoffMins <= currentISTMins <= kickoffMins + 115 (football 90+25)
+                            // Cricket is longer (~210 min), WWE ~180 min — use 210 as generous window
+                            const computeIsLive = (ev) => {
+                                // If API explicitly says LIVE NOW, trust it
+                                const startTimeStr = (ev.eventInfo?.startTime || '').toUpperCase();
+                                if (startTimeStr.includes('LIVE') && !startTimeStr.includes('IST') && !startTimeStr.includes('PM') && !startTimeStr.includes('AM')) {
+                                    return true;
+                                }
+                                const kickoffMins = parseKickoffMins(ev);
+                                if (kickoffMins === null) return ev.eventInfo?.isHot === '1';
+                                // Detect sport type to choose match duration
+                                const evText = (ev.title + ' ' + (ev.cat || '') + ' ' + (ev.eventInfo?.eventName || '')).toLowerCase();
+                                let durationMins = 115; // football default
+                                if (evText.includes('cricket') || evText.includes('t20') || evText.includes('ipl') || evText.includes('odi')) durationMins = 210;
+                                else if (evText.includes('wwe') || evText.includes('wrestling') || evText.includes('raw') || evText.includes('smackdown')) durationMins = 180;
+                                else if (evText.includes('basketball') || evText.includes('nba')) durationMins = 150;
+                                // Handle midnight wrap-around (e.g. kickoff 23:00, now 00:30 → still LIVE)
+                                const elapsed = (currentISTMins - kickoffMins + 1440) % 1440;
+                                return elapsed >= 0 && elapsed <= durationMins;
+                            };
+
+                            // Build a readable status string
+                            const computeStatus = (ev, isLive) => {
+                                if (isLive) {
+                                    const kickoffMins = parseKickoffMins(ev);
+                                    const kickoffStr = ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || 'Kickoff';
+                                    if (kickoffMins !== null) {
+                                        const elapsed = (currentISTMins - kickoffMins + 1440) % 1440;
+                                        return `🔴 LIVE NOW (Playing since ${kickoffStr} — ${elapsed} min elapsed)`;
+                                    }
+                                    return '🔴 LIVE NOW';
+                                }
+                                const kickoffStr = ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || 'Soon';
+                                return `📅 UPCOMING at ${kickoffStr}`;
+                            };
+
+                            // ─── Query Filters ─────────────────────────────────────
+                            const isRealMadrid = rawQuery.includes('real madrid') || rawQuery.includes('madrid');
+                            const isIndiaSl = (rawQuery.includes('india') && (rawQuery.includes('sl') || rawQuery.includes('sri lanka'))) || rawQuery.includes('sri lanka');
+                            const isLaLiga = isRealMadrid || rawQuery.includes('laliga') || rawQuery.includes('la liga') || rawQuery.includes('spanish');
+                            const isEPL = rawQuery.includes('epl') || rawQuery.includes('premier league') || rawQuery.includes('english premier');
+                            const isChampionsLeague = rawQuery.includes('champions league') || rawQuery.includes('ucl');
+                            const isCricket = isIndiaSl || rawQuery.includes('cricket') || rawQuery.includes('ipl') || rawQuery.includes('t20') || rawQuery.includes('odi') || rawQuery.includes('test') || rawQuery.includes('cpl') || rawQuery.includes('bbl') || rawQuery.includes('psl') || rawQuery.includes('bcci');
+                            const isWWE = rawQuery.includes('wwe') || rawQuery.includes('wrestling') || rawQuery.includes('raw') || rawQuery.includes('smackdown') || rawQuery.includes('nxt') || rawQuery.includes('aew') || rawQuery.includes('wrestlemania') || rawQuery.includes('ple');
+                            const isFootball = isLaLiga || isEPL || isChampionsLeague || rawQuery.includes('football') || rawQuery.includes('soccer') || rawQuery.includes('futbol') || rawQuery.includes('serie a') || rawQuery.includes('bundesliga') || rawQuery.includes('ligue 1') || rawQuery.includes('isl') || rawQuery.includes('fifa') || rawQuery.includes('copa');
+
+                            const stopWords = new Set(['match', 'matches', 'today', 'todays', 'tomorrow', 'live', 'game', 'games', 'vs', 'the', 'what', 'which', 'channel', 'channels', 'score', 'scores', 'going', 'on', 'show', 'where', 'to', 'watch', 'streaming', 'stream', 'schedule', 'fixtures', 'next', 'time', 'who', 'is', 'playing']);
+                            const keywords = rawQuery.replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w));
+
+                            let filtered = events.filter(ev => {
+                                const titleText = [
+                                    ev.title, ev.cat,
+                                    ev.eventInfo?.eventName, ev.eventInfo?.teamA, ev.eventInfo?.teamB
+                                ].filter(Boolean).join(' ').toLowerCase();
+
+                                const channelNames = (ev.formats || ev.decoded_channels?.map(c => c.title) || []).join(' ').toLowerCase();
+                                const fullHaystack = `${titleText} ${channelNames}`;
+                                const compactHaystack = fullHaystack.replace(/[\s\-_]+/g, '');
+                                const compactQ = rawQuery.replace(/[\s\-_]+/g, '');
+
+                                if (isRealMadrid) {
+                                    return fullHaystack.includes('real madrid') || fullHaystack.includes('madrid') || (ev.cat && ev.cat.toLowerCase().includes('laliga'));
+                                }
+                                if (isIndiaSl) {
+                                    return (fullHaystack.includes('india') && (fullHaystack.includes('sri lanka') || fullHaystack.includes('sl'))) || fullHaystack.includes('sri lanka') || (fullHaystack.includes('india') && ev.cat && ev.cat.toLowerCase().includes('cricket'));
+                                }
+                                if (isLaLiga) {
+                                    return compactHaystack.includes('laliga') || fullHaystack.includes('la liga') || (ev.cat && ev.cat.toLowerCase().includes('laliga'));
+                                }
+                                if (isEPL) {
+                                    return fullHaystack.includes('epl') || fullHaystack.includes('premier league') || (ev.cat && (ev.cat.toLowerCase().includes('epl') || ev.cat.toLowerCase().includes('premier league')));
+                                }
+                                if (isChampionsLeague) {
+                                    return fullHaystack.includes('champions league') || fullHaystack.includes('ucl');
+                                }
+                                if (isWWE) {
+                                    return fullHaystack.includes('wwe') || fullHaystack.includes('raw') || fullHaystack.includes('smackdown') || fullHaystack.includes('nxt') || fullHaystack.includes('aew') || (ev.cat && (ev.cat.toLowerCase().includes('wwe') || ev.cat.toLowerCase().includes('wrestling')));
+                                }
+                                if (isFootball) {
+                                    const isCricketEv = fullHaystack.includes('cricket') || fullHaystack.includes('ipl') || fullHaystack.includes('t20') || fullHaystack.includes('cpl') || (ev.cat && (ev.cat.toLowerCase().includes('cricket') || ev.cat.toLowerCase().includes('t20')));
+                                    if (isCricketEv) return false;
+                                    return (
+                                        compactHaystack.includes('laliga') ||
+                                        fullHaystack.includes('la liga') ||
+                                        fullHaystack.includes('epl') ||
+                                        fullHaystack.includes('premier league') ||
+                                        fullHaystack.includes('bundesliga') ||
+                                        fullHaystack.includes('serie a') ||
+                                        fullHaystack.includes('ligue 1') ||
+                                        fullHaystack.includes('champions league') ||
+                                        fullHaystack.includes('football') ||
+                                        fullHaystack.includes('soccer') ||
+                                        fullHaystack.includes('super lig') ||
+                                        fullHaystack.includes('liga portugal') ||
+                                        fullHaystack.includes('eredivisie') ||
+                                        fullHaystack.includes('pro league') ||
+                                        (ev.cat && (ev.cat.toLowerCase().includes('laliga') || ev.cat.toLowerCase().includes('epl') || ev.cat.toLowerCase().includes('bundesliga') || ev.cat.toLowerCase().includes('serie') || ev.cat.toLowerCase().includes('ligue') || ev.cat.toLowerCase().includes('football') || ev.cat.toLowerCase().includes('soccer')))
+                                    );
+                                }
+                                if (isCricket) {
+                                    return (
+                                        fullHaystack.includes('cricket') ||
+                                        fullHaystack.includes('ipl') ||
+                                        fullHaystack.includes('t20') ||
+                                        fullHaystack.includes('willow') ||
+                                        fullHaystack.includes('star sports') ||
+                                        (ev.cat && (ev.cat.toLowerCase().includes('cricket') || ev.cat.toLowerCase().includes('t20') || ev.cat.toLowerCase().includes('cpl')))
+                                    );
+                                }
+                                if (compactQ && compactHaystack.includes(compactQ)) return true;
+                                if (keywords.length > 0) {
+                                    if (keywords.some(kw => {
+                                        if (kw === 'sl') return fullHaystack.includes('sri lanka') || fullHaystack.includes('sl');
+                                        if (kw === 'ind') return fullHaystack.includes('india') || fullHaystack.includes('ind');
+                                        return fullHaystack.includes(kw);
+                                    })) return true;
+                                }
+                                if (!rawQuery || rawQuery === 'sports' || rawQuery === 'match' || rawQuery === 'live') return true;
+                                return fullHaystack.includes(rawQuery);
+                            });
+
+                            // Sort: LIVE NOW first, then upcoming in ascending kickoff order
+                            filtered.sort((a, b) => {
+                                const aLive = computeIsLive(a);
+                                const bLive = computeIsLive(b);
+                                if (aLive && !bLive) return -1;
+                                if (!aLive && bLive) return 1;
+                                // Both upcoming → sort by kickoff time ascending
+                                const aK = parseKickoffMins(a) ?? 9999;
+                                const bK = parseKickoffMins(b) ?? 9999;
+                                return aK - bK;
+                            });
+
+                            const compact = filtered.slice(0, 8).map(ev => {
+                                const titleText = [
+                                    ev.title, ev.cat,
+                                    ev.eventInfo?.eventName, ev.eventInfo?.teamA, ev.eventInfo?.teamB
+                                ].filter(Boolean).join(' ').toLowerCase();
+                                const fullHaystack = titleText;
+                                const isEvRealMadrid = fullHaystack.includes('real madrid') || fullHaystack.includes('madrid');
+                                const isEvIndiaSl = (fullHaystack.includes('india') && (fullHaystack.includes('sri lanka') || fullHaystack.includes('sl'))) || fullHaystack.includes('sri lanka');
+                                const isEvLaLiga = isEvRealMadrid || fullHaystack.includes('laliga') || fullHaystack.includes('la liga');
+                                const isEvFootball = isEvLaLiga || fullHaystack.includes('epl') || fullHaystack.includes('premier league') || fullHaystack.includes('bundesliga') || fullHaystack.includes('serie a') || fullHaystack.includes('ligue 1') || fullHaystack.includes('football') || fullHaystack.includes('soccer');
+                                const isEvCricket = isEvIndiaSl || fullHaystack.includes('cricket') || fullHaystack.includes('ipl') || fullHaystack.includes('t20') || fullHaystack.includes('willow') || fullHaystack.includes('star sports');
+                                const isEvWWE = fullHaystack.includes('wwe') || fullHaystack.includes('raw') || fullHaystack.includes('smackdown') || fullHaystack.includes('nxt');
+
+                                let defaultChannels = ['Sky Sports Main Event (BEST Ultra HD)', 'TNT Sports 1 HD', 'beIN Sports 1 HD'];
+                                if (isEvRealMadrid) {
+                                    defaultChannels = ['DAZN LaLiga (BEST Ultra HD)', 'Sky Sports Football (BEST Ultra HD)', 'Fox Soccer Plus (BEST Ultra HD)', 'beIN Sports (BEST Ultra HD)', 'CANAL+ Extra 1 (BEST Ultra HD)', 'SuperSport LaLiga', 'LaLiga TV'];
+                                } else if (isEvIndiaSl) {
+                                    defaultChannels = ['Willow Cricket (BEST Ultra HD)', 'Willow Cricket 2 (BEST Ultra HD)', 'Sky Sports Cricket (BEST Ultra HD)', 'Fox Sports 501 (Cricket) (BEST Ultra HD)', 'Star Sports 1 HD', 'Sports18 1 HD'];
+                                } else if (isEvLaLiga) {
+                                    defaultChannels = ['DAZN LaLiga (BEST Ultra HD)', 'Sky Sports Football (BEST Ultra HD)', 'SuperSport LaLiga', 'LaLiga TV'];
+                                } else if (isEvFootball) {
+                                    defaultChannels = ['Sky Sports Football (BEST Ultra HD)', 'Fox Soccer Plus (BEST Ultra HD)', 'DAZN LaLiga (BEST Ultra HD)', 'TNT Sports 1 HD', 'Sony Sports Ten 2 HD'];
+                                } else if (isEvCricket) {
+                                    defaultChannels = ['Willow Cricket (BEST Ultra HD)', 'Star Sports 1 HD', 'Sports18 1 HD', 'Sony Sports Ten 5 HD'];
+                                } else if (isEvWWE) {
+                                    defaultChannels = ['USA Network (BEST Ultra HD)', 'Sony Sports Ten 1 HD', 'TNT Sports 1 HD', 'Sony Sports Ten 3 HD (Hindi)'];
+                                }
+
+                                const rawChannels = (ev.formats || ev.decoded_channels?.map(c => c.title) || []);
+                                let channels = Array.from(new Set([...defaultChannels, ...rawChannels])).map(c => c.replace(/\bCDX\b/gi, 'BEST'));
+                                channels.sort((c1, c2) => {
+                                    const c1Best = c1.toUpperCase().includes('BEST');
+                                    const c2Best = c2.toUpperCase().includes('BEST');
+                                    if (c1Best && !c2Best) return -1;
+                                    if (!c1Best && c2Best) return 1;
+                                    return 0;
+                                });
+                                channels = channels.slice(0, 6);
+
+                                // ── IST-based Live/Upcoming status ──────────────────
+                                const isLive = computeIsLive(ev);
+                                const status = computeStatus(ev, isLive);
+                                const kickoffIST = ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || (isLive ? 'LIVE NOW' : 'Check schedule');
+
+                                return {
+                                    id: ev.id,
+                                    title: ev.eventInfo?.eventName || ev.title,
+                                    image: ev.image,
+                                    cat: ev.cat || 'Sports',
+                                    teamA: ev.eventInfo?.teamA,
+                                    teamB: ev.eventInfo?.teamB,
+                                    kickoffIST,
+                                    startTime: kickoffIST,
+                                    endTime: ev.eventInfo?.endTime,
+                                    isLive,
+                                    status,
+                                    userCurrentTimeIST: `${currentTimeIST} IST`,
+                                    channels,
+                                    _kind: 'live_event'
+                                };
+                            });
+
+                            // Expose current IST time to AI in the tool result
+                            result = JSON.stringify({
+                                userCurrentTimeIST: `${currentTimeIST} IST`,
+                                userCurrentDateIST: currentDateIST,
+                                matches: compact
+                            });
+
                         } else if (fnName === "find_live_channel") {
                             const query = (args.query || '').toLowerCase().trim();
                             const categoryQuery = (args.category || '').toLowerCase().trim();
-                            let matches = CDX_USA_WORLD_CHANNELS.filter(ch => {
-                                const haystack = [ch.title, ch.name, ch.category, ch.genre].filter(Boolean).join(' ').toLowerCase();
-                                const queryMatch = query ? haystack.includes(query) : true;
+                            const allBaseChannels = [...CDX_USA_WORLD_CHANNELS, ...RAJHODEDARA_ALL_CHANNELS];
+
+                            const combinedQ = `${query} ${categoryQuery}`.trim();
+                            const isNews = combinedQ.includes('news') || combinedQ.includes('breaking') || combinedQ.includes('weather') || combinedQ.includes('headline') || combinedQ.includes('cnbc') || combinedQ.includes('bbc');
+                            const isCartoon = combinedQ.includes('cartoon') || combinedQ.includes('cartoons') || combinedQ.includes('kid') || combinedQ.includes('kids') || combinedQ.includes('disney') || combinedQ.includes('nickelodeon') || combinedQ.includes('nick') || combinedQ.includes('anime') || combinedQ.includes('animation') || combinedQ.includes('boomerang') || combinedQ.includes('cbeebies') || combinedQ.includes('pogo') || combinedQ.includes('hungama');
+                            const isRealMadrid = combinedQ.includes('real madrid') || combinedQ.includes('madrid');
+                            const isIndiaSl = (combinedQ.includes('india') && (combinedQ.includes('sl') || combinedQ.includes('sri lanka'))) || combinedQ.includes('sri lanka');
+                            const isLaLiga = isRealMadrid || combinedQ.includes('laliga') || combinedQ.includes('la liga');
+                            const isFootball = isLaLiga || combinedQ.includes('football') || combinedQ.includes('soccer') || combinedQ.includes('epl') || combinedQ.includes('premier league') || combinedQ.includes('champions league') || combinedQ.includes('ucl');
+                            const isCricket = isIndiaSl || combinedQ.includes('cricket') || combinedQ.includes('ipl') || combinedQ.includes('t20') || combinedQ.includes('willow');
+                            const isWWE = combinedQ.includes('wwe') || combinedQ.includes('wrestling') || combinedQ.includes('raw') || combinedQ.includes('smackdown') || combinedQ.includes('nxt');
+
+                            let matches = allBaseChannels.filter(ch => {
+                                const haystack = [ch.title, ch.name, ch.category, ch.genre, ch.cat, ch.region].filter(Boolean).join(' ').toLowerCase();
+                                const compactHaystack = haystack.replace(/[\s\-_]+/g, '');
+
+                                if (isCartoon) {
+                                    return (
+                                        haystack.includes('cartoon') ||
+                                        haystack.includes('disney') ||
+                                        haystack.includes('nick') ||
+                                        haystack.includes('boomerang') ||
+                                        haystack.includes('cbeebies') ||
+                                        haystack.includes('starz kids') ||
+                                        haystack.includes('discovery family') ||
+                                        haystack.includes('animal planet') ||
+                                        haystack.includes('pogo') ||
+                                        haystack.includes('hungama')
+                                    );
+                                }
+                                if (isNews) {
+                                    return (
+                                        haystack.includes('news') ||
+                                        haystack.includes('cnbc') ||
+                                        haystack.includes('bbc') ||
+                                        haystack.includes('weather channel') ||
+                                        ch.name === 'ABC' ||
+                                        ch.name === 'CBS' ||
+                                        ch.name === 'NBC' ||
+                                        ch.name === 'Fox'
+                                    );
+                                }
+                                if (isRealMadrid) {
+                                    return (
+                                        compactHaystack.includes('laliga') ||
+                                        haystack.includes('la liga') ||
+                                        haystack.includes('sky sports football') ||
+                                        haystack.includes('dazn') ||
+                                        haystack.includes('fox soccer') ||
+                                        haystack.includes('bein sports') ||
+                                        haystack.includes('canal+')
+                                    );
+                                }
+                                if (isIndiaSl) {
+                                    return (
+                                        haystack.includes('cricket') ||
+                                        haystack.includes('willow') ||
+                                        haystack.includes('star sports') ||
+                                        haystack.includes('sports18') ||
+                                        haystack.includes('sony ten')
+                                    );
+                                }
+                                if (isLaLiga) {
+                                    return compactHaystack.includes('laliga') || haystack.includes('la liga') || (ch.id && String(ch.id).includes('laliga')) || haystack.includes('dazn');
+                                }
+                                if (isFootball) {
+                                    return (
+                                        compactHaystack.includes('laliga') ||
+                                        haystack.includes('football') ||
+                                        haystack.includes('soccer') ||
+                                        haystack.includes('premier league') ||
+                                        haystack.includes('sky sports') ||
+                                        haystack.includes('tnt sports') ||
+                                        haystack.includes('bein sports') ||
+                                        haystack.includes('supersport') ||
+                                        haystack.includes('dazn') ||
+                                        haystack.includes('golazo') ||
+                                        haystack.includes('sports18') ||
+                                        haystack.includes('sony sports') ||
+                                        haystack.includes('sony ten')
+                                    );
+                                }
+                                if (isCricket) {
+                                    return (
+                                        haystack.includes('cricket') ||
+                                        haystack.includes('willow') ||
+                                        haystack.includes('star sports') ||
+                                        haystack.includes('sports18') ||
+                                        haystack.includes('sony ten') ||
+                                        haystack.includes('fancode') ||
+                                        haystack.includes('ptv')
+                                    );
+                                }
+                                if (isWWE) {
+                                    return (
+                                        haystack.includes('usa network') ||
+                                        haystack.includes('wwe') ||
+                                        haystack.includes('sony ten 1') ||
+                                        haystack.includes('sony ten 3') ||
+                                        haystack.includes('tnt sports')
+                                    );
+                                }
+
+                                const queryMatch = query ? (haystack.includes(query) || compactHaystack.includes(query.replace(/[\s\-_]+/g, ''))) : true;
                                 const catMatch = categoryQuery ? haystack.includes(categoryQuery) : true;
                                 return queryMatch && catMatch;
                             });
 
-                            if (matches.length < 3 && categoryQuery) {
+                            if (isCartoon) {
+                                try {
+                                    const kidItems = await fetchDudeCategoryItems('cats/kids.json');
+                                    if (Array.isArray(kidItems) && kidItems.length > 0) {
+                                        matches = [...matches, ...kidItems];
+                                    }
+                                } catch (e) { /* ignore */ }
+                            }
+
+                            if (matches.length < 4 && categoryQuery && !isCricket && !isFootball && !isWWE && !isNews && !isCartoon) {
                                 try {
                                     const categories = await fetchDudeCategories();
                                     const cat = categories.find(c => (c.title || '').toLowerCase().includes(categoryQuery));
@@ -548,15 +924,41 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 } catch (e) { /* ignore category fetch failure */ }
                             }
 
+                            const checkIsCdx = (ch) => Boolean(
+                                (ch.id && String(ch.id).startsWith('cdx_')) ||
+                                ch.cdxSlug ||
+                                (ch.title && ch.title.toUpperCase().includes('CDX')) ||
+                                (ch.name && ch.name.toUpperCase().includes('CDX'))
+                            );
+
+                            // Dedup while keeping all channels
                             const unique = Array.from(new Map(matches.map(ch => [ch.id || ch.title, ch])).values());
-                            const compact = unique.slice(0, 6).map(ch => ({
-                                id: ch.id,
-                                slug: ch.slug || ch.cdxSlug,
-                                title: ch.title || ch.name,
-                                image: ch.image,
-                                category: ch.category || ch.cat || ch.genre,
-                                _kind: 'live_channel'
-                            }));
+
+                            // Sort: CDX channels FIRST in order, then all other channels
+                            unique.sort((a, b) => {
+                                const aCdx = checkIsCdx(a);
+                                const bCdx = checkIsCdx(b);
+                                if (aCdx && !bCdx) return -1;
+                                if (!aCdx && bCdx) return 1;
+                                return 0;
+                            });
+
+                            const compact = unique.slice(0, 10).map(ch => {
+                                const isCdx = checkIsCdx(ch);
+                                const cleanTitle = (ch.title || ch.name || '').replace(/\bCDX\b/gi, 'BEST');
+                                return {
+                                    id: ch.id,
+                                    slug: ch.slug || ch.cdxSlug,
+                                    title: cleanTitle,
+                                    name: cleanTitle,
+                                    image: ch.image,
+                                    category: ch.category || ch.cat || ch.genre || 'Sports',
+                                    isCdx,
+                                    isBest: isCdx,
+                                    priority: isCdx ? 'BEST Ultra HD (Primary)' : 'Alternative Broadcast',
+                                    _kind: 'live_channel'
+                                };
+                            });
                             result = JSON.stringify(compact);
                         }
                     } catch (err) {
@@ -575,11 +977,13 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                 const step2 = await fetchGeminiWithFallback((model) => ({
                     model,
                     messages: [
-                        { role: "system", content: getSystemPrompt(currentTheme) },
+                        { role: "system", content: getSystemPrompt(currentTheme, timeContext) },
                         ...processingMsgs,
                         ...toolResults
-                    ]
-                }), step1.model);
+                    ],
+                    parallel_tool_calls: false
+                }), step1.model, activeModels);
+
 
                 const finalData = step2.data;
                 const finalContent = finalData.choices?.[0]?.message?.content || "";
@@ -588,7 +992,12 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                 let mediaItems = [];
                 toolResults.forEach(tr => {
                     try {
-                        const items = JSON.parse(tr.content);
+                        const parsed = JSON.parse(tr.content);
+                        // get_live_sports_events now returns { userCurrentTimeIST, matches: [...] }
+                        // All other tools return a plain array directly
+                        const items = (parsed && !Array.isArray(parsed) && Array.isArray(parsed.matches))
+                            ? parsed.matches
+                            : parsed;
                         if (Array.isArray(items)) {
                             // Movies/TV need a poster; live events/channels need an image + _kind tag
                             const validItems = items.filter(i =>
@@ -601,15 +1010,23 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                     } catch (e) { }
                 });
 
-                // Dedup
+
+                // Dedup and sort so CDX channels appear first in order
                 mediaItems = Array.from(new Map(mediaItems.map(item => [`${item._kind || 'media'}_${item.id}`, item])).values());
+                mediaItems.sort((a, b) => {
+                    const aCdx = Boolean(a.isCdx || (a.id && String(a.id).startsWith('cdx_')) || a.cdxSlug);
+                    const bCdx = Boolean(b.isCdx || (b.id && String(b.id).startsWith('cdx_')) || b.cdxSlug);
+                    if (aCdx && !bCdx) return -1;
+                    if (!aCdx && bCdx) return 1;
+                    return 0;
+                });
 
                 setMessages(prev => [
                     ...prev,
                     {
                         id: Date.now(),
                         role: 'assistant',
-                        content: finalContent,
+                        content: (finalContent || '').replace(/\bCDX\b/gi, 'BEST'),
                         mediaData: mediaItems.length > 0 ? mediaItems : null
                     }
                 ]);
@@ -617,7 +1034,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
             } else {
                 setMessages(prev => [
                     ...prev,
-                    { id: Date.now(), role: 'assistant', content: message.content }
+                    { id: Date.now(), role: 'assistant', content: (message.content || '').replace(/\bCDX\b/gi, 'BEST') }
                 ]);
             }
 
@@ -663,11 +1080,32 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
     };
 
     const handleCardClick = (item) => {
+        // 1. Immediately minimize / close the chatbot so the page and player are unobstructed
+        setIsOpen(false);
+        setIsFullScreen(false);
+
+        // 2. Open the URL of the clicked card
         const type = getMediaType(item);
         if (type === 'live_event' || type === 'live_channel') {
-            onLiveClick?.(item, type);
+            if (onLiveClick) {
+                onLiveClick(item, type);
+            } else {
+                if (type === 'live_channel' && item.slug) {
+                    navigate(`/channel/${encodeURIComponent(item.slug)}`);
+                } else if (type === 'live_event' && item.id) {
+                    navigate(`/sports/${encodeURIComponent(item.id)}`);
+                } else {
+                    const tab = type === 'live_event' ? 'sports' : 'tv';
+                    const target = item.slug || item.id;
+                    navigate(`/tv-sports?tab=${tab}&play=${encodeURIComponent(target)}`);
+                }
+            }
         } else {
-            onMediaClick(item, type);
+            if (onMediaClick) {
+                onMediaClick(item, type);
+            } else if (item?.id) {
+                navigate(`/${type || 'movie'}/${item.id}`);
+            }
         }
     };
 
@@ -696,7 +1134,19 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
             if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
                 const match = part.match(/\[(.*?)\]\((.*?)\)/);
                 if (match) {
-                    return <Link key={index} to={match[2]} className="chat-link-text">{match[1]}</Link>;
+                    return (
+                        <Link
+                            key={index}
+                            to={match[2]}
+                            className="chat-link-text"
+                            onClick={() => {
+                                setIsOpen(false);
+                                setIsFullScreen(false);
+                            }}
+                        >
+                            {match[1]}
+                        </Link>
+                    );
                 }
             }
             // Bold: **text**
@@ -787,7 +1237,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                             </div>
                         </div>
 
-                        <div className="chatbot-messages">
+                        <div className="chatbot-messages" data-lenis-prevent="true">
                             {messages.map((msg) => (
                                 <div key={msg.id} className={`message-wrapper ${msg.role}`}>
                                     {msg.content && (
@@ -820,11 +1270,18 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                                         alt={item.title || item.name}
                                                         className="chat-media-poster"
                                                     />
-                                                    {isLiveItem && (
-                                                        <span className={`chat-live-badge ${item.isLive ? 'is-live' : ''}`}>
-                                                            {item.isLive ? '🔴 LIVE' : (item.startTime && item.startTime.toUpperCase() !== 'LIVE NOW' ? item.startTime : 'Live TV')}
-                                                        </span>
-                                                    )}
+                                                    {isLiveItem && (() => {
+                                                        const isCdx = Boolean(item.isCdx || item.isBest || (item.id && String(item.id).startsWith('cdx_')) || item.cdxSlug);
+                                                        return (
+                                                            <span className={`chat-live-badge ${isCdx ? 'is-cdx' : ''} ${item.isLive ? 'is-live' : ''}`}>
+                                                                {isCdx
+                                                                    ? '⚡ BEST HD'
+                                                                    : item.isLive
+                                                                        ? '🔴 LIVE'
+                                                                        : (item.startTime && item.startTime.toUpperCase() !== 'LIVE NOW' ? item.startTime : 'Live TV')}
+                                                            </span>
+                                                        );
+                                                    })()}
                                                     <div className="chat-media-overlay">
                                                         <svg viewBox="0 0 24 24" width="40" height="40" fill="white" xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/>
@@ -832,12 +1289,12 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                                         </svg>
                                                     </div>
                                                     <div className="chat-media-info">
-                                                        <div className="chat-media-title">{item.title || item.name}</div>
+                                                        <div className="chat-media-title">{(item.title || item.name || '').replace(/\bCDX\b/gi, 'BEST')}</div>
                                                         {isLiveItem ? (
                                                             <div className="chat-media-meta">
                                                                 {kind === 'live_event'
                                                                     ? <span>{[item.teamA, item.teamB].filter(Boolean).join(' vs ') || item.cat}</span>
-                                                                    : <span>{item.category || 'Live TV'}</span>}
+                                                                    : <span>{(item.isCdx || item.isBest) ? '⚡ BEST Ultra HD' : (item.category || 'Live TV')}</span>}
                                                             </div>
                                                         ) : (
                                                             <div className="chat-media-meta">

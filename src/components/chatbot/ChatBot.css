@@ -186,6 +186,7 @@
     flex-direction: column;
     gap: 15px;
     scroll-behavior: smooth;
+    min-height: 0;
 }
 
 .message-wrapper {
@@ -470,6 +471,32 @@
 .chatbot-window.theme-angel .chat-live-badge.is-live {
     background: #ffd700;
     color: #4a3b00;
+}
+
+.chat-live-badge.is-cdx {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    color: #05101a;
+    font-weight: 800;
+    box-shadow: 0 2px 8px rgba(79, 172, 254, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.chatbot-window.theme-devil .chat-live-badge.is-cdx {
+    background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(255, 8, 68, 0.45);
+}
+
+.chatbot-window.theme-hannibal .chat-live-badge.is-cdx {
+    background: linear-gradient(135deg, #2af598 0%, #009efd 100%);
+    color: #000;
+    box-shadow: 0 2px 8px rgba(42, 245, 152, 0.45);
+}
+
+.chatbot-window.theme-angel .chat-live-badge.is-cdx {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #4a3b00;
+    box-shadow: 0 2px 8px rgba(246, 211, 101, 0.45);
 }
 
 /* Input Area */
@@ -769,7 +796,9 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     border-radius: 0;
     z-index: 10001;
     display: flex;

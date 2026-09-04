@@ -84,13 +84,31 @@ export const TOOL_DEFINITIONS = [
         type: "function",
         function: {
             name: "get_live_sports_events",
-            description: "Get LIVE or upcoming sports matches/events (football, cricket, UFC, basketball, etc). Use for questions like 'is there a live match', 'when does Real Madrid play', 'live cricket score', 'UFC tonight'. Returns team names, event name, status and start/end time — NEVER invent scores or times not present in the result.",
+            description: `Get LIVE or upcoming sports matches and events (Football, LaLiga, Premier League, Champions League, Cricket, IPL, WWE, UFC, etc).
+Use for queries like 'laliga match', 'Real Madrid match', 'India vs SL match', 'football matches today', 'upcoming games', 'where to watch football', 'cricket match live', 'who is playing today', 'WWE schedule'.
+
+⚡ RETURN FORMAT: The tool returns a JSON OBJECT (not an array) with these keys:
+  - userCurrentTimeIST: string — the user's current IST time (e.g. "11:30 PM IST")
+  - userCurrentDateIST: string — the user's current date in IST
+  - matches: ARRAY of match objects, each with:
+      - title: match name
+      - teamA, teamB: team names
+      - kickoffIST: exact kickoff time in IST (e.g. "9:00 PM IST", "12:30 AM IST")
+      - isLive: boolean — TRUE if match is currently playing RIGHT NOW
+      - status: "🔴 LIVE NOW (Playing since X IST — Y min elapsed)" OR "📅 UPCOMING at X IST"
+      - channels: ARRAY of channel names, BEST Ultra HD channels FIRST (e.g. "DAZN LaLiga (BEST Ultra HD)", "Sky Sports Football (BEST Ultra HD)")
+      - cat: sport/league category
+
+⚡ CRITICAL READING INSTRUCTION:
+  - ALWAYS read result.matches (the array inside the object) to get the match list.
+  - For EACH match, READ result.matches[i].channels and LIST ALL of them in your response with BEST channels in bold first.
+  - ALWAYS show the exact kickoffIST time and status (LIVE NOW or UPCOMING) in your text response.
+  - NEVER ignore the channels array — it contains DAZN LaLiga, Sky Sports Football, Willow Cricket etc.`,
             parameters: {
                 type: "object",
                 properties: {
-                    query: { type: "string", description: "Team name, league, sport, or competition to search for. Leave empty to get all currently live/upcoming events." }
-                },
-                required: []
+                    query: { type: "string", description: "League, sport, or team to search for (e.g. 'laliga', 'football', 'cricket', 'wwe', 'premier league', 'Real Madrid', 'Barcelona', 'India vs SL', 'India', 'Sri Lanka'). Leave empty to get all live and upcoming matches today." }
+                }
             }
         }
     },
@@ -98,14 +116,13 @@ export const TOOL_DEFINITIONS = [
         type: "function",
         function: {
             name: "find_live_channel",
-            description: "Find a live TV channel to watch (news, entertainment, kids, sports channels, regional channels like Bangla/India/Pakistan/Arabic/USA). Use for 'PTV Sports channel', 'BBC News live', 'kids channels', 'Bollywood channel'. NOT for on-demand movies/shows — those use search_media/discover_content instead.",
+            description: "Find live TV channels for sports, football, cricket, WWE, entertainment, news, and cartoons/kids (e.g. DAZN LaLiga, Sky Sports Football, Willow Cricket, USA Network, CNBC, BBC, Cartoon Network, Disney Channel, Nickelodeon). Use when user asks 'where to watch', 'which channel', 'news channel', 'cartoon channel', 'kids channel', 'watch Real Madrid', 'watch India vs SL'. Always returns BEST Ultra HD channels first.",
             parameters: {
                 type: "object",
                 properties: {
-                    query: { type: "string", description: "Channel name to search for, e.g. 'ESPN', 'BBC News', 'Sony SAB'." },
-                    category: { type: "string", description: "Category/country to browse if no specific channel name given, e.g. 'sports', 'news', 'india', 'kids', 'usa'." }
-                },
-                required: []
+                    query: { type: "string", description: "Channel, sport, team, or genre to search for, e.g. 'news', 'cartoon', 'kids', 'laliga', 'football', 'cricket', 'wwe', 'Real Madrid', 'India vs SL', 'Disney', 'CNBC', 'Willow'." },
+                    category: { type: "string", description: "Category/region if browsing, e.g. 'sports', 'news', 'kids', 'cartoons', 'football', 'cricket', 'wwe', 'usa', 'india'." }
+                }
             }
         }
     }

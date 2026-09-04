@@ -127,6 +127,179 @@ export const FALLBACK_EVENTS = [
       }
     ],
     "source": "dudetv"
+  },
+  {
+    "id": 50027,
+    "title": "Real Betis vs Real Madrid",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/320px-Real_Madrid_CF.svg.png",
+    "cat": "LaLiga 🇪🇸",
+    "eventInfo": {
+      "teamA": "Real Betis",
+      "teamB": "Real Madrid",
+      "teamAFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Real_betis_logo.svg/320px-Real_betis_logo.svg.png",
+      "teamBFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/320px-Real_Madrid_CF.svg.png",
+      "eventName": "Real Betis vs Real Madrid",
+      "competition": "LaLiga EA Sports",
+      "isHot": "1",
+      "kickoffIST": "9:00 PM IST",
+      "kickoffHour": 21,
+      "kickoffMinute": 0,
+      "startTime": "9:00 PM IST",
+      "endTime": "11:00 PM IST"
+    },
+    "formats": ["DAZN LALIGA (BEST Ultra HD)", "LALIGA - FHD", "DAZN 1 HD"],
+    "decoded_channels": [
+      {
+        "title": "DAZN LaLiga (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/daznlaliga-es",
+        "type": "0"
+      },
+      {
+        "title": "DAZN LaLiga [Server 2]",
+        "link": "https://embed.st/embed/admin/dazn-laliga/1",
+        "type": "0"
+      }
+    ],
+    "source": "dudetv"
+  },
+  {
+    "id": 50030,
+    "title": "Real Madrid vs FC Barcelona (El Clásico)",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/320px-Real_Madrid_CF.svg.png",
+    "cat": "LaLiga 🇪🇸",
+    "eventInfo": {
+      "teamA": "Real Madrid",
+      "teamB": "FC Barcelona",
+      "teamAFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/320px-Real_Madrid_CF.svg.png",
+      "teamBFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/320px-FC_Barcelona_%28crest%29.svg.png",
+      "eventName": "Real Madrid vs FC Barcelona (El Clásico)",
+      "competition": "LaLiga EA Sports",
+      "isHot": "1",
+      "kickoffIST": "12:30 AM IST",
+      "kickoffHour": 0,
+      "kickoffMinute": 30,
+      "startTime": "12:30 AM IST",
+      "endTime": "2:30 AM IST"
+    },
+    "formats": ["DAZN LALIGA (BEST Ultra HD)", "Sky Sports Football (BEST Ultra HD)", "Fox Soccer Plus (BEST Ultra HD)"],
+    "decoded_channels": [
+      {
+        "title": "DAZN LaLiga (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/daznlaliga-es",
+        "type": "0"
+      }
+    ],
+    "source": "dudetv"
+  },
+  {
+    "id": 50028,
+    "title": "Manchester City vs Liverpool FC",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/320px-Manchester_City_FC_badge.svg.png",
+    "cat": "EPL 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "eventInfo": {
+      "teamA": "Manchester City",
+      "teamB": "Liverpool FC",
+      "teamAFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/320px-Manchester_City_FC_badge.svg.png",
+      "teamBFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/320px-Liverpool_FC.svg.png",
+      "eventName": "Manchester City vs Liverpool FC",
+      "competition": "Premier League",
+      "isHot": "1",
+      "kickoffIST": "9:00 PM IST",
+      "kickoffHour": 21,
+      "kickoffMinute": 0,
+      "startTime": "9:00 PM IST",
+      "endTime": "11:00 PM IST"
+    },
+    "formats": ["Sky Sports Football (BEST Ultra HD)", "TNT Sports 1 HD", "Sky Premier League"],
+    "decoded_channels": [
+      {
+        "title": "Sky Sports Football (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/skysportsfootball-uk",
+        "type": "0"
+      },
+      {
+        "title": "Sky Sports Football [Server 2]",
+        "link": "https://embed.st/embed/admin/sky-sports-football/1",
+        "type": "0"
+      }
+    ],
+    "source": "dudetv"
+  },
+  {
+    "id": 50006,
+    "title": "WWE Monday Night RAW Live",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/WWE_Raw_logo.svg/320px-WWE_Raw_logo.svg.png",
+    "cat": "WWE",
+    "eventInfo": {
+      "teamA": "WWE Superstars",
+      "teamB": "Monday Night RAW",
+      "eventName": "🥊 WWE Monday Night RAW Live",
+      "competition": "WWE",
+      "isHot": "1",
+      "kickoffIST": "5:30 AM IST",
+      "kickoffHour": 5,
+      "kickoffMinute": 30,
+      "startTime": "5:30 AM IST",
+      "endTime": "8:30 AM IST"
+    },
+    "formats": ["USA Network (BEST Ultra HD)", "Sony Sports Ten 1 HD", "TNT Sports 1 HD"],
+    "decoded_channels": [
+      {
+        "title": "USA Network (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/usanetwork-usa",
+        "type": "0"
+      },
+      {
+        "title": "USA Network [Server 2]",
+        "link": "https://embed.st/embed/admin/usa-network/1",
+        "type": "0"
+      }
+    ],
+    "source": "dudetv"
+  },
+  {
+    "id": 50029,
+    "title": "India vs Sri Lanka Live T20",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/320px-Flag_of_India.svg.png",
+    "cat": "CRICKET",
+    "eventInfo": {
+      "teamA": "India",
+      "teamB": "Sri Lanka",
+      "teamAFlag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/320px-Flag_of_India.svg.png",
+      "teamBFlag": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/320px-Flag_of_Sri_Lanka.svg.png",
+      "eventName": "India vs Sri Lanka T20 Trophy Live",
+      "competition": "International Cricket T20",
+      "isHot": "1",
+      "kickoffIST": "7:00 PM IST",
+      "kickoffHour": 19,
+      "kickoffMinute": 0,
+      "startTime": "7:00 PM IST",
+      "endTime": "10:30 PM IST"
+    },
+    "formats": ["Willow Cricket (BEST Ultra HD)", "Willow Cricket 2 (BEST Ultra HD)", "Sky Sports Cricket (BEST Ultra HD)", "Star Sports 1 HD"],
+    "decoded_channels": [
+      {
+        "title": "Willow Cricket (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/willowcricket-usa",
+        "type": "0"
+      },
+      {
+        "title": "Willow Cricket 2 (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/willowcricket2-usa",
+        "type": "0"
+      },
+      {
+        "title": "Sky Sports Cricket (BEST Ultra HD)",
+        "link": "https://epiembeds.online/embed/skysportscricket-uk",
+        "type": "0"
+      },
+      {
+        "title": "Star Sports 1 HD",
+        "link": "https://embed.st/embed/admin/star-sports-1-hd/1",
+        "type": "0"
+      }
+    ],
+    "source": "dudetv"
   }
 ];
 
