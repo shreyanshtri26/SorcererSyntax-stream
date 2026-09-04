@@ -1398,7 +1398,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                                         return (
                                                             <span className={`chat-live-badge ${isCdx ? 'is-cdx' : ''} ${item.isLive ? 'is-live' : ''}`}>
                                                                 {isCdx
-                                                                    ? '⚡ BEST HD'
+                                                                    ? '⚡ BEST Ultra HD'
                                                                     : item.isLive
                                                                         ? '🔴 LIVE'
                                                                         : (item.startTime && item.startTime.toUpperCase() !== 'LIVE NOW' ? item.startTime : 'Live TV')}
