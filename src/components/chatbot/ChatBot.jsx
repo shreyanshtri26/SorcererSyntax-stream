@@ -783,6 +783,92 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 };
                             });
 
+                            // ── Channel Name → CDX Slug Lookup ──────────────────────
+                            // Maps the channel name strings (used in text response) to
+                            // real CDX channel slugs so UI cards match the text exactly.
+                            const CHANNEL_NAME_TO_CDX_SLUG = {
+                                'dazn laliga':            { slug: 'dazn-laliga',               id: 'cdx_dazn_laliga',       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DAZN_la_liga_logo.png/320px-DAZN_la_liga_logo.png' },
+                                'sky sports football':    { slug: 'sky-sports-football',        id: 'cdx_sky_sports_football', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sky_Sports_Football_logo_2020.svg/320px-Sky_Sports_Football_logo_2020.svg.png' },
+                                'fox soccer plus':        { slug: 'fox-soccer-plus',            id: 'cdx_fox_soccer_plus',   image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Fox_Soccer_Plus.svg/320px-Fox_Soccer_Plus.svg.png' },
+                                'bein sports':            { slug: 'bein-sports',                id: 'cdx_bein_sports',       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/BeIN_Sports_1_logo.svg/320px-BeIN_Sports_1_logo.svg.png' },
+                                'canal+ extra 1':         { slug: 'canal-extra-1',              id: 'cdx_canal_extra_1',     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Canal%2B.svg/320px-Canal%2B.svg.png' },
+                                'canal+ extra 2':         { slug: 'canal-extra-2',              id: 'cdx_canal_extra_2',     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Canal%2B.svg/320px-Canal%2B.svg.png' },
+                                'sky sports cricket':     { slug: 'sky-sports-cricket',         id: 'cdx_sky_sports_cricket', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sky_Sports_Cricket_logo_2020.svg/320px-Sky_Sports_Cricket_logo_2020.svg.png' },
+                                'sky sports main event':  { slug: 'sky-sports-main-event',      id: 'cdx_sky_sports_main_event', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sky_Sports_Main_Event_logo_2020.svg/320px-Sky_Sports_Main_Event_logo_2020.svg.png' },
+                                'sky sports premier league': { slug: 'sky-sports-premier-league', id: 'cdx_sky_sports_pl', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sky_Sports_Main_Event_logo_2020.svg/320px-Sky_Sports_Main_Event_logo_2020.svg.png' },
+                                'willow cricket':         { slug: 'willow-cricket',             id: 'cdx_willow_cricket',    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Willow_Cricket_logo.svg/320px-Willow_Cricket_logo.svg.png' },
+                                'willow cricket 2':       { slug: 'willow-cricket-2',           id: 'cdx_willow_cricket_2',  image: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Willow_Cricket_logo.svg/320px-Willow_Cricket_logo.svg.png' },
+                                'usa network':            { slug: 'usa-network',                id: 'cdx_usa_network',       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/USA_Network_logo_%282016%29.svg/320px-USA_Network_logo_%282016%29.svg.png' },
+                                'dazn 1 usa':             { slug: 'dazn-1-usa',                 id: 'cdx_dazn_1_usa',        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DAZN_la_liga_logo.png/320px-DAZN_la_liga_logo.png' },
+                                'tnt sports':             { slug: 'tnt-sports',                 id: 'cdx_tnt_sports',        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/TNT_Sports_1_logo.svg/320px-TNT_Sports_1_logo.svg.png' },
+                                'supersport laliga':      { slug: 'supersport-laliga',          id: 'cdx_supersport_laliga', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sky_Sports_Main_Event_logo_2020.svg/320px-Sky_Sports_Main_Event_logo_2020.svg.png' },
+                            };
+
+                            // Normalize a channel name string for lookup
+                            const normalizeChName = (name) => name
+                                .replace(/\s*\(BEST Ultra HD\)/gi, '')
+                                .replace(/\s*\(BEST HD\)/gi, '')
+                                .replace(/\s*\(BEST\)/gi, '')
+                                .replace(/\bBEST\b/gi, '')
+                                .replace(/\bHD\b/gi, '')
+                                .trim().toLowerCase();
+
+                            // Build channel cards from the match's channels[] string array
+                            // by looking up real CDX objects — so cards match response text exactly
+                            const buildChannelCards = (channelNames) => {
+                                const cards = [];
+                                const seen = new Set();
+                                for (const name of channelNames) {
+                                    const key = normalizeChName(name);
+                                    if (seen.has(key)) continue;
+                                    seen.add(key);
+
+                                    // Try direct lookup
+                                    let cdxEntry = CHANNEL_NAME_TO_CDX_SLUG[key];
+
+                                    // Try partial match if no direct hit
+                                    if (!cdxEntry) {
+                                        for (const [mapKey, mapVal] of Object.entries(CHANNEL_NAME_TO_CDX_SLUG)) {
+                                            if (key.includes(mapKey) || mapKey.includes(key)) {
+                                                cdxEntry = mapVal;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    // Also try looking in CDX catalog by slug
+                                    if (!cdxEntry) {
+                                        const candidateSlug = key.replace(/\s+/g, '-');
+                                        const found = CDX_USA_WORLD_CHANNELS.find(c => c.slug === candidateSlug);
+                                        if (found) {
+                                            cdxEntry = { slug: found.slug, id: found.id, image: found.image };
+                                        }
+                                    }
+
+                                    const isBest = name.toUpperCase().includes('BEST');
+                                    const cleanName = name.replace(/\bCDX\b/gi, 'BEST');
+
+                                    cards.push({
+                                        id: cdxEntry?.id || `ch_${key.replace(/\s+/g, '_')}`,
+                                        slug: cdxEntry?.slug || null,
+                                        title: cleanName,
+                                        name: cleanName,
+                                        image: cdxEntry?.image || null,
+                                        category: 'Sports',
+                                        isCdx: Boolean(cdxEntry),
+                                        isBest: isBest || Boolean(cdxEntry),
+                                        priority: isBest ? 'BEST Ultra HD (Primary)' : 'Alternative Broadcast',
+                                        _kind: 'live_channel'
+                                    });
+                                }
+                                return cards;
+                            };
+
+                            // Attach channelCards to each compact match
+                            compact.forEach(m => {
+                                m.channelCards = buildChannelCards(m.channels);
+                            });
+
                             // Expose current IST time to AI in the tool result
                             result = JSON.stringify({
                                 userCurrentTimeIST: `${currentTimeIST} IST`,
@@ -1009,13 +1095,20 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                 toolResults.forEach(tr => {
                     try {
                         const parsed = JSON.parse(tr.content);
-                        // get_live_sports_events now returns { userCurrentTimeIST, matches: [...] }
-                        // All other tools return a plain array directly
-                        const items = (parsed && !Array.isArray(parsed) && Array.isArray(parsed.matches))
-                            ? parsed.matches
-                            : parsed;
-                        if (Array.isArray(items)) {
-                            // Movies/TV need a poster; live events/channels need an image + _kind tag
+                        // get_live_sports_events returns { userCurrentTimeIST, matches: [...] }
+                        // Each match now also has channelCards: [...] for exact card/response sync
+                        if (parsed && !Array.isArray(parsed) && Array.isArray(parsed.matches)) {
+                            for (const match of parsed.matches) {
+                                // Add the match event card itself
+                                if (match.title) mediaItems.push(match);
+                                // Add its channel cards (these match what's shown in text response)
+                                if (Array.isArray(match.channelCards)) {
+                                    mediaItems.push(...match.channelCards.filter(c => c.title));
+                                }
+                            }
+                        } else {
+                            // All other tools (movies, TV, find_live_channel) return plain arrays
+                            const items = Array.isArray(parsed) ? parsed : [];
                             const validItems = items.filter(i =>
                                 (i._kind === 'live_event' || i._kind === 'live_channel')
                                     ? Boolean(i.title)
@@ -1025,6 +1118,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                         }
                     } catch (e) { }
                 });
+
 
 
                 // Dedup and sort: live_event cards first, then live_channel (BEST first), then media
