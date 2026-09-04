@@ -1134,28 +1134,33 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
 
 
 
-                // Dedup and sort: live_event cards first, then live_channel (BEST first), then media
+                // Dedup and sort: BEST Ultra HD channel cards (1st) -> LIVE/Upcoming match cards (2nd) -> other channels & media (3rd)
                 mediaItems = Array.from(new Map(mediaItems.map(item => [`${item._kind || 'media'}_${item.id}`, item])).values());
                 mediaItems.sort((a, b) => {
-                    // Priority tier: live_event (0) > live_channel BEST (1) > live_channel other (2) > media (3)
+                    // Priority tier:
+                    // Tier 0: BEST Ultra HD channel cards (1st)
+                    // Tier 1: Match events (2nd - with LIVE NOW before UPCOMING)
+                    // Tier 2: Other live channels (3rd)
+                    // Tier 3: Other media (movies, TV shows)
                     const tier = (item) => {
-                        if (item._kind === 'live_event') return 0;
                         if (item._kind === 'live_channel') {
-                            const isBest = Boolean(item.isCdx || item.isBest || (item.id && String(item.id).startsWith('cdx_')) || item.cdxSlug);
-                            return isBest ? 1 : 2;
+                            const isBest = Boolean(item.isBest || (item.title || item.name || '').toUpperCase().includes('BEST'));
+                            return isBest ? 0 : 2;
                         }
+                        if (item._kind === 'live_event') return 1;
                         return 3;
                     };
                     const tA = tier(a);
                     const tB = tier(b);
                     if (tA !== tB) return tA - tB;
-                    // Within same tier: LIVE NOW before UPCOMING for live_event
+                    // Within Tier 1 (live_event): LIVE NOW before UPCOMING
                     if (a._kind === 'live_event' && b._kind === 'live_event') {
                         if (a.isLive && !b.isLive) return -1;
                         if (!a.isLive && b.isLive) return 1;
                     }
                     return 0;
                 });
+
 
                 setMessages(prev => [
                     ...prev,
@@ -1407,14 +1412,19 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                                         className="chat-media-poster"
                                                     />
                                                     {isLiveItem && (() => {
-                                                        const isCdx = Boolean(item.isCdx || item.isBest || (item.id && String(item.id).startsWith('cdx_')) || item.cdxSlug);
+                                                        if (kind === 'live_channel') {
+                                                            const isBestChannel = Boolean(item.isBest || (item.title || item.name || '').toUpperCase().includes('BEST'));
+                                                            return (
+                                                                <span className={`chat-live-badge ${isBestChannel ? 'is-cdx' : ''}`}>
+                                                                    {isBestChannel ? '⚡ BEST Ultra HD' : 'Live TV'}
+                                                                </span>
+                                                            );
+                                                        }
                                                         return (
-                                                            <span className={`chat-live-badge ${isCdx ? 'is-cdx' : ''} ${item.isLive ? 'is-live' : ''}`}>
-                                                                {isCdx
-                                                                    ? '⚡ BEST Ultra HD'
-                                                                    : item.isLive
-                                                                        ? '🔴 LIVE'
-                                                                        : (item.startTime && item.startTime.toUpperCase() !== 'LIVE NOW' ? item.startTime : 'Live TV')}
+                                                            <span className={`chat-live-badge ${item.isLive ? 'is-live' : ''}`}>
+                                                                {item.isLive
+                                                                    ? '🔴 LIVE'
+                                                                    : (item.startTime && item.startTime.toUpperCase() !== 'LIVE NOW' ? item.startTime : (item.kickoffIST || 'Upcoming'))}
                                                             </span>
                                                         );
                                                     })()}
@@ -1430,9 +1440,10 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                                             <div className="chat-media-meta">
                                                                 {kind === 'live_event'
                                                                     ? <span>{[item.teamA, item.teamB].filter(Boolean).join(' vs ') || item.cat}</span>
-                                                                    : <span>{(item.isCdx || item.isBest) ? '⚡ BEST Ultra HD' : (item.category || 'Live TV')}</span>}
+                                                                    : <span>{(item.isBest || (item.title || item.name || '').toUpperCase().includes('BEST')) ? '⚡ BEST Ultra HD' : (item.category || 'Live TV')}</span>}
                                                             </div>
                                                         ) : (
+
                                                             <div className="chat-media-meta">
                                                                 <span>⭐ {item.vote_average?.toFixed(1)}</span>
                                                                 <span>{item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4)}</span>
