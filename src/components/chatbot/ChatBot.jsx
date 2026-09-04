@@ -19,14 +19,20 @@ import './ChatBot.css';
 import { getSystemPrompt } from './prompts';
 import { TOOL_DEFINITIONS, processFilters } from './tools';
 
-// ---ni Configuration ---
+// --- Gemini Configuration ---
 // Paste your Google Gemini API key below (get one at https://aistudio.google.com/apikey)
 const API_K = import.meta.env.VITE_GEMINI_API_KEY || "";
 const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
-// Using the "flash-lite" tier: Gemini's lowest-cost, lowest-token/fastest
-// model family (cheaper and quicker than gemini-2.5-flash), while still
-// supporting tool/function calling. Helps stay under free-tier rate limits.
-const GEMINI_MODEL = "gemini-2.5-flash-lite";
+
+// Default to Gemini 3.1 Flash Lite (fast, generous limits, supports function calling).
+// Includes fallbacks in case of transient spikes in demand (503) or rate limits (429).
+const PRIMARY_MODEL = import.meta.env.VITE_GEMINI_MODEL || "gemini-3.1-flash-lite";
+const GEMINI_FALLBACK_MODELS = [
+    PRIMARY_MODEL,
+    "gemini-3.1-flash-lite",
+    "gemini-3-flash-preview",
+    "gemini-3.5-flash"
+].filter((m, idx, arr) => arr.indexOf(m) === idx);
 
 const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -347,69 +353,85 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
         }
     }, [isOpen]);
 
-    // Wraps the Gemini fetch call with automatic retry on 429 (rate limit).
-    // Gemini's free tier enforces both per-minute and per-day request quotas;
-    // a 429 usually means the per-minute limit was hit and clears itself
-    // within a few seconds, so a short backoff-and-retry resolves most cases
-    // instead of surfacing a scary error to the user immediately.
-    const fetchGeminiWithRetry = async (body, retries = 2) => {
-        let lastResponse = null;
-        let lastData = null;
+    // Wraps the Gemini fetch call with automatic retry on 429 (rate limit) or 503 (demand spike),
+    // and automatic fallback across candidate models if one is retired (404), overloaded, or rate-limited.
+    const fetchGeminiWithFallback = async (bodyBuilder, preferredModel = null) => {
+        let lastError = null;
+        let lastStatus = null;
 
-        for (let attempt = 0; attempt <= retries; attempt++) {
-            const response = await fetch(GEMINI_BASE_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${API_K}`
-                },
-                body: JSON.stringify(body)
-            });
+        const candidateModels = preferredModel
+            ? [preferredModel, ...GEMINI_FALLBACK_MODELS.filter(m => m !== preferredModel)]
+            : GEMINI_FALLBACK_MODELS;
 
-            if (response.status !== 429) {
-                return response;
-            }
+        for (const model of candidateModels) {
+            for (let attempt = 0; attempt < 2; attempt++) {
+                try {
+                    const body = bodyBuilder(model);
+                    const response = await fetch(GEMINI_BASE_URL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${API_K}`
+                        },
+                        body: JSON.stringify(body)
+                    });
 
-            lastResponse = response;
-            lastData = await response.json().catch(() => null);
+                    lastStatus = response.status;
+                    const data = await response.json().catch(() => null);
 
-            if (attempt < retries) {
-                const retryAfterHeader = parseInt(response.headers.get('retry-after'), 10);
-                const waitMs = Number.isFinite(retryAfterHeader) ? retryAfterHeader * 1000 : 1500 * Math.pow(2, attempt);
-                await new Promise(res => setTimeout(res, waitMs));
+                    if (response.ok && data?.choices?.[0]?.message) {
+                        return { model, data };
+                    }
+
+                    // Transient rate limit (429) or high demand (503) -> wait and retry once
+                    if (response.status === 429 || response.status === 503) {
+                        const retryAfterHeader = parseInt(response.headers.get('retry-after'), 10);
+                        const waitMs = Number.isFinite(retryAfterHeader) ? retryAfterHeader * 1000 : 1200 * (attempt + 1);
+                        await new Promise(res => setTimeout(res, waitMs));
+                        continue;
+                    }
+
+                    // Permanent error for this model (e.g. 404 retired model, quota exhausted, etc.) -> try next model
+                    lastError = new Error(data?.error?.message || `Gemini API error (${response.status})`);
+                    break;
+                } catch (err) {
+                    lastError = err;
+                }
             }
         }
 
-        const rateLimitError = new Error(
-            lastData?.error?.message || "Gemini API rate limit reached (429 Too Many Requests)."
-        );
-        rateLimitError.rateLimited = true;
-        rateLimitError.status = 429;
-        throw rateLimitError;
+        const finalError = lastError || new Error(`Gemini API unavailable (${lastStatus || 500})`);
+        finalError.status = lastStatus;
+        finalError.rateLimited = lastStatus === 429;
+        throw finalError;
     };
 
     const callOpenAI = async (newMessages) => {
+        if (!API_K) {
+            setMessages(prev => [
+                ...prev,
+                {
+                    id: Date.now(),
+                    role: 'assistant',
+                    content: "⚠️ Gemini API key is missing. Please add `VITE_GEMINI_API_KEY` to your `.env` file to chat with Sonu!"
+                }
+            ]);
+            return;
+        }
+
         setIsTyping(true);
         try {
-            const response = await fetchGeminiWithRetry({
-                model: GEMINI_MODEL,
+            const step1 = await fetchGeminiWithFallback((model) => ({
+                model,
                 messages: [
                     { role: "system", content: getSystemPrompt(currentTheme) },
                     ...newMessages.map(m => ({ role: m.role, content: m.content || "" }))
                 ],
                 tools: TOOL_DEFINITIONS,
                 tool_choice: "auto"
-            });
+            }));
 
-            const data = await response.json();
-
-            if (!response.ok) {
-                const apiError = new Error(data?.error?.message || `Gemini API error (${response.status})`);
-                apiError.status = response.status;
-                apiError.rateLimited = response.status === 429;
-                throw apiError;
-            }
-
+            const data = step1.data;
             const choice = data.choices?.[0];
             const message = choice?.message;
 
@@ -549,26 +571,18 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                     });
                 }
 
-                // Final call with tool results
-                const finalResponse = await fetchGeminiWithRetry({
-                    model: GEMINI_MODEL,
+                // Final call with tool results (prioritizing the model that handled step 1)
+                const step2 = await fetchGeminiWithFallback((model) => ({
+                    model,
                     messages: [
                         { role: "system", content: getSystemPrompt(currentTheme) },
                         ...processingMsgs,
                         ...toolResults
                     ]
-                });
+                }), step1.model);
 
-                const finalData = await finalResponse.json();
-
-                if (!finalResponse.ok) {
-                    const apiError = new Error(finalData?.error?.message || `Gemini API error (${finalResponse.status})`);
-                    apiError.status = finalResponse.status;
-                    apiError.rateLimited = finalResponse.status === 429;
-                    throw apiError;
-                }
-
-                const finalContent = finalData.choices[0].message.content;
+                const finalData = step2.data;
+                const finalContent = finalData.choices?.[0]?.message?.content || "";
 
                 // Extract items for UI
                 let mediaItems = [];

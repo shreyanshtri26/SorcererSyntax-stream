@@ -126,7 +126,7 @@ function InstallPrompt() {
           aria-label="Install app"
         >
           <div className="install-prompt-row">
-            <img src="/pwa-512x512.png" alt="" className="install-prompt-icon" />
+            <img src="/pwa-512x512 copy.png" alt="" className="install-prompt-icon" />
             <div className="install-prompt-text">
               <h3>Install Room 305</h3>
               <p>Add Room 305 to your device for faster access and a full-screen app experience.</p>
