@@ -749,7 +749,10 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                     defaultChannels = ['USA Network (BEST Ultra HD)', 'Sony Sports Ten 1 HD', 'TNT Sports 1 HD', 'Sony Sports Ten 3 HD (Hindi)'];
                                 }
 
-                                const rawChannels = (ev.formats || ev.decoded_channels?.map(c => c.title) || []);
+                                // Filter out internal/admin/test streams from raw API data
+                                const BLOCKED_CHANNEL_PATTERNS = /admin|embed\.st|test|debug|internal|\.m3u8|placeholder/i;
+                                const rawChannels = (ev.formats || ev.decoded_channels?.map(c => c.title) || [])
+                                    .filter(c => c && !BLOCKED_CHANNEL_PATTERNS.test(c));
                                 let channels = Array.from(new Set([...defaultChannels, ...rawChannels])).map(c => c.replace(/\bCDX\b/gi, 'BEST'));
                                 channels.sort((c1, c2) => {
                                     const c1Best = c1.toUpperCase().includes('BEST');
@@ -845,6 +848,8 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                         }
                                     }
 
+                                    // isBest = channel name explicitly says "(BEST Ultra HD)" or "(BEST)"
+                                    // CDX catalog lookup is ONLY for slug/image — it does NOT grant BEST status
                                     const isBest = name.toUpperCase().includes('BEST');
                                     const cleanName = name.replace(/\bCDX\b/gi, 'BEST');
 
@@ -855,8 +860,8 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                         name: cleanName,
                                         image: cdxEntry?.image || null,
                                         category: 'Sports',
-                                        isCdx: Boolean(cdxEntry),
-                                        isBest: isBest || Boolean(cdxEntry),
+                                        isCdx: isBest,   // Only CDX/BEST if name says BEST
+                                        isBest,           // Same rule
                                         priority: isBest ? 'BEST Ultra HD (Primary)' : 'Alternative Broadcast',
                                         _kind: 'live_channel'
                                     });
@@ -1026,6 +1031,13 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 } catch (e) { /* ignore category fetch failure */ }
                             }
 
+                            // Filter out internal/admin/test channels
+                            const BLOCKED = /admin|embed\.st|test stream|debug|placeholder/i;
+                            const filtered2 = matches.filter(ch => {
+                                const t = (ch.title || ch.name || '');
+                                return !BLOCKED.test(t);
+                            });
+
                             const checkIsCdx = (ch) => Boolean(
                                 (ch.id && String(ch.id).startsWith('cdx_')) ||
                                 ch.cdxSlug ||
@@ -1034,7 +1046,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                             );
 
                             // Dedup while keeping all channels
-                            const unique = Array.from(new Map(matches.map(ch => [ch.id || ch.title, ch])).values());
+                            const unique = Array.from(new Map(filtered2.map(ch => [ch.id || ch.title, ch])).values());
 
                             // Sort: CDX channels FIRST in order, then all other channels
                             unique.sort((a, b) => {
@@ -1062,6 +1074,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 };
                             });
                             result = JSON.stringify(compact);
+
                         }
                     } catch (err) {
                         console.error(`Error in tool ${fnName}:`, err);
