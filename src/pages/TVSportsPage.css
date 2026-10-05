@@ -2033,115 +2033,158 @@
    ANGEL (light theme)
    ========================================================================== */
 .dudetv-page.theme-angel {
-  color: #2c78c3;
+  color: #0a2540;
 }
 
 .dudetv-page.theme-angel .dude-page-title {
   font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  font-weight: 800;
   color: #0a2540;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .dudetv-page.theme-angel .section-heading {
   font-family: 'Rubik', sans-serif;
-  font-weight: 400;
-  color: #5F9EA0;
-  border-bottom: 1px solid rgba(173, 216, 230, 0.7);
+  font-weight: 700;
+  color: #0a2540;
+  border-bottom: 1px solid rgba(0, 168, 225, 0.35);
   text-shadow: none;
 }
 
 .dudetv-page.theme-angel .section-count {
-  background: rgba(142, 197, 252, 0.15);
-  color: #2c78c3;
+  background: rgba(0, 168, 225, 0.15);
+  color: #0077c2;
+  font-weight: 700;
 }
 
 .dudetv-page.theme-angel .popular-searches-label,
-.dudetv-page.theme-angel .search-summary-label,
-.dudetv-page.theme-angel .match-date-label,
+.dudetv-page.theme-angel .search-summary-label {
+  color: #102a45;
+  font-weight: 800;
+}
+
+.dudetv-page.theme-angel .match-date-label {
+  color: #0a2540;
+  font-weight: 800;
+}
+
 .dudetv-page.theme-angel .no-search-results p,
 .dudetv-page.theme-angel .dude-loading-container,
 .dudetv-page.theme-angel .dude-error-container {
-  color: #5a8db8;
+  color: #0a2540;
+  font-weight: 600;
 }
 
 /* Search */
 .dudetv-page.theme-angel .tv-search-input-container {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(142, 197, 252, 0.3);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid rgba(0, 168, 225, 0.4);
   border-radius: 30px;
-  box-shadow: 0 3px 10px rgba(142, 197, 252, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 120, 200, 0.12);
 }
 
 .dudetv-page.theme-angel .tv-search-input-container:focus-within {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: #8EC5FC;
-  box-shadow: 0 0 15px rgba(142, 197, 252, 0.4), 0 3px 10px rgba(142, 197, 252, 0.2);
+  background: #ffffff;
+  border-color: #00A8E1;
+  box-shadow: 0 0 20px rgba(0, 168, 225, 0.35), 0 4px 15px rgba(0, 120, 200, 0.15);
 }
 
 .dudetv-page.theme-angel .tv-search-input {
-  color: #5a8db8;
+  color: #0a2540;
+  font-weight: 600;
   font-family: 'Rubik', sans-serif;
 }
 
 .dudetv-page.theme-angel .tv-search-input::placeholder {
-  color: rgba(90, 141, 184, 0.6);
+  color: #3b5f7a;
+  font-weight: 600;
 }
 
 .dudetv-page.theme-angel .tv-search-input-icon,
 .dudetv-page.theme-angel .voice-search-button .mic-icon {
-  color: #5a8db8;
+  color: #0077c2;
 }
 
 .dudetv-page.theme-angel .tv-clear-search-btn {
-  background: rgba(142, 197, 252, 0.2);
-  color: #5a8db8;
+  background: rgba(0, 168, 225, 0.18);
+  color: #0a2540;
+  font-weight: 700;
+}
+
+/* Quick Category / Popular Search Pills */
+.dudetv-page.theme-angel .popular-search-pill {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 168, 225, 0.35);
+  color: #0a2540;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 120, 200, 0.08);
+}
+
+.dudetv-page.theme-angel .popular-search-pill:hover {
+  background: #ffffff;
+  border-color: #00A8E1;
+  color: #0077c2;
+  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.2);
+}
+
+.dudetv-page.theme-angel .popular-search-pill.active {
+  background: linear-gradient(135deg, #00A8E1, #0077c2);
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 168, 225, 0.4);
 }
 
 /* Tabs */
 .dudetv-page.theme-angel .dude-tab-bar {
-  background: linear-gradient(135deg, rgba(161, 196, 253, 0.28), rgba(135, 206, 235, 0.28));
-  border-color: rgba(135, 206, 250, 0.4);
-  box-shadow: 0 4px 15px rgba(142, 197, 252, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(0, 168, 225, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 120, 200, 0.12);
 }
 
 .dudetv-page.theme-angel .dude-tab-btn {
-  color: #335;
+  color: #0a2540;
+  font-weight: 700;
   font-family: 'Rubik', sans-serif;
 }
 
 .dudetv-page.theme-angel .dude-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
-  color: #113a5c;
+  background: rgba(0, 168, 225, 0.12);
+  color: #005a94;
 }
 
 .dudetv-page.theme-angel .dude-tab-btn.active {
-  background: linear-gradient(135deg, #a1c4fd, #87CEEB);
-  border-color: #87CEEB;
-  color: #113a5c;
-  box-shadow: 0 0 20px rgba(142, 197, 252, 0.5);
+  background: linear-gradient(135deg, #00A8E1, #0077c2);
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 168, 225, 0.45);
 }
 
 /* Chips */
 .dudetv-page.theme-angel .cat-chip-btn,
 .dudetv-page.theme-angel .search-tab-pill {
-  background: rgba(142, 197, 252, 0.12);
-  border-color: rgba(135, 206, 250, 0.4);
-  color: #335;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 168, 225, 0.35);
+  color: #0a2540;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 120, 200, 0.08);
 }
 
 .dudetv-page.theme-angel .cat-chip-btn:hover,
-.dudetv-page.theme-angel .search-tab-pill:hover,
-.dudetv-page.theme-angel .cat-chip-btn.active,
-.dudetv-page.theme-angel .search-tab-pill.active {
-  background: linear-gradient(135deg, #a1c4fd, #87CEEB);
-  border-color: #87CEEB;
-  color: #113a5c;
+.dudetv-page.theme-angel .search-tab-pill:hover {
+  background: rgba(0, 168, 225, 0.15);
+  border-color: #00A8E1;
+  color: #005a94;
 }
 
 .dudetv-page.theme-angel .cat-chip-btn.active,
 .dudetv-page.theme-angel .search-tab-pill.active {
-  box-shadow: 0 4px 16px rgba(142, 197, 252, 0.45);
+  background: linear-gradient(135deg, #00A8E1, #0077c2);
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 168, 225, 0.4);
 }
 
 /* Badges */
@@ -2267,11 +2310,13 @@
 
 /* Misc surfaces */
 .dudetv-page.theme-angel .match-date-input {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(142, 197, 252, 0.4);
-  color: #335;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 168, 225, 0.45);
+  color: #0a2540;
+  font-weight: 700;
   border-radius: 30px;
   color-scheme: light;
+  box-shadow: 0 2px 8px rgba(0, 120, 200, 0.1);
 }
 
 .dudetv-page.theme-angel .search-summary-banner {
@@ -2732,5 +2777,183 @@
   .sk,
   .dude-loading-text {
     animation: none;
+  }
+}
+
+/* ===== ALL CATEGORIES VIEW ===== */
+.all-categories-view {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.category-section {
+  background: var(--theme-card-bg, rgba(20, 14, 16, 0.85));
+  border: 1px solid var(--theme-border, rgba(229, 9, 20, 0.2));
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.category-section:hover {
+  border-color: var(--theme-accent, #e50914);
+}
+
+.category-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--theme-card-bg, rgba(20, 14, 16, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.category-section-header:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.category-section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.category-section-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.category-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-section-count {
+  font-size: 0.8rem;
+  color: var(--theme-accent, #e50914);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.category-section-chevron {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.category-section-chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+.category-section-channels {
+  padding: 0 16px 16px;
+}
+
+.category-channels-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 4px 0 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-accent, #e50914) transparent;
+}
+
+.category-channels-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.category-channels-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.category-channels-scroll::-webkit-scrollbar-thumb {
+  background: var(--theme-accent, #e50914);
+  border-radius: 10px;
+}
+
+.category-channels-scroll .channel-modern-card {
+  min-width: 220px;
+  max-width: 220px;
+  flex-shrink: 0;
+}
+
+.category-section-empty {
+  padding: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .category-section-header {
+    padding: 12px 14px;
+  }
+  
+  .category-section-emoji {
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+  
+  .category-section-title {
+    font-size: 1rem;
+  }
+  
+  .category-section-count {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+  }
+  
+  .category-channels-scroll .channel-modern-card {
+    min-width: 180px;
+    max-width: 180px;
+  }
+  
+  .category-section-channels {
+    padding: 0 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-channels-scroll .channel-modern-card {
+    min-width: 160px;
+    max-width: 160px;
+  }
+  
+  .category-section-title-row {
+    gap: 8px;
   }
 }

@@ -41,6 +41,27 @@ const SPORT_CHIPS = [
 ];
 const BOARD_CATEGORIES = new Set(SPORT_CHIPS.map(c => c.id));
 
+const CATEGORY_EMOJIS = {
+  'cdx_usa': '🇺🇸',
+  'cats/sports.json': '⚽',
+  'cats/bangla.json': '🇧🇩',
+  'cats/kolkata.json': '🏙️',
+  'cats/india.json': '🇮🇳',
+  'cats/pakistan.json': '🇵🇰',
+  'cats/entertainment.json': '🎭',
+  'cats/kids.json': '👶',
+  'cats/music.json': '🎵',
+  'cats/information.json': '📡',
+  'cats/religion.json': '🕌',
+  'cats/arabic.json': '🌙',
+  'cats/cinemas.json': '🎬',
+  'cats/news.json': '📰',
+  'cats/hoichoi.json': '🎥',
+  'cats/chorki.json': '🎞️',
+  'cats/netflix.json': '🍿',
+  'narly_all': '🌐'
+};
+
 // Exact category when the source uses board categories (trendy48 / streamed.pk), keyword match otherwise
 const matchesSport = (ev, sf) => {
   const cat = (ev.t48Cat || ev.cat || '').toLowerCase();
@@ -97,8 +118,11 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   const [highlights, setHighlights] = useState([]);
 
   // Category Item selection for Worldwide TV - Defaults to USA Specific HD (CDX)
-  const [selectedCategoryLink, setSelectedCategoryLink] = useState('cdx_usa');
+  const [selectedCategoryLink, setSelectedCategoryLink] = useState('all');
   const [categoryItems, setCategoryItems] = useState([]);
+  const [allCategoryData, setAllCategoryData] = useState({});
+  const [loadingAllCategories, setLoadingAllCategories] = useState(false);
+  const [collapsedCategories, setCollapsedCategories] = useState(new Set());
 
   // Active Stream / Player State
   const [activeItem, setActiveItem] = useState(null);
@@ -208,11 +232,11 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
 
         if (catsRes.status === 'fulfilled' && Array.isArray(catsRes.value) && catsRes.value.length > 0) {
           setCategories(catsRes.value);
-          const defaultCat = catsRes.value.find(c => c && c.catLink === 'cdx_usa') || catsRes.value[0];
-          if (defaultCat && defaultCat.catLink) setSelectedCategoryLink(defaultCat.catLink);
+          const defaultCat = catsRes.value.find(c => c && c.catLink === 'all') || { catLink: 'all' };
+          if (defaultCat && defaultCat.catLink) setSelectedCategoryLink('all');
         } else {
           setCategories(FALLBACK_CATEGORIES);
-          setSelectedCategoryLink('cdx_usa');
+          setSelectedCategoryLink('all');
         }
 
         if (sportsRes.status === 'fulfilled' && Array.isArray(sportsRes.value) && sportsRes.value.length > 0) {
@@ -282,6 +306,42 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       isMounted = false;
     };
   }, [selectedCategoryLink]);
+
+  // All-Categories Loader - Loads all 18 categories in parallel
+  useEffect(() => {
+    if (selectedCategoryLink !== 'all') return;
+    let isMounted = true;
+    
+    const loadAllCategories = async () => {
+      setLoadingAllCategories(true);
+      const results = {};
+      
+      // Load all categories in parallel with Promise.allSettled
+      const promises = categories.map(async (cat) => {
+        try {
+          const items = await fetchDudeCategoryItems(cat.catLink);
+          return { catLink: cat.catLink, items: items || [] };
+        } catch {
+          return { catLink: cat.catLink, items: [] };
+        }
+      });
+      
+      const settled = await Promise.allSettled(promises);
+      settled.forEach(result => {
+        if (result.status === 'fulfilled' && result.value) {
+          results[result.value.catLink] = result.value.items;
+        }
+      });
+      
+      if (isMounted) {
+        setAllCategoryData(results);
+        setLoadingAllCategories(false);
+      }
+    };
+    
+    loadAllCategories();
+    return () => { isMounted = false; };
+  }, [selectedCategoryLink, categories]);
 
   // Deep Link Autoplay Handler: watches URL path (/channel/:slug, /sports/:id) and ?channel= / ?play= query params
   useEffect(() => {
@@ -459,6 +519,15 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       setSearchParams({ tab: activeTab });
     }
   };
+
+  const toggleCategoryCollapse = useCallback((catLink) => {
+    setCollapsedCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(catLink)) next.delete(catLink);
+      else next.add(catLink);
+      return next;
+    });
+  }, []);
 
   // Events on the chosen calendar day (sources without a kickoff date count as today)
   const eventsOnSelectedDay = useMemo(() => {
@@ -726,7 +795,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
             role="tab"
             aria-selected={activeTab === 'tv'}
           >
-            🌍 Worldwide TV ({filteredCategories.length} Categories)
+            📺 Live TV & Shows ({filteredCategories.length} Categories)
           </button>
           <button
             className={`dude-tab-btn ${activeTab === 'highlights' ? 'active' : ''}`}
@@ -1022,10 +1091,10 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
         </section>
       )}
 
-      {/* Tab 3: Worldwide TV & Categories */}
+      {/* Tab 3: Live TV & Shows (Worldwide TV) */}
       {!loading && activeTab === 'tv' && (
         <section className="dude-section">
-          {/* Category Chips Bar with Slide Chevrons */}
+          {/* Category Chips Bar with "All" option */}
           <div className="carousel-slider-wrapper">
             <button
               type="button"
@@ -1040,16 +1109,24 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
               className="dude-categories-carousel grab-to-slide"
               onWheel={(e) => handleCarouselWheel(e, categoriesCarouselRef)}
             >
+              {/* ALL pill */}
+              <button
+                className={`cat-chip-btn ${selectedCategoryLink === 'all' ? 'active' : ''}`}
+                onClick={() => setSelectedCategoryLink('all')}
+              >
+                <span className="cat-letter-icon">📺</span>
+                <span className="cat-title-text">All Categories</span>
+              </button>
               {filteredCategories.map((cat) => {
                 const isActive = selectedCategoryLink === cat.catLink;
-                const firstLetter = cat.title.charAt(0).toUpperCase();
+                const emoji = CATEGORY_EMOJIS[cat.catLink] || cat.title.charAt(0).toUpperCase();
                 return (
                   <button
                     key={cat.id}
                     className={`cat-chip-btn ${isActive ? 'active' : ''}`}
                     onClick={() => setSelectedCategoryLink(cat.catLink)}
                   >
-                    <span className="cat-letter-icon">{firstLetter}</span>
+                    <span className="cat-letter-icon">{emoji}</span>
                     <span className="cat-title-text">{cat.title}</span>
                   </button>
                 );
@@ -1065,82 +1142,207 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
             </button>
           </div>
 
-          <div className="section-header-row">
-            <h2 className="section-heading">Channels in Category</h2>
-            <span className="section-count">{filteredCategoryItems.length} Channels</span>
-          </div>
+          {/* All Categories View */}
+          {selectedCategoryLink === 'all' ? (
+            <div className="all-categories-view">
+              {loadingAllCategories && Object.keys(allCategoryData).length === 0 ? (
+                <div className="dude-loading-container">
+                  <div className="loading-spinner medium">
+                    <div className="spinner-ring"></div>
+                    <div className="spinner-ring"></div>
+                    <div className="spinner-ring"></div>
+                  </div>
+                  <p className="dude-loading-text">Loading all Live TV categories...</p>
+                </div>
+              ) : (
+                categories.map((cat) => {
+                  const items = allCategoryData[cat.catLink] || [];
+                  const isCollapsed = collapsedCategories.has(cat.catLink);
+                  const emoji = CATEGORY_EMOJIS[cat.catLink] || '📺';
+                  
+                  // Apply search filter
+                  const filteredItems = searchQuery.trim()
+                    ? items.filter(ci => {
+                        const q = searchQuery.toLowerCase();
+                        return (ci.title || '').toLowerCase().includes(q) || (ci.cat || '').toLowerCase().includes(q);
+                      })
+                    : items;
+                  
+                  if (searchQuery.trim() && filteredItems.length === 0) return null;
+                  
+                  return (
+                    <div key={cat.id} className={`category-section ${isCollapsed ? 'collapsed' : ''}`}>
+                      <div
+                        className="category-section-header"
+                        onClick={() => toggleCategoryCollapse(cat.catLink)}
+                      >
+                        <div className="category-section-title-row">
+                          <span className="category-section-emoji">{emoji}</span>
+                          <h3 className="category-section-title">{cat.title}</h3>
+                          <span className="category-section-count">{filteredItems.length} channels</span>
+                        </div>
+                        <span className={`category-section-chevron ${isCollapsed ? 'collapsed' : ''}`}>
+                          ▾
+                        </span>
+                      </div>
+                      
+                      {!isCollapsed && (
+                        <div className="category-section-channels">
+                          {filteredItems.length === 0 ? (
+                            <div className="category-section-empty">
+                              <p>Loading channels...</p>
+                            </div>
+                          ) : (
+                            <div className="category-channels-scroll">
+                              {filteredItems.map((ci) => {
+                                const title = ci.title || ci.name;
+                                const slug = ci.slug || ci.id;
+                                const flag = ci.flag || 'us';
+                                const category = ci.category || ci.cat || 'Entertainment';
+                                const viewers = ci.viewers || Math.floor(Math.random() * 4) + 1;
 
-          {filteredCategoryItems.length === 0 ? (
-            <div className="no-search-results">
-              <p>No channels found matching "{searchQuery}" in this category.</p>
-              <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
-            </div>
-          ) : (
-            <div className="modern-channels-grid">
-              {filteredCategoryItems.map((ci) => {
-                const title = ci.title || ci.name;
-                const slug = ci.slug || ci.id;
-                const flag = ci.flag || 'us';
-                const category = ci.category || ci.cat || 'Entertainment';
-                const viewers = ci.viewers || Math.floor(Math.random() * 4) + 1;
+                                return (
+                                  <a
+                                    key={ci.id || slug}
+                                    className="channel-modern-card group"
+                                    href={ci.href || `/channel/${slug}`}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      handlePlayItem(ci);
+                                    }}
+                                  >
+                                    <div className="channel-modern-banner">
+                                      <SafeImage
+                                        src={ci.image}
+                                        alt={title}
+                                        className="channel-modern-img"
+                                        type="logo"
+                                      />
+                                      <div className="channel-modern-overlay" />
+                                      {flag && (
+                                        <div className="channel-modern-flag">
+                                          <img
+                                            src={`https://flagcdn.com/20x15/${flag.toLowerCase()}.png`}
+                                            alt={`${flag} flag`}
+                                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                          />
+                                        </div>
+                                      )}
+                                    </div>
 
-                return (
-                  <a
-                    key={ci.id || slug}
-                    className="channel-modern-card group"
-                    href={ci.href || `/channel/${slug}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      handlePlayItem(ci);
-                    }}
-                  >
-                    <div className="channel-modern-banner">
-                      <SafeImage
-                        src={ci.image}
-                        alt={title}
-                        className="channel-modern-img"
-                        type="logo"
-                      />
-                      <div className="channel-modern-overlay" />
-                      {flag && (
-                        <div className="channel-modern-flag">
-                          <img
-                            src={`https://flagcdn.com/20x15/${flag.toLowerCase()}.png`}
-                            alt={`${flag} flag`}
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                          />
+                                    <div className="channel-modern-info">
+                                      <div className="channel-modern-header">
+                                        <h3 className="channel-modern-title">{title}</h3>
+                                        <span className="channel-modern-free">FREE</span>
+                                      </div>
+                                      <div className="channel-modern-footer">
+                                        <div className="channel-modern-tags">
+                                          <span className="channel-modern-pill">{category}</span>
+                                        </div>
+                                        <div className="channel-modern-live">
+                                          <span className="pulse-ping-box">
+                                            <span className="pulse-ping-wave" />
+                                            <span className="pulse-ping-core" />
+                                          </span>
+                                          <span className="channel-modern-viewers">{viewers}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
-
-                    <div className="channel-modern-info">
-                      <div className="channel-modern-header">
-                        <h3 className="channel-modern-title">{title}</h3>
-                        <span className="channel-modern-free">FREE</span>
-                      </div>
-                      <p className="channel-modern-desc">Watch endless programming on this 24/7 channel broadcast.</p>
-                      <div className="channel-modern-footer">
-                        <div className="channel-modern-tags">
-                          <span className="channel-modern-pill">{category}</span>
-                          <span className="channel-modern-pill">24/7 Stream</span>
-                        </div>
-                        <div className="channel-modern-live">
-                          <span className="pulse-ping-box">
-                            <span className="pulse-ping-wave" />
-                            <span className="pulse-ping-core" />
-                          </span>
-                          <span className="channel-modern-viewers">{viewers}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                );
-              })}
+                  );
+                })
+              )}
             </div>
+          ) : (
+            /* Single Category View (existing behavior) */
+            <>
+              <div className="section-header-row">
+                <h2 className="section-heading">Channels in Category</h2>
+                <span className="section-count">{filteredCategoryItems.length} Channels</span>
+              </div>
+
+              {filteredCategoryItems.length === 0 ? (
+                <div className="no-search-results">
+                  <p>No channels found matching "{searchQuery}" in this category.</p>
+                  <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
+                </div>
+              ) : (
+                <div className="modern-channels-grid">
+                  {filteredCategoryItems.map((ci) => {
+                    const title = ci.title || ci.name;
+                    const slug = ci.slug || ci.id;
+                    const flag = ci.flag || 'us';
+                    const category = ci.category || ci.cat || 'Entertainment';
+                    const viewers = ci.viewers || Math.floor(Math.random() * 4) + 1;
+
+                    return (
+                      <a
+                        key={ci.id || slug}
+                        className="channel-modern-card group"
+                        href={ci.href || `/channel/${slug}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handlePlayItem(ci);
+                        }}
+                      >
+                        <div className="channel-modern-banner">
+                          <SafeImage
+                            src={ci.image}
+                            alt={title}
+                            className="channel-modern-img"
+                            type="logo"
+                          />
+                          <div className="channel-modern-overlay" />
+                          {flag && (
+                            <div className="channel-modern-flag">
+                              <img
+                                src={`https://flagcdn.com/20x15/${flag.toLowerCase()}.png`}
+                                alt={`${flag} flag`}
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                              />
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="channel-modern-info">
+                          <div className="channel-modern-header">
+                            <h3 className="channel-modern-title">{title}</h3>
+                            <span className="channel-modern-free">FREE</span>
+                          </div>
+                          <p className="channel-modern-desc">Watch endless programming on this 24/7 channel broadcast.</p>
+                          <div className="channel-modern-footer">
+                            <div className="channel-modern-tags">
+                              <span className="channel-modern-pill">{category}</span>
+                              <span className="channel-modern-pill">24/7 Stream</span>
+                            </div>
+                            <div className="channel-modern-live">
+                              <span className="pulse-ping-box">
+                                <span className="pulse-ping-wave" />
+                                <span className="pulse-ping-core" />
+                              </span>
+                              <span className="channel-modern-viewers">{viewers}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </>
           )}
         </section>
       )}
+
 
       {/* Tab 4: Match Highlights */}
       {!loading && activeTab === 'highlights' && (

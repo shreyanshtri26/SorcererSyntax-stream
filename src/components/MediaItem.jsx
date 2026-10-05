@@ -126,27 +126,8 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
         );
     }
 
-    // Render Theme-Authentic Brand Ribbon Badges
+    // Theme Brand Ribbon Badges removed as per design requirement
     const renderBrandBadge = () => {
-        if (currentTheme === 'devil') {
-            return (
-                <div className="theme-brand-badge devil-badge" title="Top 10 Worldwide">
-                    <span className="badge-ribbon-red">TOP 10</span>
-                </div>
-            );
-        } else if (currentTheme === 'angel') {
-            return (
-                <div className="theme-brand-badge angel-badge" title="Cinema VIP Selection">
-                    <span className="badge-prime-text">★ VIP</span>
-                </div>
-            );
-        } else if (currentTheme === 'hannibal') {
-            return (
-                <div className="theme-brand-badge hannibal-badge" title="Cinema Exclusive Original">
-                    <span className="badge-hulu-text">ORIGINAL</span>
-                </div>
-            );
-        }
         return null;
     };
 

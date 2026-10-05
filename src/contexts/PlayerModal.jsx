@@ -122,6 +122,9 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const [currentDomainIndex, setCurrentDomainIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const iframeRef = useRef(null);
+  const screenRef = useRef(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isPseudoFullscreen, setIsPseudoFullscreen] = useState(false);
   const { mediaType, id, season: urlSeason, episode: urlEpisode } = useParams(); // Get type, id, season, and episode from URL
   const { loading: trailerLoading, error: trailerError, trailerKey } = useTrailerFetching(mediaType, id, media, type, selectedSeason);
   const [isPlayingTrailer, setIsPlayingTrailer] = useState(showTrailer);
@@ -297,6 +300,52 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   useEffect(() => {
     setIsPlayingTrailer(showTrailer);
   }, [showTrailer]);
+
+  // Fullscreen: Provider iframes can lose fullscreen permissions, or user wants seamless fullscreen
+  // of the player wrapper element itself (matching DudeTvPlayer behavior).
+  useEffect(() => {
+    const onChange = () => setIsFullscreen(Boolean(document.fullscreenElement || document.webkitFullscreenElement));
+    document.addEventListener('fullscreenchange', onChange);
+    document.addEventListener('webkitfullscreenchange', onChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', onChange);
+      document.removeEventListener('webkitfullscreenchange', onChange);
+    };
+  }, []);
+
+  // Escape key exits pseudo-fullscreen first before closing modal
+  useEffect(() => {
+    if (!isPseudoFullscreen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        e.stopImmediatePropagation();
+        setIsPseudoFullscreen(false);
+      }
+    };
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  }, [isPseudoFullscreen]);
+
+  const toggleFullscreen = () => {
+    const el = screenRef.current;
+    if (!el) return;
+    if (isPseudoFullscreen) {
+      setIsPseudoFullscreen(false);
+      return;
+    }
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      return;
+    }
+    const request = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!request) {
+      setIsPseudoFullscreen(true);
+      return;
+    }
+    Promise.resolve(request.call(el))
+      .then(() => screen.orientation?.lock?.('landscape').catch(() => {}))
+      .catch(() => setIsPseudoFullscreen(true));
+  };
 
   // --- Fetch HDHub Streams Effect ---
   useEffect(() => {
@@ -1144,8 +1193,23 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
           <div className={`player-container ${isPlayingTrailer || currentVideoUrl || selectedPlayerSource === 'hdhub' ? 'visible' : 'hidden'}`}>
             {/* Dynamic Theater Ambilight Glow */}
             <div className="player-ambilight-glow"></div>
-            {isPlayingTrailer && trailerKey ? (
-              <div className="player-wrapper trailer-active">
+            <div
+              ref={screenRef}
+              className={`player-wrapper ${isPseudoFullscreen ? 'player-pseudo-fs' : ''} ${
+                isPlayingTrailer ? 'trailer-active' : selectedPlayerSource === 'hdhub' ? 'hdhub-active' : currentVideoUrl ? 'embedded-active' : 'placeholder'
+              }`}
+            >
+              <button
+                type="button"
+                className="player-fs-btn"
+                onClick={toggleFullscreen}
+                aria-label={isFullscreen || isPseudoFullscreen ? 'Exit full screen' : 'Full screen'}
+                title={isFullscreen || isPseudoFullscreen ? 'Exit full screen (Esc)' : 'Full screen'}
+              >
+                {isFullscreen || isPseudoFullscreen ? '⤡' : '⛶'}
+              </button>
+
+              {isPlayingTrailer && trailerKey ? (
                 <ReactPlayer
                   url={`https://www.youtube.com/watch?v=${trailerKey}`}
                   controls={true}
@@ -1156,92 +1220,90 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
                   className="react-player"
                   onError={() => setError('Failed to play trailer. Please try again.')}
                 />
-              </div>
-            ) : isPlayingTrailer && trailerLoading ? (
-              <div className="player-wrapper loading"><div className="trailer-loading">Loading trailer...</div></div>
-            ) : isPlayingTrailer && trailerError ? (
-              <div className="player-wrapper error"><div className="trailer-error">{trailerError}</div></div>
-            ) : selectedPlayerSource === 'hdhub' ? (
-              <div className="player-wrapper hdhub-active">
-                {isLoadingHdhub ? (
-                  <div className="player-message"><div className="trailer-loading">Loading streams...</div></div>
-                ) : hdhubError ? (
-                  <div className="player-message error-message"><p>{hdhubError}</p></div>
-                ) : selectedHdhubStream ? (
-                  <div style={{width: '100%', height: '100%', position: 'relative'}}>
-                    <ReactPlayer
-                      url={selectedHdhubStream.url}
-                      controls={true}
-                      width="100%"
-                      height="100%"
-                      style={{ position: 'absolute', top: 0, left: 0 }}
-                      playing={true}
-                      config={{
-                        file: {
-                          attributes: {
-                            crossOrigin: 'anonymous'
-                          },
-                          tracks: selectedHdhubStream.subtitles ? selectedHdhubStream.subtitles.map((s, idx) => ({
-                            kind: 'subtitles', src: s.url, srcLang: s.lang, default: idx === 0, label: s.lang
-                          })) : []
-                        }
-                      }}
-                      onError={(e) => {
-                        console.error("ReactPlayer Error:", e);
-                        // If it fails, log it. Might be an unsupported MKV format.
-                      }}
-                    />
-                    {/* Overlay to switch streams if multiple exist */}
-                    {hdhubStreams.length > 1 && (
-                      <div className="hdhub-stream-selector" style={{position: 'absolute', top: 10, right: 10, zIndex: 10, background: 'rgba(0,0,0,0.7)', padding: '5px', borderRadius: '5px'}}>
-                        <select 
-                          value={selectedHdhubStream.url} 
-                          onChange={(e) => setSelectedHdhubStream(hdhubStreams.find(s => s.url === e.target.value))}
-                          style={{background: 'transparent', color: 'white', border: 'none', outline: 'none', fontSize: '12px'}}
-                        >
-                          {hdhubStreams.map((s, idx) => (
-                            <option key={idx} value={s.url} style={{color: 'black'}}>
-                              {s.name} {s.description ? `(${s.description.split('\\n')[0].slice(0, 30)}...)` : ''}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="player-message"><p>No stream selected</p></div>
-                )}
-              </div>
-            ) : currentVideoUrl ? ( // Show embedded player if URL exists
-              <div className="player-wrapper embedded-active">
-                {playerError && (
-                  <div className="player-message error-message"><p>{playerError}</p></div>
-                )}
-                {/* VidSrc trying alternative message */}
-                {selectedPlayerSource === 'vidsrc' && currentDomainIndex > 0 && !videoLoaded && !playerError && (
-                  <div className="player-message"><p>Trying alternative source...</p></div>
-                )}
-                <iframe
-                  ref={iframeRef}
-                  id={selectedPlayerSource === 'screenscape' ? 'screenscape-player' : undefined}
-                  src={currentVideoUrl}
-                  key={`${selectedPlayerSource}-${type}-${media.id}-${selectedSeason}-${selectedEpisode}-${currentDomainIndex}`}
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowFullScreen
-                  allow="autoplay; encrypted-media"
-                  title="Video Player"
-                  onError={handleIframeError}
-                  onLoad={handleIframeLoad}
-                ></iframe>
-              </div>
-            ) : ( // Message when no embedded player is selected/active
-              <div className="player-wrapper placeholder">
-                <p>Select an embedded player above or choose a streaming service.</p>
-              </div>
-            )}
+              ) : isPlayingTrailer && trailerLoading ? (
+                <div className="trailer-loading">Loading trailer...</div>
+              ) : isPlayingTrailer && trailerError ? (
+                <div className="trailer-error">{trailerError}</div>
+              ) : selectedPlayerSource === 'hdhub' ? (
+                <>
+                  {isLoadingHdhub ? (
+                    <div className="player-message"><div className="trailer-loading">Loading streams...</div></div>
+                  ) : hdhubError ? (
+                    <div className="player-message error-message"><p>{hdhubError}</p></div>
+                  ) : selectedHdhubStream ? (
+                    <div style={{width: '100%', height: '100%', position: 'relative'}}>
+                      <ReactPlayer
+                        url={selectedHdhubStream.url}
+                        controls={true}
+                        width="100%"
+                        height="100%"
+                        style={{ position: 'absolute', top: 0, left: 0 }}
+                        playing={true}
+                        config={{
+                          file: {
+                            attributes: {
+                              crossOrigin: 'anonymous'
+                            },
+                            tracks: selectedHdhubStream.subtitles ? selectedHdhubStream.subtitles.map((s, idx) => ({
+                              kind: 'subtitles', src: s.url, srcLang: s.lang, default: idx === 0, label: s.lang
+                            })) : []
+                          }
+                        }}
+                        onError={(e) => {
+                          console.error("ReactPlayer Error:", e);
+                        }}
+                      />
+                      {/* Overlay to switch streams if multiple exist */}
+                      {hdhubStreams.length > 1 && (
+                        <div className="hdhub-stream-selector" style={{position: 'absolute', top: 10, right: 60, zIndex: 10, background: 'rgba(0,0,0,0.7)', padding: '5px', borderRadius: '5px'}}>
+                          <select 
+                            value={selectedHdhubStream.url} 
+                            onChange={(e) => setSelectedHdhubStream(hdhubStreams.find(s => s.url === e.target.value))}
+                            style={{background: 'transparent', color: 'white', border: 'none', outline: 'none', fontSize: '12px'}}
+                          >
+                            {hdhubStreams.map((s, idx) => (
+                              <option key={idx} value={s.url} style={{color: 'black'}}>
+                                {s.name} {s.description ? `(${s.description.split('\\n')[0].slice(0, 30)}...)` : ''}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="player-message"><p>No stream selected</p></div>
+                  )}
+                </>
+              ) : currentVideoUrl ? (
+                <>
+                  {playerError && (
+                    <div className="player-message error-message"><p>{playerError}</p></div>
+                  )}
+                  {selectedPlayerSource === 'vidsrc' && currentDomainIndex > 0 && !videoLoaded && !playerError && (
+                    <div className="player-message"><p>Trying alternative source...</p></div>
+                  )}
+                  <iframe
+                    ref={iframeRef}
+                    id={selectedPlayerSource === 'screenscape' ? 'screenscape-player' : undefined}
+                    src={currentVideoUrl}
+                    key={`${selectedPlayerSource}-${type}-${media.id}-${selectedSeason}-${selectedEpisode}-${currentDomainIndex}`}
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    scrolling="no"
+                    allowFullScreen
+                    allow="autoplay; encrypted-media"
+                    title="Video Player"
+                    onError={handleIframeError}
+                    onLoad={handleIframeLoad}
+                  ></iframe>
+                </>
+              ) : (
+                <p style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', margin: 0, textAlign: 'center', color: '#888' }}>
+                  Select an embedded player above or choose a streaming service.
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Source Selector Area - Now excludes streaming services */}
