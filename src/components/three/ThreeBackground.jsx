@@ -66,7 +66,7 @@ function AngelParticles() {
       <bufferGeometry ref={ref}>
         <bufferAttribute attach="attributes-position" args={[posArr, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.12} color="#87ceeb" transparent opacity={0.5} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      <pointsMaterial size={0.12} color="#4f9fd8" transparent opacity={0.45} sizeAttenuation depthWrite={false} />
     </points>
   );
 }
@@ -114,17 +114,19 @@ function PulsingLight({ color }) {
 }
 
 /* ── fog colors per theme ── */
-const fogColors = { devil: '#120000', angel: '#040a18', hannibal: '#0a150e' };
+const fogColors = { devil: '#120000', angel: '#d5eaf8', hannibal: '#0a150e' };
+// Page background behind the (transparent) canvas; angel uses a light sky gradient
+const pageBackgrounds = { angel: 'linear-gradient(to bottom, #F2F9FF 0%, #BADCF2 100%)' };
 const glowColors = { devil: '#ff1a00', angel: '#87ceeb', hannibal: '#8b0000' };
 
 const ThreeBackground = ({ theme = 'devil' }) => {
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1, pointerEvents: 'none' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1, pointerEvents: 'none', background: pageBackgrounds[theme] || fogColors[theme] || fogColors.devil }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         dpr={[1, 1.5]}
-        gl={{ antialias: false, alpha: false, powerPreference: 'high-performance' }}
-        style={{ background: fogColors[theme] || fogColors.devil, pointerEvents: 'none' }}
+        gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
+        style={{ background: 'transparent', pointerEvents: 'none' }}
         eventSource={undefined}
       >
         <fog attach="fog" args={[fogColors[theme] || fogColors.devil, 5, 25]} />

@@ -26,8 +26,6 @@
   --theme-active-gradient: linear-gradient(135deg, #e50914 0%, #b80610 100%);
   --theme-font: 'Bebas Neue', 'Montserrat', sans-serif;
 }
-
-.theme-devil .dude-tab-btn,
 .theme-devil .section-heading,
 .theme-devil .channel-name,
 .theme-devil .channel-modern-title,
@@ -47,8 +45,6 @@
   --theme-active-gradient: linear-gradient(135deg, #1ce783 0%, #0fa85a 100%);
   --theme-font: 'Cinzel', 'Montserrat', sans-serif;
 }
-
-.theme-hannibal .dude-tab-btn,
 .theme-hannibal .section-heading,
 .theme-hannibal .channel-name,
 .theme-hannibal .channel-modern-title,
@@ -68,8 +64,6 @@
   --theme-active-gradient: linear-gradient(135deg, #00a8e1 0%, #0077c2 100%);
   --theme-font: 'Rubik', 'Montserrat', sans-serif;
 }
-
-.theme-angel .dude-tab-btn,
 .theme-angel .section-heading,
 .theme-angel .channel-name,
 .theme-angel .channel-modern-title,
@@ -454,73 +448,6 @@
 }
 
 /* ==========================================================================
-   MAIN TAB SWITCHER
-   ========================================================================== */
-
-.dude-tab-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 8px 0 28px 0;
-  position: relative;
-  z-index: 10;
-}
-
-.dude-tab-bar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: rgba(18, 18, 24, 0.85);
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 5px;
-  border-radius: 9999px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  margin: 0 auto;
-  max-width: fit-content;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-.dude-tab-bar::-webkit-scrollbar {
-  display: none;
-}
-
-.dude-tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ccc;
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 42px;
-}
-
-.dude-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.dude-tab-btn.active {
-  background: var(--theme-active-gradient);
-  border-color: var(--theme-accent);
-  color: #fff;
-  box-shadow: 0 0 20px var(--theme-glow);
-}
-
-/* ==========================================================================
    CATEGORY & SPORT FILTER CHIPS & SLIDER CONTROLS
    ========================================================================== */
 
@@ -626,27 +553,6 @@
   min-height: 38px;
 }
 
-.cat-letter-icon {
-  background: rgba(255, 255, 255, 0.15);
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 800;
-  flex-shrink: 0;
-}
-
-.cat-title-text {
-  display: none;
-}
-
-.cat-chip-btn:hover .cat-title-text,
-.cat-chip-btn.active .cat-title-text {
-  display: inline;
-}
 
 .cat-chip-btn:hover {
   background: rgba(255, 255, 255, 0.12);
@@ -1401,38 +1307,6 @@
     padding: 6px 12px;
   }
 
-  /* Main Tab Switcher as horizontal scrolling segmented pill */
-  .dude-tab-bar {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 6px;
-    margin-bottom: 18px;
-    padding: 4px;
-    width: 100%;
-    max-width: 100%;
-    background: rgba(18, 18, 24, 0.85);
-    border: 1.5px solid rgba(255, 255, 255, 0.14);
-    border-radius: 9999px;
-    box-sizing: border-box;
-  }
-
-  .dude-tab-bar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .dude-tab-btn {
-    flex-shrink: 0;
-    white-space: nowrap;
-    padding: 7px 14px;
-    font-size: 0.8rem;
-    min-height: 38px;
-    border-radius: 9999px;
-  }
-
   /* Hide Desktop arrows on touch devices to maximize width */
   .carousel-arrow-btn {
     display: none !important;
@@ -1642,12 +1516,6 @@
     aspect-ratio: 16 / 10;
   }
 
-  .dude-tab-btn {
-    padding: 7px 13px;
-    font-size: 0.78rem;
-    min-height: 36px;
-  }
-
   .tv-trending-row {
     gap: 4px;
   }
@@ -1659,42 +1527,12 @@
     max-width: 110px;
   }
 }
-
 /* ==========================================================================
    MEDIA HUB PARITY
    Same per-theme look as the Media Hub (App.css): search bar, pills, tabs,
    cards, buttons, headings. Devil = Netflix red, Angel = light glass + Prime
    blue, Hannibal = olive/bronze + Hulu green.
    ========================================================================== */
-
-/* --- Shared shapes --- */
-
-/* Tab bar = Media Hub capsule track */
-.dude-tab-bar {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto 24px auto;
-  padding: 4px;
-  gap: 4px;
-  background: rgba(18, 18, 24, 0.85);
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  border-radius: 9999px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-}
-
-.dude-tab-btn {
-  background: transparent;
-  border: 1px solid transparent;
-  font-weight: 600;
-}
-
-.dude-tab-btn:hover {
-  transform: none;
-  background: rgba(255, 255, 255, 0.1);
-}
 
 /* Chips = Advanced Filters chip pills */
 .cat-chip-btn,
@@ -1873,20 +1711,6 @@
   color: #cc0000;
 }
 
-/* Tabs */
-.dudetv-page.theme-devil .dude-tab-btn {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
-
-.dudetv-page.theme-devil .dude-tab-btn.active {
-  background: linear-gradient(45deg, #FF0000, #FF4500);
-  border: 2px solid #FF0000;
-  color: #fff;
-  animation: devil-pulse 2s infinite;
-}
-
 /* Chips */
 .dudetv-page.theme-devil .cat-chip-btn:hover,
 .dudetv-page.theme-devil .search-tab-pill:hover {
@@ -2033,20 +1857,20 @@
    ANGEL (light theme)
    ========================================================================== */
 .dudetv-page.theme-angel {
-  color: #e6f4ff;
+  color: #0a2540;
 }
 
 .dudetv-page.theme-angel .dude-page-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 800;
-  color: #e6f4ff;
-  text-shadow: 0 0 12px rgba(0, 168, 225, 0.6), 0 0 24px rgba(142, 197, 252, 0.35);
+  color: #0a2540;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .dudetv-page.theme-angel .section-heading {
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
-  color: #e6f4ff;
+  color: #0a2540;
   border-bottom: 1px solid rgba(0, 168, 225, 0.35);
   text-shadow: none;
 }
@@ -2067,7 +1891,7 @@
 .dudetv-page.theme-angel .match-date-label,
 .dudetv-page.theme-angel .dude-loading-container,
 .dudetv-page.theme-angel .dude-error-container {
-  color: #e6f4ff;
+  color: #0a2540;
   font-weight: 700;
 }
 
@@ -2129,32 +1953,6 @@
   color: #ffffff;
   font-weight: 800;
   box-shadow: 0 4px 14px rgba(0, 168, 225, 0.4);
-}
-
-/* Tabs */
-.dudetv-page.theme-angel .dude-tab-bar {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1.5px solid rgba(0, 168, 225, 0.35);
-  box-shadow: 0 4px 18px rgba(0, 120, 200, 0.12);
-}
-
-.dudetv-page.theme-angel .dude-tab-btn {
-  color: #0a2540;
-  font-weight: 700;
-  font-family: 'Rubik', sans-serif;
-}
-
-.dudetv-page.theme-angel .dude-tab-btn:hover {
-  background: rgba(0, 168, 225, 0.12);
-  color: #005a94;
-}
-
-.dudetv-page.theme-angel .dude-tab-btn.active {
-  background: linear-gradient(135deg, #00A8E1, #0077c2);
-  border-color: transparent;
-  color: #ffffff;
-  font-weight: 800;
-  box-shadow: 0 4px 16px rgba(0, 168, 225, 0.45);
 }
 
 /* Chips */
@@ -2396,21 +2194,6 @@
   color: #a8957a;
 }
 
-/* Tabs: "carved" bronze active */
-.dudetv-page.theme-hannibal .dude-tab-btn {
-  font-family: 'Cinzel', serif;
-  color: #d8d8d8;
-}
-
-.dudetv-page.theme-hannibal .dude-tab-btn.active {
-  background: #CD7F32;
-  border: 3px solid #36454F;
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
-}
-
 /* Chips */
 .dudetv-page.theme-hannibal .cat-chip-btn:hover,
 .dudetv-page.theme-hannibal .search-tab-pill:hover {
@@ -2578,11 +2361,6 @@
    MEDIA HUB PARITY — MOBILE
    ========================================================================== */
 @media (max-width: 768px) {
-  .dude-tab-bar {
-    width: 100%;
-    margin-bottom: 18px;
-    padding: 3px;
-  }
 
   .dudetv-page .section-heading {
     font-size: 1.3rem;
@@ -2681,7 +2459,7 @@
 }
 
 .dudetv-page.theme-angel .dude-loading-text {
-  color: #8ec5fc;
+  color: #2c78c3;
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
 }
@@ -2824,18 +2602,6 @@
   min-width: 0;
 }
 
-.category-section-emoji {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
-}
-
 .category-section-title {
   font-size: 1.15rem;
   font-weight: 700;
@@ -2917,13 +2683,6 @@
     padding: 12px 14px;
   }
   
-  .category-section-emoji {
-    font-size: 1.2rem;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-  }
-  
   .category-section-title {
     font-size: 1rem;
   }
@@ -2951,5 +2710,180 @@
   
   .category-section-title-row {
     gap: 8px;
+  }
+}
+
+/* ==========================================================================
+   CONTENT TABS (shared SlidingTabs, same look as Media Hub / Live TV switcher)
+   ========================================================================== */
+.tv-content-tabs {
+  margin: 0 0 24px;
+}
+
+.tv-content-tabs .sliding-tabs {
+  max-width: 100%;
+  padding: 4px;
+  gap: 2px;
+  background: rgba(18, 18, 24, 0.85);
+  border: 1.5px solid var(--theme-border, rgba(255, 255, 255, 0.14));
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tv-content-tabs .sliding-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tv-content-tabs .sliding-tabs .tab-button {
+  flex: 0 0 auto;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tv-content-tabs .sliding-tabs .tab-indicator {
+  background: var(--theme-active-gradient);
+  box-shadow: 0 0 16px var(--theme-glow);
+}
+
+@media (max-width: 768px) {
+  .tv-content-tabs {
+    margin-bottom: 16px;
+  }
+
+  .tv-content-tabs .sliding-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .tv-content-tabs .sliding-tabs .tab-button {
+    padding: 9px 10px;
+    font-size: 0.8rem;
+    white-space: normal;
+    line-height: 1.2;
+    border-radius: 18px;
+  }
+
+  .tv-content-tabs .sliding-tabs .tab-indicator {
+    border-radius: 18px;
+  }
+}
+
+/* ==========================================================================
+   SEARCH (centered capsule like the Media Hub search)
+   ========================================================================== */
+.tv-search-section {
+  max-width: 860px;
+  align-items: center;
+}
+
+.tv-search-input-container {
+  border-radius: 9999px;
+  padding: 4px 8px 4px 20px;
+}
+
+.tv-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.tv-search-kbd {
+  flex-shrink: 0;
+  margin-right: 8px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font: 600 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.tv-trending-row {
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-x: visible;
+}
+
+.dudetv-page.theme-angel .tv-search-kbd {
+  border-color: rgba(0, 119, 194, 0.35);
+  background: rgba(0, 168, 225, 0.08);
+  color: #0077c2;
+}
+
+@media (max-width: 768px) {
+  .tv-search-kbd {
+    display: none;
+  }
+
+  .tv-trending-row {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
+
+/* Angel on the light sky gradient: light glass surfaces, navy text */
+.dudetv-page.theme-angel {
+  --theme-card-bg: rgba(255, 255, 255, 0.72);
+}
+
+.dudetv-page.theme-angel .category-section-header {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.dudetv-page.theme-angel .category-section-header:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dudetv-page.theme-angel .category-section-title {
+  color: #0a2540;
+}
+
+.dudetv-page.theme-angel .category-section-count {
+  background: rgba(0, 168, 225, 0.12);
+  color: #0077c2;
+}
+
+.dudetv-page.theme-angel .category-section-chevron,
+.dudetv-page.theme-angel .category-section-empty {
+  color: rgba(10, 37, 64, 0.55);
+}
+
+.dudetv-page.theme-angel .tv-content-tabs .sliding-tabs {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 168, 225, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 119, 194, 0.15);
+}
+
+.dudetv-page.theme-angel .tv-content-tabs .sliding-tabs .tab-button {
+  color: #0a2540;
+}
+
+.dudetv-page.theme-angel .tv-content-tabs .sliding-tabs .tab-button.active {
+  color: #0a2540;
+}
+
+/* Angel mobile 2x2 tab grid: rounded cloud curve, pills match the cells */
+@media (max-width: 768px) {
+  .App.theme-angel .dudetv-page .tv-content-tabs .sliding-tabs {
+    border-radius: 28px;
+  }
+
+  .App.theme-angel .dudetv-page .tv-content-tabs .sliding-tabs .tab-button,
+  .App.theme-angel .dudetv-page .tv-content-tabs .sliding-tabs .tab-indicator {
+    border-radius: 22px;
   }
 }

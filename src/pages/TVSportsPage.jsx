@@ -21,6 +21,7 @@ import { etDayKey, fetchTrendy48Match, normalizeTrendy48Match, trendy48EventUrl,
 import DudeTvPlayer from '../components/TVSports/DudeTvPlayer';
 import SafeImage from '../components/TVSports/SafeImage';
 import VoiceSearch from '../components/VoiceSearch';
+import SlidingTabs from '../components/common/SlidingTabs';
 import '../components/LoadingSpinner.css';
 import './TVSportsPage.css';
 
@@ -41,27 +42,6 @@ const SPORT_CHIPS = [
 ];
 const BOARD_CATEGORIES = new Set(SPORT_CHIPS.map(c => c.id));
 
-const CATEGORY_EMOJIS = {
-  'cdx_usa': '🇺🇸',
-  'cats/sports.json': '⚽',
-  'cats/bangla.json': '🇧🇩',
-  'cats/kolkata.json': '🏙️',
-  'cats/india.json': '🇮🇳',
-  'cats/pakistan.json': '🇵🇰',
-  'cats/entertainment.json': '🎭',
-  'cats/kids.json': '👶',
-  'cats/music.json': '🎵',
-  'cats/information.json': '📡',
-  'cats/religion.json': '🕌',
-  'cats/arabic.json': '🌙',
-  'cats/cinemas.json': '🎬',
-  'cats/news.json': '📰',
-  'cats/hoichoi.json': '🎥',
-  'cats/chorki.json': '🎞️',
-  'cats/netflix.json': '🍿',
-  'narly_all': '🌐'
-};
-
 // Exact category when the source uses board categories (trendy48 / streamed.pk), keyword match otherwise
 const matchesSport = (ev, sf) => {
   const cat = (ev.t48Cat || ev.cat || '').toLowerCase();
@@ -76,6 +56,12 @@ const matchesSport = (ev, sf) => {
   if (sf === 'hockey') return cat.includes('nhl') || cat.includes('hockey');
   if (sf === 'baseball') return cat.includes('mlb') || cat.includes('baseball');
   return cat.includes(sf) || name.includes(sf);
+};
+
+// Every word of the query must appear somewhere in the given fields ("india cricket" works)
+const matchesQuery = (query, ...fields) => {
+  const hay = fields.filter(Boolean).join(' ').toLowerCase();
+  return query.toLowerCase().split(/\s+/).filter(Boolean).every(word => hay.includes(word));
 };
 
 const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
@@ -93,6 +79,20 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   const sportsCarouselRef = useRef(null);
   const categoriesCarouselRef = useRef(null);
   const playerRef = useRef(null);
+  const searchInputRef = useRef(null);
+
+  // "/" focuses search from anywhere on the page (unless already typing in a field)
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+      const tag = document.activeElement?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || document.activeElement?.isContentEditable) return;
+      e.preventDefault();
+      searchInputRef.current?.focus();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   // Bring the player into view after the next paint (it may have just mounted, or the card clicked was far down),
   // stopping just below the sticky site header so the player's top bar isn't hidden under it
@@ -319,29 +319,17 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
     
     const loadAllCategories = async () => {
       setLoadingAllCategories(true);
-      const results = {};
-      
-      // Load all categories in parallel with Promise.allSettled
-      const promises = categories.map(async (cat) => {
+
+      // Load all categories in parallel; show each one as soon as it arrives
+      await Promise.allSettled(categories.map(async (cat) => {
+        let items = [];
         try {
-          const items = await fetchDudeCategoryItems(cat.catLink);
-          return { catLink: cat.catLink, items: items || [] };
-        } catch {
-          return { catLink: cat.catLink, items: [] };
-        }
-      });
-      
-      const settled = await Promise.allSettled(promises);
-      settled.forEach(result => {
-        if (result.status === 'fulfilled' && result.value) {
-          results[result.value.catLink] = result.value.items;
-        }
-      });
-      
-      if (isMounted) {
-        setAllCategoryData(results);
-        setLoadingAllCategories(false);
-      }
+          items = (await fetchDudeCategoryItems(cat.catLink)) || [];
+        } catch { /* empty category */ }
+        if (isMounted) setAllCategoryData(prev => ({ ...prev, [cat.catLink]: items }));
+      }));
+
+      if (isMounted) setLoadingAllCategories(false);
     };
     
     loadAllCategories();
@@ -545,14 +533,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
     let list = liveEvents;
 
     if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      return list.filter(ev => {
-        const name = ev.eventInfo?.eventName || ev.title || '';
-        const teamA = ev.eventInfo?.teamA || '';
-        const teamB = ev.eventInfo?.teamB || '';
-        const cat = ev.cat || '';
-        return name.toLowerCase().includes(q) || teamA.toLowerCase().includes(q) || teamB.toLowerCase().includes(q) || cat.toLowerCase().includes(q);
-      });
+      return list.filter(ev => matchesQuery(searchQuery, ev.eventInfo?.eventName, ev.title, ev.eventInfo?.teamA, ev.eventInfo?.teamB, ev.cat));
     }
 
     list = eventsOnSelectedDay;
@@ -609,41 +590,41 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
     }
 
     if (!searchQuery.trim()) return list;
-    const q = searchQuery.toLowerCase();
-    return list.filter(sp => {
-      const title = sp.title || sp.name || '';
-      const cat = sp.cat || sp.category || '';
-      const slug = sp.slug || '';
-      const formats = (sp.formats || []).join(' ');
-      return title.toLowerCase().includes(q) || cat.toLowerCase().includes(q) || slug.toLowerCase().includes(q) || formats.toLowerCase().includes(q);
-    });
+    return list.filter(sp => matchesQuery(searchQuery, sp.title, sp.name, sp.cat, sp.category, sp.slug, (sp.formats || []).join(' ')));
   }, [sportsChannels, searchQuery, selectedSportsRegion]);
 
   const filteredCategories = useMemo(() => {
     if (!searchQuery.trim()) return categories;
-    const q = searchQuery.toLowerCase();
-    return categories.filter(c => (c.title || '').toLowerCase().includes(q));
+    return categories.filter(c => matchesQuery(searchQuery, c.title));
   }, [categories, searchQuery]);
 
   const filteredCategoryItems = useMemo(() => {
     if (!searchQuery.trim()) return categoryItems;
-    const q = searchQuery.toLowerCase();
-    return categoryItems.filter(ci => {
-      const title = ci.title || '';
-      const cat = ci.cat || '';
-      return title.toLowerCase().includes(q) || cat.toLowerCase().includes(q);
+    // Search spans every loaded category, deduped by slug/id
+    const seen = new Set();
+    return [...Object.values(allCategoryData).flat(), ...categoryItems].filter(ci => {
+      const key = ci.slug || ci.id || ci.title;
+      if (seen.has(key) || !matchesQuery(searchQuery, ci.title, ci.name, ci.cat, ci.category)) return false;
+      seen.add(key);
+      return true;
     });
-  }, [categoryItems, searchQuery]);
+  }, [allCategoryData, categoryItems, searchQuery]);
 
   const filteredHighlights = useMemo(() => {
     if (!searchQuery.trim()) return highlights;
-    const q = searchQuery.toLowerCase();
-    return highlights.filter(hi => {
-      const title = hi.eventInfo?.eventName || hi.title || '';
-      const cat = hi.cat || '';
-      return title.toLowerCase().includes(q) || cat.toLowerCase().includes(q);
-    });
+    return highlights.filter(hi => matchesQuery(searchQuery, hi.eventInfo?.eventName, hi.title, hi.cat));
   }, [highlights, searchQuery]);
+
+  const isSearching = Boolean(searchQuery.trim());
+  const searchCounts = { events: filteredEvents.length, sports: filteredSports.length, tv: filteredCategoryItems.length, highlights: filteredHighlights.length };
+
+  // While searching, land on the first tab that actually has hits
+  useEffect(() => {
+    if (!isSearching || searchCounts[activeTab] > 0) return;
+    if (activeTab === 'tv' && loadingAllCategories) return; // channel results still arriving
+    const firstHit = Object.keys(searchCounts).find(tab => searchCounts[tab] > 0);
+    if (firstHit) setActiveTab(firstHit);
+  }, [isSearching, activeTab, loadingAllCategories, searchCounts.events, searchCounts.sports, searchCounts.tv, searchCounts.highlights]);
 
   return (
     <div className={`dudetv-page theme-${currentTheme}`}>
@@ -689,14 +670,25 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             <input
-              type="text"
+              ref={searchInputRef}
+              type="search"
               id="tv-search-input"
-              placeholder="Search 500+ Live Channels, Sports Networks, Matches, Teams, Countries..."
+              placeholder="Search channels, matches, teams, countries..."
+              aria-label="Search live TV and sports"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  if (searchQuery) e.stopPropagation();
+                  setSearchQuery('');
+                  e.currentTarget.blur();
+                }
+              }}
               className="tv-search-input"
               autoComplete="off"
+              enterKeyHint="search"
             />
+            {!searchQuery && <kbd className="tv-search-kbd" title="Press / to search">/</kbd>}
             {searchQuery && (
               <button
                 type="button"
@@ -717,15 +709,16 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
 
         {/* Quick Category Bar */}
         <div className="popular-searches-row tv-trending-row">
+          <span className="popular-searches-label">Trending:</span>
           {[
-            { label: '🏏 Cricket', query: 'Cricket' },
-            { label: '⚽ Football', query: 'Football' },
-            { label: '🎾 Tennis', query: 'Tennis' },
-            { label: '🥊 UFC & Combat', query: 'UFC' },
-            { label: '📰 News', query: 'News' },
-            { label: '🎬 Movies', query: 'Movies' },
-            { label: '📺 TV Shows', query: 'TV Shows' },
-            { label: '🦁 Wildlife & Documentaries', query: 'Wildlife' }
+            { label: 'Cricket', query: 'Cricket' },
+            { label: 'Football', query: 'Football' },
+            { label: 'Tennis', query: 'Tennis' },
+            { label: 'UFC & Combat', query: 'UFC' },
+            { label: 'News', query: 'News' },
+            { label: 'Movies', query: 'Movies' },
+            { label: 'TV Shows', query: 'TV Shows' },
+            { label: 'Wildlife & Documentaries', query: 'Wildlife' }
           ].map(pill => (
             <button
               key={pill.label}
@@ -776,42 +769,18 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       )}
 
       {/* Main Tab Switcher */}
-      <div className="dude-tab-bar-container">
-        <div className="dude-tab-bar" role="tablist">
-          <button
-            className={`dude-tab-btn ${activeTab === 'events' ? 'active' : ''}`}
-            onClick={() => handleTabChange('events')}
-            role="tab"
-            aria-selected={activeTab === 'events'}
-          >
-            🔴 Live Matches ({filteredEvents.length})
-          </button>
-          <button
-            className={`dude-tab-btn ${activeTab === 'sports' ? 'active' : ''}`}
-            onClick={() => handleTabChange('sports')}
-            role="tab"
-            aria-selected={activeTab === 'sports'}
-          >
-            ⚽ Sports TV ({filteredSports.length})
-          </button>
-          <button
-            className={`dude-tab-btn ${activeTab === 'tv' ? 'active' : ''}`}
-            onClick={() => handleTabChange('tv')}
-            role="tab"
-            aria-selected={activeTab === 'tv'}
-          >
-            📺 Live TV & Shows ({filteredCategories.length} Categories)
-          </button>
-          <button
-            className={`dude-tab-btn ${activeTab === 'highlights' ? 'active' : ''}`}
-            onClick={() => handleTabChange('highlights')}
-            role="tab"
-            aria-selected={activeTab === 'highlights'}
-          >
-            ⭐ Highlights ({filteredHighlights.length})
-          </button>
-        </div>
-      </div>
+      {!isSearching && <SlidingTabs
+        className="tv-content-tabs"
+        layoutId="tv-content-tab"
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+        tabs={[
+          { id: 'events', label: `Live Matches (${filteredEvents.length})` },
+          { id: 'sports', label: `Sports TV (${filteredSports.length})` },
+          { id: 'tv', label: `Live TV & Shows (${filteredCategories.length} Categories)` },
+          { id: 'highlights', label: `Highlights (${filteredHighlights.length})` }
+        ]}
+      />}
 
       {/* Embedded Player when an item is active */}
       {activeItem && (
@@ -1099,8 +1068,8 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       {/* Tab 3: Live TV & Shows (Worldwide TV) */}
       {!loading && activeTab === 'tv' && (
         <section className="dude-section">
-          {/* Category Chips Bar with "All" option */}
-          <div className="carousel-slider-wrapper">
+          {/* Category Chips Bar with "All" option (hidden while searching: results span all categories) */}
+          <div className="carousel-slider-wrapper" style={isSearching ? { display: 'none' } : undefined}>
             <button
               type="button"
               className="carousel-arrow-btn left"
@@ -1119,19 +1088,16 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
                 className={`cat-chip-btn ${selectedCategoryLink === 'all' ? 'active' : ''}`}
                 onClick={() => setSelectedCategoryLink('all')}
               >
-                <span className="cat-letter-icon">📺</span>
                 <span className="cat-title-text">All Categories</span>
               </button>
               {filteredCategories.map((cat) => {
                 const isActive = selectedCategoryLink === cat.catLink;
-                const emoji = CATEGORY_EMOJIS[cat.catLink] || cat.title.charAt(0).toUpperCase();
                 return (
                   <button
                     key={cat.id}
                     className={`cat-chip-btn ${isActive ? 'active' : ''}`}
                     onClick={() => setSelectedCategoryLink(cat.catLink)}
                   >
-                    <span className="cat-letter-icon">{emoji}</span>
                     <span className="cat-title-text">{cat.title}</span>
                   </button>
                 );
@@ -1148,7 +1114,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
           </div>
 
           {/* All Categories View */}
-          {selectedCategoryLink === 'all' ? (
+          {selectedCategoryLink === 'all' && !isSearching ? (
             <div className="all-categories-view">
               {loadingAllCategories && Object.keys(allCategoryData).length === 0 ? (
                 <div className="dude-loading-container">
@@ -1163,7 +1129,6 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
                 categories.map((cat) => {
                   const items = allCategoryData[cat.catLink] || [];
                   const isCollapsed = collapsedCategories.has(cat.catLink);
-                  const emoji = CATEGORY_EMOJIS[cat.catLink] || '📺';
                   
                   // Apply search filter
                   const filteredItems = searchQuery.trim()
@@ -1182,7 +1147,6 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
                         onClick={() => toggleCategoryCollapse(cat.catLink)}
                       >
                         <div className="category-section-title-row">
-                          <span className="category-section-emoji">{emoji}</span>
                           <h3 className="category-section-title">{cat.title}</h3>
                           <span className="category-section-count">{filteredItems.length} channels</span>
                         </div>
@@ -1270,11 +1234,11 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
             /* Single Category View (existing behavior) */
             <>
               <div className="section-header-row">
-                <h2 className="section-heading">Channels in Category</h2>
+                <h2 className="section-heading">{isSearching ? 'Matching Channels' : 'Channels in Category'}</h2>
                 <span className="section-count">{filteredCategoryItems.length} Channels</span>
               </div>
 
-              {loadingCategoryItems ? (
+              {loadingCategoryItems || (isSearching && loadingAllCategories && filteredCategoryItems.length === 0) ? (
                 <div className="dude-loading-container">
                   <p className="dude-loading-text">Loading channels...</p>
                 </div>
@@ -1282,7 +1246,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
                 <div className="no-search-results">
                   {searchQuery.trim() ? (
                     <>
-                      <p>No channels found matching "{searchQuery}" in this category.</p>
+                      <p>No channels found matching "{searchQuery}".</p>
                       <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
                     </>
                   ) : (

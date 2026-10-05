@@ -4450,6 +4450,7 @@ h2 {
     color: #ffffff;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -4619,20 +4620,20 @@ h2 {
 }
 
 
-/* Angel: page sits on the dark starfield, so text outside white surfaces must be light */
+/* Angel on the light sky gradient: navy text, light glass pills */
 .App.theme-angel .section-title {
-  color: #e6f4ff;
-  text-shadow: 0 0 12px rgba(0, 168, 225, 0.55);
+  color: #0a2540;
+  text-shadow: none;
 }
 
 .App.theme-angel .popular-searches-label {
-  color: #bfe3ff;
+  color: #1f4e79;
 }
 
 .App.theme-angel .popular-search-pill {
-  background: rgba(142, 197, 252, 0.14);
-  border-color: rgba(135, 206, 250, 0.55);
-  color: #e6f4ff;
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 168, 225, 0.4);
+  color: #0a2540;
 }
 
 .App.theme-angel .popular-search-pill:hover,
@@ -4640,4 +4641,42 @@ h2 {
   background: var(--angel-pill-gradient);
   border-color: #87CEEB;
   color: #0a2540;
+}
+
+.App.theme-angel .main-section-tabs .sliding-tabs {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 168, 225, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 119, 194, 0.15);
+}
+
+.App.theme-angel .main-section-tabs .sliding-tabs .tab-button,
+.App.theme-angel .main-section-tabs .sliding-tabs .tab-button.active {
+  color: #0a2540;
+}
+
+/* Keep tab text above the sliding indicator pill */
+.sliding-tabs .tab-label {
+  position: relative;
+  z-index: 2;
+}
+
+/* Angel: soft, fully rounded "cloud" tabs */
+.App.theme-angel .sliding-tabs {
+  border-radius: 9999px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1.5px solid rgba(135, 206, 250, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 28px rgba(0, 119, 194, 0.14);
+}
+
+.App.theme-angel .sliding-tabs .tab-button {
+  border-radius: 9999px;
+}
+
+.App.theme-angel .sliding-tabs .tab-indicator {
+  top: 5px;
+  height: calc(100% - 10px);
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #cfe8ff 0%, #8ec5fc 55%, #6fb6f2 100%);
+  box-shadow: 0 4px 14px rgba(0, 119, 194, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }

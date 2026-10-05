@@ -67,7 +67,7 @@ const TVSidebar = ({
               onChange={(e) => handleCountryChange(e.target.value)}
               className="country-dropdown"
             >
-              <option value="all">🌍 All Countries</option>
+              <option value="all">All Countries</option>
               {countriesList.map(c => (
                 <option key={c.code} value={c.code}>
                   {c.name} ({c.count})

@@ -1194,10 +1194,6 @@
   gap: 15px;
 }
 
-.source-section {
-  /* No specific styles needed here, structure is defined by children */
-}
-
 .source-section-title {
   font-size: 1.1em;
   color: #eee;
@@ -1468,27 +1464,6 @@
 
 .error-text.small {
   color: #ff8a80;
-}
-
-/* Remove previous complex source selector styles */
-.player-source-selector,
-.source-filter,
-.filter-icon:not(.source-title-icon),
-.filter-categories,
-.filter-button,
-.source-options-container,
-.player-controls,
-.player-attribution:not(.compact),
-.attribution-name,
-.attribution-features:not(:has(.feature-tag.compact)),
-.share-button-container:not(.global-share),
-.share-button:not(.compact),
-.source-option,
-.quality-badge:not(.small) {
-  /* Keep this rule to hide outdated elements if necessary, */
-  /* but ensure it doesn't conflict with new theme button styles. */
-  /* display: none !important; */
-  /* Commented out to ensure new buttons show */
 }
 
 /* Responsive Adjustments for New Layout */
