@@ -66,7 +66,7 @@
   --theme-border: rgba(0, 168, 225, 0.35);
   --theme-card-bg: rgba(12, 18, 26, 0.88);
   --theme-active-gradient: linear-gradient(135deg, #00a8e1 0%, #0077c2 100%);
-  --theme-font: 'Nunito', 'Montserrat', sans-serif;
+  --theme-font: 'Rubik', 'Montserrat', sans-serif;
 }
 
 .theme-angel .dude-tab-btn,
@@ -595,6 +595,28 @@
   min-height: 38px;
 }
 
+.cat-letter-icon {
+  background: rgba(255, 255, 255, 0.15);
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.cat-title-text {
+  display: none;
+}
+
+.cat-chip-btn:hover .cat-title-text,
+.cat-chip-btn.active .cat-title-text {
+  display: inline;
+}
+
 .cat-chip-btn:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
@@ -713,6 +735,45 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.5px;
+}
+
+.live-status-pill.upcoming {
+  color: #aaa;
+}
+
+/* Match day calendar (Live Matches tab) */
+.match-date-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.match-date-label {
+  color: #aaa;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.match-date-input {
+  min-height: 38px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--theme-border, rgba(255, 255, 255, 0.18));
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.match-date-input:focus-visible {
+  outline: 2px solid var(--theme-accent, #e50914);
+  outline-offset: 2px;
 }
 
 .highlight-pill {
@@ -1174,16 +1235,6 @@
   text-align: center;
 }
 
-.dude-spinner {
-  width: 44px;
-  height: 44px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--theme-accent);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin-bottom: 16px;
-}
-
 .dude-retry-btn {
   background: var(--theme-active-gradient);
   color: #fff;
@@ -1284,9 +1335,12 @@
 
   .popular-search-pill {
     flex-shrink: 0;
-    padding: 5px 12px;
-    font-size: 0.78rem;
+    padding: 5px 10px;
+    font-size: 0.72rem;
     min-height: 32px;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .search-summary-banner {
@@ -1543,5 +1597,1091 @@
     padding: 7px 13px;
     font-size: 0.78rem;
     min-height: 36px;
+  }
+
+  .tv-trending-row {
+    gap: 4px;
+  }
+
+  .popular-search-pill {
+    padding: 4px 8px;
+    font-size: 0.68rem;
+    min-height: 30px;
+    max-width: 110px;
+  }
+}
+
+/* ==========================================================================
+   MEDIA HUB PARITY
+   Same per-theme look as the Media Hub (App.css): search bar, pills, tabs,
+   cards, buttons, headings. Devil = Netflix red, Angel = light glass + Prime
+   blue, Hannibal = olive/bronze + Hulu green.
+   ========================================================================== */
+
+/* --- Shared shapes --- */
+
+/* Tab bar = Media Hub capsule track */
+.dude-tab-bar {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 24px auto;
+  padding: 4px;
+  gap: 4px;
+  background: rgba(18, 18, 24, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.dude-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+
+.dude-tab-btn:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Chips = Advanced Filters chip pills */
+.cat-chip-btn,
+.search-tab-pill {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cat-chip-btn:hover,
+.search-tab-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Status / FREE / page badges = brand ribbon badges */
+.dudetv-page .live-status-pill,
+.dudetv-page .channel-modern-free,
+.dudetv-page .dude-badge {
+  padding: 3px 9px 3px 7px;
+  border-radius: 12px 0 8px 0;
+  border: none;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.dudetv-page .dude-badge {
+  font-size: 0.75rem;
+  padding: 5px 12px 5px 10px;
+}
+
+/* Kickoff time = black glass "4K" chip */
+.dudetv-page .event-top-bar .live-status-pill.upcoming {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* "Watch Live" = themed Apply-style button */
+.watch-now-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover .watch-now-cta {
+  transform: scale(1.04);
+}
+
+/* Card hover lift (Media Hub desktop) */
+.dudetv-page .event-card:hover,
+.dudetv-page .channel-modern-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  z-index: 2;
+}
+
+/* Round play button on channel posters (Media Hub hover play), CSS-only icon */
+.channel-modern-banner::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 11;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+/* Triangle inside the play button */
+.channel-modern-banner::before {
+  content: '';
+  position: absolute;
+  right: 25px;
+  bottom: 24px;
+  z-index: 12;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent #000;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.channel-modern-card:hover .channel-modern-banner::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.channel-modern-card:hover .channel-modern-banner::before {
+  opacity: 1;
+}
+
+.dudetv-page .section-heading {
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  font-weight: normal;
+  position: relative;
+}
+
+/* ==========================================================================
+   DEVIL
+   ========================================================================== */
+.dudetv-page.theme-devil .dude-page-title {
+  font-family: 'Creepster', cursive;
+  font-weight: normal;
+  color: #cc0000;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.4), 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.dudetv-page.theme-devil .section-heading {
+  font-family: 'Creepster', cursive;
+  color: #b2070f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 12px;
+  border-bottom: 2px solid rgba(139, 0, 0, 0.7);
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9), 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.dudetv-page.theme-devil .section-heading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 12px;
+  width: 4px;
+  background: linear-gradient(45deg, #FF0000, #FF4500);
+  box-shadow: 0 0 8px #FF0000;
+}
+
+.dudetv-page.theme-devil .section-count {
+  background: rgba(139, 0, 0, 0.3);
+  color: #ffaaaa;
+}
+
+/* Search */
+.dudetv-page.theme-devil .tv-search-input-container {
+  background: rgba(25, 5, 5, 0.85);
+  border: 1px solid rgba(139, 0, 0, 0.6);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dudetv-page.theme-devil .tv-search-input-container:focus-within {
+  border-color: rgba(255, 50, 50, 0.8);
+  background: rgba(35, 10, 10, 0.95);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5), inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dudetv-page.theme-devil .tv-search-input {
+  color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.dudetv-page.theme-devil .tv-search-input::placeholder {
+  color: rgba(255, 150, 150, 0.6);
+}
+
+.dudetv-page.theme-devil .tv-search-input-icon {
+  color: #cc0000;
+}
+
+/* Tabs */
+.dudetv-page.theme-devil .dude-tab-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.dudetv-page.theme-devil .dude-tab-btn.active {
+  background: linear-gradient(45deg, #FF0000, #FF4500);
+  border: 2px solid #FF0000;
+  color: #fff;
+  animation: devil-pulse 2s infinite;
+}
+
+/* Chips */
+.dudetv-page.theme-devil .cat-chip-btn:hover,
+.dudetv-page.theme-devil .search-tab-pill:hover {
+  border-color: #E50914;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
+  color: #fff;
+}
+
+.dudetv-page.theme-devil .cat-chip-btn.active,
+.dudetv-page.theme-devil .search-tab-pill.active {
+  background: #E50914;
+  border-color: #E50914;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5);
+}
+
+/* Badges */
+.dudetv-page.theme-devil .live-status-pill,
+.dudetv-page.theme-devil .channel-modern-free,
+.dudetv-page.theme-devil .dude-badge {
+  background: linear-gradient(135deg, #E50914 0%, #b2070f 100%);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.5);
+}
+
+/* Cards */
+.dudetv-page.theme-devil .event-card,
+.dudetv-page.theme-devil .channel-modern-card {
+  background: rgba(20, 5, 5, 0.8);
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  border-radius: 3px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.dudetv-page.theme-devil .event-card:hover,
+.dudetv-page.theme-devil .channel-modern-card:hover {
+  border-color: rgba(255, 50, 50, 0.7);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.dudetv-page.theme-devil .channel-modern-banner {
+  background: #0a0202;
+}
+
+.dudetv-page.theme-devil .channel-modern-info {
+  background: transparent;
+}
+
+.dudetv-page.theme-devil .event-title,
+.dudetv-page.theme-devil .channel-modern-title {
+  color: #ffaaaa;
+  font-weight: 600;
+}
+
+.dudetv-page.theme-devil .event-category-badge,
+.dudetv-page.theme-devil .channel-modern-pill {
+  background: rgba(139, 0, 0, 0.3);
+  border-color: rgba(139, 0, 0, 0.4);
+  color: #ffcccc;
+}
+
+.dudetv-page.theme-devil .vs-badge {
+  background: rgba(139, 0, 0, 0.25);
+  color: #ff6666;
+}
+
+.dudetv-page.theme-devil .channels-pill {
+  color: #ff8888;
+}
+
+.dudetv-page.theme-devil .event-card-bottom,
+.dudetv-page.theme-devil .channel-modern-footer {
+  border-top-color: rgba(139, 0, 0, 0.35);
+}
+
+.dudetv-page.theme-devil .watch-now-cta {
+  background: #E50914;
+  color: #fff;
+  border-radius: 3px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5);
+}
+
+/* Buttons: primary = Apply, secondary = Reset */
+.dudetv-page.theme-devil .clear-search-cta,
+.dudetv-page.theme-devil .dude-retry-btn {
+  background: #E50914;
+  color: #fff;
+  border: 1px solid rgba(255, 50, 50, 0.4);
+  border-radius: 3px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5);
+}
+
+.dudetv-page.theme-devil .tv-premium-back-btn,
+.dudetv-page.theme-devil .search-clear-chip {
+  background: #8B0000;
+  border: 1px solid rgba(255, 50, 50, 0.4);
+  color: #ffcccc;
+  border-radius: 3px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(40, 0, 0, 0.5);
+}
+
+.dudetv-page.theme-devil .tv-premium-back-btn:hover,
+.dudetv-page.theme-devil .search-clear-chip:hover {
+  background: #a50000;
+  border-color: rgba(255, 80, 80, 0.7);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4), inset 0 0 10px rgba(60, 0, 0, 0.6);
+}
+
+/* Misc surfaces */
+.dudetv-page.theme-devil .match-date-input {
+  background: rgba(25, 5, 5, 0.8);
+  border-color: rgba(139, 0, 0, 0.6);
+  color: #ffcccc;
+  border-radius: 4px;
+}
+
+.dudetv-page.theme-devil .match-date-label {
+  color: #ffaaaa;
+}
+
+.dudetv-page.theme-devil .search-summary-banner {
+  background: rgba(30, 10, 10, 0.4);
+  border-color: rgba(139, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.dudetv-page.theme-devil .no-search-results {
+  background: rgba(20, 5, 5, 0.8);
+  border-color: rgba(139, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+   ANGEL (light theme)
+   ========================================================================== */
+.dudetv-page.theme-angel {
+  color: #2c78c3;
+}
+
+.dudetv-page.theme-angel .dude-page-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #0a2540;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+.dudetv-page.theme-angel .section-heading {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  color: #5F9EA0;
+  border-bottom: 1px solid rgba(173, 216, 230, 0.7);
+  text-shadow: none;
+}
+
+.dudetv-page.theme-angel .section-count {
+  background: rgba(142, 197, 252, 0.15);
+  color: #2c78c3;
+}
+
+.dudetv-page.theme-angel .popular-searches-label,
+.dudetv-page.theme-angel .search-summary-label,
+.dudetv-page.theme-angel .match-date-label,
+.dudetv-page.theme-angel .no-search-results p,
+.dudetv-page.theme-angel .dude-loading-container,
+.dudetv-page.theme-angel .dude-error-container {
+  color: #5a8db8;
+}
+
+/* Search */
+.dudetv-page.theme-angel .tv-search-input-container {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(142, 197, 252, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(142, 197, 252, 0.15);
+}
+
+.dudetv-page.theme-angel .tv-search-input-container:focus-within {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #8EC5FC;
+  box-shadow: 0 0 15px rgba(142, 197, 252, 0.4), 0 3px 10px rgba(142, 197, 252, 0.2);
+}
+
+.dudetv-page.theme-angel .tv-search-input {
+  color: #5a8db8;
+  font-family: 'Rubik', sans-serif;
+}
+
+.dudetv-page.theme-angel .tv-search-input::placeholder {
+  color: rgba(90, 141, 184, 0.6);
+}
+
+.dudetv-page.theme-angel .tv-search-input-icon,
+.dudetv-page.theme-angel .voice-search-button .mic-icon {
+  color: #5a8db8;
+}
+
+.dudetv-page.theme-angel .tv-clear-search-btn {
+  background: rgba(142, 197, 252, 0.2);
+  color: #5a8db8;
+}
+
+/* Tabs */
+.dudetv-page.theme-angel .dude-tab-bar {
+  background: linear-gradient(135deg, rgba(161, 196, 253, 0.28), rgba(135, 206, 235, 0.28));
+  border-color: rgba(135, 206, 250, 0.4);
+  box-shadow: 0 4px 15px rgba(142, 197, 252, 0.2);
+}
+
+.dudetv-page.theme-angel .dude-tab-btn {
+  color: #335;
+  font-family: 'Rubik', sans-serif;
+}
+
+.dudetv-page.theme-angel .dude-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: #113a5c;
+}
+
+.dudetv-page.theme-angel .dude-tab-btn.active {
+  background: linear-gradient(135deg, #a1c4fd, #87CEEB);
+  border-color: #87CEEB;
+  color: #113a5c;
+  box-shadow: 0 0 20px rgba(142, 197, 252, 0.5);
+}
+
+/* Chips */
+.dudetv-page.theme-angel .cat-chip-btn,
+.dudetv-page.theme-angel .search-tab-pill {
+  background: rgba(142, 197, 252, 0.12);
+  border-color: rgba(135, 206, 250, 0.4);
+  color: #335;
+}
+
+.dudetv-page.theme-angel .cat-chip-btn:hover,
+.dudetv-page.theme-angel .search-tab-pill:hover,
+.dudetv-page.theme-angel .cat-chip-btn.active,
+.dudetv-page.theme-angel .search-tab-pill.active {
+  background: linear-gradient(135deg, #a1c4fd, #87CEEB);
+  border-color: #87CEEB;
+  color: #113a5c;
+}
+
+.dudetv-page.theme-angel .cat-chip-btn.active,
+.dudetv-page.theme-angel .search-tab-pill.active {
+  box-shadow: 0 4px 16px rgba(142, 197, 252, 0.45);
+}
+
+/* Badges */
+.dudetv-page.theme-angel .live-status-pill,
+.dudetv-page.theme-angel .channel-modern-free,
+.dudetv-page.theme-angel .dude-badge {
+  background: linear-gradient(135deg, #00A8E1 0%, #0077c2 100%);
+  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.5);
+}
+
+/* Cards: white, very rounded */
+.dudetv-page.theme-angel .event-card,
+.dudetv-page.theme-angel .channel-modern-card {
+  background: #ffffff;
+  border: 1px solid rgba(142, 197, 252, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 6px 15px rgba(142, 197, 252, 0.15);
+}
+
+.dudetv-page.theme-angel .event-card {
+  padding: 18px 20px;
+}
+
+.dudetv-page.theme-angel .event-card:hover,
+.dudetv-page.theme-angel .channel-modern-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(135, 206, 250, 0.8);
+  box-shadow: 0 20px 40px rgba(142, 197, 252, 0.4), 0 0 20px rgba(142, 197, 252, 0.5);
+}
+
+/* Logos stay on a dark poster area so white logos remain visible */
+.dudetv-page.theme-angel .channel-modern-banner {
+  background: #0c1622;
+}
+
+.dudetv-page.theme-angel .channel-modern-info {
+  background: transparent;
+}
+
+.dudetv-page.theme-angel .event-title,
+.dudetv-page.theme-angel .channel-modern-title {
+  color: #4682B4;
+  font-weight: 600;
+}
+
+.dudetv-page.theme-angel .team-name {
+  color: #0a2540;
+}
+
+.dudetv-page.theme-angel .team-flag {
+  background: rgba(142, 197, 252, 0.12);
+}
+
+.dudetv-page.theme-angel .event-category-badge,
+.dudetv-page.theme-angel .channel-modern-pill {
+  background: rgba(142, 197, 252, 0.15);
+  border-color: rgba(135, 206, 250, 0.4);
+  color: #335;
+}
+
+.dudetv-page.theme-angel .vs-badge {
+  background: rgba(142, 197, 252, 0.15);
+  color: #5a8db8;
+}
+
+.dudetv-page.theme-angel .channels-pill,
+.dudetv-page.theme-angel .channel-modern-viewers {
+  color: #5F9EA0;
+}
+
+.dudetv-page.theme-angel .channel-modern-desc {
+  color: rgba(90, 141, 184, 0.85);
+}
+
+.dudetv-page.theme-angel .event-card-bottom,
+.dudetv-page.theme-angel .channel-modern-footer {
+  border-top-color: rgba(142, 197, 252, 0.25);
+}
+
+.dudetv-page.theme-angel .watch-now-cta {
+  background: linear-gradient(135deg, #00A8E1, #0077c2);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  box-shadow: 0 4px 16px rgba(0, 168, 225, 0.5);
+}
+
+.dudetv-page.theme-angel .channel-modern-banner::after {
+  background: linear-gradient(135deg, #00A8E1, #0077c2);
+  box-shadow: 0 4px 12px rgba(0, 168, 225, 0.5);
+}
+
+.dudetv-page.theme-angel .channel-modern-banner::before {
+  border-left-color: #fff;
+}
+
+/* Buttons */
+.dudetv-page.theme-angel .clear-search-cta,
+.dudetv-page.theme-angel .dude-retry-btn {
+  background: linear-gradient(135deg, #00A8E1, #0077c2);
+  color: #fff;
+  border-radius: 20px;
+  font-family: 'Rubik', sans-serif;
+  box-shadow: 0 4px 16px rgba(0, 168, 225, 0.5);
+}
+
+.dudetv-page.theme-angel .tv-premium-back-btn,
+.dudetv-page.theme-angel .search-clear-chip {
+  background: linear-gradient(135deg, #a1c4fd, #87CEEB);
+  border: 1px solid #87CEEB;
+  color: #113a5c;
+  border-radius: 20px;
+  font-family: 'Rubik', sans-serif;
+  box-shadow: 0 2px 6px rgba(173, 216, 230, 0.4);
+}
+
+.dudetv-page.theme-angel .tv-premium-back-btn:hover,
+.dudetv-page.theme-angel .search-clear-chip:hover {
+  background: linear-gradient(135deg, #87CEEB, #a1c4fd);
+  color: #002a4d;
+  box-shadow: 0 8px 25px rgba(142, 197, 252, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Misc surfaces */
+.dudetv-page.theme-angel .match-date-input {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(142, 197, 252, 0.4);
+  color: #335;
+  border-radius: 30px;
+  color-scheme: light;
+}
+
+.dudetv-page.theme-angel .search-summary-banner {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(135, 206, 250, 0.5);
+  border-radius: 30px;
+}
+
+.dudetv-page.theme-angel .no-search-results {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(135, 206, 250, 0.6);
+  border-radius: 30px;
+}
+
+.dudetv-page.theme-angel .carousel-arrow-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(135, 206, 250, 0.5);
+  color: #2c78c3;
+}
+
+/* ==========================================================================
+   HANNIBAL
+   ========================================================================== */
+.dudetv-page.theme-hannibal .dude-page-title {
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #CD7F32;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.dudetv-page.theme-hannibal .section-heading {
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #CD7F32;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(85, 107, 47, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.dudetv-page.theme-hannibal .section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #CD7F32, transparent);
+}
+
+.dudetv-page.theme-hannibal .section-count {
+  background: rgba(85, 107, 47, 0.35);
+  color: #D2B48C;
+}
+
+/* Search */
+.dudetv-page.theme-hannibal .tv-search-input-container {
+  background: rgba(25, 30, 25, 0.9);
+  border: 1px solid rgba(85, 107, 47, 0.6);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.dudetv-page.theme-hannibal .tv-search-input-container:focus-within {
+  border-color: #a8957a;
+  background: rgba(35, 40, 35, 0.95);
+  box-shadow: 0 0 10px rgba(168, 149, 122, 0.25), inset 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.dudetv-page.theme-hannibal .tv-search-input {
+  color: #d8d8d8;
+  font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+.dudetv-page.theme-hannibal .tv-search-input::placeholder {
+  color: rgba(210, 180, 140, 0.6);
+}
+
+.dudetv-page.theme-hannibal .tv-search-input-icon {
+  color: #a8957a;
+}
+
+/* Tabs: "carved" bronze active */
+.dudetv-page.theme-hannibal .dude-tab-btn {
+  font-family: 'Cinzel', serif;
+  color: #d8d8d8;
+}
+
+.dudetv-page.theme-hannibal .dude-tab-btn.active {
+  background: #CD7F32;
+  border: 3px solid #36454F;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Chips */
+.dudetv-page.theme-hannibal .cat-chip-btn:hover,
+.dudetv-page.theme-hannibal .search-tab-pill:hover {
+  border-color: #1CE783;
+  box-shadow: 0 0 10px rgba(28, 231, 131, 0.35);
+  color: #fff;
+}
+
+.dudetv-page.theme-hannibal .cat-chip-btn.active,
+.dudetv-page.theme-hannibal .search-tab-pill.active {
+  background: #1CE783;
+  border-color: #1CE783;
+  color: #04140c;
+  box-shadow: 0 4px 16px rgba(28, 231, 131, 0.5);
+}
+
+/* Badges */
+.dudetv-page.theme-hannibal .live-status-pill,
+.dudetv-page.theme-hannibal .channel-modern-free,
+.dudetv-page.theme-hannibal .dude-badge {
+  background: #1CE783;
+  color: #04140c;
+  box-shadow: 0 4px 12px rgba(28, 231, 131, 0.5);
+}
+
+/* Cards: sharp, olive frame, bronze on hover */
+.dudetv-page.theme-hannibal .event-card,
+.dudetv-page.theme-hannibal .channel-modern-card {
+  background: rgba(20, 25, 20, 0.85);
+  border: 1px solid rgba(85, 107, 47, 0.4);
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.dudetv-page.theme-hannibal .event-card:hover,
+.dudetv-page.theme-hannibal .channel-modern-card:hover {
+  border-color: #CD7F32;
+  box-shadow: inset 0 0 0 2px #CD7F32, 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(139, 69, 19, 0.3);
+}
+
+.dudetv-page.theme-hannibal .channel-modern-banner {
+  background: #0e120e;
+}
+
+.dudetv-page.theme-hannibal .channel-modern-info {
+  background: transparent;
+}
+
+.dudetv-page.theme-hannibal .event-title,
+.dudetv-page.theme-hannibal .channel-modern-title {
+  color: #D2B48C;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  font-weight: 600;
+}
+
+.dudetv-page.theme-hannibal .team-name {
+  color: #e8e0d5;
+  font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+.dudetv-page.theme-hannibal .event-category-badge,
+.dudetv-page.theme-hannibal .channel-modern-pill {
+  background: rgba(85, 107, 47, 0.35);
+  border-color: rgba(107, 142, 35, 0.4);
+  color: #D2B48C;
+}
+
+.dudetv-page.theme-hannibal .vs-badge {
+  background: rgba(168, 149, 122, 0.12);
+  color: #a8957a;
+}
+
+.dudetv-page.theme-hannibal .channels-pill,
+.dudetv-page.theme-hannibal .channel-modern-viewers {
+  color: #8FBC8F;
+}
+
+.dudetv-page.theme-hannibal .channel-modern-desc {
+  color: rgba(216, 216, 216, 0.55);
+}
+
+.dudetv-page.theme-hannibal .event-card-bottom,
+.dudetv-page.theme-hannibal .channel-modern-footer {
+  border-top-color: rgba(85, 107, 47, 0.4);
+}
+
+.dudetv-page.theme-hannibal .watch-now-cta {
+  background: #1CE783;
+  color: #04140c;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 16px rgba(28, 231, 131, 0.5);
+}
+
+.dudetv-page.theme-hannibal .channel-modern-banner::after {
+  background: #1CE783;
+  box-shadow: 0 4px 12px rgba(28, 231, 131, 0.5);
+}
+
+.dudetv-page.theme-hannibal .channel-modern-banner::before {
+  border-left-color: #04140c;
+}
+
+/* Buttons */
+.dudetv-page.theme-hannibal .clear-search-cta,
+.dudetv-page.theme-hannibal .dude-retry-btn {
+  background: #1CE783;
+  color: #04140c;
+  border: 1px solid #8B4513;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 16px rgba(28, 231, 131, 0.5);
+}
+
+.dudetv-page.theme-hannibal .tv-premium-back-btn,
+.dudetv-page.theme-hannibal .search-clear-chip {
+  background: #6B8E23;
+  border: 1px solid #8B4513;
+  color: #d8d8d8;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(15, 20, 15, 0.6);
+}
+
+.dudetv-page.theme-hannibal .tv-premium-back-btn:hover,
+.dudetv-page.theme-hannibal .search-clear-chip:hover {
+  background: #8B4513;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px #CD7F32;
+}
+
+/* Misc surfaces */
+.dudetv-page.theme-hannibal .match-date-input {
+  background: rgba(25, 30, 25, 0.8);
+  border-color: rgba(85, 107, 47, 0.6);
+  color: #d8d8d8;
+  border-radius: 2px;
+  font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+.dudetv-page.theme-hannibal .match-date-label {
+  color: #D2B48C;
+}
+
+.dudetv-page.theme-hannibal .search-summary-banner {
+  background: rgba(10, 30, 10, 0.4);
+  border-color: rgba(85, 107, 47, 0.5);
+  border-radius: 2px;
+}
+
+.dudetv-page.theme-hannibal .no-search-results {
+  background: rgba(20, 25, 20, 0.85);
+  border-color: rgba(85, 107, 47, 0.5);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   MEDIA HUB PARITY — MOBILE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .dude-tab-bar {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 3px;
+  }
+
+  .dudetv-page .section-heading {
+    font-size: 1.3rem;
+  }
+
+  /* 2-column poster grid, like the Media Hub mobile grid */
+  .modern-channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .channel-modern-banner {
+    height: 110px;
+  }
+
+  .channel-modern-img {
+    padding: 10px;
+  }
+
+  .channel-modern-info {
+    padding: 10px;
+  }
+
+  .channel-modern-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .channel-modern-title {
+    font-size: 13px;
+  }
+
+  .channel-modern-desc,
+  .channel-modern-tags .channel-modern-pill + .channel-modern-pill {
+    display: none;
+  }
+
+  .channel-modern-footer {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .dudetv-page.theme-angel .event-card,
+  .dudetv-page.theme-angel .channel-modern-card {
+    border-radius: 20px;
+  }
+}
+
+/* Touch: no stuck hover zoom; keep the play button visible */
+@media (hover: none), (pointer: coarse) {
+  .dudetv-page .event-card:hover,
+  .dudetv-page .channel-modern-card:hover,
+  .dudetv-page.theme-angel .event-card:hover,
+  .dudetv-page.theme-angel .channel-modern-card:hover {
+    transform: none;
+  }
+
+  .channel-modern-banner::after,
+  .channel-modern-banner::before {
+    opacity: 0.95;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   LOADER — Media Hub ring spinner (LoadingSpinner.css) + skeleton cards
+   ========================================================================== */
+.dude-loading-container {
+  padding: 32px 0 20px;
+}
+
+.dude-loading-container .loading-spinner {
+  margin-bottom: 18px;
+}
+
+.dude-loading-text {
+  margin: 0 0 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: dude-text-glow 1.8s ease-in-out infinite;
+}
+
+@keyframes dude-text-glow {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+.dudetv-page.theme-devil .dude-loading-text {
+  color: #ff4444;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.dudetv-page.theme-angel .dude-loading-text {
+  color: #2c78c3;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
+
+.dudetv-page.theme-hannibal .dude-loading-text {
+  color: #CD7F32;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Angel page is white: use the stronger Prime blue for the lead ring */
+.dudetv-page.theme-angel .spinner-ring:nth-child(1) {
+  border-top-color: #00A8E1;
+}
+
+/* Skeleton cards reuse the themed .event-card frame */
+.dude-skeleton-grid {
+  width: 100%;
+  text-align: left;
+}
+
+.dude-skeleton-card {
+  pointer-events: none;
+  min-height: 190px;
+}
+
+.sk-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12%;
+}
+
+.sk {
+  --sk-base: rgba(255, 255, 255, 0.06);
+  --sk-shine: rgba(255, 255, 255, 0.16);
+  background: linear-gradient(90deg, var(--sk-base) 25%, var(--sk-shine) 50%, var(--sk-base) 75%);
+  background-size: 200% 100%;
+  animation: dude-shimmer 1.4s ease-in-out infinite;
+}
+
+.sk-bar {
+  height: 12px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.sk-short { width: 32%; }
+.sk-half { width: 55%; }
+.sk-tiny { width: 28px; height: 18px; }
+
+.sk-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+@keyframes dude-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.dudetv-page.theme-devil .sk {
+  --sk-base: rgba(139, 0, 0, 0.22);
+  --sk-shine: rgba(229, 9, 20, 0.45);
+}
+
+.dudetv-page.theme-angel .sk {
+  --sk-base: rgba(142, 197, 252, 0.18);
+  --sk-shine: rgba(0, 168, 225, 0.35);
+}
+
+.dudetv-page.theme-hannibal .sk {
+  --sk-base: rgba(85, 107, 47, 0.25);
+  --sk-shine: rgba(205, 127, 50, 0.4);
+}
+
+.dudetv-page.theme-devil .sk-bar { border-radius: 2px; }
+.dudetv-page.theme-hannibal .sk-bar { border-radius: 1px; }
+
+@media (max-width: 768px) {
+  .dude-skeleton-card:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk,
+  .dude-loading-text {
+    animation: none;
   }
 }

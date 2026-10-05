@@ -131,11 +131,16 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   const isBookmarked = media?.id ? isInWatchlist(media.id) : false;
   const [userRating, setUserRating] = useState(0); // User's personal rating
   const [selectedPlayerSource, setSelectedPlayerSource] = useState(() => {
-    return localStorage.getItem('player_source') || 'cinemaos';
-  }); // Default player source from cache or 'cinemaos'
+    const cached = localStorage.getItem('player_source');
+    // If no cache or if previous default 'cinemaos' was cached, default to ScreenScape (#1)
+    if (!cached || cached === 'cinemaos') {
+      return 'screenscape';
+    }
+    return cached;
+  }); // Default player source: ScreenScape (#1)
   const [sourceErrorCount, setSourceErrorCount] = useState({}); // Track errors per source
   const [showShareTooltip, setShowShareTooltip] = useState(false);
-  
+
   // --- HDHub State ---
   const [hdhubStreams, setHdhubStreams] = useState([]);
   const [selectedHdhubStream, setSelectedHdhubStream] = useState(null);
@@ -156,6 +161,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
 
   // --- Updated Player Sources ---
   const embeddedPlayerSources = [
+    { id: 'screenscape', name: 'ScreenScape' },
     { id: 'cinemaos', name: 'CinemaOS' },
     { id: 'vidking', name: 'Vidking' },
     { id: 'rivestream', name: 'RiveStream' },
@@ -180,6 +186,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
   ];
 
   const embeddedPlayerInfo = {
+    screenscape: { name: 'ScreenScape', website: 'screenscape.me', features: ['Multi-Audio', 'Auto-Progress', 'Fast HD'] },
     cinemaos: { name: 'CinemaOS', website: 'cinemaos.tech', features: ['Embedded Player', 'Ad-Free'] },
     vidnest: { name: 'Vidnest', website: 'vidnest.fun', features: ['Embedded Player'] },
     '2embedimdb': { name: '2Embed (IMDB)', website: '2embed.cc', features: ['Embedded Player'] },
@@ -429,14 +436,32 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
     }
   }, [selectedSeason, selectedEpisode, selectedPlayerSource]);
 
+  // --- ScreenScape Progress & Watch History postMessage Sync ---
+  useEffect(() => {
+    const handleScreenScapeMessage = (event) => {
+      if (event.origin !== 'https://nxsha.screenscape.me') return;
+      if (event.data?.type === 'SCREENSCAPE_WATCH_HISTORY_WITH_PROGRESS_RESPONSE') {
+        console.log('[ScreenScape] Watch history with progress synced:', event.data.watchHistory);
+      }
+    };
+    window.addEventListener('message', handleScreenScapeMessage);
+    return () => window.removeEventListener('message', handleScreenScapeMessage);
+  }, []);
+
   // --- Updated getVideoUrl for Embedded Sources Only ---
   const getVideoUrl = (sourceId = selectedPlayerSource, domainIndex = currentDomainIndex) => {
     if (!embeddedPlayerSources.some(s => s.id === sourceId)) return ''; // Only handle embedded sources
 
     const imdbId = movieDetails?.imdb_id || tvDetails?.external_ids?.imdb_id || media.id;
 
+    // ScreenScape (Nxsha) - Default #1 Player (Uses native internal audio & mirror selector)
+    if (sourceId === 'screenscape') {
+      return type === 'movie'
+        ? `https://nxsha.screenscape.me/embed?tmdb=${media.id}&type=movie`
+        : `https://nxsha.screenscape.me/embed?tmdb=${media.id}&type=tv&s=${selectedSeason}&e=${selectedEpisode}`;
+    }
     // CinemaOS
-    if (sourceId === 'cinemaos') {
+    else if (sourceId === 'cinemaos') {
       return type === 'movie'
         ? `https://cinemaos.tech/player/${media.id}`
         : `https://cinemaos.tech/player/${media.id}/${selectedSeason}/${selectedEpisode}`;
@@ -1198,6 +1223,7 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
                 )}
                 <iframe
                   ref={iframeRef}
+                  id={selectedPlayerSource === 'screenscape' ? 'screenscape-player' : undefined}
                   src={currentVideoUrl}
                   key={`${selectedPlayerSource}-${type}-${media.id}-${selectedSeason}-${selectedEpisode}-${currentDomainIndex}`}
                   width="100%"

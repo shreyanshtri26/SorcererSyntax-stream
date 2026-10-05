@@ -1,4 +1,5 @@
 import { apiCache } from './cache';
+import { trendy48EventUrl, etDayKey, validKickoff } from './trendy48Api';
 
 const STREAMED_BASE_URL = 'https://streamed.pk';
 const PROXY_URL = 'https://nuvio-proxy.odedararaj456.workers.dev';
@@ -122,7 +123,8 @@ export const normalizeStreamedMatch = (match) => {
   }
 
   const sources = match.sources || [];
-  const decodedChannels = [];
+  // trendy48 resolves streamed.pk ids server-side (even ones its own list drops), so it leads
+  const decodedChannels = [{ title: `${title} (Trendy48 HD)`, link: trendy48EventUrl(match.id), type: '0', api: '' }];
 
   sources.forEach((src) => {
     const sName = src.source || 'admin';
@@ -161,6 +163,8 @@ export const normalizeStreamedMatch = (match) => {
     formats: decodedChannels.map(c => c.title),
     decoded_channels: decodedChannels,
     sources: sources,
+    kickoff: validKickoff(match.date),
+    dayKey: etDayKey(validKickoff(match.date) || Date.now()),
     source: 'streamed.pk'
   };
 };

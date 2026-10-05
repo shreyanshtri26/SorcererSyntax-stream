@@ -48,6 +48,9 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
   const [autoFailoverNotice, setAutoFailoverNotice] = useState(null);
 
   const videoRef = useRef(null);
+  const screenRef = useRef(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isPseudoFullscreen, setIsPseudoFullscreen] = useState(false);
   const shakaPlayerRef = useRef(null);
   const watchdogTimerRef = useRef(null);
   const stallTimerRef = useRef(null);
@@ -76,7 +79,7 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
       }
 
       // If streams are iframe embeds (CDX / embed.st), preserve exact server order with Server 1 as primary
-      const hasEmbed = rawStreams.some(s => s.link && (s.link.includes('embed') || s.link.includes('iframe')));
+      const hasEmbed = rawStreams.some(s => s.link && (s.link.includes('embed') || s.link.includes('iframe') || s.link.includes('trendy48')));
       if (hasEmbed) {
         if (isMounted) {
           setRankedStreams(rawStreams.map(s => ({ ...s, ping: s.ping || 45, isOnline: true })));
@@ -129,6 +132,53 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
+
+  // Fullscreen: embed providers (e.g. trendy48 -> redirecting player host) lose the iframe's fullscreen
+  // permission across their redirect, so their own button is dead. Fullscreen our screen frame instead.
+  useEffect(() => {
+    const onChange = () => setIsFullscreen(Boolean(document.fullscreenElement || document.webkitFullscreenElement));
+    document.addEventListener('fullscreenchange', onChange);
+    document.addEventListener('webkitfullscreenchange', onChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', onChange);
+      document.removeEventListener('webkitfullscreenchange', onChange);
+    };
+  }, []);
+
+  // In the CSS fallback, Escape leaves fullscreen instead of closing the player (capture phase runs first)
+  useEffect(() => {
+    if (!isPseudoFullscreen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        e.stopImmediatePropagation();
+        setIsPseudoFullscreen(false);
+      }
+    };
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  }, [isPseudoFullscreen]);
+
+  const toggleFullscreen = () => {
+    const el = screenRef.current;
+    if (!el) return;
+    if (isPseudoFullscreen) {
+      setIsPseudoFullscreen(false);
+      return;
+    }
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      return;
+    }
+    const request = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!request) {
+      // iPhone Safari only fullscreens <video>; fill the viewport with CSS instead
+      setIsPseudoFullscreen(true);
+      return;
+    }
+    Promise.resolve(request.call(el))
+      .then(() => screen.orientation?.lock?.('landscape').catch(() => {}))
+      .catch(() => setIsPseudoFullscreen(true));
+  };
 
   // 2. High-Reliability Auto-Failover Engine
   const triggerAutoFailover = useCallback((reason = 'Stream error') => {
@@ -203,7 +253,7 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
 
     if (isEmbed) {
       let finalEmbedUrl = streamUrl;
-      if (!finalEmbedUrl.includes('autoplay')) {
+      if (!finalEmbedUrl.includes('autoplay') && !finalEmbedUrl.includes('trendy48')) {
         finalEmbedUrl += (finalEmbedUrl.includes('?') ? '&autoplay=1' : '?autoplay=1');
       }
       setIsIframe(true);
@@ -453,7 +503,16 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
       </div>
 
       {/* Screen Frame */}
-      <div className="dudetv-screen-wrapper">
+      <div ref={screenRef} className={`dudetv-screen-wrapper ${isPseudoFullscreen ? 'dudetv-pseudo-fs' : ''}`}>
+        <button
+          type="button"
+          className="dudetv-fs-btn"
+          onClick={toggleFullscreen}
+          aria-label={isFullscreen || isPseudoFullscreen ? 'Exit full screen' : 'Full screen'}
+          title={isFullscreen || isPseudoFullscreen ? 'Exit full screen (Esc)' : 'Full screen'}
+        >
+          {isFullscreen || isPseudoFullscreen ? '⤡' : '⛶'}
+        </button>
         {isLoading && (
           <div className="player-loading-overlay">
             <div className="spinner"></div>
@@ -497,7 +556,7 @@ const DudeTvPlayer = ({ item, streams = [], onClose, currentTheme = 'devil' }) =
             height="100%"
             frameBorder="0"
             scrolling="no"
-            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
             allowFullScreen
           />
         ) : (

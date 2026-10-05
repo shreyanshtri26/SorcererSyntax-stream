@@ -8,7 +8,6 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
     const mediaType = item.media_type || type;
     const [genres, setGenres] = useState([]);
     const [isHovered, setIsHovered] = useState(false);
-    const [isLiked, setIsLiked] = useState(false);
     const [trailerKey, setTrailerKey] = useState(null);
     const [isLoadingTrailer, setIsLoadingTrailer] = useState(false);
     const { isInWatchlist, toggleWatchlist } = useWatchlist();
@@ -83,19 +82,9 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
         onClick(item, mediaType, false);
     };
 
-    const handleTrailerClick = (e) => {
-        e.stopPropagation();
-        onClick(item, mediaType, true);
-    };
-
     const handleBookmarkClick = (e) => {
         e.stopPropagation();
         toggleWatchlist(item, mediaType);
-    };
-
-    const handleLikeClick = (e) => {
-        e.stopPropagation();
-        setIsLiked(!isLiked);
     };
 
     const handleMouseEnter = () => setIsHovered(true);
@@ -123,7 +112,7 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
                         <p className="department">{item.known_for_department}</p>
                     )}
                     {item.popularity > 0 && (
-                        <div className="popularity">⭐ {item.popularity.toFixed(1)}</div>
+                        <div className="popularity">★ {item.popularity.toFixed(1)}</div>
                     )}
                     {item.known_for && item.known_for.length > 0 && (
                         <p className="known-for">
@@ -246,17 +235,6 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
                                 title={isBookmarked ? "Remove from List" : "Add to My List"}
                             >
                                 <span>{isBookmarked ? '✓' : '＋'}</span>
-                            </button>
-                            <button 
-                                className={`card-hover-like ${isLiked ? 'liked' : ''}`}
-                                onClick={handleLikeClick}
-                                aria-label="Like"
-                                title={isLiked ? "Liked" : "I like this"}
-                            >
-                                <span>{isLiked ? '👍' : '👍'}</span>
-                            </button>
-                            <button className="trailer-btn" onClick={handleTrailerClick} aria-label="Trailer" title="Watch Trailer">
-                                <span>🎬</span>
                             </button>
                         </div>
                     </div>

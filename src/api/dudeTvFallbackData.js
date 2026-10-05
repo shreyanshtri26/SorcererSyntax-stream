@@ -132,7 +132,7 @@ export const FALLBACK_EVENTS = [
     "id": 50027,
     "title": "Real Betis vs Real Madrid",
     "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/320px-Real_Madrid_CF.svg.png",
-    "cat": "LaLiga 🇪🇸",
+    "cat": "LaLiga",
     "eventInfo": {
       "teamA": "Real Betis",
       "teamB": "Real Madrid",
@@ -151,7 +151,7 @@ export const FALLBACK_EVENTS = [
     "decoded_channels": [
       {
         "title": "DAZN LaLiga (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/daznlaliga-es",
+        "link": "https://trendy48.online/live-tv?ch=daznlaliga-es",
         "type": "0"
       },
       {
@@ -166,7 +166,7 @@ export const FALLBACK_EVENTS = [
     "id": 50030,
     "title": "Real Madrid vs FC Barcelona (El Clásico)",
     "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/320px-Real_Madrid_CF.svg.png",
-    "cat": "LaLiga 🇪🇸",
+    "cat": "LaLiga",
     "eventInfo": {
       "teamA": "Real Madrid",
       "teamB": "FC Barcelona",
@@ -185,7 +185,7 @@ export const FALLBACK_EVENTS = [
     "decoded_channels": [
       {
         "title": "DAZN LaLiga (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/daznlaliga-es",
+        "link": "https://trendy48.online/live-tv?ch=daznlaliga-es",
         "type": "0"
       }
     ],
@@ -195,7 +195,7 @@ export const FALLBACK_EVENTS = [
     "id": 50028,
     "title": "Manchester City vs Liverpool FC",
     "image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/320px-Manchester_City_FC_badge.svg.png",
-    "cat": "EPL 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "cat": "EPL",
     "eventInfo": {
       "teamA": "Manchester City",
       "teamB": "Liverpool FC",
@@ -214,7 +214,7 @@ export const FALLBACK_EVENTS = [
     "decoded_channels": [
       {
         "title": "Sky Sports Football (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/skysportsfootball-uk",
+        "link": "https://trendy48.online/live-tv?ch=skysportsfootball-uk",
         "type": "0"
       },
       {
@@ -233,7 +233,7 @@ export const FALLBACK_EVENTS = [
     "eventInfo": {
       "teamA": "WWE Superstars",
       "teamB": "Monday Night RAW",
-      "eventName": "🥊 WWE Monday Night RAW Live",
+      "eventName": "WWE Monday Night RAW Live",
       "competition": "WWE",
       "isHot": "1",
       "kickoffIST": "5:30 AM IST",
@@ -246,7 +246,7 @@ export const FALLBACK_EVENTS = [
     "decoded_channels": [
       {
         "title": "USA Network (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/usanetwork-usa",
+        "link": "https://trendy48.online/live-tv?ch=usanetwork-usa",
         "type": "0"
       },
       {
@@ -280,17 +280,17 @@ export const FALLBACK_EVENTS = [
     "decoded_channels": [
       {
         "title": "Willow Cricket (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/willowcricket-usa",
+        "link": "https://trendy48.online/live-tv?ch=willow-usa",
         "type": "0"
       },
       {
         "title": "Willow Cricket 2 (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/willowcricket2-usa",
+        "link": "https://trendy48.online/live-tv?ch=willow2-usa",
         "type": "0"
       },
       {
         "title": "Sky Sports Cricket (BEST Ultra HD)",
-        "link": "https://epiembeds.online/embed/skysportscricket-uk",
+        "link": "https://trendy48.online/live-tv?ch=skysportscricket-uk",
         "type": "0"
       },
       {

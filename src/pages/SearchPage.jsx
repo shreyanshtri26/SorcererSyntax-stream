@@ -22,6 +22,16 @@ import { useDebounce } from '../hooks/useDebounce';
 import HomePage from './HomePage';
 import SlidingTabs from '../components/common/SlidingTabs';
 
+// Pre-mapped popular genres for both Movie and TV Show discovery
+const QUICK_GENRES = [
+    { label: 'Action', movieGenreId: 28, tvGenreId: 10759 },
+    { label: 'Sci-Fi', movieGenreId: 878, tvGenreId: 10765 },
+    { label: 'Comedy', movieGenreId: 35, tvGenreId: 35 },
+    { label: 'Drama', movieGenreId: 18, tvGenreId: 18 },
+    { label: 'Thriller', movieGenreId: 53, tvGenreId: 9648 },
+    { label: 'Horror', movieGenreId: 27, tvGenreId: 9648 }
+];
+
 const SearchPage = ({
     currentTheme,
     userPreferences,
@@ -66,8 +76,9 @@ const SearchPage = ({
         fetchMetadata();
     }, []);
 
-    const performSearch = useCallback(async (queryOverride = null) => {
+    const performSearch = useCallback(async (queryOverride = null, filtersOverride = null) => {
         const query = queryOverride !== null ? queryOverride : searchQuery;
+        const currentActiveFilters = filtersOverride !== null ? filtersOverride : filters;
         setIsFilterLoading(true);
         setFilteredResults(prev => ({
             movie: { ...prev.movie, items: [], page: 1 },
@@ -113,14 +124,14 @@ const SearchPage = ({
                 });
                 setIsFilteredSearch(true);
             } else {
-                const selectedGenreIds = filters.genres || [];
+                const selectedGenreIds = currentActiveFilters.genres || [];
                 const validMovieGenreIds = movieGenres.map(g => g.id.toString());
                 const movieApiGenres = selectedGenreIds.filter(id => validMovieGenreIds.includes(id));
-                const movieApiFilters = { ...filters, genres: movieApiGenres };
+                const movieApiFilters = { ...currentActiveFilters, genres: movieApiGenres };
 
                 const validTvGenreIds = tvGenres.map(g => g.id.toString());
                 const tvApiGenres = selectedGenreIds.filter(id => validTvGenreIds.includes(id));
-                const tvApiFilters = { ...filters, genres: tvApiGenres };
+                const tvApiFilters = { ...currentActiveFilters, genres: tvApiGenres };
 
                 const [movieData, tvData] = await Promise.all([
                     discoverMedia('movie', movieApiFilters, 1, sortOption),
@@ -221,12 +232,42 @@ const SearchPage = ({
         }
     };
 
-    const handleGenreClick = async (genreId, genreLabel) => {
-        setSearchQuery(genreLabel);
-        setIsShowingTrending(false); // Reset trending flag
-        setFilters(prev => ({ ...prev, genres: [genreId] }));
-        setIsFilteredSearch(true);
-        setTimeout(() => performSearch(), 100);
+    const handleGenreClick = (pill) => {
+        // Clear text query so TMDB Discover runs by genre instead of keyword search
+        setSearchQuery('');
+        setIsShowingTrending(false);
+
+        const movieGenreStr = pill.movieGenreId ? pill.movieGenreId.toString() : '';
+        const tvGenreStr = pill.tvGenreId ? pill.tvGenreId.toString() : '';
+        const targetIds = [movieGenreStr, tvGenreStr].filter(Boolean);
+
+        // Check if currently selected
+        const isAlreadySelected = targetIds.some(id => filters.genres.includes(id));
+
+        let updatedGenres = [];
+        if (isAlreadySelected) {
+            // Deselect / toggle off
+            updatedGenres = filters.genres.filter(id => !targetIds.includes(id));
+        } else {
+            // Select this genre
+            updatedGenres = targetIds;
+        }
+
+        const newFilters = { ...filters, genres: updatedGenres };
+        setFilters(newFilters);
+
+        if (updatedGenres.length > 0) {
+            setIsFilteredSearch(true);
+            performSearch('', newFilters);
+        } else {
+            // If cleared, reset search to show home page trending feeds
+            setIsFilteredSearch(false);
+            setFilteredResults({
+                movie: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+                tv: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 },
+                people: { items: [], allItems: [], page: 1, totalPages: 1, totalResults: 0 }
+            });
+        }
     };
 
     const handleClearSearch = () => {
@@ -350,6 +391,21 @@ const SearchPage = ({
             );
     }, [languages, languageSearch]);
 
+    const activeGenreTitle = useMemo(() => {
+        if (searchQuery) return `Search Results: ${searchQuery}`;
+        if (filters.genres && filters.genres.length > 0) {
+            const allGenres = [...movieGenres, ...tvGenres];
+            const names = filters.genres
+                .map(id => allGenres.find(g => g.id.toString() === id.toString())?.name)
+                .filter(Boolean);
+            const uniqueNames = [...new Set(names)];
+            if (uniqueNames.length > 0) {
+                return `Genre: ${uniqueNames.join(', ')}`;
+            }
+        }
+        return "Filtered Results";
+    }, [searchQuery, filters.genres, movieGenres, tvGenres]);
+
     const toggleGenre = (id) => {
         setFilters(prev => {
             const g = prev.genres.includes(id.toString())
@@ -422,26 +478,22 @@ const SearchPage = ({
 
                 {/* Sleek Minimalist Quick Category Bar */}
                 <div className="popular-searches-row">
-                    <span className="popular-searches-label">Trending:</span>
-                    {[
-                        { label: 'Action', type: 'genre', genreId: 28 },
-                        { label: 'Sci-Fi', type: 'genre', genreId: 878 },
-                        { label: 'Comedy', type: 'genre', genreId: 35 },
-                        { label: 'Drama', type: 'genre', genreId: 18 },
-                        { label: 'Thriller', type: 'genre', genreId: 53 },
-                        { label: 'Horror', type: 'genre', genreId: 27 }
-                    ].map(pill => (
-                        <button
-                            key={pill.label}
-                            type="button"
-                            className="popular-search-pill"
-                            onClick={() => {
-                                handleGenreClick(pill.genreId, pill.label);
-                            }}
-                        >
-                            {pill.label}
-                        </button>
-                    ))}
+                    <span className="popular-searches-label">Genre:</span>
+                    {QUICK_GENRES.map(pill => {
+                        const isSelected = filters.genres.includes(pill.movieGenreId.toString()) ||
+                            (pill.tvGenreId && filters.genres.includes(pill.tvGenreId.toString()));
+                        return (
+                            <button
+                                key={pill.label}
+                                type="button"
+                                className={`popular-search-pill ${isSelected ? 'active' : ''}`}
+                                onClick={() => handleGenreClick(pill)}
+                            >
+                                {isSelected && <span className="chip-check">✓ </span>}
+                                {pill.label}
+                            </button>
+                        );
+                    })}
                 </div>
 
                 {/* Filters */}
@@ -560,7 +612,7 @@ const SearchPage = ({
                 {!isFilterLoading && isFilteredSearch && (
                     <div id="filtered-results" className="discovery-results-container">
                         <div className="filtered-header">
-                            <h2 className="section-title">{getSectionTitle(searchQuery ? `Search Results: ${searchQuery}` : "Filtered Results")}</h2>
+                            <h2 className="section-title">{getSectionTitle(activeGenreTitle)}</h2>
                         </div>
 
                         <div className="controls-bar">

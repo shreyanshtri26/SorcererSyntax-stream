@@ -38,7 +38,7 @@ const InfiniteScrollGrid = ({
           endMessage={
             items.length > 0 && (
               <div className="end-message">
-                <p>You've reached the end! 🎬</p>
+                <p>You've reached the end!</p>
               </div>
             )
           }
@@ -89,7 +89,7 @@ const InfiniteScrollGrid = ({
       )}
       {!hasMore && items.length > 0 && (
         <div className="end-message">
-          <p>You've reached the end! 🎬</p>
+          <p>You've reached the end!</p>
         </div>
       )}
     </div>

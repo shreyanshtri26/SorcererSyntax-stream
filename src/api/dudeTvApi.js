@@ -4,6 +4,7 @@ import { fetchStreamedMatches, normalizeStreamedMatch } from './streamedPkApi';
 import { RAJHODEDARA_ALL_CHANNELS } from './rajhodedaraPluginApi';
 import { fetchNarlyTvChannels, fetchNarlyTvEvents } from './narlyTvApi';
 import { fetchTimStreamsLiveEvents, fetchTimStreamsChannels } from './timStreamsApi';
+import { fetchTrendy48Matches, isSameEvent } from './trendy48Api';
 import {
   FALLBACK_CATEGORIES,
   FALLBACK_SPORTS,
@@ -322,19 +323,20 @@ export const fetchDudeHighlights = async () => {
 
 /**
  * Unified Live Events Aggregator
- * Merges DudeTV + LiveSportPlugin + Streamed.pk + NarlyTV M3U8 + TimStreams events
+ * Merges DudeTV + LiveSportPlugin + Streamed.pk + NarlyTV M3U8 + TimStreams + Trendy48 events
  */
 export const fetchUnifiedLiveEvents = async () => {
   const cacheKey = 'unified_live_events';
   const cached = apiCache.get(cacheKey);
   if (cached) return cached;
 
-  const [dudeEventsRes, lspCatalogRes, streamedPkRes, narlyEventsRes, timEventsRes] = await Promise.allSettled([
+  const [dudeEventsRes, lspCatalogRes, streamedPkRes, narlyEventsRes, timEventsRes, trendy48Res] = await Promise.allSettled([
     fetchDudeEventsWithChannels(),
     fetchLiveSportPluginCatalog(),
     fetchStreamedMatches(),
     fetchNarlyTvEvents(),
-    fetchTimStreamsLiveEvents()
+    fetchTimStreamsLiveEvents(),
+    fetchTrendy48Matches()
   ]);
 
   let combined = [];
@@ -435,6 +437,46 @@ export const fetchUnifiedLiveEvents = async () => {
       }
     }
   }
+
+  // 6. Trendy48: pair feeds like its board (same teams, ±3h). Feed rows first, curated (manual) rows last,
+  // so each curated feed ends up as server #1 with the upstream feed right behind it.
+  if (trendy48Res.status === 'fulfilled' &&Array.isArray(trendy48Res.value)) {
+    const rows = [...trendy48Res.value].sort((a, b) => a.manual - b.manual);
+    for (const item of rows) {
+      const existingMatch = combined.find(existing => isSameEvent(existing, item));
+
+      if (existingMatch) {
+        const current = existingMatch.decoded_channels || [];
+        const fresh = item.decoded_channels.filter(ch => !current.some(c => c.link === ch.link));
+        existingMatch.decoded_channels = [...fresh, ...current];
+        existingMatch.formats = existingMatch.decoded_channels.map(c => c.title);
+        existingMatch.t48Cat = item.t48Cat;
+        existingMatch.dayKey = item.dayKey;
+        existingMatch.kickoff = existingMatch.kickoff || item.kickoff;
+        if (item.eventInfo.isHot === '1' && existingMatch.eventInfo) existingMatch.eventInfo.isHot = '1';
+      } else {
+        combined.push(item);
+      }
+    }
+  }
+
+  // 7. Combine the same game coming from different sources into one card (all its streams, first source first)
+  // ponytail: O(n²) pair scan over ~1k events; bucket by team key if the list grows much larger
+  const mergedEvents = [];
+  for (const ev of combined) {
+    const twin = mergedEvents.find(m => isSameEvent(m, ev));
+    if (!twin) {
+      mergedEvents.push(ev);
+      continue;
+    }
+    const current = twin.decoded_channels || [];
+    twin.decoded_channels = [...current, ...(ev.decoded_channels || []).filter(ch => !current.some(c => c.link === ch.link))];
+    twin.formats = twin.decoded_channels.map(c => c.title);
+    twin.t48Cat = twin.t48Cat || ev.t48Cat;
+    twin.dayKey = twin.dayKey || ev.dayKey;
+    twin.kickoff = twin.kickoff || ev.kickoff;
+  }
+  combined = mergedEvents;
 
   if (combined.length === 0) {
     combined = [...FALLBACK_EVENTS];

@@ -1283,12 +1283,6 @@ h2 {
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.4) !important;
 }
 
-/* Hover Like Button */
-.card-hover-like.liked {
-  background: rgba(255, 0, 50, 0.25);
-  border-color: #ff0033;
-}
-
 /* --- Continue Watching Progress Bar (Netflix Red) --- */
 .card-continue-progress-bar {
   position: absolute;
@@ -1373,6 +1367,34 @@ h2 {
 .theme-hannibal .popular-search-pill:hover {
   border-color: #1CE783;
   box-shadow: 0 0 10px rgba(28, 231, 131, 0.35);
+}
+
+.popular-search-pill.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-weight: 700;
+  transform: translateY(-1px);
+}
+
+.theme-devil .popular-search-pill.active {
+  background: #E50914;
+  border-color: #ff3344;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+  color: #ffffff;
+}
+
+.theme-angel .popular-search-pill.active {
+  background: #00A8E1;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(0, 168, 225, 0.5);
+  color: #ffffff;
+}
+
+.theme-hannibal .popular-search-pill.active {
+  background: #1CE783;
+  border-color: #34d399;
+  box-shadow: 0 0 12px rgba(28, 231, 131, 0.5);
+  color: #051a0e;
 }
 
 /* --- Live Autocomplete Suggestions Popover (Netflix Search) --- */

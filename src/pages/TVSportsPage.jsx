@@ -17,10 +17,45 @@ import {
 } from '../api/dudeTvFallbackData';
 import { RAJHODEDARA_ALL_CHANNELS } from '../api/rajhodedaraPluginApi';
 import { CDX_USA_WORLD_CHANNELS, fetchCdxSportsByRegion } from '../api/cdxChannelsCatalog';
+import { etDayKey, fetchTrendy48Match, normalizeTrendy48Match, trendy48EventUrl, fetchTrendy48Healthy } from '../api/trendy48Api';
 import DudeTvPlayer from '../components/TVSports/DudeTvPlayer';
 import SafeImage from '../components/TVSports/SafeImage';
 import VoiceSearch from '../components/VoiceSearch';
+import '../components/LoadingSpinner.css';
 import './TVSportsPage.css';
+
+// Sport chips mirror the trendy48 board categories
+const SPORT_CHIPS = [
+  { id: 'all', label: 'All' },
+  { id: 'fight', label: 'Fight' },
+  { id: 'american-football', label: 'NFL' },
+  { id: 'football', label: 'Soccer' },
+  { id: 'basketball', label: 'NBA' },
+  { id: 'hockey', label: 'NHL' },
+  { id: 'baseball', label: 'MLB' },
+  { id: 'motor-sports', label: 'Motorsports' },
+  { id: 'cricket', label: 'Cricket' },
+  { id: 'tennis', label: 'Tennis' },
+  { id: 'rugby', label: 'Rugby' },
+  { id: 'golf', label: 'Golf' }
+];
+const BOARD_CATEGORIES = new Set(SPORT_CHIPS.map(c => c.id));
+
+// Exact category when the source uses board categories (trendy48 / streamed.pk), keyword match otherwise
+const matchesSport = (ev, sf) => {
+  const cat = (ev.t48Cat || ev.cat || '').toLowerCase();
+  if (BOARD_CATEGORIES.has(cat)) return cat === sf;
+  const name = (ev.eventInfo?.eventName || ev.title || '').toLowerCase();
+  if (sf === 'football') return cat.includes('football') || cat.includes('soccer') || cat.includes('ucl') || cat.includes('mls') || name.includes('fc') || name.includes('united') || name.includes('city') || name.includes('madrid') || name.includes('barcelona') || name.includes('arsenal');
+  if (sf === 'fight') return cat.includes('ufc') || cat.includes('wwe') || cat.includes('mma') || cat.includes('boxing') || cat.includes('fight') || name.includes('ufc') || name.includes('fight');
+  if (sf === 'basketball') return cat.includes('nba') || cat.includes('basketball') || name.includes('celtics') || name.includes('lakers') || name.includes('warriors');
+  if (sf === 'cricket') return cat.includes('cricket') || name.includes('cricket') || name.includes('willow') || name.includes('ipl');
+  if (sf === 'motor-sports') return cat.includes('f1') || cat.includes('motor') || cat.includes('nascar') || name.includes('grand prix');
+  if (sf === 'american-football') return cat.includes('nfl') || cat.includes('american') || name.includes('eagles') || name.includes('ravens');
+  if (sf === 'hockey') return cat.includes('nhl') || cat.includes('hockey');
+  if (sf === 'baseball') return cat.includes('mlb') || cat.includes('baseball');
+  return cat.includes(sf) || name.includes(sf);
+};
 
 const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   const navigate = useNavigate();
@@ -36,6 +71,24 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   // Carousel refs for smooth sliding
   const sportsCarouselRef = useRef(null);
   const categoriesCarouselRef = useRef(null);
+  const playerRef = useRef(null);
+
+  // Bring the player into view after the next paint (it may have just mounted, or the card clicked was far down),
+  // stopping just below the sticky site header so the player's top bar isn't hidden under it
+  const scrollToPlayer = () => {
+    requestAnimationFrame(() => {
+      if (!playerRef.current) return;
+      const header = document.querySelector('.app-header');
+      // CSS says sticky on every size, but on mobile a parent breaks it and the header scrolls away;
+      // count it only when it is actually pinned to the top of the viewport right now
+      const rect = header?.getBoundingClientRect();
+      const headerSticks = header && ['sticky', 'fixed'].includes(getComputedStyle(header).position) &&
+        (window.scrollY === 0 || (rect.top <= 1 && rect.bottom > 0));
+      const headerHeight = headerSticks ? header.offsetHeight : 0;
+      const top = playerRef.current.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  };
 
   // Data sets
   const [categories, setCategories] = useState(FALLBACK_CATEGORIES);
@@ -55,6 +108,8 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   // Search & Filter
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSportFilter, setSelectedSportFilter] = useState('all');
+  const [selectedDate, setSelectedDate] = useState(() => etDayKey());
+  const [matchFeedDown, setMatchFeedDown] = useState(false);
 
   const handleVoiceResult = (transcript) => {
     setSearchQuery(transcript);
@@ -271,6 +326,22 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
 
     if (match) {
       handlePlayItem(match, false);
+    } else if (path.startsWith('/sports/') || /^(trendy48|streamed)_/.test(normalizedTarget)) {
+      // Unlisted match id (old share, later fixture, or a streamed.pk id trendy48 drops from its list):
+      // look it up, and on a 404 still play trendy48's event page since it resolves those ids server-side
+      if (loading) return; // wait for the merged event list first
+      const rawId = normalizedTarget.replace(/^(trendy48|streamed)_/, '');
+      let cancelled = false;
+      fetchTrendy48Match(rawId).then(row => {
+        if (cancelled) return;
+        const item = row ? normalizeTrendy48Match(row) : {
+          title: rawId.replace(/[-_]+/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          cat: 'Live Sports',
+          decoded_channels: [{ title: 'Trendy48 HD', link: trendy48EventUrl(rawId), type: '0' }]
+        };
+        handlePlayItem({ ...item, id: targetSlug }, false);
+      });
+      return () => { cancelled = true; };
     } else if (FALLBACK_CHANNEL_STREAMS[cleanAlphaTarget] || FALLBACK_CHANNEL_STREAMS[normalizedTarget]) {
       const customItem = {
         id: cleanAlphaTarget || normalizedTarget,
@@ -296,14 +367,14 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
           },
           {
             title: `${readableTitle} (CDX Mirror)`,
-            link: `https://epiembeds.online/embed/${cleanAlphaTarget || normalizedTarget}`,
+            link: `https://trendy48.online/live-tv?ch=${cleanAlphaTarget || normalizedTarget}`,
             type: '0'
           }
         ]
       };
       handlePlayItem(customItem, false);
     }
-  }, [searchParams, location.pathname, liveEvents, sportsChannels, categoryItems]);
+  }, [searchParams, location.pathname, liveEvents, sportsChannels, categoryItems, loading]);
 
   // Handle browser back button (popstate)
   useEffect(() => {
@@ -349,7 +420,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
     if (item.decoded_channels && item.decoded_channels.length > 0) {
       setActiveStreams(item.decoded_channels);
       setLoadingStreams(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToPlayer();
       return;
     }
 
@@ -374,7 +445,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       setActiveStreams([]);
     } finally {
       setLoadingStreams(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToPlayer();
     }
   };
 
@@ -388,6 +459,12 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       setSearchParams({ tab: activeTab });
     }
   };
+
+  // Events on the chosen calendar day (sources without a kickoff date count as today)
+  const eventsOnSelectedDay = useMemo(() => {
+    const today = etDayKey();
+    return liveEvents.filter(ev => (ev.dayKey || today) === selectedDate);
+  }, [liveEvents, selectedDate]);
 
   // Filtered lists based on search query and sport filter
   const filteredEvents = useMemo(() => {
@@ -404,23 +481,37 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       });
     }
 
+    list = eventsOnSelectedDay;
     if (selectedSportFilter !== 'all') {
-      const sf = selectedSportFilter.toLowerCase();
-      list = list.filter(ev => {
-        const cat = (ev.cat || '').toLowerCase();
-        const name = (ev.eventInfo?.eventName || ev.title || '').toLowerCase();
-        if (sf === 'football') return cat.includes('football') || cat.includes('soccer') || cat.includes('ucl') || cat.includes('mls') || name.includes('fc') || name.includes('united') || name.includes('city') || name.includes('madrid') || name.includes('barcelona') || name.includes('arsenal');
-        if (sf === 'combat') return cat.includes('ufc') || cat.includes('wwe') || cat.includes('mma') || cat.includes('boxing') || cat.includes('fight') || name.includes('ufc') || name.includes('fight');
-        if (sf === 'basketball') return cat.includes('nba') || cat.includes('basketball') || name.includes('celtics') || name.includes('lakers') || name.includes('warriors');
-        if (sf === 'cricket') return cat.includes('cricket') || name.includes('cricket') || name.includes('willow') || name.includes('ipl');
-        if (sf === 'motorsport') return cat.includes('f1') || cat.includes('motor') || cat.includes('nascar') || name.includes('grand prix');
-        if (sf === 'american') return cat.includes('nfl') || cat.includes('mlb') || cat.includes('nhl') || cat.includes('baseball') || name.includes('eagles') || name.includes('ravens');
-        return cat.includes(sf) || name.includes(sf);
-      });
+      list = list.filter(ev => matchesSport(ev, selectedSportFilter));
     }
 
     return list;
-  }, [liveEvents, searchQuery, selectedSportFilter]);
+  }, [liveEvents, eventsOnSelectedDay, searchQuery, selectedSportFilter]);
+
+  // Sport chip counts for the chosen day
+  const sportCounts = useMemo(() => {
+    const counts = { all: eventsOnSelectedDay.length };
+    for (const chip of SPORT_CHIPS) {
+      if (chip.id !== 'all') counts[chip.id] = eventsOnSelectedDay.filter(ev => matchesSport(ev, chip.id)).length;
+    }
+    return counts;
+  }, [eventsOnSelectedDay]);
+
+  // Calendar bounds: yesterday .. last day the feeds have fixtures for
+  const dateBounds = useMemo(() => {
+    const days = liveEvents.map(ev => ev.dayKey).filter(Boolean);
+    const today = etDayKey();
+    return { min: etDayKey(Date.now() - 86400000), max: days.reduce((a, b) => (b > a ? b : a), today) };
+  }, [liveEvents]);
+
+  // Only ask the health endpoint when the chosen day comes back empty
+  useEffect(() => {
+    if (activeTab !== 'events' || filteredEvents.length > 0 || searchQuery.trim()) return;
+    let cancelled = false;
+    fetchTrendy48Healthy().then(ok => { if (!cancelled) setMatchFeedDown(!ok); });
+    return () => { cancelled = true; };
+  }, [activeTab, filteredEvents.length, searchQuery]);
 
   const filteredSports = useMemo(() => {
     let list = sportsChannels;
@@ -493,11 +584,10 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
             aria-label="Go Back"
           >
             <span className="tv-back-arrow">←</span>
-            <span className="tv-back-text">{activeItem ? "Close Player" : "Back to Home"}</span>
+            <span className="tv-back-text">{activeItem ? "Close Player" : ""}</span>
           </button>
 
           <div className="dudetv-brand">
-            <span className="dude-badge">TV & SPORTS HUB</span>
             <h1 className="dude-page-title">Live TV & Sports Arena</h1>
           </div>
         </div>
@@ -538,22 +628,17 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
           </div>
         </div>
 
-        {/* Sleek Minimalist Trending Quick Category Bar */}
+        {/* Quick Category Bar */}
         <div className="popular-searches-row tv-trending-row">
-          <span className="popular-searches-label">Trending:</span>
           {[
-            { label: 'All Channels', query: '' },
-            { label: 'ESPN', query: 'ESPN' },
-            { label: 'Fox Sports', query: 'Fox Sports' },
             { label: 'Cricket', query: 'Cricket' },
-            { label: 'Football / Soccer', query: 'Football' },
+            { label: 'Football', query: 'Football' },
+            { label: 'Tennis', query: 'Tennis' },
             { label: 'UFC & Combat', query: 'UFC' },
-            { label: 'NBA Basketball', query: 'NBA' },
-            { label: 'HBO Movies', query: 'HBO' },
-            { label: 'Sky Sports', query: 'Sky Sports' },
-            { label: 'DAZN', query: 'DAZN' },
-            { label: 'Kids & Cartoons', query: 'Kids' },
-            { label: 'News 24/7', query: 'News' }
+            { label: 'News', query: 'News' },
+            { label: 'Movies', query: 'Movies' },
+            { label: 'TV Shows', query: 'TV Shows' },
+            { label: 'Wildlife & Documentaries', query: 'Wildlife' }
           ].map(pill => (
             <button
               key={pill.label}
@@ -609,43 +694,63 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
           className={`dude-tab-btn ${activeTab === 'events' ? 'active' : ''}`}
           onClick={() => handleTabChange('events')}
         >
-          Live Matches ({filteredEvents.length})
+          🔴 Live Matches ({filteredEvents.length})
         </button>
         <button
           className={`dude-tab-btn ${activeTab === 'sports' ? 'active' : ''}`}
           onClick={() => handleTabChange('sports')}
         >
-          Sports TV ({filteredSports.length})
+          ⚽ Sports TV ({filteredSports.length})
         </button>
         <button
           className={`dude-tab-btn ${activeTab === 'tv' ? 'active' : ''}`}
           onClick={() => handleTabChange('tv')}
         >
-          Worldwide TV ({filteredCategories.length} Categories)
+          🌍 Worldwide TV ({filteredCategories.length} Categories)
         </button>
         <button
           className={`dude-tab-btn ${activeTab === 'highlights' ? 'active' : ''}`}
           onClick={() => handleTabChange('highlights')}
         >
-          Highlights ({filteredHighlights.length})
+          ⭐ Highlights ({filteredHighlights.length})
         </button>
       </div>
 
       {/* Embedded Player when an item is active */}
       {activeItem && (
-        <DudeTvPlayer
-          item={activeItem}
-          streams={activeStreams}
-          onClose={handleClosePlayer}
-          currentTheme={currentTheme}
-        />
+        <div ref={playerRef} className="dude-player-anchor">
+          <DudeTvPlayer
+            item={activeItem}
+            streams={activeStreams}
+            onClose={handleClosePlayer}
+            currentTheme={currentTheme}
+          />
+        </div>
       )}
 
       {/* Loading & Error States */}
       {loading && (
         <div className="dude-loading-container">
-          <div className="dude-spinner"></div>
-          <p>Connecting to Live Sports & TV Feeds...</p>
+          <div className="loading-spinner medium">
+            <div className="spinner-ring"></div>
+            <div className="spinner-ring"></div>
+            <div className="spinner-ring"></div>
+          </div>
+          <p className="dude-loading-text">Connecting to Live Sports & TV Feeds...</p>
+          <div className="events-grid dude-skeleton-grid" aria-hidden="true">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="event-card dude-skeleton-card">
+                <div className="sk sk-bar sk-short"></div>
+                <div className="sk-teams">
+                  <div className="sk sk-circle"></div>
+                  <div className="sk sk-bar sk-tiny"></div>
+                  <div className="sk sk-circle"></div>
+                </div>
+                <div className="sk sk-bar"></div>
+                <div className="sk sk-bar sk-half"></div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -659,40 +764,55 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       {/* Tab 1: Live Events & Matches */}
       {!loading && activeTab === 'events' && (
         <section className="dude-section">
-          {/* Sport Filter Chips */}
+          {/* Match day (calendar) + sport filter chips */}
           {!searchQuery.trim() && (
-            <div className="dude-categories-carousel sport-filter-carousel">
-              {[
-                { id: 'all', label: 'All Matches' },
-                { id: 'football', label: 'Football / Soccer' },
-                { id: 'combat', label: 'Combat / UFC' },
-                { id: 'basketball', label: 'Basketball / NBA' },
-                { id: 'cricket', label: 'Cricket' },
-                { id: 'motorsport', label: 'Motorsport' },
-                { id: 'american', label: 'NFL & American Sports' }
-              ].map(chip => (
-                <button
-                  key={chip.id}
-                  className={`cat-chip-btn ${selectedSportFilter === chip.id ? 'active' : ''}`}
-                  onClick={() => setSelectedSportFilter(chip.id)}
-                >
-                  {chip.label}
-                </button>
-              ))}
-            </div>
+            <>
+              <div className="match-date-row">
+                <label className="match-date-label" htmlFor="match-date">Match day</label>
+                <input
+                  id="match-date"
+                  type="date"
+                  className="match-date-input"
+                  value={selectedDate}
+                  min={dateBounds.min}
+                  max={dateBounds.max}
+                  onChange={(e) => setSelectedDate(e.target.value || etDayKey())}
+                />
+                {selectedDate !== etDayKey() && (
+                  <button type="button" className="cat-chip-btn" onClick={() => setSelectedDate(etDayKey())}>Today</button>
+                )}
+              </div>
+              <div className="dude-categories-carousel sport-filter-carousel">
+                {SPORT_CHIPS.filter(chip => chip.id === 'all' || sportCounts[chip.id] > 0).map(chip => (
+                  <button
+                    key={chip.id}
+                    className={`cat-chip-btn ${selectedSportFilter === chip.id ? 'active' : ''}`}
+                    onClick={() => setSelectedSportFilter(chip.id)}
+                  >
+                    {chip.label} ({sportCounts[chip.id] || 0})
+                  </button>
+                ))}
+              </div>
+            </>
           )}
 
           <div className="section-header-row">
             <h2 className="section-heading">
-              {searchQuery.trim() ? `Search Matches (${filteredEvents.length})` : 'Active Live Matches & Events'}
+              {searchQuery.trim() ? `Search Matches (${filteredEvents.length})` : (selectedDate === etDayKey() ? 'Today\x27s Live Matches & Events' : `Matches on ${new Date(selectedDate + 'T12:00:00').toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' })}`)}
             </h2>
             <span className="section-count">{filteredEvents.length} Fixtures</span>
           </div>
 
           {filteredEvents.length === 0 ? (
             <div className="no-search-results">
-              <p>No matches found matching "{searchQuery}".</p>
-              <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
+              {searchQuery.trim() ? (
+                <>
+                  <p>No matches found matching "{searchQuery}".</p>
+                  <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
+                </>
+              ) : (
+                <p>{matchFeedDown ? 'The match feed is temporarily unavailable. Try again in a minute.' : 'No matches scheduled for this day and sport.'}</p>
+              )}
             </div>
           ) : (
             <div className="events-grid">
@@ -708,7 +828,9 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
                       <span className="event-category-badge">{ev.cat || 'Sports'}</span>
                       {isLsp && <span className="lsp-pill">DIRECT FEED</span>}
                       {isHot && <span className="hot-pill">HOT</span>}
-                      <span className="live-status-pill">LIVE</span>
+                      {ev.kickoff > Date.now()
+                        ? <span className="live-status-pill upcoming">{new Date(ev.kickoff).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}</span>
+                        : <span className="live-status-pill">{ev.source === 'trendy48' && !ev.kickoff ? '24/7' : 'LIVE'}</span>}
                     </div>
 
                     <div className="event-teams-row">
@@ -897,19 +1019,15 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
             >
               {filteredCategories.map((cat) => {
                 const isActive = selectedCategoryLink === cat.catLink;
+                const firstLetter = cat.title.charAt(0).toUpperCase();
                 return (
                   <button
                     key={cat.id}
                     className={`cat-chip-btn ${isActive ? 'active' : ''}`}
                     onClick={() => setSelectedCategoryLink(cat.catLink)}
                   >
-                    <SafeImage
-                      src={cat.image}
-                      alt={cat.title}
-                      className="cat-chip-icon"
-                      type="chip"
-                    />
-                    <span>{cat.title}</span>
+                    <span className="cat-letter-icon">{firstLetter}</span>
+                    <span className="cat-title-text">{cat.title}</span>
                   </button>
                 );
               })}

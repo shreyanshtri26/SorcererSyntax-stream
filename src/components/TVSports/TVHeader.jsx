@@ -92,7 +92,7 @@ const TVHeader = ({
               className={`filter-pill lang-pill ${selectedLanguage === lang ? 'active' : ''}`}
               onClick={() => setSelectedLanguage(lang)}
             >
-              {lang === 'all' ? '🌐 All Languages' : lang.charAt(0).toUpperCase() + lang.slice(1)}
+              {lang === 'all' ? 'All Languages' : lang.charAt(0).toUpperCase() + lang.slice(1)}
             </button>
           ))}
         </div>

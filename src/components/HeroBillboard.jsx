@@ -164,7 +164,7 @@ const HeroBillboard = ({ items = [], onMediaClick, currentTheme = 'devil' }) => 
             <span className="billboard-pill quality-pill">4K ULTRA HD</span>
             <span className="billboard-pill atmos-pill">DOLBY ATMOS</span>
             {currentIndex === 0 && (
-              <span className="billboard-pill top-rank-pill">🔥 #1 TRENDING TODAY</span>
+              <span className="billboard-pill top-rank-pill">#1 TRENDING TODAY</span>
             )}
           </div>
 
@@ -197,7 +197,7 @@ const HeroBillboard = ({ items = [], onMediaClick, currentTheme = 'devil' }) => 
             </button>
 
             <button className="billboard-btn trailer-btn" onClick={handleTrailerClick}>
-              <span className="btn-icon">{showTrailerPreview ? '⏸' : '🎬'}</span>
+              <span className="btn-icon">{showTrailerPreview ? '⏸' : '▶'}</span>
               <span className="btn-text">{showTrailerPreview ? 'Close Preview' : 'Watch Trailer'}</span>
             </button>
 

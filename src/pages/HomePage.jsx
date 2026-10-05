@@ -83,7 +83,6 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                 <div id="user-watchlist-section" className="home-section-container">
                     <div className="section-header-row">
                         <h2 className="section-title">
-                            <span className="section-title-icon">⭐</span>
                             My Watchlist <span className="section-count-badge">({watchlist.length})</span>
                         </h2>
                     </div>
@@ -112,7 +111,6 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                     <div id="trending-movies" className="home-section-container">
                         <div className="section-header-row">
                             <h2 className="section-title">
-                                <span className="section-title-icon">🎬</span>
                                 {getSectionTitle("Trending Movies")}
                             </h2>
                         </div>
@@ -127,7 +125,6 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                     <div id="trending-tv" className="home-section-container">
                         <div className="section-header-row">
                             <h2 className="section-title">
-                                <span className="section-title-icon">📺</span>
                                 {getSectionTitle("Trending TV Shows")}
                             </h2>
                         </div>
@@ -142,7 +139,6 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                     <div id="top-movies" className="home-section-container">
                         <div className="section-header-row">
                             <h2 className="section-title">
-                                <span className="section-title-icon">🏆</span>
                                 {getSectionTitle("Top Rated Movies")}
                             </h2>
                         </div>
@@ -157,7 +153,6 @@ const HomePage = ({ onMediaClick, getSectionTitle, currentTheme = 'devil' }) => 
                     <div id="top-tv" className="home-section-container">
                         <div className="section-header-row">
                             <h2 className="section-title">
-                                <span className="section-title-icon">💎</span>
                                 {getSectionTitle("Top Rated TV Shows")}
                             </h2>
                         </div>

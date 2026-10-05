@@ -10,7 +10,7 @@ const CategoryFilterPills = ({ categories, selectedCategory, onSelectCategory })
           className={`filter-pill ${selectedCategory === cat ? 'active' : ''}`}
           onClick={() => onSelectCategory(cat)}
         >
-          {cat === 'all' ? '⭐ All' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+          {cat === 'all' ? 'All' : cat.charAt(0).toUpperCase() + cat.slice(1)}
         </button>
       ))}
     </div>

@@ -307,6 +307,63 @@
   overflow: hidden;
 }
 
+/* Our own fullscreen control (embed players' buttons can lose fullscreen permission) */
+.dudetv-fs-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.dudetv-fs-btn:hover,
+.dudetv-fs-btn:focus-visible {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dudetv-fs-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Separate rules: an unknown pseudo-class would void a combined selector list */
+.dudetv-screen-wrapper:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+}
+
+.dudetv-screen-wrapper:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+}
+
+/* CSS fallback where element fullscreen isn't available (iPhone Safari) */
+.dudetv-screen-wrapper.dudetv-pseudo-fs {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  width: 100vw;
+  height: 100dvh;
+  aspect-ratio: auto;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  box-sizing: border-box;
+}
+
 .dudetv-video,
 .dudetv-iframe {
   width: 100%;
