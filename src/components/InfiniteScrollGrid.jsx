@@ -16,6 +16,9 @@ const InfiniteScrollGrid = ({
   showLoadMoreButton = true,
   useInfiniteScroll = true
 }) => {
+  // Pages can overlap (same title on page N and N+1); keep the first so keys stay unique
+  items = items.filter((item, i, arr) => arr.findIndex(o => o.id === item.id) === i);
+
   const handleLoadMore = () => {
     if (currentPage < totalPages) {
       loadMore(currentPage + 1);

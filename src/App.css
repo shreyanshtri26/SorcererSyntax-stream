@@ -2112,9 +2112,12 @@ h2 {
   z-index: -1;
 }
 
-.sliding-tabs .tab-button:hover:before {
-  width: 120px;
-  height: 120px;
+/* Hover ripple only where hover is real; on touch it sticks after a tap and shows a ghost bubble */
+@media (hover: hover) {
+  .sliding-tabs .tab-button:hover:before {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .sliding-tabs .tab-button.active {
@@ -4679,4 +4682,22 @@ h2 {
   border-radius: 9999px;
   background: linear-gradient(135deg, #cfe8ff 0%, #8ec5fc 55%, #6fb6f2 100%);
   box-shadow: 0 4px 14px rgba(0, 119, 194, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* Angel mobile: light search capsule (mobile base rule paints it dark) */
+@media (max-width: 768px) {
+  .App.theme-angel .search-input-container,
+  .App.theme-angel .search-input-container.expanded {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 168, 225, 0.4);
+    box-shadow: 0 6px 18px rgba(0, 119, 194, 0.12);
+  }
+
+  .App.theme-angel #search-input {
+    color: #0a2540;
+  }
+
+  .App.theme-angel #search-input::placeholder {
+    color: rgba(10, 37, 64, 0.5);
+  }
 }

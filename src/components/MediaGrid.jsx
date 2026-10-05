@@ -38,12 +38,13 @@ const MediaGrid = ({ items = [], type, onMediaClick, currentTheme = 'devil', fil
         };
     }, [fillCompleteRows, columnCount, items.length]);
 
+    // APIs occasionally repeat a title within a page; drop repeats so keys stay unique
+    let displayItems = items.filter((item, i, arr) => arr.findIndex(o => o.id === item.id) === i);
     // When fillCompleteRows is true, slice items to a multiple of columns so all rows are completely filled
-    let displayItems = items;
-    if (fillCompleteRows && columnCount > 1 && items.length > columnCount) {
-        const fullRowsCount = Math.floor(items.length / columnCount) * columnCount;
+    if (fillCompleteRows && columnCount > 1 && displayItems.length > columnCount) {
+        const fullRowsCount = Math.floor(displayItems.length / columnCount) * columnCount;
         if (fullRowsCount >= columnCount) {
-            displayItems = items.slice(0, fullRowsCount);
+            displayItems = displayItems.slice(0, fullRowsCount);
         }
     }
 
