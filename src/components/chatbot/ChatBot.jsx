@@ -744,46 +744,16 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                             });
 
                             const compact = filtered.slice(0, 8).map(ev => {
-                                const titleText = [
-                                    ev.title, ev.cat,
-                                    ev.eventInfo?.eventName, ev.eventInfo?.teamA, ev.eventInfo?.teamB
-                                ].filter(Boolean).join(' ').toLowerCase();
-                                const fullHaystack = titleText;
-                                const isEvRealMadrid = fullHaystack.includes('real madrid') || fullHaystack.includes('madrid');
-                                const isEvIndiaSl = (fullHaystack.includes('india') && (fullHaystack.includes('sri lanka') || fullHaystack.includes('sl'))) || fullHaystack.includes('sri lanka');
-                                const isEvLaLiga = isEvRealMadrid || fullHaystack.includes('laliga') || fullHaystack.includes('la liga');
-                                const isEvFootball = isEvLaLiga || fullHaystack.includes('epl') || fullHaystack.includes('premier league') || fullHaystack.includes('bundesliga') || fullHaystack.includes('serie a') || fullHaystack.includes('ligue 1') || fullHaystack.includes('football') || fullHaystack.includes('soccer');
-                                const isEvCricket = isEvIndiaSl || fullHaystack.includes('cricket') || fullHaystack.includes('ipl') || fullHaystack.includes('t20') || fullHaystack.includes('willow') || fullHaystack.includes('star sports');
-                                const isEvWWE = fullHaystack.includes('wwe') || fullHaystack.includes('raw') || fullHaystack.includes('smackdown') || fullHaystack.includes('nxt');
-
-                                let defaultChannels = ['Sky Sports Main Event (BEST Ultra HD)', 'TNT Sports 1 HD', 'beIN Sports 1 HD'];
-                                if (isEvRealMadrid) {
-                                    defaultChannels = ['DAZN LaLiga (BEST Ultra HD)', 'Sky Sports Football (BEST Ultra HD)', 'Fox Soccer Plus (BEST Ultra HD)', 'beIN Sports (BEST Ultra HD)', 'CANAL+ Extra 1 (BEST Ultra HD)', 'SuperSport LaLiga', 'LaLiga TV'];
-                                } else if (isEvIndiaSl) {
-                                    defaultChannels = ['Willow Cricket (BEST Ultra HD)', 'Willow Cricket 2 (BEST Ultra HD)', 'Sky Sports Cricket (BEST Ultra HD)', 'Fox Sports 501 (Cricket) (BEST Ultra HD)', 'Star Sports 1 HD', 'Sports18 1 HD'];
-                                } else if (isEvLaLiga) {
-                                    defaultChannels = ['DAZN LaLiga (BEST Ultra HD)', 'Sky Sports Football (BEST Ultra HD)', 'SuperSport LaLiga', 'LaLiga TV'];
-                                } else if (isEvFootball) {
-                                    defaultChannels = ['Sky Sports Football (BEST Ultra HD)', 'Fox Soccer Plus (BEST Ultra HD)', 'DAZN LaLiga (BEST Ultra HD)', 'TNT Sports 1 HD', 'Sony Sports Ten 2 HD'];
-                                } else if (isEvCricket) {
-                                    defaultChannels = ['Willow Cricket (BEST Ultra HD)', 'Star Sports 1 HD', 'Sports18 1 HD', 'Sony Sports Ten 5 HD'];
-                                } else if (isEvWWE) {
-                                    defaultChannels = ['USA Network (BEST Ultra HD)', 'Sony Sports Ten 1 HD', 'TNT Sports 1 HD', 'Sony Sports Ten 3 HD (Hindi)'];
-                                }
-
-                                // Filter out internal/admin/test streams from raw API data
-                                const BLOCKED_CHANNEL_PATTERNS = /admin|embed\.st|test|debug|internal|\.m3u8|placeholder/i;
-                                const rawChannels = (ev.formats || ev.decoded_channels?.map(c => c.title) || [])
-                                    .filter(c => c && !BLOCKED_CHANNEL_PATTERNS.test(c));
-                                let channels = Array.from(new Set([...defaultChannels, ...rawChannels])).map(c => c.replace(/\bCDX\b/gi, 'BEST'));
-                                channels.sort((c1, c2) => {
-                                    const c1Best = c1.toUpperCase().includes('BEST');
-                                    const c2Best = c2.toUpperCase().includes('BEST');
-                                    if (c1Best && !c2Best) return -1;
-                                    if (!c1Best && c2Best) return 1;
-                                    return 0;
-                                });
-                                channels = channels.slice(0, 6);
+                                // Only the streams this match really has, Trendy48 first. Drop the repeated
+                                // event title so "Arsenal vs Chelsea (Trendy48 HD)" reads "Trendy48 HD".
+                                const BLOCKED_CHANNEL_PATTERNS = /admin|test|debug|internal|\.m3u8|placeholder/i;
+                                const evTitle = ev.eventInfo?.eventName || ev.title || '';
+                                const streamLabel = (t) => (evTitle && t.startsWith(evTitle) ? t.slice(evTitle.length).trim().replace(/^\((.*)\)$/, '$1') || t : t);
+                                const channels = Array.from(new Set((ev.decoded_channels?.map(c => c.title) || ev.formats || [])
+                                    .filter(c => c && !BLOCKED_CHANNEL_PATTERNS.test(c))
+                                    .map(streamLabel)))
+                                    .sort((a, b) => /trendy48/i.test(b) - /trendy48/i.test(a))
+                                    .slice(0, 6);
 
                                 // ── IST-based Live/Upcoming status ──────────────────
                                 const isLive = computeIsLive(ev);
@@ -806,97 +776,6 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                     channels,
                                     _kind: 'live_event'
                                 };
-                            });
-
-                            // ── Channel Name → CDX Slug Lookup ──────────────────────
-                            // Maps the channel name strings (used in text response) to
-                            // real CDX channel slugs so UI cards match the text exactly.
-                            const CHANNEL_NAME_TO_CDX_SLUG = {
-                                'dazn laliga':            { slug: 'dazn-laliga',               id: 'cdx_dazn_laliga',       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DAZN_la_liga_logo.png/320px-DAZN_la_liga_logo.png' },
-                                'sky sports football':    { slug: 'sky-sports-football',        id: 'cdx_sky_sports_football', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sky_Sports_Football_logo_2020.svg/320px-Sky_Sports_Football_logo_2020.svg.png' },
-                                'fox soccer plus':        { slug: 'fox-soccer-plus',            id: 'cdx_fox_soccer_plus',   image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Fox_Soccer_Plus.svg/320px-Fox_Soccer_Plus.svg.png' },
-                                'bein sports':            { slug: 'bein-sports',                id: 'cdx_bein_sports',       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/BeIN_Sports_1_logo.svg/320px-BeIN_Sports_1_logo.svg.png' },
-                                'canal+ extra 1':         { slug: 'canal-extra-1',              id: 'cdx_canal_extra_1',     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Canal%2B.svg/320px-Canal%2B.svg.png' },
-                                'canal+ extra 2':         { slug: 'canal-extra-2',              id: 'cdx_canal_extra_2',     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Canal%2B.svg/320px-Canal%2B.svg.png' },
-                                'sky sports cricket':     { slug: 'sky-sports-cricket',         id: 'cdx_sky_sports_cricket', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sky_Sports_Cricket_logo_2020.svg/320px-Sky_Sports_Cricket_logo_2020.svg.png' },
-                                'sky sports main event':  { slug: 'sky-sports-main-event',      id: 'cdx_sky_sports_main_event', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sky_Sports_Main_Event_logo_2020.svg/320px-Sky_Sports_Main_Event_logo_2020.svg.png' },
-                                'sky sports premier league': { slug: 'sky-sports-premier-league', id: 'cdx_sky_sports_pl', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sky_Sports_Main_Event_logo_2020.svg/320px-Sky_Sports_Main_Event_logo_2020.svg.png' },
-                                'willow cricket':         { slug: 'willow-cricket',             id: 'cdx_willow_cricket',    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Willow_Cricket_logo.svg/320px-Willow_Cricket_logo.svg.png' },
-                                'willow cricket 2':       { slug: 'willow-cricket-2',           id: 'cdx_willow_cricket_2',  image: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Willow_Cricket_logo.svg/320px-Willow_Cricket_logo.svg.png' },
-                                'usa network':            { slug: 'usa-network',                id: 'cdx_usa_network',       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/USA_Network_logo_%282016%29.svg/320px-USA_Network_logo_%282016%29.svg.png' },
-                                'dazn 1 usa':             { slug: 'dazn-1-usa',                 id: 'cdx_dazn_1_usa',        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DAZN_la_liga_logo.png/320px-DAZN_la_liga_logo.png' },
-                                'tnt sports':             { slug: 'tnt-sports',                 id: 'cdx_tnt_sports',        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/TNT_Sports_1_logo.svg/320px-TNT_Sports_1_logo.svg.png' },
-                                'supersport laliga':      { slug: 'supersport-laliga',          id: 'cdx_supersport_laliga', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sky_Sports_Main_Event_logo_2020.svg/320px-Sky_Sports_Main_Event_logo_2020.svg.png' },
-                            };
-
-                            // Normalize a channel name string for lookup
-                            const normalizeChName = (name) => name
-                                .replace(/\s*\(BEST Ultra HD\)/gi, '')
-                                .replace(/\s*\(BEST HD\)/gi, '')
-                                .replace(/\s*\(BEST\)/gi, '')
-                                .replace(/\bBEST\b/gi, '')
-                                .replace(/\bHD\b/gi, '')
-                                .trim().toLowerCase();
-
-                            // Build channel cards from the match's channels[] string array
-                            // by looking up real CDX objects — so cards match response text exactly
-                            const buildChannelCards = (channelNames) => {
-                                const cards = [];
-                                const seen = new Set();
-                                for (const name of channelNames) {
-                                    const key = normalizeChName(name);
-                                    if (seen.has(key)) continue;
-                                    seen.add(key);
-
-                                    // Try direct lookup
-                                    let cdxEntry = CHANNEL_NAME_TO_CDX_SLUG[key];
-
-                                    // Try partial match if no direct hit
-                                    if (!cdxEntry) {
-                                        for (const [mapKey, mapVal] of Object.entries(CHANNEL_NAME_TO_CDX_SLUG)) {
-                                            if (key.includes(mapKey) || mapKey.includes(key)) {
-                                                cdxEntry = mapVal;
-                                                break;
-                                            }
-                                        }
-                                    }
-
-                                    // Also try looking in CDX catalog by slug
-                                    if (!cdxEntry) {
-                                        const candidateSlug = key.replace(/\s+/g, '-');
-                                        const found = CDX_USA_WORLD_CHANNELS.find(c => c.slug === candidateSlug);
-                                        if (found) {
-                                            cdxEntry = { slug: found.slug, id: found.id, image: found.image };
-                                        }
-                                    }
-
-                                    // No catalog slug = nothing to play; keep the name in text only
-                                    if (!cdxEntry) continue;
-
-                                    // isBest = channel name explicitly says "(BEST Ultra HD)" or "(BEST)"
-                                    // CDX catalog lookup is ONLY for slug/image — it does NOT grant BEST status
-                                    const isBest = name.toUpperCase().includes('BEST');
-                                    const cleanName = name.replace(/\bCDX\b/gi, 'BEST');
-
-                                    cards.push({
-                                        id: cdxEntry?.id || `ch_${key.replace(/\s+/g, '_')}`,
-                                        slug: cdxEntry?.slug || null,
-                                        title: cleanName,
-                                        name: cleanName,
-                                        image: cdxEntry?.image || null,
-                                        category: 'Sports',
-                                        isCdx: isBest,   // Only CDX/BEST if name says BEST
-                                        isBest,           // Same rule
-                                        priority: isBest ? 'BEST Ultra HD (Primary)' : 'Alternative Broadcast',
-                                        _kind: 'live_channel'
-                                    });
-                                }
-                                return cards;
-                            };
-
-                            // Attach channelCards to each compact match
-                            compact.forEach(m => {
-                                m.channelCards = buildChannelCards(m.channels);
                             });
 
                             // Expose current IST time to AI in the tool result
@@ -1134,16 +1013,9 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                     try {
                         const parsed = JSON.parse(tr.content);
                         // get_live_sports_events returns { userCurrentTimeIST, matches: [...] }
-                        // Each match now also has channelCards: [...] for exact card/response sync
+                        // — each match card opens the match with all of its real streams
                         if (parsed && !Array.isArray(parsed) && Array.isArray(parsed.matches)) {
-                            for (const match of parsed.matches) {
-                                // Add the match event card itself
-                                if (match.title) mediaItems.push(match);
-                                // Add its channel cards (these match what's shown in text response)
-                                if (Array.isArray(match.channelCards)) {
-                                    mediaItems.push(...match.channelCards.filter(c => c.title));
-                                }
-                            }
+                            mediaItems.push(...parsed.matches.filter(m => m.title));
                         } else {
                             // All other tools (movies, TV, find_live_channel) return plain arrays
                             const items = Array.isArray(parsed) ? parsed : [];

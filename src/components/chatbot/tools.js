@@ -96,14 +96,13 @@ Use for queries like 'laliga match', 'Real Madrid match', 'India vs SL match', '
       - kickoffIST: exact kickoff time in IST (e.g. "9:00 PM IST"), prefixed with the date when not today (e.g. "Tue, 7 Oct, 12:30 AM IST")
       - isLive: boolean — TRUE if match is currently playing RIGHT NOW
       - status: "🔴 LIVE NOW (Playing since X IST — Y min elapsed)" OR "📅 UPCOMING at X IST"
-      - channels: ARRAY of channel names, BEST Ultra HD channels FIRST (e.g. "DAZN LaLiga (BEST Ultra HD)", "Sky Sports Football (BEST Ultra HD)")
+      - channels: ARRAY of the streams this match really has, Trendy48 first (e.g. "Trendy48 HD", "Trendy48 ALPHA"); may be empty
       - cat: sport/league category
 
 ⚡ CRITICAL READING INSTRUCTION:
   - ALWAYS read result.matches (the array inside the object) to get the match list.
-  - For EACH match, READ result.matches[i].channels and LIST ALL of them in your response with BEST channels in bold first.
-  - ALWAYS show the exact kickoffIST time and status (LIVE NOW or UPCOMING) in your text response.
-  - NEVER ignore the channels array — it contains DAZN LaLiga, Sky Sports Football, Willow Cricket etc.`,
+  - For EACH match, list result.matches[i].channels exactly as given — NEVER add channel names that aren't in it.
+  - ALWAYS show the exact kickoffIST time and status (LIVE NOW or UPCOMING) in your text response.`,
             parameters: {
                 type: "object",
                 properties: {
