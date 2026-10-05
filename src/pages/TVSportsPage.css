@@ -2033,20 +2033,20 @@
    ANGEL (light theme)
    ========================================================================== */
 .dudetv-page.theme-angel {
-  color: #0a2540;
+  color: #e6f4ff;
 }
 
 .dudetv-page.theme-angel .dude-page-title {
   font-family: 'Rubik', sans-serif;
   font-weight: 800;
-  color: #0a2540;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  color: #e6f4ff;
+  text-shadow: 0 0 12px rgba(0, 168, 225, 0.6), 0 0 24px rgba(142, 197, 252, 0.35);
 }
 
 .dudetv-page.theme-angel .section-heading {
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
-  color: #0a2540;
+  color: #e6f4ff;
   border-bottom: 1px solid rgba(0, 168, 225, 0.35);
   text-shadow: none;
 }
@@ -2057,22 +2057,18 @@
   font-weight: 700;
 }
 
-.dudetv-page.theme-angel .popular-searches-label,
-.dudetv-page.theme-angel .search-summary-label {
-  color: #102a45;
-  font-weight: 800;
-}
-
-.dudetv-page.theme-angel .match-date-label {
+.dudetv-page.theme-angel .search-summary-label,
+.dudetv-page.theme-angel .no-search-results p {
   color: #0a2540;
-  font-weight: 800;
+  font-weight: 700;
 }
 
-.dudetv-page.theme-angel .no-search-results p,
+.dudetv-page.theme-angel .popular-searches-label,
+.dudetv-page.theme-angel .match-date-label,
 .dudetv-page.theme-angel .dude-loading-container,
 .dudetv-page.theme-angel .dude-error-container {
-  color: #0a2540;
-  font-weight: 600;
+  color: #e6f4ff;
+  font-weight: 700;
 }
 
 /* Search */
@@ -2685,7 +2681,7 @@
 }
 
 .dudetv-page.theme-angel .dude-loading-text {
-  color: #2c78c3;
+  color: #8ec5fc;
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
 }

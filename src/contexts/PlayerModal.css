@@ -3685,3 +3685,68 @@
     padding-top: 15px;
   }
 }
+/* ===== Modal header: centered title + trailer button, close button pinned top-right ===== */
+.modal-overlay .modal-content > .close-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  left: auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 26px;
+  z-index: 20;
+}
+
+.modal-overlay .modal-content > .modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 56px 0;
+  margin-bottom: 20px;
+}
+
+.modal-overlay .modal-header > .modal-title {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.modal-overlay .modal-header > .trailer-modal-btn {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .modal-overlay .modal-content > .close-button {
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+  }
+
+  .modal-overlay .modal-content > .modal-header {
+    padding: 2px 42px 0;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .modal-overlay .modal-header > .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-overlay .modal-header > .trailer-modal-btn {
+    width: auto;
+    max-width: 100%;
+    padding: 8px 22px;
+    font-size: 0.85rem;
+  }
+}

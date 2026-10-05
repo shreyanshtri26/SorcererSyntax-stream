@@ -120,6 +120,7 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   // Category Item selection for Worldwide TV - Defaults to USA Specific HD (CDX)
   const [selectedCategoryLink, setSelectedCategoryLink] = useState('all');
   const [categoryItems, setCategoryItems] = useState([]);
+  const [loadingCategoryItems, setLoadingCategoryItems] = useState(false);
   const [allCategoryData, setAllCategoryData] = useState({});
   const [loadingAllCategories, setLoadingAllCategories] = useState(false);
   const [collapsedCategories, setCollapsedCategories] = useState(new Set());
@@ -289,14 +290,18 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
   // Category Items Loader - Runs when selected category changes
   useEffect(() => {
     let isMounted = true;
-    if (!selectedCategoryLink) return;
+    if (!selectedCategoryLink || selectedCategoryLink === 'all') return;
 
     const loadCatItems = async () => {
+      setCategoryItems([]);
+      setLoadingCategoryItems(true);
       try {
         const items = await fetchDudeCategoryItems(selectedCategoryLink);
-        if (isMounted) setCategoryItems(items);
+        if (isMounted) setCategoryItems(items || []);
       } catch (err) {
         console.error('Error fetching category items:', err);
+      } finally {
+        if (isMounted) setLoadingCategoryItems(false);
       }
     };
 
@@ -1269,10 +1274,20 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
                 <span className="section-count">{filteredCategoryItems.length} Channels</span>
               </div>
 
-              {filteredCategoryItems.length === 0 ? (
+              {loadingCategoryItems ? (
+                <div className="dude-loading-container">
+                  <p className="dude-loading-text">Loading channels...</p>
+                </div>
+              ) : filteredCategoryItems.length === 0 ? (
                 <div className="no-search-results">
-                  <p>No channels found matching "{searchQuery}" in this category.</p>
-                  <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
+                  {searchQuery.trim() ? (
+                    <>
+                      <p>No channels found matching "{searchQuery}" in this category.</p>
+                      <button className="clear-search-cta" onClick={() => setSearchQuery('')}>Clear Search</button>
+                    </>
+                  ) : (
+                    <p>No channels available in this category right now. Try another category.</p>
+                  )}
                 </div>
               ) : (
                 <div className="modern-channels-grid">

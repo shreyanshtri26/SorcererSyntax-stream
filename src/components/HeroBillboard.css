@@ -365,6 +365,17 @@
   transform: translateY(-2px);
 }
 
+.theme-angel .billboard-btn.trailer-btn {
+  background: rgba(10, 37, 64, 0.65);
+  color: #e6f4ff;
+  border-color: rgba(135, 206, 250, 0.6);
+}
+
+.theme-angel .billboard-btn.trailer-btn:hover {
+  background: rgba(0, 119, 194, 0.75);
+  color: #ffffff;
+}
+
 /* Watchlist Button */
 .billboard-btn.watchlist-btn {
   background: rgba(30, 30, 35, 0.6);

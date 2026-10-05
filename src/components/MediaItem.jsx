@@ -126,11 +126,6 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
         );
     }
 
-    // Theme Brand Ribbon Badges removed as per design requirement
-    const renderBrandBadge = () => {
-        return null;
-    };
-
     // Enhanced Luxury Media Card (Netflix, Prime & Hulu Signature Detail)
     return (
         <div
@@ -143,9 +138,6 @@ const MediaItem = ({ item, type, onClick, currentTheme = 'devil' }) => {
             <div className="media-item-ambilight"></div>
 
             <div className="poster-container">
-                {/* Brand Ribbon Badge (TOP 10 / Prime / Hulu) */}
-                {renderBrandBadge()}
-
                 {/* Quality & Rating Corner Badges */}
                 <div className="card-top-badges">
                     <span className="badge-4k">4K</span>

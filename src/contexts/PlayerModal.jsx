@@ -1141,9 +1141,16 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
         {/* 3D particle border backdrop */}
         <ModalBackdrop theme={currentTheme} />
 
-        <button className="close-button" onClick={onClose}>&times;</button>
+        <button className="close-button" onClick={onClose} aria-label="Close">&times;</button>
 
-        <h2 className="modal-title">{type === 'movie' ? media.title : media.name}</h2>
+        <div className="modal-header">
+          <h2 className="modal-title">{type === 'movie' ? media.title : media.name}</h2>
+          {trailerKey && (
+            <button className={`trailer-modal-btn theme-${currentTheme}-btn`} onClick={toggleTrailer}>
+              {isPlayingTrailer ? "Back to Content" : "Watch Trailer"}
+            </button>
+          )}
+        </div>
 
         {/* TV Show Season/Episode Selection (if applicable) */}
         {type === 'tv' && !isPlayingTrailer && (
@@ -1178,13 +1185,6 @@ const PlayerModal = ({ media, type, onClose, defaultSubtitleLanguage = '', showT
               <p className="info-text">No season data available for this show.</p>
             )}
           </div>
-        )}
-
-        {/* Trailer Toggle Button */}
-        {trailerKey && (
-          <button className={`trailer-modal-btn theme-${currentTheme}-btn`} onClick={toggleTrailer}>
-            {isPlayingTrailer ? "Back to Content" : "Watch Trailer"}
-          </button>
         )}
 
         {/* Main Content Area: Player or Sources */}

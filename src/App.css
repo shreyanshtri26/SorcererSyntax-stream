@@ -4618,3 +4618,26 @@ h2 {
   }
 }
 
+
+/* Angel: page sits on the dark starfield, so text outside white surfaces must be light */
+.App.theme-angel .section-title {
+  color: #e6f4ff;
+  text-shadow: 0 0 12px rgba(0, 168, 225, 0.55);
+}
+
+.App.theme-angel .popular-searches-label {
+  color: #bfe3ff;
+}
+
+.App.theme-angel .popular-search-pill {
+  background: rgba(142, 197, 252, 0.14);
+  border-color: rgba(135, 206, 250, 0.55);
+  color: #e6f4ff;
+}
+
+.App.theme-angel .popular-search-pill:hover,
+.App.theme-angel .popular-search-pill.active {
+  background: var(--angel-pill-gradient);
+  border-color: #87CEEB;
+  color: #0a2540;
+}
