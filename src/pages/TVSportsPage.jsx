@@ -583,8 +583,21 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
             title={activeItem ? "Close Player (Esc)" : "Return to Previous Page"}
             aria-label="Go Back"
           >
-            <span className="tv-back-arrow">←</span>
-            <span className="tv-back-text">{activeItem ? "Close Player" : ""}</span>
+            <svg
+              className="tv-back-arrow"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span className="tv-back-text">{activeItem ? "Close Player" : "Back"}</span>
           </button>
 
           <div className="dudetv-brand">
@@ -631,14 +644,14 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
         {/* Quick Category Bar */}
         <div className="popular-searches-row tv-trending-row">
           {[
-            { label: 'Cricket', query: 'Cricket' },
-            { label: 'Football', query: 'Football' },
-            { label: 'Tennis', query: 'Tennis' },
-            { label: 'UFC & Combat', query: 'UFC' },
-            { label: 'News', query: 'News' },
-            { label: 'Movies', query: 'Movies' },
-            { label: 'TV Shows', query: 'TV Shows' },
-            { label: 'Wildlife & Documentaries', query: 'Wildlife' }
+            { label: '🏏 Cricket', query: 'Cricket' },
+            { label: '⚽ Football', query: 'Football' },
+            { label: '🎾 Tennis', query: 'Tennis' },
+            { label: '🥊 UFC & Combat', query: 'UFC' },
+            { label: '📰 News', query: 'News' },
+            { label: '🎬 Movies', query: 'Movies' },
+            { label: '📺 TV Shows', query: 'TV Shows' },
+            { label: '🦁 Wildlife & Documentaries', query: 'Wildlife' }
           ].map(pill => (
             <button
               key={pill.label}
@@ -689,31 +702,41 @@ const TVSportsPage = ({ currentTheme: propTheme = 'devil' }) => {
       )}
 
       {/* Main Tab Switcher */}
-      <div className="dude-tab-bar">
-        <button
-          className={`dude-tab-btn ${activeTab === 'events' ? 'active' : ''}`}
-          onClick={() => handleTabChange('events')}
-        >
-          🔴 Live Matches ({filteredEvents.length})
-        </button>
-        <button
-          className={`dude-tab-btn ${activeTab === 'sports' ? 'active' : ''}`}
-          onClick={() => handleTabChange('sports')}
-        >
-          ⚽ Sports TV ({filteredSports.length})
-        </button>
-        <button
-          className={`dude-tab-btn ${activeTab === 'tv' ? 'active' : ''}`}
-          onClick={() => handleTabChange('tv')}
-        >
-          🌍 Worldwide TV ({filteredCategories.length} Categories)
-        </button>
-        <button
-          className={`dude-tab-btn ${activeTab === 'highlights' ? 'active' : ''}`}
-          onClick={() => handleTabChange('highlights')}
-        >
-          ⭐ Highlights ({filteredHighlights.length})
-        </button>
+      <div className="dude-tab-bar-container">
+        <div className="dude-tab-bar" role="tablist">
+          <button
+            className={`dude-tab-btn ${activeTab === 'events' ? 'active' : ''}`}
+            onClick={() => handleTabChange('events')}
+            role="tab"
+            aria-selected={activeTab === 'events'}
+          >
+            🔴 Live Matches ({filteredEvents.length})
+          </button>
+          <button
+            className={`dude-tab-btn ${activeTab === 'sports' ? 'active' : ''}`}
+            onClick={() => handleTabChange('sports')}
+            role="tab"
+            aria-selected={activeTab === 'sports'}
+          >
+            ⚽ Sports TV ({filteredSports.length})
+          </button>
+          <button
+            className={`dude-tab-btn ${activeTab === 'tv' ? 'active' : ''}`}
+            onClick={() => handleTabChange('tv')}
+            role="tab"
+            aria-selected={activeTab === 'tv'}
+          >
+            🌍 Worldwide TV ({filteredCategories.length} Categories)
+          </button>
+          <button
+            className={`dude-tab-btn ${activeTab === 'highlights' ? 'active' : ''}`}
+            onClick={() => handleTabChange('highlights')}
+            role="tab"
+            aria-selected={activeTab === 'highlights'}
+          >
+            ⭐ Highlights ({filteredHighlights.length})
+          </button>
+        </div>
       </div>
 
       {/* Embedded Player when an item is active */}
