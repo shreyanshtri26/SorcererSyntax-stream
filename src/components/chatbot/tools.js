@@ -93,7 +93,7 @@ Use for queries like 'laliga match', 'Real Madrid match', 'India vs SL match', '
   - matches: ARRAY of match objects, each with:
       - title: match name
       - teamA, teamB: team names
-      - kickoffIST: exact kickoff time in IST (e.g. "9:00 PM IST", "12:30 AM IST")
+      - kickoffIST: exact kickoff time in IST (e.g. "9:00 PM IST"), prefixed with the date when not today (e.g. "Tue, 7 Oct, 12:30 AM IST")
       - isLive: boolean — TRUE if match is currently playing RIGHT NOW
       - status: "🔴 LIVE NOW (Playing since X IST — Y min elapsed)" OR "📅 UPCOMING at X IST"
       - channels: ARRAY of channel names, BEST Ultra HD channels FIRST (e.g. "DAZN LaLiga (BEST Ultra HD)", "Sky Sports Football (BEST Ultra HD)")

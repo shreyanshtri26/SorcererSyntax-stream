@@ -587,41 +587,58 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 return h * 60 + min;
                             };
 
-                            // Determine if a match is currently LIVE based on IST time
-                            // Match is LIVE if: kickoffMins <= currentISTMins <= kickoffMins + 115 (football 90+25)
-                            // Cricket is longer (~210 min), WWE ~180 min — use 210 as generous window
+                            // Trendy48 / Streamed.pk rows carry a real epoch `kickoff` — prefer it over clock-only
+                            // strings, which can't tell today's 9 PM from tomorrow's.
+                            const nowMs = Date.now();
+                            const istClockFmt = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', hour: 'numeric', minute: '2-digit', hour12: true });
+                            const istDateFmt = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: 'numeric', month: 'short' });
+                            const istDayKeyFmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' });
+                            const kickoffLabel = (ms) => {
+                                const clock = `${istClockFmt.format(ms).toUpperCase()} IST`;
+                                return istDayKeyFmt.format(ms) === istDayKeyFmt.format(nowMs) ? clock : `${istDateFmt.format(ms)}, ${clock}`;
+                            };
+
+                            // Match length: football 90+25, cricket ~210, WWE ~180, basketball ~150
+                            const durationMins = (ev) => {
+                                const evText = (ev.title + ' ' + (ev.cat || '') + ' ' + (ev.eventInfo?.eventName || '')).toLowerCase();
+                                if (evText.includes('cricket') || evText.includes('t20') || evText.includes('ipl') || evText.includes('odi')) return 210;
+                                if (evText.includes('wwe') || evText.includes('wrestling') || evText.includes('raw') || evText.includes('smackdown')) return 180;
+                                if (evText.includes('basketball') || evText.includes('nba')) return 150;
+                                return 115;
+                            };
+
+                            // Determine if a match is currently LIVE: kickoff <= now <= kickoff + duration
                             const computeIsLive = (ev) => {
-                                // If API explicitly says LIVE NOW, trust it
+                                if (ev.kickoff > 0) return nowMs >= ev.kickoff && nowMs <= ev.kickoff + durationMins(ev) * 60000;
+                                // If API explicitly says LIVE NOW (e.g. "LIVE 24/7"), trust it
                                 const startTimeStr = (ev.eventInfo?.startTime || '').toUpperCase();
                                 if (startTimeStr.includes('LIVE') && !startTimeStr.includes('IST') && !startTimeStr.includes('PM') && !startTimeStr.includes('AM')) {
                                     return true;
                                 }
                                 const kickoffMins = parseKickoffMins(ev);
                                 if (kickoffMins === null) return ev.eventInfo?.isHot === '1';
-                                // Detect sport type to choose match duration
-                                const evText = (ev.title + ' ' + (ev.cat || '') + ' ' + (ev.eventInfo?.eventName || '')).toLowerCase();
-                                let durationMins = 115; // football default
-                                if (evText.includes('cricket') || evText.includes('t20') || evText.includes('ipl') || evText.includes('odi')) durationMins = 210;
-                                else if (evText.includes('wwe') || evText.includes('wrestling') || evText.includes('raw') || evText.includes('smackdown')) durationMins = 180;
-                                else if (evText.includes('basketball') || evText.includes('nba')) durationMins = 150;
                                 // Handle midnight wrap-around (e.g. kickoff 23:00, now 00:30 → still LIVE)
                                 const elapsed = (currentISTMins - kickoffMins + 1440) % 1440;
-                                return elapsed >= 0 && elapsed <= durationMins;
+                                return elapsed >= 0 && elapsed <= durationMins(ev);
                             };
+
+                            const kickoffText = (ev, fallback) => (ev.kickoff > 0 ? kickoffLabel(ev.kickoff) : ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || fallback);
 
                             // Build a readable status string
                             const computeStatus = (ev, isLive) => {
                                 if (isLive) {
+                                    const kickoffStr = kickoffText(ev, 'Kickoff');
+                                    if (ev.kickoff > 0) {
+                                        return `🔴 LIVE NOW (Playing since ${kickoffStr} — ${Math.round((nowMs - ev.kickoff) / 60000)} min elapsed)`;
+                                    }
                                     const kickoffMins = parseKickoffMins(ev);
-                                    const kickoffStr = ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || 'Kickoff';
                                     if (kickoffMins !== null) {
                                         const elapsed = (currentISTMins - kickoffMins + 1440) % 1440;
                                         return `🔴 LIVE NOW (Playing since ${kickoffStr} — ${elapsed} min elapsed)`;
                                     }
                                     return '🔴 LIVE NOW';
                                 }
-                                const kickoffStr = ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || 'Soon';
-                                return `📅 UPCOMING at ${kickoffStr}`;
+                                return `📅 UPCOMING at ${kickoffText(ev, 'Soon')}`;
                             };
 
                             // ─── Query Filters ─────────────────────────────────────
@@ -709,16 +726,21 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 return fullHaystack.includes(rawQuery);
                             });
 
+                            // The feed keeps yesterday's rows — drop matches that have already finished
+                            filtered = filtered.filter(ev => !(ev.kickoff > 0 && nowMs > ev.kickoff + durationMins(ev) * 60000));
+
                             // Sort: LIVE NOW first, then upcoming in ascending kickoff order
+                            const sortKey = (ev) => {
+                                if (ev.kickoff > 0) return ev.kickoff;
+                                const k = parseKickoffMins(ev);
+                                return k === null ? Infinity : nowMs + ((k - currentISTMins + 1440) % 1440) * 60000;
+                            };
                             filtered.sort((a, b) => {
                                 const aLive = computeIsLive(a);
                                 const bLive = computeIsLive(b);
                                 if (aLive && !bLive) return -1;
                                 if (!aLive && bLive) return 1;
-                                // Both upcoming → sort by kickoff time ascending
-                                const aK = parseKickoffMins(a) ?? 9999;
-                                const bK = parseKickoffMins(b) ?? 9999;
-                                return aK - bK;
+                                return sortKey(a) - sortKey(b);
                             });
 
                             const compact = filtered.slice(0, 8).map(ev => {
@@ -766,7 +788,7 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                 // ── IST-based Live/Upcoming status ──────────────────
                                 const isLive = computeIsLive(ev);
                                 const status = computeStatus(ev, isLive);
-                                const kickoffIST = ev.eventInfo?.kickoffIST || ev.eventInfo?.startTime || (isLive ? 'LIVE NOW' : 'Check schedule');
+                                const kickoffIST = kickoffText(ev, isLive ? 'LIVE NOW' : 'Check schedule');
 
                                 return {
                                     id: ev.id,
@@ -847,6 +869,9 @@ const ChatBot = ({ currentTheme, onMediaClick, onLiveClick }) => {
                                             cdxEntry = { slug: found.slug, id: found.id, image: found.image };
                                         }
                                     }
+
+                                    // No catalog slug = nothing to play; keep the name in text only
+                                    if (!cdxEntry) continue;
 
                                     // isBest = channel name explicitly says "(BEST Ultra HD)" or "(BEST)"
                                     // CDX catalog lookup is ONLY for slug/image — it does NOT grant BEST status

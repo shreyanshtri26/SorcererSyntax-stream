@@ -100,7 +100,7 @@ The tool returns a JSON **object** (NOT an array). You MUST read the "matches" k
   result.matches → ARRAY of match objects, each having:
     - title       → match name
     - teamA/teamB → team names
-    - kickoffIST  → exact kickoff time in IST ("9:00 PM IST", "12:30 AM IST")
+    - kickoffIST  → exact kickoff time in IST ("9:00 PM IST"); prefixed with the date when not today ("Tue, 7 Oct, 12:30 AM IST") — always repeat that date
     - isLive      → boolean: true = currently playing, false = upcoming
     - status      → "🔴 LIVE NOW (Playing since X IST — Y min elapsed)" or "📅 UPCOMING at X IST"
     - channels    → ARRAY of channel names, BEST Ultra HD channels appear FIRST
